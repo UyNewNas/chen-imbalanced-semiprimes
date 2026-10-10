@@ -1,0 +1,24 @@
+% Author implementation equivalence, not a second independent verification.
+\paragraph{Shared denominators in the full mixed-moment run.}
+The full runner implements the preceding mixed-moment identity without
+constructing seventy large intermediate rational numbers per simplex.
+Let $L$ be a common denominator for all normalized factor and average
+vertex values, and let $V_j=v_j/L$, $b_j(v_i)=b_{ji}/L$.
+If $d_y$ is a common denominator for $Y(v_i)$ and $N_{jk}$ is the
+integer coefficient in twice the weighted generating function, then
+\[
+ E_\nu[Y^k b_j^2]=\frac{k!N_{jk}}{Gd_y^kL^2(10)_{k+2}}.
+\]
+Using
+$\binom{9+k}{k}k!/(10)_{k+2}=1/((k+10)(k+11))$ gives the $k$th
+contribution to the correction directly as
+\[
+ Q^{(k)}=\frac{U^{-10}}{2Gd_y^k(k+10)(k+11)}
+                       \sum_j\frac{N_{jk}}{v_j^2}.
+\]
+A least common multiple of the $v_j^2$ evaluates the inner sum with
+integers. Each individual mixed-moment floor is nevertheless retained
+in the witness by direct integer division, including every factor and
+degree. This is algebraically the same author computation as the frozen
+pilot; every one of the128 pilot rows is compared during the full run.
+The optimized runner is not called independent verification.

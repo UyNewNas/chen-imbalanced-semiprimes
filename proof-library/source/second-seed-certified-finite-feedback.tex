@@ -1,0 +1,161 @@
+% Integration fragment: finite feedback, not Lean formalization.
+\subsection{Four certified finite feedback steps}
+\label{sec:second-seed-certified-finite-feedback}
+
+The positive operator of Section~\ref{sec:second-seed-finite-feedback}
+can be used a fixed number of times with an exactly certified input.
+The construction below uses the original coefficient $K=681/100$
+throughout. It does not depend on a numerical infinite iteration or
+on the applicability of the newer modulus weights at a smaller cutoff.
+
+Write $S=11/5$, $s_0=227/50$, and
+$(\phi_1,\phi_2,\phi_3)=(353/100,29/10,61/25)$.
+The family consists of the typed stable-prefix and classical states
+of Section~\ref{sec:new-finite-double-sieve-recursion}; in particular
+the seed comparison cutoff must satisfy $L/S<\chi$ on enhanced
+states. Every descendant retains the full and selected square tests,
+the actual residual level, its stable ceiling, and $\alpha\ge2$.
+No assertion below discards this comparison-cutoff condition.
+
+\begin{proposition}[A larger seed after four finite rounds]
+\label{prop:second-seed-certified-finite-feedback}
+Under the analytic inputs of
+Proposition~\ref{prop:second-seed-stable-prefix}, on the admitted
+states just specified, one has
+\[
+ \Phi_{11/5}\le
+ \left(1-\frac{2327}{100000}+o(1)\right)\Theta_Q.
+\]
+The estimate is uniform in the admitted $\alpha\ge2$ and uses only
+four finite feedback rounds starting from the seed $1/50$.
+\end{proposition}
+
+\begin{proof}
+For a previously proved positive constant $J$, choose only the
+following upper defect and its one-step Buchstab lower consequence:
+\[
+ H_J(w)=J\mathbf1_{[1,S]}(w),\qquad
+ h_J(w)=J\log\frac{S}{w-1}\,\mathbf1_{[2,1+S]}(w).
+\]
+The upper option on $w<S$ follows by comparing positive counts
+with the admitted smaller cutoff at $S$; the ordinary normalized
+upper multiplier is one on this range. The lower option is
+$\int_{w-1}^S J\,dt/t$, including the already justified upper
+children with $1\le t<2$. It is used only on states satisfying
+their inherited comparison and square conditions.
+
+Here $h_J(w)$ needs admission of its own physical cutoff, not a
+new assumption that this lower parent itself admits argument $S$.
+Indeed, for a Buchstab child with argument $v\in[w-1,S]$, its new
+prime has exponent $L/(v+1)$ and its residual exponent is
+$Lv/(v+1)$. Its seed comparison exponent satisfies
+\[
+ \frac{Lv}{S(v+1)}\le\frac{L}{v+1},
+\]
+so the compared cutoff is at most that new prime, and remains
+below the old stable ceiling. Since $v\ge1$, its new square test
+also holds. This distinction is needed for the single-prime lower
+children of the weighted inequality: they need not themselves
+admit the larger cutoff associated with argument $S$.
+
+Insert these previously proved options in
+\eqref{eq:second-seed-feedback-operator}. The $\Gamma_1$ feedback
+vanishes, since $s_0,\phi_1>S$. The remaining feedback is a positive
+linear function of $J$; write it as $\lambda J$.
+The three single-prime integrals use
+$\rho=s_0(1-u)$ and hence start at
+\[
+ u_* = 1-\frac{1+S}{s_0}=\frac{67}{227}.
+\]
+Their upper endpoints are $1/S,1/\phi_2,1/\phi_3$ respectively.
+All their actual arguments exceed two, so no lower defect below
+two is used.
+
+For the four pair terms, set $a_i=1/\phi_i$ and $a_0=1/s_0$.
+The exact support restrictions for the constant upper defect are
+\[
+ u+v\ge\frac{117}{227}\quad(i=5,6),\qquad
+ v\ge1-\frac{16}{5}u\quad(i=7,8).
+\]
+They are intersected with the original $D_5^+,D_6,D_7,D_8$;
+there is no feedback on the bad part $D_5^-$.
+For fixed $u$, if the resulting lower and upper endpoints are
+$l(u),r(u)$, the exact pair contribution is
+\[
+ J\int \frac{1}{u(1-u)}
+ \log\frac{r(u)(1-u-l(u))}{l(u)(1-u-r(u))}\,du.
+\]
+All endpoints are affine with rational coefficients. For $D_5^+$
+the three $u$ intervals end at $117/454,19/58,1/3$, with initial
+endpoint $50/227$. The rectangle $D_6$ needs no support truncation.
+For $D_7$ the nonempty support starts at $1265/5648$ and its lower
+boundary changes at $5/21$. For $D_8$ the lower boundary changes
+at $1265/5648$. These cuts also follow directly by intersecting
+the displayed lines; no floating boundary decision is required.
+
+The certificate \texttt{certify\_second\_seed\_first\_feedback.py}
+uses 4096 rational Darboux intervals on each resulting piece and
+the previously audited 80-bit outward logarithm arithmetic. At
+$J=1/50$, after division by five, it gives
+\[
+ \lambda\frac1{50}\ge
+ \frac{3152244426576931077198}{1208925819614629174706176}
+ >\frac{13}{5000},
+ \qquad\text{hence}\qquad \lambda>\frac{13}{100}.
+\]
+Separately, the ordinary seed certificate
+\eqref{eq:second-seed-omega-exact-bound} gives
+\[
+ J_2^\omega\ge
+ \frac{24479824718463837928127}{1208925819614629174706176}
+ >\frac{20249}{10^6}.
+\]
+Consequently an admitted uniform short-support seed $J_n$ proves
+the next uniform seed
+\[
+ J_{n+1}=\frac{20249}{10^6}+\frac{13}{100}J_n.
+\]
+At each round first derive $h_{J_n}$ from the already proved
+$H_{J_n}$, and then apply the second-seed inequality. Thus no
+unknown estimate from the new round is used to prove itself.
+Positive-count comparison then supplies $H_{J_{n+1}}$ on the
+short interval, with the same comparison-cutoff qualification.
+
+Starting with $J_0=1/50$, the four exact rational values are
+\[
+ \frac{22849}{10^6},\quad
+ \frac{2321937}{10^8},\quad
+ \frac{232675181}{10^{10}},\quad
+ \frac{23273777353}{10^{12}}
+ >\frac{2327}{100000}.
+\]
+They are checked in
+\texttt{certify\_second\_seed\_finite\_iteration.json}.
+There are only finitely many Buchstab and weighted steps. On
+compact pieces their new prime exponents remain bounded below by
+a fixed positive constant depending on this finite depth. The
+already proved fixed-positive-cutoff product theorem with $K=6.81$
+therefore applies after its precision parameters are chosen for
+that depth. Finitely many errors remain $o(1)$, and the strict
+final slack absorbs them in the inherited order of limits.
+\end{proof}
+
+For insertion in the earlier narrow lower-integral block, first
+use the existing stable descendant propagation at argument three.
+Retain the original threshold condition $h>3/20$, so the entire
+anchor interval $29/200<t<3/20$ remains inside that lower integral.
+It is linear in the short-support seed and gives
+\[
+ H(3)>\frac{28}{333}\frac{2327}{100000}.
+\]
+The second narrow-block contribution thus becomes
+\[
+ \frac{112}{837495}\,
+ \frac{2327/100000}{1/50}.
+\]
+This replaces the older value for the same block. It is not added
+to it. In particular, the seed at argument $11/5$ is not applied
+directly to an anchor whose comparison cutoff exceeds its smallest
+specified prime; the separate argument-three propagation is
+essential. No entire floating $H,h$ table or global Chen coefficient
+is asserted by this finite seed certificate alone.

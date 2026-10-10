@@ -1,0 +1,77 @@
+{
+  "status": "PASS_INDEPENDENT_ASCENDING34_ALL34_PATTERNS_924_BASES_621_JENSEN_TERMS",
+  "date": "2026-10-09",
+  "cells": [
+    {
+      "cell_id": "tent34-ascending-chart0-1371",
+      "chart": 0,
+      "pattern": 1371,
+      "bases": 462,
+      "vertices": 41,
+      "face_lattice_count": 503,
+      "simplices": 231,
+      "basis_status_counts": {
+        "SINGULAR": 64,
+        "INFEASIBLE": 357,
+        "FEASIBLE": 41
+      },
+      "gain_lower": "248677614922089338374723/79228162514264337593543950336",
+      "physical_volume": "4337435868315528783696183843196477868532343129798959211/80529409086621736404937724375040000000000000000000000000000000000000",
+      "integral_gap": "321759934441578226950722826042207717572514093299500587626295006222625446080357/2167305750445174534171771274088002679836117549875200000000000000000000000000000000000000000000"
+    },
+    {
+      "cell_id": "tent34-ascending-chart1-1371",
+      "chart": 1,
+      "pattern": 1371,
+      "bases": 462,
+      "vertices": 51,
+      "face_lattice_count": 595,
+      "simplices": 390,
+      "basis_status_counts": {
+        "SINGULAR": 60,
+        "INFEASIBLE": 351,
+        "FEASIBLE": 51
+      },
+      "gain_lower": "7257491273848393011055/9903520314283042199192993792",
+      "physical_volume": "23590223106006610295502791715256166154605774421794686141054203001/1894340017481411200072634538714425504563200000000000000000000000000000000000000",
+      "integral_gap": "103662792243176715490253230472132363884078730815182125606263033897357714009142488475069/2652019608844116838969053406205921740161465048926964626227200000000000000000000000000000000000000000000"
+    }
+  ],
+  "gain_lower": "306737545112876482463163/79228162514264337593543950336",
+  "gain_display_only": 3.871572120048235e-06,
+  "checks": {
+    "semantic_rows_per_pattern": 60,
+    "constant_identities": 2,
+    "pattern_chart_cases": 34,
+    "exact_dual_cases": 32,
+    "strict_center_cases": 2,
+    "exhaustive_order_pruned": 2031,
+    "bounded_positive_balances": true,
+    "all_vertices_all_original_rows": true,
+    "complete_face_lattice_rebuilt": true,
+    "all_Jensen_and_max_floors_equal": true,
+    "physical_jacobian": "1/2",
+    "factor_means_exact": 4968
+  },
+  "independence": "No ascending author code or its CORE/DET engines imported. Physical scalar semantics and all gate coefficients rebuilt at0/e_j; old independent integer Bareiss helpers reused and bound; own complete face-intersection poset and weighted physical barycenter.",
+  "scope": [
+    "Complete chosen ascending34 two-chart geometry and arithmetic replay.",
+    "Actual old sixth cap compared with max(R0,D33), not R0 on second chart; old descending33 gain telescopes once.",
+    "Disjoint from descending34 counterpart by opposite strict tent selector, with null boundary.",
+    "Causal finite realization and original ordinary/distribution inputs retain their separate review scopes.",
+    "Not all old winners/new masks; no global constants or old files changed."
+  ],
+  "seconds": 1.5134768999414518,
+  "bindings_sha256": {
+    "sixth-tent34-ascending-independent-20261009.py": "e7235a849c4144db845c537206e62ac9f38fdf3e36f7b97cd38f2ff52f107564",
+    "sixth-tent34-ascending-independent-20261009.txt": "534b5aabd3023931b5883b169623e457b57bf00e43aa14086d12fa3efa0bc835",
+    "sixth-pair12-ascending-independent-20261009.py": "76bbe66a112efbaefc0fc3fdf0d64b605cafb8333b2796e9bd581f1ed530a1fc",
+    "sixth-tent34-ascending-upgrade-20261009.py": "669c283cd9414f454d21c1ac42920be57d1f0289f158523df380d356a47e7e43",
+    "sixth-tent34-ascending-upgrade-20261009.tex": "4d25e04d09ea569ef3c95a6c2b5e6e84380c6126e6f0963daa9034b05a411cf4",
+    "sixth-tent34-ascending-upgrade-20261009.json": "99afd82e3bd8d6b1e74be4c734bd396b832f2a663ba8da4d9f15369af122bd08",
+    "sixth-tent34-ascending-upgrade-20261009-navigation.json": "7f68cdff48b52492985fbc2798f06faef18e0efb766e941b1f8af3f99d167dda",
+    "sixth-tent34-ascending-upgrade-20261009.witness.json": "8a86e5657dfbb23281d0e1888e8d584d5cc5c757a527fa04b9e56666f1809eb9",
+    "sixth-tent34-upgrade-analytic-20261009.tex": "21cf74815c892639985ac2d1eb3827614ad73d374e28f70a3b4ae43e9aa0dd49",
+    "sixth-tent34-upgrade-analytic-20261009.json": "eb02995adac00362bed8cc10731779d81a5eaa6bb7e84202c562dd4ca775b4d8"
+  }
+}

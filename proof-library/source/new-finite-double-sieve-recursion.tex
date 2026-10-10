@@ -1,0 +1,244 @@
+% New finite recursion, 2026-10-08. No imported old H/h tables.
+\subsection{A finite recursion on typed stable-prefix states}
+\label{sec:new-finite-double-sieve-recursion}
+
+This construction uses only the explicitly proved first and replacement
+second seeds, their stable-prefix extensions, and finite Buchstab
+identities. It does not transplant any old correction table, claim an
+optimal correction function, or take an infinite iteration limit.
+Its numerical implementation is
+\texttt{probe\_new\_finite\_double\_sieve.py}; the saved JSON is a
+floating feasibility calculation, not an outward certificate.
+
+At a state retain the marked specified prefix $B=N^{T+o(1)}$, one
+total level $Q=N^\nu$, residual $R=Q/B=N^{L+o(1)}$, and
+$\alpha=(1-T)/L\ge2$. The state also retains its enhanced
+factorization branch, all its gates and square tests, and a ceiling
+$\chi$ below which that branch persists. For a $W$ branch with a
+future third-slot bound $c$, require $\chi\le c$ as well as
+$\chi$ below the smallest specified slot. Alternatively the state
+uses the classical absolute Bombieri--Vinogradov interface at
+$\nu<1/2$. All physical cutoffs used below are below the retained
+ceiling. Enhanced non-switched nodes retain full well support;
+positive switched nodes use the separate finite-product theorem.
+
+Put $A(s)=sF(s)/(2e^\gamma)$ and $a(s)=sf(s)/(2e^\gamma)$.
+For fixed generation $n$, the claims represented by $H_n,h_n$ are
+the simultaneous bounds
+\[
+ \Phi_s\le\{A(s)-H_n(s)+o(1)\}\Theta_Q,\qquad
+ \Phi_s\ge\{a(s)+h_n(s)+o(1)\}\Theta_Q,
+\]
+uniformly over the indicated typed states and every $\alpha\ge2$.
+Only upper nodes at $s\ge1$ and lower nodes at $s\ge2$ are used;
+set $h_n(s)=0$ below two. The initial seed is
+\[
+ H_0(s)=\frac1{50}\mathbf1_{1\le s\le11/5},\qquad h_0(s)=0.
+\]
+Its strict uniform inequality is separately certified in
+\texttt{second-seed-omega-certified.tex}. Zero is chosen outside
+the displayed support. A finite positive prefix partition licenses
+all choices of upper or lower estimates.
+
+\paragraph{A common upper envelope for the Buchstab function.}
+Let $C=70893/125000=.567144$. The exact inequality
+$C\sum_{j=0}^{8}C^j/j!>1$ implies $Ce^C>1$, hence
+$C+\log C>0$. On $2\le u\le3$ the maximum of
+$1+\log(u-1)-Cu$ is $-\log C-C<0$; the delay equation propagates
+$\omega(u)\le C$ for $u\ge3$. Since $\omega(u)=1/u$ on $[1,2]$,
+\[
+ \omega(v)\le\Omega(u):=\max\{1/u,C\}\qquad(v\ge u\ge1).
+\]
+Consequently the first-seed switched integral is bounded uniformly
+for all $\alpha\ge2$ by
+\[
+ \overline I(s,s_0)=
+ \int_{1/s_0<u_1<u_2<u_3<1/s}
+ \Omega\!\left(\frac{2-u_1-u_2-u_3}{u_2}\right)
+              \frac{du_1du_2du_3}{u_1u_2^2u_3},\qquad s\ge2.
+\]
+Its argument is at least $2s-3\ge1$. This is a pointwise tail
+majorant, not an assumption that the switched integral attains its
+supremum at $\alpha=2$. Unit quotients in this triple term are
+power-saving; the second seed retains its separate five- and
+six-prime unit masses.
+
+\paragraph{The positive finite operators.}
+Fix $M=10$, and choose zero defects at any unproved argument beyond
+the finite table. For $s\ge2$, the following are valid new candidates:
+\begin{align*}
+ \mathcal B_H[h_n](s)&=\int_{\max(2,s-1)}^M h_n(w)\frac{dw}{w},\\
+ \mathcal B_h[H_n](s)&=\int_{s-1}^M H_n(w)\frac{dw}{w},
+\end{align*}
+where a reversed interval contributes zero. These identities start
+the ordinary comparison at argument $M+1$ and discard any correction
+there. Ordinary baseline cancellation is exact at that common level.
+In particular upper children with physical argument $1\le w<2$
+are included in the lower operator. Their defect comes from a
+smaller comparison cutoff, while the lower function below two is
+still zero.
+
+The first weighted inequality gives the further upper candidate
+\begin{align*}
+ \mathcal W_1[H_n,h_n](s;s_0)
+ ={}& A(s)-A(s_0)+H_n(s_0)-\frac K8\overline I(s,s_0)\\
+ &+\frac12\int_{1/s_0}^{1/s}
+       \frac{a(s_0(1-u))+h_n(s_0(1-u))}{u(1-u)}\,du,
+ \qquad 2\le s<s_0\le10.
+\end{align*}
+The feedback is evaluated at the same residual levels as the
+ordinary terms. It is not added at an old argument.
+The earlier first-seed search used $s_0\le5$. Wu's pointwise
+twofold inequality also holds for every fixed $2\le s<s_0\le10$.
+In that larger range use the full $A,a$, not their initial-interval
+logarithmic simplifications. The negative-term prime still satisfies
+$q^2\le R$, the triple unit-quotient gap remains
+$\alpha-3/s\ge1/2$, and every switched prime has exponent at least
+$L/s_0>0$. Thus the same signed-prefix and fixed-positive-cutoff
+arguments prove exactly the extension used here.
+
+For each admissible finite parameter tuple of the second seed, the
+operator in \texttt{second-seed-finite-feedback.tex} contributes
+\[
+ \mathcal W_2[H_n,h_n](s)=J_2(s)+\frac15
+ \left\{4H_n(s_0)+H_n(\phi_1)
+       +\sum_{i=2}^4\int h_n(\rho_i)\,d\lambda_i
+       +\sum_{i=5}^8\int_{\mathcal G_i}H_n(\rho_i)\,d\lambda_i
+ \right\}.
+\]
+Here $\mathcal G_5$ is only the good square-supported part of term 5;
+the bad part remains a positive switched cost. For terms 6--8 it is
+the full verified domain. The coefficient measures and child
+arguments are precisely those derived in that separate fragment.
+The finite parameter bank is recorded by the probe; the chosen tuple
+for every generation and target argument is saved in its history.
+
+Take the maximum of the previous defect, zero, and these separately
+valid candidates. Then apply positive-count monotonicity to the
+upper bound, in its full normalization:
+\[
+ H_{n+1}(s)\ge
+ \sup_{\max(2,s)\le v\le M}
+       \{A(s)-A(v)+\widetilde H_{n+1}(v)\}.
+\]
+For $s\ge2$ retain the candidate at $v=s$ as well. The shift
+$A(s)-A(v)$ is essential when an argument exceeds three. No lower
+monotonicity with an enlarged physical cutoff is invoked. Maxima
+select alternative estimates for a count; overlapping defects are
+never added.
+
+\paragraph{Why every generation stays in the typed family.}
+A Buchstab child has $q=R^{1/(w+1)}$, $w\ge s-1\ge1$.
+Thus $q^2\le R$, $q$ is below the parent's physical cutoff, and
+its updated ratio is
+\[
+ \alpha' =\alpha+\frac{\alpha-1}{w}\ge2.
+\]
+The complete square condition and selected-remaining conditions
+follow by multiplying the residual test by the old prefix.
+The new cutoff is at most $q$, which is also below the old stable
+ceiling. If $w<2$, its upper comparison is made at $v\ge2$ and
+has cutoff $(R/q)^{1/v}\le q$. The subsequent square test is
+$q(q')^2\le q(R/q)=R$; it does not require $3\log_Nq\le L$.
+
+The same tests were checked separately for each first-seed and
+second-seed non-switched term. Their cap data persist below the
+current ceiling, and their ratio after adding exponents remains
+at least two. Consequently the functions may be taken uniform in
+$\alpha$, even though the actual ratio increases along the tree.
+At any fixed finite depth the residual exponents and all newly
+specified prime exponents have a fixed positive lower bound on
+compact boxes. It can depend on the depth. The finite-product $K$
+proof rechooses its Heath--Brown precision for that bound; no
+uniformity in infinite depth or in a cutoff tending to zero is
+claimed. The modulus coefficient $K$ and its density integral are
+independent of this fixed factor-count bound.
+For the newer fourth-prefix and tail modulus weights this extension
+uses the same original-group argument as
+\texttt{generalized-one-step-double-sieve.tex}: retain the original
+Heath--Brown scales, choose $12\zeta<\epsilon/2$, and keep the number
+of groups fixed before $N\to\infty$. Those new modulus weights
+already have the normalized factorization and local-scale margins
+needed by the same Type II and long-variable inputs. The coprime
+mean and prime-power errors still save a fixed power. Changing this
+fixed prime-factor cutoff therefore leaves the modulus-weight density
+and its numerical $K$ unchanged. This is an extension of the positive
+count theorem, not a signed switched-distribution assertion.
+
+\paragraph{Insertion in the full Chen functional.}
+Use the free-threshold eleven-term identity with the complete
+$Y_{11}$ range. The probe uses $K=1697/250=6.788$, from the separately
+certified fourth-prefix tail refinement, in the five original
+switching terms and the positive costs of the two seeds.
+The three-parameter range is the positive-$a$ extension of the
+earlier range, retaining all its other strict inequalities.
+The unrestricted $L_1$ term keeps its established ordinary baseline;
+no unproved defect for its different prefix family is inserted.
+
+For $L_2$ add the upper defect in its exact least-prime identity.
+For $U_3,U_4$ replace the normalized ordinary upper multiplier by
+$A(s)-H_n(s)$ at the actual selected level. For $L_5,L_6$ replace
+$a(s)$ by $a(s)+h_n(s)$ only where their full square tests and
+$\alpha\ge2$ hold. The latter gate matters for small $a$ on the
+constant branch of $V_{2,a}$; the probe retains ordinary lower
+bounds and chooses zero extra defect if that gate fails.
+
+On each eligible four-prefix box use
+\[
+ \min\left\{\frac Kz\omega\left(\frac{1-T}{z}\right),
+             \frac4{\nu-T}
+               \left[A\left(\max\{2,(\nu-T)/w\}\right)
+                     -H_n\left(\max\{2,(\nu-T)/w\}\right)\right]
+       \right\}.
+\]
+All old cap and gate tests are retained. The full $A$ is required
+when $a<1/12$; it is not replaced by one. This minimum is evaluated
+directly in the functional, so neither its ordinary improvement nor
+its switched improvement is counted twice. Each choice is made on
+a common finite positive prefix partition before taking limits.
+
+The implementation uses finite arrays, interpolation, Gauss
+quadrature and local parameter searches to diagnose the resulting
+explicit operators. Those approximations are not a proof that the
+computed array entries are outward lower bounds, even though the
+underlying exact finite operators preserve the stated inequalities.
+An observed small generation change is not an infinite-iteration
+error bound or an optimality certificate.
+
+\paragraph{Numerical decision and a hypothetical coefficient test.}
+With 32 generations, $\Delta s=.01$, $\Delta s_0=.05$, and ten
+Gauss nodes in each triple coordinate, the optimized diagnostic tuple
+is approximately
+\[
+ (a,h,d)=(.08315180,.15198811,.23634369).
+\]
+The complete functional at quadrature orders 16, 24 and 36 is
+respectively $1.93228169$, $1.93234623$, and $1.93235164$.
+At $K=6.788$ its zero-margin imbalance diagnostic is $.75226117$;
+the remaining coefficient gap to the internal comparison $b=.749$
+is approximately $.02949097$. At the original sampled tuple the
+generation-24 to generation-32 increase is only $.00002118$.
+This is evidence about this finite construction, not an upper bound
+on all possible double sieves.
+
+For a decision about future prefix work, keep this exact same
+floating $H,h$ array and threshold tuple, and hypothetically lower
+only the coefficient of the five original switched counts and the
+bad-semiprime removal. Re-evaluating the full four-prefix minimum
+gives
+\[
+\begin{array}{c|c|c}
+ \text{assumed }K&c\text{ diagnostic}&c-K\log(1/.749)\\\hline
+ 6.786&1.93313658&-.02812800\\
+ 6.750&1.94726640&-.00359360\\
+ 6.745&1.94922902&-.00018589\\
+ 6.740&1.95119168& .00322185\\
+ 6.735&1.95315437& .00662962
+\end{array}
+\]
+The crossing is near $K=6.74473$. In particular a future valid
+$K=6.735$ would make this sampled finite construction a plausible
+route past the internal comparison. That $K$ is hypothetical here;
+the table is not a proof of it, a certified functional value, or a
+new imbalance theorem. No reoptimization or further recursive gain
+from lowering $K$ is included in this sensitivity test.

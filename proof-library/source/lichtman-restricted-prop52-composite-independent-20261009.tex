@@ -1,0 +1,198 @@
+% New composite audit; all component proofs remain unchanged.
+\section*{Independent assembly audit of the restricted retained-phase convolution estimate}
+\label{sec:restricted-prop52-composite-20261009}
+
+The conclusion checked here is a one-bounded convolution statement.
+It is not yet a prime-product distribution theorem, a proof of the
+original unrestricted Proposition 5.2, or a restoration of $K,c,b$.
+The component spectral theorem and the classical Shiu, Weil, Poisson
+and SW inputs are cited inputs, not re-proved in this assembly audit.
+
+\paragraph{The statement actually obtained.}
+Fix $c_0>0$, $0<\sigma<1/100$, and
+$0\leq\kappa\leq\sigma/100$.  Set $x=NM$, $\theta=7/32$, and assume
+\[
+ c_0x\leq |a|\leq x^{1+\kappa},\qquad
+ Q_1<Nx^{-\sigma},\qquad N^2Q_2Q_3^2<x^{1-8\sigma},
+\]
+\[
+ |a|^\theta NQ_1Q_2^5Q_3^2<x^{2-15\sigma},\qquad
+ N^{1+2\theta}Q_1Q_2^{5-2\theta}Q_3^{2+2\theta}<x^{2-15\sigma}.
+\]
+All five sequences $\alpha_n,\beta_m,\gamma_{q_1},\lambda_{q_2},
+\nu_{q_3}$ are one-bounded.  The modulus sequences have support
+$(q_i,a)=1$.  The sequence $\alpha$ is supported on
+$P^-(n)>z_0=x^{1/(\log\log x)^3}$ and satisfies the full auxiliary
+SW condition: for every $A>0$, uniformly in $(b,q)=1$ and $d\geq1$,
+\[
+ \sum_{\substack{n\sim N\\n\equiv b\ (q)\\(n,d)=1}}\alpha_n
+ -{1\over\varphi(q)}\sum_{\substack{n\sim N\\(n,dq)=1}}\alpha_n
+ \ll_A N\tau(d)^{O(1)}(\log N)^{-A}.
+\]
+If the sequences depend on the residue, these constants must be
+uniform in that family.  Define the discrepancy $\Delta_a(l)$ with
+the original coprime mean, exactly as L23 line 2448.  Then the assembled
+result is, for every fixed $A>0$,
+\begin{equation}\label{eq:restricted-composite-conclusion}
+ \left|\sum_{q_i\sim Q_i}\gamma_{q_1}\lambda_{q_2}\nu_{q_3}
+                 \Delta_a(q_1q_2q_3)\right|
+ \ll_{A,\sigma,c_0,\mathrm{SW}} x(\log x)^{-A}.
+\end{equation}
+Uniformity is over residues satisfying their own displayed
+$|a|^\theta$ condition; the supremum does not erase that condition.
+The derivation below establishes this restricted statement relative
+to the component proofs' explicit external inputs.
+
+\paragraph{D: the preliminary reduction is applicable.}
+Writing $n,q,u,v$ for the logarithms to base $x$ of $N,Q_1,Q_2,Q_3$,
+the four conditions imply
+\[
+ N>x^\sigma,\quad N<x^{1/2-4\sigma},\quad
+ Q_1Q_2Q_3<x^{7/10-13\sigma/2}.
+\]
+The last inequality follows from $q<n-\sigma$,
+$n+u/2+v<(1-8\sigma)/2$, and $u<(2-15\sigma)/5$.
+With $d\sim D\leq y_0^2=x^{o(1)}$ and
+$D\mathcal R\asymp Q_2Q_3$, one has, eventually,
+\[
+ N,M\geq x^{\delta},\quad Q_1D\leq Nx^{-\delta},\quad
+ Q_1D\mathcal R\leq x^{1-\delta},\qquad\delta=\sigma/3.
+\]
+Every scale and the residue are polynomially bounded.  These are
+exactly the additional margins of the zero-product supplement.
+Its shifted moments omit $mn=a$ before the variance is expanded;
+restoration occurs only after the dangerous double exact diagonal
+has been excluded.  The normalized restoration error is
+$x^{1-\delta/2+o(1)}$, not a factor times a merely logarithmic error.
+
+\paragraph{The small factors do not multiply a logarithmic remainder.}
+The weighted smooth-part deletion is performed first on the grouped
+modulus $l=q_1q_2q_3<x^{1-\delta}$.  Primitive Shiu estimates and
+Rankin's bound handle the divisor multiplicity inside the sum.
+For the retained terms write $q_2=us_2,q_3=vs_3$, and
+$d=s_2s_3$, $r=uv$.  The coefficient
+\[
+ \Lambda_{d,r}=\sum_{s_2s_3=d}\sum_{uv=r}
+              \lambda_{us_2}\nu_{vs_3},\mathbf1_{\rm fixed\ supports}
+\]
+is independent of $q_1$ and bounded by $\tau(d)\tau(r)$.
+The whole dyadic $d$ range is supplied to D once.  The original
+$\gamma_{q_1}$ is its outer bounded coefficient, and disappears in
+the indicated Cauchy bound; it is not an unaccounted extra factor
+in either exponential sum.  Only logarithmically many dyadic ranges
+are added.  In particular, no $x^{o(1)}$ separate values of $d$
+multiply D's $x\log^{-A}x$ remainder.
+
+\paragraph{E1: the near-linear lower bound on $|a|$ is essential.}
+The checked replacement uses Maynard I v2 Lemma 17.2 directly.
+Since $(a,qr_1r'_1)=1$, the completed Weil gcd loses its $a$ factor
+exactly.  The algebraic consequence of the size conditions is
+\[
+ n+\tfrac52q+3u+3v
+ <{1021\over512}-{147\over8}\sigma+O(1/\log x).
+\]
+It follows by the nonnegative combination $35/16,23/16,5/16$
+of $q-n$, $2n+u+2v$, $n+q+5u+2v$, and subtracting $v/2$.
+The third bound uses $|a|\geq c_0x$ and $\theta=7/32$;
+neither can be removed here.  The other Weil conditions follow from
+$n+q<1-9\sigma$ and $2n+q+u+v<17/10-29\sigma/2$.
+
+For E1 alone it is legitimate to set $q'=dq$, because that lemma
+permits arbitrary bounded coefficients depending on $q'$ and $r$.
+The sparse indicator $\mathbf1_{d\mid q'}$, and the square root of
+the nonnegative smooth $q$ weight, fit this permission.  Its actual
+denominator is $\varphi(q'r_2)q'r_1$.  For each fixed $d$ the bound
+is $N^2/(dQ_1)x^{-\sigma+o(1)}$.  Summing $1/d$ and spending the
+remaining subpower $D$ gives
+\begin{equation}\label{eq:restricted-E1}
+ |E_1|\ll {N^2\over DQ_1}x^{-\sigma/2}.
+\end{equation}
+
+\paragraph{RP and S: three distinct polarizations, no arbitrary $q$ weight.}
+The second error has the exact identity
+\[
+ E_2(a)=\sum_{d\sim D}{E_3(a;d)\over d}.
+\]
+The denominator in $E_3$ is $qr_1r_2$, without an additional $d$.
+Reciprocity retains $e(ah/(qdr_1r_2n_1))$.  Its normalized coefficient
+is $(a/x)(D/d)\log^5x$, so the five-variable variation costs
+$x^{5\kappa+o(1)}$ uniformly in $d\sim D$.
+All endpoints from summation by parts are frozen before S is used.
+The cross-coprime partition applies to the rough pairs
+$(n_1r_2,n_2)$ and costs only $x^{o(1)}$.
+
+Expand the two factors of $\Lambda$ independently at this stage.
+The choices of smooth factors on the two sides need not agree.
+There are $\tau(d)^2$ choices.  The two resulting rough-factor
+coefficient pairs (called $\Gamma$ and $\Lambda$ in S), and the
+independently truncated $n_1$ coefficient paired with $\alpha_{n_2}$,
+are three separate sesquilinear pairs.  For each pair use
+\[
+ B(u,v)=\tfrac14\sum_{j=0}^3i^jB(u+i^jv,u+i^jv).
+\]
+After normalizing the vectors by $2$, this costs at most $4^3=64$.
+The kernel need not be Hermitian.  SW was used before this operation;
+S requires only bounded coefficients.  The product endpoints on
+the rough factors and the independent fixed $h$ weights are the
+precise extensions previously checked, not arbitrary coupled
+arithmetic weights.
+
+Keep the original $q$ and fixed $d$ in S.  Its original statement
+already has congruence modulo $qd$.  Unlike E1, it is not licensed
+to replace $q$ by $qd$ and impose a sparse $q$ indicator.
+With $S=Q'_2$, $R=Q'_3$, all monomial powers are positive, including
+$5-2\theta$.  The $8\sigma,15\sigma$ hypotheses therefore imply
+S's $7\sigma,14\sigma$ conditions after all fixed dyadic constants.
+The Fourier length has the allowed factor $D\log^5x=x^{o(1)}$.
+
+At the actual spectral substitution $z=s_1s_2$, both $s_i$ still
+satisfy $(s_i,a)=1$.  Thus $(a,z)=1$, as required by the retained
+packet proof.  The packet norm preserves the interval coefficient
+on the other spectral side; no unrestricted non-coprime version
+of the printed spectral theorem has been inserted.
+Taking just the deliberately weaker pre-variation bound from S,
+\[
+ |E_3(a;d)|\ll {N^2\over Q_1}x^{-\sigma+5\kappa+o(1)}.
+\]
+The sum of $1/d$ is $O(1)$.  Allocate a total $\sigma/10$ to
+the remaining subpower factors, including conversion to $1/D$.
+Since $5\kappa\leq\sigma/20$, at least $17\sigma/20$ remains;
+weakening to $\sigma/2$ yields
+\begin{equation}\label{eq:restricted-E2}
+ |E_2|\ll {N^2\over DQ_1}x^{-\sigma/2}.
+\end{equation}
+This conservative accounting does not need to spend all of S's
+stronger natural-scale reserve.
+
+\paragraph{Normalization and the actual final error.}
+Substitution of \eqref{eq:restricted-E1}--\eqref{eq:restricted-E2}
+into D gives
+\[
+ M(DQ_1)^{1/2}\bigl(|E_1|^{1/2}+|E_2|^{1/2}\bigr)
+ \ll x^{1-\sigma/4},
+\]
+before fixed logarithmic factors.  Separately D's zero-product
+correction is $x^{1-\sigma/6+o(1)}$.  This is weaker than the
+exponential-sum saving and must not be called $x^{1-\sigma/5}$.
+Both terms are absorbed by $x\log^{-A}x$ for each fixed $A$.
+D already has an arbitrary-log SW remainder, so no overall
+fixed-power saving is claimed.  Increase its logarithmic exponent
+before summing the finitely many dyadic decompositions; this proves
+\eqref{eq:restricted-composite-conclusion}.
+
+\paragraph{Dependence and limits of the audit.}
+The order is D and its independent zero-product review; E1 and its
+independent Weil review; the retained-phase elementary reduction;
+the coprime spectral audit S and the independent packet/scale review;
+then this composition.  None uses the conclusion being assembled.
+This author supplied S, so this report does not describe S as a new
+independent reproof; the root packet review provides its separate
+cross-check.  The other component proofs and the bridge were read
+directly here, not accepted from their status labels.
+
+This assembly supplies the restricted one-bounded statement above.
+It does not supply divisor-bounded HB coefficient truncation,
+one/two-long decompositions, prime products at all local scales,
+small-product tails, finite sieve compilation, or the reported
+unidentified Wu correction.  Those downstream matters cannot be
+inferred merely by changing the status of the present statement.

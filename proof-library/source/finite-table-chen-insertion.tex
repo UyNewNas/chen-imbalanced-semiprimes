@@ -1,0 +1,364 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=24mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs}
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+\newtheorem{proposition}{Proposition}
+\newcommand{\HH}{\mathcal H}
+\newcommand{\hh}{\mathcal h}
+\newcommand{\alow}{\mathfrak a}
+\newcommand{\Lam}{\Lambda}
+\title{Insertion of the certified finite table into the eleven-term functional}
+\author{Independent local mathematical audit}
+\date{8 October 2026}
+\begin{document}
+\maketitle
+
+This note proves state admission and the resulting integral prescriptions,
+conditional on the primitive signed-prefix distribution, positive-product
+switching and finite-seed inputs explicitly retained in
+\texttt{finite-step-typed-closure-audit.tex}. It does not certify those
+primitive analytic theorems, a numerical value of the whole functional,
+or a new Goldbach exponent. It uses the independently replayed 200 closed
+cells on $[1,5]$, 24 generations, $K_0=681/100$, and initial seed
+$2327/100000$ in \texttt{certify\_finite\_step\_table.json}.
+It does not use the broader floating $M=10$ table or a new second-weighted
+parameter bank. Source hashes and exact checks accompany this note.
+
+\section*{State and cell conventions}
+Write $A(s)=sF(s)/(2e^\gamma)$ and $\alow(s)=sf(s)/(2e^\gamma)$;
+$A=1$ on $[1,3]$ and $\alow=0$ below two. Let $q_i=1+i/50$,
+$0\le i\le200$. The saved integers divided by $2^{80}$ are
+uniform bounds $H_i,h_i$ throughout $[q_i,q_{i+1}]$.
+Define $\HH,\hh$ by these constants in cell interiors; at a shared
+endpoint take the minimum of the two constants. Put them equal to zero
+outside $[1,5]$, and put $\hh=0$ below two. Interpolation is not allowed.
+A parameter box meeting several cells uses the minimum of their bounds;
+a box meeting the complement of the certified support can use zero.
+
+An admitted state retains the actual marked prefix $B=N^T$, one fixed
+total level $Q=N^\nu$, residual exponent $L=\nu-T>0$, ratio
+$\alpha=(1-T)/L\ge2$, branch labels, and a physical ceiling $\chi$.
+For an enhanced branch every original full square test and every
+selected-remaining square test must be strictly below $\nu$, while
+$\nu$ is strictly below the branch cap and above its gate.
+The largest specified slots and any selected subset remain marked.
+For a future-third-slot $W$ bound $c$, also require $\chi\le c$.
+The actual physical cutoff $L/s$ must be at most $\chi$.
+Classical states instead use a fixed $\nu<1/2$ and complete-modulus
+support; no enhanced full-square restriction is imported into them.
+
+The previously audited finite actions preserve these data: an appended
+prime of exponent $x\le\chi$ with $2x<L$ has residual $L-x$ and
+$\alpha'=1+(\alpha-1)/(1-x/L)\ge\alpha$. Each new full and
+selected-remaining test is $T+2x<\nu$; subsequent tests come from the
+residual well support. Old labels, signs and multiplicities stay intact.
+In particular a lower child need not admit the initial seed directly
+at its own argument: its actual cutoff, and the cutoffs after the
+licensed descent, are what must be admitted. These facts are used here
+only for the certified $M=5$ actions, not for arbitrary numeric tables.
+
+For the main statement assume the original sufficient threshold range
+\[
+ 1/12<a<h<d<e=57/224,\quad w_*=25/224<h<\min(\mu,2a),
+ \quad 1/3<h+d<1/2,\quad 4a+d<1,\quad4h+d<1,
+\]
+where $\mu=25/128$, $\Lam=153/256$, $\nu_*=249/448$ and
+$v(t)=\min((1+t)/2,57/64-3t/2)$.
+The separate positive-$a$ extension can also be used with its primitive
+inputs, but requires the extra ratio and table-support guards below.
+
+\section*{The one-prefix terms}
+The ordinary restricted lower term is retained exactly:
+\[
+ L_1=\frac4{\nu_*}\alow(\nu_*/a).
+\]
+It is not a typed-table state just because it has a sieve argument.
+With empty marked prefix at its enhanced level, its ratio would be
+$1/\nu_*=448/249<2$. Also its restricted atoms have varying largest
+rough slots rather than the fixed marked data of the finite-table
+theorem. Thus no direct $\hh(\nu_*/a)$ substitution is authorized.
+
+For $L_2$, the exact least-prime identity starts at $w_*$ and subtracts
+one-prefix upper counts for $w_*<t<h$. Here
+\[
+ T=t,\quad \nu=(1+t)/2,\quad L=(1-t)/2,\quad
+ \chi=t,\quad s=L/t,\quad\alpha=2.
+\]
+The full square is $2t<\nu$, since $t<h<\mu<1/3$.
+The selected largest-prime branch persists below $t$.
+The cutoff equal to the marked prime is a permitted structural equality:
+every later sieve prime is strictly smaller. Hence
+\begin{equation}\label{eq:L2}
+ L_2^*=8\alow\left(\frac{1+h}{2h}\right)
+   -\frac4{249/50}\alow(249/50)
+   +4\int_{w_*}^{h}\frac{\HH((1-t)/(2t))}{t(1-t)/2}\,dt.
+\end{equation}
+The table argument ranges from $(1-h)/(2h)>2$ to $199/50$, not
+$249/50$; the latter belongs to the starting lower term.
+For a cell $[q_i,q_{i+1}]$, its exact contributing interval is
+\[
+ (w_*,h)\cap[1/(2q_{i+1}+1),1/(2q_i+1)].
+\]
+The contribution to the Chen coefficient is $H_i$ times the integral
+of $2/[t(1-t)]$, namely a difference of $2\log(t/(1-t))$.
+
+For $U_3$ put $\nu(t)=v(t)$ on $(a,e)$ and $\nu(t)=1/2$ on
+$(e,1/3)$; for $U_4$ use $v(t)$ on $(a,d)$. The enhanced part has
+$2t<v(t)$, $L=v(t)-t$, $\chi=t$, and $\alpha\ge2$ because
+$v(t)\le(1+t)/2$. Use the physical cutoff
+\[
+ k(t)=\min\{a,L/2\},\qquad s(t)=\max\{2,L/a\}.
+\]
+It is below the marked slot. The classical part is obtained from
+$\nu<1/2$, with $\alpha>2$ and the same cutoff comparison.
+Consequently
+\begin{equation}\label{eq:U34}
+ U_j^*=4\int_{I_j}\frac{A(s(t))-\HH(s(t))}{tL(t)}\,dt,
+ \quad I_3=(a,1/3),\ I_4=(a,d).
+\end{equation}
+The upper defect is zero if $s>5$. Because $A=1$ up to three,
+the cutoff lowering leaves the ordinary kernel unchanged.
+On each affine piece $L=A_0-B_0t$, an unclamped cell has inverse
+image $A_0-aq_{i+1}\le B_0t\le A_0-aq_i$; the clamped region is
+$L\le2a$. The positive correction primitive is exactly
+\[
+ \int\frac{dt}{t(A_0-B_0t)}
+ =\frac1{A_0}\log\frac{t}{A_0-B_0t}.
+\]
+For the original range, the support begins at $t\ge1-10a$ on the
+first affine piece, intersected with that piece and the actual domain.
+These cell cuts also supply a simple exact alternative to integrating
+a discontinuous lookup without splitting.
+
+\section*{The two-prefix lower terms}
+Write the marked slots in decreasing order as $(t,u)$ and retain
+\[
+ V=\begin{cases}
+ \max\{v(t),v(t+u),\Lam-3a/8\},&t<\mu,\\
+ v(t),&t>\mu,
+ \end{cases}\qquad L=V-t-u,\qquad s=L/a.
+\]
+The domains are $D_5=\{a<u<t<h\}$ and
+$D_6=\{a<u<h<t<d\}$. The physical cutoff is always $a$.
+Whenever $s\ge2$, the original full tests follow from
+\[
+ 2t<v(t)\le V,\qquad t+2u<V,
+ \quad\text{since }L\ge2a>h\ge u.
+\]
+The $v(t)$ branch keeps the largest slot and ceiling $u$;
+the $v(t+u)$ branch keeps the leading selected pair and ceiling $u$.
+The constant branch keeps its future third slot at most $a$ and
+uses ceiling $a$. Its branch gate is $v(t)$, so use it above that
+gate only when it actually improves the envelope; ties may use
+another winning branch. All residual and newly appended primes lie
+below the retained ceiling. Short residual atoms retain the original
+classical fallback; the $W$ expression is not assigned an artificial
+third slot when none exists.
+
+For the first two branches $2V\le1+t+u$. For the constant branch
+this holds automatically when $a\ge25/352$, since
+\[
+ \Lam-3a/8\le1/2+a\le(1+t+u)/2.
+\]
+Thus $\alpha\ge2$ on the original $a>1/12$ domain. Moreover
+\[
+ \frac{V-t-u}{a}\le\max\left\{
+ \frac1{2a}-\frac32,\ \frac1{2a}-1,\ \frac\Lam a-\frac{19}8
+ \right\}=\frac1{2a}-1<5.
+\]
+Every positive lower region is therefore within the certified table.
+The legal replacements are
+\begin{equation}\label{eq:L56}
+ L_j^*=4\iint_{D_j}\frac{\alow(L/a)+\hh_{\rm adm}(t,u)}{tuL}
+ \,du\,dt,\qquad j=5,6,
+\end{equation}
+where $\hh_{\rm adm}=\hh(L/a)$ only if the full state is admitted
+and $2\le L/a\le5$, and is zero otherwise. Below two use
+nonnegativity and no enhanced-state claim. For the positive-$a$
+extension also check $2V\le1+t+u$ explicitly: on a winning constant
+branch this is $t+u\ge\mu-3a/4$. Failure leaves the established
+ordinary lower term unchanged. A comparison at a different level
+would be a competing estimate, not an additive correction to this one.
+
+On a region with a fixed affine winner $V$, cell membership is the
+pair of linear inequalities $aq_i\le V-t-u\le aq_{i+1}$.
+Together with ordering, full-square, ratio and branch gates, these
+give an implementable rational polygon subdivision. Coarser boxes
+may discard uncertain defects while retaining ordinary lower bounds.
+
+\section*{The four-prefix option and the untouched switching terms}
+For $j=10,11$ write $(x,y,z,w)$ in decreasing order, put $T=x+y+z+w$,
+and use the full domains
+\[
+ D_{10}=\{a<w<z<y<x<h\},\quad
+ D_{11}=\{a<w<z<y<h<x<d\},\quad d\mu=\frac{dx\,dy\,dz\,dw}{xyzw}.
+\]
+The original quotient cutoff is $z$. An ordinary comparison lowers
+it to $\min(w,(\nu-T)/2)$; thus the specified four slots are largest
+in its modulus atom. They need not be largest in the original integer.
+Use exactly the gated cap set of \texttt{four-prefix-safe-minimum.tex}:
+\[
+ W=\max(2x,x+2y,x+y+2z,x+y+z+2w),
+\]
+and for each nonempty subset $I$ put
+\[
+ s_I=\sum_{i\in I}t_i,\qquad
+ G_I=\max_{j\notin I}\left(s_I+
+              \sum_{k<j,\ k\notin I}t_k+2t_j\right).
+\]
+The selected cap $v(s_I)$ requires $v(s_I)>\max(1/2,W,G_I)$.
+The extra $B(z)=\Lam-3z/8$ cap requires
+$x<\mu$ and $B(z)>\max(1/2,W,v(x))$.
+Freeze a branch and a level strictly between its gate and cap on a
+common positive box; only afterwards approach the endpoint.
+Keep every selected slot and all four full tests, with ceiling $w$.
+The old first three slots of a $B(z)$ branch persist below that ceiling.
+Also $\alpha\ge2$, since $T>4a>1/3$ and $\nu\le\Lam$.
+The positive-$a$ extension still implies $4a>25/112>2\Lam-1$,
+so this ratio guard remains automatic there.
+
+For an eligible endpoint $V_4$, put $L=V_4-T$,
+$s=\max(2,L/w)$ and
+\[
+ O_0=4A(s)/L,\qquad O_H=4\{A(s)-\HH(s)\}/L,
+ \qquad S_K=K\omega((1-T)/z)/z.
+\]
+Else put $O_0=O_H=+\infty$. The upper bound is
+\begin{equation}\label{eq:four}
+ U_j^*=\int_{D_j}\min(S_K,O_H)\,d\mu.
+\end{equation}
+Relative to an existing ordinary minimum its gain in the Chen
+coefficient is exactly
+$\frac14\int[\min(S_K,O_0)-\min(S_K,O_H)]d\mu$.
+It is not the sum of switching and ordinary improvements.
+The earlier proof gives $L/w<3$ for $a>1/12$, so $A(s)=1$ there;
+keep the full $A$ in the positive-$a$ extension. Off the enhanced
+eligible set retain switching (or a separately proved classical
+ordinary option, without claiming it is supplied by this cap set).
+
+No new defect is inserted into the switched $U_7,U_8,U_9$.
+Their positive-product bounds retain their exact quotient domains;
+in particular the moving square-root cutoff and all multiplicities
+of $Y_9$ are unchanged. The complete functional is
+\[
+ c^*=\frac{3L_1+L_2^*+L_5^*+L_6^*-U_3^*-U_4^*
+                    -2U_7-U_8-U_9-U_{10}^*-U_{11}^*}{4}.
+\]
+The table was built with $K_0=6.81$. A smaller separately proved
+switching coefficient may be used for the five original switched
+terms without recomputing or increasing these stored defects.
+Old narrow-seed gains already present in a previous coefficient
+must not also be added on overlapping domains: rebuild the ordinary
+terms with these formulas, or take the maximum of separately proved
+defects at exactly the same state.
+
+\section*{The conservative one-dimensional switching option}
+The new arithmetic script instead keeps switching alone for $U_{10}$
+and $U_{11}$. Let $C=70893/125000$. If
+\[
+ C(1/h-4)>1,\qquad C((1-d)/h-3)>1,
+\]
+then the respective Buchstab arguments exceed $1/C$.
+The proved tail bound $\omega\le C$ and positive integration give
+\begin{align*}
+ U_{10}&\le\frac{KC}{2}\int_a^h
+       \frac{\log^2(h/t)\log(t/a)}{t^2}\,dt,\\
+ U_{11}&\le KC\log(d/h)\int_a^h
+       \frac{\log(h/t)\log(t/a)}{t^2}\,dt.
+\end{align*}
+Indeed fix $z=t$; integration in $w$ gives $\log(t/a)$.
+For $U_{10}$ the ordered $z<y<x<h$ integral gives
+$\log^2(h/z)/2$; for $U_{11}$ the independent $h<x<d$
+integral gives $\log(d/h)$ and $z<y<h$ gives $\log(h/z)$.
+The full fourth-prime interval is retained.
+
+If additionally $d\ge1/5$, change variables in $U_7$ by
+$r=(1-t-u)/u$. Then $1\le r\le R=1/t-2\le3$ and
+\[
+ \int_1^R\omega(r)\,dr=\log R+A(R+1)-1,
+\]
+by the explicit Buchstab formula up to three and the delay formula
+for $A$ up to four. Hence the exact expression is
+\[
+ U_7=K\int_d^{1/3}
+  \frac{\log((1-2t)/t)+A(1/t-1)-1}{t(1-t)}\,dt.
+\]
+For $d<1/5$ this reduction requires additional Buchstab pieces;
+the displayed formula must not be extended automatically.
+The unchanged formulas are
+\[
+ U_8=K\int_a^{1/3}\frac{\log(2-3t)}{t(1-t)}dt,\qquad
+ U_9=K\int_h^d\frac{\log((1-t-d)/d)}{t(1-t)}dt.
+\]
+
+For $(a,h,d)=(417/5000,19/125,59/250)$ all stated gates hold.
+The $L_2$ argument runs through $[53/19,199/50]$;
+the first single-prefix supported point is $83/500$;
+$U_4$ ends at $s=12025/3336$;
+the classical $U_3$ clamp starts at $t=833/2500$.
+The pair argument is at most $2083/417<5$ and the eligible
+four-prefix argument is at most $1249/417<3$ before clamping.
+The two uniform tail lower bounds are $49/19$ and $77/38$,
+both larger than $1/C$.
+For the older fixed tuple the latter coarse tail lower bound is
+only $65247/38300<1/C$; these two convenient tail formulas are
+therefore not an unconditional simplification for every threshold tuple.
+
+\section*{Limits, implementation audit, and remaining scope}
+First fix compact positive boxes, branch choices and buffered levels.
+The typed-table theorem holds on each such averaged box, not for each
+individual prime tuple. Refine a common partition for all choices,
+take $N\to\infty$, and then exhaust strict domains while shrinking
+buffers. Ordering, nontrivial affine gate and table-cell boundaries
+have zero integral measure. A clamped argument identically two is
+not discarded: the actual cutoff is $L/2$, and its closed-cell bound
+applies by the endpoint convention established in the closure audit.
+The same applies to a cutoff structurally equal to a marked prime.
+All relevant residuals remain bounded below on fixed boxes and all
+recursive depths are finite. No uniform assertion as the initial
+residual tends to zero is needed.
+
+No domain counterexample was found to the state selections in
+\texttt{probe\_new\_finite\_double\_sieve.py} within its explicitly
+asserted threshold range. Its pair ratio mask is necessary in the
+positive-$a$ extension; its other pair guards follow from $h<2a$
+where the lower defect is nonzero. Its four-prefix ratio condition
+follows from $a>w_*/2$, even though not coded explicitly. Its selected
+subset tests and the external full-square test together supply the
+stated gates. This does not validate its interpolated values, larger
+operator bank, quadrature, or optimization as a certificate.
+
+For completeness, the probe's older three-slot envelope below $x=\mu$
+contains apparently unfiltered pair caps. They cannot invalidate the
+maximum: if $v(s)>v(x)$ and the selected pair has exponent $s$, its
+additional gate is at most $2x+s$. For $s\le\mu$,
+$v(s)-(2x+s)=(1-4x-s)/2\ge3/256$.
+For $s>\mu$, the improvement condition gives
+$s<25/96-x/3$, and hence
+$v(s)-(2x+s)>23/96-7x/6\ge3/256$.
+If the cap does not improve $v(x)$, use the already admitted largest
+slot branch. The other prefix-product caps have no extra selected
+gate; the $B(z)$ cap is used only when it exceeds $v(x)$.
+Above $\mu$ the probe explicitly filters the surviving non-leading
+branches by their selected gates. Its all-subset loop is followed by
+the independent complete four-square check, as required here.
+
+In particular ``look up only $s$'' is an invalid general rule:
+$L_1$ gives an actual ratio failure. Also the retained-ceiling example
+in the previous audit, with old slots $(.16,.15)$, $\nu=.581$ and
+future-third bound $.04$, would admit an illegal new prime $.10569$
+if that ceiling were forgotten. It is excluded by this prescription;
+it is not a counterexample inside the probe's properly ordered domains.
+
+For \texttt{certify\_finite\_table\_chen\_functional.py}, whole-box
+minimum defects have the correct direction for a certified lower
+coefficient after the signed terms are combined. Printed upper
+endpoints using these minimum defects are not automatically upper
+bounds for the exact pointwise step-table functional, nor for actual
+prime counts. They must not support a claim of optimality or impossibility.
+This note audits the default tuple and formulas, not that script's
+large integration output or all interval-arithmetic implementation.
+The remaining numerical task is an outward integration and independent
+replay of this admitted functional; the primitive analytic distribution
+dependencies remain separate from both local PASS results.
+\end{document}

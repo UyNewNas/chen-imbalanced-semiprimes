@@ -1,0 +1,86 @@
+Divisor-bounded coefficients after the restricted convolution repair
+2026-10-09. A conditional extension lemma; no global prime-count claim.
+
+Assume the restricted one-bounded Proposition5.2 estimate now proposed:
+theta=7/32, fixed c0*x<=|a|<=x^(1+kappa), kappa<=sigma/100, and B1--B4.
+The alpha sequence has the source's rough support and full auxiliary
+Siegel--Walfisz property. The claim below concerns the alpha_n,beta_m
+coefficient bound only; it changes no modulus factorization or scale.
+
+Let |alpha_n|<=tau(n)^B, |beta_m|<=tau(m)^B for fixed B. The modulus
+coefficient after grouping its three factors has |rho_l|<=tau_3(l),
+or any other fixed divisor-power bound used only for controlling the
+deleted tails. The original three-factor modulus coefficient structure
+and the one-bounded conditions on its factors remain required when
+applying Proposition5.2; an arbitrary divisor-bounded rho is not thereby
+admitted to that theorem. The total modulus support is l<=Dtot,
+where Dtot<=x^(1-delta) for fixed delta>0. The latter follows from
+B7 in the actual application. All moduli remain coprime to a.
+
+1. Truncate by the divisor function, not by an arbitrary coefficient value
+
+For a fixed large C put
+ alpha'_n=alpha_n*1_{tau(n)<=log^C x},
+ beta'_m=beta_m*1_{tau(m)<=log^C x}.
+The rough alpha' retains auxiliary SW by L23 Lemma4.3 / Maynard I
+Lemma13.7, taken as an explicitly named input. The cutoff based solely
+on |alpha_n| would not follow from that lemma and is not used here.
+Divide each truncated sequence by log^(BC) x to make it one-bounded.
+After applying the restricted theorem with an adequately enlarged
+logarithmic exponent, multiply back by log^(2BC) x. This operation
+only costs a fixed logarithmic power.
+
+2. Count the removed congruence contribution absolutely
+
+For b=mn, use tau(n),tau(m)<=tau(b) and at most tau(b) factorizations.
+If either divisor cutoff fails, Markov's elementary inequality gives
+  sum_{mn=b} |alpha_n beta_m|*1_{a cutoff fails}
+       <= 2*log^(-C) x * tau(b)^(2B+2).                  (C1)
+For b!=a, the sum of absolute modulus weights with l|(b-a) is at
+most a fixed power tau(|b-a|)^J. Hence the removed counting term is
+  << log^(-C)x * sum_{b~x,b!=a}
+          tau(b)^(2B+2)*tau(|b-a|)^J
+  << x*log^(C_B-C)x,                                    (C2)
+uniformly for polynomial-sized a, by the nonzero shifted-moment
+bound Z2 of lichtman-zero-product-dispersion-repair-20261009.txt.
+Here C_B is fixed before the truncation parameter C is chosen.
+
+If b=a>0, do not write tau(0). Its full, untruncated contribution
+is at most
+  tau(a)^O_B(1) * sum_{l<=Dtot}|rho_l|
+       <= Dtot*x^o(1) <= x^(1-delta+o(1)),               (C3)
+which is negligible for every fixed logarithmic target. This is
+an estimate of the original first moment, not of a variance.
+
+3. Remove the corresponding coprime mean
+
+The unrestricted mass in (C1), summed over b~x, is
+x*log^(C'_B-C)x by the usual divisor moments. Also
+  sum_{l<=Dtot}|rho_l|/phi(l) << log^(C''_B)x.
+For example split off l/phi(l)<<log log(3l) and use the Euler-product
+bound for sum tau(l)^J/l. Dropping the coprime indicator only increases
+the absolute bound. Therefore the removed mean also has arbitrary
+logarithmic saving after choosing C large enough.
+
+4. Precise conclusion and remaining scope
+
+The one-bounded restricted estimate extends to fixed divisor-bounded
+alpha,beta with the same roughness and auxiliary SW hypotheses, using
+the source's verified-for-this-purpose divisor-function SW truncation
+lemma and the independently reviewed moving shifted-moment estimate.
+No x^o(1) is multiplied into a merely logarithmic theorem remainder;
+subpower factors occur only in the exact-product term (C3), where a
+fixed power margin is available.
+
+For applications with additional intervals or smooth factors, assume
+the requisite interval/twist-uniform SW statements separately or prove
+them for the concrete prime factors. This note does not infer arbitrary
+interval stability from a single dyadic SW statement. It also does not
+prove that a particular finite modulus compiler supplies B1--B4, or
+replace the one/two-long-variable and low-rank alternatives. Those are
+the subsequent project-specific distribution checks.
+
+Sources: L23 proof of Proposition3.1 at lines2625--2667 and Lemma4.3;
+Maynard I Lemma13.7; the new nonzero shifted-moment proof and its
+independent review. This note replaces the truncation justification
+without claiming the original full-a theorem or a new K,c,b value.

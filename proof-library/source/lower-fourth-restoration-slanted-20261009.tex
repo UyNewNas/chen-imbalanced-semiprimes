@@ -1,0 +1,159 @@
+% New component only. Old sources, numerical totals, main and state are frozen.
+\subsection{Parallel slanted slabs for fourth-node restoration}
+\label{sec:fourth-restoration-slanted-20261009}
+
+This certificate uses the pre-own-cube restoration action of
+\texttt{lower-fourth-own-cube-restoration-20261009.tex} and preserves
+every old third ancestor.  It changes numerical coverage of its
+old-exit domain, not the previously retained fourth/fifth policy.
+The original whole-box restoration total is an alternative on the
+same domain and must be replaced, not added.
+
+Put $\nu=249/448$, $h=19/125$, $\Lambda=153/256$ and
+$r_0=(\nu-h)/9$.  For fixed $n\in\{400,800\}$ consider
+\[
+ B=\prod_{j=1}^4[\ell_j,u_j],\qquad
+ (\ell_1,\ell_2,\ell_3,\ell_4)=(i,j,k,l)/n,
+ \quad u_j=\ell_j+1/n,
+\]
+where $\lceil nr_0\rceil\le l<k<j<i$ and
+$i+1\le\lfloor nh\rfloor$.  These boxes are ordered without
+factorials.  Faces have zero integral and may consistently be made
+half open.  Only boxes with $u_1+3u_2<\nu$ are used.
+For
+\[
+ v(b)=\min\{(1+b)/2,(32-34b)/39,57/64-3b/2\},
+\]
+compute an upper bound $U_3$ for the old ideal third cap by taking
+the maximum of $\nu$, all seven nonempty selected-$v$ upper bounds
+on the first three coordinates, and $\Lambda-3\ell_3/8$.
+This includes inactive branches and all three $W$ upper planes,
+so it is an upper bound rather than a claim of equality.
+For each $v$ sum interval its minimum is an endpoint minimum and its
+maximum also checks the peak $25/128$, whose height is $\Lambda$.
+Every old actual buffered third cap remains at most $U_3$.
+
+Use the integer common denominator
+\[
+ D=\operatorname{lcm}(448,256,78n,64n,8n),\quad d=D/n.
+\]
+For each mask $I\subset\{1,2,3,4\}$ containing $4$, let
+$c_I=\inf_Bv(\sum_{j\in I}t_j)-D^{-1}$.
+Keep it only if
+\[
+ c_I>U_3,\qquad
+ c_I>\max_{j\le4}(S_{j-1,+}+2u_j),\qquad c_I>G_{I,+}.
+\]
+The full and selected-remaining gates are checked on the entire
+original box, using their upper affine endpoints.  Choose one
+largest surviving $c=c_I$.  This choice is licensed even when the
+old or new fourth cube fails on part of the box.  Among fixed caps
+passing these gates, a larger cap has no smaller restored-domain
+integrand, since $\bar f$ is increasing in the range proved below.
+No future prime or error estimate enters this decision.
+
+\paragraph{Disjoint clipped slabs and their integrands.}
+Write $r=t_4$ and $A=t_1+t_2+t_3+3r$.  Let $A_-,A_+$ be its
+box endpoints and set
+\[
+ a_0=\max(A_-,U_3+D^{-1}),\qquad
+ a_m=\min(A_+,c-D^{-1}).
+\]
+If $a_m\le a_0$, discard the box.  Otherwise fix an integer
+$m\ge1$, put $a_j=a_0+j(a_m-a_0)/m$, and use the disjoint
+slabs $E_j=B\cap\{a_{j-1}<A<a_j\}$.  Their bounding walls have
+zero volume.  In every retained slab
+\[
+ A>U_3+D^{-1}\ge C_3+D^{-1},\qquad A<c-D^{-1}.
+\]
+Thus the old fourth node was rejected, the new node is admitted,
+and both comparisons have a fixed positive buffer.  No previously
+counted retained fourth or fifth domain is included.  The additional
+raw density has the single ordinary lower residual at level $c$;
+there is no old residual term to subtract.
+
+The ordinary argument satisfies
+\[
+ s=\frac{c-S_4}{r}=2+\frac{c-A}{r}
+ \ge s_j:=2+\frac{c-a_j}{u_4}>2.
+\]
+All actual $s$ and the displayed lower endpoints are less than $3$.
+Indeed $A>U_3\ge\nu$, $c\le\Lambda$ and $r\ge r_0$, whence
+\[
+ s-2\le\frac{\Lambda-\nu}{r_0}
+ =\frac{84375}{90452}<1.
+\]
+Consequently $\bar f(s)=\log(s-1)/s$ and $\bar f'(s)>0$ apply
+without a delay table.  The exact lower estimate for a layer is
+\[
+ \frac{4\bar f(s_j)}{u_1u_2u_3u_4^2}\operatorname{Vol}(E_j).
+\]
+This is a bound against ordinary Cartesian volume.  It makes no
+independence assertion about logarithmic weights after clipping.
+
+\paragraph{Exact volume and outward arithmetic.}
+After scaling by $n$, the four weighted widths for $A-A_-$ are
+$(1,1,1,3)$.  More generally, in integer units with common denominator
+$D'=mD$ and width $w=md$, define
+\[
+ T(x)=\sum_{e\in\{0,1\}^4}(-1)^{|e|}
+       \bigl(x-w(e_1+e_2+e_3+3e_4)\bigr)_+^4.
+\]
+Then $\operatorname{Vol}(B\cap\{A<t\})=
+T(D'(t-A_-))/(72D'^4)$: the factor is
+$4!\,(1\cdot1\cdot1\cdot3)=72$.
+Grouping equal offsets gives coefficients
+$(1,-3,3,-2,3,-3,1)$ at offsets $0,w,\ldots,6w$.
+The program checks this against the sixteen-term expression;
+$T(6w)=72w^4$ and $T(3w)=36w^4$.
+Each layer uses the exact difference of its two CDF numerators.
+No numerical polytope library or floating volume is used.
+
+For $s_j=a/b$ put $z=(a-2b)/a\in(0,1/3)$.
+With $Q_L=2^{112}$ define
+\[
+ L_j=\sum_{q=0}^{7}\left\lfloor
+       \frac{2Q_L(a-2b)^{2q+1}}{(2q+1)a^{2q+1}}\right\rfloor.
+\]
+The positive atanh expansion gives $L_j/Q_L\le\log(s_j-1)$.
+If $V_j$ is the CDF-numerator difference and
+$P=(i+1)(j+1)(k+1)(l+1)^2$, the saved $Q=2^{80}$ floor is
+\[
+ F_j=\left\lfloor
+       \frac{n b L_j Q V_j}{18w^4 a Q_L P}\right\rfloor.
+\]
+This is exactly the preceding lower estimate using
+$u_1u_2u_3u_4^2=P/n^5$ and $D'=nw$.
+The finite positive-series truncation and every rounding are downward.
+
+\paragraph{Replacement, finite compilation and scope.}
+The program recomputes every previously saved whole-box floor at
+the same mesh and verifies its box, mask, cap and integer value.
+For each original box it records both the old complete-box strategy
+and the new complete slab strategy, and chooses
+\[
+ F_B=\max\{F_{B,\mathrm{old}},\ \sum_jF_j\}.
+\]
+Only that chosen strategy is compiled; overlapping alternatives
+are never added.  The new total is $\Delta=Q^{-1}\sum_B F_B$ and
+replaces the old restoration total.  If a previous global assembly
+already included the old total, the only extra Chen coefficient
+is $(\Delta-\Delta_{\rm old})/4$.  Mesh-$400$ and mesh-$800$
+certificates are also alternatives, and not disjoint additions.
+
+Every chosen cap, buffer, box and slab is fixed before the asymptotic
+limit.  The new affine walls permit finite common refinement with
+the preserved old third policy; equality walls may be removed and
+the remaining compact inner domains approximated with arbitrarily
+small density loss.  The minimum recorded history and gate slack
+fixes how small the old root buffer may be chosen.  First-exit parity,
+signed-atom compilation, descendant selected gates and the raw
+ordinary residual equality are precisely the inputs of the existing
+restoration proof, rather than newly inferred distribution theorems.
+No restored node receives a new fifth refinement.
+
+The numerical output is an author certificate and records its own
+source, witness and inherited-proof hashes.  A second implementation
+must independently replay every selected box and layer before this
+component is promoted to independently certified status.  This note
+does not select a new global $c$, $b$ or prime-representation margin.

@@ -1,0 +1,320 @@
+An adversarial audit of the finite compiler's actual coefficient class
+10 October 2026. New proof note; no previous file or selected constant changed.
+
+1. The narrow question and conclusion
+
+The question is whether the signed modulus coefficient used in the count
+and its exact density really has the three one-bounded convolution factors
+required by the restricted PP input, after repeated labels, marked prefixes
+and small-prime beta weights are accounted for. A support factorization of
+each modulus would not answer that question.
+
+The core result below is an exact orbit-count identity, including integers
+with repeated prime factors. It gives a stronger scalar bound than division
+by the whole group rank factorial. It also distinguishes the multiplicity
+of a marked convolution from that of an ordered residual sieve prefix.
+This distinction was implicit, rather than stated as a formula, in the
+older insertion text. A literal replacement of every marked convolution
+by a sorted indicator would be false. No such numerical replacement has
+been identified in the actual inspected baseline code.
+
+The normalization issue closes for the finite geometric families under
+the explicit conditions below. This is not a new estimate for arbitrary
+arithmetic weights, not a proof of the restricted distribution theorem,
+and not an independent revalidation of every existing numerical integral.
+I participated in the earlier compiler and lower-state audits; this note
+supplies a new detailed coefficient derivation and negative controls, not
+a claim of independent authorship of those old interfaces.
+
+2. First put all interval labels on a common disjoint partition
+
+Fix the entire finite policy, its compact margins, a fixed positive
+minimum marked-prime exponent, its beta/rough parameters, and its finite
+exponent meshes before T tends to infinity. Given the finitely many
+original intervals, refine at every endpoint and every cutoff/ceiling
+boundary. Use disjoint half-open cells I. For overlapping original
+intervals, expand each indicator as the SUM of its refined cell indicators
+before using a multiplicity formula. The refined alphabet size is bounded
+independently of T, even if the numerical endpoints involve powers of T.
+Endpoint primes are assigned to one cell, not two.
+
+This refinement is available in the actual construction:
+ - actual-k-compilation-joint-audit.tex paragraph 3 explicitly uses a
+   disjoint half-open fine partition refining every coarse label;
+ - own-lower-compiler-chain-audit-20261009.tex paragraph 4 uses the same
+   partition while retaining all ancestor tests;
+ - current upper and lower insertion texts retain these labels and a
+   fixed decision on each box, with a further common refinement permitted.
+Thus an original overlapping chi interval is not, by itself, an atom of
+the formula below. The number of newly expanded atoms can grow with the
+chosen fixed mesh, but not with T.
+
+Let chi_I(p) be the prime indicator of cell I, with p not dividing T.
+For a labelled slot list J, let m_I be the number of slots carrying I,
+M(J)=product_I m_I!, and T_J=*_{j in J} chi_{I_j}.
+If n has exactly m_I prime factors WITH multiplicity in each cell I,
+unique factorization gives the exact unrestricted formula
+
+ T_J(n) = product_I m_I! / product_p nu_p(n)!.                 (O1)
+
+Otherwise T_J(n)=0. On squarefree n this is M(J). Consequently
+
+ 1_squarefree(n) T_J(n)/M(J)
+
+is exactly the indicator of the associated sorted prime product. This
+is a coefficient identity, independent of sieve densities or prime
+distribution. It is false without first refining overlapping cells.
+
+3. Any fixed whole-box grouping has an exact one-bounded normalization
+
+Partition the slots into three groups. Let m_{I,j} be the number of
+slots of label I placed in group j, and define
+
+ M_j=product_I m_{I,j}!,
+ gamma_j=(*_{slot in group j} chi_I)/M_j.
+
+A group with no slots is delta_1. Formula (O1) gives gamma_j(n)=0 or
+1/product_p nu_p(n)!, in particular 0<=gamma_j(n)<=1 on ALL integers,
+not just the squarefree ones. Commutativity of convolution gives
+
+ T_J/M(J) = c_partition (gamma_1*gamma_2*gamma_3),
+ c_partition=product_j M_j/M(J)
+            =product_I binomial(m_I;m_{I,1},m_{I,2},m_{I,3})^(-1)
+            <=1.                                             (O2)
+
+An existing sign or fixed scalar is retained outside (O2). The older
+normalization by r_j! instead of M_j is also valid; it simply makes
+the group smaller and the restoring scalar larger. It is an exact
+alternative identity, not a change to a density or numerical saving.
+No improvement of K follows from choosing the less wasteful normalization.
+
+For example, for three slots in I and two in J, split as (I,J),(I,J),(I).
+Then M(J)=12, all M_j=1, and c_partition=1/12. Convolution of the three
+normalized groups counts twelve assignments of a squarefree product;
+the final coefficient is one. Division by r_j! would instead give
+scalar 1/3 and compensate it with the two group factors 1/2.
+
+The global squarefree indicator must NOT be replaced by squarefreeness
+within each group. With two I slots split one per group, the modulus
+p^2 has both group factors squarefree but global squarefree coefficient
+zero; the unrestricted coefficient after normalization is 1/2.
+The actual insertion note explicitly removes cross-group collisions by
+a separate remainder bound, rather than making this false replacement.
+
+4. Marked convolution multiplicities are a separate colour
+
+In a table state, sigma(b) may be an unnormalized convolution of marked
+prime indicators. Its repeated-label multiplicities are already present
+in sigma; they are not the same as the ordered residual sieve tuple's
+multiplicities. After common refinement and off prime collisions, let
+m_I count marked slots and r_I the ordered residual slots. Write
+M_mark=product m_I!, M_res=product r_I!.
+
+If sigma is the raw marked convolution, the correct combined atom is
+
+ epsilon/M_res * 1_squarefree(T_mark*T_res) * beta,           (O3)
+
+where the squarefree restriction is on the total rough product.
+It is NOT epsilon/(M_mark*M_res) times that convolution. The marked
+factor M_mark has already been counted by sigma.
+
+The physical ceiling makes the colours particularly simple in actual
+table states: residual sieve primes are strictly below the cutoff, the
+cutoff is at most the retained ceiling, and all existing marked primes
+are at or above that ceiling. Refine the labels at the ceiling. Their
+supports are then disjoint; structural equality belongs to the marked
+side and introduces no common prime. In this case M_all=M_mark*M_res.
+Applying (O2) to (O3) gives a scalar bounded by |epsilon|*M_mark, a fixed
+constant for a fixed finite table depth. The rank-factorial version
+gives a different, still finite, scalar bound.
+
+For a general already normalized ordered marked box, sigma equals the
+marked convolution divided by M_mark, and the ordinary denominator
+M_all is correct. These are two descriptions of different sigma's.
+They must not be mixed in the same count/mean pair.
+
+Concrete negative control: let marked slots both use I={11,13,17},
+and residual slots both use J={19,23}. At n=11*13*19*23, the marked
+convolution contributes 2, the sorted residual pair contributes 1,
+and the correct total coefficient is 2. Dividing the total convolution
+by M_mark*M_res instead would give 1. This diagnoses the possible
+missing factor; it is not asserted to occur in the saved calculations.
+
+The actual table estimate is linear in sigma on BOTH sides:
+
+ Phi(sigma)=sum_b sigma(b) S(A_b;...,cutoff),
+ Theta_Q(sigma)=4 li(T) sum_b sigma(b) C(bT)/[phi(b)log(Q/b)]. (O4)
+
+Thus replacing raw sigma by sigma/M_mark on a fixed box scales Phi
+and Theta by the same factor, and the H/h constants do not change.
+For positive finite sums of boxes apply (O4) before summing. Do not
+divide only the modulus coefficient while leaving Theta unscaled.
+
+This is the precise reading of 'retain the original scalar' in
+own-chen-table-insertion-chain-20261009.tex section 2 (sigma at line 135,
+Theta at lines 139--140, original scalar at lines 159--174) and
+lichtman-current-lower-density-assembly-20261009.txt section 2, line 99.
+Their low-rank hypothesis is a fixed coefficient bound, not the claim
+that every marked convolution has norm one.
+
+Numerical tracing was limited but concrete: the adopted 248 baseline
+adapter calls pair_cell with a diagonal flag; the author pair_cell uses
+log(t_hi/t_lo)^2/2 on a tied L5 bin, and the independent pair engine
+uses the same ordered-triangle mass with independently enclosed logs.
+L6 uses separated rectangular labels. Thus those actual occurrences
+use the ordered-prime measure, rather than silently treating an ordered
+pair as an unnormalized marked convolution. The finite action recurrence
+stores dimensionless ratios in (O4), not individual sigma coefficients.
+This inspection and homogeneity argument resolve this interface; they
+are not a fresh enumeration of all high-dimensional cell measures.
+Direct code locations are certify_sharp_184_baseline.py lines 50--94
+(diagonal mass at 58, the h contribution at 93), and
+independent_sharp_248_baseline_replay.py lines 13--33 (table input,
+ordered L5 loop, separated L6 loops). The recurrence output arrays in
+certify_finite_step_table.py lines 141--142 contain normalized H/h
+values; they do not store raw sigma(b) or an integer-modulus rho.
+
+5. One beta pair works uniformly for every marked prefix in the family
+
+Choose the fixed rough exponent omega smaller than the minimum marked
+prime exponent in the entire finite family and all required support
+reserves. At 430 generations this minimum can be very small but is
+still strictly positive and chosen before T. Let w=T^omega.
+All prime factors of any marked b then exceed w. Hence for p<w,
+
+ p divides bT iff p divides T,
+ g_{bT}(p)=g_T(p),                                         (O5)
+
+including their excluded-prime universe. The same small-prime beta_T^+
+and beta_T^- can therefore be constructed once for the whole family.
+Their support level can be chosen below the smallest retained residual
+and modulus margin. Q/b varies only in the rough support tests, which
+are boxed as tests at the same complete Q. It need not, and here must
+not, induce a new arbitrary beta choice for each individual b.
+
+This is an explicit EXISTENCE completion of the analytic compiler,
+not a claim that a saved numerical program already materializes this
+particular beta_T or all integer coefficients rho. The density and
+finite-table certificates do not construct such integer arrays. The
+earlier texts permit fixed beta choices after the compact family and
+its reserves are selected; (O5) now supplies a concrete uniform choice
+with the required separation. Its beta-density and support reserves
+must still be chosen within the already allocated compiler errors.
+
+On a fixed atom choose the appropriate one of this pair by the fixed
+rough coefficient sign. Upper majorants attach beta+ to positive and
+beta- to negative coefficients; lower minorants reverse these signs.
+No positivity of the beta- divisor polynomial is assumed.
+
+For any integer n there is exactly one decomposition n=n_small*n_rough
+with prime factors below w and at least w respectively. Therefore
+
+ |(gamma_3*beta_T)(n)|
+ =|gamma_3(n_rough) beta_T(n_small)|<=1.                    (O6)
+
+Target coprimality also factors through these supports. The identity
+holds when beta depends on T or the fixed atom label; it would not hold
+for an arbitrary coupled coefficient beta(b,n_small). Similarly it
+fails without the disjoint prime universes: if both factors are the
+indicator of primes {p,q}, their convolution at pq equals 2.
+
+6. Removing global squarefreeness is only an analytic remainder step
+
+Let D<=T^theta, theta<1 fixed, and retain the ORIGINAL squarefree rho
+in both the pointwise sieve inequality and its exact density. Form the
+unrestricted convolution expansion only to estimate its discrepancy.
+Its difference from rho is supported on p^2|l for p>=w. The modulus
+coefficient is bounded by a fixed scalar mass (and even by one for a
+single unmarked sorted policy before regrouping). Before HB expansion,
+a fixed k-prime tuple weight has at most tau_k(v) representations of
+a complete integer v. Uniformly this costs T^o(1). Thus the difference
+in the counting term and exact coprime mean is bounded by
+
+ C_policy T^o(1) sum_{l<=D, exists p>=w:p^2|l}
+                     (T/l+1+T/phi(l))
+ << C_policy (T+D) T^(-omega+o(1)).                       (O7)
+
+For example write l=p^2 e, sum 1/e or 1/phi(e), and use
+sum_{p>=w}p^(-2)<=sum_{n>=w}n^(-2)<<1/w. The count of multiples
+for the +1 term is at most D*sum p^(-2). Fixed divisor powers, if
+introduced by an alternative representation, only change the logarithmic
+factor; they can be absorbed in the fixed-power reserve. The +1 retains
+the complete product v=T without any tau(0) convention.
+
+This proves a small discrepancy difference. It does NOT assert that the
+unrestricted convolution remains a pointwise sieve majorant/minorant,
+or that its density should replace the original density in K or c.
+
+7. Uniform quantifiers and the whole-box partition
+
+Fix the finite policy Pi, disjoint refined alphabet, maximum total rough
+rank R, positive omega, finite marked multiplicities, and all margins.
+For each T and each relevant HB source scale U, choose for every atom
+one slot partition supplied at the ORDERED UPPER ENDPOINT vector. Its
+group products bound every tuple in the full labelled box because each
+prime is at most its slot's endpoint. No reassignment is made after
+observing the individual prime values. Ties of labels cause no failure:
+all their endpoints coincide and (O1)--(O2) include every permutation.
+
+The exact identity (O2) or (O3) holds for every such partition, so it
+may change with T, the atom, or U without changing rho. This is a
+different REPRESENTATION of the same coefficient, not a new coefficient
+chosen for each progression error. For fixed R there are at most 3^R
+slot assignments; more importantly, the restricted convolution estimate
+is uniform over all one-bounded factor sequences satisfying its stated
+support bounds. No statistical independence from T is required of those
+sequences. Coprimality restrictions and beta_T fall within that class.
+
+Precisely, if the restricted source estimate is
+
+ |E_x(gamma1,gamma2,gamma3)|<=C_{A,sigma,SW} x/log(x)^A
+
+for every allowed three one-bounded sequences, then for a finite family
+of atoms (O2)/(O3), with total absolute restoring scalar at most C_Pi,
+the same expression is at most C_Pi C_{A,sigma,SW} x/log(x)^A.
+C_Pi and the SW constants are independent of T. Original interval
+refinement, repeated marked multiplicities, and group normalizations
+are included in C_Pi. The extra HB and dyadic subdivisions cost only
+a fixed logarithmic power, paid by requesting a larger A. One does not
+multiply a logarithmic remainder by an N-dependent rough rank or by
+an unbounded new normalization.
+
+This use of uniformity is visible in the coefficient class of original
+L23 Proposition 5.2 (saved primary text lines 946--965), and is an
+explicit hypothesis of the RESTRICTED retained-phase replacement.
+The original all-a theorem is not being invoked as repaired. Its four
+size inequalities and the new complete-integer range remain mandatory.
+Full/selected/W endpoint factorization and its buffered source exponents
+are separate proved inputs, not consequences of this orbit calculation.
+
+At low ranks retain the bounded ORIGINAL rho and apply an absolute
+below-half discrepancy sum. Formula (O3) permits a finite bound C_Pi,
+not necessarily one for a marked state. This note does not supply the
+generalized BV theorem: its induced-character and auxiliary-coprimality
+uniformity are subject to the separate low-rank proof. It only shows
+exactly what coefficient norm that theorem is asked to multiply.
+
+An arbitrary per-modulus selection can violate the conclusion. For
+two disjoint prime cells, a coefficient 1_{i=j} on products p_i q_j has
+matrix rank equal to the number of primes, although every product
+individually factors. It cannot be represented by a uniformly bounded
+number of separated tensors. Such a coupled choice is not a fixed
+geometric label atom. The actual PP hypothesis excludes it. The current
+common-refinement construction contains no choice based on the signs
+of individual progression discrepancies.
+
+8. Scope of this new result
+
+Newly supplied here are (O1)--(O7), the marked/residual coloured scalar,
+the prefix-uniform beta construction using (O5), the explicit coefficient
+quantifiers, and negative controls for three tempting invalid shortcuts.
+They justify this particular finite-family coefficient passage, provided
+the cited endpoint and restricted PP inputs hold. The old text's phrase
+'original factorial' must be read in the coloured sense above, or via
+simultaneous normalization of sigma and Theta.
+
+No actual arithmetic error in the inspected ordered L5/L6 baseline or
+finite normalized table has been exhibited. That limited finding is not
+a claim that every old numerical certificate was independently rerun.
+No new K/c improvement, global restoration, formalization, publication,
+or modification of a frozen file is made by this note.

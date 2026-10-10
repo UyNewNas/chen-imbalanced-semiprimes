@@ -1,0 +1,125 @@
+% Insertion-only repair; no documentclass and no new cross-reference labels.
+% Target main SHA256:
+% ebb86167e4a292d01058ac8a991d9ad4b804d403cc1787ced080a3c6a73350f8
+% In imbalanced-chen-transfer.tex replace lines 2002--2027, beginning
+% "Choose a single nonnegative smooth outer approximation of each"
+% and ending "in a shrinking boundary strip."
+% The same source passage is uniform-prime-products-upper.tex:99--124.
+% In particular replace the unjustified blanket sentence at main 2019--2020:
+% "prime-product integral has bounded density; the finite monomial
+% and ordering boundaries have measure zero."
+% Do not replace the following exact-coprime distribution paragraph.
+
+\paragraph{Prime-product mass lemma and radial boundaries.}
+The mass calculation requires both exponent coordinates and the
+radial coordinate $y=m/N$. For a fixed number $k$ of prime slots put
+\[
+ t_j=\frac{\log p_j}{\log N}\quad(j<k),\qquad
+ t_k^*=1-\sum_{j<k}t_j,\qquad y=\frac{p_1\cdots p_k}{N}.
+\]
+Fix $0<a_0<a$, and work on an ambient domain
+$t_j,t_k^*\ge a_0$, $0<y\le C$, with $C$ fixed.
+The normalized labelled prime-product mass converges, on continuous
+test weights and subsequently on domains with null boundary in these
+coordinates, to
+\[
+ d\mu_k=\frac{dt_1\cdots dt_{k-1}\,dy}
+ {t_1\cdots t_{k-1}t_k^*}.
+\]
+For $k=1$ this means $d\mu_1=dy$. Fixed bounded constants attached
+to the finite labels are retained. This is a bounded density on the
+displayed simplex times a radial interval; it is not a density in
+the full space of the $k$ prime exponents.
+
+Here is the requisite proof and uniform error estimate. First take
+$\eta\le y\le C$ with $\eta>0$ fixed. With the first $k-1$ primes
+held fixed and $P=p_1\cdots p_{k-1}$, write $p_k=Ny/P$. The prime
+number theorem and partial summation give the last-prime measure
+\[
+ \frac{dp_k}{\log p_k}
+ =\frac{N}{P\log N}\frac{dy}{t_k^*+\log y/\log N},
+\]
+with error $O_A((N/P)(\log N)^{-A})$ for fixed smooth seminorms.
+All nonempty relevant last-prime intervals have their endpoints at
+least a fixed positive power of $N$. Since
+\[
+ \sum_{N^{a_0}/2\le p\le CN}\frac1p=O_{a_0,C}(1),
+\]
+the sum of these errors over the other primes is
+$O_{A,k,a_0}(N(\log N)^{-A})$.
+The reciprocal-prime measures in the remaining coordinates converge
+to $dt_j/t_j$, again by prime-number-theorem partial summation.
+On $y\ge\eta$ the displayed denominator tends uniformly to $t_k^*$,
+proving the assertion first for smooth and then continuous weights.
+The elementary upper bound for primes also gives
+\[
+ \#\{(p_1,\ldots,p_k):p_j\ge N^{a_0}/2,\ 
+                  p_1\cdots p_k\le\eta N\}
+ \ll_{k,a_0}\frac{\eta N}{\log N}.
+\]
+Indeed fix $P$, bound its last-prime count by
+$O_{a_0}(\eta N/(P\log N))$, and sum reciprocal products.
+This removes the radial restriction by first taking $N\to\infty$
+and then $\eta\downarrow0$.
+
+For completeness, each fixed monomial constraint
+$\prod_{j=1}^kp_j^{\beta_j}\le cN^\gamma$ becomes exactly
+\[
+ \sum_{j<k}(\beta_j-\beta_k)t_j+\beta_k-\gamma
+ \le\frac{\log c-\beta_k\log y}{\log N}.
+\]
+If the $\beta_j$ are not all equal, its limiting boundary is a
+nonconstant affine hyperplane in the simplex coordinates and has
+$\mu_k$-measure zero. If all $\beta_j=\lambda$ but
+$\gamma\ne\lambda$, its truth value is eventually constant on
+$\eta\le y\le C$. If all $\beta_j=\gamma=\lambda\ne0$, it is
+the exact radial condition $y^\lambda\le c$ and must be smoothed
+in $y$. When $\lambda=0$ its constant truth value $1\le c$ is
+kept exactly. This classification covers ordering constraints,
+equalities, and finite intersections and unions. In particular it
+does not discard a pure total-product boundary by using the full
+exponent-space measure. For example the empty one-prime domain
+$p=N$ at even $N$ has exponent outer strips
+$N^{1-\delta}\le p\le N$ of normalized limiting mass one, whereas
+radial strips around $p/N=1$ have mass tending to zero with their width.
+
+\paragraph{A positive outer approximation before sieving.}
+For each fixed error budget $\tau>0$, choose $\eta$ sufficiently
+small. On $\eta\le y\le C$ smooth the nonconstant affine walls
+outward by small fixed exponent widths, and the critical pure-product
+walls by small fixed radial widths. Retain a nonnegative smooth
+majorant of the whole strip $0<y\le\eta$, supported in $y<2\eta$;
+its mass is $O(\eta)N/\log N$. The preceding classification and
+mass lemma then give one nonnegative bounded global outer weight
+$W_{N,\tau}$ with
+\[
+ W_{N,\tau}\ge\mathbf1_{\mathcal D_N},\qquad
+ \limsup_{N\to\infty}\frac{\log N}{N}
+       \sum_{p_1,\ldots,p_k}
+        (W_{N,\tau}-\mathbf1_{\mathcal D_N})\le\tau.
+\]
+Keep a separate lower-cutoff factor equal to one for $p_j\ge N^a$
+and zero for $p_j\le N^a/2$. Here this factor-two transition has
+vanishing excess mass: for $k\ge2$ its limiting face is a
+nonconstant simplex wall, and for $k=1$ the cutoff $a<1$ is
+noncritical. For a general critical pure-product cutoff the radial
+rule is required instead of a fixed factor-two transition.
+Thus every prime in the actual outer family remains at least $N^a/2$.
+
+The operators $p_j\partial_{p_j}$ send $t_i$ to
+$\delta_{ij}/\log N$ and send $y$ to $y$. Hence all normalized
+derivatives on dyadic charts are bounded for each fixed smoothing
+precision, uniformly in $N$ and the chart location. A smooth dyadic
+partition of unity gives $O((\log N)^k)$ rectangles and sums back
+to this one global majorant. The excess mass is therefore counted
+once; only distribution errors acquire the harmless logarithmic
+number of rectangles, absorbed by a larger requested saving.
+
+The order of use is essential. First dominate the desired positive
+prime count by its count with $W_{N,\tau}$. Then apply the smooth
+exact-coprime distribution statement and the upper sieve below.
+Small excess total mass alone is not asserted to control a difference
+of signed progression remainders. After these estimates, take
+$N\to\infty$ for the fixed family, widths, and factorization margins,
+and only then take $\tau\downarrow0$. No averaging over $N$ or
+uniformity in a cutoff tending to zero is used.

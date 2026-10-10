@@ -1,0 +1,240 @@
+Selected density-to-sieve-weight interface: tail, fixed costs and budgets
+2026-10-10. New read-only mathematical/implementation audit.
+
+1. Scope and finding
+
+The selected source is lichtman-bottom-inputs-and-tail-assembly-20261010.json,
+K=8452171/1250000=6.7617368 and c=48966843/25000000=1.95867372.
+The live research state was consulted only to identify that selection. No
+old file, state, manuscript or selected number is changed. This is an audit
+relative to the explicitly retained outward numerical enclosures and the
+licensed positive-product/ordinary-density inputs, not their reproof.
+
+No repeated tail credit, repeated lower feedback, mixed normalization, or
+discarded table/profile was found. This conclusion is based on the actual
+builders' cost formulas and a new complete coefficientwise extension check,
+not only on JSON hashes or previous PASS labels. The companion checker runs
+no project module, ordinary table, integral, action recurrence or new mesh.
+
+2. What the third-tail replacement actually replaces
+
+certify_extended_prefix.py defines
+ U0=4/Theta+first_integral_upper+third_integral_upper+third_tail_upper.
+The compact third integration has z>=1/100. Its old tail_upper() bounds the
+entire complementary ordered 0<z<1/100 contribution by the D(s) decay
+estimate, using v(x)-2x>=rho. The new numerator-chord computation supplies
+a smaller rigorous upper estimate for THIS same tail. Its difference is
+
+ delta=1889546852465054429442261657/2^111 >0.
+
+It is not a new positive saving domain. actual-k-density-joint-audit
+subtracts replacement D4, replacement old D5, disjoint new D5 and replacement
+D6 from U0. Above-mu D2/D3 and later sixth/eighth differences are subsequently
+subtracted. None multiplies U0 or replaces this original third-tail term.
+Our fresh reconstruction from the base four summands through every later
+selected update verifies that its coefficient is exactly one. The two
+newest mixed-moment differences remain same-domain replacements; no whole
+old integral is added again.
+
+The numerical cut z=1/100 is not the compiler's rough activation w. The
+additional w->0 tail and finite ordinary-tree approximation are still paid
+by the finite density allowance. The fact that a numerical bound for the
+fixed z<1/100 integral improves does not remove either finite allowance.
+
+3. New complete check: extension of every retained switched cell
+
+The actual n48 builder certify_sharp_248_four_min.py uses on each cell B
+the baseline K0*C*Z_B, with K0=67619/10000, C=70893/125000 and
+ Z_B=int_B dt1 dt2 dt3 dt4/(t1*t2*t3^2*t4).
+The position t3 is the actual third-smallest prime. The full Y11 range is
+retained. method=0 saves a lower bound g_B for
+ K0*C*Z_B - K0*int_B omega((1-S)/t3) dmu/t3.
+The other methods are ordinary H248 alternatives. One maximum is selected;
+their savings are not added. Tied bins use the ordered part of that cell.
+
+For a retained method=0 cell let T_B be its positive switched mass. Then
+ 0<=K0*T_B<=A_B:=K0*C*Z_B-g_B.
+This is an inequality for the leading cost functional; an asymptotic count
+retains its separately paid o(H) and finite errors. It is not an exact
+inequality for every finite prime count.
+
+The priority refinement replaces 40,000 complete parents by max(parent,
+sum children). Those parents must be wholly excluded from the slope. The
+new checker reads the old saved rows and priority indices and independently
+reconstructs all 1,190,700 ordered keys. It proves the following partition:
+
+                  retained method0    ordinary only    priority parents
+ U10                    140265             86996              22639
+ U11full                870866             52573              17361
+
+Thus exactly 1,011,131 fixed switched cells are differentiated. No child
+integral or ordinary alternative is silently rescaled.
+
+On physical integer endpoints l_i/u_i with denominator N=240000, set
+ z_B=N*prod(u_i-l_i)/(prod(u_i)*u_3*prod_block multiplicity!).
+This is a lower bound for Z_B: the positive reciprocal integrand is at
+least its upper-corner value, while the ordered tied-cell volume is the
+rectangular volume divided by its block factorial. The bound itself is
+symmetric inside a tied block, even if the original selected estimator was
+not symmetric. No false symmetry of that selected estimator is invoked.
+
+Let Q=2^80 and write g_B=g/Q. With delta0=K0-6.7618=1/10000, the old saved
+integer d is floor(Q*delta0/K0*(K0*C*z_B-g/Q)). The audit derives its integer
+numerator independently from endpoints and verifies, for EVERY retained
+cell, a positive d and an exact nonnegative remainder:
+
+ Q*(K0*C*z_B-g/Q)=67619*d+e,       0<=e<67619.
+ s_B=10000*d/Q.
+
+Here e is stored/recomputed as a rational remainder, not a floating error.
+Consequently A_B/K0>=s_B. For EVERY fixed 0<K<=K0,
+
+ A_B-(K0-K)*s_B -(K/K0)*A_B
+       =(K0-K)*(A_B/K0-s_B)>=0.                         (1)
+
+Since K*T_B<=(K/K0)*A_B, (1) proves the current affine cost bound.
+For its z_B lower proxy the checker also verifies the exact identity
+ Q*(A_lower-(K0-K)*s_B)=10000*K*d+e>0.
+This is a positive certificate of the direction, not a repeated quadrature.
+All row sums reproduce d_U10=1277985388931956822 and
+d_U11=7976183963523684871. It applies to the present K and all intermediate
+selected K values. It does NOT assert s_B<=T_B: that stronger inference is
+unnecessary and in general false. The upper COST enclosure is what is
+scaled, and its old g_B must be retained in (1). Naively subtracting
+(K0-K)*C*Z_B while retaining all old g_B would not follow.
+
+4. Five costs, one Chen normalization, and no overlap with table gains
+
+The fixed pointwise weight is
+ (3L1+L2+L5+L6-U3-U4-2U7-U8-U9-U10-U11full)/4.
+U7,U8,U9 are complete K-linear positive costs U_i(K)=K*J_i. The actual
+sharp-switch-simpson-independent.py uses the U7 initial-branch Fubini
+correction and the full displayed U8/U9 one-dimensional kernels. Its saved
+cost lower endpoints at K0, divided by K0, are lower bounds for J_i.
+They are not lower bounds for prime counts. Hence
+
+ A789=(2*u7_lower+u8_lower+u9_lower)/(4*K0),
+ A1011=10000*(d_U10+d_U11)/(4*2^80),
+ A=A789+A1011
+  =8598593512394265568060189496377494375/
+   21943620079829156838350226955345854464.
+
+The multiplicity two on U7 and the single Chen quarter are included.
+Different terms may count the same prime configuration: the pointwise
+functional is a linear combination, so that is not double counting an
+alternative estimate. Within one term, the ordinary/refined/switching
+choice remains exclusive as in section 3.
+
+The 312 anchor already paid (K0-Kstar)*A, Kstar=6.7618, along with the
+248-to312 U3/U4 gain. Current subsequent feedback is only A*(Kstar-K).
+The only additional table difference after this anchor is
+ T430=282218209595396890358020075/2^110,
+the difference from312 to430 in U3/U4, adopted once at the eighth-prefix
+assembly. It is not a fresh difference from248. The checker walks all ten
+later selected records and reconstructs their raw lower values and both
+budgets. There is no later replacement of L5/L6 or U10/U11's profile.
+
+Current occurrence map:
+ - L1: ordinary a-start plus its weighted lower-tree corrections (3/4).
+ - L2: ordinary h-start and its corrections (1/4); whole former H248
+   prefix integral removed once. No remaining H312/H430 defect there.
+ - U3/U4: H430 arm1, certified at6.761767; common-knot minima and s=2 clamp.
+ - L5/L6: h248, actual selected pair512. The Wu product gate has separately
+   been checked on all524288 L6 cells;128 is a historical comparison.
+ - U7/U8/U9: fixed complete switched costs, no H/h lookups.
+ - U10/U11: H248/omega n48 minimum plus priority40000 replacement; the only
+   later K slope is section3's unchanged method0 complement.
+
+K now is smaller than all historical positive-product anchors; its genuine
+positive theorem implies those weaker upper theorems. This does not
+retroactively regenerate a table at the new K. Ordinary430 is a finite
+generation, not an assertion about the true optimal infinite H/h limit.
+
+5. Complete budget reconstruction and units
+
+The upper reference after D2,D3 chooses EACH allowance
+ (6.7618-reference_raw)/4. These are a fresh common finite realization of
+the already accumulated raw policy, not additional credits for earlier
+alternative safe rounded constants. For each later saving d, raw decreases
+by d and EACH allowance increases by d/8. The tail follows the same rule.
+All these are K units: there is NO Chen quarter. The new tail thus improves
+raw-plus-budgets by3*delta/4, not by delta and not by delta/4.
+
+For lower let Cstar and Bstar be the raw and EACH allowance of the actual
+312 anchor table-k-feedback-transfer-assembly-20261009.json. We independently
+obtain the current exact identities
+
+ Ccurrent=Cstar+A*(Kstar-K)+T430,
+ Bcurrent=Bstar+[A*(Kstar-K)+T430]/8.
+
+Both lower budgets are already in c units, including all occurrence
+coefficients. Raw minus BOTH budgets exceeds the selected c. No upper
+allowance is subtracted again from c: it was spent proving the positive
+K theorem used by the lower estimates. No tail delta is directly added to
+c. The last feedback is only A*(6.76173728-6.7617368).
+
+Finite density and compiler allowances are not a shared single reserve.
+Choose the common causal tree, tails, cap buffers and one-sided outer
+approximations to fit the first. Then beta/fine coefficient boxing and
+its density error fit the second. The fixed-family PP remainders are
+o(H_T), covered by a strict remaining slack after both reserves, not by
+treating a failed numeric floor as asymptotic error. All constants and
+finite cutoffs precede T. Lower table children and positive switched
+families may be numerous but fixed; the upper K theorem must apply to
+their finite union with its positive mass normalization. It does not use
+the lower c conclusion. Thus the sequence K theorem -> old anchor
+tables/costs -> lower coefficient is acyclic.
+
+The old feedback proof's 'sufficient additional reserve sigma/4' is an
+alternative sufficient precision choice. It was not an adopted numeric
+charge in these later records; adding it again would be a new loss. The
+actual selected builders use the cumulative formulas just verified.
+
+6. Selected numerical inputs and independent-replay limits
+
+The following is a functional input map, not a claim to independently
+recreate every transitive historical file during this audit.
+
+ Upper base E0: certify_extended_prefix.py/json, first alternating series,
+ fixed-point log, ordinary F/f table, compact2M cell geometry/enclosures,
+ plus the original third tail. extended-prefix-full-driver-replay.json
+ independently replayed the heap/width decisions but REUSED the enclosure
+and fixed-point primitives. numerical-primitive-adversarial-20261009
+adds a genuinely different numerator-chord ordinary-table construction,
+all360450 node containments and the new tail; its finite query controls
+do not independently reconstruct every2M geometric leaf enclosure.
+This is the clearest remaining shared-primitive/full-leaf coverage limit.
+
+ Upper D4/D5/D6 and D2/D3: actual-k-density-joint-audit identifies the
+replacement/additive distinction; each later selected ledger refers to
+its whole-box rational, polytope/Jensen or moment witnesses and distinct
+independent replays. The87 eighth domains use actual inherited caps and
+same-node telescoping. Moment refinements, including the final29-history
+and mixed seed, change integrals only. We inherit their existing complete
+local replays and do not upgrade their scopes by this scalar audit.
+
+ Lower base: sharp-248-baseline-128 provides the initial eleven terms;
+sharp-switch-midpoint-1024, independently enclosed by a fourth-derivative
+Simpson implementation, replaces all three switched costs. Pair512 replaces
+L5/L6; n48 four-min replaces old uniform costs AND the old four-prefix patch;
+priority40000 replaces parent maxima. The exact chosen sums feed
+lower-start-refined-methods and lower-start-method-coverage, then the
+own-cube restoration's slanted replacement. In particular old184 and
+oldn32 values are not additional current gains.
+
+ H/h: 248 derives from the original70W1 and3W2 plus33newW2 finite actions;
+312 and430 retain that finite bank with recalibration/iterations. Complete
+independent recurrence/hash comparisons exist. W1's actual70 ordinary/J
+queries and1858feedback/200Buchstab weights now also have a different
+positive-series/Simpson primitive validation. Expanded33 ordinary/pair
+and kernel integrals have separate independent closure. Root is presently
+checking all36 ordinary W2 inputs by another affine-series method; that
+new pending audit is not an input to this frozen report. Earlier same-
+method or shared primitive reviews are not relabelled as new independent
+mathematics. Full uniform spectral/classical input proofs remain the
+explicit analytic scope of the current repaired PP assembly.
+
+The new evidence here is the complete positive-remainder/ownership bridge
+for the CURRENT affine switching costs, plus independent reconstruction
+of the selected two-sided budget/profile interface. It does not improve
+K,c,b or replace any inherited integral premise.

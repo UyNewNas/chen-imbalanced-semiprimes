@@ -1,0 +1,124 @@
+{
+  "status": "EXACT_SHARPER_FULL_ELEVEN_TERM_BASELINE_UNDER_EXISTING_INSERTION_INPUTS",
+  "parameters": {
+    "a": "417/5000",
+    "h": "19/125",
+    "d": "59/250",
+    "K_U7_U9": "67619/10000",
+    "K_uniform_U10_U11": "8459/1250"
+  },
+  "bank": "expanded-w2-midpoint-table248-v1.json",
+  "meshes": {
+    "pairs": 128,
+    "ordinary": 4096,
+    "one_prefix": 2048,
+    "switch_line": 16384
+  },
+  "Q": "1208925819614629174706176",
+  "terms": {
+    "L1": {
+      "lower_numerator": "16277054284462455830437051",
+      "upper_numerator": "16277054802509179319453536",
+      "denominator": "1208925819614629174706176",
+      "lower_decimal": "13.464063733580537789535860946664766",
+      "upper_decimal": "13.464064162098743856269467252935955"
+    },
+    "L2": {
+      "lower_numerator": "8586547972866441938526945",
+      "upper_numerator": "8586548253632986689730702",
+      "denominator": "1208925819614629174706176",
+      "lower_decimal": "7.1026260119116214975793207799414844",
+      "upper_decimal": "7.1026262441562639692771016573382984"
+    },
+    "U3": {
+      "lower_numerator": "24556212011015573938877778",
+      "upper_numerator": "24556212011015763559960381",
+      "denominator": "1208925819614629174706176",
+      "lower_decimal": "20.312422493253878024393472823144525",
+      "upper_decimal": "20.312422493254034875276733340943980"
+    },
+    "U4": {
+      "lower_numerator": "16995904880905682608489452",
+      "upper_numerator": "16995904880905900972965867",
+      "denominator": "1208925819614629174706176",
+      "lower_decimal": "14.058683010280555412990957210075317",
+      "upper_decimal": "14.058683010280736039852317990939963"
+    },
+    "L5": {
+      "lower_numerator": "2870544600938633333581144",
+      "upper_numerator": "2870544600938633333581144",
+      "denominator": "1208925819614629174706176",
+      "lower_decimal": "2.3744588413652051015870189710218021",
+      "upper_decimal": "2.3744588413652051015870189710218021"
+    },
+    "L6": {
+      "lower_numerator": "3650239277142433961092442",
+      "upper_numerator": "3650239277142433961092442",
+      "denominator": "1208925819614629174706176",
+      "lower_decimal": "3.0194071612317994752684022165731587",
+      "upper_decimal": "3.0194071612317994752684022165731587"
+    },
+    "U7": {
+      "lower_numerator": "1672340932775490171295145",
+      "upper_numerator": "1672588257162120327726028",
+      "denominator": "1208925819614629174706176",
+      "lower_decimal": "1.3833279971707316361370149922949072",
+      "upper_decimal": "1.3835325791083636707816456006648009"
+    },
+    "U8": {
+      "lower_numerator": "4904158626940878198745061",
+      "upper_numerator": "4905249137162937407546399",
+      "denominator": "1208925819614629174706176",
+      "lower_decimal": "4.0566249370901707589130712505327984",
+      "upper_decimal": "4.0575269860036490334821267116116322"
+    },
+    "U9": {
+      "lower_numerator": "3937425789073421195006580",
+      "upper_numerator": "3937598367822872595720035",
+      "denominator": "1208925819614629174706176",
+      "lower_decimal": "3.2569622760878408861293099841027608",
+      "upper_decimal": "3.2571050298835257312602642511721632"
+    },
+    "U10": {
+      "lower_numerator": "238353831315532959733277",
+      "upper_numerator": "238353831315532959746738",
+      "denominator": "1208925819614629174706176",
+      "lower_decimal": "0.19716166819194358386746457881368697",
+      "upper_decimal": "0.19716166819194358387859925703926328"
+    },
+    "U11full": {
+      "lower_numerator": "659348584222532454821890",
+      "upper_numerator": "659348584222532454825090",
+      "denominator": "1208925819614629174706176",
+      "lower_decimal": "0.54540036578316595463177563047187866",
+      "upper_decimal": "0.54540036578316595463442260843204835"
+    }
+  },
+  "uniform_c_lower": "2325162844391274029573779/1208925819614629174706176",
+  "preserved_old_patch_once": "899438949471609821053/75557863725914323419136",
+  "raw_c_lower": "2339553867582819786710627/1208925819614629174706176",
+  "raw_c_diagnostic": 1.9352336012879618,
+  "old_184_c_lower": "315856743484487110697296000035/163620856129922371021432684544",
+  "improvement_over_old_184_lower": "787835169642050515267100653/163620856129922371021432684544",
+  "improvement_diagnostic": 0.0048150045677335515,
+  "scope": [
+    "Complete old eleven-term baseline only; no lower-start three/four/five-prefix increment.",
+    "Same frozen bank used directly; no duplicate table delta.",
+    "One affine branch per pair box, concave fbar chord, exact logarithmic rectangle or diagonal triangle mass.",
+    "Convex Fbar chords in upper one-prefix integrals; exact clamped A=1 region.",
+    "Old four-prefix patch kept once against its original outer K; all other K use 6.7619.",
+    "Shared rigorous I/log and SieveTable primitives; analytic insertion/distribution hypotheses remain inherited.",
+    "Positive-term fields report proved lower bounds, not upper enclosures of the actual table functional."
+  ],
+  "elapsed_seconds": 17.44792820001021,
+  "bindings_sha256": {
+    "certify_sharp_184_baseline.py": "a4ebffaf2b13123cf8d7510fed18482f85ec1a79f1bcddb220bd3d3ec8197639",
+    "certify_conservative_chen.py": "67b9429667e18786058e0fe58676fbe09d556868468f1281166cac2b55f8604e",
+    "certify_extended_prefix.py": "1b77aa5deb90e0f39e06c776847a7e9fff27e23d584036955741b015ca05ad29",
+    "certify_combined_chen_functional.py": "2d33559abaeb08d076a0185952ef7a1697ed1ca0b5beade129aa443a9ac4876b",
+    "expanded-w2-midpoint-table248-v1.json": "a91c371b8c69398619ebee8b17598c163fbf8b6267fa0470ed6930e2097a98ed",
+    "combined-four-prefix-min-n32.json": "d6475778e534bc75a8a9db65206d5574648472089df9f17a3dbf24596ee1486f",
+    "certify_variable_kernel_global_increment.json": "1eeef1377a4908fa2462097a6656888fe700aae90c633bf9406873db9ee3868e",
+    "finite-table-chen-insertion.tex": "35b8f41a689ff740e292271bf9bea4f71d8c23644e04c6c1a6321b7b1e024a48"
+  }
+}

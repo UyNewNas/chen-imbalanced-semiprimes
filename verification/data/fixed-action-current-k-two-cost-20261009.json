@@ -1,0 +1,56 @@
+{
+  "status": "EXACT_POSITIVE_U3_U4_TABLE_REPLACEMENT_INTEGRAL_PENDING_INDEPENDENT_REPLAY",
+  "old_table": "table-k-feedback-pilot-20261009.json",
+  "new_table": "fixed-action-stationarity-pilot-20261009.json",
+  "new_table_arm": 1,
+  "table_denominator": "1208925819614629174706176",
+  "input_table_validity": "Finite current-K table reached after118 changing rounds plus one stationary check; independent bank/iteration audit required before any adoption.",
+  "coefficient_rule": "4 in each cost cancels the global1/4; shared first piece has multiplicity2.",
+  "argument_rule": "s=max(2,L/a),zero outside[1,5]; common knots use smaller adjacent table values.",
+  "pieces": 4,
+  "interval_rows": 210,
+  "clamp_delta_H_numerator": "338077733124289951",
+  "totals_by_piece": {
+    "shared_first": "4942142828015231820183939/5192296858534827628530496329220096",
+    "U3_middle": "84925092242324506106155173/5192296858534827628530496329220096",
+    "U3_classical": "1015232965455453831871192591/5192296858534827628530496329220096",
+    "U4_middle": "23772637855793991634548597/5192296858534827628530496329220096"
+  },
+  "lower_numerator": "1128872838381587561432080300",
+  "lower_denominator": "5192296858534827628530496329220096",
+  "gain_in_c_lower": "282218209595396890358020075/1298074214633706907132624082305024",
+  "display_only": {
+    "gain_in_c": 2.174130002844512e-07,
+    "pieces": {
+      "shared_first": 9.518220861913152e-10,
+      "U3_middle": 1.635597781793409e-08,
+      "U3_classical": 1.9552675686997107e-07,
+      "U4_middle": 4.578443510354722e-09
+    }
+  },
+  "retained_occurrences": [
+    "L1/L2 starts and old H248 removal",
+    "L5/L6",
+    "U7/U8/U9 at the latest independently proved K, no repeat gain",
+    "U10/U11 and all existing min replacements",
+    "All restoration increments"
+  ],
+  "scope_limits": [
+    "No ordinary integration recomputed",
+    "No high-dimensional integral recomputed",
+    "No global c/b chosen",
+    "Every new finite error still requires a global allowance"
+  ],
+  "bindings_sha256": {
+    "certify_fixed_action_current_k_two_cost_20261009.py": "56ad5cd3032e121661b0df09ba63fba39fb7ff9d5ed22392370ab204aab7a9b0",
+    "table-k-feedback-pilot-20261009.json": "548dbe89bd26d8a14df784c30f3042513c700f15a0f57d93f1c56d798959b9a0",
+    "fixed-action-stationarity-pilot-20261009.json": "ebb7b76ccc2298751eff2c0aa044e018b0eda297054916113dcd31549ab71561",
+    "fixed-action-current-k-two-cost-20261009.witness.json": "346036cdbe32711f29b26b8507110014a916abfa268d679a8bcb8231e2a62b41",
+    "table-k-feedback-two-cost-insertion-20261009.tex": "f6c5d1c363f1298d751db3edf4f346d9fed1c9895e49bcf8378182cda8728fea",
+    "own-chen-table-insertion-chain-20261009.tex": "09f84f41e97dbd2267baee01a0a7c7c765e696a00688809086394c10f24623ee",
+    "certify_combined_chen_functional.py": "2d33559abaeb08d076a0185952ef7a1697ed1ca0b5beade129aa443a9ac4876b",
+    "certify_sharp_184_baseline.py": "a4ebffaf2b13123cf8d7510fed18482f85ec1a79f1bcddb220bd3d3ec8197639",
+    "sixth-lower-complement-transfer-assembly-20261009.json": "9186ca0ab87cbe1abefdba4c01c4d8538978bef2a25cc4ff09c6118fc81ea371",
+    "fixed-action-stationarity-method-20261009.tex": "4de80c02c8eede58f82b9ba908e35552b7c289dc37b71bffdba6ff7c8d15c0b7"
+  }
+}

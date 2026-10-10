@@ -1,0 +1,377 @@
+% New independent proof audit. No documentclass; no old file is edited.
+\subsection{From the actual finite upper tree to bounded convolution atoms}
+\label{sec:actual-k-compilation-joint-audit}
+
+This audit proves the finite combinatorial and factorization interface
+used by \texttt{lower-k-uniform-product-interface-review.tex}. The
+objects being compiled are actual signed sieve coefficients. Merely
+factoring each integer in their support would not suffice. The
+dispersion theorem, outer-product HB/SW argument and limiting density
+evaluation remain separate inputs. The finite tests recorded in the
+companion JSON are diagnostics of the identities below, not their proof.
+
+\paragraph{1. The raw tree and the sign of its first exits.}
+At any fixed $N$ order the allowed sifting primes decreasingly. A
+history contains the ordered prefix, its coarse labels, inherited
+admission decisions, selected mask and frozen level. Let $\mathcal T$
+contain the empty tuple, be closed under deleting final slots, and have
+only odd-length first excluded prefixes. Put
+$\lambda(d)=\mu(d)\mathbf1_{d\in\mathcal T}$ for squarefree $d$.
+For every finite set $Q$ of allowed primes and $0\le h(p)\le1$,
+\begin{equation}\label{eq:actual-k-first-exit}
+ \sum_{d\mid Q}\lambda(d)h(d)
+ =\prod_{p\mid Q}(1-h(p))+
+ \sum_{P=p_1\cdots p_j\mid Q\atop P\text{ first exit}}
+ h(P)\prod_{p\mid Q,\ p<p_j}(1-h(p)).
+\end{equation}
+Indeed, partition every excluded divisor by its unique first excluded
+prefix $P$. Its remaining factors are an arbitrary subset of the
+primes below $p_j$. Its contribution to the full Euler product is
+$(-1)^jh(P)\prod_{p<p_j}(1-h(p))$, and $j$ is odd. Subtracting these
+contributions proves the identity. This proof permits history-dependent
+levels; the history of a prefix must be identical in all descendants.
+
+In the inspected tree the first stop is at rank one; the old third
+decision is at rank three. A fourth upgrade preserves its rank-four
+node and changes subsequent odd tests. A fifth upgrade replaces the
+fifth test itself, leaving the earlier decisions intact. A sixth
+upgrade preserves membership of its rank-six node and changes only
+tests $7,9,\ldots$. Reverting an upgrade on a boundary strip means
+restoring the inherited rule there. These operations preserve the
+hypotheses of \eqref{eq:actual-k-first-exit}. They do not mean that
+signed finite weights are monotone in the chosen level.
+
+In particular an extra exclusion at rank six is forbidden. The need is
+substantive: on two ordered primes, retaining $1,p_1,p_2$ but excluding
+$p_1p_2$ gives divisor sum $1-1-1=-1$ at $n=p_1p_2$, below the required
+zero. The actual rank-six construction avoids this operation.
+
+\paragraph{2. Rough projection has the required one-sided density.}
+Let $P_N(y)$ use only primes not dividing $N$, let
+$g_N(p)=1/(p-1)$ on these primes, and let
+$V_N(y)=\prod_{p<y,p\nmid N}(1-g_N(p))$. Since $N$ is even,
+$0\le g_N(p)<1$. Fix $w<z$ and restrict the same raw history rule
+to $Q=P_N(z)/P_N(w)$. Multiplication of
+\eqref{eq:actual-k-first-exit} by $V_N(w)$ gives
+\[
+ V_N(w)\sum_{d\mid Q}\lambda(d)g_N(d)
+ =V_N(z)+\sum_{P\text{ full first exit}\atop p_j\ge w}
+                g_N(P)V_N(p_j)
+ \le \sum_{d\mid P_N(z)}\lambda(d)g_N(d).
+\]
+A rough first exit is exactly a full first exit whose last prime is
+at least $w$, because all its earlier primes are larger. The missing
+terms are nonnegative. Thus the rough density times $V_N(w)$ is no
+larger than the full density. It is not asserted equal to it.
+If the raw definition deactivates deep upgrades below a cutoff, use
+that same definition on both sides; passage to an endpoint tree is a
+separate limiting-density argument.
+
+\paragraph{3. The correct box inequality, including endpoints.}
+Choose a finite fine partition into disjoint half-open prime intervals,
+refining every coarse label. Keep each coarse history decision fixed
+on its labelled box. At an even final rank use lower endpoints in all
+applicable historical odd cube tests and non-strict inequalities. At
+an odd final rank use upper endpoints and strict inequalities. Define
+$c(d)=(-1)^m$ on retained squarefree rough products of rank $m$, and
+zero otherwise. Take the rank cutoff larger than every possible raw
+rough rank; this is possible since $d\le N^{\theta_*}$ and
+$p\ge N^\omega$ with fixed $\omega>0$.
+
+A positive raw coefficient always passes the even outer tests. Every
+negative boxed coefficient passes the actual strict odd tests. Hence
+\[
+ c(d)\ge\lambda(d)\quad\text{coefficientwise},\qquad
+ \sum_{d\mid n,\ d\mid Q}c(d)\ge\mathbf1_{(n,Q)=1}.
+\]
+The boxed support itself need not be prefix closed. Equality at a
+grid endpoint belongs to exactly one half-open interval; the stated
+strict/non-strict tests give these pointwise conclusions even there.
+Every applicable historical cube must be retained. Testing only a
+new final cap would incorrectly forget an earlier stop.
+
+If the box width in exponent coordinates is $\tau$, a discrepancy
+lies within $O(M\tau)$ of a historical odd cube at one of the finitely
+many frozen levels. Fix all primes except the tagged prime in this
+cube. Its reciprocal-prime mass is $O(M\tau/\omega)+o_N(1)$.
+The remaining subsets sum to at most
+$\prod_{w\le p<z}(1+g_N(p))\ll\omega^{-1}$.
+There are $O(M)$ possible tags, $M=O(\omega^{-1})$, and
+$V_N(w)/V_N(z)\ll\omega^{-1}$. Thus, with a constant depending on
+the frozen cap list,
+\[
+ 0\le V_N(w)\sum_d(c(d)-\lambda(d))g_N(d)
+ \ll V_N(z)C_{\mathcal T}\tau\omega^{-5}+o_N(V_N(z)).
+\]
+This estimate also covers a tag among the marked prefix primes,
+because one sums over the finite frozen levels rather than
+differentiating a discontinuous cap. Gate strips are first treated by
+inherited legal rules, not by arbitrary even-rank deletion.
+
+\paragraph{4. Sign-sensitive small-prime attachment.}
+Let $\beta^\pm$ be squarefree fundamental-lemma weights supported on
+primes below $w$, with $|\beta^\pm(b)|\le1$, and put
+\[
+ B^-(n)=\sum_{b\mid n}\beta^-(b)
+ \le I_w(n):=\mathbf1_{(n,P_N(w))=1}
+ \le B^+(n)=\sum_{b\mid n}\beta^+(b).
+\]
+Attach $\beta^+$ to $c(d)>0$, and $\beta^-$ to $c(d)<0$.
+For every individual rough divisor,
+\[
+ c(d)B^{\operatorname{sgn}c(d)}(n)\ge c(d)I_w(n).
+\]
+Summing and using the previous paragraph proves
+\[
+ \sum_{q\mid n}\rho(q)\ge I_w(n)\sum_{d\mid n,d\mid Q}c(d)
+ \ge\mathbf1_{(n,P_N(z))=1}.
+\]
+No positivity of $B^-(n)$ is used. Since the small/rough decomposition
+$q=bd$ is unique, $|\rho(q)|\le1$. Repeated appearances in the
+subsequent atom expansion do not alter this original coefficient norm.
+
+If both beta densities differ from $V_N(w)$ by at most
+$\varepsilon_\beta V_N(w)$, their attachment costs at most
+\[
+ \varepsilon_\beta V_N(w)\sum_d|c(d)|g_N(d)
+ \ll \varepsilon_\beta\omega^{-2}V_N(z).
+\]
+Thus the density error is controlled even though negative coefficients
+receive a different beta sequence. Combined with the rough comparison
+and box error, this gives precisely an upper bound by the raw density
+plus these two errors.
+
+\paragraph{5. The exact atom identity and factorial bookkeeping.}
+Fix a retained ordered fine-label vector $J=(J_1,\ldots,J_m)$.
+For a label $I$, let $m_I$ be its multiplicity and let
+$M_J=\prod_I m_I!$. Put
+$T_J=\chi_{J_1}*\cdots*\chi_{J_m}$, with each prime indicator also
+restricted to $p\nmid N$. If $A_J$ denotes the indicator of the sorted
+squarefree products in this label box, unique factorization gives
+\[
+ \mathbf1_{\rm squarefree}(d)T_J(d)=M_J A_J(d).
+\]
+Every distinct prime product has exactly $m_I!$ assignments among the
+slots of label $I$. Its rough contribution is therefore exactly
+$(-1)^m\mathbf1_{\rm squarefree}T_J/M_J$, followed by the assigned
+$\beta^+$ or $\beta^-$. In particular the reciprocal $M_J$ occurs
+once, not once per new group and not twice.
+
+Suppose a fixed partition $\mathcal I_1,\mathcal I_2,\mathcal I_3$
+of its slots has been supplied. For $m_i=|\mathcal I_i|$, define
+\[
+ \gamma_i=\frac1{m_i!}\mathop{*}_{j\in\mathcal I_i}\chi_{J_j},
+ \qquad \gamma_i=\delta_1\text{ if }m_i=0.
+\]
+Unique factorization bounds each unrestricted convolution coefficient
+by $m_i!$, even with repeated primes. Hence $|\gamma_i|\le1$, and
+the exact unrestricted identity is
+\[
+ T_J=(m_1!m_2!m_3!)\gamma_1*\gamma_2*\gamma_3.
+\]
+The new scalar is the old scalar times $m_1!m_2!m_3!$; its original
+factor $1/M_J$ is retained. Attach beta to the third group. Since its
+primes and the rough primes are disjoint,
+\[
+ |(\gamma_3*\beta)(n)|
+ =|\gamma_3(n_{\rm rough})\beta(n_{\rm small})|\le1.
+\]
+There are finitely many labels and bounded rough rank at fixed
+parameters, so the atom count and total absolute scalar mass are
+bounded independently of $N$. Their constants need not be small.
+
+Removing the squarefree restriction to use these exact convolutions
+only adds moduli divisible by $p^2$ for a prime $p\ge w$. For a fixed
+divisor order $C$ and $Q_*=N^{\theta_*}$,
+\[
+ \sum_{d\le Q_*,\ \exists p\ge w:p^2\mid d}
+ \tau_C(d)\left(\frac Nd+1+\frac N{\varphi(d)}\right)
+ \ll_C (N+Q_*)w^{-1}(\log N)^{C'}.
+\]
+To see this, write $d=p^2e$, use
+$\tau_C(p^2e)\le\tau_C(p^2)\tau_C(e)$ and
+$\varphi(p^2e)\ge\varphi(p^2)\varphi(e)$, sum standard divisor
+and reciprocal-divisor bounds over $e$, then use
+$\sum_{p\ge w}p^{-2}\ll w^{-1}$. This is a power saving.
+It applies before HB expansion to the bounded positive outer tuple
+weight. Thus the audit does not silently assume a pointwise bound
+for divisor coefficients inside an arbitrary progression.
+
+\paragraph{6. Selected gates imply every required residual square.}
+Write $t_1\ge\cdots\ge t_m>0$, $S_j=\sum_{i\le j}t_i$, and
+select $I\subseteq\{1,\ldots,r\}$. Let $s_I=\sum_{i\in I}t_i$.
+For an unselected slot $j$, the needed square exponent is
+\[
+ s_I+\sum_{i<j,\ i\notin I}t_i+2t_j.
+\]
+For $j\le r$ this is exactly the gate $G_I$, individually for every
+unselected slot; the maximum cannot be replaced by only the first
+such gate. For $j>r$ it equals $S_{j-1}+2t_j$. An admitted odd cube
+gives its own square because $2t_j\le3t_j$. For an even descendant,
+\[
+ S_{j-1}+2t_j\le S_{j-2}+3t_{j-1}.
+\]
+The right side is the preceding admitted odd cube. The initial full
+squares are supplied by $W_r$. Consequently the complete descendant
+has both ordinary well support and every selected-remaining square
+at its frozen cap. At rank six the node already existed; its inherited
+fifth cube establishes admission, while the new gate checks all six
+initial squares. At later upgrades apply the same argument to the
+last active selected prefix, preserving all earlier admission decisions.
+
+\paragraph{7. Two-capacity factorization and the capacity below one.}
+Use local scale $x$, spectral parameter $0\le\sigma\le7/32$,
+$1/2\le\vartheta<5/8$, $D=x^{\vartheta-2\delta}$ and
+$x^\delta\le A\le x^{1/3-\delta/2}$. Put
+\[
+ v=2\vartheta-1,\qquad
+ u=\min\left\{\frac{2-(2+2\sigma)\vartheta}{3-4\sigma},
+                 \frac{2-2\vartheta-\alpha\sigma}{3}\right\}.
+\]
+Suppose a selected product satisfies $x^v\le b_0\le x^u$ and all
+remaining-square conditions are at most $D$. If $C=D/(Ab_0)\ge1$,
+process the remaining slots in their inherited order. Before a prime
+$q$ is assigned, the square condition is
+$q^2\le(A/a)(C/c)$. If neither group could accept $q$, the reverse
+strict inequality would hold. Therefore a greedy choice assigns
+every slot with $a\le A$, $c\le C$ and $b=b_0$. Directly,
+\[
+ A^2bc^2\le D^2/b\le x^{1-4\delta},\quad
+ x^{\alpha\sigma}Aab^5c^2\le x^{\alpha\sigma}D^2b^3
+                          \le x^{2-4\delta},
+\]
+\[
+ (Ac/b)^{2\sigma}Aab^5c^2
+ \le D^{2+2\sigma}b^{3-4\sigma}
+ \le x^{2-(4+4\sigma)\delta}.
+\]
+
+If $C<1$, do not replace it by one while retaining $b_0$. Set
+$B=D/A<b_0\le x^u$ and reassign all original slots into capacities
+$A,B$. Both are at least one; in fact
+$B\ge x^{1/6-3\delta/2}$. The original full square conditions give
+the same two-capacity induction. It yields $d=a'b'$, $a'\le A$,
+$b'\le B$, $c'=1$. Now
+\[
+ A^2b'\le AD\le x^{23/24-5\delta/2}\le x^{1-3\delta},
+\]
+\[
+ x^{\alpha\sigma}Aa'b'^5\le x^{\alpha\sigma}D^2B^3
+ \le x^{2-4\delta},\qquad
+ (A/b')^{2\sigma}Aa'b'^5
+ \le D^{2+2\sigma}B^{3-4\sigma}
+ \le x^{2-(4+4\sigma)\delta}.
+\]
+The last $b'$ need not remain in the critical interval. That interval
+was only a sufficient construction device; the required conclusions
+are the three displayed factorization monomials.
+
+For an inherited strict $W$ branch the buffered three-factor repair
+is also valid: start with capacities $A,x^v,D/(Ax^v)$ and only
+$p_1,p_2$ assigned. Its hypotheses are $p_i\le x^v$,
+$p_j^2\le x^{1-\vartheta-2\delta}$, and $p_3\le x^{u-v}$.
+If the greedy process never fails, substituting the three capacities
+proves the monomials, using $u\ge v$. If $p_k$ is the first failure,
+$b=b_0p_k$ lies in $(x^v,x^u]$ and
+$Abc_0<(a_0p_k)(b_0p_k)c_0\le D$.
+Thus $D/(Ab)>c_0\ge1$ and the two-capacity completion applies.
+This verifies the initialization and failure step rather than relying
+on the inaccurate unbuffered initialization in the printed argument.
+
+\paragraph{8. One slot partition works throughout the box at each scale.}
+At a fixed Type II length $U$ use $A_0=Ux^{-\zeta}$ with
+$x^{2\zeta}\le U\le x^{1/3+\zeta/2}$. Then
+$x^\zeta\le A_0\le x^{1/3-\zeta/2}$.
+Apply the preceding construction with $\delta=\zeta$ to the ordered
+upper endpoints of the fine prime intervals, after buffering the
+support and selected gates. The greedy proofs use only ordered
+positive sizes; primality or distinctness of those endpoints is
+unnecessary. Keep their slot assignment fixed.
+
+Every actual group product is at most its endpoint group product.
+This remains true when an interval label occurs several times. In
+the selected construction test $D/(A_0b_+)$ at the upper selected
+product: if it is below one, the full-vector repair works on the
+whole box, regardless of which actual selected products would have
+larger capacity. The beta factor is attached only afterwards, enlarging
+the third length by at most $N^\ell$. The first length stays below
+$A_0$. The coefficients still represent the same $\rho$; the
+partition may depend on $U$ and the atom but never on the actual
+prime tuple inside this box.
+
+Before small-factor and endpoint losses, replacing $A_0$ by $U$
+costs exponents $2\zeta$, $\zeta$, and $(1+2\sigma)\zeta$ in the
+three monomials. The available source savings are $3\zeta$,
+$3\zeta$, and $2\zeta$. The least remaining saving is
+$(1-2\sigma)\zeta\ge9\zeta/16$. Choose all added losses below this
+fixed quantity and $\epsilon_{\rm disp}\ll\zeta$. After dyadic
+subdivision the resulting bounded group coefficients meet
+\[
+ Q_1<Ux^{-\epsilon_{\rm disp}},\quad
+ U^2Q_2Q_3^2<x^{1-8\epsilon_{\rm disp}},
+\]
+\[
+ |a_{\rm res}|^\sigma UQ_1Q_2^5Q_3^2<x^{2-15\epsilon_{\rm disp}},
+ \quad
+ (UQ_3/Q_2)^{2\sigma}UQ_1Q_2^5Q_3^2
+             <x^{2-15\epsilon_{\rm disp}}.
+\]
+These are the actual modulus-factor conditions in L23 Proposition 5.2.
+Every exponent of a $Q_i$ is positive after combining the last
+expression; in particular that of $Q_2$ is $5-2\sigma>0$. Smaller
+dyadic lengths therefore preserve the bounds. Units are handled by
+the point mass at one. Logarithmically many dyadic pieces do not
+change the original coefficient or its finite scalar normalization.
+
+\paragraph{9. A noncircular parameter choice.}
+First fix a strict rounding budget $K-K_{\rm end}>0$ and one finite
+buffered tree whose density is below $K$ by a fixed amount. The
+justification of that density approximation is an inherited input;
+it is not proved by this compilation. Freeze its coarse histories,
+gate margins $e>0$, active prefix cutoffs and maximum level below
+$3/5$. Fix the outer factor cutoff $a>0$. Then choose
+$\zeta\ll\min(e,a)$ with $12\zeta<a/2$, choose
+$\epsilon_{\rm disp}\ll\zeta$, and $\kappa\ll\epsilon_{\rm disp}$.
+Local coordinates and $\alpha=1+O(\kappa)$ then preserve all margins.
+
+Choose a single small beta precision $\eta$ next, for example with
+$\ell=\nu_0\eta$ and $\omega=\nu_0\eta^2$ for a fixed positive
+reference level $\nu_0$. Impose $\ell\ll\epsilon_{\rm disp}$,
+make $\omega$ smaller than every active marked cutoff, and make
+$e^{-c/\eta}\omega^{-2}$ smaller than the density budget.
+This is possible because exponential decay beats the fixed power of
+$1/\eta$. If the raw density itself still depends on $w$, choose
+$\eta$ also in its already proved small-cutoff limiting range.
+The resulting rank bound $M$ is now fixed. Only then choose the fine
+width $\tau$ so that $M\tau\ll\epsilon_{\rm disp}$ and
+$C_{\mathcal T}\tau\omega^{-5}$ fits the remaining density budget.
+Impose also that the complete endpoint level plus $\ell+O(M\tau)$
+is below $3/5$; ranks at most two stay below
+$2(19/96)+\ell+O(M\tau)<1/2$.
+
+Thus beta level and rough cutoff cannot be varied independently while
+claiming the displayed beta error. The preceding coupled choice
+supplies the intended reading of the earlier shorter parameter paragraph.
+All choices, factorials and numbers of atoms are fixed before
+$N\to\infty$. Smoothing and endpoint limits are taken afterwards.
+There is no demand for uniformity as $a\downarrow0$, as the number of
+labels grows, or as the depth tends to infinity.
+
+\paragraph{Conclusion and remaining inputs.}
+Under the explicitly stated legal-history and buffered-gate hypotheses,
+the actual compiled coefficients are pointwise upper-sieve coefficients
+with norm at most one, with density bounded above by the raw density
+plus controllable errors, and with an exact finite signed atom expansion.
+Each atom has a fixed slot partition at every required Type II scale
+into three bounded convolution factors meeting the source monomials.
+No counterexample was found to this scoped interface. The coupled
+parameter choice and preservation of all historical cube tests above
+make explicit two bookkeeping requirements that must not be omitted.
+
+This conclusion is not a proof of distribution for arbitrary
+coefficients supported on the same integers. It still needs the cited
+dispersion theorem, the separately audited outer HB/SW and long-variable
+argument, moving-residue range, positive radial boundary passage, and
+the numerical and analytic limiting-density calculation of the chosen
+fourth/fifth/sixth tree. This audit does not rerun those integrals or
+independently certify the whole value $K=6.7619$.

@@ -1,0 +1,80 @@
+{
+  "status": "PASS_LOCAL_NEW_FIFTH_GEOMETRY_JENSEN_DISJOINTNESS_AND_SIXTH_COMPATIBILITY",
+  "scope": "Complete finite witness reconstruction; primitive analytic distribution and density inputs remain separate.",
+  "replay": {
+    "all_cells": 1763420,
+    "coarse400": 43236,
+    "fine800": 1720184,
+    "all_blocks": 94,
+    "completed_normally": true,
+    "all94_witness_and_checkpoint_hashes_rechecked": true,
+    "author_or_previous_helper_imported": false,
+    "all32_vertices_and_exact_cross_product_ratio_comparisons": true,
+    "directed_atanh_terms": [
+      6,
+      7
+    ],
+    "Fraction_boundary_checks": 15,
+    "Fraction_real_box_checks": 549,
+    "every_independent_floor_at_least_saved_floor": true,
+    "not_only_a_sample": true
+  },
+  "whole_box_logic": [
+    "One actual original third branch has a positive vertex minimum against the linear retention test; its concavity gives whole-box retention.",
+    "Both new cap planes pass all full and remaining-selected square gates; no center-only admission is used.",
+    "All masks17..31 are accepted by the replay, including the58 fine cells of mask25.",
+    "Each midpoint-chosen old raw plane is a global upper bound for the raw minimum; the max of15 planes and W3 majorizes the actual fourth endpoint.",
+    "The gap is concave. Its32-vertex mean, positive part, convex Q_b, and positive reciprocal density give the stated Jensen lower bound.",
+    "Ratios lie in(2,4], so no unproved formula above4 is used; all logarithm directions and the actual grid factor are retained."
+  ],
+  "disjointness": {
+    "old400parents_excluded": 292633,
+    "fine_parent_map": "coordinatewise floor(lower_index/2)",
+    "fine_parent_avoids_old_and_new_coarse": true,
+    "same_grid_keys_unique": true,
+    "shared_faces": "zero measure",
+    "old_parent_child_certificates_recomputed": false
+  },
+  "gains": {
+    "coarse": "79990318316685117959/302231454903657293676544",
+    "fine": "1328755995056775987831/1208925819614629174706176",
+    "new_disjoint": "1648717268323516459667/1208925819614629174706176",
+    "old_preserved": "3037921066812732539869/302231454903657293676544",
+    "old_plus_new": "13800401535574446619143/1208925819614629174706176"
+  },
+  "sixth_compatibility": {
+    "underlying_complete_fifth_tree_unchanged": true,
+    "old_third_membership_unchanged": true,
+    "existing_raw_five_envelope_dominates_all_eligible_fifth_caps": true,
+    "new_sixth_gain_claimed": false
+  },
+  "math_typesetting_repair": "Final corrected G_I formula bound by the final author tex/manifest hashes; numerical sources, witnesses and prior replay unchanged.",
+  "analytic_dependencies": [
+    "Named moving-residue and rough-SW distribution results with the stated coefficient classes.",
+    "Finite signed-tree compilation and ordinary limiting density identities.",
+    "Fixed-positive-cutoff product extension and finite buffered partition passage.",
+    "Previously established fourth/fifth/sixth tree definitions and ordinary sieve functions."
+  ],
+  "not_claimed": "No global constant or unconditional Goldbach proof is established by this local audit alone.",
+  "bindings_sha256": {
+    "fifth-prefix-jensen-accepted-witness.npz": "2473b7457e09eb67b4f0b99a7c58c4a52ccd5262d8bf28138f638dd562428d6e",
+    "certify_fifth_prefix_new_coverage.py": "c2dbe98525b2a2f24e7b52d1433d844384fe000377c06d165d8fb58e4b164b3c",
+    "certify_fifth_prefix_new_coverage.json": "66c24d8e080d1d8132a4a9cda50cd28970f33b72bb81c6784806d39f9dd23829",
+    "certify_fifth_prefix_new_coverage_refinement.py": "4c0a671157f1405877b90bd544b78332d4cc46e352380550f8e398680f4aefd1",
+    "certify_fifth_prefix_new_coverage_refinement.json": "136cc7208b818ad6b9577177f80bf0b59736ad026d2c997ace9cf0c748a5cee6",
+    "fifth-prefix-adaptive-refinement.tex": "9ba13aa53b9f1bb6ef730bfbe32c515f507c20e42f67e2974037e3ee7666e8be",
+    "fifth-prefix-subdivision-refinement.tex": "d5ddfd5fa37bba369e0bddf6db3f9cc4de83404a24f6912c6281403756c63950",
+    "higher-prefix-K-refinement.tex": "e865860809fbb6981a48c89bb87e3ee7a2360ff6882c5bdeb682d24f41d28a4a",
+    "fifth-new-coverage-independent-replay.py": "b974d5741cc3b4a6c669ab1461cfb080c6822a66b8ad4de9e6736dd2ed1903fb",
+    "fifth-new-coverage-independent-replay.json": "526b39c43eb88744820e65c89b2484a9ef9358b1f35b8620bcd1ba4d47cb6c5f",
+    "fifth-new-coverage-independent-audit.tex": "2b21983cdf19f58d1a76f41b3a7c355b5732be079b3c2d8a0fd379842bc1e0d6",
+    "fifth-prefix-new-coverage.tex": "7bfc3963901e5eaa7b59fa5e16b6650cf3f7538b5be6b461e95d26158e7f99ba",
+    "fifth-prefix-new-coverage.json": "56cd0c56ed0d5f9a79debb148b929457d033c8bf9d4257d61603f62dcd6e02bf",
+    "independent_fifth_subdivision_replay.json": "9566bd3499d8333c1d95c3576b342017827a506d65828dba901214a7ca1c527d",
+    "sixth-prefix-expanded-independent-audit.tex": "e966e9991f7867670d4c52d021d40b384688bc242367ba5c34a53dd7cd1468e5",
+    "sixth-prefix-expanded-independent-audit.json": "63de5509f974945d6073383be89264e79a594a619d8893dffbba905524217dc2",
+    "lower-k-uniform-product-interface-review.tex": "cc9c501aab516d3688be511762be47b38ffac88139f63ea0bfc313d1bd7521eb",
+    "lower-k-uniform-product-interface-review.json": "ed454d87a1586a431cb0e97df7d7da67c22792188727aefc7b71c343104cb2c7",
+    "finalize_new_fifth_independent_audits.py": "774952ec899744573d852a7f5cfa5fe4bd9ac71f7147ddb140260a249bedfd52"
+  }
+}

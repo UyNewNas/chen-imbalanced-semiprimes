@@ -1,0 +1,280 @@
+% Research integration fragment, 2026-10-08.  Old sources are unchanged.
+\subsection{Finite same-level feedback in the repaired second seed}
+\label{sec:second-seed-finite-feedback}
+
+This gives the full positive feedback operator for the non-switched
+terms in Wu 2004, Lemma 4.2, after the repair of $\Gamma_5$.
+It uses already proved child estimates at their actual states.
+The numerical probe below is only a floating feasibility calculation.
+
+\paragraph{States and parameter restrictions.}
+Use the stable enhanced or classical family of
+Proposition~\ref{prop:second-seed-stable-prefix}.  At a parent state
+$\mathfrak s$ write
+\[
+ B=N^{T+o(1)},\quad Q=N^\nu,\quad R=Q/B=N^{L+o(1)},\quad
+ L=\nu-T>0,\quad \alpha=(1-T)/L\ge2.
+\]
+In the enhanced case retain full specified well support and one
+proved factorization branch, with its stable ceiling $\chi$ and
+every old gate.  In particular any third-slot bound $c$ used before
+three actual specified slots exist requires $\chi\le c$.
+The classical case uses the absolute remainder below level $1/2$.
+All statements are averaged on finite positive marked boxes.
+
+Choose parameters
+\[
+ 2<s<\phi_3<\phi_2<\phi_1<s_0\le5,
+ \quad a_0=1/s_0,\quad a_i=1/\phi_i,\quad b=1/s,
+\]
+with
+\begin{equation}\label{eq:feedback-parameter-gates}
+ a_3+2a_1<1,\qquad 3a_1<1,\qquad a_2+2a_1<1.
+\end{equation}
+The practical table below uses $2.1\le s\le2.5$.
+Require the parent's comparison cutoff $L/s<\chi$ on an enhanced
+box; all its new specified primes are then below the old prefix.
+The state at a child always retains the same total level $Q$.
+
+Let $H_{\mathfrak t}(w)$ and $h_{\mathfrak t}(w)$ mean previously
+proved defects, at a state $\mathfrak t$, in the bounds
+\[
+ \Phi_{\mathfrak t,w}\le
+ (A(w)-H_{\mathfrak t}(w)+o(1))\Theta_{\mathfrak t},\qquad
+ \Phi_{\mathfrak t,w}\ge
+ (a(w)+h_{\mathfrak t}(w)+o(1))\Theta_{\mathfrak t}.
+\]
+Here $A(w)=wF(w)/(2e^\gamma)$, $a(w)=wf(w)/(2e^\gamma)$,
+and unproved defects are zero.  On $1\le w<2$ a positive upper
+defect must come from the already justified cutoff comparison;
+it is not an invocation of an ordinary upper-sieve theorem at a
+forbidden parameter.  The normalized comparison multiplier remains
+$A(w)=1$ on $1\le w\le3$.  We use $h=0$ below two.
+
+\paragraph{The exact child states and cutoffs.}
+The two terms in $\Gamma_1$ keep the parent prefix and ratio
+$\alpha$, with respective arguments $s_0,\phi_1$.
+For each of $\Gamma_2,\Gamma_3,\Gamma_4$, append a prime
+$q=N^{Lu}$, where respectively
+\[
+ a_0<u<b,\qquad a_0<u<a_2,\qquad a_0<u<a_3.
+\]
+Call its state $\mathfrak s_u$.  Its data are
+\begin{equation}\label{eq:feedback-single-child}
+ L_u=L(1-u),\qquad
+ \alpha_u=\frac{\alpha-u}{1-u},\qquad
+ \rho_u=s_0(1-u),\qquad
+ \log_N(\hbox{physical cutoff})=La_0.
+\end{equation}
+The singleton square condition is $2u<1$, and the physical cutoff
+is at most the new smallest specified prime $N^{Lu}$.
+
+For the pair terms use $q_1=N^{Lu}<q_2=N^{Lv}$ and put
+\[
+ D_5=\{a_0<u<v<a_2\},\quad
+ D_6=(a_0,a_1)\times(a_2,a_3),\quad
+ D_7=\{a_0<u<v<a_1\},\quad
+ D_8=(a_0,a_1)\times(a_1,a_2).
+\]
+The child state $\mathfrak s_{u,v}$ has
+\begin{equation}\label{eq:feedback-pair-child}
+ L_{u,v}=L(1-u-v),\qquad
+ \alpha_{u,v}=\frac{\alpha-u-v}{1-u-v}.
+\end{equation}
+Its actual physical cutoff and argument are
+\[
+\begin{array}{c|c|c}
+ i&\log_N(\hbox{physical cutoff})&\rho_i(u,v)\\\hline
+ 5,6&La_0&s_0(1-u-v)\\
+ 7,8&Lu&(1-u-v)/u.
+\end{array}
+\]
+In particular $\Gamma_7,\Gamma_8$ do not have cutoff $R^{a_0}$.
+Changing that cutoff would give the wrong child argument and kernel.
+
+The residual pair is well supported exactly under
+\begin{equation}\label{eq:feedback-pair-squares}
+ 2v<1,\qquad v+2u<1.
+\end{equation}
+Both hold everywhere in $D_6,D_7,D_8$ by
+\eqref{eq:feedback-parameter-gates}.  On $D_5$ retain only
+$D_5^+=D_5\cap\{v+2u<1\}$ for ordinary feedback; write
+$D_5^-=D_5\setminus D_5^+$.  The first test $2v<1$ holds throughout.
+There is no replacement of these asymmetric pair tests by a
+condition such as three times one exponent being below the level.
+
+On every retained pair domain, $1<\rho_i\le s_0-2\le3$.
+Indeed $1-u-v>u\ge a_0$ proves the lower endpoint; maximizing
+the displayed arguments at the lower endpoints gives the upper
+endpoint.  For $\rho_i<2$, compare the positive child count at
+any previously licensed larger argument, hence a smaller cutoff.
+This keeps every compared prime below its actual cutoff and below
+the child's smallest specified prime.  The argument $\rho_i$ in
+the operator is the actual argument, with that proved comparison
+already included in $H_{\mathfrak s_{u,v}}$.
+
+The complete prefix tests follow from the merge lemma.  More
+explicitly, all old slots precede the one or two new slots, so
+old complete and selected-remaining tests are unchanged.  The
+new tests are precisely $2u<1$ or
+\eqref{eq:feedback-pair-squares}, multiplied by $B$.
+Ordinary residual atoms are merged at the indicated child level.
+Original selected slots and the relevant first three $W$ slots,
+or their stable upper bound, are retained.  All comparisons lower
+cutoffs, and no new slot can cross back above an old slot.
+Finally
+\[
+ \alpha_u=1+\frac{\alpha-1}{1-u}\ge\alpha,\qquad
+ \alpha_{u,v}=1+\frac{\alpha-1}{1-u-v}\ge\alpha.
+\]
+Thus ratios remain at least two, but are not reset to two.
+Signed atom normalizations, repeated-label factorials, coprime
+means and moving-residue margins are those of the existing stable
+interface.  If a more specialized child defect has further gates,
+it is used only where those gates also hold; elsewhere it is zero.
+
+\paragraph{A uniform rough-number envelope with an exact check.}
+Put $c_\omega=70893/125000=0.567144$.  Then
+\begin{equation}\label{eq:feedback-omega-envelope}
+ \omega(x)\le\max\{1/x,c_\omega\}\qquad(x\ge1).
+\end{equation}
+For $1\le x\le2$ this follows from $\omega(x)=1/x$.
+For $2\le x\le3$, write $v=x-1$ and maximize
+$1+\log v-c_\omega(v+1)$ at $v=1/c_\omega$.
+The maximum is $-\log c_\omega-c_\omega<0$, because the exact
+positive rational calculation
+\[
+ c_\omega\sum_{k=0}^{8}\frac{c_\omega^k}{k!}-1
+ =\frac{65111700737847638377192824351410078164698277}
+ {33378601074218750000000000000000000000000000000000}>0
+\]
+implies $c_\omega e^{c_\omega}>1$.
+For $x\ge3$, integrate $(x\omega(x))'=\omega(x-1)$ and induct
+over unit intervals, starting from $\omega(3)<c_\omega$.
+This proves the envelope without a floating maximization.
+
+On $D_5^-$ the rough argument is at least
+$s_0(2-2a_2)>2$, so the retained positive replacement kernel may
+be sharpened from $3Ks_0/20$ to $Kc_\omega s_0/4$.
+There is still no child feedback on this domain.
+For the switched triple domains $9,\ldots,15$, the following
+numbers bound their argument from below for all $\alpha\ge2$:
+\[
+\begin{array}{c|l}
+9&2\phi_3-3\\
+10&2\phi_2-2-\phi_2/s\\
+11&2\phi_3-\phi_3/\phi_2-2\\
+12&2\phi_1-2-\phi_1/s\\
+13&2\phi_2-\phi_2/\phi_1-1-\phi_2/s\\
+14&2s-s/\phi_1-2\\
+15&2\phi_3-\phi_3/\phi_2-1-\phi_3/s.
+\end{array}
+\]
+If the entry is $m_i$, replace the former factor $3/5$ in its
+explicit logarithmic mass by
+$C_i=\max\{c_\omega,1/\max(1,m_i)\}$.
+This also covers an enlarged parameter set where $m_i<5/3$;
+nonunit terms only exist at argument at least one.
+Use the previous coarse $\omega\le1$ bounds for $16,\ldots,21$,
+including the separate uniform unit terms in $M_{20},M_{21}$.
+There are no unit terms for $9,\ldots,19$, since $s>2$ gives
+every specified sum at most $4/s<2\le\alpha$.
+
+\paragraph{The positive feedback operator.}
+Let $J_2^0(s,s_0,\phi_1,\phi_2,\phi_3)$ denote the ordinary-only
+repaired functional, with the preceding uniform switched envelopes.
+It is the functional of the saved seed with $A(s)$ replacing one
+if needed.  Its ordinary pair kernels are $1/(1-u-v)$ on
+$D_5^+,D_6,D_7,D_8$, and its bad-$\Gamma_5$ kernel is
+$Kc_\omega s_0/4$.  No switched term contains an imported defect.
+
+Define the same-level positive linear operator
+\begin{align}
+ \mathcal P_{2,\mathfrak s}[H,h]
+ =\frac15\bigg\{&4H_{\mathfrak s}(s_0)+H_{\mathfrak s}(\phi_1)
+ +\sum_{c\in\{b,a_2,a_3\}}\int_{a_0}^{c}
+ \frac{h_{\mathfrak s_u}(s_0(1-u))}{u(1-u)}\,du\notag\\
+ &+\iint_{D_5^+}
+ \frac{H_{\mathfrak s_{u,v}}(s_0(1-u-v))}
+      {uv(1-u-v)}\,du\,dv\notag\\
+ &+\sum_{i=6}^8\iint_{D_i}
+ \frac{H_{\mathfrak s_{u,v}}(\rho_i(u,v))}
+      {uv(1-u-v)}\,du\,dv\bigg\}.
+ \label{eq:second-seed-feedback-operator}
+\end{align}
+The valid new upper defect at the parent is
+\begin{equation}\label{eq:second-seed-feedback-bound}
+ H_{\mathfrak s}(s)\ge
+ \max\{0,J_2^0+\mathcal P_{2,\mathfrak s}[H,h]\}.
+\end{equation}
+Here the defects on the right are previously proved inputs, so the
+formula describes a finite additional proof step and is not circular.
+To prove it, insert each child bound with its actual residual level
+into the unchanged 21-term pointwise inequality.  An improvement
+to $\Gamma_1$ subtracts $4H(s_0)+H(\phi_1)$ from its upper bound;
+an improvement to a negative term adds its lower defect; and an
+ordinary pair upper improvement subtracts its upper defect.
+All three effects improve the final upper bound.  The change from
+child normalization to parent normalization contributes
+$1/(1-u)$ or $1/(1-u-v)$, exactly as displayed.  Division by five
+then proves the formula.  Every coefficient of the operator is
+nonnegative.
+
+The implementation shared with the first-seed iteration uses the
+special case of defects $H(w),h(w)$ uniform over all these stable
+and classical states and every $\alpha\ge2$.  This removes the
+state subscript in \eqref{eq:second-seed-feedback-operator}; it does
+not change the actual ratios in
+\eqref{eq:feedback-single-child}--\eqref{eq:feedback-pair-child}.
+For a finite parameter bank, take the maximum of its candidate
+bounds and already proved alternatives on a common positive
+partition.  Different upper candidates are not added.
+
+\paragraph{Finite parameter probe and its limits.}
+The new module \texttt{probe\_second\_seed\_feedback.py} exports
+\texttt{SecondSeedOperator(parameters,K,n).candidate(H,h)} and
+\texttt{.value(H,h)} for numpy-compatible uniform input functions.
+It treats the bad triangle by its exact two-piece boundary, with
+no masked-grid replacement for that boundary.  It checks the
+three gates in \eqref{eq:feedback-parameter-gates} before admitting
+a parameter choice.
+
+The initial upper inputs are the proved values $H=9/500$ on
+$[1,11/5]$, $H=7/4625$ on $(11/5,3]$, and zero elsewhere.
+The lower input is one Buchstab integral of their pointwise maximum,
+with the lower endpoint $s-1$, including $[1,2)$ children.
+There are 881 admitted parameter choices in the saved finite search.
+It refines selected choices with quadrature orders 24, 48 and 80.
+For $K=6.81$, the order-80 outcomes at the selected candidates are
+\[
+\begin{array}{c|c|c|c}
+s&\hbox{ordinary-only seed}&\hbox{feedback}&\hbox{candidate}\\\hline
+2.1&.02047094&.00253880&.02300973\\
+2.2&.02057652&.00243968&.02301620\\
+2.3&.01879876&.00245380&.02125256\\
+2.4&.01571500&.00244468&.01815968\\
+2.5&.01164637&.00229828&.01394466.
+\end{array}
+\]
+These are sampled choices, not certified optima.
+At the original parameters $(2.2,4.54,3.53,2.90,2.44)$ the
+diagnostic is $.02033936+.00258581=.02292517$.
+The feedback splits approximately as $.00093624$ from the three
+negative terms and $.00164957$ from the four ordinary pair terms;
+the first-generation $\Gamma_1$ contribution is zero because these
+initial $H$ inputs vanish above three.  The same original parameters
+give $.02299950$ if the separately supplied $K=6.792$ is used.
+No validity or certification of that alternative $K$ is inferred
+from this probe.
+
+The discontinuities in chosen input defects make these quadratures
+especially unsuitable as outward bounds without further partitioning.
+Their agreement is a diagnostic, not a certificate.  The operator
+shows a nonzero additional feedback of order $0.0025$ in a seed,
+but that is not itself a gain of $0.0025$ in the complete Chen count.
+The contribution must still pass through the full eleven-term
+integrals and their existing minima.  These computations alone do
+not fill the remaining frontier gap, establish a new global count,
+or justify importing any old double-sieve table.  A subsequent
+finite typed iteration may use this operator, but its resulting
+integrals require their own certificates.

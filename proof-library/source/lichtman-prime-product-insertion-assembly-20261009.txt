@@ -1,0 +1,229 @@
+Assembling the repaired distribution input for the licensed finite families
+2026-10-09. New analytic assembly; no change to the open manuscript or constants.
+
+Claim and explicit boundary
+
+The new restricted convolution estimate can now be inserted into the
+finite prime-product distribution argument, for the licensed coefficient
+classes stated below. The conclusion is a signed discrepancy estimate,
+not yet a recertification of the numerical upper K, lower c, or b transfer.
+This is a derivation relative to the named classical and spectral inputs.
+The component reviews are internal cross-checks, not formal verification
+or external peer review. None of the original full-a source statements
+is restored by this assembly.
+
+Fix an even target T, a positive cutoff a_star, a fixed maximum number
+k_star of original primes, a finite smooth geometric family W_T with
+each prime >=c*T^a_star and total product O(T), and one compiled signed
+modulus coefficient rho_T. All policies, atom labels, compact trims,
+rough-rank bounds and smoothing precisions are fixed before T grows.
+Their constants may depend on these choices. No extra arithmetic filter
+is inserted on an outer prime or individual HB slot.
+
+The coefficient rho_T is supported on moduli coprime to T, with total
+level T^theta_star for fixed theta_star<3/5. At high rough rank it is the
+actual finite sum of labelled prime-convolution atoms and a small-prime
+beta factor. The slot partition is fixed on the ENTIRE prime box for
+each Type II scale. Its upper endpoint vector has full squares and
+either the selected-subproduct complement squares or the repaired
+strict W licence, with a positive buffered margin. The squarefree
+restriction is removed only after paying its fixed-power error. Group
+factorials and the one original repeated-label factorial are kept exactly.
+At low rough rank the actual coefficient has a fixed constant bound,
+and its COMPLETE support, including beta and endpoint losses, lies
+strictly below x^(1/2) after the local-scale conversion. A mere support
+level or pointwise factorization property is not an alternative input.
+
+For these data, for every fixed A>0, the derived conclusion is
+
+ sum_{l,(l,T)=1} rho_T(l) [
+       sum_{p1...pk = T (mod l)} W_T(p1,...,pk)
+       - phi(l)^(-1) sum_{(p1...pk,l)=1} W_T(p1,...,pk) ]
+                         = O_A(T/log(T)^A).                 (PP)
+
+This is uniform along all sufficiently large even T, with the fixed
+choices above. It is not an almost-all-target assertion, and its error
+is absolute, not proportional to a possibly tiny single-cell mass.
+Finite signed or positive combinations have the same property.
+
+1. Which actual finite classes are covered
+
+The modulus insertion note verifies the structural licences used by:
+ (i) the positive product upper tree, including retained selected masks
+     and inherited full/remaining-square histories;
+ (ii) the ordinary causal lower starts, with their actual even/odd cube
+      history and the singleton/W root licence;
+ (iii) the admitted marked descendants in the finite H/h construction,
+       with the retained physical cutoffs, selected masks or W first-
+       three-prime data, and only their actual finite transitions.
+
+At low rough rank their RAW gaps below one half are respectively
+5/48, 49/250, and 265/3584. The sum of beta, fine-box and local-coordinate
+losses is chosen smaller than a fixed part of those gaps. These numbers
+are not the post-loss gaps. Classical states have their separately fixed
+level below one half. The actual coefficients on this part are bounded
+by a fixed constant, as required to multiply the usual absolute BV sum.
+No arbitrary divisor-weighted BV extension is inferred.
+
+An endpoint licence must be used with its support buffer in the correct
+direction. If the frozen rough level is ell in base T, use source
+licence parameter vartheta=(log_x T)*ell+2*zeta (and its permitted small
+endpoint adjustments), so that D=x^(vartheta-2*zeta) is the actual
+support ceiling. The original strict licence gap allows this enlargement
+of the PARAMETER. It does not shrink or reselect the already compiled
+weight after progression errors have been seen. Assignment at the whole
+box's upper endpoint gives upper bounds for all three group sequences;
+one does not recompute a different assignment for each prime tuple.
+
+The new two-large-marked-prime candidate mentioned elsewhere is not
+adopted into the current numerical ledger by this assembly. No new
+branch is licensed solely by having carrier level below3/5.
+
+2. One common order of parameters
+
+First fix the finite policy and its compact branch margins and positive
+outer cutoff. Choose zeta>0 below those margins and below
+min(a_star/48,10^(-6)). Choose the restricted medium parameter
+0<sigma<=zeta/1000. Let kappa=sigma/200 and choose
+0<kappa0<sigma/(1000+sigma), also small enough for every finite level
+and affine gate under the conversion from T to a local x. Beta precision,
+the fixed rough presieve exponent omega and rank bound, and the final
+fine widths are then chosen within the reserved errors. These choices
+are independent of T. The separate long-variable frequency parameter
+eta is chosen only after its fixed exponent gaps have been reserved.
+
+On an ORIGINAL prime chart, write X=product R_i, Xplus=2^k*X and
+C_k=2^(6*k_star+2). Before expanding any group, fix
+
+ Zchart=f(C_k*Xplus),  f(v)=v^(1/(loglog v)^3).
+
+This is one common projector throughout all HB terms on that chart.
+The exact order-three identity is proved in the root reduction note.
+After complementary convolution and dyadic subdivision, every source
+x=U*V is within fixed factors of X and <=C_k*Xplus. Thus
+f(x)<=Zchart<=x^(2/(loglog x)^3) eventually. The original primes already
+exceed this cutoff. Proper prime powers are removed separately.
+
+Classify medium slots using [X^(3*zeta),X^(1/3+zeta/4)] before regrouping.
+This lies inside every eventual source interval
+[x^(2*zeta),x^(1/3+zeta/2)]. No individual rough projector or medium
+decision is altered after the different HB terms have been separated.
+
+3. The medium case
+
+Use one individual medium variable. The explicit Brun/Mobius proof in
+lichtman-hb-rough-sw-insertion-20261009.tex supplies full auxiliary SW
+for rough 1 or rough mu throughout the chart cutoff window, uniformly
+in all auxiliary integers, all moduli, arbitrary subintervals, normalized
+logarithms and the retained fixed-polylogarithmic Mellin frequencies.
+It uses only classical unrough Mobius SW as a non-elementary distribution
+input. It does not use the restricted large-modulus theorem to justify
+that theorem's own coefficient condition. The root SW/L review checks
+this argument independently, including its signed Brun gap.
+
+The actual endpoint partition gives three one-bounded modulus factors
+after the fixed factorial normalization and attachment of beta. Put
+A0=U*x^(-zeta). The full/selected or W argument supplies the endpoint
+monomials; replacing A0 by U leaves savings zeta, 2*zeta and 9*zeta/16.
+The separate local and beta/fine reserves cost at most zeta/8, leaving
+more than the required 8*sigma or15*sigma. The first factor also has
+its fixed zeta-scale slack. Thus all FOUR restricted P5.2 inequalities
+hold, including the factor T^(7/32). The complement is divisor-bounded;
+the new divisor-function truncation extension supplies its precise
+coefficient reduction without enlarging the allowed modulus class.
+
+The actual residue is T and the source scale is the COMPLETE integer,
+whether an original prime or a switched prime product. After the low
+tail is removed, c1*T^(1-kappa0)<=x<=C1*T. Hence T>=x/C1 and
+T<=x^(1+kappa) eventually, since kappa0/(1-kappa0)<kappa<=sigma/100.
+These are both endpoints of the restricted repaired range. The older,
+wider all-a statement is unnecessary here. In particular no quotient
+after deleting a marked prefix is substituted for x.
+
+The one-bounded repaired convolution, its coefficient extension, and
+these actual hypotheses prove the desired local signed remainder in
+every medium block. Its overall saving is arbitrary logarithmic, not
+an asserted fixed power for the complete dispersion theorem.
+
+4. Exhaustive alternatives
+
+If there is no medium slot in the buffered original chart, every
+original group must have a long variable. Otherwise its at most six
+short scales have product <X^(18*zeta), too small for that group.
+There are at most two long variables, since three exceed the complete
+chart product. They cannot be truncated mu variables. With one long
+variable the short product is <=x^(16*zeta); with two it is
+<=x^(32*zeta). The independent long reconstruction safely uses the
+larger bounds x^(20*zeta) and x^(40*zeta).
+
+The one-long proof is a primitive progression sieve plus its exact
+coprime-mean correction. The two-long proof uses double Poisson and
+the complete Kloosterman Weil bound, uniformly for every primitive
+residue. The new reconstruction retains the frequency-cutoff losses
+and a stronger sufficient modulus condition, rather than using the
+source's mismatched Q expressions unchanged. Its chart-window roughness
+removal, short interval endpoints and small-divisor freezing are treated
+with the reviewed nonzero shifted moments, with every intermediate
+complete product=T handled separately. The root review checks these
+repairs against the original proof. No questioned real-phase deletion
+or medium spectral theorem is used in the long alternatives.
+
+At low rough modulus rank, use ordinary BV for one original prime and
+generalized BV for a product, with one original prime interval as the
+SW factor and the others as its divisor-bounded complement. Both
+lengths have fixed positive power bounds in the product case. The
+classical below-half theorem has a maximum over all primitive residue
+classes, which contains T mod l for each (T,l)=1. Prime SW with the
+required auxiliary coprimality follows by deleting the primes dividing
+the auxiliary integer; a fixed positive prime scale absorbs that error.
+The bounded actual modulus coefficients are therefore permitted.
+
+5. Recombination errors and the complete target
+
+The root HB reduction and its separate review show that normalized
+logarithms, the finite-dimensional Mellin separation and the number of
+dyadic/HB blocks only cost fixed logarithmic powers. The Mellin tail
+is paid AFTER summing moduli: for complete v!=T, the modulus sum is
+bounded by a fixed divisor power of |v-T|, and the reviewed Z2 controls
+the resulting fixed moments. For v=T the first-moment contribution is
+T^(theta_star+o(1)). No tau(0) expression is used, and no subpower
+multiplier is applied to a merely logarithmic remainder.
+
+Proper prime powers cost T^(1-a_star/2+o(1)), plus the isolated
+T^(theta_star+o(1)) term. Rough-square modulus collisions cost
+(T+T^theta_star)*T^(-omega+o(1)). Each has a fixed power reserve.
+For the low complete-product tail v<2*T^(1-kappa0), eventually v!=T,
+so summing all fixed divisor-order coefficients gives at most
+T^(1-kappa0+o(1)); the exact coprime mean adds only logarithmic factors.
+This supplies the tail for every fixed positive kappa0, however small.
+
+Choose the input arbitrary-log exponents after the fixed piece counts
+and Mellin truncation requirements. Recombine the local bounds and
+these power errors to obtain (PP). This sum includes all positive
+product and ordinary-prime signed discrepancies in the stated finite
+licensed classes. The same already fixed rho_T is used in counting
+and exact mean; no density constant is used to prove this discrepancy.
+
+6. What has, and has not, now been supplied
+
+Together the new P repair, explicit SW, reconstructed L, low-rank BV
+and checked endpoint partitions replace the disputed distribution
+invocation for these finite classes. This is more than a local phase
+estimate: the actual HB alternatives and original-group scales have
+been connected. The statement remains a mathematical derivation from
+its explicit external inputs, with internal cross-checks of the new
+proofs. It is not a reproof of those classical/spectral inputs.
+
+To reinstate any specific K,c,b theorem one must still match the
+selected numerical endpoint records to their actual positive majorant,
+limiting density, finite H/h insertion, lower weight, normalization and
+transfer budgets, using this replacement distribution input. That final
+minimal dependency assembly is not performed merely by changing the
+status of an older audit. The unspecified Wu weight-domain correction must
+be compared with the formulas actually used; the existing direct
+full-Y11 and finite-action proofs may avoid a dependency, but this
+document neither identifies that typo nor certifies all its downstream
+irrelevance. No guessed1.97 value is adopted.
+
+The main manuscript, all old certificates and the selected numeric
+tuple remain unchanged. Formalization and GitHub remain user-paused.

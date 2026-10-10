@@ -1,0 +1,35 @@
+Errata for the frozen proof-source snapshot — 10 October 2026
+
+E1. Total number of paired deletion cells.
+
+source/distribution-coefficient-completion-20261010.txt, original line 36,
+says "17772-cell deletion".
+
+source/global-positive-upper-completion-20261010.txt, section 8,
+original line 386, says "17772" mask cells.
+source/positive-pair-deletion-improvement-20261010.txt, original line 39,
+also says "17772" deleted pair cells.
+
+Read all three totals as 17572. The selected certificate records
+old_6091_cells_excluded = 6091 and selected_cells = 11481, giving
+6091 + 11481 = 17572. The older and additional sets are disjoint by the
+certificate's stated exclusion and the selected-parent cover proof.
+
+The erroneous count text is preserved in the source copies; privacy-only
+provenance edits, where present, are separately recorded in MANIFEST.json. This annotation corrects the prose cardinality, not
+the selected cell lists, masses, numerical constants or proof inequalities.
+
+Evidence: positive-pair-deletion-certificate-20261010.json in the numerical
+bundle; source/global-chen-lower-completion-20261010.txt, lines 87–96;
+source/positive-pair-deletion-selected-parent-cover-20261010.txt.
+
+E2. Renewal comparison note.
+
+source/corpus-renewal-omega-independent-20261010.txt, original lines 12
+and 89, also says 17772. Read both as 17572. This is independently recorded
+in source/corpus-renewal-omega-count-and-formal-crosscheck-20261010.txt.
+Its legacy descriptive JSON/Python key containing 17772 is also a label
+typo, not a loop bound. The latter note checks the older 12/5 candidate;
+the selected v2 7/3 certificate and final review already state 17572.
+Other mentions of 17772 in the renewal notes expressly describe the old
+error and do not introduce an additional incorrect count.

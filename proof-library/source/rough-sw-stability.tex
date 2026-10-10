@@ -1,0 +1,255 @@
+% Integration fragment: no documentclass.
+% Insert before Lemma lem:semiprime55 (or before the first HB interface).
+% Uses existing bibliography key Lichtman2023 and ordinary lemma/proof.
+% No distribution estimate for primes to large moduli is used in this lemma.
+
+\subsection{Siegel--Walfisz stability of the individual rough factors}
+\label{sec:rough-sw-stability}
+
+The fact that an individual Heath--Brown variable has coefficient
+$1$ or $\mu$ does not by itself check the additional roughness
+restriction. The following elementary stability argument supplies
+that check, including the auxiliary coprimality and the Mellin twists.
+
+\begin{lemma}[Rough Siegel--Walfisz stability]
+\label{lem:rough-sw}
+Fix $\xi>0$ and $B\ge0$. Let
+\[
+ x^\xi\le U\le x,\qquad z_0=x^{1/(\log\log x)^3},
+\]
+and let $I\subset[U,2U]$ be any interval.
+Let $e(n)$ be either $1$ or $\mu(n)$.
+Suppose $h$ is a smooth function on $[U,2U]$ such that
+\[
+ |h(v)|\le1,\qquad
+ \int_U^{2U}|h'(v)|\,dv\ll(\log x)^B,
+ \qquad |t|\le(\log x)^B.
+\]
+Set
+\[
+ \alpha(n)=e(n)\mathbf1_{P^-(n)>z_0}\mathbf1_I(n)
+                  h(n)n^{it}.
+\]
+For every $A>0$, all integers $D,q\ge1$, and every residue $r$
+with $(r,q)=1$, one has
+\begin{equation}\label{eq:rough-sw-full}
+ \left|
+ \sum_{\substack{n\sim U\\n\equiv r\pmod q\\(n,D)=1}}\alpha(n)
+ -\frac1{\varphi(q)}
+       \sum_{\substack{n\sim U\\(n,Dq)=1}}\alpha(n)
+ \right|
+ \ll_{A,B,\xi}\frac{U\,\tau(D)}{(\log x)^A}.
+\end{equation}
+The implied constant is uniform in $I,D,q,r,t$ and in the stated
+bounds for $h$. Consequently these sequences meet
+\cite[Definition 2.1 and Proposition 5.2]{Lichtman2023}'s
+Siegel--Walfisz hypothesis. Fixed powers of $\log n$ are also
+allowed after normalization by the corresponding power of
+$\log(2U)$.
+\end{lemma}
+
+\begin{proof}
+We first prove the assertion for $D=1$, $h=1$, and $t=0$,
+uniformly for every interval $I\subset[U,2U]$.
+The classical inputs are the ordinary Siegel--Walfisz estimate
+for the unrough sequence $\mu$ and the fundamental lemma of
+the one-dimensional sieve. The needed auxiliary-coprimality
+version of the former can itself be reduced to the ordinary
+version as follows.
+For any integer $E\ge1$ the exact convolution identity is
+\[
+ \mu(n)\mathbf1_{(n,E)=1}
+       =\sum_{\substack{v\mid n\\v\mid E^\infty}}\mu(n/v).
+\]
+On a scale $V$, split this at $v=V^{1/4}$.
+For the small $v$, apply ordinary Siegel--Walfisz to $n/v$;
+the sum of the factors $1/v$ is at most
+$\prod_{p\mid E}(1-1/p)^{-1}\le\tau(E)$.
+For the tail use
+\[
+ \sum_{\substack{v>V^{1/4}\\v\mid E^\infty}}\frac1v
+ \le V^{-1/8}\prod_{p\mid E}(1-p^{-1/2})^{-1}
+ \le V^{-1/8}\tau(E)^2.
+\]
+Both its progression contribution and its normalized coprime
+mean are therefore $O(V^{7/8}\tau(E)^2)$, by bounding them
+with the total absolute mass. Terms $(v,q)>1$ contribute zero
+in the primitive residue and its coprime mean.
+Thus the auxiliary-coprimality estimate has the fixed divisor
+factor $\tau(E)^2$, uniformly on subintervals of $[V,2V]$
+and in each fixed logarithmic range of $q$.
+This uses no rough Siegel--Walfisz assertion.
+
+\paragraph{Small moduli and the fundamental-lemma error.}
+Fix a constant $B_0$ and first take $q\le(\log x)^{B_0}$.
+Put $L=U^{1/4}$. For large $x$ one has $z_0<L$, and
+\[
+ s_0=\frac{\log L}{\log z_0}
+       \ge\frac{\xi}{4}(\log\log x)^3.
+\]
+Take upper and lower fundamental-lemma weights $\lambda^\pm_\ell$
+of level $L$, supported on squarefree divisors of $P(z_0)$,
+with $|\lambda^\pm_\ell|\le1$, and write
+\[
+ \rho^\pm(n)=\sum_{\ell\mid n}\lambda^\pm_\ell.
+\]
+They satisfy
+$\rho^-(n)\le\mathbf1_{P^-(n)>z_0}\le\rho^+(n)$.
+Endpoint conventions at $z_0$ can be made identical throughout.
+
+In a primitive residue class $r\bmod q$ the local density at a
+sifting prime is $1/p$ if $p\nmid q$ and zero otherwise.
+Deleting the primes dividing $q$ preserves the uniform
+one-sided dimension-one hypothesis of the fundamental lemma.
+The main-term difference of the two weights is therefore
+$O(V_q(z_0)e^{-s_0})$, with $V_q(z_0)\le1$.
+Counting multiples of $\ell$ in $I\cap\{n\equiv r\pmod q\}$
+has an error $O(1)$ for each $(\ell,q)=1$, and none occur
+when $(\ell,q)>1$. Hence
+\begin{equation}\label{eq:rough-beta-gap}
+ \sum_{\substack{n\in I\\n\equiv r\pmod q}}
+              (\rho^+(n)-\rho^-(n))
+ \ll \frac Uq e^{-s_0}+L
+ \ll_C U(\log x)^{-C}
+\end{equation}
+for every fixed $C>0$.
+The same bound holds for the average over the primitive residue
+classes. This controls the normalized coprime main sum as well.
+It is uniform in the endpoints of $I$ and in $q$ in the indicated
+range.
+
+Since $|e(n)|\le1$,
+\[
+ \big|e(n)\mathbf1_{P^-(n)>z_0}-e(n)\rho^+(n)\big|
+       \le\rho^+(n)-\rho^-(n).
+\]
+Thus \eqref{eq:rough-beta-gap} justifies replacing the rough
+indicator by $\rho^+$ in both terms of the desired discrepancy.
+This absolute-error argument is necessary when $e=\mu$;
+no positivity of $\mu$ is asserted.
+
+\paragraph{The ordinary Möbius Siegel--Walfisz main sum.}
+For $e=\mu$, the replacement progression sum becomes
+\[
+ \sum_{\substack{\ell\le L\\(\ell,q)=1}}
+   \lambda^+_\ell\mu(\ell)
+ \sum_{\substack{m\in I/\ell\\
+             m\equiv r\bar\ell\pmod q\\(m,\ell)=1}}\mu(m),
+\]
+using the exact identity
+$\mu(\ell m)=\mu(\ell)\mu(m)\mathbf1_{(m,\ell)=1}$
+for squarefree $\ell$.
+The normalized primitive-class average is the identical outer
+sum with the inner sum replaced by
+\[
+ \frac1{\varphi(q)}
+       \sum_{\substack{m\in I/\ell\\(m,\ell q)=1}}\mu(m).
+\]
+Here $U/\ell\ge U^{3/4}\ge x^{3\xi/4}$, so
+$\log(U/\ell)$ is comparable with $\log x$ and
+$q\le(\log x)^{B_0}$ lies in a fixed logarithmic
+Siegel--Walfisz range for every inner sum.
+
+Use the unrough auxiliary-coprimality estimate just derived:
+with the fixed divisor exponent $C_0=2$ and any requested
+logarithmic saving $C$ its inner discrepancy is
+\[
+ \ll_{C,B_0,\xi}
+       \frac{(U/\ell)\tau(\ell)^{C_0}}{(\log x)^C}.
+\]
+The same estimate holds on arbitrary subintervals of
+$[U/\ell,2U/\ell]$ by subtracting endpoint estimates.
+Summing over $\ell$ and using the fixed divisor moment
+\[
+ \sum_{\ell\le L}\frac{\tau(\ell)^{C_0}}{\ell}
+                   \ll(\log L)^{C_1}
+\]
+gives $O_A(U(\log x)^{-A})$ after choosing
+$C>A+C_1+1$. The divisor exponent here is the fixed exponent
+in the classical auxiliary-coprimality input; it is not
+allowed to grow with $\ell$.
+This calculation explains explicitly the auxiliary condition
+$(m,\ell)=1$ introduced by the identity for $\mu(\ell m)$.
+
+For $e=1$, expand $\rho^+$ in the same way without $\mu$.
+For each $(\ell,q)=1$, counts of $m\in I/\ell$ in any two
+residue classes modulo $q$ differ by $O(1)$.
+Thus their difference from the primitive-class average
+is also $O(1)$, and summing the weights costs $O(L)$.
+Together with \eqref{eq:rough-beta-gap}, this proves the
+unweighted assertion for all small $q$ in both cases.
+
+\paragraph{Large moduli.}
+For every sequence under consideration with absolute value
+at most one, the discrepancy without auxiliary $D$ is trivially
+\[
+ \ll \frac Uq+1+\frac U{\varphi(q)}
+       \ll Uq^{-1/2}+1.
+\]
+Choose $B_0>2A+4$. For $q>(\log x)^{B_0}$ this is
+$O_A(U(\log x)^{-A})$, since $U\ge x^\xi$.
+Together with the small-modulus proof, this gives the estimate
+for all $q\ge1$, uniformly on every interval $I$.
+
+\paragraph{An arbitrary auxiliary integer.}
+Return to any $D\ge1$.
+Primes at most $z_0$ dividing $D$ cannot divide a rough $n$.
+The number of remaining integers of $[U,2U]$ removed by
+$(n,D)=1$ is at most
+\[
+ \sum_{\substack{\ell\mid D\\\ell>z_0}}
+           \left(\frac U\ell+1\right)
+       \le\left(\frac U{z_0}+1\right)\omega(D).
+\]
+The change in the progression term plus its normalized
+coprime mean is at most twice this bound, because the
+coefficients are bounded by one and $1/\varphi(q)\le1$.
+For every fixed $A$,
+\[
+ \left(\frac U{z_0}+1\right)\omega(D)
+        \ll_{A,\xi}\frac{U\,\tau(D)}{(\log x)^A}.
+\]
+This is uniform for arbitrarily large $D$, and proves the
+complete auxiliary-coprimality assertion. It does not
+impose a hidden size restriction on that auxiliary integer.
+
+\paragraph{Mellin twists and smooth coefficients.}
+The estimates just obtained hold for every subinterval
+of $[U,2U]$.
+On this interval the function $h(v)v^{it}$ has total variation
+\[
+ \ll \int_U^{2U}|h'(v)|\,dv
+                 +|t|\int_U^{2U}\frac{dv}{v}
+ \ll(\log x)^B.
+\]
+Partial summation therefore costs at most a fixed power of
+$\log x$. Apply the untwisted estimate with a correspondingly
+larger arbitrary saving to obtain \eqref{eq:rough-sw-full}.
+The interval indicator has only two endpoint jumps.
+A normalized fixed power of $\log v$ has bounded variation
+here, so the final assertion follows in the same manner.
+\end{proof}
+
+\paragraph{Use in the Heath--Brown arguments.}
+In the preceding or following factorization arguments, take
+$\xi=2\zeta$ for a selected individual variable with
+$x^{2\zeta}\le U\le x^{1/3+\zeta/2}$.
+Its coefficient after Mellin separation is precisely one of
+the sequences in Lemma~\ref{lem:rough-sw}, after harmless
+normalization of logarithms.
+One must select an individual $1$ or $\mu$ slot; this lemma
+does not assert Siegel--Walfisz for an arbitrary grouped
+convolution.
+
+Before Mellin separation, discard dyadic Heath--Brown boxes
+which do not meet the original prime-variable interval.
+If an original factor lies in $[R,2R]$, the product of its
+at most six dyadic lower endpoints is then at least
+$R/2^6$ and at most $2R$.
+These group-scale inequalities remain true for the retained
+boxes after Mellin separation.
+They justify the assertion that, in the absence of medium
+slots, each original group of size at least $N^a/2$
+must contain a long slot when $12\zeta<a/2$.
+At most two long slots can occur globally because three
+would have product exceeding $x^{1+3\zeta/2}$.

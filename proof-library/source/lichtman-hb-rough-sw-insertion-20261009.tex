@@ -1,0 +1,271 @@
+% New coefficient-interface proof; no earlier file is changed.
+\subsection{The actual individual HB factor and full auxiliary Siegel--Walfisz}
+\label{sec:hb-rough-sw-insertion-20261009}
+
+This note checks a coefficient hypothesis of the restricted, retained-phase
+Proposition~5.2, not its spectral proof or the complete prime-product
+theorem. In particular it does not restore any global $K,c,b$ conclusion.
+The large-residue issue in the original L23 argument is not used here.
+
+\paragraph{1. Precise external input and the source requirement.}
+The sole non-elementary distribution input in the proof below is the
+classical, unrough M\"obius Siegel--Walfisz estimate. We use this precise
+form: for fixed $A,B>0$, uniformly for $q\le(\log V)^B$, $(b,q)=1$,
+and intervals $J\subset[V,2V]$, the discrepancy of $\mu$ from its
+primitive-class average is $O_{A,B}(V\log^{-A}V)$. Endpoint subtraction
+gives the stated interval form from the usual endpoint estimate.
+Its constants may be ineffective. They do not depend on $q,b,J$.
+This is an external classical theorem, not a consequence of the disputed
+large-modulus theorem. Maynard I, arXiv:2006.06572v2, Definition~1,
+(6.1) and the immediately following examples (local extraction
+lines1252--1281) explicitly record the stronger auxiliary condition for
+unrough $\mu$. We only use the unrough, auxiliary-free special case,
+and derive the auxiliary assertion below.
+
+L23 Definition~2.1, (2.2) (local primary extraction lines1239--1268)
+requires all auxiliary integers and all moduli. Proposition~5.2,
+lines2427--2444, also requires one-boundedness and
+$P^-(n)>x^{1/(\log\log x)^3}$. The newly restricted proposition has
+exactly these coefficient requirements; its additional large-residue
+and size hypotheses are separate. Neither its conclusion nor L23
+Lemma~4.6 is an input to this note.
+
+\paragraph{2. Uniform window version.}
+Fix $\xi>0$, $0<c_1\le c_2$, $B\ge0$, and $C_h>0$. For sufficiently
+large $x$, put $L_2=\log\log x$ and assume
+\[
+ x^\xi\le U\le x,\qquad
+ x^{c_1/L_2^3}\le Z\le x^{c_2/L_2^3}.
+\]
+Let $I\subset[U,2U]$ be arbitrary, $e(n)\in\{1,\mu(n)\}$, and
+\[
+ \alpha_n=e(n)\mathbf1_{P^-(n)>Z}\mathbf1_I(n)h(n)n^{it},
+ \quad |h|\le1,\quad \operatorname{Var}_{[U,2U]}h\le C_h(\log x)^B,
+ \quad |t|\le(\log x)^B.
+\]
+The convention is $P^-(1)=+\infty$. Bounded variation suffices; smoothness
+is not required. Then for every fixed $A>0$, every $d,q\ge1$, and
+$(b,q)=1$,
+\begin{equation}\label{eq:hb-rough-full-sw-20261009}
+ \left|\sum_{\substack{n\equiv b\ (q)\\(n,d)=1}}\alpha_n
+ -\frac1{\varphi(q)}\sum_{(n,dq)=1}\alpha_n\right|
+ \ll_{A,B,\xi,c_1,c_2,C_h}
+       U\tau(d)(\log x)^{-A}.
+\end{equation}
+The constant and the sufficiently-large threshold are uniform in
+$Z,I,t,h,b,q,d$, even when these depend on an even target $T$.
+There is no size condition on $d$ and no exceptional set of $T$.
+The constants are not asserted to be uniform as $\xi$ or $c_1$ tends
+to zero. Since $\log U\asymp_\xi\log x$, this implies the source's
+normalization with $(\log U)^{-A}$.
+
+\paragraph{3. An explicit roughness sandwich, without a fundamental-lemma input.}
+For the moment let $h=1,t=0,d=1$. Set
+\[
+ m=2\lfloor L_2^2\rfloor,\quad k=m+1,\quad \mathcal L=U^{1/4},
+ \quad P(Z)=\prod_{p\le Z}p.
+\]
+For sufficiently large $x$ depending on $\xi,c_2$,
+$Z^k\le x^{(2c_2+o(1))/L_2}\le\mathcal L$.
+Define the finite Brun polynomials
+\[
+ \rho^+(n)=\sum_{\substack{\ell\mid(n,P(Z))\\\omega(\ell)\le m}}\mu(\ell),
+ \qquad
+ \rho^-(n)=\sum_{\substack{\ell\mid(n,P(Z))\\\omega(\ell)\le m+1}}\mu(\ell).
+\]
+If $j=\omega((n,P(Z)))$, the alternating binomial identity gives
+\[
+ \rho^-\le\mathbf1_{P^-(n)>Z}\le\rho^+,
+ \qquad \rho^+(n)-\rho^-(n)=\binom{j}{k}\ge0.                 \tag{R1}
+\]
+All coefficients are $0,1,-1$, and all supported $\ell$ are squarefree
+and at most $\mathcal L$. Thus, on any primitive residue class,
+\[
+ \sum_{\substack{n\in I\\n\equiv b\ (q)}}(\rho^+-\rho^-)(n)
+ \le \frac{U}{q}\frac{H(Z)^k}{k!}+O(\mathcal L),
+ \qquad H(Z)=\sum_{p\le Z}\frac1p.                           \tag{R2}
+\]
+Here terms $(\ell,q)>1$ are exactly absent, not estimated by a density
+chosen for another prime set. The same bound holds for the average
+over all primitive classes.
+
+Even Mertens' theorem is unnecessary for this error estimate: for
+$s=1+1/\log Z$, the Euler product and the integral bound for $\zeta(s)$
+give
+\[
+ H(Z)\le e\sum_p p^{-s}\le e\log\zeta(s)
+ \le e\log(1+\log Z)\ll L_2.
+\]
+Consequently $H(Z)^k/k!\le(eH(Z)/k)^k\le
+\exp(-cL_2^2\log L_2)$ for large $x$, hence is smaller than every
+fixed inverse power of $\log x$. This is uniform throughout the stated
+window. Equation (R2) is therefore $O_C(U\log^{-C}x)$ for every $C$,
+uniformly in the endpoints, and in particular in every fixed
+logarithmic range of $q$. For $e=\mu$ the replacement is justified by
+\[
+ |\mu(n)\mathbf1_{P^-(n)>Z}-\mu(n)\rho^+(n)|
+ \le\rho^+(n)-\rho^-(n).                                  \tag{R3}
+\]
+This is an absolute error bound; it does not use a positive comparison
+for a signed M\"obius sum.
+
+\paragraph{4. The auxiliary restriction created by $\mu(\ell n)$.}
+We first derive, uniformly for an arbitrary integer $E$, a needed
+unrough auxiliary estimate. The exact identity
+\[
+ \mu(n)\mathbf1_{(n,E)=1}
+   =\sum_{\substack{v\mid n\\p\mid v\Rightarrow p\mid E}}\mu(n/v)
+                                                               \tag{R4}
+\]
+is verified prime by prime. On scale $V$ split $v$ at $V^{1/4}$.
+For the smaller $v$, terms $(v,q)>1$ vanish in both primitive
+expressions, and the remaining inner scales are at least $V^{3/4}$.
+The classical input and
+\[
+ \sum_{v\mid E^\infty}v^{-1}
+ =\prod_{p\mid E}(1-p^{-1})^{-1}\le\tau(E)
+\]
+bound their total discrepancy by $O_C(V\tau(E)\log^{-C}V)$.
+For $v>V^{1/4}$, the total absolute mass is at most
+\[
+ O\left(V\sum_{\substack{v>V^{1/4}\\v\mid E^\infty}}v^{-1}\right)
+ \ll V^{7/8}\prod_{p\mid E}(1-p^{-1/2})^{-1}
+ \le V^{7/8}\tau(E)^2.                                    \tag{R5}
+\]
+Only $v\le2V$ can occur, and $\lfloor2V/v\rfloor\le2V/v$ handles
+the counting error without an unbounded extra sum of ones. The last
+product inequality includes $p=2$, since
+$(1-2^{-1/2})^{-1}<4$. Both (R4) and (R5) are uniform in $E$.
+
+In the rough sandwich expansion, squarefree $\ell$ satisfies
+\[
+ \mu(\ell n)=\mu(\ell)\mu(n)\mathbf1_{(n,\ell)=1}.
+\]
+Apply (R4)--(R5) with $E=\ell$, $V=U/\ell$, noting
+$\ell\le\mathcal L=U^{1/4}$ and $V\ge U^{3/4}$.
+For $q\le(\log x)^{B_0}$ the classical modulus range is valid on
+every such scale. The two summed errors are bounded by
+\[
+ \frac{U}{\log^C x}\sum_{\ell\le\mathcal L}\frac{\tau(\ell)}\ell
+ \ll U\log^{2-C}x,
+ \qquad
+ U^{7/8}\sum_{\ell\le\mathcal L}\frac{\tau(\ell)^2}{\ell^{7/8}}
+ \ll U^{29/32}(1+\log U)^4.                                \tag{R6}
+\]
+For completeness the elementary inequalities
+$\tau(n)^2\le d_4(n)$ and
+$\sum_{n\le L}d_j(n)/n\le(1+\log L)^j$ suffice here.
+This pays the full signed auxiliary loss with a fixed divisor order,
+although the Brun truncation order tends to infinity.
+For $e=1$, each expanded progression count differs from its
+primitive-class average by $O(1)$, so its summed error is only
+$O(\mathcal L)$. Together with (R2)--(R3), this proves the
+auxiliary-free rough assertion for small $q$.
+
+\paragraph{5. Every modulus, every auxiliary integer, and every permitted twist.}
+For any one-bounded sequence supported on $[U,2U]$, the discrepancy
+without auxiliary $d$ is at most
+\[
+ O(U/q+1+U/\varphi(q))\ll Uq^{-1/2}+1.
+\]
+Choosing the logarithmic threshold $B_0$ after the requested saving
+handles all larger $q$, with no upper restriction on $q$.
+Now impose any $d\ge1$. Only primes $p\mid d$ with $p>Z$ can remove
+a rough integer. Thus the change of the discrepancy is bounded by
+\[
+ 2\sum_{\substack{p\mid d\\p>Z}}(U/p+1)
+ \le2(U/Z+1)\omega(d)
+ \ll_{A,\xi,c_1}U\tau(d)\log^{-A}x.                       \tag{R7}
+\]
+The sum here is explicitly over prime divisors, not all divisors.
+The last inequality uses both $Z\gg\log^C x$ and
+$U\gg\log^C x$ for every fixed $C$, and $\omega(d)\le\tau(d)$.
+It is valid even for $d$ of arbitrarily large size.
+
+All estimates proved so far hold on every subinterval. Stieltjes
+partial summation now costs at most
+\[
+ \|h(v)v^{it}\|_\infty+\operatorname{Var}(h(v)v^{it})
+ \ll 1+C_h\log^B x+|t|\log2\ll\log^B x.
+\]
+Starting with a correspondingly larger saving proves
+\eqref{eq:hb-rough-full-sw-20261009}. A fixed power of
+$\log v/\log(2U)$ is one-bounded and has bounded variation; multiplying
+by it changes only fixed variation constants. Intervals may be very
+short: the error is absolute in $U$, not relative to $|I|$.
+
+\paragraph{6. Freeze the rough cutoff before HB, including regrouping scales.}
+There is a real implementation obligation hidden by the old shorthand
+``put $z_0=x^{1/(\log\log x)^3}$'' if $x$ is selected only after HB.
+An exact HB identity may be multiplied by one fixed projector
+$\mathbf1_{P^-(n)>Z}$, because for each product term
+\[
+ \mathbf1_{P^-(n_1\cdots n_j)>Z}
+       =\prod_{i=1}^j\mathbf1_{P^-(n_i)>Z}.                 \tag{R8}
+\]
+Choosing different $Z$ for different HB terms is not this identity.
+
+Here is a uniform, identity-preserving choice. Fix an original chart
+of $k$ prime variables in $[R_i,2R_i]$, with
+$R_i\gg T^a$ for fixed $a>0$. Let $X=\prod R_i$ and
+$X_+=2^kX$. In order-three HB there are at most $6k$ individual slots.
+Retain only rectangles meeting every original group interval. Their
+lower-endpoint product lies between $2^{-6k}X$ and $X_+$.
+If a selected medium slot has lower endpoint $U$, and the other slots
+are convolved then subdivided into a dyadic interval with lower endpoint
+$V$, the exact source scale $x=UV$ obeys
+\[
+ 2^{-6k}X\le x\le 2^{6k}X_+.                              \tag{R9}
+\]
+The generous upper constant also covers unit slots. With another fixed
+dyadic overlap convention, enlarge this fixed constant once.
+Set, before the HB expansion,
+\[
+ X_{\rm top}=2^{6k}X_+,\qquad
+ Z_{\rm chart}=f(X_{\rm top}),\qquad
+ f(v)=v^{1/(\log\log v)^3}.
+\]
+The function $f$ is increasing for all sufficiently large $v$. Since
+$X_{\rm top}/x$ is between one and a fixed constant depending only on
+$k$, for all retained local scales
+\[
+ f(x)\le Z_{\rm chart}\le x^{2/(\log\log x)^3}.            \tag{R10}
+\]
+All original primes exceed this cutoff for large $T$, so inserting
+the projector does not change the original prime-product sum.
+Equation (R8) then holds term by term with the same cutoff in the
+whole chart, also after Mellin separation. A cutoff $f(X_+)$ suffices
+if one keeps $x$ as the product of all individual lower endpoints;
+it must not silently be assumed to dominate every later exact $UV$
+after regrouping. Equation (R9) avoids that ambiguity without an
+asymptotic error or any density loss.
+
+The selected individual slot is now exactly $1$ or $\mu$, restricted
+to $P^->Z_{\rm chart}$, its HB cutoff interval, a normalized logarithm
+if present, and a separated Mellin twist. Use the proved lemma with
+$\xi=2\zeta$ (or a smaller fixed value to absorb fixed dyadic constants)
+and $(c_1,c_2)=(1,2)$. This supplies both the one-bound and every
+auxiliary-SW requirement of the restricted Proposition~5.2,
+uniformly for these target-dependent coefficients. A fixed larger
+logarithmic saving pays the fixed powers from normalization and the
+finite or logarithmic number of separated terms.
+
+\paragraph{7. Limits of this insertion.}
+The source SW hypothesis is supplied for the actual individual medium
+factor; no arbitrary convolution or arithmetically filtered sequence
+is substituted for it. An interval or smooth weight may depend on
+$T$, but an extra filter $n\equiv1\pmod3$ generally fails SW at
+$q=3$. Arbitrary $d$ is an auxiliary condition in the discrepancy,
+not a license to insert an arbitrary $T$-dependent arithmetic weight
+into $\alpha$ and retain the same constants. Polynomial-size
+coprimality filters can separately be removed by (R7) with
+$\omega(d)\ll\log x$, if needed; this is not required by the actual
+medium-slot construction. A unit slot cannot be selected as medium.
+
+First fix the finite policy, positive outer cutoff, scale margins and
+Mellin truncation exponent; then let $T$ tend to infinity. No uniformity
+is asserted while the policy becomes infinite or $\zeta\downarrow0$.
+The one/two-long alternatives, complementary-coefficient truncation,
+factorization inequalities, density identities and positive-product
+assembly remain separate tasks. In particular this coefficient proof
+neither assumes nor establishes their global conjunction.

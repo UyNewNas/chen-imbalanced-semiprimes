@@ -1,0 +1,174 @@
+Current downstream proof spine: fixed-b theorem and current all-even bounds
+10 October 2026. Standalone implication; the current upstream inputs remain explicit.
+
+Theorem. Put K=8452171/1250000=6.7617368 and c=12258223/6250000=1.96131568.
+For even N>2 let C_2=prod_(p>2)(1-1/(p-1)^2),
+ C_N=C_2 prod_(p|N,p>2)(p-1)/(p-2), H_N=C_N*N/(log N)^2.
+Here p,q are prime and r is prime except where r=1 is expressly allowed;
+Omega counts factors with multiplicity.
+Define D12(N)=#{p<N: N-p>1, Omega(N-p)<=2}; define
+ D_b(N)=#{p<N: N-p=r*q, q prime, r=1 or prime, r<=q^b},
+ B_b(N)=#{p<N: N-p=r*q, q^b<r<=q}.
+Each set counts p once. Assume the following TWO analytic conclusions.
+
+(C) There is e_C(N)>=0 tending to zero along ALL even N such that
+ D12(N)>=(c-e_C(N))*H_N.
+The intended current source is the retained paired Chen weight
+ W_E=W_full-Y6(E)+Y11(last pair in E), E=E0 disjoint-union E1,
+with 6091 old zero-floor cells and 11481 new pair512 cells. In the full weight,
+ W_full=3Y1+Y2+Y5+Y6-Y3-Y4-2Y7-Y8-Y9-Y10-Y11.
+Its single global divisor is four. Hypothesis (C) requires the actual count
+inequality and the lower estimate for this weight, not merely a scalar ledger.
+
+(U) For each fixed positive smooth outer approximation required below,
+one finite construction gives the SAME real coefficients rho_N(d) in (i)-(iii):
+ (i) support is squarefree d|P_N(N^r0), d<=N^theta, |rho_N(d)|<=M,
+     where P_N(z)=prod_(ell<z,ell prime,ell does not divide N)ell,
+     M is fixed, theta<1 and 0<r0<1; for every integer n,
+     A_N(n):=sum_(d|n)rho_N(d)>=1_((n,P_N(N^r0))=1)>=0;
+ (ii) S_N:=sum_d rho_N(d)/phi(d)<=(K+e_U(N))*C_N/log N,
+      with e_U(N)>=0 tending to zero;
+ (iii) writing X_W=sum_(r,q)W_N(r,q), X_W^(d)=sum_((rq,d)=1)W_N(r,q),
+       sum_d rho_N(d)[sum_(rq=N mod d)W_N(r,q)-X_W^(d)/phi(d)]
+       =O_(A,W)(N/log^A N), for arbitrary fixed A>2 after summing charts.
+This is required only for the actual licensed finite smooth positive families:
+r,q>=N^a/2 for fixed a>0, rq=O(N), with bounded normalized derivatives.
+If (iii) is available only on complete-product scales near N, use the fixed
+cutoff rq>=N^(1-kappa0) below. All constants are uniform over even N.
+The current high-level licence, stronger than theta<1, is an UPSTREAM input;
+this theorem does not infer (iii) from support or allow arbitrary restrictions.
+
+For every fixed 1/2<b<1 the hypotheses give
+ liminf_(even N) D_b(N)/H_N>=c-K*log(1/b).
+Thus every fixed coefficient strictly below this number is attained eventually.
+In particular, for every sufficiently large even N, simultaneously,
+ D_(74821909/10^8)(N)>=10^-5 H_N and D_(74821809/10^8)(N)>=10^-6 H_N.
+Also D_(9/10)(N)>=1.24889 H_N>1.248 H_N. All sets are nonempty.
+The smaller b is the endpoint improvement; the .9 bound is a count comparison
+at a common exponent. No effective threshold or literature priority is asserted.
+
+Proof. First C_2>0 since sum_(p>2)(p-1)^(-2)<infinity; each extra factor
+in C_N is >=1. Hence C_N>=C_2 and H_N tends to infinity uniformly along
+even integers. In particular N/log^A N=o(H_N) for A>2, as is N^(1-delta+o(1))
+for every fixed delta>0. No uniform upper bound on C_N is needed.
+
+For completeness the usual sieve normalization agrees with this H_N.
+Set V_N(z)=prod_(2<p<z,p does not divide N)(1-1/(p-1)) and
+M(z)=prod_(p<z)(1-1/p). Direct multiplication of local factors gives
+ V_N(z)/(2*M(z)*C_N)
+ =prod_(p>=z)(1-1/(p-1)^2)^(-1) prod_(p|N,p>=z)(1-1/(p-1)).
+The absolute logarithm is <=(1+log N/log z)/(z-2): bound the first tail by
+sum_(j>=ceil(z))1/[j(j-2)]<=1/(z-2), and count at most log N/log z target
+prime divisors in the second. Mertens, with z=N^u and fixed u>0, now gives
+ V_N(N^u)=(2*exp(-gamma)*C_N)/(u*log N)*(1+o(1))
+uniformly in N. Thus ordinary densities normalize to 4*fbar(s)/u and
+4*Fbar(s)/u, with fbar=f/(2*exp(gamma)), Fbar=F/(2*exp(gamma)). The Chen
+quarter is applied once to its functional; it introduces no factor in B_b.
+
+We next derive the positive-product consequence of (U), with absolute errors.
+For any prime ell, squarefree support and the elementary bound
+sum_(e<=Y)1/phi(e)=O(log(2Y)) give
+ sum_(d:ell|d)|rho_N(d)|/phi(d)=O(log N/(ell-1)).
+Consequently, since W_N>=0, a union bound over its two prime slots gives
+ |sum_d rho_N(d)*(X_W^(d)-X_W)/phi(d)|
+ <=sum_(r,q)W_N(r,q) sum_(ell in {r,q})O(log N/(ell-1))
+ =O(X_W*N^(-a)*log N)=o(H_N), provided X_W=O(N/log N).
+The argument includes r=q and has no N^theta factor. It does not require
+r,q to avoid divisors of N; coprimality (d,N)=1 is already built into (i).
+
+At primes N-rq>=N^r0, (i) dominates the prime indicator. The ordered count
+with 0<N-rq<N^r0 is O(N^r0), because each remainder has at most one ordered
+prime factorization. Positive majorization BEFORE (iii), followed by the
+preceding exact-coprime correction, therefore proves
+ count(domain)<=O(N^r0)+sum_(r,q)W_N(r,q)*A_N(N-rq)
+              <=X_W*S_N+o(H_N).
+Outward smoothing is safe even outside rq<N by the nonnegativity in (i).
+The value at n=0 is a finite divisor sum; with positive-power prime cutoffs
+the actual prime products are odd and cannot equal even N in any case.
+
+If complete-product scales are needed, delete rq<2*N^(1-kappa0) first.
+Its absolute divisor-sum contribution is bounded by
+ O_W(sum_(m<2*N^(1-kappa0))tau_2(m)*M*tau(N-m))=N^(1-kappa0+o(1));
+here m<N eventually, so tau(0) is never used. Its coprime mean has the same
+power saving after an O(log N) factor. The smooth cutoff has bounded
+multiplicative derivatives. On retained charts x is the COMPLETE product
+scale, c1*N^(1-kappa0)<=x<=C1*N; no residual quotient replaces x.
+For the current moment substitution choose the fixed moment order K_mom,
+then 0<kappa<=min(kappa_old,1/(2*K_mom)), and
+0<kappa0<min(kappa0_old,kappa/[4*(1+kappa)],1/10). This gives
+c0*x<=N<=x^(1+kappa) eventually for the stipulated moving-residue range.
+All such choices precede the N limit; no old equality kappa=sigma/200 is needed.
+
+If limsup X_W*log N/N<=J_W, the last positive bound and (ii) give
+ limsup count(domain)/H_N<=K*J_W.
+Indeed multiply the positive upper bound K+e_U by X_W>=0 and use its
+absolute normalized error. No division by J_W, X_W, or a boundary mass occurs:
+the conclusion remains valid when J_W=0 or is arbitrarily small.
+
+Now fix 1/2<b<1 and beta=b/(1+b). The actual bad products below
+2*N^(1-kappa0) are at most 2*N^(1-kappa0), hence negligible. Otherwise
+r>q^b implies r>(rq)^beta, so both primes exceed N^a for some fixed a>0.
+Use t=log r/log N and y=rq/N. For fixed eta<=y<=C, PNT in q=Ny/r gives
+ (N/(r*log N))*dy/[1-t+log y/log N].
+Reciprocal-prime partial summation in r then gives limiting pair mass
+ (N/log N)*dt*dy/[t*(1-t)]. The sum of PNT errors is uniform, because
+the reciprocal-prime sum on fixed positive exponent ranges is bounded.
+The elementary prime upper bound gives O_a(eta*N/log N) for y<eta.
+Thus N tends to infinity first and eta then tends to zero.
+
+The exact bad inequalities are
+ t<=1/2+log y/(2*log N), t>beta+b*log y/((1+b)*log N), 0<y<1.
+The limiting ordered mass is consequently
+ J_b=int_0^1 dy int_beta^(1/2) dt/[t*(1-t)]
+    =[log(t/(1-t))]_beta^(1/2)=log(1/b).
+The r<=q ordering counts each composite once; there is no second ordering
+factor and no singular-series factor in J_b. Smooth the total-product wall
+in y and the remaining walls in t. For each epsilon>0 fixed first, positive
+outer approximations have J_W<=J_b+epsilon; their normalized derivatives
+are bounded for that precision. One partition of unity repeats no mass.
+Use (U) for this fixed family, let N grow, and then epsilon decrease. We get
+ limsup_(even N) B_b(N)/H_N<=K*log(1/b).
+
+Unique factorization proves the EXACT identity D_b=D12-B_b. A prime remainder
+is represented by r=1 and is always good. A square q^2 has r=q>q^b and is
+bad; if a squarefree upper argument omits it, add its O(sqrt N) count first.
+The unit N-p=1 is excluded in D12; a convention including it costs at most
+one. Zero remainder is excluded by p<N. Small p was paid above, separately
+from the small-product tail. Rough squareful exceptions in a Chen-weight
+derivation cost O(N^(1-a+o(1))) for fixed a>0 and belong in (C)'s error.
+All these costs vanish after division by H_N. Therefore (C) gives
+ liminf_(even N) D_b(N)/H_N>=c-K*log(1/b).
+
+Here is a fresh exact scalar certificate, independent of the old integrals.
+For each of the three rational b, set x=(1-b)/b, so 0<x<1. Put
+ L=sum_(j=1)^256 (-1)^(j+1)*x^j/j, U=L+x^257/257.
+Integrating the finite geometric identity for 1/(1+t) proves
+ 0<log(1+x)-L=int_0^x t^256/(1+t)dt<x^257/257;
+hence L<log(1/b)<U, with every displayed endpoint rational. Exact arithmetic
+gives the following STRICT lower bounds (the JSON stores the recipe/results):
+ b=74821909/10^8: c-K*log(1/b)>1007126077377507/10^20>10^-5;
+ b=74821809/10^8: c-K*log(1/b)> 103414663310529/10^20>10^-6.
+ b=9/10: c-K*log(10/9)>124889560400949969098/10^20>1.24889>1.248.
+The first two surpluses exceed 7126077377507/10^20 and 3414663310529/10^20;
+the third exceeds 560400949969098/10^20 above its stated count 1.24889.
+For each b choose the fixed smoothing and realization errors smaller than
+one quarter of its surplus, then let all remaining errors become smaller
+than another quarter. The uniform hypotheses give an eventual bound for
+EVERY even N. Take the maximum of the three thresholds. This proves the theorem.
+
+Exact completion boundary. This proof establishes the downstream implication.
+To discharge (U), the current K must come from one actual nonnegative upper
+weight, its literal raw-density bound, and its signed compiled PP on precisely
+the licensed finite families, with the corrected auxiliary support cover and
+the narrowed moment parameters. The numerical endpoint plus two retained
+upper allowances is strictly below K; this arithmetic does not prove them.
+To discharge (C), retain the full-Y11 pointwise proof and the paired injection,
+the actual lower compiler and literal residual-density equalities, licensed
+table430 only at U3/U4 and table248 elsewhere, the complete old L2 H removal,
+and the current restricted U11 parent majorants and discarded L6 floor losses.
+All retained numerical inequalities and both finite/compilation loss budgets
+must apply together: their lower endpoint exceeds c by only 9.0612246398e-10.
+No current input is certified by an old PASS label, a density number alone,
+an unrestricted distribution theorem, or this final subtraction. No complete
+upstream replay, external validation, frontier-priority or whole-theorem claim
+is made. The main manuscript, all old files, state and external services are untouched.

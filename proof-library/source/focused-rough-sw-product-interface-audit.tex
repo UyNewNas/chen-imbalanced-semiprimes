@@ -1,0 +1,246 @@
+% Focused independent analytic audit, 2026-10-08. Old files unchanged.
+\subsection{The individual rough-factor Siegel--Walfisz bridge}
+\label{sec:focused-rough-sw-product-interface-audit}
+
+The chosen interface is the additional roughness condition on the single
+Heath--Brown variable used in L23 Proposition 5.2. L23 Definition 2.1
+requires all auxiliary integers, not merely a Siegel--Walfisz estimate
+with no auxiliary coprimality. Its examples $1$ and $\mu$ do not by
+themselves cover the rough truncation. This note independently derives
+that bridge from classical inputs, and identifies the precise limits of
+the conclusion. It is not a verification of all spectral arguments or
+of the complete new-$K$ theorem.
+
+\paragraph{Source status and what is actually being quoted.}
+Here L23 is the versioned primary source
+\href{https://arxiv.org/abs/2309.08522v1}{arXiv:2309.08522v1}.
+The local extraction \texttt{external-source-audit/lichtman2023v1.txt}
+has Definition 2.1 at lines 388--396 and Proposition 5.2 at
+946--962. Its requirement is
+\[
+ \left|\sum_{\substack{n\sim U\,,\ n\equiv r\ (q)\\(n,D)=1}}
+ \alpha_n-\frac1{\varphi(q)}\sum_{\substack{n\sim U\\(n,Dq)=1}}
+ \alpha_n\right|
+ \ll_A U\tau(D)^{O(1)}(\log U)^{-A}
+\]
+for every $D,q\ge1$ and $(r,q)=1$. Its convolution proposition
+explicitly takes a supremum over $0<|a_{\rm res}|<x^{1+\epsilon}$.
+Thus the source is not restricted to one residue fixed independently
+of $x$.
+
+The arXiv record checked on 8 October 2026 exposes v1 and no journal
+reference. This audit has not verified journal publication of L23 and
+does not describe it as a checked journal theorem. This bibliographic
+qualification does not itself refute its mathematics. Maynard's
+\emph{Primes in Arithmetic Progressions to Large Moduli II} is listed as
+a 2025 publication by his
+\href{https://www.maths.ox.ac.uk/research/faculty-books/authors-k-o/james-maynard}
+{institutional author bibliography}; the local argument's theorem
+numbers are from \href{https://arxiv.org/abs/2006.07088v1}{its v1 source}.
+This audit does not silently identify its page or proposition numbers
+with those of the published edition.
+
+The published classical inputs used in the proof below are the ordinary
+M\"obius Siegel--Walfisz estimate, the dimension-one fundamental lemma,
+and fixed-order divisor moments. L23 itself records the unrough
+M\"obius example and cites Friedlander--Iwaniec,
+\emph{Opera de Cribro}, Theorem 6.12, for its fundamental-lemma use.
+The rough extension proved next is a derived lemma of this project,
+not the literal statement of an external theorem.
+
+\paragraph{Statement with all relevant quantifiers.}
+Fix $\xi>0$ and $B\ge0$. Let
+\[
+ x^\xi\le U\le x,\qquad Z=x^{1/(\log\log x)^3},
+ \qquad I\subset[U,2U].
+\]
+For $e=1$ or $e=\mu$, set
+\[
+ a(n)=e(n)\mathbf1_{P^-(n)>Z}\mathbf1_I(n)h(n)n^{it},
+\]
+where $|h|\le1$, $\int_U^{2U}|h'(v)|\,dv\le C_h(\log x)^B$,
+and $|t|\le(\log x)^B$ with fixed $C_h$.
+Then for every $A>0$, every integer $D,q\ge1$, and $(r,q)=1$,
+\begin{equation}\label{eq:focused-rough-sw-conclusion}
+ \left|\sum_{\substack{n\equiv r\ (q)\\(n,D)=1}}a(n)
+ -\frac1{\varphi(q)}\sum_{(n,Dq)=1}a(n)\right|
+ \ll_{A,B,\xi,C_h} U\tau(D)(\log x)^{-A}.
+\end{equation}
+Intervals and weights may vary with $x$ or with the even target $N$,
+provided these explicit bounds are uniform. There is no size restriction
+on $D$, no exceptional set of target integers, and no assumption of a
+Siegel--Walfisz theorem for a grouped convolution.
+
+\paragraph{Step 1: auxiliary coprimality for the unrough M\"obius sum.}
+For any $E\ge1$, the coefficient identity
+\[
+ \mu(n)\mathbf1_{(n,E)=1}
+ =\sum_{\substack{v\mid n\\v\mid E^\infty}}\mu(n/v)
+\]
+holds prime by prime. On an interval in $[V,2V]$, split at
+$v=V^{1/4}$. For the smaller $v$, ordinary M\"obius
+Siegel--Walfisz applies on a scale at least $V^{3/4}$, uniformly for
+any fixed logarithmic range of $q$. Terms $(v,q)>1$ vanish in both
+primitive-residue expressions. Moreover
+\[
+ \sum_{v\mid E^\infty}\frac1v
+ =\prod_{p\mid E}(1-1/p)^{-1}\le\tau(E).
+\]
+The absolute mass of the tail, including the normalized coprime mean,
+is bounded by
+\[
+ O\left(V\sum_{\substack{v>V^{1/4}\\v\mid E^\infty}}\frac1v\right)
+ \ll V^{7/8}\prod_{p\mid E}(1-p^{-1/2})^{-1}
+ \le V^{7/8}\tau(E)^2.
+\]
+The last product inequality holds factor by factor, including $p=2$.
+Thus for any fixed $C,B_0$ the unrough auxiliary discrepancy obeys
+\begin{equation}\label{eq:focused-unrough-auxiliary}
+ \mathcal E_E(V;q,r)
+ \ll_{C,B_0} V\tau(E)(\log V)^{-C}
+                   +V^{7/8}\tau(E)^2
+\end{equation}
+uniformly for $q\le(\log V)^{B_0}$ and for every interval endpoint.
+The divisor exponent is fixed; it does not grow with $E$.
+
+\paragraph{Step 2: impose roughness, including the signed error.}
+First take $D=1$, $h=1$, $t=0$, and $q\le(\log x)^{B_0}$.
+Use upper and lower fundamental-lemma polynomials
+$\rho^\pm(n)=\sum_{\ell\mid n}\lambda_\ell^\pm$ of level
+$L=U^{1/4}$, with $|\lambda_\ell^\pm|\le1$ and squarefree
+$\ell\mid P(Z)$. On a primitive class the primes dividing $q$ have
+local density zero. Deleting them preserves the dimension-one bound;
+one can equivalently choose the auxiliary polynomials on the deleted
+prime set for this proof. Their constants are uniform in $q$.
+With $s_0=\log L/\log Z\ge(\xi/4)(\log\log x)^3$, elementary
+counting of multiples and the fundamental lemma give
+\[
+ \sum_{\substack{n\in I\\n\equiv r\ (q)}}(\rho^+-\rho^-)(n)
+ \ll (U/q)e^{-c s_0}+L,
+\]
+and the same bound for the average of primitive classes. This is
+$O_C(U(\log x)^{-C})$ for every fixed $C$.
+
+The signed case is justified by the absolute inequality
+\[
+ |\mu(n)\mathbf1_{P^-(n)>Z}-\mu(n)\rho^+(n)|
+ \le\rho^+(n)-\rho^-(n)
+\]
+on those classes. It does not compare the signed sums by positivity.
+For a squarefree $\ell$,
+$\mu(\ell m)=\mu(\ell)\mu(m)\mathbf1_{(m,\ell)=1}$.
+After expanding the polynomial, apply
+\eqref{eq:focused-unrough-auxiliary} with $E=\ell$ and $V=U/\ell$.
+Here $\ell\le U^{1/4}$ and $V\ge U^{3/4}$, so the same logarithmic
+modulus range applies to every inner sum. The two aggregate errors are
+\begin{align*}
+ &\ll_C \frac{U}{(\log x)^C}
+          \sum_{\ell\le L}\frac{\tau(\ell)}\ell
+       \ll_C U(\log x)^{2-C},\\
+ &\ll U^{7/8}\sum_{\ell\le L}\frac{\tau(\ell)^2}{\ell^{7/8}}
+       \ll U^{29/32}(\log U)^4.
+\end{align*}
+Both permit any prescribed logarithmic saving, since $U\ge x^\xi$.
+This explicit power estimate closes the potential hidden auxiliary
+coprimality loss in the signed rough expansion. For $e=1$, each
+expanded progression count differs from its primitive-class average
+by $O(1)$, so the corresponding error is merely $O(L)$.
+
+\paragraph{Step 3: all moduli and all auxiliary integers.}
+For a one-bounded sequence and $D=1$, the trivial discrepancy is
+\[
+ O(U/q+1+U/\varphi(q))\ll Uq^{-1/2}+1.
+\]
+Taking $B_0$ sufficiently large handles every
+$q>(\log x)^{B_0}$ with the requested saving.
+Now an arbitrary $D$ can delete only rough multiples of primes
+$p\mid D$ with $p>Z$. Their total absolute number in $[U,2U]$ is
+at most $(U/Z+1)\omega(D)$. Thus its effect on the discrepancy is at
+most twice this quantity, and
+\[
+ (U/Z+1)\omega(D)\ll_{A,\xi}U\tau(D)(\log x)^{-A}.
+\]
+This is uniform even when $D$ is much larger than every other scale.
+Finally $h(v)v^{it}$ has total variation
+$O((\log x)^B)$, so partial summation, beginning with a stronger
+logarithmic saving, proves \eqref{eq:focused-rough-sw-conclusion}.
+
+\paragraph{Two adversarial boundary tests.}
+The $\tau(D)$ allowance cannot be silently removed. For $e=1$, let
+$I=(U,2U]$ and let $D$ be the product of all primes in $I$ congruent
+to one modulo three. These primes exceed $Z$; in $I$, imposing
+$(n,D)=1$ deletes exactly those primes. If their number is $P_U$, the
+discrepancy for $q=3,r=1$ changes by $-P_U/2$. The base discrepancy
+is smaller than any inverse logarithmic power, whereas classical PNT
+in that progression gives $P_U\sim U/(2\log U)$. A hypothetical bound
+$O_A(U(\log x)^{-A})$ independent of $D$ would therefore fail.
+The actual lemma has the required $\tau(D)$ and is not contradicted.
+
+Nor can a unit Heath--Brown slot be selected as the large variable.
+For the rough sequence supported just at $n=1$, take $q=3$, $r=1$,
+$D=1$; its discrepancy is $1/2$, not $O_A((\log x)^{-A})$.
+The actual Type II selection uses $U\ge x^{2\zeta}$ and excludes this
+case. No assertion uniform as $\xi\downarrow0$ has been proved.
+
+\paragraph{Map back to the new modulus tree.}
+The admissible product family fixes a least outer exponent $a>0$ and
+a finite number of original prime slots. Choose $12\zeta<a/2$ after
+fixing buffered support margins. Apply the $k=3$ Heath--Brown identity
+at each original slot scale, and retain that original scale before
+Mellin separation. A selected individual medium variable satisfies
+\[
+ x^{2\zeta}\le U\le x^{1/3+\zeta/2},
+\]
+and its coefficient is precisely rough $1$ or rough $\mu$, times an
+interval, a normalized logarithm, and a bounded-variation Mellin twist.
+Set $\xi=2\zeta$ in the proved lemma. This verifies every part of
+L23 Definition 2.1 for the selected sequence, uniformly in the local
+scale and target $N$. The complementary convolution is not required
+to satisfy this property; its separate divisor truncation remains a
+different step.
+
+The inspected fourth-prefix rule freezes a new level at even rank four
+and changes later odd tests only. The fifth rule changes the odd fifth
+decision and freezes a level afterwards. The sixth rule keeps rank-six
+membership and changes later odd tests only, using an upper bound for
+the actual full fifth cap. All use positive fixed cutoffs, finite
+partitions, and full plus selected-remaining square gates. These
+choices modify the modulus coefficients, not the individual outer
+Heath--Brown variable. They cannot add a new arithmetic restriction to
+that variable. For each finite modulus atom the group coefficients may
+depend on $N$, but L23 permits arbitrary one-bounded complex group
+coefficients with the stated coprimality. Such dependence is harmless
+once the atom's partition and factorization inequalities are justified.
+
+For the target residue, local product scales
+$x\ge N^{1-\kappa}/O(1)$ with
+$\kappa<\epsilon/(2(1+\epsilon))$ give $N<x^{1+\epsilon}$ for large
+$N$. L23's displayed supremum then includes every target $N$, with no
+averaging over target integers. This observation and the proved SW
+lemma remove no modulus-factor size inequality: those remain required
+for every atom. Shrinking the fixed outer cutoff changes $\zeta$ and
+implicit constants, not the limiting tree density or its $K$.
+
+\paragraph{Precisely what remains outside this focused result.}
+The proof above closes the rough-SW bridge; no additional rough-SW
+hypothesis is needed for any fixed positive outer cutoff. It does not
+turn the numerical inequality $K_{\rm end}<6.7619$ into a quoted
+external theorem. The following are separate project-derived
+propositions, with local proof fragments rather than published theorem
+statements: the nonleading selected-subproduct factorization and its
+capacity repair; compilation of the fourth/fifth/sixth endpoint strategy
+into finite signed box atoms; the uniform upper-density evaluation of
+that tree; and the positive radial majorant for sharp product domains.
+Their existence is not established by a finite rational box sum alone.
+This audit inspected their role and support changes but did not reprove
+all of them or the external dispersion theorem.
+
+Accordingly the concrete conclusion is narrower than a global PASS:
+the full auxiliary-coprimality and twist hypothesis of L23 for the
+individual rough Type II factor is now supplied by the explicit proof
+above. No counterexample to that hypothesis, or new restriction on the
+fixed positive-cutoff class, was found. The every-even-$N$ new-$K$
+conclusion still requires the separate signed-atom/factorization,
+density, exceptional one/two-long-variable, and radial-limit arguments.
+No claim for arbitrary arithmetic outer weights, vanishing cutoffs,
+or infinitely adaptive prefix strategies is licensed.

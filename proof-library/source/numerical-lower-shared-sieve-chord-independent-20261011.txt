@@ -1,0 +1,153 @@
+Different-method verification of the actual shared lower sieve tables
+11 October filename; research run begun10 October2026. No selected numbers change.
+
+1. Coverage discovery: do not re-run completed W2 work
+
+expanded248-numeric-closure-independent.json and its actually executed
+expanded248-remaining-integrals-independent-v1.json cover all33 ordinary
+collections(198components),429 switched masses,3626 singleton weights and
+5224 pair feedback weights. The112-bit Simpson/log implementation imports
+no author arithmetic/Jet/clipping code. The12624 pieces and finite64-round
+updates have separate exact geometry and array replays. They are NOT an
+outstanding numerical gap merely because an earlier review was scoped.
+
+For the original3 W2 actions, finite-w2-action-independent-audit.py independently
+clips polygons and reconstructs every pair weight, but its midpoint backend
+imports the original I/Q/log. Its singleton weights and39 closed masses use
+separate112-bit logs. The root agent is independently replacing the remaining
+original3 pair arithmetic in this round; this report does not duplicate it.
+The36 ordinary baselines already have a different-method affine-series audit.
+
+The variable switched kernels are also already fully covered: old3 have
+559560 accepted boxes and expanded33 have6089150. Their replays import no
+author arithmetic, use160-bit exact positive atanh sums, integer product
+floors, exact uniqueness/ordering and a more correlated cutoff maximum.
+No variable-kernel box is re-integrated here. The finite248,312 and430 maps
+retain their separate simultaneous integer recurrence audits; a table
+lower bound is not a fixed-point assumption or infinite convergence claim.
+
+2. A real shared primitive still used by current high-dimensional inputs
+
+The ordinary table class in lower-start-three-prefix-independent-table-replay.py
+was originally an independent implementation. Later authors AND independent
+geometry replays reuse it. The relevant actual profiles are:
+
+ * n=65536,max32,Q112: I4(h) chord-M800 and I4(a) all-mask replay;
+ * n=131072,max12,Q112: full fifth h cover, subdivision, extra coverage andL1;
+ * n=262144,max32,Q112: current I3(h),I3(a) hybrid-M1600 refinement.
+
+The previous numerator-chord audit checked E0 n16384/max12 and the sharp
+baseline n4096/max8; it did NOT numerically cover these finer profiles.
+Current lower-start-method-coverage-20261009.json replaces the older I3
+bounds by both M1600 values, adds L1 fourth and fifth, and retains the I4(h)
+replacement from lower-start-refined-methods-20261008. The later selected
+assemblies refine other costs or add restoration domains and retain these
+same three-layer values. The final selected430 policy acts only on U3/U4;
+it does not replace these lower-start ordinary functions. Hence these are
+actual retained inputs, not obsolete exploratory tables.
+
+The new certificate addresses their complete delayed-table node values,
+using a different integration inequality and a self-contained128-bit
+implementation. It does not redo any outer-dimensional integral or claim
+that the M1600 geometry now has a second complete implementation.
+
+3. Independent numerator-chord oracle
+
+Let L(s)=s fbar(s), H(s)=s Fbar(s), with the usual ordinary normalization.
+Inputs are the standard delay equations and their positivity/shape:
+L=0 through2, H=1 through3,
+L'(s)=H(s-1)/(s-1), H'(s)=L(s-1)/(s-1).
+L is increasing concave above2, H increasing convex above3, and
+|L''(u)|,|H''(u)|<=1/(u-1) on the pieces used below. Integer breaks are
+mesh endpoints. Initial H=1 also gives L(s)=log(s-1) for2<=s<=4.
+
+On a delayed interval [j/n,(j+1)/n], exact integration of a numerator's
+linear endpoint chord divided byu has positive coefficients
+ w0=(j+1)log(1+1/j)-1,
+ w1=1-j log(1+1/j).
+They have alternating series
+ w0=sum_(k>=1)(-1)^(k+1)/(k(k+1)j^k),
+ w1=sum_(k>=1)(-1)^(k+1)/((k+1)j^k).
+The sixth partial sum is below and seventh above. For log(1+1/j) the
+same even/odd rule applies. In common denominator840j^7, the lower
+numerators are respectively
+ 420j^6-140j^5+70j^4-42j^3+28j^2-20j,
+ 420j^6-280j^5+210j^4-168j^3+140j^2-120j,
+ 840j^6-420j^5+280j^4-210j^3+168j^2-140j;
+the upper numerators add15,105,120. The program evaluates integer Horner
+polynomials and rounds these weights outward at2^-128. No logarithm oracle,
+original table value or old interval object enters the independent update.
+
+For a twice differentiable numerator V, chord error is bounded by
+(M/2)(u-a)(b-u). After division byu>=a its integral is at most
+M h^3/(12a). Taking M<=1/(a-1) gives1/[12 n j(j-n)].
+Convex H is below its chord: subtract this error only from the lower L
+increment. Concave L is above its chord: add it only to the upper H
+increment. For target s<=4 use the explicit log increment instead.
+All weights and numerator endpoints are nonnegative; each weighted sum is
+then rounded outward again. Known monotonicity permits clipping a lower
+update at its previous lower value. Delay indices are strictly earlier,
+so induction proves every independently constructed node interval.
+
+4. Exact streaming and target reproduction
+
+Only the preceding node and nodes one unit earlier are needed. A ring of
+n+2 entries for each of Llo,Lhi,Hlo,Hhi therefore retains every operand
+until its final use. It begins with exact L=0,H=1 for indices<=2n. A write
+at indexi cannot overwrite delayed indicesi-n-1,i-n or previousi-1,
+whose index distances are all strictly smaller than n+2. This proves the
+stream has exactly the same mathematical update as a full stored oracle.
+
+To avoid multiple gigabytes of unneeded target arrays, the frozen target
+recurrence is ALSO streamed. This transcription is openly the arithmetic
+subject, not a source of independent bounds. Its trapezoid numerator
+ [H(j-1)*j+H(j)*(j-1)]/[2j(j-1)] and the analogous L expression are
+copied exactly, as are error_L=ceil(Q/(6n^3)),error_H=ceil(Q/(12n^3))
+and max(previous lower,new lower). A direct source inspection establishes
+the algebraic correspondence. Complete target instances at meshes15,64,129
+are additionally constructed from the frozen class and all four components
+of every updated node are required to match the stream exactly. The source
+module is loaded ONLY for those target-transcription controls, never as an
+oracle or a shared arithmetic primitive for the new enclosure.
+
+A single oracle at n=262144,max32 is compared at aligned nodes to all
+three actual target profiles. The initial [1,2] nodes coincide by definition;
+every other target node is individually checked. Each target's lower bound
+must be at most the oracle lower and its upper at least the oracle upper,
+for BOTH L and H. This proves the stored algorithm's complete node profile
+contains the actual ordinary functions. Successful complete output records
+23199750 function-node intervals checked; the result file supplies the
+actual count, exact integer anchors, containment slacks and runtime.
+
+5. From all nodes to all actual queries and primitives
+
+For any rational query in a grid cell entirely above the initial threshold,
+concavity of L gives a lower endpoint chord and convexity of H an upper
+endpoint chord. The opposite side is covered by h^2/8 since the curvature
+bound is at most1 there. This is exactly the subject numerator() rule.
+Delayed integer breaks are nodes; there is no use of a smooth remainder
+across the initial jump. Endpoints are returned without interpolation.
+Positive division bys gives the ordinary fbar/Fbar enclosure. The lower()
+closed form on[2,4] is a separate already reviewed log routine; this report
+does not mislabel it as a table lookup or re-run those logs.
+
+The high-dimensional last-slice identities use J_F(s)=L(s+1),
+J_f(s)=H(s+1), up to irrelevant constants, as follows by differentiating.
+Their callers explicitly restrict s+1 to the table's maximum. Thus full
+node containment plus the general interpolation proof applies to every
+allowed query, not merely finitely sampled recorded arguments. It does
+not re-prove the caller's rational clipping, sign, slice arrangement,
+weighted-Jensen/corner geometry or sum; their original distinct reviews
+remain necessary. No extrapolation beyond the stated maximum is licensed.
+
+6. Outcome boundary
+
+Only a complete run with all profiles contained is a certificate for the
+actual tables. Smaller mesh runs are labelled scaled pilots, never actual
+coverage. The new report removes a specific shared delayed-table arithmetic
+dependency from the current third/fourth/fifth numerical backend. It is not
+a full new independent replay of all multidimensional refinements, a proof
+of the external sieve/distribution inputs, or a new K/c/b calculation.
+All files are new, all output creation refuses overwrite, and no mutable
+research-state file is bound. The exact selected tuple and all ledgers remain
+unchanged.

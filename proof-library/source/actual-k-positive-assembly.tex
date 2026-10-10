@@ -1,0 +1,174 @@
+% Assembly lemma for the actual bad-semiprime count, 2026-10-08.
+% Does not certify its two analytic inputs or edit the main manuscript.
+\subsection{From a compiled upper weight to the actual bad count}
+\label{sec:actual-k-positive-assembly}
+
+Put $\mathcal H_N=C_NN/\log^2N$, with the same singular series as
+the manuscript, and let $N$ tend to infinity through even integers.
+The following argument isolates exactly what is needed on the modulus
+side. In particular, a rational density bound alone is not its hypothesis.
+
+\paragraph{The two inputs.}
+Fix $K_0>0$, $0<\theta<1$, and $0<\rho<1$. Suppose a fixed finite
+compiled strategy supplies real coefficients $\rho_N(d)$ such that
+\[
+ \operatorname{supp}\rho_N\subset
+ \{d\le N^\theta:d\mid P_N(N^\rho)\},\qquad |\rho_N(d)|\le1,
+\]
+and, for every integer $n$,
+\begin{equation}\label{eq:actual-k-majorant-input}
+ \sum_{d\mid n}\rho_N(d)\ge
+ \mathbf1_{(n,P_N(N^\rho))=1},\qquad
+ \sum_d\frac{\rho_N(d)}{\varphi(d)}
+ \le (K_0+o(1))\frac{C_N}{\log N}.
+\end{equation}
+All supported $d$ are squarefree and coprime to $N$. The first
+inequality includes $n=0$; its left side is a finite sum.
+
+The second input is the actual signed distribution statement for
+each nonnegative smooth two-prime weight $W_N(r,q)$ used below,
+with a fixed positive factor cutoff $r,q\ge N^a/2$:
+\begin{equation}\label{eq:actual-k-distribution-input}
+ \sum_d\rho_N(d)\left\{
+ \sum_{rq\equiv N\ (d)}W_N(r,q)
+       -\frac{X_W^{(d)}}{\varphi(d)}\right\}
+ =O_{A,W}(N\log^{-A}N),
+\end{equation}
+where sums over $r,q$ are over primes,
+$X_W^{(d)}=\sum_{(rq,d)=1}W_N(r,q)$, and $X_W=\sum W_N(r,q)$.
+Weights have bounded size, product $rq\ll N$, and bounded normalized
+smooth derivatives for each fixed smoothing precision. The constants
+may depend on this precision and the fixed strategy but not on $N$.
+These inputs must hold for the \emph{same} coefficients $\rho_N$.
+They are the tasks of the compilation/density and distribution audits,
+respectively, and are not deduced here from their saved status strings.
+
+\paragraph{Exact coprime mass can be removed after summing the moduli.}
+For a prime $p$, squarefreeness and the support bound give
+\[
+ \sum_{d:p\mid d}\frac{|\rho_N(d)|}{\varphi(d)}
+ \le\frac1{p-1}\sum_{e\le N^\theta/p}\frac1{\varphi(e)}
+ \ll\frac{\log N}{p-1}.
+\]
+Here $\sum_{e\le T}1/\varphi(e)\ll\log(2T)$ is elementary: use
+$n/\varphi(n)=\sum_{h\mid n}\mu^2(h)/\varphi(h)$ and the convergent
+Euler product for $\sum_h\mu^2(h)/(h\varphi(h))$.
+Positivity of $W$ and a union bound over its two prime slots therefore
+yield
+\begin{align*}
+ \left|\sum_d\frac{\rho_N(d)}{\varphi(d)}
+                     (X_W^{(d)}-X_W)\right|
+ &\le\sum_{r,q}W_N(r,q)
+       \sum_{p\in\{r,q\}}\sum_{d:p\mid d}
+                                \frac{|\rho_N(d)|}{\varphi(d)}\\
+ &\ll_a X_W N^{-a}\log N=o(\mathcal H_N).
+\end{align*}
+The bound remains valid on the diagonal $r=q$; double-counting there
+only weakens an upper bound. There is no factor $N^\theta$ in this
+error. A fixed positive lower bound for $C_N$ is sufficient throughout.
+
+\paragraph{Positive majorization is used before distribution.}
+If $N-rq$ is a prime at least $N^\rho$, its upper-sieve indicator is
+one. The number of target pairs with $0<N-rq<N^\rho$ is
+$O(N^\rho)$: for each integer $rq=N-p$, there is at most one ordered
+prime factorization $r\le q$. Thus for a majorant of an ordered domain,
+\[
+ \#\{(r,q)\text{ in the domain}:N-rq\text{ prime}\}
+ \le O(N^\rho)+\sum_{r,q}W_N(r,q)\sum_{d\mid N-rq}\rho_N(d).
+\]
+An outward smoothing may include $rq>N$ or $rq=N$. This causes no
+sign problem: the pointwise divisor sum is nonnegative at every
+integer, including zero. No estimate on a signed boundary discrepancy
+is being inferred from its small mass.
+
+The radial majorant can also include products below the local scales
+on which the distribution proof is applied. These are removed with a
+power saving, rather than by postulating distribution at those scales.
+For a fixed $\kappa>0$, their absolute progression contribution is
+\[
+ \sum_{m<2N^{1-\kappa}} O_W(\tau_C(m))
+              \sum_{d\mid N-m}|\rho_N(d)|
+ \ll N^{1-\kappa+o(1)},
+\]
+since $m\ne N$ and fixed divisor orders are $N^{o(1)}$ pointwise.
+Their exact-coprime mean costs at most the same mass times
+$\sum_{d\le N^\theta}1/\varphi(d)\ll\log N$.
+One may insert a smooth product cutoff equal to zero for
+$m\le N^{1-\kappa}$ and one for $m\ge2N^{1-\kappa}$.
+Its multiplicative derivatives are uniformly bounded on dyadic
+charts; the entire transition is covered by the preceding estimate.
+Thus the global radial majorant needs distribution only on the
+retained near-$N$ product scales, with no factor $N^\theta$ loss.
+
+Apply \eqref{eq:actual-k-distribution-input}, remove the exact coprime
+mass as above, and use \eqref{eq:actual-k-majorant-input}. If
+$X_W=(J_W+o(1))N/\log N$, the resulting bound is
+\[
+ (K_0J_W+o(1))\mathcal H_N.
+\]
+
+\paragraph{Mass and smoothing of the bad-semiprime domain.}
+Fix $1/2<b<1$, put $\beta=b/(1+b)$, and choose sufficiently small
+fixed $0<\kappa<1/2$ as required by the distribution input.
+Products $rq<N^{1-\kappa}$ contribute at most $N^{1-\kappa}$ to
+the actual ordered count. On the remaining bad domain
+\[
+ rq<N,\qquad r\le q,\qquad r>q^b,
+\]
+both factors exceed $N^{(1-\kappa)\beta}$. In particular the fixed
+cutoff $a=\beta/4$ is available with room for smoothing.
+
+Use $t=\log r/\log N$ and $y=rq/N$. The limiting labelled
+prime-product measure is
+\[
+ \frac{N}{\log N}\frac{dt\,dy}{t(1-t)}.
+\]
+For $y\ge\eta>0$ this follows by first applying PNT in
+$q=Ny/r$ and then partial summation to the reciprocal-prime sum in
+$r$. The accumulated PNT error is $O_A(N\log^{-A}N)$ because
+$\sum_{r\ge N^a/2}1/r=O_a(1)$ over the relevant primes.
+For $y<\eta$, the elementary prime upper bound gives total mass
+$O_a(\eta N/\log N)$ by the same reciprocal-prime sum.
+Hence $N\to\infty$ followed by $\eta\downarrow0$ is valid.
+
+The exact exponent inequalities are
+\[
+ t\le\frac12+\frac{\log y}{2\log N},\qquad
+ t>\beta+\frac{b\log y}{(1+b)\log N}.
+\]
+Thus the limiting domain is $\beta<t\le1/2$, $0<y<1$, and
+\[
+ J_b=\int_0^1\!dy\int_\beta^{1/2}\frac{dt}{t(1-t)}
+     =\log(1/b).
+\]
+The boundary $rq=N$ is smoothed in $y$, not declared null in the
+full exponent plane. The slanted exponent walls are null on the
+one-dimensional simplex at each $y>0$. The positive approximation
+of \texttt{prime-product-radial-boundary-repair.tex} therefore gives,
+for every fixed $\varepsilon>0$, a smooth majorant with
+$J_W\le J_b+\varepsilon$. The fixed lower radial cutoff
+$N^{-\kappa}$ has vanishing limiting mass. Repeated factors give
+$O(\sqrt N)$ possible pairs and do not affect $J_b$.
+
+Apply the positive bound for this majorant, let $N\to\infty$, and
+then let $\varepsilon\downarrow0$. We conclude from the two stated
+inputs that
+\begin{equation}\label{eq:actual-k-bad-count-conclusion}
+ \limsup_{\substack{N\to\infty\\2\mid N}}
+ \frac{B_b(N)}{\mathcal H_N}\le K_0\log(1/b).
+\end{equation}
+All auxiliary choices are fixed before the $N$ limit; no averaging
+over even $N$ and no effective threshold is asserted.
+
+\paragraph{Endpoint slack and the final logical status.}
+Suppose the joint tree audit proves that every $K_0>K_{\rm end}$
+admits a common finite buffered strategy satisfying both inputs.
+Take any $K_{\rm end}<K_0<67619/10000$. Then
+\eqref{eq:actual-k-bad-count-conclusion} proves precisely the
+upper-count statement required by
+\texttt{external-published-chen-lower-k-independent-transfer.tex}.
+It is unnecessary to attain $K_{\rm end}$ with a single finite tree.
+The rational slack in that fragment subsequently absorbs all $o(1)$
+terms in its $b=747/1000$ deduction. This assembly proof establishes
+the implication, not the outstanding hypotheses or the validity of
+any external Chen input.

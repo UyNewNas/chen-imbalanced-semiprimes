@@ -1,0 +1,129 @@
+{
+  "status": "PASS_INDEPENDENT_EXACT_FIRST_FEEDBACK_AND_FINITE_SCALAR_RECURSION",
+  "bits": 60,
+  "log_terms": 16,
+  "cells_per_1D_integral": 8192,
+  "negative_feedback_intervals": {
+    "2": {
+      "lower": "2863634339441131/1152921504606846976",
+      "upper": "716159022569105/288230376151711744",
+      "lower_decimal_diagnostic": 0.0024838068576209333,
+      "upper_decimal_diagnostic": 0.002484675737966461
+    },
+    "3": {
+      "lower": "275986548795871/1152921504606846976",
+      "upper": "276063693899005/1152921504606846976",
+      "lower_decimal_diagnostic": 0.000239380172625008,
+      "upper_decimal_diagnostic": 0.00023944708533573961
+    },
+    "4": {
+      "lower": "1464720862531253/1152921504606846976",
+      "upper": "732596137383489/576460752303423488",
+      "lower_decimal_diagnostic": 0.0012704428329929811,
+      "upper_decimal_diagnostic": 0.0012708517179290686
+    }
+  },
+  "pair_grid_runs": [
+    {
+      "grid": 8192,
+      "counts": {
+        "5": 418149,
+        "6": 273980,
+        "7": 89194,
+        "8": 257575
+      },
+      "pair_lower": {
+        "5": "4141883017201347/1152921504606846976",
+        "6": "2687450624559853/1152921504606846976",
+        "7": "477031600361347/576460752303423488",
+        "8": "647920148644425/288230376151711744"
+      },
+      "feedback_lower": "14979419187829849/5764607523034234880",
+      "feedback_decimal_diagnostic": 0.002598515012162588,
+      "row_stream_sha256": "9410daa62e44111ffc1d8f564dc85f316d30268f22e96d88c76e612f06f41ad3"
+    },
+    {
+      "grid": 16384,
+      "counts": {
+        "5": 1676890,
+        "6": 1098048,
+        "7": 358577,
+        "8": 1033270
+      },
+      "pair_lower": {
+        "5": "4154171520320251/1152921504606846976",
+        "6": "1346851986150891/576460752303423488",
+        "7": "59949963541069/72057594037927936",
+        "8": "2600056505018089/1152921504606846976"
+      },
+      "feedback_lower": "15011473165065481/5764607523034234880",
+      "feedback_decimal_diagnostic": 0.002604075490843495,
+      "row_stream_sha256": "47bcc56a44a861e33b04db9f1780869c10f15d1556f8638a28c16aca7b78d3ab"
+    }
+  ],
+  "feedback_lower": "15011473165065481/5764607523034234880",
+  "feedback_coefficient_lower": "75057365825327405/576460752303423488",
+  "ordinary_baseline": {
+    "lower": "11672890052052913/576460752303423488",
+    "upper": "2944197857537751/144115188075855872",
+    "lower_decimal_diagnostic": 0.02024923640579232,
+    "upper_decimal_diagnostic": 0.020429476565565423
+  },
+  "ordinary_details": {
+    "base": {
+      "lower": "1359596447651106817/1152921504606846976",
+      "upper": "340002562491093001/288230376151711744",
+      "lower_decimal_diagnostic": 1.1792619377975235,
+      "upper_decimal_diagnostic": 1.1796208540911408
+    },
+    "negative": {
+      "lower": "559885139014306889/288230376151711744",
+      "upper": "559987005057991795/288230376151711744",
+      "lower_decimal_diagnostic": 1.9424917889973126,
+      "upper_decimal_diagnostic": 1.9428452078320828
+    },
+    "ordinary": {
+      "lower": "150891108853994809/288230376151711744",
+      "upper": "301889901579766899/576460752303423488",
+      "lower_decimal_diagnostic": 0.5235086976903933,
+      "upper_decimal_diagnostic": 0.5236954994307494
+    },
+    "repair": {
+      "lower": "80815471152605/72057594037927936",
+      "upper": "1295427087863159/1152921504606846976",
+      "lower_decimal_diagnostic": 0.0011215399602444026,
+      "upper_decimal_diagnostic": 0.001123603890366246
+    },
+    "switch": {
+      "lower": "78863087662464705/576460752303423488",
+      "upper": "39431543831232365/288230376151711744",
+      "lower_decimal_diagnostic": 0.13680564955609442,
+      "upper_decimal_diagnostic": 0.13680564955609448
+    }
+  },
+  "first_candidate_lower": "131740373685594611/5764607523034234880",
+  "first_candidate_decimal_diagnostic": 0.02285331189663582,
+  "safe_first_seed": "57/2500",
+  "safe_base": "20249/1000000",
+  "safe_linear_feedback_coefficient": "13/100",
+  "scalar_iterations_from_1_50": [
+    "1/50",
+    "22849/1000000",
+    "2321937/100000000",
+    "232675181/10000000000",
+    "23273777353/1000000000000"
+  ],
+  "safe_fourth_seed": "2327/100000",
+  "independence": "Earlier 60-bit Fraction engine; manually derived support constraints; pair terms by 2D exact integer inner cells, without polygon partitions or author antiderivative code. Ordinary baseline recomputed at8192 cells without altering old bound files.",
+  "bindings_sha256": {
+    "replay_replacement_second_seed.py": "1395e2d94f02064635792942f426d61ed545f3728c4cf991135942c23ab1ab3a",
+    "certify_second_seed_first_feedback.py": "8f7d238908999112b5080dbe61e9f6f48955f3ae24c76afd4a38aa1a4a4bfdc2",
+    "certify_second_seed_first_feedback.json": "a1e85f47031215e151eca285579b2f3d9e281a465e1a30b603c343f9710483c6",
+    "second-seed-finite-feedback.tex": "434b6af31ef86cfacf224aae9ec53a6cd87fd1a636a7da712e098e20b2bfe66f",
+    "second-seed-omega-certified.tex": "4d582abe65b3d99f543a923475a5467ac1725cc41c45344f365d28226ab08b33",
+    "new-finite-double-sieve-recursion.tex": "690fc611d899bab48c50e9391117a9107388ffd13a6b184882e86c5b94250914"
+  },
+  "source_sha256": "b8f7371a21f8353604a91c5d0c3e9e6fa32599a1cd68ca8b7f192bda2f32361b",
+  "elapsed_seconds": 84.42352189996745,
+  "scope": "Uniform alpha>=2 on the stated typed stable/classical family; finite generation only. No new complete Chen coefficient or all-N imbalance conclusion."
+}

@@ -1,0 +1,85 @@
+The two-long HB branch: exact Poisson axes and a direct all-modulus bound
+2026-10-10. New local reconstruction; no change to the selected ledger.
+
+Result, route and independence
+
+The selected bottom-inputs assembly reaches this branch through the prime-product insertion, section4, and the no-medium alternative in lichtman-hb-long-branches-20261009.txt. I reread the latter and its root review, then directly read Maynard II v1 Lemma7.1 and its proof (local primary text lines1283--1385; https://arxiv.org/html/2006.07088v1#S7). I authored the older long-branch note. This is therefore a new, differently organized proof of its most delicate local calculation, not a second-person independent audit of my own whole note. The existing root review remains separate.
+
+The new calculation keeps the complete coprime mean in Fourier form. BOTH coordinate axes cancel exactly. This gives a smooth core bound
+  |E_q(a)| << N2(f) N2(g) ||alpha||_1
+                  [sqrt(q) tau(q)+tau(q)^2/phi(q)],              (A)
+uniform for EVERY primitive residue a, every q>=2, and every pair of positive scales U,V. Here f,g are compactly supported smooth profiles and N2(f)=||f||_1+||f''||_1. No |a|, a/x, frequency truncation factor, or approximate-main-term error appears in (A). The earlier weaker estimate remains valid; no numerical gain is claimed from replacing it.
+
+1. Exact identity, including nonunits and the mean
+
+For fixed m put
+  D_m = sum_{u,v} f(u/U)g(v/V)
+       [1_{muv=a mod q} - 1_{(muv,q)=1}/phi(q)].
+Assume (a,q)=1. If (m,q)>1, BOTH terms vanish, so D_m=0. Otherwise put b=a*m^(-1) modulo q, necessarily a unit. Write e(t)=exp(2*pi*i*t), and use Fourier transform fhat(t)=integral f(s)e(-ts) ds.
+
+Periodization in each residue class gives the absolutely convergent expansions
+  sum_{u=c mod q} f(u/U) = U/q sum_h fhat(hU/q)e(hc/q),
+and the corresponding expression for g. Thus, with
+  S(A,B;q)=sum_{v mod q,(v,q)=1} e((A*v^(-1)+B*v)/q),
+  c_q(h)=sum_{v mod q,(v,q)=1} e(hv/q),
+one has the exact identity
+  D_m = UV/q^2 sum_{h,k in Z} fhat(hU/q)ghat(kV/q)
+           [S(bh,k;q) - c_q(h)c_q(k)/phi(q)].                    (B)
+The second term is the Fourier expansion of the EXACT product of the two coprime sums, divided by phi(q); it is not an integral approximation to that mean.
+
+Since b is a unit,
+  S(0,k;q)=c_q(k), S(bh,0;q)=c_q(h), c_q(0)=phi(q).
+Consequently every bracket in (B) with h=0 OR k=0 is exactly zero, including the origin. Only h*k!=0 survives. This handles composite q, shared prime factors of the frequencies, and q larger or smaller than either long scale. For q=1 the original discrepancy is zero separately. There is no reciprocal-real-phase deletion or Bezout approximation at any step.
+
+2. Complete frequency sum, with no truncation
+
+Integration by parts twice gives
+  |fhat(t)| << N2(f)(1+|t|)^(-2).
+Set H1=q/U and H2=q/V; these need not be at least1. For H>0, d>=1, monotonicity and the integral test give
+  sum_{h!=0,d|h}(1+|h|/H)^(-2) <= 2H/d.                       (C)
+In particular no spurious '+1 per divisor' occurs when H/d<1.
+
+Use the classical complete Kloosterman Weil bound, in its composite-modulus form,
+  |S(A,B;q)| <= tau(q) sqrt(q) gcd(A,B,q)^(1/2).
+Here gcd(bh,k,q)=gcd(h,k,q) exactly. Since
+  gcd(h,k,q)^(1/2) <= sum_{d|q,d|h,d|k} sqrt(d),
+(C) bounds the weighted double frequency sum by
+  4H1H2 sum_{d|q} d^(-3/2) <= 4 zeta(3/2) H1H2.              (D)
+This uses the square-root common-divisor factor; it does not assume q squarefree or gcd(h,k,q)=1.
+The primary source uses a weaker bound with gcd(h,k,q) in place of its square root and a subpower factor. That version also suffices here: the corresponding divisor sum is sum_{d|q}1/d<=tau(q). It gives the same power-saving conclusion with an additional fixed divisor/subpower factor. Thus the sharper form is not essential to the actual range.
+
+For the mean correction, the exact Ramanujan formula implies |c_q(h)|<=gcd(h,q). Also gcd(h,q)=sum_{d|q,d|h}phi(d). Hence
+  sum_{h!=0}(1+|h|/H)^(-2)|c_q(h)|
+       <=2H sum_{d|q}phi(d)/d <=2H tau(q).                    (E)
+Applying (D),(E) to (B), and using (UV/q^2)H1H2=1, proves the fixed-m form of (A). Summing |alpha_m| proves (A) for the signed or complex short coefficient. Its values need not have SW or cancellation; only a uniform L1 bound is used. For the actual application alpha is fixed in advance. Even a separately varying short sequence would satisfy this pointwise core if its L1 bound were uniform; this observation does not relax the coefficient structure in other PP branches.
+
+This exact-axis argument is stronger than approximating both coprime sums by their zero-frequency masses. The latter introduces the harmless old O(x/(qU)) term. It is not necessary here, and cannot be justified merely by verbally canceling main terms while dropping nonzero Fourier masses of the exact mean.
+
+3. Sum over the complete modulus, and the actual size reserve
+
+Suppose alpha is supported on a fixed-multiple interval at scale Z and
+  ||alpha||_1 << Z (log x)^B,
+while N2(f)N2(g) is bounded by a fixed logarithmic power. If |rho(q)|<=tau(q)^J(log x)^B1 for fixed J,B1, then (A) and elementary fixed divisor moments give
+  sum_{q<=D,(q,a)=1}|rho(q) E_q(a)|
+       << Z D^(3/2) (log x)^B2.                              (F)
+The term tau(q)^2/phi(q) is smaller than the sqrt(q) term up to another fixed divisor factor. No factorization, cancellation, or distribution assumption on rho is used in (F). Dyadic splitting of its complete support only costs fixed logarithms. This is the COMPLETE modulus q, not an individual factor of a three-factor decomposition.
+
+When x is comparable to ZUV and D<=(x/Z)^(2/3)x^(-omega) with fixed omega>0, (F) is
+  << x^(1-3omega/2)(log x)^B2.
+Thus it has a fixed power reserve. Fixed-divisor-bounded short coefficients are sufficient by their L1 moments; even a pointwise subpower normalization can only be charged here against this power-saving bound, never against a preceding arbitrary-log remainder.
+
+In the actual buffered no-medium branch, the conservative original short-product bound is x^(40*zeta). The two small sieve divisors introduced by roughness removal are at most x^(1/loglog x) each. After their grouping, Z=x^(40*zeta+o(1)) or smaller and x remains the COMPLETE product scale. The local support is D<=x^theta with theta<3/5. Therefore the exponent in (F) is at most 40*zeta+3theta/2+o(1). For the recorded zeta<=10^(-6), even theta=3/5 leaves a positive gap 1/10-40*zeta before o(1) and logarithms. For sufficiently large x a reserve x^(-1/20), for example, is available. This is an error estimate, not an improved density constant.
+
+All norms, derivative exponents, divisor orders, finite families and scale gaps are fixed before the target grows. Separate smooth Mellin factors of fixed polylogarithmic frequency have polylogarithmic N2 norms. The complete product scale is comparable to the original chart scale; no quotient scale is substituted for it.
+
+4. What this does and does not settle about the actual long branch
+
+The smooth core needs only elementary finite Fourier identities, Poisson summation for compact smooth profiles, the composite-modulus complete Weil bound, and fixed divisor-moment bounds. It is uniform in the entire primitive residue class. The absolute size of a=T is irrelevant here, even when a equals an actual complete product in the summation. There is no tau(0) operation in (B).
+
+The actual HB long slots are unweighted integer variables, apart from logs, smooth separated weights, and the common rough projector. They are NOT arbitrary arithmetic sequences. This restriction matters: at q=3, placing both long variables in the class1 mod3 and taking a=1 produces a discrepancy of order UV, not O(sqrt(q)), as U,V grow. Such oscillatory arithmetic restrictions do not have the bounded smooth-profile norms assumed in (A).
+
+The rough projector and arbitrary interval endpoints therefore still require the separately supplied reduction. That reduction uses the dimension-one fundamental lemma, its chart-fixed threshold window, nonzero shifted-divisor moments Z2 for polynomial |a|, and an isolated contribution O(D*x^o(1)) at intermediate complete-product equality. The oddness of a FINAL rough product does not justify omitting that intermediate equality. Small-divisor freezing and boundary strips must be paid BEFORE using (F); applying (F) directly to a sharp rough indicator would be invalid. After freezing, its smooth profiles and grouped short coefficient meet the norms stated above.
+
+I checked the actual sufficient range of that interface and reread its stated reductions. I did not reprove Shiu/Z2, all boundary-strip estimates, the HB alternative, or the entire compiler in this new note. Their prior derivations remain explicit separate inputs. At this local step the nonzero-moment input requires only |T|<=x^K for fixed K, supplied by the existing power trim. No stronger a/x restriction is introduced by the double Poisson calculation.
+
+No counterexample or missing moving-residue/common-factor loss was found in the smooth core. The new identity replaces an abbreviated cancellation with a complete proof and explicit modulus sum. It does not restore any unrestricted Lichtman theorem, prove the medium spectral branch, independently certify the whole high-rank chain, alter a global K,c,b, or replay any numerical integral.

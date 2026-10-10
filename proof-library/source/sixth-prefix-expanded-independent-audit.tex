@@ -1,0 +1,164 @@
+% Independent local audit, 2026-10-08. No original source changed.
+\subsection{Independent audit of the expanded-cover sixth-prefix certificate}
+\label{sec:sixth-expanded-independent-audit}
+
+The complete saved grid-$400$ witness was replayed without importing or
+executing either author module. All $632104$ accepted rectangles passed
+independent integer geometry and rational-sum checks. The replay uses
+only Python integers, rational aggregation and NumPy integer arrays;
+it imports no sieve or logarithm implementation. The exact total is
+\begin{equation}\label{eq:sixth-expanded-independent-gain}
+ \Delta_6\ge
+ \frac{145496122603609407505}{151115727451828646838272}
+ =.0009628125745547524\ldots.
+\end{equation}
+No smaller-grid gain or old strict-root sixth total is added to this replacement final witness.
+
+\paragraph{The actual inherited tree and the sign.}
+Let $\lambda_5(t)$ be the frozen cap of the actual preceding
+fourth/fifth tree. Its allowed endpoints belong to the raw first-five
+selected caps and the inherited $W_3$ branch. Thus
+\[
+ \lambda_5\le R_5:=\max\{\Lambda-3t_3/8,
+               v(s_I):\varnothing\ne I\subseteq\{1,\ldots,5\}\}.
+\]
+In each numerical box, every raw cap is bounded above by one fixed
+affine plane, either defining plane of $v$ or the constant peak
+$\Lambda$. Their maximum, together with $W_3$, is a convex function
+$U_5\ge R_5$. Choosing these planes by their midpoint values does not
+assert any midpoint-based inequality: every choice is a global upper
+bound on its own.
+
+The original third cap $L_3$ is checked throughout the box against
+both $S_2+3t_3$ and $S_4+3t_5$. Consequently the original first,
+third and fifth tests have passed, independently of which allowed
+fourth/fifth refinements were activated. In particular the actual
+rank-six node exists and
+\[
+ \lambda_5-S_6\ge L_3-S_6>2t_5-t_6>t_6.
+\]
+Select a new sixth endpoint $M$ passing every full and selected gate.
+Change the frozen cap only on the region $d=M-U_5>0$, and only for
+subsequent odd tests. There is no new exclusion at the even sixth
+rank. The exact even-subtree difference is
+\[
+ \sum_{P_6}g_N(P_6)
+ \{V_N^+(N^{\lambda_5}/P_6,p_6)
+       -V_N^+(N^M/P_6,p_6)\}.
+\]
+It is the actual previous tree that appears here; this is not an
+increment computed against the old fourth-only tree.
+
+\paragraph{Positive-part averaging and denominator direction.}
+On the active region, $\lambda_5\le U_5<M$. The retained fifth
+cube gives old argument greater than one, and the independent
+upper-argument check gives $(M-S_6)/t_6\le3$. Both upper sieve
+functions therefore have the rational formula
+$\overline F(s)=1/s$. Their limiting saving is
+\[
+ \frac{4(M-\lambda_5)}{(\lambda_5-S_6)(M-S_6)}\,d\mu_6.
+\]
+Let $R_n$ bound $M-S_6$ above and let $R_u$ bound $U_5-S_6$
+above throughout the numerical box. On the active region the old
+residual is at most both $R_u$ and $R_n$, so it is legitimate to put
+$R_o=\min(R_u,R_n)$. The density saving, extended by zero off the
+active region, is at least
+\[
+ \frac{4d_+}{R_oR_n}\,d\mu_6.
+\]
+The function $M$ is concave and $U_5$ is convex; hence $d$ is
+concave. If $B$ is a rectangle with $64$ vertices, repeated concavity
+and integration give
+\[
+ \frac1{|B|}\int_Bd_+\,dt
+ \ge\frac1{|B|}\int_Bd\,dt
+ \ge\frac1{64}\sum_{v\text{ vertex}}d(v).
+\]
+The positive part must be introduced before pulling out a lower
+bound for the positive prime-density measure. Applying that lower
+weight directly to a signed $d$ would be invalid. The author's
+formula has the correct order and permits negative vertex gaps.
+
+For integer grid coordinates $\ell_i$, upper coordinates
+$u_i=\ell_i+1$, grid denominator $n$ and affine denominator
+$D=256n$, write $d_\Sigma$ for the sum of the $64$ scaled gaps and
+$r_o,r_n$ for the two scaled residual bounds. Since
+$|B|=n^{-6}$ and $\prod t_i^{-1}\ge n^6/\prod u_i$, the resulting
+box gain is at least
+\begin{equation}\label{eq:sixth-expanded-independent-term}
+ \frac{D\,d_\Sigma}{16r_or_n\prod_i u_i}.
+\end{equation}
+Every saved contribution is this expression rounded down to
+$2^{-80}$. The factor $16$ is $64/4$; no factor of $t_6$ remains
+after taking the difference of $1/s$.
+
+\paragraph{What was checked independently.}
+All cells have width $1/400$, positive coordinates, distinct integer
+lower corners and ordered interiors. Their membership in the weakly
+ordered grid-$100$ parent rectangles was also checked. Distinct unit
+grid cells have disjoint interiors; no author pruning history is needed
+for this conclusion.
+
+The replay independently rebuilt the original third-cap components,
+and found a whole-box positive component margin for each of the third
+and fifth retention tests. It rebuilt all six full square tests and
+every remaining selected-square test at the $64$ vertices. Since
+each cap-minus-gate is a concave minimum of affine functions, these
+vertex minima certify the whole-box lower gate margins.
+
+For the new upper argument it instead computed the minimum of the
+two affine \emph{maxima} for $M-S_6-3t_6$, exactly as required.
+Merely testing the vertices of a concave minimum would not prove an
+upper bound and was not used. Each of the $31$ frozen old-plane
+choices was reconstructed using integers. The vertex gap sum, the
+convex old-residual maximum, the minimum of new affine-residual
+maxima, their final minimum, and every stored integer were matched.
+All exact downward contributions were then recomputed and summed;
+they agree with \eqref{eq:sixth-expanded-independent-gain}.
+
+
+\paragraph{Repeated root bins and finite coverage.}
+The root grid has weakly ordered indices $19\ge k_1\ge\cdots\ge k_6\ge2$.
+The initial rectangles have disjoint interiors even when entries of an index
+vector repeat.  Their dyadic children have integer indices $2k+b$;
+this map is injective in the pair $(k,b)$, with $b\in\{0,1\}^6$.
+Children are filtered by weak order, never sorted or identified by a
+permutation. A strictly ordered interior point can lie only in a weakly
+ordered cell, so this geometric filtering is sound.  Final acceptance
+still requires $\ell_j\ge\ell_{j+1}+1$ for every adjacent pair.
+Thus there is no factorial normalization and no overlap between final
+boxes.  Only the last grid is summed. At grid $400$ there are just four
+subintervals per original interval; root runs of multiplicity five or six
+cannot yet produce a wholly separated box. This is a strictly partial
+finite witness and not a full-domain coverage assertion.
+
+The finite stopping principle in the local Jacobs source
+\texttt{tree.tex}, lines 47--64, requires a prefix-free stop set and
+expansion of lower nodes against upper child bounds.  Its comparison
+identity, lines 127--148, and \texttt{boxes.tex}, lines 29--64,
+compare the same reference stopping tree and retain all absolute errors.
+These finite identities motivate the enumeration change; the arithmetic
+small-sieve estimates and the iid regeneration in \texttt{functions.tex},
+lines 398--417, are not transferred.  All finite geometry choices must be
+fixed before the asymptotic limit, with complete prefix histories and
+aggregate distribution errors preserved.
+
+\paragraph{Analytic scope and replay.}
+The local signed-tree, positive-part and normalization arguments above
+are sound for the cited class of inherited fourth/fifth caps. The
+pointwise endpoint prescription is implemented by finite buffered
+subpartitions of the strict positive-gap and gate regions, at fixed
+positive cutoff before $N\to\infty$. Boundary strips are exhausted
+only afterwards. This is not selection based on an unknown arithmetic
+error or a pointwise prime-distribution bound. The limiting density
+and uniform signed distribution interfaces are inherited from the
+existing higher-prefix construction and were not reproved here.
+
+Run \texttt{python -X utf8 goldbach-research/sixth-prefix-expanded-independent-audit.py}.
+It saves \texttt{sixth-prefix-expanded-independent-audit.json}, with
+source/witness bindings, all mask counts, minimum slacks and an
+independent stream digest. The complete replay took about $56$
+seconds and ended normally. This audit asserts the finite local gain,
+not a new global Goldbach theorem, representation exponent, or complete
+validation of the primitive analytic inputs. No main, state, Lean,
+author source or old certificate was changed.

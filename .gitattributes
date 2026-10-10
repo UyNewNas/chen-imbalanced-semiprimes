@@ -1,0 +1,7 @@
+* text=auto eol=lf
+*.pdf binary
+*.gz binary
+*.zip binary
+verification/** -text
+proof-library/** -text
+paper/source/modules/** -text

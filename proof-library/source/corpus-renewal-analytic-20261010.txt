@@ -1,0 +1,224 @@
+本地722篇论文的方法续读：解析筛、共享配对与常数独立性
+2026-10-10。新报告；不修改主稿、research-state、既有证明或数值绑定。
+
+结论与本次阅读范围
+
+本次精读 #55、#48、#56 的下述实际证明，并补查 #46 的行列式切割步骤。
+这些编号是 papers.csv 的 manuscript number。先前目录已经收录四篇，
+因此不是“新发现的论文”；新的是此前方法报告未详细审过的正文机制。
+没有逐篇验证722篇，更没有把其中重大主定理当作现成数学前提。
+
+本项目当前内部组装值仍为 K=6.7617368、c=1.96131568、b=0.74821909。
+本轮没有产生可以加入这个数值结论的收益。确有两项可独立证明的有限
+结果：#55 的分块截断可改成更短的显式支持；#48 的配对方法说明怎样
+写出带容量的裁剪问题，同时证明在现有唯一父对子结构中，仅把0/1
+裁剪改成分数裁剪不会额外获益。第三篇 #56 给出有效的常数选取次序。
+
+路径与来源
+
+P = ../OpenAI-Math-2026-10-06/preprints/，相对于本报告所在目录。
+以下行号指本次读取的 TeX 源，JSON绑定确切文件。没有使用web搜索。
+曾读 paper-method-scan-analytic.txt、paper-method-structural-rescan-20261009.txt、
+paper-method-focused-rescan-20261009.txt、paper-method-recommendations-20261009.txt
+及当前全偶数证明、Chen配对定义、direct-Brun长变量证明以检查新颖性。
+旧关键词目录只有标题/摘要匹配，不等于读过本报告列出的证明。
+
+一、#55 Primitive roots for every admissible integer base
+
+目录 P/Primitive-roots-for-every-admissible-integer-base-October-4-2026/build/。
+
+A. 实际定理与不能直接移植的接口
+
+sections/01-introduction.tex:17–54 声称每个固定适当底数在每个充分大
+二倍区间有至少 c_a x/log^2(x) 个原根素数，并另声称某类Hecke函数有
+公共宽度10^(-6)的无零半平面。后一重大新定理本轮未审完，不予采用。
+sections/01a-reduction.tex:18–34 的 controlled predecessor 实际是
+ p-1=c r Q，c=2或4，Q>x^.9为素数，r仅由亚幂素数组成。
+它没有要求r是素数，也不是给每个目标N证明N=p+rq。
+
+sections/08-type-ii.tex:25–91 定义固定K个素数组
+ P_i=[exp((log x)^a_i),exp(2(log x)^a_i)]，.1<a_i<.2，
+ W(h)=q^(omega(h)-K) product_i omega_i(h)/V_i。
+权只有在每个组都提供素因子时才非零；乘数F必须满足F(ph)=F(h)，
+而且包括p已经整除h的情形，即F只依赖移除全部组素数幂后的余因子。
+Type II是 sum alpha_m beta_n F(mn-1)W(mn-1)，不是任意位移N的双线性式。
+sections/08-type-ii.tex:99–128 的充分条件还要求alpha在所有polylog
+导数的Dirichlet字符及整个 |t|<=2X(log x)^B 范围有任意对数节省。
+其证明在同文件:130–264 保留实际端点向量、先处理投影例外再比较
+主要弧；并没有声称任意signed prime-product weight可替换F W。
+
+本项目的直接支撑测试很明确：当前Chen权只作用于T^a-rough的N-p，
+a=417/5000。上述每个P_i的上端最终都小于T^a。因此若直接用W(N-p)
+乘当前权，所有非零Chen项都会被消灭。这比只说“固定平移”更具体。
+对别的辅助变量施加标记未被排除，但必须重建原有限系数、余数N与
+乘法不变性，不能把原Type II当作已经给出的moving-residue分布。
+
+B. 新读的 signed rough-factor comparison
+
+sections/08-type-ii.tex:266–318 给出完整粗糙密度D_gamma(w)的推前式：
+ (1/j!) integral_(product y_i in I,y_i>x^gamma) product dy_i/log y_i
+   =(1/log x) integral_I D_(gamma,j)(log y/log x)dy。
+sections/08-type-ii.tex:321–550 用
+ alpha_m=m^(iv)[1_(Pminus(m)>x^gamma)
+             -D_gamma(log m/log x)/(log x V(W))*1_(Pminus(m)>W)]
+作为有符号比较。低频处两个主要项精确相消；高频处分开估计两项。
+我读了:347–431 的有限素数卷积、重复素因子误差O(Mx^-gamma)、逐槽
+SW置换及任意子区间保持；:440–550 的高频论证还导入#23的长素数
+多项式估计和#22的proxy估计。这些深层长频率输入本轮没有重证明。
+可借的是“先保留两项的共同主项再相消”，不是从低频SW自动推到
+所有高频，更不是新的正幂模数分布水平。当前自身粗糙SW已足够，
+没有把这一比较计第二份收益。
+
+C. 可独立重证的分块筛及一个更短支持变体
+
+sections/11-sieve.tex:16–147，Lemma block。假设0<=g(p)<=1-eta0且
+每个(v,v^2]块的sum g(p)<=C0，按 z^(2^(-j-1))<p<=z^(2^-j) 分块。
+原文取偶数h_j=(j+1)H，U_j为到h_j阶的容斥上多项式，T_j为h_j+1
+阶的无符号多项式；设 U=product U_j、B=U-sum_j T_j product_(k!=j)U_k。
+二项式恒等式给0<=I_j<=U_j及U_j-I_j<=T_j，再正乘积望远镜得到
+ B<=I<=U。
+每个修正项在它自己的块恰有h_j+1个变量，其余块至多h_k个，故所有
+修正支持彼此不交、也与U支持不交，两个总系数都具有绝对值<=1。
+原文给出support<=z^(4H+2)，误差由各块阶乘尾控制；这些都是有限代数。
+
+本报告的新变体：改取 h_j=H+2j，H为偶数，保留同样的U、B。
+以上点态及系数证明逐字成立，而
+ sum_j (H+2j)2^-j=2H+4。
+修正再多一个素数至多付log z，故support<=z^(2H+5)。令
+ a_*=exp(-C0/eta0)，且H+2>C0，则
+ R_H:=sum_j E(T_j)/E(I_j)
+ <=a_*^(-1) [C0^(H+1)/(H+1)!]/[1-(C0/(H+2))^2]。
+证明：每个块E(I_j)>=a_*，E(T_j)<=C0^(H+2j+1)/(H+2j+1)!；相邻
+两项之比<=C0^2/(H+2)^2。独立Bernoulli模型再给
+ E(U)<=V exp(R_H)，0<=E(U-B)<=V R_H exp(R_H)，V=product(1-g(p))。
+这是本报告自己推导的变体，不是引用原文声称已做出的改进。
+
+配套check对三个块大小4,6,8和H=2的315种占据数模式精确验证点态
+上下界，验证所有单项式系数至多1，并用18个有理Bernoulli均值验算
+主项、差和正乘积上界。这个有限检验是校验，任意块数的证明在上文。
+
+对当前研究的实际意义：可作为物理小素数compiler或辅助长变量清理
+的显式beta构造，支持消耗由4H+2减为2H+5。但当前direct-Brun已经
+把这些辅助误差压为o(1)，当前K由理想密度及有限停止策略控制。
+因此更短的辅助支持本身不改变K、c、b；要变成数值进步，必须证明
+它允许某个此前不合法的物理cap/完整动作，并重算其净收益。
+
+D. 大位移仍不能由这里的无零主张自动解决
+
+sections/07-splitting.tex:112–227 的smooth prime-ideal estimate
+从假设无零宽度delta推导O_f(x+x^(1-delta)(log D+n))。它显式保留
+度数、判别式及零点计数依赖；推导没有把隐含常数视为字段无关。
+这有可取的统一性账本，但直接逐模相加这种power error只在远小于
+现有半层的范围有效，更不把Kloosterman谱参数7/32变成该无零宽度。
+本项目关于Lichtman大位移的retained-phase证明是另一条证明链。
+
+二、#48 The weak inhomogeneous Duffin–Schaeffer conjecture
+
+目录 P/The-weak-inhomogeneous-Duffin-Schaeffer-conjecture-September-25-2026/build/。
+sections/introduction.tex:9–28 的主定理只说固定gamma、任意发散加权
+容差下，Lebesgue几乎处处x有无限多个逼近，分子不加互素条件。
+它不推出每个整数目标N的稀薄素数计数。本次读其有限数组方法。
+
+A. 共享试验、分数配对及容量
+
+sections/tables.tex:155–277，尤其tab:prime-update第244行。
+每个相同宽度、相同after-prime mask的cell分plus与minus两列，先
+用有限非负矩阵匹配二者质量，行列和分别不超过端点质量，总质量为
+两列总负荷的最小值。plus以同一个整除试验成功时保留；其配对minus
+恰在该plus失败时保留。未匹配minus乘1-1/p，未匹配plus依成功保留。
+配对质量每次恰好留在两端之一，故负荷<=max(P,M)，保持原cell cap。
+共同p平移轨道使每个success的均值1/p；配对前质量m/p、m(1-1/p)，
+配对后mS、m(1-S)。所以保持第一矩，不假设不同端点试验独立。
+配套check以p=3及有理2x2链接矩阵，分别验完全相同和不同success
+颜色；两种情形均逐轨道保持总负荷与每个端点的期望质量。
+
+sections/tables.tex:479–530 的variance budget另有实质条件：类在
+删除中只能限制到幸存者而不能拆开，旧类质量是共同平移轨道上的
+常数，最终质量有cap。于是平方能量增量是方差，粗并类增量非负，
+删除造成的平方能量损失<=2N0乘丢失质量。这个预算不是任意带符号
+筛权都可调用的定理。sections/joins.tex:510–571 的capacity还保留
+完整mask和first-sharing epoch，保证不会额外按来源、时期重复收费。
+
+B. 可迁移的确定性覆盖引理及真正的限制
+
+当前Y11 tuple通过末两个素数注入Y6对子。一般化时可对每个固定
+平方自由粗糙整数n建立二部图：左为准备删去的负项tuple，右为可
+用于补偿的正项label；每条边必须有实际蕴含关系。若非负链接流的
+左行和等于被删除负项权，右列和<=被删除正项权，则逐n求和得到
+ deleted negative <= deleted positive，故新Chen权不大于旧权。
+此引理只用非负行列容量，无需任何概率。有限有理系数、固定几何
+限制仍须由当前正乘积和下筛接口逐个授权；按未知算术误差选链接
+或只在连续均匀模型验容量均不足够。
+
+本报告也给出一个必须避免的假进步：对现有唯一父对子i，其所有
+可删负项j有认证收益u_ij>=0，丢失父正项下估计l_i>=0。若分数
+删除量为0<=beta_ij<=alpha_i<=1，则
+ sum_j beta_ij u_ij-alpha_i l_i
+ <=alpha_i(sum_j u_ij-l_i)<=max(0,sum_j u_ij-l_i)。
+取alpha_i=1或0、相应所有beta同取该值达到上界。因此在固定父子
+关系和精确固定成本内，分数删除没有胜过逐父选择正净收益。
+配套check用两组有理正/负净成本、步长1/16的全部可行三元组复核。
+这是指定模型内的精确结论，不说明当前512格、粗Buchstab下界或
+全部可能Chen权已经最优，也不排除改变可认证几何、使用别的正项
+作为新partner，或构造当前树凸包之外的新权。
+
+最小可执行下一步：先对一个有多种可证明partner的有限因子模式族
+列出真实占据矩阵，再给有理容量原/对偶。如果候选仍只有上述唯一
+父关系，就直接回到更精确的同域成本/切割，避免为fractional标签
+重复建立没有收益的LP。不能直接把#48的几乎处处结论接到all-N。
+
+三、#56 Simultaneous primitive roots: a conditional lower bound for prime bases
+
+目录 P/Simultaneous-primitive-roots-a-conditional-lower-bound-for-prime-bases-October-4-2026/build/。
+sections/01-introduction.tex:23–46 明确把四个来自companion的结论列
+为条件。这篇是#55的后续而非第二个独立无条件分布定理。
+本次新增精读sections/05-prime-reservoir.tex:389–591的平衡半素数
+清理及参数顺序；此前只看过其标记定义与主要输入。
+
+关键做法是在固定r上先筛二维整数对(m,n)，最后才求标记平均。
+其底条件mn=1 mod4r，在奇素数j不整除r处删掉mn=0或1 modj。
+局部坏对数恰是(2j-1)+(j-1)=3j-2，因此
+ g(j)=(3j-2)/j^2，1-g(j)=(1-1/j)^3(1-1/(j-1)^2)。
+原文:442–501把CRT边界误差明确写为
+ O((M1+M2)ell+r ell^2)，ell<=x^.02，
+合计O(x^.58+x^.17)，在r<=x^.11范围相对x/r有固定幂次节省。
+:503–559保留J0=sum W(r)/r后，得到C2(kappa+1/log x)X0/log x，
+其中C2与以后要选的标记数K、kappa及初筛b无关。:563–591才能先
+选kappa，再b和有限分区，最后按所需误差选足够大的K，避免循环。
+配套check直接枚举3,5,7,11,13模下的所有二维剩余对并验局部恒等式。
+
+可借的是“先局部统一界、再按真实调和质量求和”的顺序，以及明确
+区分常数不依赖K和阈值允许依赖K。它适于检查我们更深有限反馈/
+更多策略候选中的精度选择，不能用一个随深度暴涨且先要反选深度
+的常数掩盖循环。当前策略和递推深度都先固定，本轮未识别到这种
+循环。此文C_pair、C2并无可取代当前K=6.7617368的显式小常数；
+其筛的是m,n,(mn-1)/(4r)三素条件，也非我们的P+r q=N同一几何。
+所以不能因log^-3形状相似就给b记收益。
+
+四、额外补查 #46 的非筛论机制
+
+目录 P/Squarefree-values-of-quartics-and-power-free-values-of-polynomials-September-24-2026/build/。
+sections/01-introduction.tex:20–35 明确固定不可约4<=deg f<=8，
+误差o_f(X)没有随f变化的统一性。sections/05-determinant-cuts.tex:
+115–149给paired analytic chart上的两个Hilbert/尺度条件；:153–229
+证明Taylor determinant：低权单项式列的精确秩限制，使独立列总
+权足够大，归一化行列式的上界低于非零整数行列式的下界，强制新
+代数方程。只需精确列依赖，不需控制表达依赖关系的系数大小。
+
+这确是完整保留变量关系的另一机制。但当前完整几何盒只是固定
+log-exponent域，没有该number-field bicone及幂次缩小paired chart。
+N-p是随N变化的线性式，也不满足这个固定高次多项式定理；不能
+套o_f(X)到f_N。当前重复大素因子已用O(T^(1-a))排除，改进这种
+幂次误差本身不会改变主项c。值得借的精确代数相关性原则已可用于
+有限多项式包络，不能据此宣称新的素数分布或稀薄计数下界。
+
+本轮交付与下一项优先级
+
+1. 本报告与JSON绑定新读正文、当前接口及独立有限check。
+2. 精确证明两个新小结论：较短支持block-sieve；唯一父对子模型中
+   fractional deletion的准确极值。既不是完整论文认证，也不是新b。
+3. 优先把实际资源给当前正净裁剪边界的更细几何或更强同域主要项；
+   只有可列出新partner边时再做capacity优化。block支持改进用于
+   显式beta和证明简化，不能优先包装为前沿指数进步。
+4. 新读取的高频、Hecke、metric、determinant主定理均未被当前证明
+   采用。不恢复外部Li1.9728，不修改冻结主稿或resume形式化/GitHub。

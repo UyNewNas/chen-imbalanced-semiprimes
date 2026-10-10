@@ -1,0 +1,93 @@
+Final selected positive-pair mask: independent actual U11 cover check
+10 October 2026. New output only; no old integral, state or main edit.
+
+The exact final 11,481 pair512 cells in 186 rows are a subset of the
+previously checked 22,271-cell low-positive candidate. They are disjoint
+from all 6,091 previously adopted whole-zero cells. Their projections
+meet 70 n48 (x,y) pairs and exactly 61,956 saved U11 parents. Every one
+has method0, and their intersection with priority40000 is empty.
+
+The final source is positive-pair-deletion-certificate-20261010.json.
+I used its literal selected_pairs list, checked uniqueness and increasing
+lexicographic order, and independently reconstructed its complete row
+description. Its pair stream SHA256, one i,j followed by LF per cell, is
+
+696c5feacd6404b94438131e767817f0bd379fbd171d946068c873609948ec55.
+
+Subset and zero-set checks
+
+I reconstructed the full candidate from the complete half-open index
+ranges in paired-y6-y11-low-positive-parent-mask-20261010.json, and the
+old zero set from the 90 strips in paired-y6-y11-zero-strip-certificate-
+20261010.json. The exact set comparisons give selected minus candidate
+empty and selected intersect old zero empty. These are literal cell
+comparisons, not deductions from a selected-count field.
+
+I additionally checked every selected cell directly with rational
+arithmetic. For a=417/5000, h=19/125, d=59/250, mu=25/128,
+
+ t_i=mu+(d-mu)i/512, u_j=a+(h-a)j/512,
+ smax=(57/64-(5/2)t_i-u_j)/a,
+
+each selected cell satisfies 2<smax<=9/4. The independent maximum is
+2535581/1138688, agreeing exactly with the final certificate. The
+minimum over selected cells of t_i+u_j+3a-Lambda, Lambda=153/256,
+is 609209/40960000>0, also agreeing exactly with the certificate.
+Since W4>=t+u+z+2w>t+u+3a on the physical U11 family, the ordinary
+full-square obstruction holds throughout each selected cell.
+
+Actual current parent and priority scan
+
+The scan reads all 1,190,700 rows of sharp-248-four-min-48.witness.json.
+For U11, row[0]=1, row[1:5]=(ix,iy,iz,iw), and row[5] is the saved
+method. The x,y intervals are respectively
+
+ [h+(d-h)ix/48, h+(d-h)(ix+1)/48],
+ [a+(h-a)iy/48, a+(h-a)(iy+1)/48].
+
+For every selected pair512 cell, positive-area projection intersection
+means max(lower endpoints)<min(upper endpoints) in both coordinates.
+I formed its exact union of 70 parent projections and scanned the actual
+row list. There are 61,956 matches, all saved method0. I also read the
+literal 40,000 indices p[0] in the compressed priority witness's parents
+list; none is among those matches.
+
+This count has a separate geometric aggregation check. For each fixed
+(ix,iy), the actual ordered third/fourth bin choices are
+0<=iw<=iz<=iy. Their number is (iy+1)(iy+2)/2. It agrees with the
+scan for each of the 70 projections individually and sums to 61,956.
+Tied y,z,w labels are retained; a positive-area y intersection has
+nonempty strict physical order inside such tied labels.
+
+The matching zero-based parent-index stream in saved order, each decimal
+index followed by LF, has SHA256
+
+850d7c2b48a3fb022307cda55ad1f508adcbbca90b8fcbe60f0d3610179d6567.
+
+The companion JSON supplies the complete selected mask as half-open
+u-index runs for every t-index, all 70 parent-projection entries with
+method/priority counts, the stream definitions, and SHA256 bindings for
+the five immutable input files. Those input hashes were checked before
+and after the scan. A self-contained standard-library Python reproduction
+is frozen verbatim in the JSON field reproduction_python. Executing that
+field from this research directory recomputes RESULT and all set, row,
+priority, rational-extremum and aggregation assertions. It imports no
+project implementation and does not write any file or run old quadrature.
+
+Analytic consequence and boundary
+
+The final selected mask inherits the previously proved finite positive-
+family interface: apply the existing K theorem directly to the U11
+complement of the paired deletion, and use additivity of unsifted mass.
+The new finite exponent walls admit positive inner/outer smoothing;
+the original minimum prime exponent a, rho, upper K and H/h tables are
+unchanged. Common refinement copies the existing switched parent method.
+No selected priority improvement requires allocation or restriction.
+
+This record verifies the actual selected parent cover and its geometric
+conditions. It does not certify the new U11 gross integral, positive L6
+loss bound, net gain, paired-weight injection, final transfer arithmetic
+or a new parameter choice. Those remain their separately named inputs.
+In particular these positive L6 contributions cannot be called a zero-
+loss deletion. No old source, numerical table, main, state, formalization
+or GitHub item was modified.

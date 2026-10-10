@@ -1,0 +1,228 @@
+% Fragment for inclusion in the main manuscript; no standalone preamble.
+% This repairs the C<1 capacity case in the use of L23, Section 6.
+\subsection{A two-factor repair for a capacity below one}
+\label{sec:two-factor-greedy-repair}
+
+In this subsection $\vartheta$ denotes the distribution exponent and
+$\sigma$ the spectral parameter (called $\theta$ in L23).
+The argument of L23, Lemma~6.3 and Proposition~6.5, uses a capacity
+$C=D/(A b_0)$ after selecting a factor $b_0\le x^u$.
+Lemma~6.3 itself assumes an existing factorization with $c\le C$;
+its algebra is valid.  The subsequent greedy construction requires
+care when $C<1$, because an integer factor $c\ge1$ cannot satisfy
+$c\le C$.  Replacing this capacity by $\max(1,C)$ does not by itself
+justify the three inequalities in L23~(6.3).  The following argument
+handles that case by reallocating every prime factor of $d$.
+It is the analogue, with the additional moving-residue constraints,
+of the two-factor repair in Pascadi, arXiv:2505.00653v2,
+Lemma~5.6 and the proof of Lemma~5.7.
+
+\begin{lemma}[Two-factor repair]\label{lem:two-factor-greedy-repair}
+Let $x>1$, $0<\delta<10^{-5}$, $1/2\le\vartheta\le5/8$,
+$0\le\sigma\le7/32$, and $\alpha\ge0$.  Put
+\[
+ D=x^{\vartheta-2\delta},\qquad
+ x^\delta\le A\le x^{1/3-\delta/2},\qquad B=D/A,
+\]
+and
+\[
+ u=\min\left\{
+ \frac{2-(2+2\sigma)\vartheta}{3-4\sigma},
+ \frac{2-2\vartheta-\alpha\sigma}{3}\right\}.
+\]
+Suppose $B\le x^u$ and
+\[
+ d=p_1\cdots p_r\in\mathcal D^{\rm well}(D),\qquad
+ p_1\ge\cdots\ge p_r,
+\]
+where the defining condition is
+$p_1\cdots p_{j-1}p_j^2\le D$ for every $j\le r$.
+Then there is a factorization $d=a'b'c'$ with
+$a'\le A$, $b'\le B$, $c'=1$, and
+\begin{align}
+ A^2b'c'^2&\le x^{1-3\delta},\label{eq:two-factor-repair-first}\\
+ x^{\alpha\sigma}Aa'b'^5c'^2&\le x^{2-4\delta}
+                       \le x^{2-3\delta},\label{eq:two-factor-repair-second}\\
+ (Ac'/b')^{2\sigma}Aa'b'^5c'^2
+   &\le x^{2-(4+4\sigma)\delta}
+                       \le x^{2-2\delta}.
+                       \label{eq:two-factor-repair-third}
+\end{align}
+These are the three constraints in L23~(6.3), with slack.
+\end{lemma}
+
+\begin{proof}
+We have $A\ge1$ and
+\[
+ B\ge x^{\vartheta-1/3-3\delta/2}
+       \ge x^{1/6-3\delta/2}>1.
+\]
+Start with $a'=b'=1$.  Immediately before assigning $p_j$, the
+assigned product equals $a'b'=p_1\cdots p_{j-1}$.  The support
+condition gives
+\[
+ p_j^2\le\frac{D}{a'b'}=\frac{A}{a'}\frac{B}{b'}.
+\]
+Consequently at least one of $p_j\le A/a'$ and $p_j\le B/b'$
+holds.  Assign $p_j$ to that factor.  Iterating over all primes
+preserves $a'\le A$, $b'\le B$ and yields $a'b'=d$.
+This construction also covers $d=1$, by taking both factors equal
+to one.  Set $c'=1$.
+
+First,
+\[
+ A^2b'\le A^2B=AD
+ \le x^{\vartheta+1/3-5\delta/2}
+ \le x^{23/24-5\delta/2}
+ \le x^{1-3\delta},
+\]
+where the last inequality follows from $\delta<10^{-5}<1/12$.
+Next, using the second upper bound in the definition of $u$,
+\[
+ x^{\alpha\sigma}Aa'b'^5
+ \le x^{\alpha\sigma}A^2B^5
+ =x^{\alpha\sigma}D^2B^3
+ \le x^{\alpha\sigma+2\vartheta-4\delta+3u}
+ \le x^{2-4\delta}.
+\]
+Finally, $5-2\sigma>0$ and $3-4\sigma>0$, so the first upper
+bound in the definition of $u$ gives
+\begin{align*}
+ (A/b')^{2\sigma}Aa'b'^5
+ &\le A^{2+2\sigma}b'^{5-2\sigma}
+ \le A^{2+2\sigma}B^{5-2\sigma}\\
+ &=D^{2+2\sigma}B^{3-4\sigma}\\
+ &\le x^{(2+2\sigma)\vartheta-(4+4\sigma)\delta
+                         +(3-4\sigma)u}
+ \le x^{2-(4+4\sigma)\delta}.
+\end{align*}
+\end{proof}
+
+To apply the repair in the capacity case above, retain only the
+information $b_0\le x^u$ and $C=D/(A b_0)<1$.  These imply
+$B=D/A<b_0\le x^u$, which is the hypothesis of
+Lemma~\ref{lem:two-factor-greedy-repair}.  The resulting $b'$ need
+not equal $b_0$ or remain in $[x^v,x^u]$; the required conclusion is
+the existence of some factorization satisfying L23~(6.3), already
+proved directly.  If $C\ge1$, the original greedy construction
+has two legitimate capacities and the usual Lemma~6.3 applies.
+Thus this repair covers the missing case without reducing the
+admissible distribution exponent, including the earlier level
+$\vartheta=11/20$.
+
+\paragraph{Correct initialization and capacities in the three-factor case.}
+There is a separate issue in the printed proof of L23, Lemma~6.4:
+the initialization must use $\{1,p_1,p_2\}$, and must append $p_3$
+only in the subsequent greedy process.  Moreover, the printed
+choice $D_2=D^2/x=x^{v-4\delta}$ does not equal $x^v$ and does not
+give the claimed lower bound $b>x^v$ at the first failed step.
+The capacities below avoid that discrepancy and give exact
+versions of all three estimates.  We use the strict margins
+already imposed on compact prefix boxes; no assertion at a gate
+boundary without such margins is needed.
+
+\begin{lemma}[Buffered three-factor construction]
+\label{lem:buffered-three-factor-greedy-repair}
+Use the notation and ranges of
+Lemma~\ref{lem:two-factor-greedy-repair}, without assuming
+$B\le x^u$, and let $v=2\vartheta-1$.
+Let $d=p_1\cdots p_r\in\mathcal D^{\rm well}(D)$ with
+$p_1\ge\cdots\ge p_r$.
+Suppose $r\ge3$, $p_3\le x^{u-v}$, and, for some
+$\{i,j\}=\{1,2\}$,
+\[
+ p_i\le x^v,\qquad p_j^2\le x^{1-\vartheta-2\delta}.
+\]
+Then $d$ admits a factorization satisfying L23~(6.3).
+\end{lemma}
+
+\begin{proof}
+Set
+\[
+ D_1=A,\qquad D_2=x^v,\qquad D_3=\frac{D}{Ax^v}.
+\]
+Their product is exactly $D$.  All three capacities are at least
+one: for the last one,
+\[
+ D_3\ge x^{2/3-\vartheta-3\delta/2}
+       \ge x^{1/24-3\delta/2}>1.
+\]
+Place $p_i$ in the second factor.  Since
+$p_j^2\le D_1D_3$, place $p_j$ in either the first or third
+factor that has sufficient capacity, leaving the other equal to
+one.  The assigned factors are thus a permutation of
+$\{1,p_1,p_2\}$ with the stated placement of $p_i$.
+Now append $p_3,p_4,\ldots$ whenever any factor has capacity.
+
+If every prime is appended, write the resulting factors as
+$a,b,c$ with $a\le D_1$, $b\le D_2$, $c\le D_3$.
+Since $p_3>1$ and $p_3\le x^{u-v}$, we have $u\ge v$.
+The two inequalities defining $u\ge v$ imply, respectively,
+\[
+ (8-6\sigma)\vartheta+4\sigma\le5,
+ \qquad \alpha\sigma+8\vartheta\le5.
+\]
+Consequently
+\begin{align*}
+ A^2bc^2
+ &\le A^2D_2D_3^2
+   =x^{1-4\delta},\\
+ x^{\alpha\sigma}Aab^5c^2
+ &\le x^{\alpha\sigma}A^2D_2^5D_3^2
+   =x^{\alpha\sigma+8\vartheta-3-4\delta}
+   \le x^{2-4\delta},\\
+ (Ac/b)^{2\sigma}Aab^5c^2
+ &\le A^{2+2\sigma}D_2^{5-2\sigma}D_3^{2+2\sigma}\\
+ &=x^{(8-6\sigma)\vartheta+4\sigma-3-(4+4\sigma)\delta}
+   \le x^{2-(4+4\sigma)\delta}.
+\end{align*}
+These imply the three required inequalities.
+
+Otherwise let $p_k$, with $k\ge3$, be the first prime that cannot
+be appended, and denote the current factors by $a_0,b_0,c_0$.
+Thus $a_0b_0c_0=p_1\cdots p_{k-1}$ and
+$a_0p_k>A$, $b_0p_k>x^v$, $c_0p_k>D_3$.
+Put $b=b_0p_k$.  Then
+\[
+ x^v<b\le x^v p_3\le x^u.
+\]
+The support condition and $a_0p_k>A$ give
+\[
+ A b c_0<(a_0p_k)(b_0p_k)c_0\le D.
+\]
+It follows that $C=D/(Ab)>c_0\ge1$, so both remaining
+capacities $A,C$ are legitimate.  For every remaining prime
+$p_l$ the support condition gives
+\[
+ p_l^2\le
+ \frac{D}{a_0bc_0p_{k+1}\cdots p_{l-1}}
+ =\frac{AC}{a_0c_0p_{k+1}\cdots p_{l-1}}.
+\]
+The two-factor greedy argument, starting from $a_0,c_0$, therefore
+assigns all remaining primes and produces $d=abc$ with
+$a\le A$, $c\le C=D/(Ab)$, and $x^v<b\le x^u$.
+Directly,
+\begin{align*}
+ A^2bc^2&\le D^2/b\le x^{1-4\delta},\\
+ x^{\alpha\sigma}Aab^5c^2
+ &\le x^{\alpha\sigma}D^2b^3\le x^{2-4\delta},\\
+ (Ac/b)^{2\sigma}Aab^5c^2
+ &\le D^{2+2\sigma}b^{3-4\sigma}
+   \le x^{2-(4+4\sigma)\delta}.
+\end{align*}
+This also covers a failed step at $k=r$, when no primes remain
+to be reassigned.
+\end{proof}
+
+For a strict $W$ branch, its inequalities state that the
+designated prefix exponent is below $v$, that the other prefix
+prime has square below $x^{1-\vartheta}$, and that
+$t_3<u-v$.  On a fixed compact box in this strict region, choose
+$\delta$ small enough that the second inequality still holds
+with exponent $1-\vartheta-2\delta$; shrink the other margins to
+cover the box widths and the fixed perturbation of $\alpha$.
+Lemma~\ref{lem:buffered-three-factor-greedy-repair} then applies.
+As these positive buffers tend to zero, the limiting eight-branch
+envelope $\Phi$ is unchanged.  This is a buffered use of the
+source envelope, not a claim that its printed boundary argument
+or its printed initialization was exact.

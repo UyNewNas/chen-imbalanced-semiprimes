@@ -1,0 +1,147 @@
+Independent audit of the actual 70 W1 numerical primitives
+2026-10-10. New evidence; no old data, table, selected constant, or state is changed.
+
+1. Actual dependency and prior coverage
+
+The initial 24-generation table is certify_finite_step_table.json. Its 70 W1
+actions use s=2.4,...,3.0 and s0=3.2,3.4,...,5.0, C=70893/125000, K0=6.81,
+and Q=2^80. The 56->120 continuation in certify_lower_k_finite_table.py retains
+the old base and adds a floor of (6.81-6.7633)*mass_lower/8. The 184 and 248
+tables retain these 70 W1 constants at K=6.7633. The 312 table adds the
+separate anchored correction from 6.7633 to 6.7618; the adopted 430 arm in
+fixed-action-stationarity-pilot-20261009.json adds only 6.7618-6.761767.
+Neither step reintegrates or silently replaces the original W1 ordinary cost.
+
+The current lower assembly uses the 248 table for L5/L6 and the ordinary
+U10/U11 branches, and the 430 H table only for U3/U4. The L2 endpoint has
+moved to h, so its entire old H subtraction has been removed once. The current
+selected K=6.7617368 is smaller than all these anchors and hence implies their
+weaker product upper bounds; it does not retroactively recost a table. The
+tail replacement is already adopted and is not added again here.
+
+It would be incorrect to describe the original 70 actions as never independently
+replayed. finite-step-table-independent-audit.py already checked all 70 lower
+bases, all 200 Buchstab weights, all 1858 W1 feedback weights, and all 24
+generations with no author imports. Its logarithms used the same atanh series,
+and its integral enclosures used finer/independent monotone Darboux rules.
+The later 248 closure and 312/430 independent replays cover their stated
+new primitives and integer recurrences. The new evidence here is a different
+mathematical enclosure for every actual original W1 base and every positive
+logarithmic weight, including both sides of the saved base intervals and the
+very small exact errors in the 48/64-term cost-recalibration logarithms.
+
+2. A different logarithm primitive and its rounding
+
+For y in [1,2], set z=1-1/y in [0,1/2]. Then
+ log y = sum_(k=1)^m z^k/k + remainder,
+ 0 <= remainder <= z^(m+1)/[(m+1)(1-z)].
+The work denominator is P=2^160 and m=192. The lower/upper z and each power
+are rounded down/up, respectively; lower terms are floored and upper terms
+ceiled. The displayed geometric remainder uses the upper (m+1)-st power and
+the smaller denominator 1-z_upper. All signs are positive. For x>=1, repeated
+division by 2 writes x=2^k*y; the two log2 endpoints are multiplied by k>=0.
+For x<1 the implementation negates and swaps the reciprocal interval.
+Thus no atanh expansion or author log routine is used.
+
+For the 70 exact recalibration masses, a separate unrounded Fraction sum of
+384 terms uses z=1-1/x directly, 1<=x<=25/12. The same exact tail bound applies.
+This avoids a fixed precision larger than the truncation error of a saved
+exact 48/64-term atanh lower polynomial. The program compares those saved
+mass lower bounds to its own lower enclosure, not merely to a numerical
+approximation or to an upper bound for the true mass.
+
+3. JTable: analytic integral series instead of another mesh
+
+The original JTable computes J(s)=int_2^(s-1) log(v-1)/v dv for 3<=s<=5.
+Make the exact substitution z=(v-2)/(v-1). Its integrand becomes
+ -log(1-z)/[(1-z)(2-z)]. Expanding two positive convergent series gives
+ J(s)=sum_(n>=1) c_n*z_s^(n+1)/(n+1), z_s=(s-3)/(s-2),
+ c_n=H_n-d_n, H_n=sum_(k=1)^n 1/k,
+ d_0=0, d_n=d_(n-1)/2+1/(2n).
+Equivalently c_n=sum_(k=1)^n (1-2^(-(n-k+1)))/k. In particular
+0<=c_n<=H_n<=n. After n=m terms the integrated tail is at most
+ z_s^(m+2)/(1-z_s). All ten actual s0 queries use m=256 and z_s<=2/3.
+This is an exact analytic series with an exact positive remainder, not a
+reproduction of either the original or the previous review's Darboux table.
+
+The original JTable source was also read directly. Its q(v)=log(v-1)/v is
+increasing for v in [2,4], since
+ q'(v)=[v/(v-1)-log(v-1)]/v^2>0;
+the new log enclosure verifies log3<4/3. Every original lower prefix adds
+a downward product at the left endpoint, every upper prefix an upward product
+at the right endpoint. Its floor lower-index/ceil upper-index query extends
+the integration interval outwards. Clipping s to [3,5] is legitimate for the
+actual ten queries (all s0 in [3.2,5]); this is NOT a certificate for calls
+with a true s>5. At s0=5 only outward fixed-point overshoot is clipped.
+No original prefix-array value or saved baseline is accepted on the strength
+of this source inspection alone: the independently enclosed full baselines
+below must fit inside both saved endpoints for all 70 actions.
+
+4. Ordinary W1 integral: two-sided Simpson enclosure
+
+For each action put l=1/s0, b=min(1/s,1-2/s0). The ordinary term is
+ O=int_l^b L(u)/(2u(1-u)) du, L(u)=log(s0(1-u)-1).
+All 70 intervals satisfy 0<l<b<1/2 and s0(1-b)-1>=1, so the maximum-with-1
+in the author formula introduces no interior nonsmooth point. Its omitted
+part, if b<1/s, is identically zero.
+
+With g(u)=1/u+1/(1-u), the integrand is L*g/2. For 1<=k<=4,
+ |L^(k)(u)| <= (k-1)! [s0/(s0(1-b)-1)]^k,
+ 0<=L(u)<=log(s0(1-l)-1),
+ |g^(k)(u)| <= k! [l^(-k-1)+(1-b)^(-k-1)] for 0<=k<=4.
+Hence B4=(1/2)*sum_(k=0)^4 binom(4,k)*L_k*G_(4-k) bounds the absolute fourth
+derivative. Composite Simpson with n=64 even subintervals has absolute error
+at most (b-l)*((b-l)/64)^4*B4/180. Its node coefficients are all positive,
+so substituting lower/upper log enclosures gives a two-sided interval after
+subtracting/adding this error. There is no unproved derivative sign,
+convexity assumption, or cancellation of interval errors.
+
+The other mass is
+ T=C*((s0+s)*log(s0/s)-2*(s0-s))>0.
+The independent action enclosure is
+ [-J_upper+O_lower-K0*T_upper/8,
+  -J_lower+O_upper-K0*T_lower/8].
+The script requires the entire independent enclosure to be contained in
+[saved_base_lower/Q,saved_base_upper/Q] for every action, and independently
+requires T_upper<=saved_triple_upper/Q. It records all derivative constants,
+errors, query intervals, and domination slacks in the witness.
+
+5. Positive weights, actual endpoints, and finite-generation logic
+
+Each Buchstab cell weight is log(b/a). Each W1 h-cell preimage is exactly
+[u0,u1]=[1/s0,1/s] intersect [1-b/s0,1-a/s0], for source cells a>=2, and its
+positive mass is (log(u1/u0)+log((1-u0)/(1-u1)))/2. The script reconstructs
+all 1858 nonempty preimages, proves positivity and checks each saved lower
+weight against a new independent lower enclosure; all 200 Buchstab weights
+are checked likewise. It also checks all target lists and every point index:
+s0 is the right endpoint of the selected closed cell. This uses its proven
+uniform cell lower bound, not interpolation or a false continuity inference.
+All targets have right endpoint<=s<=3, so the ordinary A-shift is zero.
+
+There is no action supremum exchanged with an integral: these are exactly
+70 fixed actions and a finite maximum of their proved lower bounds. Positive
+weights permit replacement of each source value by a uniform lower bound.
+At each finite round, all right sides use only the preceding generation.
+Per-product floor, sum, division by the positive action denominator, and
+maximum all preserve the lower-bound direction. The seed and the W2 typed
+actions remain separately proved inputs; no infinite fixed-point claim is
+required. Existing complete recurrence replays are not rerun here.
+
+For calibration let b0<=O-J-K0*T/8 and 0<=Tlo<=T. Then, for K1<K0,
+ b0+floor(Q*(K0-K1)*Tlo/8)/Q <= O-J-K1*T/8.
+The same argument may be applied successively with the declared anchors.
+The new checker validates all 70 saved 48-term masses, all 70 saved 64-term
+masses/slopes, the 120 and 312 corrections, and the 70 baselines in each of
+the 375/430 terminal arms. It also directly compares those terminal bases to
+the independently enclosed analytic base at that arm's K. It does not claim
+to re-prove the 36 W2 cost calibrations.
+
+6. Scope
+
+The accompanying JSON records successful checks, exact counts, and hashes.
+The witness contains every actual query and comparison. No author Python
+module is imported, no floating number supplies a bound, and no new table
+or global numerical gain is proposed. This supplements the earlier independent
+implementation with different analytic primitives. It is not a fresh proof
+of the distribution theorems, typed W1/W2 state closure, initial seed, all
+general-purpose log/interval inputs, or the complete Chen functional.

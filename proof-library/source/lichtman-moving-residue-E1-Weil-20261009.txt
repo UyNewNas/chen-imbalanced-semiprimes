@@ -1,0 +1,123 @@
+An independent E1 input in the project's large-moving-residue range
+2026-10-09. Mathematical proof supplement, not a global K/c/b restoration.
+
+The reference actually checked is Maynard I v2, arXiv:2006.06572v2,
+Lemma17.2 (Second exponential sum estimate), local source lines6445--6652.
+L23 Lemma4.7 and Maynard II Lemma6.10 cite an older Lemma17.3 numbering;
+we do not infer their entire stated range from that citation. Instead
+use the actual, somewhat stronger size conditions of Lemma17.2 and show
+that they suffice for the present application.
+
+1. Uniformity of the directly used bound
+
+Let NM~x. For q~L,r_i~R the sum has denominator phi(q*r2)*q*r1,
+the phases e(a*h*inverse(n1)/(q*r1)), and Fourier cutoff
+  H1 ~ L*R/M * log^5 x.
+For arbitrary one-bounded lambda_{q,r}, alpha_n, the source proves
+  |Z| << N^2/L * x^(-epsilon_W)                           (W1)
+provided
+  N*L < x^(1-4*epsilon_W),
+  N*L^(5/2)*R^3 < x^(2-4*epsilon_W),
+  N^2*L*R < x^(2-4*epsilon_W).                            (W2)
+Fixed multiples of H1, fixed smooth dyadic q weights, and fixed
+dyadic support enlargements are permitted by its displayed proof
+with strict power margins. Coefficients bounded by x^o(1) can be
+normalized at an x^o(1) cost here, because (W1) is a power bound.
+
+The dependence on a is checked in the actual proof, not read from a
+fixed-residue implicit constant. Cauchy is in n1,n2,q,r2, followed by
+a smooth n1 majorant. After expanding, the inner completed n sum has
+modulus q*r1*r1' and frequency a*ell, where ell=h*r1'-h'*r1.
+Retain (a,q*r1*r1')=1 up to this point, as supplied by the original
+coefficient support. Thus
+  (a*ell,q*r1*r1') = (ell,q*r1*r1').                       (W3)
+The Weil/completion bound is
+  x^o(1) [L^(1/2)*R + N/(L*R^2)*(ell,q*r1*r1')].          (W4)
+This holds uniformly in all a coprime to this modulus; no reciprocal
+phase is deleted and no derivative proportional to a occurs.
+The ell=0 count and the subsequent positive gcd sums are independent
+of a. Coprimality with a may be dropped only after applying (W3).
+This establishes the uniformity of the cited proof in the required
+residue aspect. The Weil bound itself is an external theorem.
+
+One printed condition in the source's first Cauchy display also needs
+care: it inserts (r1,r2)=1, although the original E1 statement does not
+impose it. Start that Cauchy step directly from the original sum and
+retain only (r1,a*n1)=1 in its inner r1 sum. The bounded coefficient
+may depend on r2. After expanding and bounding the coefficients, the
+same completed n sum (W4) results; none of the later ell/gcd counts
+uses (r1,r2)=1. The unused restriction is therefore not inserted.
+
+2. Size conditions implied by the actual large-residue application
+
+Use the conditional Proposition5.2 bridge B1--B4, with margin sigma,
+and set theta=7/32. In this supplement assume additionally |a|>=c*x
+for a fixed c>0. This is true in the project when a=T and the full
+prime/product being distributed has size at most a fixed multiple of T.
+It is not asserted for the entire range 1<=|a|<=x^(1+kappa).
+
+Put n=log_x N, q=log_x Q1, u=log_x Q2, v=log_x Q3. Up to O(1/log x)
+from fixed constants, B1--B3 give
+  q-n < -sigma,
+  2*n+u+2*v < 1-8*sigma,
+  n+q+5*u+2*v < 2-theta-15*sigma.                          (W5)
+The exact nonnegative linear combination
+  (35/16)*(q-n)+(23/16)*(2*n+u+2*v)
+       +(5/16)*(n+q+5*u+2*v) - v/2
+    = n+(5/2)*q+3*u+3*v                                  (W6)
+therefore gives
+  n+(5/2)*q+3*u+3*v
+    < 1021/512 - (147/8)*sigma + O(1/log x).              (W7)
+Here 1021/512=2-3/512. The positive gap 3/512 is specific to using
+theta=7/32 and the actual lower bound |a|>=c*x.
+
+The other two Weil conditions follow from
+  n+q < 1-9*sigma,
+  2*n+q+u+v < 17/10-(29/2)*sigma,                        (W8)
+where the second uses B7: q+u+v<7/10-(13/2)*sigma and B2:2n<1-8sigma.
+These inequalities have enough slack for epsilon_W=sigma, fixed
+dyadic constants, and the subpower D factors below. This deliberately
+uses the actual theta=7/32; it makes no claim for theta=0 or an entire
+general theta-family. Conditions B4 and the later spectral input are
+not needed for this particular E1 verification.
+
+3. Fixed d and summation over d
+
+Use the dyadic small-factor range d~D=x^o(1), total rough length R,
+with D*R~Q2*Q3. For fixed d put q'=d*q and L=d*Q1.
+The E1 denominator and congruences become exactly those of (W1).
+Unlike Lemma5.1, the directly used Lemma17.2 ALLOWS arbitrary
+q'-dependent coefficients. Set
+  lambda_{q',r}=1_{d|q'} Lambda_{d,r}
+and absorb the nonnegative smooth q weight by its square root.
+Hence restriction to multiples of d is legitimate here. It is not
+inferred by restricting a cancellation bound for an unweighted sum.
+The actual Fourier cutoff differs from L*R/M*log^5 x only by D/d=O(1).
+
+For its three size products one has
+  N*L = N*Q1*x^o(1),
+  N*L^(5/2)*R^3
+    << N*Q1^(5/2)*(Q2*Q3)^3 * D^(-1/2),
+  N^2*L*R << N^2*Q1*Q2*Q3.                               (W9)
+Thus (W7)--(W8) imply (W2) with epsilon_W=sigma for sufficiently
+large x. The divisor bound on Lambda, and all normalization costs,
+are x^o(1). For each d the conclusion is
+  |E1(d)| << N^2/(d*Q1) * x^(-sigma+o(1)).               (W10)
+Summing over d~D uses sum 1/d=O(1), and then paying D=x^o(1) gives
+  |E1| << N^2/(D*Q1) * x^(-sigma/2)                      (W11)
+for sufficiently large x. The weakened exponent includes all fixed
+coefficient normalizations and dyadic decompositions.
+
+4. What this supplies, and what it does not
+
+Equation (W11) is a directly sourced and parameter-checked replacement
+for the E1 input in the project's near-linear large-residue range.
+Combined with an E2 bound N^2/(DQ1)*x^(-sigma/2), the preliminary
+dispersion square root gives x^(1-sigma/4) before logarithmic factors,
+or the convenient weaker x^(1-sigma/5) after them. This matches the
+power saving needed in the general conditional bridge.
+
+This is not a repair of Lemma4.7 for every a or of the whole source
+Theorem1.7. The preliminary zero-product/shifted-moment repair and
+the spectral E2 input have their own explicit proof obligations.
+No original numerical K,c,b record is promoted by this note.

@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+/replay-*/
+/full-replay/
+verification/replay-*/
+paper/source/*.aux
+paper/source/*.log
+paper/source/*.out
+paper/source/*.toc
+paper/source/*.pdf

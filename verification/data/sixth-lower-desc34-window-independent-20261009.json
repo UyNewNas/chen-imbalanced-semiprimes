@@ -1,0 +1,178 @@
+{
+  "status": "PASS_INDEPENDENT_COMPLETE_DESCENDING_LOWER_CLIP_WINDOW_NUMERIC_GEOMETRY_AND274_JENSEN_FLOORS",
+  "finite_old_patterns": 2048,
+  "dominance_excluded": 2031,
+  "remaining17": [
+    0,
+    1024,
+    1032,
+    1096,
+    1097,
+    1352,
+    1353,
+    1355,
+    1371,
+    1864,
+    1865,
+    1867,
+    1871,
+    1883,
+    1887,
+    1919,
+    2047
+  ],
+  "classification": [
+    {
+      "pattern": 0,
+      "status": "EXACT_DUAL_PASS",
+      "constant": "-75001/4625000",
+      "closed_empty": true
+    },
+    {
+      "pattern": 1024,
+      "status": "EXACT_DUAL_PASS",
+      "constant": "-2246903/182000000",
+      "closed_empty": true
+    },
+    {
+      "pattern": 1032,
+      "status": "EXACT_DUAL_PASS",
+      "constant": "-46181/4000000",
+      "closed_empty": true
+    },
+    {
+      "pattern": 1096,
+      "status": "EXACT_DUAL_PASS",
+      "constant": "-1046887/108000000",
+      "closed_empty": true
+    },
+    {
+      "pattern": 1097,
+      "status": "EXACT_DUAL_PASS",
+      "constant": "-924407/160000000",
+      "closed_empty": true
+    },
+    {
+      "pattern": 1352,
+      "status": "EXACT_DUAL_PASS",
+      "constant": "-116043/19000000",
+      "closed_empty": true
+    },
+    {
+      "pattern": 1353,
+      "status": "EXACT_DUAL_PASS",
+      "constant": "-8683/3200000",
+      "closed_empty": true
+    },
+    {
+      "pattern": 1355,
+      "status": "EXACT_DUAL_PASS",
+      "constant": "-1/3000000",
+      "closed_empty": true
+    },
+    {
+      "pattern": 1371,
+      "status": "EXACT_STRICT_CENTER_PASS",
+      "minimum_slack": "5713713/2000000000"
+    },
+    {
+      "pattern": 1864,
+      "status": "EXACT_DUAL_PASS",
+      "constant": "-1421867/72000000",
+      "closed_empty": true
+    },
+    {
+      "pattern": 1865,
+      "status": "EXACT_DUAL_PASS",
+      "constant": "-4473929/252000000",
+      "closed_empty": true
+    },
+    {
+      "pattern": 1867,
+      "status": "EXACT_DUAL_PASS",
+      "constant": "-74953369/6061000000",
+      "closed_empty": true
+    },
+    {
+      "pattern": 1871,
+      "status": "EXACT_DUAL_PASS",
+      "constant": "-56672287/2453000000",
+      "closed_empty": true
+    },
+    {
+      "pattern": 1883,
+      "status": "EXACT_DUAL_PASS",
+      "constant": "-3206887/307000000",
+      "closed_empty": true
+    },
+    {
+      "pattern": 1887,
+      "status": "EXACT_DUAL_PASS",
+      "constant": "-172923167/7563000000",
+      "closed_empty": true
+    },
+    {
+      "pattern": 1919,
+      "status": "EXACT_DUAL_PASS",
+      "constant": "-12296851/236000000",
+      "closed_empty": true
+    },
+    {
+      "pattern": 2047,
+      "status": "EXACT_DUAL_PASS",
+      "constant": "-3328123/50500000",
+      "closed_empty": true
+    }
+  ],
+  "selected_pattern": 1371,
+  "original_nonconstant_rows": 60,
+  "constant_identities": [
+    {
+      "name": "old subset 1 branch 0",
+      "value": "0"
+    },
+    {
+      "name": "buffered descending license",
+      "value": "0"
+    }
+  ],
+  "active6_systems": 924,
+  "active6_counts": {
+    "SINGULAR": 186,
+    "INFEASIBLE": 666,
+    "FEASIBLE": 72
+  },
+  "facets": 12,
+  "vertices": 48,
+  "simplices": 274,
+  "positive_dimensional_faces": 73,
+  "physical_volume": "5880515337038911140525339260485143901136606576903/47454750275978140345958400000000000000000000000000000000000000",
+  "integral_gap": "934455970374238964035992341661247783470690315765183121649879/3726777190753468569668447895552000000000000000000000000000000000000000000000",
+  "weighted_jensen_lower": "198410119216276585672773/39614081257132168796771975168",
+  "gain_lower": "198410119216276585672773/39614081257132168796771975168",
+  "max_factor_lower": "42615301928113829822285/19807040628566084398385987584",
+  "all274_factor_moment_floor_stream_sha256": "9678ed2bfc5fbd8658bf8c0274e6f64ed7dd7bb7f9af12afad2b6401abcb7e0b",
+  "gain_display_only": 5.0085755599987465e-06,
+  "numeric_independence": "No new author builder or its geometry backend imported. Physical linear rows rebuilt directly; previous reviewer CORE/Bareiss, own face recursion and49-term double moments used.",
+  "analytic_scope": "Complete numerical replay of this fixed canonical window. Old clipped-mask exclusion uses the frozen necessary-domain theorem plus its prior independent28-dual review; no C>A33 hypothesis occurs in that theorem. A separate analytic window interface is required before global assembly.",
+  "combination_scope": "Only descendingD34<A34,C<A33 window; separate from adopted ascending lower-C bytent sign and clean tents byC sign. No global K/c/b or effective threshold claimed.",
+  "bindings_sha256": {
+    "sixth-lower-desc34-window-independent-20261009.py": "1269e4bc6769277a80082ac5ee5431dcfa3bc9323bc1bd2db4770579acc23dd1",
+    "sixth-lower-desc34-window-independent-20261009.txt": "f515d9da6872bad9e064c3b08bdff520b68df46129e4545fe72a5cb1beb6678e",
+    "sixth-lower-desc34-window-20261009-navigation.json": "bc1a7ef2d142689a0d8c41ba2e1c7cfb9e4fbc606e36cf6a5af0b7f4a0f9f760",
+    "sixth-lower-desc34-window-20261009-navigation.py": "36832d5d37f19f51c2346ccea438d41a98c4e0ca2c353a41da59ed3322c7ed2f",
+    "sixth-lower-desc34-window-20261009.py": "7d22958a9cd28c5f26dfb6be086e0fe14cc1a00db1b618d6a198207197ec9887",
+    "sixth-lower-desc34-window-20261009.json": "3c657477086ccc34dbdb732989ad63124fe2d352eebab26986519cbd9fbf4af8",
+    "sixth-lower-desc34-window-20261009.witness.json": "2fd68c0da74fdfd7e46790d3704cef42a5247a030280e3077881a316adc329aa",
+    "sixth-license-cell-exact-20261009.py": "eae48ac7015023987ae32724b52316ff18894b5a7d183d52c504d8d6f6d17006",
+    "sixth-license-cell-reverse-crosscheck-20261009.py": "a8350599499d3eb9b5486b303a3161cca7f59fd45b95c27392cd785a957026df",
+    "sixth-license-mask-reduction-20261009.py": "1cdbc1d30e64f649504b5cbe97411244d65b2f2edbd4de052debb44315640143",
+    "sixth-license-mask-reduction-20261009.tex": "2703ff6f37a5c4f57e98a0f132b9bd8064f974359e861f3084ecf322b170f0b2",
+    "sixth-license-mask-reduction-20261009.json": "a00f32abd2d887a1089b7f9056a8a26245fe8c6d0a022bf25c71c2bfe79db7f7",
+    "sixth-license-family-independent-20261009-completion.json": "e86c98610cc78110626f6c42b315945e429122208be99a57ca6523a1cc14a0bb",
+    "sixth-license-family-weighted-jensen-analytic-20261009.json": "319494b69973ad098dc318611ca41da6c6e07bd4d939f1872762d779dcd23ab9",
+    "sixth-lower-desc34-window-20261009-final.json": "c86070cffb24506857334d74ff477bfcfcc20a96afe0e3d79166ac9a931792b5",
+    "sixth-lower-desc34-window-20261009.tex": "424e80ab14bb2c66827f6ee95bf02e64ff828578db0340b4c4d7ab9f9d3d361b"
+  },
+  "seconds_display_only": 0.5810708999633789
+}

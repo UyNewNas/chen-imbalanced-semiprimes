@@ -1,0 +1,409 @@
+Adversarial review of the retained spectral packet and its actual completion
+9 October 2026. New independent local review; no earlier file is modified.
+
+0. Scope, independence, and outcome
+
+I previously reviewed the retained smooth phase's five-variable variation,
+the moving-target scale budget, and downstream sieve interfaces. I did not
+author the oldform-packet correction in the two documents examined here.
+This review independently rereads the indicated primary spectral sources
+and supplies the interval and actual Poisson-completion calculations below.
+It is not an independent reproof of Deshouillers--Iwaniec spectral theory,
+the Atkin--Lehner/oldform theorems used by Assing--Blomer--Li (ABL), or the
+entire dispersion argument. No numerical sieve certificate is used as a
+proof of any analytic assertion in this report.
+
+Outcome: no additional large-residue power loss or coefficient-class
+obstruction was found in the ACTUAL coprime packet subclass. Its local
+bound follows from precisely stated classical spectral inputs, the ABL
+packet calculation, and the direct completion in section 6. This conclusion
+does not certify unrestricted L23 Lemma 9.6/Theorem 1.8, arbitrary weights
+in the original modulus q, the whole Proposition 5.2, or a prime-counting
+theorem. It does not restore any project-wide unconditional status.
+
+There are two genuine literal problems in the printed proof of L23
+Theorem 9.1, described in section 8. They are not counterexamples to its
+statement. The needed special spectral estimates can instead be obtained
+from the explicit a-free classical inputs in Pascadi, as in section 3.
+
+Primary texts actually read:
+* Lichtman, Primes in arithmetic progressions to large moduli, v1,
+  local external-source-audit/lichtman2023v1.txt: PDF pp. 14--20 (Lemma
+  5.1), 35--42 (Theorems 9.1/9.5, Lemma 9.6), 42--49 (Theorem 10.2).
+* Assing--Blomer--Li, Uniform Titchmarsh divisor problems,
+  arXiv:2005.13915v1: PDF pp. 7--13, Lemmas 3.1--3.4 and (3.3)--(3.9).
+* Pascadi, Large sieve inequalities for exceptional Maass forms and the
+  greatest prime factor of n^2+1, arXiv:2404.04239v3, Theorem A (1.4)--
+  (1.5), Theorem J (3.34)--(3.35), and the coefficient-normalization remark.
+  https://arxiv.org/html/2404.04239v3
+  This last source states the classical DI inputs; DI's original long
+  proof is not independently rederived here.
+
+1. The packet statement that is actually justified
+
+Use DI-normalized Fourier coefficients. Set Theta=7/32 and
+tau_j=2 sqrt(1/4-lambda_j) on the exceptional spectrum; 0<tau_j<=Theta.
+ABL/Pascadi's Ramanujan exponent is Theta/2. Confusing these conventions
+would change a power, so all formulas below use Theta.
+
+Fix a level q=rs, (r,s)=1, and assume (a,q)=1. In a packet H_f generated
+by one newform f and its degeneracy maps v_d(z)=f(dz), normalize all v_d
+in the SAME level-q norm. ABL explicitly gives ||v_d||=1 and an
+orthonormal basis e_g=sum_(d|g) xi_g(d)v_d with divisor-bounded xi_g(d).
+The number of vectors and the needed matrix norms are q^epsilon for any
+prescribed epsilon>0. This does not assert that the v_d are orthogonal.
+
+Write n=h n0, h|a^infinity, (n0,a)=1. In ABL Lemma 3.1 the integer K
+equals 1: q0=1 and the residue is coprime to rs. For each d its exact
+coefficient identity therefore has the form
+
+  rho_(v_d,1/s)(a h n0)
+    =lambda_d(a h) e(n0(a h-1) sbar/r) rho_(v_d,1/s)(n0),
+
+with the corresponding signs for negative Fourier arguments, and
+|lambda_d(a h)| << (|a|h)^(Theta/2+epsilon). The Hecke eigenvalue MAY
+depend on d. No argument needs it to be constant in the oldform packet.
+The important point is that the displayed additive phase does NOT depend
+on d when K=1.
+
+For b'_n=e(-an sbar/r)b_n in the positive-argument Kuznetsov expression,
+define
+
+  b*_(n0,r,s;h)=1_((n0,a)=1) b'_(hn0,r,s)
+                          e(n0(a h-1)sbar/r).
+
+In that sign convention the two phases even cancel to e(-n0 sbar/r),
+but cancellation is not required: |b*|<=|b_(hn0,r,s)| is sufficient.
+The opposite sign is treated consistently by conjugation and ABL's
+signed identity. There is no deletion of a Bezout phase in this step.
+
+Let L_a be the original Fourier functional on H_f and L_h the functional
+with coefficients b*. Expanding in e_g, using the identity on each v_d,
+and then using |L_h(v_d)|<=||L_h||_(H_f*) gives
+
+  ||L_a||_(H_f*) << (|a|Nq)^epsilon
+       sum_(h|a^infinity,h<=2N) (|a|h)^(Theta/2) ||L_h||_(H_f*).   (P)
+
+One way to verify (P) is to apply the triangle inequality in h to the
+vector indexed by g, then bound its d-to-g matrix by its Frobenius norm.
+Every loss is a fixed power of a divisor bound. This avoids an incorrect
+pointwise assertion about an individual orthonormal oldform e_g.
+
+Pair L_a with the m-side vector A_f in the ORIGINAL orthonormal packet:
+|<A_f,L_a>|<=||A_f||||L_a||. All members of this packet have the same
+spectral parameter, so any nonnegative scalar spectral weight commutes
+with this step. Apply (P), then Cauchy--Schwarz over packets and levels
+separately for each h. The m-side vector remains the Fourier sum for the
+same common interval. No new m-dependent Hecke coefficient is inserted.
+
+For h<=x^B and |a|<=x^B, the number of h|a^infinity is x^epsilon for
+every chosen epsilon after adjusting constants. Explicitly, Rankin with
+delta>0 bounds it by x^(B delta) prod_(p|a)(1-p^(-delta))^(-1); the latter
+product is x^o(1), by splitting primes at log x. Choose delta first in
+terms of the desired total epsilon. Thus the subsequent Cauchy--Schwarz
+in h does not conceal a small-a hypothesis.
+
+2. Regular, holomorphic, and continuous pieces
+
+The same finite packet estimate applies to regular Maass forms. After
+dyadic spectral decomposition, use the classical regular large sieve
+with its (T^2+N/q) factor and the standard Bessel-transform decay. These
+are the stated external regular-spectrum inputs (L23 Theorem 8.2 and
+Lemma 8.3 in the DI normalization), not consequences of the exceptional
+estimate alone.
+
+For holomorphic forms one uses the weight-normalized degeneracy maps
+d^(k/2)f(dz), exactly as in the proof of ABL Lemma 3.2; Deligne permits
+Theta=0 there, and retaining the larger Maass bound is harmless.
+
+An Eisenstein series is NOT an L2 vector in H_f. For the continuous part
+the appropriate input is ABL's continuous quadratic-form version of
+Lemma 3.2, on each character-pair oldform fiber, with the Plancherel
+measure retained. ABL PDF p. 11 identifies the orthogonal oldform fiber
+and the Atkin--Lehner pseudo-eigenfunction property, citing Young
+sections 8.5 and 9.1. That a-free fiber normalization and the continuous
+regular large sieve remain named external inputs. The n^(it)/m^(it)
+factors appearing in the continuous Kuznetsov formula have modulus one;
+the regular estimate permits arbitrary coefficients. No interval-side
+exceptional improvement is claimed for these continuous fibers.
+
+3. The two needed exceptional estimates and interval completion
+
+The fixed-level input F is Pascadi Theorem A restricted to
+X << max(1,q/L), at a cusp with mu=1/q:
+
+  sum_exc X^tau_j |sum_(n~L) c_n rho_(j,a)(n)|^2
+       << (qL)^epsilon (1+L/q)||c||_2^2,  L>=1/2.             (F)
+
+The coefficient sequence is arbitrary complex and may differ by level.
+The factor 1/cosh(pi*kappa_j) sometimes included in the exceptional
+spectral measure is positive and bounded above and below by absolute
+constants, since it is 1/cos(pi*tau_j/2) and tau_j<=7/32. It changes
+none of these norm comparisons.
+For the packet term h put L=N/h and X0=1+RS/L. At q=rs in its dyadic
+range, 1+X0=2+RS/L<=3 max(1,q/L). Therefore (F) applies at exactly the
+n-side weight used. Nonempty h terms have L>=1/2. It gives
+x^epsilon(1+N/(hRS))||tilde b(h)||_2^2 after summing over r,s.
+No general large-X version of L23 Theorem 9.1 is needed.
+
+The level-average input J is Pascadi Theorem J, uniformly in omega:
+
+  sum_(q~Q)sum_exc X^tau_j |sum_(m~M)e(m omega)rho_(j,infinity)(m)|^2
+       << (QM)^epsilon (Q+M)M,
+  X << max(M,Q^2/M),  Q,M>=1/2.                            (J)
+
+To treat a fixed integer interval I inside (M,2M], choose an integer
+P>2M. Its exact finite Fourier expansion on that dyadic block is
+1_I(m)=sum_(k mod P)c_k e(km/P), with
+c_k=P^(-1)sum_(v in I)e(-kv/P). The geometric-series estimate gives
+sum_k|c_k|=O(log(2M)). Take the triangle inequality in the Hilbert norm
+indexed by (q,j), with coordinate weights X^tau_j, before squaring.
+Applying (J) frequency by frequency costs O(log^2(2M)), absorbed by a
+separately smaller epsilon. This proves the same (J) bound for every
+common I, including partial, empty, and singleton intervals.
+An existing common phase e(mt) is included by replacing k/P with
+t+k/P in (J); its uniformity in omega is used at exactly this point.
+
+For a common bounded-variation weight w(m), Hilbert-space partial
+summation costs ||w||_infinity+Var(w) in norm. In particular m^(it)
+costs O(1+|t|), paid by the smooth transform's rapid decay. This is not
+an exchange of a pointwise supremum with the spectral sum.
+
+Set X*=max(M,Q^2/M). Since X*<=(Q+M)^2/M<=4X*, positivity and
+tau_j<=Theta extend the interval estimate to every Y>0 as
+
+  S_I(Q,Y,M) << (QM)^epsilon
+     [1+(MY/(Q+M)^2)^Theta](Q+M)M.                       (J*)
+
+For q=rs the multiplicity of each level is at most tau(q), paid by
+x^epsilon, not by Q. At infinity the identity scaling matrix is used.
+The second cusp may vary with the factorization of q; it occurs only
+on the arbitrary-coefficient n side.
+
+IMPORTANT LIMIT: the DFT proof does not authorize arbitrary intervals
+I_q chosen separately at each level or eigenvector. Their completion
+coefficients would depend on the Hilbert coordinate. Section 5 explains
+why the actual Lemma 5.1 application does not require that stronger claim.
+
+4. Reconstructing the local spectral polynomial
+
+First give the general r,s bookkeeping. Put
+X=C S sqrt(R)/(4 pi sqrt(|a|MN)), L=N/h, X0=1+RS/L.
+Up to an absolute constant,
+
+  1+X^tau <= 2 (1+X/sqrt(X0))^tau (1+X0)^(tau/2).
+
+Use this split in the packet pairing, (F) on the n side, and (J*) on
+the m side with Y=(1+X/sqrt(X0))^2. The additional exceptional factor is
+
+  [C^2 S^2 R/((RS+M)^2(L+RS))]^(Theta/2),
+
+because the factor (|a|h)^(Theta/2) from (P) cancels the corresponding
+(|a|h)^(-Theta/2) from the level-average bound. The ordinary exceptional
+part has factor (|a|h)^(Theta/2). Summation over h and replacement of
+||tilde b(h)|| by ||b|| are paid only after these operations.
+
+For the actual application S=1, q0=1, the resulting Kloosterman sum L
+on m~M obeys the following convenient squared bound (absolute constants
+and independently selectable x^epsilon losses are suppressed):
+
+ |L|^2 <= x^epsilon * M*C^4*R/(|a|MN+C^2 R) *
+   { sum_h (|a|h)^Theta
+       (N/h+R+|a|MN/C^2)(M+R+|a|MN/C^2)||tilde b(h)||_2^2
+     +(C^2 R)^Theta(N+R)^(1-Theta)(M+R)^(1-2Theta)||b||_2^2 }. (K)
+
+The first product includes regular, holomorphic, continuous, and the
+unimproved exceptional term. The second is precisely the interval-side
+exceptional improvement. This calculation reproduces the restricted
+polynomial in L23 Theorem 10.2; it does not import its false same-j step.
+
+For a general smooth amplitude with normalized derivative bounds, one
+can make the separation step explicit: change the c coordinate to the
+normalized Bessel argument, retain normalized m,n,r coordinates, insert
+fixed compact smooth cutoffs on the resulting fixed-size box, and take
+its Fourier expansion. Its coefficients have integrable polynomial
+decay of arbitrarily high fixed order. Each term has a COMMON m phase,
+a cusp-side coefficient phase, and a scalar level weight. The latter
+can be placed on the arbitrary n vector. Bessel-transform seminorms
+grow polynomially in the expansion frequencies and are absorbed by
+using additional derivatives. The change uses log derivatives of
+sqrt(|a|mn)/(c sqrt r); their normalized bounds do not grow with |a|.
+This proves the smooth-amplitude extension used in (K). It does not
+allow arbitrary nonsmooth coefficients jointly depending on m and q.
+
+5. Why the actual modulus and interval manipulations satisfy that class
+
+In L23 Lemma 5.1 keep d fixed and use fdq=n1-n2; then |f|<=2N/(dQ).
+The original q interval becomes a condition on n1-n2 and f. Product
+endpoints are first separated by the displayed Fourier identity on
+PDF p. 15. Cauchy--Schwarz is then applied in f,n1,n2,r1,r2,s2. Only
+after this positive square is formed are the congruence and endpoint
+conditions discarded, as explicitly done on PDF p. 16.
+
+Combining b=n2*r1 and c=n1*r2*s2 then gives a full positive b,c box,
+with divisor-bounded multiplicity and a smooth majorant g(b,c). The
+inner s1,h sum is independent of the chosen representation of b,c.
+It is therefore legitimate to bound that multiplicity by x^epsilon
+before summing; this does not leave arbitrary rough b coefficients.
+In particular the future Poisson dual m side has common interval/phase
+coefficients, not level-dependent endpoint choices.
+
+The original coprimality (s1,a)=1 is RETAINED. Expanding the square gives
+z=s1*s2 with (z,a)=1. After removing absolute values by unit phases the
+coefficient b_(y,z) is arbitrary complex, but vanishes unless (z,a)=1
+and has the same l2 majorant as its counting coefficient. Thus the
+completion uses (C,D,N,R,S,q0)=(C,B,Y,Z,1,1), precisely the class above.
+No extension to arbitrary original-q weights is used. The five-variable
+retained smooth phase must already have been reduced to these permitted
+rectangular instances by its separate variation argument; it is not
+silently inserted as a new rough spectral coefficient here.
+
+6. Direct Poisson completion for q0=1, S=1
+
+This calculation removes an avoidable citation-only step in the reviewed
+documents. Let (a,r)=1 and consider
+
+  V=sum_(n~N,r~R)b_(n,r) sum_(c~C,(c,r)=1)
+       sum_(d~D,(d,c)=1)g(c,d,n,r)e(an inverse(rd)/c).
+
+Poisson in d is exact:
+
+  sum_(d,(d,c)=1)g(c,d,n,r)e(an rbar dbar/c)
+     =1/c sum_(m in Z) ghat_(c,n,r)(m/c) S(m rbar,an;c).  (C0)
+
+The identity between the two Kloosterman conventions uses (c,r)=1.
+The Fourier transform has size O(D) and rapid decay in |m|D/C.
+
+Zero frequency. S(0,an;c) is a Ramanujan sum and
+|S(0,an;c)|<=gcd(an,c). Moreover
+sum_(c~C)gcd(an,c)<=O(C tau(|an|)), by the divisor expansion of gcd.
+As n>=1 and a!=0, no tau(0) occurs. Its total contribution is at most
+
+  x^epsilon D sum_(n,r)|b_(n,r)|
+      <=x^epsilon D sqrt(NR)||b||_2.
+
+This gives exactly the D^2 NR term in the squared reciprocal-sum bound.
+It does not require (a,c)=1 or a small residue. The divisor estimate is
+uniform when |a| and all other scales are bounded by fixed powers of x.
+
+Nonzero frequencies. Truncate |m|<= (C/D)x^delta, using sufficiently many
+derivatives and the trivial Kloosterman bound for the tail. The tail is
+arbitrarily small compared with the stated polynomial bound. Divide
+the retained positive/negative frequencies into dyadic intervals M.
+After removing the prefactor D/C, their amplitudes have normalized
+derivative seminorms at most x^(O(delta)); the exponent delta is chosen
+independently small. Apply (K) with M<= (C/D)x^delta. Bounded ranges
+M<1 cause no problem: a nonempty positive-integer block may be assigned
+M>=1/2; if even this exceeds the truncation there is only the tail.
+
+Here is the exact polynomial calculation with M<=C/D; restoring the
+x^delta slack costs only a separately selectable subpower. Write
+T=|a|MN/C^2 and N'=N/h. Then
+
+ R(N'+R+T)(M+R+T)/(R+T)
+   =R(R+T+N'+M)+R N'M/(R+T)
+   <=(N'+R)(M+R)+RT.
+
+Multiplying (K) by D^2/C^2 gives, for its first term,
+
+ D^2 M [(N'+R)(M+R)+R T]
+       <= C(N'+R)(C+DR)+|a|NR.
+
+For its second term, bound R/(R+T)<=1 and use 1-2Theta>=0:
+
+ D^2 M (C^2 R)^Theta(N+R)^(1-Theta)(M+R)^(1-2Theta)
+       <= C(CD sqrt R)^(2Theta)
+                   (N+R)^(1-Theta)(C+DR)^(1-2Theta).
+
+Consequently
+
+ |V|^2 << x^epsilon J^2,
+ J^2 = sum_h (|a|h)^Theta
+          [C(N/h+R)(C+DR)+|a|NR]||tilde b(h)||_2^2
+       +[C(CD sqrt R)^(2Theta)(N+R)^(1-Theta)(C+DR)^(1-2Theta)
+            +D^2 NR]||b||_2^2.                          (C1)
+
+Dyadic summation adds logarithms only. This is the actual S=1 instance
+of the reviewed Theorem 1.8 polynomial. ABL PDF p. 13 warns that a factor
+S^(-1/2) in an older general completion was erroneous; the calculation
+above neither uses it nor claims the unrestricted S-dependent statement.
+
+7. Returning to the counting norm and natural scale
+
+Set B=NR, C=NRS, Z=S^2, Y=NR^2S^3/M, F=N/Q, and
+H=x^o(1) QR^2S^2/M, now reverting to the ORIGINAL Lemma 5.1 letters.
+In (C1) substitute the spectral R=Z, N=Y, D=B. The retained condition
+(a,z)=1 supplies the only residue-level coprimality required above.
+
+The count coefficient comes from y=f(h1*s1-h2*s2)!=0. Its norm obeys
+||tilde b(h)||_2^2 << x^epsilon (HS)^2 F/h. The equal-difference count
+uses nonzero multiples of h/c in |k|<=O(HS), giving O(HSc/h), with no
+spurious +1 term. For unequal differences, split d1=(s1,s2), reduce
+the s pair, and count the common difference multiplier in O(Hd1/S);
+the result is x^epsilon H^3 S F/h times
+sum_(d1<=O(S))(d1,h)/d1=x^o(1). Since H/S<x^o(1)(Q/N)D0<1, this is
+at most the equal-difference bound. The individual k need not be of
+size HS; nonzero k and an upper bound suffice.
+
+Using Y/Z=D0<1 and BZ>=C, (C1) gives
+
+ J^2 << x^epsilon [|a|^Theta(CBZ+|a|Y)Z
+                     +C^(1+2Theta)BZ^(2-2Theta)+B^2YZ](HS)^2 F.
+
+The exact scale relation is CBZ=xY=N^2R^2S^3 up to the original fixed
+dyadic constants. Also B^2<x. Therefore the |a|Y term MUST be retained;
+it produces 1+|a|/x, rather than being absorbed by a small-a convention.
+The outside factor after the earlier Cauchy--Schwarz is
+x^epsilon N/(Q R S^(3/2)); the two square roots give the fourth root
+of the last spectral polynomial. In the notation of the reviewed audit:
+
+ |W| << (N^2/Q)x^epsilon
+       {D0^(1/2)+[(1+|a|/x)D1+D2]^(1/4)}.
+
+Thus the extra large-a cost here is kappa/4 when |a|<=x^(1+kappa).
+The smooth retained-phase variation's 5 kappa cost is a separate earlier
+operation. All divisor/log/frequency losses above can fit a prescribed
+epsilon allowance because there are finitely many operations and every
+scale is polynomially bounded in x. Neither 5 kappa nor the fixed
+spectral margin may be relabelled as an arbitrary o(1).
+
+8. Adversarial findings and final dependency boundary
+
+(a) L23's printed same-j Lemma 9.6 is not justified by ABL's norm lemma.
+    The packet derivation (P) is a repair only for the coprime q0=1 class.
+    When (a,rs)>1, K can vary and the common transformed functional used
+    above is no longer established. That stronger assertion is unreviewed.
+
+(b) L23 Theorem 9.1's proof chooses Y=4 pi mu N and a test supported in
+    [Y,2Y], but m,n in (N,2N] can yield an argument inside this interval.
+    The claimed empty geometric side does not follow. Moving the support
+    to [16 pi mu N,32 pi mu N] fixes this constant-scale issue.
+    Also, for 0<Y<1 and tau_j<=Theta_q one has
+    Y^(-tau_j)<=Y^(-Theta_q), not the displayed reverse comparison.
+    Keeping tau_j gives the correct inequality
+    X^tau_j<=[1+(XY)^Theta_q]Y^(-tau_j).
+    These are proof-line defects, not counterexamples to the spectrum.
+    Sections 3--4 bypass both lines using the explicitly stated F/J inputs.
+
+(c) A level-dependent interval assertion is not proved by common-interval
+    DFT. Actual positive Cauchy--Schwarz and smooth completion avoid needing
+    it. Arbitrary original modulus weights must not be added later.
+
+(d) The Eisenstein part requires its actual continuous-fiber theorem; a
+    casual reference to an L2 packet of Eisenstein functions is incorrect.
+    ABL supplies the relevant continuous quadratic-form statement as an
+    external input, and the regular bound suffices there.
+
+Dependency order verified here:
+  ABL 3.1 + normalized oldform basis -> (P);
+  classical F/J + common-interval DFT -> exceptional weighted norms;
+  standard Kuznetsov/Bessel/regular large sieve + (P) -> (K);
+  exact S=1 Poisson + Ramanujan/divisor bound -> (C1);
+  actual positive endpoint removal + counting norm -> restricted Lemma5.1.
+
+The retained-phase variation, preliminary dispersion identities, Siegel--
+Walfisz input, full Proposition5.2, prime-product compiler, and all final
+sieve/count implications remain outside this local conclusion. Their
+proofs cannot be inferred from this packet review. No source named PASS
+was used in place of the calculations above, and no global K,c,b was
+changed or promoted.

@@ -1,0 +1,176 @@
+{
+  "status": "PASS_INDEPENDENT_COMPLETE_LOWER_CLIP_WINDOW_NUMERIC_GEOMETRY_AND626_JENSEN_FLOORS",
+  "finite_old_patterns": 2048,
+  "dominance_excluded": 2031,
+  "remaining17": [
+    0,
+    1024,
+    1032,
+    1096,
+    1097,
+    1352,
+    1353,
+    1355,
+    1371,
+    1864,
+    1865,
+    1867,
+    1871,
+    1883,
+    1887,
+    1919,
+    2047
+  ],
+  "classification": [
+    {
+      "pattern": 0,
+      "status": "EXACT_DUAL_PASS",
+      "constant": "-508133/34000000",
+      "closed_empty": true
+    },
+    {
+      "pattern": 1024,
+      "status": "EXACT_DUAL_PASS",
+      "constant": "-468137/42000000",
+      "closed_empty": true
+    },
+    {
+      "pattern": 1032,
+      "status": "EXACT_DUAL_PASS",
+      "constant": "-508141/50000000",
+      "closed_empty": true
+    },
+    {
+      "pattern": 1096,
+      "status": "EXACT_DUAL_PASS",
+      "constant": "-428141/50000000",
+      "closed_empty": true
+    },
+    {
+      "pattern": 1097,
+      "status": "EXACT_DUAL_PASS",
+      "constant": "-308141/56000000",
+      "closed_empty": true
+    },
+    {
+      "pattern": 1352,
+      "status": "EXACT_DUAL_PASS",
+      "constant": "-348149/66000000",
+      "closed_empty": true
+    },
+    {
+      "pattern": 1353,
+      "status": "EXACT_DUAL_PASS",
+      "constant": "-188153/80000000",
+      "closed_empty": true
+    },
+    {
+      "pattern": 1355,
+      "status": "EXACT_DUAL_PASS",
+      "constant": "-1/2000000",
+      "closed_empty": true
+    },
+    {
+      "pattern": 1371,
+      "status": "EXACT_STRICT_CENTER_PASS",
+      "minimum_slack": "357107/125000000"
+    },
+    {
+      "pattern": 1864,
+      "status": "EXACT_DUAL_PASS",
+      "constant": "-2532281/213250000",
+      "closed_empty": true
+    },
+    {
+      "pattern": 1865,
+      "status": "EXACT_DUAL_PASS",
+      "constant": "-165563/22250000",
+      "closed_empty": true
+    },
+    {
+      "pattern": 1867,
+      "status": "EXACT_DUAL_PASS",
+      "constant": "-3953577/1198000000",
+      "closed_empty": true
+    },
+    {
+      "pattern": 1871,
+      "status": "EXACT_DUAL_PASS",
+      "constant": "-17687577/1163750000",
+      "closed_empty": true
+    },
+    {
+      "pattern": 1883,
+      "status": "EXACT_DUAL_PASS",
+      "constant": "-475106/52859375",
+      "closed_empty": true
+    },
+    {
+      "pattern": 1887,
+      "status": "EXACT_DUAL_PASS",
+      "constant": "-58484951/2195000000",
+      "closed_empty": true
+    },
+    {
+      "pattern": 1919,
+      "status": "EXACT_DUAL_PASS",
+      "constant": "-710941/17250000",
+      "closed_empty": true
+    },
+    {
+      "pattern": 2047,
+      "status": "EXACT_DUAL_PASS",
+      "constant": "-367189/6250000",
+      "closed_empty": true
+    }
+  ],
+  "selected_pattern": 1371,
+  "original_nonconstant_rows": 60,
+  "constant_identities": [
+    {
+      "name": "old subset 1 branch 0",
+      "value": "0"
+    },
+    {
+      "name": "buffered ascending license",
+      "value": "0"
+    }
+  ],
+  "active6_systems": 1716,
+  "active6_counts": {
+    "SINGULAR": 313,
+    "INFEASIBLE": 1318,
+    "FEASIBLE": 85
+  },
+  "facets": 13,
+  "vertices": 61,
+  "simplices": 626,
+  "positive_dimensional_faces": 127,
+  "physical_volume": "728630394040429840858264237360203013731319182013177576951/3576923010973468629190088353382400000000000000000000000000000000000000",
+  "integral_gap": "178167452911596554817698928535029218631773820344304374117142783383743610171/388919541748107078413508792306952914333094379520000000000000000000000000000000000000000000",
+  "weighted_jensen_lower": "670429887277013841791829/79228162514264337593543950336",
+  "gain_lower": "670429887277013841791829/79228162514264337593543950336",
+  "max_factor_lower": "4391590581942957671603/1237940039285380274899124224",
+  "all626_factor_moment_floor_stream_sha256": "7ea0f1ebab9a4d33a258a455b24ce339b14eefdbfc0c49a160a480c66ef51de4",
+  "gain_display_only": 8.462014844233057e-06,
+  "numeric_independence": "No new author builder or its geometry backend imported. Physical linear rows rebuilt directly; previous reviewer CORE/Bareiss, own face recursion and49-term double moments used.",
+  "analytic_scope": "Complete numerical replay of this fixed canonical window. Old clipped-mask exclusion uses the frozen necessary-domain theorem plus its prior independent28-dual review; no C>A33 hypothesis occurs in that theorem. A separate analytic window interface is required before global assembly.",
+  "combination_scope": "Only C<A33 window; not added to overlapping exploratory policies. Existing adopted clean tents requireC>A33. No global K/c/b or effective threshold claimed.",
+  "bindings_sha256": {
+    "sixth-lower-clip-window-independent-20261009.py": "3c42a15619ee59a8de0129b3e4f1896f1b83dab8a779517fb9bb835c6efa698b",
+    "sixth-lower-clip-window-independent-20261009.txt": "e3c0a4e86684d2068601dc87a1e7041c7ab4a1bc8041cbd7ad0fb5d106e51803",
+    "sixth-lower-clip-window-navigation-20261009.json": "75598a54b2f97cc66b0f439fd0b752bc851abb9a78e7d3fa28ca6fb875e6b581",
+    "sixth-lower-clip-window-navigation-20261009.py": "cd0b292fd6517640b90786f6e3b7fa8cb7ea2a29276bbcb3097c00c22f1aa147",
+    "sixth-lower-clip-window-exact-20261009.py": "4db126d3cd4612155ef414daaac3c36493a58da4c06580f928765df9dfb2c2fb",
+    "sixth-lower-clip-window-exact-20261009.json": "7eefadfe32d872aacb827aeb50568ae5d3b8191e149de8af92afb649d4030c51",
+    "sixth-lower-clip-window-exact-20261009.witness.json": "f5988780936df45353e668a76269e47c13096011ed8f2c4353fb5dff628edd06",
+    "sixth-license-cell-exact-20261009.py": "eae48ac7015023987ae32724b52316ff18894b5a7d183d52c504d8d6f6d17006",
+    "sixth-license-cell-reverse-crosscheck-20261009.py": "a8350599499d3eb9b5486b303a3161cca7f59fd45b95c27392cd785a957026df",
+    "sixth-license-mask-reduction-20261009.py": "1cdbc1d30e64f649504b5cbe97411244d65b2f2edbd4de052debb44315640143",
+    "sixth-license-mask-reduction-20261009.tex": "2703ff6f37a5c4f57e98a0f132b9bd8064f974359e861f3084ecf322b170f0b2",
+    "sixth-license-mask-reduction-20261009.json": "a00f32abd2d887a1089b7f9056a8a26245fe8c6d0a022bf25c71c2bfe79db7f7",
+    "sixth-license-family-independent-20261009-completion.json": "e86c98610cc78110626f6c42b315945e429122208be99a57ca6523a1cc14a0bb",
+    "sixth-license-family-weighted-jensen-analytic-20261009.json": "319494b69973ad098dc318611ca41da6c6e07bd4d939f1872762d779dcd23ab9"
+  },
+  "seconds_display_only": 1.2853550999425352
+}

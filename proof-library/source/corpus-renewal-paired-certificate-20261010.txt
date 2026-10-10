@@ -1,0 +1,104 @@
+Same-mask paired certificate: gross refinement and saved-floor recovery
+10 October 2026. This certificate does not adopt new global parameters.
+
+1. Exact scope and constants offered for assembly
+
+The sets are precisely the already adopted6091 E0 and11481 E1 pair512
+rectangles. No cell is added or removed. K=8452171/1250000 remains fixed.
+
+Keep the existing total removed gross .002095161+.003799514. Add ONLY
+the separately certified gross delta .000543500. Replace the old positive
+saved-estimator loss .002372094 by the upper bound .002334885. The new
+raw increment is therefore
+
+  .000543500 + (.002372094-.002334885) = .000580709.
+
+This difference is additional; none of the old E0 or E1 gain is counted
+again. The exact replayed old discarded floor is smaller than the proposed
+replacement upper bound, allowing a separately authored upper-bound audit.
+The proposal remains unadopted until independent arithmetic, analytic
+minorant review and final scalar assembly have been completed.
+
+2. The positive extra gross density
+
+Write (t,u) for the two larger U11 slots and a<w<z<u<h<t<d for all four.
+The retained parent majorant is at least K*omega((1-t-u-z-w)/z)/z.
+Use the already available omega>=1/2 and the elementary improvement
+
+  omega(s)>=11/20 for s>=12/5.
+
+On[12/5,3], 1+log(s-1)-(11/20)s is concave, and its endpoint values
+are positive from log(7/5)>8/25 and log2>13/20. On[3,17/5], the global
+lower bound1/2 gives s*omega(s)>=1+log2+(s-3)/2. After subtraction of
+(11/20)s the remainder is >=log2-67/100>0. Consecutive unit-interval
+delay induction extends the bound to infinity. The endpoint logarithms
+are enclosed by the program. This lemma also has a separately authored
+analytic review; that review is not replaced by the numerical inequalities.
+
+For B=[tl,tr]x[ul,ur] put Z=min(ul,5*(1-tr-ur)/22). On a<w<z<Z,
+ 1-t-u-z-w >=1-tr-ur-2z >=(12/5)z.
+The improvement1/20, together with the Chen factor1/4, yields EXTRA mass
+
+ (K/80)*log(tr/tl)*log(ur/ul)*[1/a-(1+log(Z/a))/Z].
+
+The bracket is the exact integral of log(z/a)/z^2 on[a,Z]. Everything
+outside this inner fibre retains the old1/2 lower bound. No subtraction
+of an upper bound on actual removed counts occurs: it is the old explicit
+positive parent majorant that is restricted to the same complement.
+
+The program computes all17572 cells and records each exact Z and both
+outward endpoints. It independently reconstructs E1 from the complete
+selected-parent-cover mask, verifies disjointness with E0, and retains the
+existing method0 ownership and no-priority40000 facts. No common refinement
+changes are necessary beyond those already allowed by fixed finite walls.
+
+The previous assembly's total17772 field is an arithmetic transcription
+error:6091+11481=17572. The actual masks and sums always use the two
+separate correct sizes. This correction changes no cell or numerical gain.
+
+3. Exact discarded positive estimate and its conservative replacement
+
+The selected old L6 is the author512 sum in sharp-248-pair-refinement-512.
+The program uses the literal original pair_cell evaluator, mesh16384,
+and h248, on every deleted cell. All6091 E0 floors and all227 E1 crossing
+floors are zero. The E1 total is the exact Q80 integer
+
+ 11290806845175652020270, Q80=1208925819614629174706176.
+
+After division by4*Q80, the loss is exactly
+
+ 5645403422587826010135/2417851639229258349412352
+ =.0023348841306025784... < .002334885.
+
+This is the loss of a saved numerical lower estimator, not an upper bound
+for the actual positive count. Because the chosen old whole-term estimate
+equals this decomposable author512 sum, its retained part is at least
+old_L6-4*.002334885. The enhanced half and its floors are unchanged.
+The full rows record every discarded Q80 integer for independent checking.
+Literal reuse of the old evaluator is declared; it is not called an
+independent implementation of those floors.
+
+4. Arithmetic and accounting
+
+New gross integrals use a standalone directed Q160 interval engine,
+with96 atanh terms at Q224 and universal tail9/(4*193*3^193) for q<=2.
+Every operation rounds outward. The old author arithmetic is used only
+to reconstruct the literal previously selected floors. Exact masks,
+geometry, source code, selected h248 bank, both parent-cover reports and
+their named witness/source bindings are verified before and after execution.
+
+For future K feedback, the old slope A must change to
+
+  A - .000543500/K = A - 5435/67617368.
+
+The loss recovery is K-independent. Subtracting total NET increment/K
+would be the wrong sensitivity. (The exact rational stored by the program
+is authoritative for this arithmetic.)
+
+Keep all prior allowances. A conservative proposed new allowance adds
+.000580709/8 to each of the lower finite-density and compiler budgets.
+The improvement after these additions is3*.000580709/4=.00043553175.
+The companion JSON supplies prospective raw and after-budget endpoints,
+but no new c, b, or count coefficient. Those require the root's strict
+rational-log selection and final assembly. State/main/old artifacts remain
+unchanged, and formalization/GitHub remain paused.

@@ -1,0 +1,29 @@
+{
+  "status": "PASS_INDEPENDENT_EVERY_BOX_GATE_VOLUME_LAYER_AND_FLOOR",
+  "author": "lower-fourth-restoration-slanted-20261009-m800-layers8.json",
+  "boxes_checked": 98668,
+  "layers_checked": 789344,
+  "old_whole_boxes_preserved": 41764,
+  "minimum_integer_support_slack": 1,
+  "author_lower_covered": "5900940623085383187303/1208925819614629174706176",
+  "independent_selected_lower": "5900940623085415785205/1208925819614629174706176",
+  "old_component_lower": "2766233353657160051203/1208925819614629174706176",
+  "replacement_extra_Chen_quarter": "783676817357055784025/1208925819614629174706176",
+  "normalization": "Cartesian volume times 4/(u1*u2*u3*u4^2) times fbar; Chen weight1/4.",
+  "volume_implementation": "All16 reflected corners; grouped author polynomial not imported.",
+  "log_implementation": "20 positive terms, Q160 downward multiply recurrence; no author powers/helper imported.",
+  "geometry_implementation": "Independent Fraction tent ranges, subset enumeration and complete gate reconstruction.",
+  "analytic_scope": "Finite clipped restored domains use existing even-first-exit proof; no new distribution theorem.",
+  "replacement_only": true,
+  "new_global_b_claimed": false,
+  "seconds": 16.583166799973696,
+  "bindings_sha256": {
+    "lower-fourth-restoration-slanted-independent-20261009.py": "1f9d280741e9d6f24065a84ecfc67db320c1ec7faf7f74c05eede2b82330b042",
+    "lower-fourth-restoration-slanted-20261009-m800-layers8.json": "f3700d5e43b57e07fca76578f0b1d8b317adddfe7795096e9c8612832648e1af",
+    "lower-fourth-restoration-slanted-20261009-m800-layers8.witness.json.gz": "6f5149fda1ec68cf20b1ed7a56ca0e5f0e6e44331adc10caaadc98f30a1ca5f3",
+    "lower-fourth-restoration-boxes-m800-20261009.json": "2f9db5571c3dd2b72416587d9f890661c0ad3bde705a3bfce9f26c22156be757",
+    "lower-fourth-restoration-boxes-m800-20261009.witness.json.gz": "6a1870db6462c3f7319646121d9e7e4438a2f1772ea64287d3ae83d8e4d8df34",
+    "lower-fourth-restoration-slanted-20261009.tex": "8f5352c255d66b5bd49df8537fd4339522f5f7b58c8f7806ca21f1585ff292ec",
+    "lower-fourth-own-cube-restoration-20261009.tex": "62302a6f569b67e77780d5c5c1a59d2d010ac2b7a23cd9e29b87deb89b0b7c8e"
+  }
+}

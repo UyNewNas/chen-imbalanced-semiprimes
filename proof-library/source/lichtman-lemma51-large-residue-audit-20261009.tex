@@ -1,0 +1,203 @@
+% Independent, scoped audit. No existing source is changed.
+\section*{Lemma 5.1 with a polynomially large residue: a scoped derivation}
+\label{sec:l51-large-a-audit-20261009}
+
+This note audits the actual use of Lemma 5.1 in the retained-phase
+proposal.  It does not certify Proposition 5.2, its preliminary dispersion
+lemmas, or a prime-counting theorem.  The spectral theorems identified below
+remain external inputs.  All occurrences of a power of $a$ mean $|a|$.
+The source is the current local text of Lichtman's 2023 paper, lines
+1911--2410; references below are to that text unless otherwise specified.
+
+\paragraph{The precise restricted conclusion.}
+Let $0<\sigma$, $0\leq\kappa\leq\sigma/100$, and $NM\asymp x$.
+Use exactly the coefficients, cross-coprime set, product endpoints and fixed
+$d$ of Lemma 5.1, with $(d,a)=1$, but separate the residue range
+$0<|a|\leq x^{1+\kappa}$ from the source margin.  Put
+\[
+ D_0={N^2R^2S\over x},\qquad
+ D_1={|a|^\theta NR^2S^5Q\over x^2},\qquad
+ D_2={(NR/S)^{2\theta}NR^2S^5Q\over x^2},\quad \theta=7/32.
+\]
+Assume $Q<Nx^{-\sigma}$, $D_0\leq x^{-7\sigma}$ and
+$D_1,D_2\leq x^{-14\sigma}$.  The proof gives the useful natural-scale
+estimate
+\begin{equation}\label{eq:l51-natural-large-a}
+ |\mathcal W|\ll {N^2\over Q}x^{o(1)}
+ \left\{D_0^{1/2}+\big((1+|a|/x)D_1+D_2\big)^{1/4}\right\}.
+\end{equation}
+Here the $o(1)$ also denotes independently selectable losses from the
+spectral and smoothing parameters, with all scales polynomially bounded
+in $x$.  More precisely, their total contribution to the exponent on the
+right can be made at most $\sigma/4$.  After the additional retained-phase
+variation loss $x^{5\kappa+o(1)}$, the saving is at least
+\[
+ {7\sigma\over2}-{21\kappa\over4}-{\sigma\over4}>3\sigma.
+\]
+Consequently the bound $N^2/(Qx^{\sigma})$ needed by the proposed bridge
+has spare margin.  This conclusion uses the coprime spectral subclass
+proved in the next two paragraphs; it does not use Lemma 5.1's conclusion
+as an input.
+
+\paragraph{What the cited Fourier-coefficient result actually says.}
+The literal same-$j$ inequality printed as Lemma 9.6 (lines 4808--4830)
+is not a literal restatement of Assing--Blomer--Li, Lemma 3.2.
+In the primary text of \emph{Uniform Titchmarsh divisor problems},
+arXiv:2005.13915v1, pp. 8--11, the proof requires $(a,rs)=1$, treats an
+orthonormal oldform space, and retains a cusp phase.  In the $q=K=1$
+specialization its modified coefficient is
+\begin{equation}\label{eq:l51-abl-phase}
+ b^*_{n,r,s}=\mathbf1_{(n,a)=1}b'_{nn'',r,s}
+ e\left(\pm {n(an''-1)\overline s\over r}\right),\qquad n''\mid a^\infty.
+\end{equation}
+Thus $\|b^*(n'')\|_2\leq\|\widetilde b(n'')\|_2$.
+In fact the source's earlier coefficient
+$b'_n=e(\mp an\overline s/r)b_n$ cancels the $an''$ part, leaving a
+unit-modulus phase $e(\mp n\overline s/r)$.  Cancellation is convenient,
+but the norm inequality alone suffices.  No phase is deleted by an
+approximation and no small-$a$ hypothesis is used here.
+
+For clarity, the needed substitute for the printed same-$j$ assertion
+is a Hilbert-space assertion.  Fix a level $q=rs$ and one newform $f$;
+let $E_f$ be the space spanned by its oldforms at level $q$.  Normalize
+Fourier coefficients as in the Kuznetsov pairing (equivalently absorb
+$\sqrt{|n|}$ in the Assing--Blomer--Li convention).  The orthonormal basis
+expansion (3.3) in that paper has divisor-bounded coefficients.  Apply its
+Lemma 3.1 to each normalized oldform $f(dz)$.  Because $(a,q)=1$, the
+integer $K$ in that lemma is $1$.  The Hecke factor is bounded by
+$(|a|n'')^{\theta/2+\delta}$, for any fixed $\delta>0$; its remaining
+phase is independent of the oldform label $d$.  For each normalized
+$f(dz)$, complete it to an orthonormal basis of $E_f$.  The square of any
+one resulting linear functional is at most its full squared norm.
+Summing the divisor-bounded number of labels and taking a square root
+therefore gives
+\begin{equation}\label{eq:l51-packet}
+ \|B_a\|_{E_f}\ll_\delta (|a|qN)^\delta
+ \sum_{n''\mid a^\infty}(|a|n'')^{\theta/2}
+ \|B^*(n'')\|_{E_f}.
+\end{equation}
+The same argument applies to the continuous spectrum; holomorphic
+forms have at least this bound.  This is the oldform argument of the
+cited source, applied within a single packet, rather than a new assertion
+of multiplicativity for an arbitrary basis vector.
+
+\paragraph{Why the interval side and the exceptional weights survive.}
+In the Kuznetsov bilinear pairing write $A_f$ for the vector coming from
+$\sum_{m\sim M}a_m\rho_{j\infty}(m)$ and $B_{a,f}$ for the other vector.
+Apply Cauchy--Schwarz to the pairing within $E_f$, then
+\eqref{eq:l51-packet}, and only then sum over $f$ and levels.  Every
+oldform in $E_f$ has the same spectral parameter.  Hence an arbitrary
+nonnegative weight depending on that parameter commutes with this
+operation.  For each $n''$ one can choose
+$X_0=1+RSn''/N$ separately and apply Cauchy--Schwarz with the two weights
+used in (10.8)--(10.9).  An absolute constant covers the source's split
+of $1+X^{2i\kappa_j}$.  No coefficient depending on $m$ has been inserted:
+the squared norm of $A_f$ is invariant under the orthonormal changes of
+basis above.  In particular, the interval-coefficient hypothesis of
+Theorem 9.5 remains available on the $m$ side.
+
+On the $n$ side Theorem 9.1 permits arbitrary complex coefficients,
+including \eqref{eq:l51-abl-phase}, separately at each level.
+With $N'=N/n''$ and $\mu(1/s)=1/(rs)$, its first factor is governed by
+$\mu N'X_0\asymp1+N'/(RS)$, and its second factor by
+$N'/(RS)$.  It therefore gives
+$x^{o(1)}(1+N'/(RS))\|\widetilde b(n'')\|_2^2$.
+This also repairs the explanatory line 5157, which drops the factor
+$\mu N'$ before replacing $X_0$ by its reciprocal-scale expression.
+Theorem 8.2 deals with the regular spectrum.  Theorems 9.1 and 9.5 are
+$a$-free spectral inputs proved in the cited paper; this note checks
+their use, not their complete proofs.  Theorem 8.2 and Kuznetsov are
+the Deshouillers--Iwaniec inputs cited there.  The stated spectral results
+are the inputs used here.
+
+The standard Poisson completion from Theorem 10.2 to Theorem 1.8 is used
+only for $q_0=1$, with the coprime coefficients described next.  This
+audit does not claim the printed version of Theorem 1.8 for unrestricted
+coefficients with $(a,rs)>1$.  In particular it does not silently promote
+the weaker polynomial in the earlier Assing--Blomer--Li theorem to the
+sharper exceptional-spectrum polynomial of Lichtman.
+
+\paragraph{The actual coprimality, fixed $d$, and counting input.}
+The two $s$ variables produced by expanding the square in Lemma 5.1
+come from an inner sum with $(s,a)=1$.  Retain this restriction even
+when other positive restrictions are dropped.  Then the spectral
+coefficient is supported on $z=s_1s_2$ with $(z,a)=1$.
+The substitution into Theorem 1.8 is
+$(C,D,N,R,S,q_0)=(C,B,Y,Z,1,1)$, so precisely the coprime subclass
+$(a,rs)=1$ above is used.  Multiplying by arbitrary unit phases to remove
+the absolute value of the inner exponential sum changes no norm bound.
+
+The original statement already permits a fixed $d$: it has
+$n_1\equiv n_2\pmod{qd}$ and the inverse of $dq$ in its phase
+(lines 1935--1949).  Use $fdq=n_1-n_2$, so $|f|\leq2N/(dQ)$.
+The congruence modulo $df$ can be discarded only after the positive
+Cauchy--Schwarz square is formed.  Keeping this proof avoids any
+unsupported claim that Lemma 5.1 accepts arbitrary weights in $q$.
+In particular no change $q'=qd$ followed by an unproved sparse-modulus
+extension is needed.
+
+The remaining multiplicity estimate is
+\[
+ \|\widetilde b(n'')\|_2^2\ll x^{o(1)}(HS)^2F/n'',\quad F\ll N/Q.
+\]
+It is uniform in $a$, which occurs only in $n''\mid a^\infty$.
+One may replace the source's unnecessary claims $k\asymp HS$ by
+$0<|k|\ll HS$.  For the equal-$h$ contribution, the number of nonzero
+multiples of $n''/c$ in that range is $O(HSc/n'')$, and the other choices
+cost $HSx^{o(1)}$.  The factor $F/c$ gives $(HS)^2F/n''$.
+For unequal $h$, write $d_1=(s_1,s_2)$, reduce the two $s$ variables,
+and let $g$ be the gcd of the two nonzero $h$ differences.  There are
+$O(Hd_1/S)$ possible $g$, $O(HS/d_1)$ choices of one $h,s$ pair,
+and a divisor-bounded number for the other pair once the nonzero $k$
+is specified.  Counting its required multiples gives
+\[
+ x^{o(1)}{H^3SF\over n''}
+ \sum_{d_1\ll S}{(d_1,n'')\over d_1}
+ \ll x^{o(1)}H^3SF/n''.
+\]
+Here $H/S\leq x^{o(1)}(Q/N)D_0<1$, so this is no larger than the
+equal-$h$ contribution.  This argument needs no lower dyadic bound
+on $k$ and no $a\ll x^\varepsilon$ restriction.
+
+\paragraph{Scale calculation, retaining every large-$a$ term.}
+After the outer Cauchy--Schwarz step (line 2044) the factor is
+$x^{o(1)}N/(QRS^{3/2})$.  Take upper scales
+\[
+ B=NR,\quad C=NRS,\quad Z=S^2,\quad
+ Y=NR^2S^3/M,\quad F=N/Q,\quad H=x^{o(1)}QR^2S^2/M.
+\]
+The diagonal square is at most $x^{o(1)}HSBFC$.
+For the off-diagonal, the spectral polynomial and the multiplicity
+bound give
+\[
+ J^2\ll x^{o(1)}\left[
+ |a|^\theta(CBZ+|a|Y)Z+
+ C^{1+2\theta}BZ^{2-2\theta}+B^2YZ\right](HS)^2F.
+\]
+Indeed $Y/Z=D_0$ and $B^2<x$; and the correct identity is
+$CBZ\asymp xY=N^2R^2S^3$, not the $S^5$ expression printed at line
+2377.  Thus $B^2Y$ is absorbed into $CBZ$, and retaining $|a|Y$
+produces the factor $1+|a|/x$ in
+\eqref{eq:l51-natural-large-a}.  The off-diagonal contributes through
+two square roots, which is why this extra factor costs $\kappa/4$,
+not $\kappa$ in the final estimate.
+
+Uniformly for $|a|\leq x^A$ and fixed $\theta<1$,
+$\sum_{n''\mid a^\infty}(n'')^{\theta-1}=x^{o(1)}$.
+For example its Euler product is bounded by splitting primes at
+$\log x$: the logarithm is $O((\log x)^\theta)=o(\log x)$.
+Truncated counts of such $n''$ are also $x^{o(1)}$, by Rankin's trick
+with an arbitrarily small fixed exponent.  Therefore neither divisor
+factor hides a condition $a\ll x^\varepsilon$.
+
+\paragraph{What is, and is not, closed.}
+The needed coprime large-residue use of Lemma 5.1 has no surviving
+small-$a$ obstruction in the tracked proof after the packet-level
+correction above.  Its natural power-saving bound and a separate
+$\sigma,\kappa$ ledger are explicit.  This is a derivation relative to
+the named spectral inputs and standard completion, not an independent
+reproof of those theorems.  The full Proposition 5.2 repair, including
+its preliminary errors, fixed-$d$ summation, and final normalization,
+is outside this report.  The project-wide prime conclusions remain
+unresolved until those interfaces and any separate weighted-inequality
+issue have been audited.

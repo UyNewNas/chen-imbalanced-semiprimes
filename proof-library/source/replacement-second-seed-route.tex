@@ -1,0 +1,397 @@
+% Research fragment, 2026-10-08.  No change to the main manuscript/state.
+% A finite second seed with explicit replacement kernels and unit masses.
+\subsection{A repaired finite second double-sieve seed}
+\label{sec:replacement-second-seed}
+
+The purpose here is to replace the failed non-switched prefix extension
+in Wu's second weighted inequality, not to import its old correction
+table.  The argument uses the previously derived moving-residue
+signed-box interface and positive finite-prime-product upper bound
+$K=681/100$.  Its numerical certificate is separate from these inputs.
+The source inequality is Wu 2004, Lemma 4.2; its 21 domains and all
+their multiplicities are retained below.
+
+Put
+\[
+ s=\frac{11}{5},\quad s_0=\frac{227}{50},\quad
+ \phi_1=\frac{353}{100},\quad\phi_2=\frac{29}{10},\quad
+ \phi_3=\frac{61}{25},\qquad
+ a_i=1/\phi_i\ (1\le i\le3),\quad a_0=1/s_0,\quad b=1/s.
+\]
+Thus $a_0<a_1<a_2<a_3<b$.  Letters $a_i$ in this subsection are
+relative endpoints, not the absolute initial sieve threshold.
+
+\paragraph{An exact merge lemma.}
+If a squarefree specified prefix $B$ belongs to
+$\mathcal D^{\rm well}(D)$, and the distinct residual primes
+$q_1>\cdots>q_m$ belong to $\mathcal D^{\rm well}(D/B)$ and do
+not divide $B$, their sorted union belongs to
+$\mathcal D^{\rm well}(D)$.
+Indeed, at a residual prime its square product is at most the
+residual square product times $B$.  At a fixed prefix prime $p$,
+write $P$ for the product of larger fixed primes and $Q$ for the
+product of larger residual primes.  If $Q=1$, use the old prefix
+test $Pp^2\le D$.  Otherwise the last factor $q_*$ of $Q$ satisfies
+$Qq_*\le D/B$ and $q_*>p$, hence
+$PQp^2\le(Pp)(D/B)\le D$.
+The lemma does not require the residual primes to lie below the
+smallest specified prime.
+
+\paragraph{The finite family on which the seed is proved.}
+Retain a specified anchor prime of exponent
+$t_0\in[29/200,3/20]$.  Fix a total level
+$Q=N^\nu$, strictly below $(1+t_0)/2$ on its anchor box.
+Every state used here has a nonnegative marked prime-box prefix
+$B=N^{T+o(1)}$, containing that anchor, and satisfies
+\begin{equation}\label{eq:second-seed-family}
+ B\in\mathcal D^{\rm well}(Q),\quad
+ T\ge t_0>2\nu-1,\quad T<\nu,\quad
+ \text{every specified prime has exponent at most }\mu=25/128.
+\end{equation}
+Here the coefficient $\sigma$ is a finite nonnegative combination of
+characteristic functions of marked prime boxes, with fixed constant
+coefficients; no arbitrary prefix-dependent weight is asserted.
+All boundary conditions carry fixed margins before passage to limits.
+We only use finite collections of boxes, so their prime exponents
+and $L=\nu-T$ have fixed positive lower bounds.  Write
+\[
+ R=Q/B=N^{L+o(1)},\qquad
+ \alpha=\frac{1-T}{\nu-T}\ge2,\qquad
+ L\le\frac{171}{400},\qquad
+ \frac{L}{s}\le\frac{171}{880}<\mu.
+\]
+The last strict gap is $7/7040$.
+Ordinary residual upper and lower weights are constructed at their
+actual residual levels.  The merge lemma puts their marked rough
+atoms into full well support.  The largest prime of every admitted
+atom is at least the anchor and at most $\mu$, so its single-largest
+cap $(1+x)/2$ is at least $(1+t_0)/2>\nu$.
+Retain all marked slots, original residual factorials and signed
+scalars; normalize each final convolution group by its group-size
+factorial, restoring that factorial in the scalar.  Repeated-prime
+collisions have the existing rough-square power saving.  Omitting
+the finitely many specified primes below a residual cutoff changes
+the Mertens factor by $1+O(N^{-\epsilon})$ on each fixed box.
+Thus the existing signed atom proof, including its coprime mean and
+local-scale moving-residue checks, applies after every indicated merge.
+
+The positive product estimate is also needed for each fixed prime
+cutoff $N^\epsilon$, not uniformly as $\epsilon$ tends to zero.
+Its extension from the old displayed cutoff is obtained by the same
+proof: allow at most $\lfloor1/\epsilon\rfloor$ original prime groups
+and choose $12\zeta<\epsilon/2$.  In the double Heath--Brown
+decomposition a group without a middle variable must contain a long
+variable, because its six short variables could not produce a prime
+at least $N^\epsilon$.  Three such groups would give three long
+variables with product exceeding the total scale.  One and two groups
+use the existing long-variable estimates.  A middle variable uses
+the same Type II theorem; the complementary divisor order is still
+fixed.  All other losses are powers of $N^{-c\epsilon}$ or fixed
+logarithmic powers.  The modulus weights and their certified cap $K$
+do not change.  This permits finite positive labelled monomial domains,
+not arbitrary arithmetic reweightings.  For the single initial seed,
+with $\nu$ sufficiently close to its stated cap,
+the cutoff already satisfies $L/s_0>100/1149$; its finite descendants may need this fixed
+$\epsilon$ extension.
+
+\paragraph{The 21-term weight and its count check.}
+Normalize by
+\[
+ \Theta_Q=4\operatorname{li}(N)
+   \sum_B\frac{\sigma(B)\mathcal C(BN)}
+                 {\varphi(B)\log(Q/B)},\qquad
+ A(w)=\frac{wF(w)}{2e^\gamma},\quad
+ \mathfrak a(w)=\frac{wf(w)}{2e^\gamma}.
+\]
+Write $\Phi_s$ for the prefix average sifted at $R^{1/s}$.
+Wu's inequality is
+\[
+ 5\Phi_s\le\Gamma_1-\Gamma_2-\Gamma_3-\Gamma_4
+                       +\sum_{i=5}^{21}\Gamma_i+o(\Theta_Q).
+\]
+It also has a direct squarefree quotient verification.  On the
+$R^{a_0}$-rough support let $A,B,C,D$ count prime factors in the
+four successive intervals $[a_0,a_1),[a_1,a_2),[a_2,a_3),[a_3,b)$,
+with exponents relative to $R$.  Then
+\[
+ \Gamma_1=4+\mathbf1_{A=0},\quad
+ (\Gamma_2,\Gamma_3,\Gamma_4)=(A+B+C+D,A+B,A+B+C).
+\]
+The positive terms, pointwise and with $x_+=\max(x,0)$, are
+\[
+\begin{array}{c|l@{\qquad}c|l}
+5&\binom{A+B}{2}&6&AC\\
+7&(A-1)_+&8&\mathbf1_{A\ge1}B\\
+9&\mathbf1_{A=0}(B+C-2)_+&10&\mathbf1_{A=0,B\ge2}(C+D)\\
+11&\mathbf1_{A=0,B=1}(C-1)_+&12&\mathbf1_{A\ge2}D\\
+13&\mathbf1_{A=1,B\ge1}(C+D)&14&\mathbf1_{A=1,B=0}(C+D-1)_+\\
+15&\mathbf1_{A=0,B=1,C\ge1}D&16&\mathbf1_{A=B=0}(C-3)_+\\
+17&\mathbf1_{A=B=0,C\ge3}D&18&\mathbf1_{A=B=0,C=2}(D-1)_+\\
+19&\mathbf1_{A=0,B=1,C=0}(D-2)_+&20&\mathbf1_{A=B=0,C=1}(D-3)_+\\
+21&\mathbf1_{A=B=C=0}(D-5)_+.&&
+\end{array}
+\]
+These formulas follow because a quotient cutoff at the next-to-last
+specified prime fixes all preceding specified primes as the smallest
+factors.  Their signed total is nonnegative except at $A=B=C=D=0$,
+where it is five.  More explicitly, for $A\ge2$ it is
+$(A+B-2)(A+B-3)/2+(A-2)C$; for $A=1,B\ge1$ it is
+$(B-1)(B-2)/2$; for $A=1,B=0$ it is $(1-C-D)_+$.
+For $A=0,B\ge2$ it is $(B-2)(B-3)/2$.
+For $A=0,B=1$, it is zero if $C\ge1$ and $(2-D)_+$ otherwise.
+For $A=B=0$, it is zero if $C\ge3$, and respectively
+$(1-D)_+,(3-D)_+,(5-D)_+$ when $C=2,1,0$.
+This proves the pointwise inequality, independently of a table of
+correction functions.  Off rough support all terms vanish; square
+factors and intersections with the anchor are the usual power-saving
+exceptions.
+
+\paragraph{Non-switched kernels and the repair of $\Gamma_5$.}
+The baseline upper term is $4A(s_0)+A(\phi_1)$.
+The three negative terms have lower main terms
+\[
+ B(c)=\int_{a_0}^{c}
+ \frac{\log(s_0(1-u)-1)}{u(1-u)}\,du,
+ \qquad c=b,a_2,a_3.
+\]
+Their new prefix prime satisfies $u\le b<1/2$, so its singleton
+belongs to residual well support; merge it with the old prefix.
+Its lower argument $s_0(1-u)$ lies in $[681/275,177/50]\subset(2,4)$.
+All needed ordinary lower atoms therefore belong to the family just
+checked.  No unproved positive $h$ value is inserted.
+
+For $\Gamma_5,\ldots,\Gamma_8$ the two additional exponents obey
+$u<v$.  Their domains and ordinary upper kernels are
+\[
+\begin{array}{c|c|c}
+i&\text{domain}&\text{ordinary kernel against }du\,dv/(uv)\\\hline
+5&a_0<u<v<a_2&(1-u-v)^{-1}\\
+6&a_0<u<a_1,\ a_2<v<a_3&(1-u-v)^{-1}\\
+7&a_0<u<v<a_1&(1-u-v)^{-1}\\
+8&a_0<u<a_1,\ a_1<v<a_2&(1-u-v)^{-1}.
+\end{array}
+\]
+All effective upper parameters are at most $s_0-2=127/50<3$.
+If an original parameter is below two, lower the sifting cutoff to
+half the residual level exponent; this preserves an upper bound and
+the displayed kernel because $wF(w)/(2e^\gamma)=1$ up to three.
+
+The residual pair has full well support precisely when
+$2v<1$ and $v+2u<1$.  The first inequality always holds.  The second
+holds throughout domains $6,7,8$, since their respective suprema are
+\[
+ a_3+2a_1<1,\qquad3a_1<1,\qquad a_2+2a_1<1.
+\]
+In domain 5 keep the ordinary kernel on $v+2u<1$.
+On its bad corner
+\[
+ \mathcal B=\{a_0<u<v<a_2:\ v+2u>1\}
+\]
+use the positive $K$ count.  Its quotient cutoff is $R^{a_0}$,
+its unit quotient has a power-saving product range, and its rough
+argument is at least $s_0(2-2a_2)>5/3$ for every $\alpha\ge2$.
+Thus $\omega\le3/5$ gives the valid replacement kernel
+\begin{equation}\label{eq:second-seed-kernel}
+ k_5(u,v)=
+ \begin{cases}
+ (1-u-v)^{-1},&v+2u<1,\\
+ 3Ks_0/20,&v+2u>1.
+ \end{cases}
+\end{equation}
+The common normalization is $K/4$ before multiplying by $\omega/a_0$.
+The bad domain splits exactly at
+$u=(1-a_2)/2$, $u=1/3$, and $u=a_2$: its lower $v$ endpoint is
+$1-2u$ on the first interval and $u$ on the second.
+This is an actual replacement upper bound, not a subtraction of a
+missing old $H$ value.
+
+\paragraph{All positive switch domains and their unit masses.}
+Use the notation $[\ell,r]^k_\uparrow$ for $k$ ordered exponents
+in that interval; juxtaposition denotes independent successive bands.
+The unchanged domains $9,\ldots,21$ are
+\[
+\begin{array}{c|l@{\qquad}c|l}
+9&[a_1,a_3]^3_\uparrow&10&[a_1,a_2]^2_\uparrow[a_2,b]\\
+11&[a_1,a_2][a_2,a_3]^2_\uparrow&12&[a_0,a_1]^2_\uparrow[a_3,b]\\
+13&[a_0,a_1][a_1,a_2][a_2,b]&14&[a_0,a_1][a_2,b]^2_\uparrow\\
+15&[a_1,a_2][a_2,a_3][a_3,b]&16&[a_2,a_3]^4_\uparrow\\
+17&[a_2,a_3]^3_\uparrow[a_3,b]&18&[a_2,a_3]^2_\uparrow[a_3,b]^2_\uparrow\\
+19&[a_1,a_2][a_3,b]^3_\uparrow&20&[a_2,a_3][a_3,b]^4_\uparrow\\
+21&[a_3,b]^6_\uparrow.&&
+\end{array}
+\]
+For $r$ extra primes the quotient cutoff is the next-to-last prime,
+of exponent $w=u_{r-1}$.  The normalized unsifted mass is the sum
+\begin{equation}\label{eq:second-seed-full-mass}
+ \int_{\substack{\boldsymbol u\in\mathcal D_i\,,\ \sum u_j\le\alpha-w}}
+ \frac{\omega((\alpha-\sum u_j)/w)}{w\prod u_j}\,d\boldsymbol u
+ +\int_{\substack{\boldsymbol u\in\mathcal D_i\,,\ \sum u_j=\alpha}}
+             \frac{du_1\cdots du_{r-1}}{\prod u_j}.
+\end{equation}
+In the surface term eliminate a specified coordinate with derivative
+one; it counts quotient $1$ and is not part of the ordinary Buchstab
+function.  The formula follows by the prime number theorem and the
+rough-number estimate on fixed positive boxes.  Boundary strips can
+be removed before the limit; an upper bound for the surface term is
+also obtained by counting the eliminated prime last.
+
+For $9\le i\le15$, the rough argument is at least $5/3$ already at
+$\alpha=2$, hence for every $\alpha\ge2$.
+For example the two smallest corner bounds are $47/25$ and
+$3136/1765>5/3$; the other five are larger.
+Use $\omega\le3/5$.  For $16\le i\le21$ use $\omega\le1$ and
+enlarge the nonunit domain if necessary.  There is no unit mass for
+$9\le i\le19$, since every sum is at most $4b=20/11<2$.
+
+Put $\ell_{ij}=\log(\phi_i/\phi_j)$,
+$\ell_{01}=\log(s_0/\phi_1)$, and
+$\ell_{3b}=\log(\phi_3/s)$.
+The following explicit masses $M_i$ majorize
+\eqref{eq:second-seed-full-mass} for every $\alpha\ge2$:
+\begin{align*}
+ M_9&=\tfrac35\{(\phi_1+\phi_3)\log(\phi_1/\phi_3)-2(\phi_1-\phi_3)\},\\
+ M_{10}&=\tfrac35\{\phi_1-\phi_2(1+\ell_{12})\}\log(\phi_2/s),\\
+ M_{11}&=\tfrac35\ell_{12}\{\phi_2(\ell_{23}-1)+\phi_3\},\\
+ M_{12}&=\tfrac35\{s_0-\phi_1(1+\ell_{01})\}\ell_{3b},\\
+ M_{13}&=\tfrac35\ell_{01}(\phi_1-\phi_2)\log(\phi_2/s),\\
+ M_{14}&=\tfrac35\ell_{01}\{\phi_2(\log(\phi_2/s)-1)+s\},\\
+ M_{15}&=\tfrac35\ell_{12}(\phi_2-\phi_3)\ell_{3b},\\
+ M_{16}&=\phi_2\ell_{23}^4/24,\qquad
+ M_{17}=\phi_2\ell_{23}^3\ell_{3b}/6,\\
+ M_{18}&=\phi_3\ell_{23}^2\ell_{3b}^2/4,\qquad
+ M_{19}=\phi_3\ell_{12}\ell_{3b}^3/6,\\
+ M_{20}&=\phi_3\ell_{23}\ell_{3b}^4/24
+                         +\phi_2\ell_{3b}^4/24,\\
+ M_{21}&=\phi_3\ell_{3b}^6/720+\phi_3\ell_{3b}^5/120.
+\end{align*}
+The second summand in $M_{20}$ bounds the unit surface by eliminating
+$u_1$, using $1/u_1\le\phi_2$, and dropping its interval restriction.
+The other four variables are ordered in $[a_3,b]$.
+For $M_{21}$ eliminate $u_6$, use $1/u_6\le\phi_3$, and integrate
+the other five ordered variables.  Thus these are uniform mass bounds
+even when a descendant has $\alpha>2$.
+
+At the initial value $\alpha=2$ there is a sharper useful check:
+domain 21 is empty, and domain 20 has no nonunit quotient because
+$a_2+5a_3>2$.  Its unit surface has
+\[
+ \delta=2-a_2-4a_3=28/1769,\qquad
+ M_{20}^{\rm unit}(2)\le
+ \frac{\delta^4}{(4!)^2a_2a_3^4}
+ =\frac{4802}{428712890625}.
+\]
+Indeed write its last four coordinates as $a_3+x_i$;
+$x_i\ge0$, $\sum x_i\le\delta$, ordered, and the first coordinate
+is $a_2+\delta-\sum x_i$.  Its other endpoint restrictions are
+automatic here.  The ordered simplex volume is $\delta^4/(4!)^2$.
+This sharper initial mass is not used when iterating: the uniform
+$M_{20},M_{21}$ above are used instead.
+
+\begin{proposition}[A rigorously bounded finite replacement seed]
+\label{prop:replacement-second-seed}
+On the finite family \eqref{eq:second-seed-family}, with the fixed
+positive-cutoff version of the $K$ input just described, one has
+\[
+ \Phi_{11/5}\le\{1-J_*+o(1)\}\Theta_Q,
+ \qquad J_*=9/500.
+\]
+This statement uses ordinary lower baselines only and invokes no
+previous $H,h$ table or unproved child correction.
+\end{proposition}
+
+\begin{proof}
+Let $U_i$ for $5\le i\le8$ be the integrals of the displayed ordinary
+kernels against $du\,dv/(uv)$, and put
+\[
+ E_5=\iint_{\mathcal B}
+ \left\{\frac{3Ks_0}{20}-\frac1{1-u-v}\right\}\frac{du\,dv}{uv}.
+\]
+It follows from the established termwise bounds and the common
+$K/4$ normalization that
+\[
+ J_2=\frac15\left\{5-4A(s_0)-A(\phi_1)
+       +B(b)+B(a_2)+B(a_3)-\sum_{i=5}^8U_i-E_5
+                         -\frac K4\sum_{i=9}^{21}M_i\right\}
+\]
+is a valid saving.  Every quantity here is evaluated at the same
+total level $Q$.
+
+The file \texttt{certify\_replacement\_second\_seed.py} uses 80-bit
+outward integer intervals, 32 positive atanh terms with explicit
+remainders, and 4096 rational Darboux cells for each one-dimensional
+integral.  The double ordinary kernels are integrated once explicitly:
+\[
+ \int_l^r\frac{dv}{uv(1-u-v)}
+  =\frac1{u(1-u)}\log\frac{r(1-u-l)}{l(1-u-r)}.
+\]
+The split bad domain uses its two exact lower endpoints stated above.
+The switch bounds are the explicit logarithmic expressions $M_i$;
+there is no floating quadrature input.  The certificate gives
+\[
+ J_2\ge
+ \frac{22417233603428441622629}{1208925819614629174706176}
+ >\frac9{500}.
+\]
+The strict surplus absorbs all previously fixed asymptotic and box
+errors.  This proves the assertion under the named analytic inputs.
+\end{proof}
+
+\paragraph{A finite propagation, with its lower-child domain retained.}
+There is a small fully specified use at the original Buchstab cutoff.
+Start with an anchor prefix and upper target argument three.  Buchstab
+from arguments three to four produces lower children with arguments
+$y\in[2,3]$ and remaining exponent at most $3L/4$.
+The ordinary upper baseline at four is licensed by the same merge
+argument.  On $2\le y\le5/2$, apply a second Buchstab identity from
+$y$ to $16/5$ to that child.  Its ordinary lower baseline is licensed
+because all residual primes are at most
+$(3L/4)/(16/5)<\mu$.  Its upper grandchildren have arguments
+$z\in[y-1,11/5]$.
+For $z\le11/5$, monotonicity of the positive sifted count gives the
+seed bound at argument $z$ from the proved bound at $11/5$;
+the normalized $A$ equals one on this entire interval.
+It only lowers the comparison cutoff.
+
+Both newly appended singleton primes have square at most the current
+residual level, so the merge lemma preserves full prefix well support.
+The first lower-child cutoff is at most $3L/8<\mu$, and all second
+appended primes have that same upper bound.  Hence no largest prime
+leaves $[t_0,\mu]$.  Total prefix exponents increase, so
+$\alpha=(1-T)/(\nu-T)$ increases and remains at least two;
+the uniform masses, not the initial $\alpha=2$ masses, are used.
+Only finitely many boxes and a fixed positive prime cutoff are needed.
+
+Cancellation of the ordinary $A,\mathfrak a$ Buchstab main terms gives
+the explicit defect bounds
+\begin{equation}\label{eq:replacement-second-seed-h3}
+ h_{\rm child}(y)\ge J_*\log\frac{11/5}{y-1}
+ \quad(2\le y\le5/2),\qquad
+ H_{\rm anchor}(3)\ge
+ J_*\log\frac54\log\frac{22}{15}
+ >\frac7{4625}.
+\end{equation}
+The last inequality uses only
+$\log(5/4)>2/9$ and $\log(22/15)>14/37$.
+Here $h_{\rm child}$ and $H_{\rm anchor}$ name the bounds on these
+particular finite nodes, not an unrestricted old one-variable table.
+At the actual anchor cutoff $p$, the argument tends to a value in
+$[17/6,171/58]\subset(2,3)$ as the level approaches its cap;
+count monotonicity therefore retains
+the saving $7/4625$.
+
+If the $L_2$ threshold exceeds $3/20$, the block
+$29/200<t<3/20$ is available and yields
+\begin{equation}\label{eq:replacement-second-seed-l2-gain}
+ \Delta c\ge2\frac7{4625}\log\frac{513}{493}
+ >\frac{56}{465275}>0.00012.
+\end{equation}
+This is a concrete small consequence.  It falls far short of the
+approximately $0.094$ gap in the best sampled ordinary counting route.
+The repaired finite seed itself is about $0.0185$ under the rigorous
+coarse envelopes (the floating exact-$\omega$ probe is about $0.02081$).
+It may be used as an input to a larger, explicitly checked finite tree;
+it does not authorize restoring the old nine-by-nine matrix unchanged.
+If another correction already applies on one of these boxes, take the
+stronger valid bound there rather than adding overlapping defects.
+No new global Chen coefficient, imbalance exponent, or priority claim
+is asserted by this fragment.

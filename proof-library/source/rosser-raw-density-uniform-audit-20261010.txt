@@ -1,0 +1,345 @@
+Literal ordinary Rosser densities for the target-dependent local factors
+2026-10-10. New local derivation; no frozen source, state or constant changed.
+
+1. Precise statement and scope
+
+Let T tend to infinity through even integers. Set
+ g_0(p)=1_{p>2}/(p-1),  g_T(p)=g_0(p)1_{p does not divide T},
+ V_T(z)=product_{p<z}(1-g_T(p)).
+Extend g multiplicatively to squarefree products. All cutoffs below use
+strict p<z; 1 is always included as a divisor and as an empty continuation.
+
+For R=T^b, y=T^t define the literal raw upper coefficient to be mu(d)
+on decreasing prime strings p1>...>pr<y satisfying
+ p1...p_{j-1} p_j^3<R at every odd j<=r,
+and zero otherwise. The literal raw lower coefficient uses the even j
+tests and the initial test p1^2<R. Write their actual finite divisor sums
+as W_T^+(R,y) and W_T^-(R,y), respectively. These are specific weights,
+not weights whose existence is asserted by an upper/lower sieve theorem.
+
+For each compact parameter set
+ K+ subset {(b,t): b>t>0}, or K- subset {(b,t): b>=2t>0},
+the conclusions are, uniformly for (b,t) in that set and all even T,
+ W_T^+(T^b,T^t)/V_T(T^t)=F(b/t)+o_K(1),                 (R1+)
+ W_T^-(T^b,T^t)/V_T(T^t)=f(b/t)+o_K(1).                 (R1-)
+Here F=2 exp(gamma) Fbar and f=2 exp(gamma) fbar are the ordinary
+linear-sieve functions. In particular this is the ordinary F, not F*.
+The lower endpoint s=2 is included. The upper range 1<s<2 is established
+by an exact support identity in section7, not by enlarging a citation's
+range without proof.
+
+The positive lower bound on t is necessary. Merely saying that s=b/t
+is fixed is insufficient if y fails to grow: y=3,R=9 has s=2 but its
+upper density ratio is exactly 1, not F(2)=exp(gamma). This note does
+not assert uniformity as t tends to zero with T, nor as s tends to infinity.
+Fixed positive cutoffs in a previously selected finite construction give
+exactly the compact sets used in (R1). Removing such cutoffs afterwards
+needs its separate density-tail argument.
+
+2. Primary inputs actually used, with their hypotheses checked
+
+Primary source S is Yuta Suzuki, The Rosser--Iwaniec Sieve, March14,2023,
+102 pages, downloaded previously from the author's site:
+ https://www.suzuyu1729.com/notes/NagoyaSeminar2022/RosserIwaniec.pdf
+The bound local PDF is authoritative; its printed and one-based PDF
+page numbers coincide. Its accompanying extraction has control-character
+artifacts, so signs below are identified by the displayed formula and
+the adjacent proof, not by an isolated malformed text character.
+
+(S-a) S pp8--10, (6.1), Lemmas5.2,6.1,6.2: beta=2 means precisely the
+cubic tests above, with first exits of odd/even rank for upper/lower.
+Section6 works initially at s>=beta. Our additional lower p1^2<R test
+is automatic when p1<y and y<=sqrt(R), and hence does not change this
+literal support on K-. The exact positive-exit identity is (6.2) and
+(14.29), not an asymptotic estimate.
+
+(S-b) S p13, Definition8.2: a local function lies in Omega(kappa,K0)
+when 0<=g(p)<1 and, for all z>=w>=2,
+ product_{w<=p<z}(1-g(p))^{-1}
+ <= (log z/log w)^kappa (1+K0/log w), with K0>=2 fixed.       (R2)
+Classical Mertens product estimates give (R2) for g_0 with kappa=1
+and an absolute K0. Indeed V_0(z)=c/log z*(1+O(1/log z)); the bounded
+small-w range is absorbed by enlarging K0. Deleting p|T decreases the
+left side, so the same K0 also works for every g_T. The proof below
+needs the analytic one-sided density theorem only for the single fixed
+function g_0; thus target uniformity is not hidden in that invocation.
+Classical Mertens prime-harmonic and product estimates are external inputs.
+
+(S-c) S pp18,22--23, (9.1),(9.2), Proposition9.4: define nonnegative
+functions a_j by
+ a_1(s)=(3-s)_+/s,
+ a_j(s)=s^{-1} integral_{max(s,2+epsilon_j)}^{j+2}
+                  a_{j-1}(u-1) du,
+ epsilon_j=1 for odd j, 0 for even j; empty integrals are zero.       (R3)
+Odd functions are used on s>1, even functions on s>=2. Proposition9.4
+gives compact-uniform convergence CONDITIONAL on convergence. We do not
+mistake it for the convergence proof.
+
+The convergence hypothesis is supplied by Proposition11.8, pp64--69.
+Its conditions are beta in J and beta>rho_tilde. At kappa=1,
+J=(1,infinity), q(s)=r_{1,1}(s)=s-1 (Proposition10.8(ii), p33), and
+rho=1. The positive adjoint solution is
+ p(s)=integral_0^infinity exp(-s x-Ein(x)) dx >0,
+as used explicitly in its proof on p67. The function on pp60--62 is
+ D(s)=p(s-1)q(s)+q(s-1)p(s),
+and D(s)>0 iff s>rho_tilde on J intersect (rho,infinity).
+Consequently D(2)=p(1)>0 proves STRICT beta=2>rho_tilde. The weaker
+rho_tilde<=rho+1 would not suffice. The proof on p68 dominates every
+finite positive partial sum by the independently constructed auxiliary
+DDE solution in (11.11), and obtains convergence before identifying the
+limit. This is a genuine external convergence theorem with satisfied
+hypotheses, not an invocation of the desired raw-density equality.
+
+Thus, writing A_+(s)=sum_{j odd}a_j(s) and
+A_-(s)=sum_{j even>=2}a_j(s), these sums converge compactly uniformly
+on s>1 and s>=2, respectively. The source defines
+ F^+=1+A_+, F^-=1-A_-.
+The normalization can be checked within this same source, without
+identifying Motohashi's presieved K_nu with an unpresieved weight.
+Proposition11.8(ii) gives A=2q(2)/D(2)=2/p(1), B=0. To evaluate p(1),
+put E_1(x)=integral_x^infinity e^{-u}du/u. The elementary identity
+ Ein(x)=gamma+log x+E_1(x)
+and (exp(-E_1(x)))'=exp(-E_1(x))e^{-x}/x give
+ p(1)=e^{-gamma} integral_0^infinity (exp(-E_1(x)))' dx
+     =e^{-gamma};
+the endpoint values are 0 and 1. Hence A=2e^gamma and B=0. The source
+delay relations and initial conditions are exactly sF=A on 1<s<=3,
+f(2)=0, (sf)'=F(s-1) for s>2, and (sF)'=f(s-1) for s>3.
+They identify F^+=F and F^-=f by interval-by-interval DDE uniqueness.
+In particular
+ A_+=F-1,       A_-=1-f.                                  (R4)
+
+(S-d) S pp97--98, Lemma14.7 is a ONE-SIDED estimate for the same raw
+weights. It assumes D>=z>=2, g in Omega(kappa,K0), 0<Delta<Delta_0,
+d>7/(Delta_0-Delta). At kappa=1, Delta_0=1; choose Delta=1/2 and d=15.
+For s in a fixed compact subset of [2,infinity), it supplies
+ W_0^+/V_0 <= F(s)+epsilon_T,
+ W_0^-/V_0 >= f(s)-epsilon_T,                              (R5)
+where epsilon_T<=C_K (log R)^(-1/2)=o_K(1). The source error is
+C exp(sqrt(K0)) E(s)(log R)^(-Delta), and E is bounded on that compact
+set. The implied constant is independent of T,b,t there.
+The fixed g_0, fixed dimension constant and fixed parameters satisfy
+every hypothesis. We use no stronger conclusion than these inequalities.
+
+The above two classical analytic inputs -- positive-exit series convergence
+and the one-sided raw estimate -- are not re-proved in full here. Their
+distinct roles and precise primary hypotheses are exposed. They are not
+replaceable by finite-depth convergence, a numerical DDE table, a count
+inequality for different weights, or Motohashi's presieved density alone.
+
+3. Exact first exits and target-prime deletion, at every rank
+
+For a fixed finite prime universe p<y, every excluded divisor has a
+unique first excluded decreasing prefix P=p1...pj. Summing all later
+smaller primes gives the factor V_T(pj). Therefore exactly
+ W_T^+/V_T(y)=1+sum_{j odd} E_{j,T},
+ W_T^-/V_T(y)=1-sum_{j even>=2} E_{j,T},                   (R6)
+where
+ E_{j,T}=sum_{P a first exit of rank j} g_T(P)V_T(pj)/V_T(y)>=0.
+All sums here are finite at each T. The unit term is the 1 in (R6).
+Finite lower densities are not assumed nonnegative.
+
+Take the same geometric exit set for g_0. If (P,T)=1, its normalized
+summand satisfies the exact identity
+ g_T(P)V_T(pj)/V_T(y)
+ =g_0(P)V_0(pj)/V_0(y)
+       product_{pj<=p<y, p|T}(1-g_0(p)).                  (R7)
+The interval is [pj,y), not (pj,y] or [2,y). In particular the
+pj factor is absent on a surviving tuple because pj does not divide T.
+If some prefix prime divides T, its g_T summand is zero. Every multiplier
+in (R7) lies in [0,1]. Thus, for EVERY rank and EVERY target,
+ 0<=E_{j,T}<=E_{j,0},
+ W_T^+/V_T <= W_0^+/V_0,
+ W_T^-/V_T >= W_0^-/V_0.                                 (R8)
+These inequalities use normalized exits; analogous unnormalized claims
+without the product in (R7) would have the wrong justification.
+
+4. Uniform fixed-rank asymptotics, with an explicit compactness bound
+
+Let b_min>0 be the minimum b on the selected compact parameter set.
+Before a rank-j first exit every earlier full square is satisfied:
+ A_i p_i<R, where A_i=p1...pi, for i<j. An admitted cube implies its
+own square and, by order, the next square. For the lower tree the
+initial square is automatic at y<=sqrt R. Consequently
+ A_i^2<R A_{i-1},   A_i<R^(1-2^{-i}).
+Failure at rank j gives pj^3>=R/A_{j-1}. Hence all prefix primes obey
+ pj>=T^{c_j},    c_j=b_min/(3*2^{j-1})>0.                 (R9)
+For j=1 this is simply p1^3>=R. Strictness at harmless boundary cases
+is not needed for the lower bound in (R9).
+
+The count of distinct p|T with p>=T^{c_j} is at most 1/c_j. Therefore
+ sum_{p|T, p>=T^{c_j}} g_0(p)<=2 T^{-c_j}/c_j              (R10)
+for all sufficiently large T. The multiplier in (R7) differs from 1
+by at most this sum. The total harmonic mass of primes between
+T^{c_j} and T^{t_max} is bounded in terms of j and the compact set,
+as is V_0(pj)/V_0(y). Bounding all other slots by their total harmonic
+mass, the mass of tuples lost because one prefix prime divides T is
+O_{j,K}(T^{-c_j}); the same holds for the multiplier error. Thus
+ E_{j,T}=E_{j,0}+O_{j,K}(T^{-c_j}).                         (R11)
+This explicitly rules out a target whose many small prime divisors
+silently change a fixed-depth limit.
+
+For g_0, prime harmonic summation on this compact exponent domain gives
+ E_{j,0}(T^b,T^t)=a_j(b/t)+o_{j,K}(1).                    (R12)
+Here is a concrete justification of both the integral and uniformity.
+Put u_i=log p_i/log y. The limiting integrand is
+ 1/(u1...u_{j-1}u_j^2)
+on 0<u_j<...<u1<1, with previous parity-cube inequalities
+sum_{i<k}u_i+3u_k<s and last sum_{i<j}u_i+3u_j>=s.
+On the support (R9) the integrand is bounded and continuous. Prime
+harmonic measures converge uniformly on fixed exponent intervals;
+V_0(pj)/V_0(y)=t/(log pj/log T)+o_K(1) there. Approximate by a fixed
+rectangular partition and discard thin strips around the finitely many
+affine boundaries. Their volumes are uniformly O_j(strip width), since
+their normals are fixed nonzero vectors. This proves uniform convergence
+also when b,t and the strict boundary positions vary with T. Coincident
+primes have mass O_{j,K}(T^{-c_j}) and hence do not change the ordered
+integral. It is not necessary to assume that a discrete boundary is empty.
+
+Alternatively, summing the largest prime first makes the integral obey
+(R3): u=log R/log p1 has limits max(s,2+epsilon_j) and j+2; the measure
+g_0(p1)V_0(p1)/V_0(y) tends to du/s and the smaller exit parameter is
+u-1. At fixed rank this is an integral computation; convergence of the
+infinite rank series is still the distinct input (S-c).
+
+5. Two-sided sandwich and uniform rank tails
+
+First take s in a compact subset of [2,infinity). For any fixed J let
+ A_{J,+}(s)=sum_{j<=J, j odd}a_j(s),
+ A_{J,-}(s)=sum_{j<=J, j even>=2}a_j(s).
+Equations(R6),(R11),(R12) give
+ W_T^+/V_T >=1+A_{J,+}(s)-o_{J,K}(1),
+ W_T^-/V_T <=1-A_{J,-}(s)+o_{J,K}(1).                     (R13)
+Equations(R8),(R5) give the OPPOSITE inequalities, uniformly in T.
+Writing a_J^tail=A_+-A_{J,+} or A_--A_{J,-}, we obtain explicitly
+ F(s)-a_J^tail(s)-o_{J,K}(1) <=W_T^+/V_T<=F(s)+epsilon_T,
+ f(s)-epsilon_T<=W_T^-/V_T<=f(s)+a_J^tail(s)+o_{J,K}(1).   (R14)
+For a desired error, choose J first using compact-uniform convergence
+of (R4), then choose T using the fixed-rank estimates and(R5). This
+proves(R1) on these ranges, including s=2. No two one-sided estimates
+are subtracted as if they were equalities.
+
+The same reasoning yields a useful UNIFORM bound for actual exit tails.
+Use(R5),(R6) for g_0, then subtract its fixed finite exit sum. For either
+parity, and with epsilon_{J,K}(T)->0 at fixed J,
+ 0<=sum_{j>J, chosen parity} E_{j,T}
+ <=sum_{j>J} E_{j,0}
+ <=a_J^tail(s)+epsilon_T+epsilon_{J,K}(T).                  (R15)
+Therefore
+ lim_{J->infinity} limsup_{T->infinity, T even}
+       sup_{(b,t) in K} sum_{j>J}E_{j,T}=0.                (R16)
+Equivalently, the tail bound holds for every even T above a common
+threshold after fixing J. No estimate uniform in all J,T simultaneously
+or effective rate as J grows with T is asserted.
+
+This supplies the tail domination that finite-rank convergence alone
+would lack. The proof does not assume the literal raw-density equality
+in order to obtain it: the only full-rank bound used to establish(R15)
+is the one-sided Lemma14.7 for the fixed local function g_0.
+
+6. The normalization and strict scope at fixed positive cutoff
+
+The normalized limit in(R1) is independent of the target singular
+series because the same V_T appears in both its numerator and
+denominator. For applications one may use, separately, the Euler
+identity in own-route-uniform-singular-series-20261009.tex, which gives
+ V_T(T^t)=2e^{-gamma} C_T/(t log T)(1+o_K(1)).
+Together with the normalization in(S-c), a mass T/log T produces the
+ordinary coefficient 4 Fbar(s)/t or 4 fbar(s)/t. This explains the
+factor four without inserting a second singular-series factor.
+
+The result is uniform on each fixed positive exponent compactum, not
+for a family of cutoffs chosen as T varies. For residuals after a
+fixed-depth prefix P, its primes are all at least the residual cutoff y,
+whereas every residual prime is strictly below y. Thus (P,d)=1 exactly.
+If (P,T)=1, g_T(Pd)=g_T(P)g_T(d); if not, the contribution is zero.
+There is no additional deletion of prefix primes inside the residual
+Euler product. A varying residual R=T^lambda/P is covered whenever
+its exponents (lambda-log P/log T, log y/log T) stay in one of the
+stated compact sets. This is the actual use after finite compact
+selection, and does not require a progression-distribution result.
+
+7. Low upper parameter and full versus rough densities
+
+For 1<s=log R/log y<=3, the upper first cube requires p1<R^(1/3), so
+ W_T^+(R,y)=W_T^+(R,R^(1/3))                              (R17)
+as an EXACT equality of the same supported coefficients. The Euler
+product ratio is
+ V_T(R^(1/3))/V_T(y)=3/s+o_K(1).                          (R18)
+For g_0 this is Mertens; the correction for p|T in the interval with
+endpoints at fixed positive powers is 1+O_K(T^{-c}) by(R10). Applying
+the already established equality at s=3 to(R17) yields F(s)=2e^gamma/s
+on 1<s<=3. Combining the two ranges proves(R1+) on K+ in full.
+The fixed-rank convergence and(R8) still hold here; using the equality
+just obtained for g_0, the rank-tail conclusion(R16) also holds on K+.
+No lower equality below s=2 is asserted.
+
+Let w=T^omega<y, with fixed omega>0, and let W_{T,rough}^pm(R;y,w)
+be the SAME raw tree restricted to divisor primes in [w,y). Set
+ E^{<w}_T=sum of normalized full first-exit terms with last prime<w,
+using the appropriate parity. Exact cancellation of the common rough
+exits gives
+ W_T^+ - V_T(w)W_{T,rough}^+ = V_T(y)E^{<w}_T>=0,
+ V_T(w)W_{T,rough}^- - W_T^- = V_T(y)E^{<w}_T>=0.         (R19)
+These are the upper/lower directions needed by the respective signed
+compilers. At a FIXED omega, rough and full densities need not be equal;
+one cannot replace (R19) by equality or insert F/f directly for a rough
+polynomial without further error accounting.
+
+There is also a rigorous ordered-limit error statement. Given J, choose
+omega<min_{j<=J} c_j and below t_min. Then no full exit of rank<=J has
+last prime<w, by(R9). Consequently E^{<w}_T is bounded by the tail in
+(R15). It follows that
+ lim_{omega->0} limsup_{T->infinity} sup_K E^{<w}_T=0.      (R20)
+Here omega is fixed before T. This follows from positive exits and
+their established uniform tails; it is not a claim of uniformity for
+omega(T). It provides qualitative control when such approximation is
+needed, while the existing compiler can use the one-sided(R19) directly.
+
+8. Why literal equality permits subtree subtraction
+
+At a prefix of even rank in an upper tree, the exact residual is an
+ordinary upper raw weight. If old and new levels are R_old,R_new, the
+raw saving is g_T(P)[W_T^+(R_old,y)-W_T^+(R_new,y)]. At an odd prefix
+the residual has lower parity and the sign is reversed; the raw saving
+is g_T(P)[W_T^-(R_new,y)-W_T^-(R_old,y)]. The lower-tree versions
+reverse which full ranks receive these residual parities. Each identity
+is a finite coefficient identity obtained by keeping the prefix fixed;
+it is not a monotonicity claim for finite signed densities.
+
+Only AFTER (R1) is proved may these exact differences be evaluated as
+ V_T(y)[F(s_old)-F(s_new)+o_K(1)], or
+ V_T(y)[f(s_new)-f(s_old)+o_K(1)],
+with the outside prefix sign and g_T(P) retained. On a fixed positive
+prefix compactum the total harmonic prefix mass and V_T(y) relative
+to its reference normalization are bounded. Uniform errors can therefore
+be summed/integrated. A finite policy supplies finitely many such uses.
+The p<y endpoint, the empty continuation and the one ordering factorial
+remain the same on the two sides. No new distribution input appears.
+
+9. Findings and limits of the audit
+
+The missing detailed steps can be supplied on the scope(R1): an explicit
+fixed-rank exponent c_j, a target-uniform deletion estimate, a compact
+fixed-depth integral justification, a two-sided sandwich, and uniform
+positive rank tails. I found no remaining literal-density gap for the
+actual g_T and compact ranges used after finite-policy selection.
+
+There are three important boundaries. First, the classical convergence
+theorem is indispensable and its beta=2 hypothesis has been checked;
+finite-depth limits alone do not prove it. Second, an arbitrary
+one-sided dimension-one local function need not have equality with F/f:
+g identically zero is an immediate counterexample. We use the special
+g_T and its fixed-depth closeness to g_0. Third, neither a fixed rough
+polynomial nor an uncut noncompact residual family is silently assigned
+the full raw equality. Equations(R19),(R20) and the separate compact/tail
+arguments describe the required order of use.
+
+The external inputs remaining in this LOCAL derivation are classical
+Mertens estimates, Suzuki's positive-exit convergence theorem, and its
+one-sided raw estimate, with their exact hypotheses above. No L23,
+moving-residue distribution, Li count, H/h feedback, numerical integral,
+or current K/c/b claim is used. No statement about their entire proof
+chain is revalidated by this report. I authored the earlier local
+compiler/primary-interface notes; this is a new direct source-and-proof
+audit and not a claim of a second-person replay of those notes.

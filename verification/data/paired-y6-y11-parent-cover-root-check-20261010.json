@@ -1,0 +1,163 @@
+{
+  "status": "PASS_CURRENT_U11_COVER_IS_SWITCHED_AND_UNREFINED_ON_DELETION",
+  "input_rows": 1190700,
+  "parent_xy_pairs": 35,
+  "intersecting_parents": 34405,
+  "all_saved_methods_zero": true,
+  "priority40000_overlap": 0,
+  "parent_index_stream_sha256": "9568ceccfc09fe89d6acf84c1b802840f9ca87ee864d18996267bb3d50bc88c6",
+  "stream_format": "each zero-based parent index in saved order, ASCII decimal followed by newline",
+  "xy_pairs": [
+    [
+      43,
+      47
+    ],
+    [
+      44,
+      44
+    ],
+    [
+      44,
+      45
+    ],
+    [
+      44,
+      46
+    ],
+    [
+      44,
+      47
+    ],
+    [
+      45,
+      41
+    ],
+    [
+      45,
+      42
+    ],
+    [
+      45,
+      43
+    ],
+    [
+      45,
+      44
+    ],
+    [
+      45,
+      45
+    ],
+    [
+      45,
+      46
+    ],
+    [
+      45,
+      47
+    ],
+    [
+      46,
+      38
+    ],
+    [
+      46,
+      39
+    ],
+    [
+      46,
+      40
+    ],
+    [
+      46,
+      41
+    ],
+    [
+      46,
+      42
+    ],
+    [
+      46,
+      43
+    ],
+    [
+      46,
+      44
+    ],
+    [
+      46,
+      45
+    ],
+    [
+      46,
+      46
+    ],
+    [
+      46,
+      47
+    ],
+    [
+      47,
+      35
+    ],
+    [
+      47,
+      36
+    ],
+    [
+      47,
+      37
+    ],
+    [
+      47,
+      38
+    ],
+    [
+      47,
+      39
+    ],
+    [
+      47,
+      40
+    ],
+    [
+      47,
+      41
+    ],
+    [
+      47,
+      42
+    ],
+    [
+      47,
+      43
+    ],
+    [
+      47,
+      44
+    ],
+    [
+      47,
+      45
+    ],
+    [
+      47,
+      46
+    ],
+    [
+      47,
+      47
+    ]
+  ],
+  "old_numeric_integrals_rerun": false,
+  "scope": "Exact witness membership and intersection only; parent floor validity and source majorant inequalities retain their separate proofs.",
+  "bindings_sha256": {
+    "verify_paired_y6_y11_parent_cover_20261010.py": "958311b8f05422d4be6fa4362e5a5369e4c1e4bb8e748bd18ddbf61c174a55bc",
+    "paired-y6-y11-zero-strip-certificate-20261010.json": "1dc70cf76c35c41161fb5236c608c7da8c0ee4dbeeae9153f0ce30cd63e007ab",
+    "sharp-248-four-min-48.witness.json": "4a7e02a9179da1016a69472ee1f439dc3caf9d06bd45f9e4d1a7e22162c0900d",
+    "four-min-priority40000-20261009.witness.json.gz": "feed08120834005b73501be9947de7fec63a1da9a7b34b2c75da703e09520530",
+    "certify_sharp_248_four_min.py": "83c5922badeafa1b3ddf5a35f95be07f4969a0db01e49d85bc0fdc663deb900a",
+    "four-min-k-feedback-route-20261009.py": "3f8f40a389a245a5407da46687e5d289332bd59a2cc630161c859e7286b566f6",
+    "chen-transfer-paired-deletion-independent-20261010.json": "7536f789f6cdae1a21f47ac3579ce6dad8523185c7f10b6345ea6d481fb5d14e"
+  }
+}

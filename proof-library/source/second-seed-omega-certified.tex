@@ -1,0 +1,117 @@
+% Integration fragment, 2026-10-08.  Old certificates remain unchanged.
+\subsection{A certified second seed of size one fiftieth}
+\label{sec:second-seed-omega-certified}
+
+The ordinary-only repaired second seed can be increased from
+$9/500$ to $1/50$ by using a sharper uniform Buchstab envelope.
+This assertion uses no numerical $H,h$ feedback and keeps the
+conservative coefficient $K=681/100$.
+
+\begin{proposition}[Certified uniform ordinary second seed]
+\label{prop:second-seed-omega-certified}
+On the retained-anchor family of
+Proposition~\ref{prop:replacement-second-seed}, or the stable
+specified-prefix family of
+Proposition~\ref{prop:second-seed-stable-prefix} with its comparison
+cutoff and branch gates, one has
+\[
+ \Phi_{11/5}\le\left(1-\frac1{50}+o(1)\right)\Theta_Q.
+\]
+The result is uniform over all admitted states with $\alpha\ge2$.
+It remains valid if a smaller positive switching coefficient is
+subsequently justified by a separate argument.
+\end{proposition}
+
+\begin{proof}
+Keep exactly
+\[
+ s=11/5,\quad s_0=227/50,\quad
+ (\phi_1,\phi_2,\phi_3)=(353/100,29/10,61/25),
+ \qquad c_\omega=70893/125000.
+\]
+The bound
+\[
+ \omega(x)\le\max\{1/x,c_\omega\}\qquad(x\ge1)
+\]
+has a short exact proof.  On $[1,2]$, use $\omega(x)=1/x$.
+For $2\le x\le3$, put $v=x-1$.  The maximum of
+$1+\log v-c_\omega(v+1)$ is
+$-\log c_\omega-c_\omega<0$; the strict sign follows from
+\[
+ c_\omega\sum_{k=0}^{8}\frac{c_\omega^k}{k!}-1
+ =\frac{65111700737847638377192824351410078164698277}
+ {33378601074218750000000000000000000000000000000000}>0.
+\]
+Thus $\omega\le c_\omega$ on $[2,3]$.  The differential equation
+$(x\omega(x))'=\omega(x-1)$ then propagates that same bound over
+each successive unit interval.
+
+For the unchanged switched domains $9,\ldots,15$, the exact
+argument lower bounds, valid for every $\alpha\ge2$, are
+\[
+\begin{array}{c|rrrrrrr}
+i&9&10&11&12&13&14&15\\\hline
+m_i&47/25&273/110&1478/725&3801/1100&103299/38830&3136/1765&15388/7975.
+\end{array}
+\]
+Each satisfies $m_i c_\omega>1$.  Therefore the factor $3/5$ in
+each of their previously proved explicit logarithmic mass bounds
+may be replaced by $c_\omega$.  This uses a uniform upper envelope,
+not monotonicity of the Buchstab function.
+On the bad part of $\Gamma_5$ the argument is at least
+$4313/725>2$, so its positive replacement kernel is now
+$Kc_\omega s_0/4$.
+All non-switched ordinary kernels are unchanged.  In particular
+the bad pair is still switched, and no missing complete-well
+condition has been waived.
+For $\Gamma_{16},\ldots,\Gamma_{21}$ keep the former conservative
+$\omega\le1$ bounds; both uniform unit-surface summands for
+$\Gamma_{20},\Gamma_{21}$ are retained in full.
+
+Let $J_2^{\omega}$ be the saved repaired functional with precisely
+those replacements and $H=h=0$.  The new separate certificate
+\texttt{certify\_second\_seed\_omega\_envelope.py} uses the audited
+80-bit outward integer interval implementation, 32 positive atanh
+terms with explicit logarithm remainders, and 8192 rational
+Darboux cells for each one-dimensional integral.  The double
+ordinary kernels are integrated in one variable exactly, as in
+the previous certificate.  No floating quadrature or floating
+comparison contributes to the bound.
+The output gives
+\begin{equation}\label{eq:second-seed-omega-exact-bound}
+ J_2^{\omega}\ge
+ \frac{24479824718463837928127}
+      {1208925819614629174706176}
+ >\frac1{50}.
+\end{equation}
+The displayed decimal lower endpoint, only for orientation, is
+$0.0202492364058096657\ldots$.
+The strict surplus permits the existing fixed box and asymptotic
+errors to be removed in their stated order.  This proves the
+proposition under the same named analytic inputs as the original
+seed.  Decreasing a valid $K$ decreases only positive switched
+costs, so preserves the conclusion.
+\end{proof}
+
+The cutoff comparisons and finite Buchstab transfers already proved
+for the stable family may now use $1/50$ instead of $9/500$.
+For example the direct upper option is $H(w)\ge1/50$ for
+$1\le w\le11/5$ whenever its seed comparison cutoff is admitted.
+Its one-step lower transfer becomes
+\[
+ h(s)\ge\frac1{50}\log\frac{11/5}{s-1}
+ \quad(2\le s<16/5),
+\]
+with the $[1,2)$ child arguments still retained.  The same two-step
+comparison at argument three gives
+\[
+ H(3)\ge\frac1{50}\log(5/4)\log(22/15)
+ >\frac{14}{8325},
+\]
+on the same stable comparison domain.  These are rescalings of
+previously proved finite transfers, not numerical feedback inputs
+used to establish \eqref{eq:second-seed-omega-exact-bound}.
+All competing defects must still be combined by a common-box
+maximum, and four-prefix alternatives remain inside their existing
+minimum.  No integrated global Chen coefficient, imbalance
+exponent, or completion of a quasi-Goldbach goal is asserted here.

@@ -1,0 +1,217 @@
+Elementary shifted divisor moments for three actual cleanup steps
+10 October 2026. New local proof and parameter refinement; old files frozen.
+
+Purpose and exact change
+
+This note replaces the q=1 shifted-moment use of Shiu's short-interval
+theorem in three places of the current restricted prime-product proof:
+beta-only truncation, the geometric Fourier tail, and the boundary/freezing
+cleanup for two long variables. It does NOT replace the q>1 progression
+moment in preliminary dispersion, the spectral theorem, or the medium
+convolution estimate. The global K,c,b and every numerical allowance stay
+unchanged. The adopted context is positive-pair-deletion-improvement-
+assembly-20261010.json, with K6.7617368,c1.96131568,b.74821909.
+
+The price is an additional fixed upper bound on the moving-residue exponent
+kappa. This is permissible for the actual near-target application after a
+correspondingly narrower complete-product trim. It is not a proof of an
+old statement for all polynomially large shifts. The improvement is a
+smaller analytic dependency boundary, not a new distribution exponent.
+
+1. An elementary short-interval divisor bound
+
+For integer k>=2, let d_k(n) be the number of ordered k-tuples of positive
+integers with product n. If I is an interval in [1,Z], Z>=2, of length Y,
+then
+
+ sum_(n in I) d_k(n)
+ <= k*[Y*(1+log Z)^(k-1)+Z^(1-1/k)*(1+log Z)^(k-2)].       (E1)
+
+Proof. For every ordered tuple choose a largest coordinate (use the first
+one in a tie). If its value is v and the product of the other coordinates
+is d, then v>=n^(1/k), so d<=n^(1-1/k)<=D=Z^(1-1/k).
+There are at most k choices of its position. For each ordered remaining
+tuple of product d, the condition dv in I permits at most Y/d+1 integers
+v. Dropping the requirement that v be largest only increases the count.
+Therefore the left side is at most
+
+ k*sum_(d<=D) d_(k-1)(d)*(Y/d+1).
+
+The elementary product expansions give, for j>=1,
+
+ sum_(d<=D) d_j(d)/d <= (1+log D)^j,
+ sum_(d<=D) d_j(d) <= D*(1+log D)^(j-1).
+
+For the second inequality, sum the last factor with floor(D/product)
+and then use the first inequality for the other j-1 factors; j=1 is
+immediate. Substitution proves (E1). All endpoints and locations of I
+are allowed; no coprimality condition or arithmetic progression is used.
+
+For any nonnegative integer e,
+                 tau(n)^e <= d_(2^e)(n).                  (E2)
+One prime-power proof: an e-tuple of integers in {0,...,v} determines,
+for each position 1,...,v, the subset of coordinates reaching that
+position. Its histogram is a weak composition of v into 2^e parts and
+determines the original tuple. This injects (v+1)^e possibilities into
+the binomial coefficient d_(2^e)(p^v). Multiply over prime powers.
+For e=0 use d_1=1. Increasing k can only increase d_k(n), by appending
+unit coordinates.
+
+2. A uniform mixed moment at a near-linear moving shift
+
+Fix integers R,S>=0, C>=1, and set
+                 K=2^(2*max(R,S,1)).
+Fix 0<=kappa<=1/(2K). Uniformly for real x>=2, integer a with
+|a|<=C*x^(1+kappa), and any interval J in [1,C*x], one has
+
+ sum_(b in J,b!=a) tau(b)^R*tau(|b-a|)^S
+                    <<_(C,R,S) x*(1+log x)^(K-1).          (E3)
+
+Proof. The nonzero integers |b-a| lie, with multiplicity at most two,
+in at most two positive intervals, each of length at most C*x and with
+upper endpoints at most C'*x^(1+kappa). By (E1),(E2),
+
+ sum_(b in J,b!=a) tau(|b-a|)^(2S)
+ << x*(1+log x)^(K-1)
+       + x^((1+kappa)*(1-1/K))*(1+log x)^(K-2).
+
+The exponent satisfies
+
+ (1+kappa)*(1-1/K)
+ <= 1-1/(2K)-1/(2K^2) < 1-1/(2K).                        (E4)
+
+Thus this second moment is O(x*(1+log x)^(K-1)). The unshifted
+second moment is bounded in the same way, or directly from
+sum_(b<=Cx)d_K(b). Cauchy--Schwarz proves (E3). For negative a
+there may be only one image interval; the same bound applies. Deleting
+b=a BEFORE using tau is essential. No tau(0) expression occurs.
+
+The logarithmic exponent K-1 is deliberately very coarse but fixed.
+Only its independence of the requested accuracy matters. This proof is
+uniform in the positions and endpoints of all intervals and in a within
+the stated range. An extra fixed logarithmic coefficient factor is
+handled by multiplying the right side by that same logarithmic factor.
+
+3. The actual three replacements, with every loss in its proper place
+
+(i) Beta-only truncation. In lichtman-medium-rough-sw-explicit-20261010.txt,
+(M4)--(M5), the discarded nonzero products are bounded by
+
+ (log x)^(-Ccut)*sum_(b~x,b!=T)
+                   tau(b)^(B_beta+2)*tau(|b-T|)^(J0+1).
+
+Apply (E3) with R=B_beta+2 and S=J0+1. Both orders are fixed before
+Ccut; B_beta depends on the finite HB slot count and J0 on the actual
+modulus coefficient class. The result is x*(log x)^(E-Ccut), where E
+is independent of Ccut. Choose Ccut after E and the requested accuracy.
+The retained beta normalization, unchanged alpha SW, and exact coprime
+mean argument remain precisely as before. At b=T keep the separate
+Dtot*x^o(1) first-moment bound. Neither (E3) nor the proof of (M5)
+licenses deleting nm=T from alpha/beta before invoking distribution.
+
+(ii) Geometric Fourier tail. In lichtman-mellin-separation-explicit-
+20261010.txt, section6, the total modulus mass for a nonzero complete
+product v-T is bounded by a fixed power tau(|v-T|)^(J+1). Collapsing
+the finitely many HB variables costs a fixed power tau(v)^C0. Apply
+(E3) with those R,S to obtain x*log^E x. Multiply by the pointwise
+Fourier-tail error only AFTER this complete modulus bound. A larger
+fixed frequency cutoff power makes the error arbitrarily log-small.
+The exact v=T term retains its T^(theta_star+o(1)) bound. The mean
+still uses the reciprocal-totient divisor sum, not a factor T^theta_star.
+The integral Fourier norm and the separate retained arithmetic phase
+are unchanged; no high-frequency arithmetic hypothesis is added.
+
+(iii) Two-long roughness and interval cleanup. In lichtman-hb-long-
+branches-20261009.txt, section5, the boundary set has
+
+ #E << x*log^(1-B) x + (x/U)*y^O(1),
+
+with U>=x^nu for fixed nu>0 and y=x^(1/loglog x). The outer Cauchy
+step requires a complete sum
+
+ sum_all_tuples |weight(tuple)|^2*tau(|b-T|)^(2J), b!=T.
+
+After collapsing tuples the b-weight is bounded by tau(b)^R for a
+fixed R, times a fixed log power. Use (E3) with S=2J, NOT S=J.
+Its proof therefore needs d_K to dominate tau^(4J). This second
+doubling is included in the common K below. The resulting boundary
+error is
+
+ << x*log^((E+1-B)/2) x + x^(1-nu/2+o(1)),
+
+which has arbitrary logarithmic saving for sufficiently large fixed B.
+For small-divisor freezing, (E3) gives the same x*log^E x absolute
+mass, so a sufficiently narrow fixed-logarithmic bin pays the smooth
+variation. Exact b=T, the fundamental-lemma comparison and the mean
+correction keep their previous separate estimates. The subsequent
+two-smooth-variable Poisson/Weil estimate is unchanged.
+
+4. Compatible order of fixed parameters
+
+First retain the existing coarse cap policy, density tolerances, positive
+licence reserves, a_star,k_star,zeta,sigma, beta precision/rough cutoff,
+finite rough rank J and finite modulus atoms. Their construction may use
+the old preliminary choices kappa_old=sigma/200 and kappa0_old. Once
+those objects and all actual fixed divisor orders are fixed, form the
+FINITE list of mixed moments needed in (i)--(iii). Include the squared
+orders after the outer boundary-strip Cauchy. Put
+
+ K_mom=max_over_list 2^(2*max(R_i,S_i,1)).
+
+It is a fixed integer; it need not be small or effective for the final
+asymptotic assertion. No Ccut, requested log accuracy or target value
+is used in selecting these divisor orders. The triples of one-bounded
+modulus factors already give a fixed divisor order locally; an optional
+larger finite-rank bound globally remains legitimate.
+
+Now replace only the auxiliary exponents by positive rational choices
+
+ kappa_new <= min(kappa_old,1/(2*K_mom)),
+ kappa0_new < min(kappa0_old,kappa_new/[4*(1+kappa_new)]).     (E5)
+
+Do NOT shrink zeta after choosing the small-prime precision. There is
+no need to change sigma,zeta,omega,J, the existing fine mesh, or any
+outer density. The other bounds on kappa and kappa0 are upper bounds:
+smaller values reduce local-coordinate and large-residue costs. In
+particular the E2 retained-phase charge5*kappa decreases, all four
+actual medium inequalities retain their margins, and the complete
+support below3/5 and the below-half low-rank gaps improve.
+
+Use the new complete-product trim at T^(1-kappa0_new). Its discarded
+count is still T^(1-kappa0_new+o(1))=o(T/log^A T) for every fixed A.
+Although this is a smaller power saving, kappa0_new is positive and
+fixed. On retained complete scales c*T^(1-kappa0_new)<=x<=C*T,
+one eventually has c0*x<=T<=x^(1+kappa_new), including fixed chart
+constants. Thus (E3) applies to the ACTUAL shift T. No quotient scale
+is substituted for the complete product scale.
+
+Finally choose spectral/collision/divisor small epsilons below the new
+positive minimum, choose the fixed logarithmic precision/truncations,
+and take the uniform eventual target threshold. This modifies the
+example hierarchy in the old common-parameter note, where a particular
+ratio kappa=sigma/200 was frozen; it does not claim literal preservation
+of that equality. Its downstream inequalities use only the upper bound.
+The construction avoids a rough-rank circularity by reducing kappa and
+kappa0 AFTER rank-derived divisor orders, while leaving zeta and the
+already selected rough precision unchanged.
+
+5. Dependency boundary after this substitution
+
+The three named q=1 cleanup uses now require only the explicit elementary
+divisor factorization count above, ordinary divisor/totient means, and
+their already separate Fourier, fundamental-lemma, or Poisson inputs.
+No Shiu theorem is needed for these particular shifted moments.
+
+The preliminary progression estimate Z2(q), its Gram/dispersion uses,
+and any source claim for shifts throughout an arbitrary polynomial
+range are NOT replaced. Shiu therefore remains among the project's
+overall external inputs. The spectral packet/continuous-spectrum
+inputs, pointwise same-rho sieve construction, raw densities, finite
+table inequalities and numerical certificates remain their separate
+obligations. This local substitution is not an independent reproof
+of the full b=.74821909 theorem and does not restore unrestricted L23.
+
+All current constants, old numerical allowances and strict final
+surpluses are retained; only a fixed eventual threshold may increase.
+The open manuscript is unchanged. Formalization, GitHub and external
+communications remain paused/not authorized for this continuation.

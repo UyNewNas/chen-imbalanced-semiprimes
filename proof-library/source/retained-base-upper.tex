@@ -1,0 +1,334 @@
+% Research proof fragment, 7 October 2026. Not an assertion of priority.
+% This file is intentionally separate from the main manuscript until reviewed.
+\section{Retaining the old support in the bad third-prefix boxes}
+\label{sec:retained-base-upper}
+
+Set $\theta_0=89/160$ and $\theta=29/50$. Let $\Phi$ be the full
+eight-branch envelope of Lichtman 2023, Proposition 6.1, (6.4), at
+$\alpha=1$, $\sigma=7/32$, as in Section~\ref{sec:sharper-upper-support}.
+Write $S=t_1+t_2+t_3$ and
+\[
+ E_\theta=\{0<t_3\le t_2\le t_1<1/5:\quad
+ 3t_1\le\theta,\quad t_1+t_2+3t_3\le\theta,\quad
+ \Phi(t_1,t_2,t_3)<\theta\}.
+\]
+Extend the ordinary linear lower-sieve function by $f(s)=0$ for
+$s\le2$. Define
+\begin{equation}\label{eq:retained-base-functional}
+ K(\theta)=\frac4\theta+2e^{-\gamma}
+ \int_{E_\theta}
+ \frac{f((\theta-S)/t_3)-f((\theta_0-S)/t_3)}
+ {t_1t_2t_3^2}\,dt_1dt_2dt_3.
+\end{equation}
+No numerical assertion is part of this definition.
+
+\begin{proposition}[Retained-base upper-sieve interface]
+\label{prop:retained-base-upper}
+For every $K_*>K(29/50)$, the conclusions of
+Proposition~\ref{prop:pruned-upper} hold with $K_*$ in place of
+$3549/500$. The product families, multiplicities, moving residue $N$,
+and full fourth-prime range are exactly those in that proposition.
+\end{proposition}
+
+We first justify the asymptotic equality needed for the residual lower
+sieves. A one-sided lower-sieve bound alone would not justify subtracting
+two residual density sums.
+
+\begin{lemma}[Uniform residual lower density]
+\label{lem:uniform-residual-lower-density}
+Let $R=N^\beta$, $y=N^t$, where $(\beta,t)$ ranges over a compact
+subset of $\{\beta>0,t>0,\beta\ge2t\}$. Put
+$g_N(p)=\mathbf1_{p>2,\,p\nmid N}/(p-1)$ and
+$V_N(y)=\prod_{p<y}(1-g_N(p))$. With the ordinary Rosser support
+\[
+ \mathcal D^-(R)=\{d=q_1\cdots q_r:\ q_1>\cdots>q_r,
+ q_1^2<R,\quad q_1\cdots q_{j-1}q_j^3<R
+ \text{ for even }j\le r\},
+\]
+including the empty product, one has uniformly
+\[
+ \frac{\sum_{d\mid P_N(y),\ d\in\mathcal D^-(R)}\mu(d)g_N(d)}
+ {V_N(y)}=f(\beta/t)+o(1).
+\]
+The strict or non-strict cube convention gives the same asymptotic.
+\end{lemma}
+\begin{proof}
+Here is the precise classical input used, including convergence. For
+dimension one and the cubic Rosser support, the normalized positive
+first-exit integrals $a_j(s)$ obey
+\[
+ a_1(s)=(3-s)_+/s,\qquad
+ a_j(s)=\frac1s\int_{\max(s,\,2+\epsilon_j)}^{2+j}
+                  a_{j-1}(u-1)\,du\quad(j\ge2),
+\]
+where $\epsilon_j=0$ for even $j$ and $1$ for odd $j$, and an
+empty integral is zero. The classical Rosser calculation gives
+\begin{equation}\label{eq:classical-positive-exit-series}
+ \sum_{j\ge2,\ j\ {m even}}a_j(s)=1-f(s)\quad(s\ge2),
+\end{equation}
+with uniform convergence on compact $s$ intervals. This is a
+convergence input, not a conclusion drawn merely from finite-depth
+asymptotics. Explicit sources are
+\href{https://www.suzuyu1729.com/notes/NagoyaSeminar2022/RosserIwaniec.pdf}
+{Y. Suzuki, \emph{The Rosser--Iwaniec sieve}}, Sections 7--9
+(the exit recurrence and (9.1)--(9.2)), Propositions 9.4 and 11.8
+(compact convergence and its existence), and Section 12
+(the optimal linear parameter $\beta=2$).
+The normalization to $f$ is also given by (3.2.10) in
+\href{https://mathweb.tifr.res.in/Documents/Publications/Lectures/tifr72.pdf}
+{Y. Motohashi, \emph{Lectures on Sieve Methods and Prime Number Theory}},
+TIFR 72 (1983); its Section 3.3, Lemma 14, supplies the convergence
+estimate in the classical linear case. These inputs concern the
+ordinary support displayed here, not a factorable modified weight.
+
+Since $y\le\sqrt R$, the initial square condition never excludes
+a prime below $y$. All first exclusions therefore have even length.
+The finite first-exit identity gives exactly
+\begin{equation}\label{eq:residual-lower-positive-exits}
+ \frac{V_N^-(R,y)}{V_N(y)}
+ =1-\sum_{j\ge2,\ j\ {m even}} T_{j,N}(R,y),\qquad
+ T_{j,N}=\sum_{\substack{P=q_1\cdots q_j\text{ first exit}\\q_1<y}}
+ g_N(P)\frac{V_N(q_j)}{V_N(y)}\ge0.
+\end{equation}
+Fix a rank $j$. Every preceding prefix belongs to
+$\mathcal D^{\rm well}(R)$: the even cube condition implies its
+own square condition and, by ordering, the next square condition;
+the first square is part of the lower support definition.
+If $A_i=q_1\cdots q_i$, then $A_i^2<R A_{i-1}$, and induction gives
+$A_i<R^{1-2^{-i}}$. Failure of the $j$th cube consequently forces
+\[
+ q_j^3\ge R/A_{j-1}>R^{2^{1-j}}.
+\]
+Thus all primes in this fixed-depth sum exceed $N^{c_j}$ for some
+$c_j>0$ uniform in the compact parameter set.
+
+For $g_0(p)=\mathbf1_{p>2}/(p-1)$, prime-number-theorem integration
+on this compact exponent domain gives
+$T_{j,0}(R,y)=a_j(\beta/t)+o(1)$ uniformly. The recurrence above
+can alternatively be obtained by first summing the largest prime.
+All boundary hyperplanes have zero limiting measure.
+Deleting $p\mid N$ changes this finite-depth asymptotic by $o(1)$:
+\[
+ \sum_{p\mid N,\ p\ge N^{c_j}}\frac1{p-1}
+ \ll N^{-c_j}\log N,
+\]
+and the other prime reciprocal sums and the product ratio are bounded
+in terms of $j$ and the compact parameter set. More explicitly, each
+surviving normalized summand satisfies
+\[
+ g_N(P)\frac{V_N(q_j)}{V_N(y)}
+ =g_0(P)\frac{V_0(q_j)}{V_0(y)}
+   \prod_{\substack{q_j\le p<y\\p\mid N}}(1-g_0(p))
+ =\bigl(1+o(1)\bigr)
+   g_0(P)\frac{V_0(q_j)}{V_0(y)}.
+\]
+Consequently $T_{j,N}=a_j(\beta/t)+o(1)$ for each fixed $j$.
+
+There is no interchange of an uncontrolled infinite prime sum here.
+The standard one-sided linear lower-density bound applies uniformly
+to $g_N$, since deleting primes decreases every inverse local-product
+ratio. It gives $V_N^-/V_N\ge f(\beta/t)-o(1)$.
+In the opposite direction, discard the positive exits of rank $>J$
+from \eqref{eq:residual-lower-positive-exits}. The fixed-depth
+asymptotics then give
+\[
+ \frac{V_N^-}{V_N}\le
+ 1-\sum_{2\le j\le J,\ j\ {m even}}a_j(\beta/t)+o_J(1).
+\]
+First let $N\to\infty$, then $J\to\infty$, using the compact-uniform
+convergence in \eqref{eq:classical-positive-exit-series}. This proves
+the lemma, including $\beta/t=2$ by continuity. In particular no
+two-sided dimension hypothesis with a constant independent of $N$
+has been silently assumed.
+\end{proof}
+
+\begin{proof}[Proof of Proposition~\ref{prop:retained-base-upper}]
+\paragraph{Levels and the full envelope.}
+Fix $e>0$ sufficiently small and use the two raw exponents
+\[
+ \nu_0=\theta_0-2e,\qquad \nu_1=\theta-2e,
+ \qquad R_i=N^{\nu_i},\qquad \theta_A=\theta-e.
+\]
+Take the small-prime and rough windows, beta weights, exponent grid,
+rank cutoff and hierarchy of Section~\ref{sec:pruned-upper-sieve},
+with $D_0=R_1$. Thus $w=N^\omega$, the beta level is $N^\ell$,
+the grid mesh is $\xi\ll\omega^5$, and every parameter is fixed
+before $N\to\infty$.
+
+Here is a buffered box rule which uses all eight branches and handles
+their gates. Set $v(t)$ as in Section~\ref{sec:sharper-upper-support},
+and write $W_1,W_2$ for the inner minima in
+$w(t_1,t_2,t_3)$ and $w(t_1,t_3,t_2)$, respectively.
+A closed ordered third-prefix box is good if throughout it at least
+one fixed member of the following finite list supplies its indicated
+test:
+\[
+ \begin{gathered}
+ v(t_1),\ v(t_2),\ v(t_1+t_2),\ v(S)\ \ge\theta_A;\\
+ \max\{v(t_1),W_i\}\ge\theta_A\quad(i=1,2);\\
+ v(t_1+t_3)\ge\theta_A,\quad
+ v(t_1+t_3)-(t_1+2t_2+t_3)\ge e;\\
+ v(t_2+t_3)\ge\theta_A,\quad
+ v(t_2+t_3)-(2t_1+t_2+t_3)\ge e.
+ \end{gathered}
+\]
+Otherwise the box is bad. The label decision is made once and is
+independent of the eventual rank and its parity. Third primes below
+$w$ have the good label. For small enough $\omega,\xi$, this agrees
+with the continuous $W_1$ test on all relevant cube-supported vectors.
+
+The first raw cube gives $t_1\le\theta/3+O(\xi)<25/128$ with a
+fixed gap. Hence $v(t_1)=(1+t_1)/2$, which is exactly the gate of
+both $W_i$. The maximum with that gate removes the discontinuity
+of each $w$ branch. The pair branches instead have the explicit
+positive gate margin $e$; their discontinuities are not treated as
+continuous. Scale changes and changing the residue exponent to
+$\alpha=1+3\kappa$ perturb their affine pieces by $O(\kappa)$.
+They therefore retain an envelope value above
+$\theta-3e/2$ when $\kappa\ll e$. If desired, for each pair atom
+one can choose its factorization parameter a little below its
+$v$-value and above its gate, rather than use a common parameter
+below the gate. Both choices have surplus over its actual raw
+support. At a $W_i$ gate crossing the $v(t_1)$ branch supplies the
+same surplus. This explicitly preserves the hypotheses in the proof
+of Lichtman 2023, Proposition 6.1.
+
+Bad boxes satisfy, up to $O(\xi)$,
+\[
+ t_1\le2\theta_A-1,\qquad
+ t_3\ge(153/32-8\theta_A)/3.
+\]
+For the latter assertion, on the entire cube-supported domain
+$1-2t_2>153/256$ and
+$(66-34t_3)/107>153/256-3t_3/8$, so $W_1$ is its middle
+affine piece. In particular, in a bad box
+\[
+ 3t_1\le3(2\theta_A-1)+O(\xi)<\nu_0.
+\]
+This strict old first-cube margin is important below.
+
+\paragraph{The actual mixed support and its upper property.}
+Let $\mathcal R$ be the union of $\mathcal D^+(R_0)$ and
+the subset of $\mathcal D^+(R_1)$ whose third label is good,
+with ranks below three always kept at the new level. Equivalently,
+good descendants use $R_1$ and bad descendants use $R_0$.
+The support is prefix-closed. A first exclusion is odd: an ordinary
+new odd cube fails before the third choice, or a bad third prefix
+fails the old third cube, or its descendant first fails a later old
+odd cube. An old first-cube failure cannot first appear at a bad
+third prefix because of the strict margin just proved.
+Thus the first-exit identity \eqref{eq:odd-first-exit-identity}
+holds for $\lambda_{\mathcal R}(d)=\mu(d)\mathbf1_{d\in\mathcal R}$.
+It proves the pointwise upper majorant and the rough/full one-sided
+density comparison \eqref{eq:rough-density-one-sided} for this support.
+
+The exact full density identity is
+\begin{equation}\label{eq:retained-base-exact-density}
+ V_{\mathcal R}-V_N^+(R_1,z)
+ =\sum_{\substack{P=p_1p_2p_3\in\mathcal D^+(R_1)\\
+        p_1>p_2>p_3,\ p_1<z\\\text{third label bad}}}
+ g_N(P)\left\{V_N^-(R_1/P,p_3)
+ -\mathbf1_{P\in\mathcal D^+(R_0)}V_N^-(R_0/P,p_3)\right\}.
+\end{equation}
+Indeed, the two supports differ only in the disjoint trees with a
+bad third prefix. For either raw level $R_i$ at which that prefix is
+present, its total descendant contribution is
+$-g_N(P)V_N^-(R_i/P,p_3)$: three prefix primes reverse the
+parity, so the later odd cubes become the residual even cubes.
+The residual initial-square condition is automatic, since
+$Pp_3^2<R_i$. This proves the identity with its stated sign.
+The old prefix is absent precisely when its third cube fails,
+equivalently when $\log(R_0/P)/\log p_3\le2$ (apart from harmless
+endpoint conventions). The initial old cube has already been checked.
+
+\paragraph{Boxing, beta weights, and distribution.}
+Use exactly the parity boxing in Section~\ref{sec:pruned-upper-sieve},
+but with the effective exponent $\nu_1$ on good third labels and
+$\nu_0$ on bad labels. Ranks below three use $\nu_1$.
+At even ranks impose all relevant lower-endpoint odd cubes with
+non-strict inequality; at odd ranks impose the upper-endpoint
+odd cubes with strict inequality. Hence $c(d)\ge\lambda_{\mathcal R}(d)$
+coefficientwise. Any discrepancy lies within $O(M\xi)$ of an odd
+cube boundary at one of the two levels. The same tagged-prime
+argument bounds its normalized density cost by $O(\xi\omega^{-5})$.
+There is no additional third-label discrepancy.
+
+Append $\beta^+$ to even ranks and $\beta^-$ to odd ranks, with
+the outer sign retained. The unique small/rough decomposition gives
+$|\rho(q)|\le1$ and the complete pointwise upper bound, exactly as
+in \eqref{eq:rough-box-pointwise} and the following beta construction.
+Its additional normalized density error is
+$O(e^{-c/\eta}\omega^{-2})$.
+
+An actual good atom belongs to
+$\mathcal D^{\rm well}(N^{\nu_1+O(M\xi)})$ and has the full
+buffered envelope surplus proved above. An actual bad atom belongs
+to $\mathcal D^{\rm well}(N^{\nu_0+O(M\xi)})$ and retains its
+old first and third cube conditions. Apply
+Lemma~\ref{lem:upper-support-89} and the margin argument of
+Proposition~\ref{prop:upper-89} to the latter. Choose separate
+intermediate factorization parameters for the old and new atoms,
+then choose
+\[
+ \ell+O(M\xi),\ \kappa\ll\epsilon_{\rm disp}\ll\zeta\ll e
+\]
+small enough for both. Keep one representative slot partition on
+each box; the rounded support and appended beta factor cost
+$N^{O(M\xi)+\ell}$. This is smaller than the minimum Type II
+margin $9\zeta/16$. The reciprocal repeated-label factorial occurs
+once, and normalizing each grouped convolution by its slot factorial
+gives the bounded coefficients used by the earlier atom argument.
+Ranks at most two have complete support below $N^{1/2-c}$.
+All other complete moduli have support below $N^{3/5-c}$, since
+$\nu_1<.58$. Thus the prime-product distribution proof, its
+medium-variable and at-most-two-long-variable alternatives,
+squarefree collision estimate, divisor Mellin tails, and uniformity
+for residue $N$ apply without alteration. The number of atoms is
+fixed before the large-$N$ limit.
+
+In particular the exact coprime mass is replaced by the total mass
+with the same bound
+$O(X_{\rm out}N^{-a}\log N)$, using $|\rho(q)|\le1$.
+The nonnegative outer approximation is global, its excess is counted
+once, and the labels and full fourth-prime range are retained.
+No distribution estimate for arbitrary bounded outer arithmetic
+weights, and no assertion that the whole new weight is triply
+well-factorable, is used.
+
+\paragraph{Evaluation and order of limits.}
+On all bad boxes, $t_3$ is bounded below by a fixed positive constant:
+at the limiting level it is at least $113/2400$. Thus the residual
+parameters in \eqref{eq:retained-base-exact-density} range over
+compact positive sets wherever a residual term is present. Apply
+Lemma~\ref{lem:uniform-residual-lower-density} to both residual sums.
+Across the old third-cube boundary its omitted contribution agrees
+continuously with $f(s)=0$ at $s=2$.
+Uniform Mertens estimates for $V_N(N^{t_3})$ and prime-number-theorem
+integration then evaluate the correction in
+\eqref{eq:retained-base-exact-density}. Missing prime divisors of
+$N$ in these three fixed positive-power prime slots have total
+reciprocal mass $o(1)$ uniformly.
+
+The bad sets of the buffered box rules converge in measure to
+$E_\theta$. All branches are piecewise affine, and every additional
+level or gate equality is contained in a finite union of proper
+hyperplanes. Away from these planes, a strict good branch is
+eventually certified on its whole box. The $W_i$ rescue and the
+explicit pair gate margins above justify this statement despite
+the jumps in $\psi$. The correction integrand is bounded on the
+compact bad domain, so the extra boundary strips have vanishing cost.
+
+Finally, the ordinary upper density is at most
+$V_N(z)(F(5\nu_1)+o(1))$, and $5\nu_1<3$.
+Combining all the estimates gives the coefficient
+\eqref{eq:retained-base-functional}. First take $N\to\infty$ at
+fixed construction parameters; then take the beta and mesh errors
+to zero within the analytic margins; finally let $e\downarrow0$.
+Given the strict slack $K_*>K(\theta)$, one can choose fixed
+parameters whose complete coefficient is below $K_*$.
+Applying the resulting upper bound to the five switched masses
+$J_i=U_i/8$ and to the bad-semiprime mass $\log(1/b)$ proves
+the proposition. This establishes an analytic interface for a
+separately certified value of the integral; it makes no claim of
+priority or of comparison with every previously published method.
+\end{proof}

@@ -1,0 +1,139 @@
+% Independent new-domain audit; main and old certificates are unchanged.
+\subsection{Independent audit of the disjoint new fifth-prefix cover}
+
+All $43236$ new grid-$400$ boxes and all $1720184$ new grid-$800$
+boxes have been independently reconstructed. The replay imports neither
+author program nor the older rational logarithm helper. It checks
+every geometry and every saved floor, not a sample of the boxes.
+Its total is $1763420$ boxes in $94$ blocks. The completed replay is
+\texttt{fifth-new-coverage-independent-replay.json}; the execution
+finished normally in approximately $34.9$ seconds.
+
+\paragraph{Whole-box admission and the actual previous tree.}
+The coordinates have strictly ordered interiors, $t_5\ge1/50$, and
+$t_1\le39/200<\mu=25/128$. The original first-prime stop is therefore
+respected. On every box the replay finds one original third component
+whose minimum at the $32$ vertices exceeds $t_1+t_2+3t_3$.
+Each such component is affine or the minimum of two affine functions,
+so its gap from the linear third test is concave and the vertex minimum
+is a valid whole-box minimum. Taking the maximum of these component
+minima is legitimate. Merely taking the minimum of a vertexwise maximum
+would not prove the same claim and is not used.
+
+The new selected mask is one of $17,\ldots,31$. For its endpoint
+$M=\min\{(1+s_I)/2,57/64-3s_I/2\}$ the replay checks both defining
+planes against $1/2$, all five full square tests, and all remaining
+selected square tests at every vertex. Concavity again extends the
+positive minima to the entire box. The independent minimum full/selected
+slacks are $8$ at grid $400$ and $16$ at grid $800$, in the stated
+$32n$ affine scale. Minimum old-third margins are $16$ in both grids.
+The center mask choice is not used as evidence of any of these claims.
+
+For every raw four-slot cap the replay compares its two doubled
+midpoint plane values, freezes the lower choice on this numerical box,
+and then evaluates that chosen affine function at all vertices.
+Either plane is globally an upper bound for its raw minimum, regardless
+of the midpoint choice. Including the inherited $W_3$ plane gives
+$U\ge R_4\ge L_4$ for the actual allowed fourth tree. A different
+choice on a fine child is only a different majorant for that same
+fourth tree. It does not change the fourth endpoint or its saving.
+
+The full fifth endpoint is at least every admitted $M$ and at least
+$L_4$. Its density saving is nonnegative. On these new cells the same
+full fifth tree is used as in the old parent certificate. The sixth
+certificate remains compatible: its old membership is forced by the
+unchanged third cap, and its raw first-five envelope already dominates
+every selected fifth endpoint, including those whose gains are newly
+certified here. No new sixth increment is inferred by this audit.
+
+\paragraph{The ratio and Jensen calculations are reconstructed.}
+Set $S_5=\sum_jt_j$ and
+\[
+ d=M-\max\{U,S_5+2t_5\}.
+\]
+This is concave. Its $32$ vertex values are summed in units $1/(32n)$,
+giving the saved integer $d_\Sigma$. For each of the two planes defining
+$M$, the independent program maximizes $(\text{plane}-S_5)/t_5$
+over all $32$ vertices using exact cross products; it then takes the
+smaller of those two maxima. It does not eliminate the first four
+coordinates as the author does. A linear-fractional function with a
+positive denominator has its extrema at vertices here, so the result
+$b=A/B$ bounds $(M-S_5)/t_5$ throughout the box. Tied unreduced pairs
+are compared as rational numbers, not by their raw numerators.
+
+Every reconstructed ratio matches the saved ratio and satisfies
+\[
+ 2<b\le4,\qquad e=\frac{d_\Sigma}{1024h_5}>0,
+ \qquad e\le b-2.
+\]
+The minimum integer convexity-domain slacks are $1622016$ and $2859520$.
+Let $f_0(s)=\log(s-1)/s$ on $[2,4]$, with zero extension below two.
+On $[2,4]$ it is increasing and concave: with $x=s-1\in[1,3]$, the
+sign expressions are $1+1/x-\log x>0$ and
+$3+4/x+1/x^2-2\log x>0$. Both decrease in $x$, and their endpoint
+signs follow from $\log3<4/3$. Thus
+$Q_b(e)=f_0(b)-f_0(b-e)$ is increasing and convex on $[0,b-2]$.
+
+The positive part $d_+$ is introduced before pulling out the positive
+density lower bound. Pointwise, the saving from the actual fourth cap
+to an admitted fifth cap dominates $Q_b(d_+/(h_5/n))$.
+Furthermore $0\le d_+/(h_5/n)\le b-2$. Concavity of $d$ gives
+$\mathbb E d_+\ge\mathbb E d\ge d_\Sigma/(1024n)$.
+Jensen's inequality and monotonicity now give the box lower bound
+\[
+ \frac{4n}{(\prod_i h_i)h_5}Q_b(e).
+\]
+The factor $n$ is the actual grid, $400$ or $800$: the box volume
+$n^{-5}$ cancels the $n^5$ from the reciprocal-prime density, leaving
+the additional $n/h_5$ from $1/t_5$. Negative individual vertex gaps
+are allowed and have not been silently dropped from their mean.
+
+\paragraph{Independent directed logarithms.}
+Put $a=b-e$, $z=e/[2(b-1)-e]$, and $y=(a-2)/a$. The replay uses
+\[
+ L_6(z)=2\sum_{j=0}^{5}\frac{z^{2j+1}}{2j+1},\qquad
+ U_7(y)=2\sum_{j=0}^{6}\frac{y^{2j+1}}{2j+1}
+       +\frac{2y^{15}}{15(1-y^2)}.
+\]
+These respectively bound $\log((b-1)/(a-1))$ from below and
+$\log(a-1)$ from above. Hence a lower bound for $Q_b(e)$ is
+$(aL_6-eU_7)/(ab)$, with the subtraction direction retained.
+The implementation derives a positive homogeneous Horner polynomial
+using the least common multiple of the odd denominators. It uses only
+arbitrary-precision integers, independently of the old four/five-term
+engine. Fifteen exact Fraction boundary checks, including $a=2$, and
+$549$ actual-box Fraction checks give identical floors. Every one of
+the $1763420$ full replay floors is at least its stored author floor.
+
+\paragraph{The exclusion checks and certified sums.}
+Independent base-$256$ integer keys identify the old $292633$ parents.
+Every new coarse key is absent from that set, and all coarse keys are
+distinct. For each accepted fine cell, its parent key is computed by
+coordinatewise $\lfloor\ell/2\rfloor$. It is absent from both the old
+parents and all $43236$ accepted new coarse parents. All fine keys are
+distinct. This excludes overlap with every old parent's $64$ children,
+and excludes adding a coarse box together with any of its fine children.
+Shared faces have zero measure. The word ``complete'' describes the
+completed finite witness replay, not coverage of all positive fifth density.
+
+The stored sums verified independently are
+\[
+ \Delta_{400}=\frac{79990318316685117959}{2^{78}},\qquad
+ \Delta_{800}=\frac{1328755995056775987831}{2^{80}},
+\]
+and therefore
+\[
+ \Delta_{5,\rm new}\ge
+ \frac{1648717268323516459667}{2^{80}}.
+\]
+All six masks occurring in the fine witness are retained, including
+the $58$ cells of mask $25$. The old whole-parent lower bound may be
+added because its region is disjoint; it is not recomputed in this audit.
+The new source's single missing-backslash typesetting error was repaired
+by its author before the final mathematical bindings were recorded.
+
+All primitive distribution, signed-tree compilation, ordinary density
+equalities, fixed-cutoff product, and buffered finite partition inputs
+remain separately stated dependencies. This audit establishes the local
+geometry, rational integral bounds, disjointness and compatibility; it
+does not itself assert a new global $K$ or an unconditional Goldbach theorem.

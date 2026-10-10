@@ -1,0 +1,80 @@
+Independent audit of the near-linear-residue E1 replacement
+2026-10-09
+
+Conclusion: the supplied E1 replacement follows in the stated subclass
+|a|>=c*x, theta=7/32, from the direct Weil argument of Maynard I v2
+Lemma17.2 and B1-B3. It does not establish the full all-a statement of
+L23 Lemma4.7, the spectral E2 estimate, or the preliminary dispersion.
+No global K/c/b is restored by this audit.
+
+1. Source and uniformity.
+Read the actual Maynard I v2 Lemma17.2, local text lines6445-6570,
+including (17.7)-(17.14), rather than the older reference number17.3.
+The coefficients lambda(q,r) may depend arbitrarily on q and r and need
+only be bounded. A fixed d therefore permits q'=d*q and a coefficient
+1_{d divides q'} Lambda(d,r). This permission is absent in Lemma5.1;
+the same substitution there would not follow from this audit.
+
+After Cauchy, the completed n sum has modulus q*r1*r1prime and phase
+frequency a*(h*r1prime-hprime*r1). Retaining the original coprimality
+(a,q*r1*r1prime)=1 makes its gcd factor exactly independent of a.
+No continuous differentiation of this reciprocal phase is used.
+The ell=0 count and subsequent positive gcd sums are independent of a.
+The source's classical completed inverse-phase estimate then applies
+uniformly; the underlying Weil estimate remains an external theorem.
+
+There is an isolated extra condition (r1,r2)=1 in the source's displayed
+first Cauchy step, although its statement does not impose it. Do not add
+that restriction to the original complex sum. Derive Cauchy with the
+correct restriction (r1,a*n1)=1. The bounded coefficient may depend on
+r2. Upon expanding and taking the completed n sum, r2 has disappeared
+from the phase and all later bounds use the same modulus q*r1*r1prime.
+They require no coprimality of r1 and r2. Thus this correct version has
+the same final bound. The author supplement now explicitly records this
+point. The printed n1 in a completed sum over n is a variable-name typo.
+
+2. Exact size combinations.
+Let n,q,u,v denote logarithmic lengths of N,Q1,Q2,Q3. With theta=7/32
+and |a|>=c*x, the third monomial condition gives
+ n+q+5u+2v <= 2-theta-15sigma+O(1/log x).
+The exact combination
+ (35/16)(q-n)+(23/16)(2n+u+2v)+(5/16)(n+q+5u+2v)-v/2
+ = n+(5/2)q+3u+3v
+has upper bound 1021/512-(147/8)sigma+O(1/log x).
+The discarded v/2 is nonnegative. The margin below2 is 3/512 before
+the additional sigma saving. Independently n+q<1-9sigma and
+2n+q+u+v<17/10-(29/2)sigma. All three dominate the needed4sigma margin.
+These identities are independently checked with exact fractions.
+
+3. Fixed d, Fourier length and normalization.
+Set L=d*Q1 and rough length R, D*R comparable to Q2*Q3. The actual
+E1 denominator phi(q*d*r2)*q*d*r1 becomes precisely the source one.
+The smooth q weight is nonnegative and may be absorbed by its square
+root into lambda, after a bounded normalization. Splitting fixed smooth
+supports into a finite number of dyadic intervals is harmless.
+H_actual/(L*R/M*log^5 x)=D/d is bounded. The proof already allows bounded
+coefficients in h and its estimates remain valid for fixed multiples
+of the endpoint; strict power margins absorb every such constant.
+
+The three size products are, up to constants/subpower factors,
+ NL=NQ1*x^o(1),
+ NL^(5/2)R^3 <= NQ1^(5/2)(Q2Q3)^3 D^(-1/2),
+ N^2LR <= N^2Q1Q2Q3.
+Thus epsilon_W=sigma is permissible. Normalize Lambda's fixed divisor
+bound at an x^o(1) cost after this power estimate. For each d the bound
+is N^2/(dQ1)*x^(-sigma+o(1)). Sum 1/d over its dyadic range, then pay
+the one remaining D=x^o(1) normalization to obtain
+ |E1| << N^2/(DQ1)*x^(-sigma/2).
+No multiplication of a merely logarithmic remainder by x^o(1) occurs.
+
+4. Limits of the finding.
+The lower bound on |a| is used in the exact second Weil-size inequality
+and cannot be removed from this proof. B4 and the spectral theorem are
+not used here. This supplies the E1 input for the project's near-linear
+residue subclass conditional on its B1-B3 parameters and coefficient
+scope, not the original unrestricted theorem or the full Chen chain.
+The independently reviewed root preliminary repair and separately
+audited E2 input must still be combined before any repaired proposition
+is asserted; the project's subsequent tail/HB use is another step.
+
+All source files were read only. No old artifact or state was changed.

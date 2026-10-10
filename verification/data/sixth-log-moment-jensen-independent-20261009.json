@@ -1,0 +1,139 @@
+{
+  "status": "PASS_INDEPENDENT_ALL2631_SIMPLEX_LOG_MOMENT_FLOORS",
+  "date": "2026-10-09",
+  "cells": [
+    {
+      "group": "singleton",
+      "cell_id": "33-1355",
+      "simplices": 51,
+      "previous_gain_lower": "2663192019100114069/618970019642690137449562112",
+      "new_gain_lower": "85360988212272926247/19807040628566084398385987584",
+      "increment_lower": "138843601069276039/19807040628566084398385987584"
+    },
+    {
+      "group": "singleton",
+      "cell_id": "33-1371",
+      "simplices": 418,
+      "previous_gain_lower": "426502531910144321441329/79228162514264337593543950336",
+      "new_gain_lower": "429169960842941790152911/79228162514264337593543950336",
+      "increment_lower": "1333714466398734355791/39614081257132168796771975168"
+    },
+    {
+      "group": "singleton",
+      "cell_id": "33-1867",
+      "simplices": 649,
+      "previous_gain_lower": "25038097451157468194301/19807040628566084398385987584",
+      "new_gain_lower": "25099918274813086011287/19807040628566084398385987584",
+      "increment_lower": "30910411827808908493/9903520314283042199192993792"
+    },
+    {
+      "group": "singleton",
+      "cell_id": "34-1371",
+      "simplices": 207,
+      "previous_gain_lower": "555376845237509755767039/79228162514264337593543950336",
+      "new_gain_lower": "279804499029428766347045/39614081257132168796771975168",
+      "increment_lower": "4232152821347776927051/79228162514264337593543950336"
+    },
+    {
+      "group": "singleton",
+      "cell_id": "50-1353",
+      "simplices": 20,
+      "previous_gain_lower": "24996957382835/19807040628566084398385987584",
+      "new_gain_lower": "99990584828621/79228162514264337593543950336",
+      "increment_lower": "2755297281/79228162514264337593543950336"
+    },
+    {
+      "group": "singleton",
+      "cell_id": "50-1355",
+      "simplices": 6,
+      "previous_gain_lower": "13970000423956275/79228162514264337593543950336",
+      "new_gain_lower": "6986090895355183/39614081257132168796771975168",
+      "increment_lower": "2181366754091/79228162514264337593543950336"
+    },
+    {
+      "group": "pair17",
+      "cell_id": "pair17-new33-1355",
+      "simplices": 187,
+      "previous_gain_lower": "3207872753573304888261/79228162514264337593543950336",
+      "new_gain_lower": "1606970560125930904309/39614081257132168796771975168",
+      "increment_lower": "6068366678556920357/79228162514264337593543950336"
+    },
+    {
+      "group": "pair17",
+      "cell_id": "pair17-new33-1867",
+      "simplices": 273,
+      "previous_gain_lower": "12725822446967345774987/79228162514264337593543950336",
+      "new_gain_lower": "12753805273739502636833/79228162514264337593543950336",
+      "increment_lower": "13991413386078430923/39614081257132168796771975168"
+    },
+    {
+      "group": "pair12",
+      "cell_id": "pair12-fixed",
+      "simplices": 522,
+      "previous_gain_lower": "70825214302754514336451/79228162514264337593543950336",
+      "new_gain_lower": "70964020700639315584555/79228162514264337593543950336",
+      "increment_lower": "17350799735600156013/9903520314283042199192993792"
+    },
+    {
+      "group": "tent33",
+      "cell_id": "tent33-ascending-1371",
+      "simplices": 120,
+      "previous_gain_lower": "27530687250339675507251/79228162514264337593543950336",
+      "new_gain_lower": "27619968228115755325529/79228162514264337593543950336",
+      "increment_lower": "44640488888039909139/39614081257132168796771975168"
+    },
+    {
+      "group": "tent33",
+      "cell_id": "tent33-ascending-1867",
+      "simplices": 178,
+      "previous_gain_lower": "139634846352796366873/2475880078570760549798248448",
+      "new_gain_lower": "2236545286268379012021/39614081257132168796771975168",
+      "increment_lower": "2387744623637142053/39614081257132168796771975168"
+    }
+  ],
+  "simplex_count": 2631,
+  "factor_floor_count": 21048,
+  "previous_gain": "1201130581437641342320905/79228162514264337593543950336",
+  "new_gain": "1208544915921356327515701/79228162514264337593543950336",
+  "increment": "1853583620928746298699/19807040628566084398385987584",
+  "stream_sha256": "c495c2d6db1dc812b8fe311bea442aaae6d950045542b3443471e127a32903d1",
+  "checks": {
+    "all_author_Q80_factor_floors_equal": true,
+    "all_author_Q96_simplex_floors_equal": true,
+    "every_old_Jensen_bound_reconstructed": true,
+    "cell_and_global_sums_equal": true,
+    "no_duplicate_simplex_keys": true,
+    "two_closed_form_Beta_and_constant_factor_checks": true,
+    "author_direct_bindings_checked": 11
+  },
+  "numerical_method": "Integer Newton identities for seven duplicated-node Dirichlet mixtures, mixed by gap weights; exact Fraction final log sum and Horner exponential polynomial.",
+  "scope": [
+    "Complete new moment/floor arithmetic independently replayed with no author math imports.",
+    "Vertices, cell geometry, simplex disjointness and physical volumes inherited from separately certified old witnesses; not geometrically replayed here.",
+    "This reviewer authored some earlier geometries; independence is limited to root new moment arithmetic.",
+    "Analytic log/exp inequalities and all original licensing/distribution premises retained as separately reviewed inputs.",
+    "New total replaces the old eleven-cell integral lower bound; only the difference is additional.",
+    "No new K/c/b, main/state edits, formalization or GitHub action."
+  ],
+  "elapsed_seconds": 2.5329988000448793,
+  "display_only": {
+    "previous": 1.5160399324184609e-05,
+    "new": 1.5253981381983565e-05,
+    "increment": 9.358205779895626e-08
+  },
+  "bindings_sha256": {
+    "sixth-log-moment-jensen-independent-20261009.py": "f34ac1ba788f659f32c854f6e6fac9c95419c2335c9c0a1187578e0e6148f8b4",
+    "sixth-log-moment-jensen-independent-20261009.txt": "7cf85da358f2975c7dfe47dc3b2dc2960dddbfda3425ed9d9c24776877104dea",
+    "sixth-log-moment-jensen-20261009.py": "d86abb16bc04c61b653a057e723cd2748e5bb84bf97815374a4d2d75381b0769",
+    "sixth-log-moment-jensen-20261009.tex": "ca0523ad7100ec9f1613bd3847c0e4fb6fe0aa258214aae1bec842785fa9a19b",
+    "sixth-log-moment-jensen-20261009.json": "4692b066050f1a4d6a0675cf9715f5f85a80393bfdde9f3e934a6cdaad0681ea",
+    "sixth-log-moment-jensen-20261009.witness.json": "ee3e5d1166a9a396e34b53eb083959837db0a03b9478edb960ad9bdddeafb459",
+    "sixth-eleven-cell-transfer-assembly-20261009.json": "f2960bd521f493a025050fc341a2c146bd5242f45c985918087a91879a855217",
+    "sixth-license-family-weighted-jensen-20261009.witness.json": "88e6def0ac6f41ceae1e99daa8a79fb4abdf822725690b68c2a45c4e027380b6",
+    "sixth-license-family-20261009-exact.witness.json": "1b5d382a8408844ae2bd6b046cfca1dbe69ad2dc487bc2c346fa63ed552cee26",
+    "sixth-license-family-20261009-mask50-residual.witness.json": "4963b92429c56d48eecd122bcd6cfb92724792a79d5c4fae6bcd1a433ccc330d",
+    "sixth-pair17-winner-20261009-exact.witness.json": "b49793c95af4c365d26db27e3805b1201dc38b3af375c87d58fa5fdeb76cebbd",
+    "sixth-pair12-ascending-cell-20261009.witness.json": "5346246a15ce0324bb2c3fcefed0e21bf0ae854208efd3971972c4718e1b4a9f",
+    "sixth-tent33-ascending-20261009.witness.json": "ee7581a2069a0d0df98e08ba5660d5756d6a8ffb1a939f1f3e7debb80e48fcc4"
+  }
+}

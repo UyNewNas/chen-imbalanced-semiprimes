@@ -1,0 +1,219 @@
+The actual E1 sum: explicit completion, gcd counting and uniform residue bound
+2026-10-10. New local derivation; no existing proof or numerical file changed.
+
+1. Statement and the precise external inputs
+
+Let Q,R,N,M>=1, NM comparable to x, with all four lengths bounded by a
+fixed power of x. Let psi be a fixed smooth compactly supported function.
+Put H=C QR/M (log x)^5 for a fixed C>0. For one-bounded alpha and lambda,
+consider the E1 sum from Maynard I v2, Lemma17.2:
+
+ Z = sum_(q~Q,(q,a)=1) sum_(r,s~R,(rs,a)=1)
+       lambda(q,r) conjugate(lambda(q,s)) / [phi(qs) q r]
+       sum_(n1,n2~N,(n1,qr)=(n2,qs)=1) alpha(n1) conjugate(alpha(n2))
+       sum_(1<=|h|<=H) psihat(hM/(qr)) e(a h inverse(n1)/(qr)).       (E1)
+
+All implied constants below are independent of the integer a. They depend
+on the fixed support and smooth norms and on the fixed polynomial scale
+bound. There is no assumption on the absolute size of a: only the displayed
+primitive supports are needed. If H<1 the sum is empty. A fixed nonnegative
+smooth q weight is permitted by absorbing its square root in lambda, after
+constant normalization. There is NO inserted condition (r,s)=1.
+
+This note proves the explicit inequality
+
+ |Z|^2 <= x^o(1) (N^4/Q^2)
+       [ NQ/x + N Q^(5/2) R^3/x^2 + N^2 Q R/x^2 ].               (E2)
+
+Here x^o(1) means that every fixed positive power x^eta is an available
+upper bound after enlarging the threshold, uniformly over the coefficient
+family. It consists only of fixed logarithmic and fixed-order divisor
+factors on polynomial-sized integers. No merely logarithmic saving is
+multiplied by this notation.
+
+The external analytic inputs used are Poisson summation for a fixed smooth
+function and the classical complete Kloosterman Weil bound
+ |S(u,v;m)| <= tau(m) sqrt(m) sqrt(gcd(u,v,m)).
+The elementary divisor subpower bound and reciprocal-totient bound are also
+used. In particular this proof does not take Maynard17.2, its Lemma16.1,
+L23 Lemma4.7, a moving-residue distribution theorem or a spectral estimate
+as an analytic black box. Maynard17.2 is the primary source for the sum
+and the three final scale products, which are rederived here.
+
+2. Smooth inverse-phase completion, retaining the zero Fourier frequency
+
+For a fixed smooth compactly supported w on the positive real axis define
+ T(A;m)=sum_(n,(n,m)=1) w(n/N) e(A inverse(n)/m).
+Its exact Poisson expansion is
+
+ T(A;m)=N/m sum_(k in Z) what(kN/m) S(k,A;m).                    (E3)
+
+The k=0 term is a Ramanujan sum, not automatically zero. The classical
+identity for that sum gives |c_m(A)|<=gcd(A,m), hence its absolute size is
+at most ||w||_1 (N/m) gcd(A,m).
+
+For nonzero k, use |what(t)|<=C_w(1+|t|)^(-2), and write g=gcd(A,m).
+The divisor domination
+ sqrt(gcd(k,A,m)) <= sum_(d|g,d|k) sqrt(d)
+and the elementary inequality, valid for every Y>0 and positive d,
+
+ sum_(k!=0,d|k) (1+|k|/Y)^(-2) <= 2Y/d                         (E4)
+
+give a total at most
+ 2 C_w tau(m) sqrt(m) sum_(d|g) d^(-1/2)
+ <= 2 C_w tau(m)^2 sqrt(m).
+For (E4), compare the decreasing positive summand on each half-axis with
+its integral from zero. No additional +1 appears, even if Y<1.
+We have therefore proved, for every integer A,
+
+ |T(A;m)| <= C_w [tau(m)^2 sqrt(m)+(N/m) gcd(A,m)].              (E5)
+
+If (a,m)=1, then gcd(a ell,m)=gcd(ell,m). This is the complete reason that
+the estimate is uniform in the original residue a. It requires keeping
+(a,m)=1 until this step, rather than dropping it before completion.
+
+3. Cauchy with the original, uncontracted r,s support
+
+Absorb the bounded factor (R/r) psihat(hM/(qr)) into c(q,r,h), and use a
+fixed smooth nonnegative majorant w(n1/N) for the original n1 interval.
+The coefficient outside the r,h sum has absolute value
+ <= x^o(1)/(Q^2 R^2),
+since q~Q,s~R and 1/phi(qs)<=x^o(1)/(QR).
+There are O(Q R N^2) choices of q,s,n1,n2. Cauchy, followed by removing
+bounded coefficients and the n2 restriction in a positive upper bound,
+gives
+
+ |Z|^2 <= x^o(1) N^3/(Q^3 R^2) * T2,                          (E6)
+
+where
+ T2 = sum_(q~Q) sum_(r,r'~R,(a,qrr')=1)
+         sum_(1<=|h|,|h'|<=H)
+         |sum_(n,(n,qrr')=1) w(n/N)
+             e(a ell inverse(n)/(qrr'))|,
+ ell=h r'-h' r.
+
+More explicitly, before the last bound the Cauchy sum still contains s
+and n2, and its multiplier is x^o(1) N^2/(Q^3 R^3). Expanding the square
+in r,h leaves coefficients independent of n; triangle inequality permits
+s,n2 to contribute O(RN), which gives (E6). Dependence of bounded inner
+coefficients on s is harmless for this particular bound. The identity
+between the two inverse phases modulo qr,qr' and the single phase modulo
+qrr' holds whenever (n,qrr')=1, without (r,r')=1.
+At no point is (r,s)=1 added to the original sum. The corresponding extra
+restriction in the printed first Cauchy display is not used here.
+
+4. Exact zero-phase pairs
+
+When ell=0, h and h' have the same sign. For fixed nonzero h and r', the
+identity h'r=h r' permits at most 2 tau(|h r'|) choices of h',r, even before
+their interval restrictions. Thus the number of (r,r',h,h') is at most
+RH x^o(1). Bounding the n sum by O(N) gives
+
+ T2_zero <= x^o(1) Q R H N.                                  (E7)
+
+This argument uses nonzero h; it never calls tau(0). The product |h r'|
+is polynomial-sized, so its divisor factor is legitimately subpower.
+
+5. Nonzero phases: both terms in (E5)
+
+For ell!=0 use m=qrr', (a,m)=1, and (E5). The square-root contribution is
+
+ T2_sqrt <= x^o(1) Q^(3/2) R^3 H^2.                          (E8)
+
+The Ramanujan contribution requires a genuine gcd sum. Put d=gcd(r,r'),
+r=d u, r'=d v, (u,v)=1. Since ell=d(hv-h'u),
+
+ gcd(ell,rr') <= d^2 gcd(h,u) gcd(h',v)
+                <= d^2 gcd(h,r) gcd(h',r').
+
+Also gcd(ell,qrr')<=gcd(ell,q) gcd(ell,rr'). For a fixed nonzero ell,
+the identity gcd(ell,q)=sum_(j|ell,j|q) phi(j) yields
+
+ sum_(q~Q) gcd(ell,q) <= 3Q tau(|ell|)=Q x^o(1).               (E9)
+
+Indeed a relevant j is <=2Q and the count of q multiples is at most
+Q/j+1<=3Q/j. This is precisely where ell=0 must remain excluded.
+For each positive r and every H>=1,
+
+ sum_(1<=|h|<=H) gcd(h,r)
+ <= 2H sum_(j|r) phi(j)/j <= 2H tau(r).
+
+Finally,
+ sum_(r,r'~R) gcd(r,r')^2
+ <= sum_(d<=2R) d^2 * #{r~R:d|r}^2 << R^3.
+The domination by all common divisors is in the correct upper-bound
+direction; each multiple count is <=3R/d. Combining these estimates,
+
+ sum_(q,r,r',h,h',ell!=0) gcd(ell,qrr') <= x^o(1) Q H^2 R^3.
+
+Multiplying by N/(QR^2), the zero Fourier frequency from (E5) therefore
+contributes
+
+ T2_Ramanujan <= x^o(1) N H^2 R.                            (E10)
+
+For (E9), the a-coprimality conditions may now be dropped in an absolute
+upper bound, because a has already disappeared from the gcd. The h-sum
+can similarly be enlarged after (E9). This order avoids an illegitimate
+bound for gcd(a ell,m) when a is not a unit.
+
+6. Quantitative conclusion and actual fixed-d substitution
+
+Equations(E6)--(E10), with H=O(QRN/x (log x)^5), give
+
+ |Z|^2 <= x^o(1) [N^5/(Qx)+N^5 Q^(1/2)R^3/x^2+N^6 R/(Qx^2)],
+
+which is exactly(E2). If each of its three dimensionless scale products
+is at most x^(-4 epsilon), then |Z|<=N^2/Q*x^(-2epsilon+o(1)); the usual
+weaker N^2/(Q x^epsilon) follows uniformly. Fixed multiples of H or of the
+dyadic supports, and fixed smooth q weights, change only the allowed constants.
+
+For the actual restricted P5.2 application fix the small factor d~D, with
+D=x^o(1), and write q'=d q and L=d Q1. Arbitrary q'-dependent bounded
+coefficients are permitted in(E1), so the indicator d|q' belongs in lambda;
+one is not restricting an unweighted cancellation theorem after applying it.
+The denominator phi(qdr2) qdr1 and phase are exactly those of(E1) with
+Q replaced by L. The actual cutoff differs by D/d=O(1).
+
+The already supplied exact size combinations, rechecked here, use n,q,u,v
+for log_x(N,Q1,Q2,Q3), theta=7/32 and |a|>=c0*x:
+
+ (35/16)(q-n)+(23/16)(2n+u+2v)
+ +(5/16)(n+q+5u+2v)-v/2 = n+(5/2)q+3u+3v,
+
+whose upper bound is 1021/512-(147/8)sigma+O(1/log x).
+The other products have exponents n+q<1-9sigma and
+2n+q+u+v<17/10-(29/2)sigma. These imply all three required scale gaps
+with epsilon=sigma, after the fixed constants and subpower D costs.
+Although(E2) itself has no absolute-a range, this substitution DOES use
+|a|>=c0*x to derive the second size gap from B3.
+
+With Lambda divisor bounded, normalize it at an x^o(1) cost only here,
+where a power saving is available. The fixed-d bound is
+ |E1(d)| << N^2/(d Q1) x^(-sigma+o(1)).
+The original E1 is sum_d E1(d); the factor 1/d occurs in this bound through
+L=d Q1, not as an extra prefactor to E1(d). Hence sum_(d~D)1/d=O(1).
+Absorbing the remaining D=x^o(1) restores the preliminary-dispersion normalization:
+
+ |E1| << N^2/(D Q1) x^(-sigma/2).
+
+The actual bridge's zero-product restoration still supplies its separate,
+weaker fixed power loss. This note does not promote x^(1-sigma/5) to a bound
+for the whole dispersion proof, and claims only this E1 input.
+
+7. Scope and primary references
+
+This fills the completion and positive gcd-summation details behind the
+previous E1 source audit. It supplies no E2 spectral theorem, preliminary
+main-term cancellation, full prime-product distribution or numerical Chen
+bound. Current K,c,b remain unchanged. Formalization and GitHub stay paused;
+no main manuscript is edited.
+
+Primary source for comparison:
+ Maynard, Primes in arithmetic progressions to large moduli I, v2,
+ https://arxiv.org/html/2006.06572v2, Lemma17.2, equations17.7--17.14.
+ Bound local extraction: external-source-audit-20261009/
+ maynard-I-v2-phase-candidate-20261009.txt, lines6445--6652.
+Prior project interfaces read:
+ lichtman-moving-residue-E1-Weil-20261009.txt;
+ lichtman-moving-residue-E1-independent-20261009.txt;
+ lichtman-prop52-retained-phase-bridge-20261009.tex.

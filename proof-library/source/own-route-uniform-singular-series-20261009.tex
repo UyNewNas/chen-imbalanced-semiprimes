@@ -1,0 +1,93 @@
+% New analytic bridge; does not alter the open manuscript.
+\paragraph{Uniform local normalization along every even target.}
+For an even integer $N>2$, define
+\[
+ C_N=C_2\prod_{p\mid N,\ p>2}\frac{p-1}{p-2},\qquad
+ C_2=\prod_{p>2}\left(1-\frac1{(p-1)^2}\right),\qquad
+ V_N(z)=\prod_{2<p<z,\ p\nmid N}\left(1-\frac1{p-1}\right).
+\]
+All products over $p$ are over primes.  No assumption that $N$ is
+squarefree, has few prime divisors, or avoids exceptional congruences
+is imposed.  For $z>3$ put $M(z)=\prod_{p<z}(1-1/p)$.  The exact identity
+\[
+ \frac{V_N(z)}{2M(z)C_N}
+ =\prod_{p\ge z}\left(1-\frac1{(p-1)^2}\right)^{-1}
+   \prod_{p\mid N,\ p\ge z}\left(1-\frac1{p-1}\right)
+\]
+follows by multiplying
+$(1-1/p)(1-1/(p-1)^2)=(p-2)/(p-1)$ for each odd prime.
+It is valid at a prime endpoint with the displayed $p<z$ convention.
+
+This identity has a uniform, explicit tail bound:
+\[
+ \left|\log\frac{V_N(z)}{2M(z)C_N}\right|
+ \le \frac{1+\log N/\log z}{z-2}.
+\]
+Indeed, $-\log(1-t)\le t/(1-t)$ for $0<t<1$.  Hence the logarithm
+of the first product is at most
+\[
+ \sum_{p\ge z}\frac1{p(p-2)}
+ \le\sum_{j=\lceil z\rceil}^{\infty}\frac1{j(j-2)}
+ =\frac12\left(\frac1{\lceil z\rceil-2}
+                   +\frac1{\lceil z\rceil-1}\right)
+ \le\frac1{z-2}.
+\]
+There are at most $\log N/\log z$ distinct prime divisors of $N$
+at least $z$, and each contributes at most $1/(z-2)$ to the
+absolute logarithm of the second product.  Taking $z=N^u$ with
+any fixed $u>0$, Mertens' product theorem therefore gives
+\[
+ V_N(N^u)=\frac{2e^{-\gamma}C_N}{u\log N}(1+o_u(1))
+\]
+uniformly along all even $N$.  Mertens' theorem is the classical
+external input here; the passage to the target-dependent local factors
+has just been proved, rather than inferred from pointwise asymptotics
+with $N$ fixed.
+
+\paragraph{Uniform dimension-one hypothesis.}
+For $3<w<z$, deletion of primes dividing $N$ decreases the positive
+inverse Euler product, so
+\[
+ \prod_{w\le p<z,\ p\nmid N}(1-1/(p-1))^{-1}
+ \le\prod_{w\le p<z}(1-1/(p-1))^{-1}.
+\]
+The right side has the usual dimension-one bound
+$(\log z/\log w)(1+O(1/\log w))$, with an absolute constant.
+Thus the dimension constants in the ordinary fundamental-lemma
+application can be chosen independently of $N$.  This proves the
+uniform local-density hypothesis; it does not prove any progression
+remainder estimate or any asserted exact residual Rosser density.
+
+\paragraph{Normalization and a precise limit of this lemma.}
+For a prime sequence of mass $X_N=(1+o(1))N/\log N$, an already
+proved ordinary density term $V_N(N^u)f(s)$ contributes
+\[
+ \frac{X_NV_N(N^u)f(s)}{C_NN/\log^2N}
+ =\frac{2e^{-\gamma}}u f(s)+o(1)
+ =\frac4u\bar f(s)+o(1),
+ \qquad \bar f=f/(2e^\gamma).
+\]
+The same computation gives $4\bar F(s)/u$ for the upper density.
+It explains the factor four in the lower-prefix integrals and is
+consistent with the same $C_N$ in the prime-product upper theorem.
+It cannot be used to subtract two one-sided sieve inequalities:
+an equality for the actual residual divisor weight must first be
+established when a telescoping density difference is used.
+
+On each fixed positive-prefix cutoff $p_i\ge N^a$ and with a fixed
+number $k$ of prime slots, deleting tuples with a prime $p_i\mid N$
+does not change a limiting integral.  By unique factorization and
+the fixed-divisor bound, the number of tuples of product at most
+$O(N)$ containing one such specified prime is
+$O(N^{1+o(1)}/p_i)$.  Summing the at most $1/a$ possible distinct
+divisors $p_i\ge N^a$ and the $k$ slots gives
+$O_{a,k}(N^{1-a+o(1)})$.  This deletion is made on the actual
+tuple family.  It is not an assertion that an arbitrary restricted
+arithmetic coefficient is Siegel--Walfisz.
+
+Finally, $C_2>0$ because the sum of its positive factor deficits
+converges, and $C_N\ge C_2$.  Thus
+$\mathcal H_N=C_NN/\log^2N\to\infty$ along every even sequence.
+Any eventual lower count $\delta\mathcal H_N$ with a fixed
+$\delta>0$ consequently supplies an actual representation for
+every sufficiently large even integer, without an exceptional set.

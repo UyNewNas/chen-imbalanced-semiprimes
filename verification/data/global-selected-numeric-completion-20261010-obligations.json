@@ -1,0 +1,459 @@
+{
+  "date": "2026-10-10",
+  "obligations": [
+    {
+      "id": "P1",
+      "name": "Directed logarithms, interval arithmetic and ordinary delayed functions",
+      "assertion": "Every used logarithm has positive/alternating series with explicit signed remainder; floor/ceiling is outward. Ordinary numerator-chord/curvature proofs cover arbitrary queried arguments, initial branches and exact delay breakpoints. All actual ordinary profiles have full-node enclosure evidence.",
+      "status": "covered_by_proved_enclosure_and_complete_selected_output",
+      "proof_sources": [
+        "numerical-primitive-root-review-20261010.txt",
+        "numerical-lower-shared-sieve-chord-independent-20261011.txt",
+        "numerical-w2-affine-series-mathematical-review-20261010.txt"
+      ],
+      "complete_records": [
+        "numerical-primitive-adversarial-20261009.json",
+        "numerical-lower-shared-sieve-chord-independent-20261011.json"
+      ]
+    },
+    {
+      "id": "U1",
+      "name": "Upper base first integral",
+      "assertion": "The complete first integral has positive-series coefficients and an explicit geometric tail; no truncation of its domain or floating quadrature is used.",
+      "status": "covered_by_proved_enclosure_and_complete_selected_output",
+      "proof_sources": [
+        "extended-first-positive-series-independent-20261010.py"
+      ],
+      "complete_records": [
+        "extended-first-positive-series-independent-20261010.json",
+        "certify_extended_prefix.json"
+      ]
+    },
+    {
+      "id": "U2",
+      "name": "Upper base compact third integral",
+      "assertion": "A covering partition retains whole boundary-box upper bounds, uses symmetric halving only when valid, and preserves heap totals under disjoint subdivision. The full result upper covers the selected old upper; pilot is excluded.",
+      "status": "covered_by_proved_enclosure_and_complete_selected_output",
+      "proof_sources": [
+        "numerical-third-compact-source-review-20261010.txt",
+        "numerical-third-compact-independent-20261010.py"
+      ],
+      "complete_records": [
+        "numerical-third-compact-independent-full-20261010.json"
+      ]
+    },
+    {
+      "id": "U3",
+      "name": "Complete noncompact third tail",
+      "assertion": "The D(s)<=D(10)(10/s)^2 bound is integrated over the entire omitted z<1/100 tail. New tail replaces the old tail once; it is distinct from finite-policy limiting errors.",
+      "status": "covered_by_proved_enclosure_and_complete_selected_output",
+      "proof_sources": [
+        "numerical-primitive-root-review-20261010.txt",
+        "numerical-primitive-adversarial-20261009.py"
+      ],
+      "complete_records": [
+        "numerical-primitive-adversarial-20261009.json"
+      ]
+    },
+    {
+      "id": "U4",
+      "name": "Upper replacement fourth",
+      "assertion": "All 3699127 selected rectangles are ordered, have verified gate/range inequalities and a disjoint midpoint-separation tree. Correlated cap gaps and the 8193-entry derivative lower table give the adopted full replacement gain.",
+      "status": "covered_by_proved_enclosure_and_complete_selected_output",
+      "proof_sources": [
+        "stronger-fourth-independent-review.tex",
+        "stronger-fourth-independent-replay.py"
+      ],
+      "complete_records": [
+        "stronger-fourth-independent-replay.json"
+      ]
+    },
+    {
+      "id": "U5",
+      "name": "Upper old fifth subdivision",
+      "assertion": "All 292633 parents and 64 children each are covered; child Jensen or old complete-parent maximum is used, never parent plus children. Old Jensen/Taylor floors and parent membership have their own complete records.",
+      "status": "covered_by_proved_enclosure_and_complete_selected_output",
+      "proof_sources": [
+        "independent-fifth-subdivision-replay-audit.tex",
+        "independent_fifth_subdivision_replay.py"
+      ],
+      "complete_records": [
+        "independent_fifth_subdivision_replay.json",
+        "replay_fifth_prefix_jensen_independent.json",
+        "independent-fifth-taylor-replay.json"
+      ]
+    },
+    {
+      "id": "U6",
+      "name": "Upper additional fifth and retained sixth",
+      "assertion": "1763420 new fifth boxes avoid the old parent and coarse sets. All 632104 replacement sixth cubes have exact full/selected gates; positive-part Jensen permits nonnegative omissions. No old alternative fourth/fifth/sixth bound is added.",
+      "status": "covered_by_proved_enclosure_and_complete_selected_output",
+      "proof_sources": [
+        "fifth-new-coverage-independent-audit.tex",
+        "sixth-prefix-expanded-independent-audit.tex"
+      ],
+      "complete_records": [
+        "fifth-new-coverage-independent-audit.json",
+        "sixth-prefix-expanded-independent-audit.json"
+      ]
+    },
+    {
+      "id": "U7",
+      "name": "Above-mu rank2/rank3 fallbacks",
+      "assertion": "Only the coarse rank2 lower, not its larger numerical alternative, is selected. Rank3 covers both charts and all4096 cells. Separation from old higher patches and between fallbacks is explicit.",
+      "status": "covered_by_proved_enclosure_and_complete_selected_output",
+      "proof_sources": [
+        "second-prefix-upper-fallback-20261009.tex",
+        "third-prefix-upper-fallback-independent-review-20261009.txt"
+      ],
+      "complete_records": [
+        "second-prefix-upper-fallback-independent-review-20261009.json",
+        "third-prefix-upper-fallback-independent-review-20261009.json"
+      ]
+    },
+    {
+      "id": "U8",
+      "name": "First eleven/succeeding two sixth cells",
+      "assertion": "Physical affine rows, bounded facet systems, complete face lattices, pulling simplices and positive reciprocal-Jensen factors cover the six clipped, two pair17, one pair12 and two ascending33 cells. Their final same-domain log total replaces their Jensen total. Two descending33 cells are disjoint additions.",
+      "status": "covered_by_proved_enclosure_and_complete_selected_output",
+      "proof_sources": [
+        "sixth-jensen-curvature-analytic-20261009.tex",
+        "sixth-license-family-weighted-jensen-independent-20261009.py",
+        "sixth-pair12-ascending-independent-20261009.py"
+      ],
+      "complete_records": [
+        "sixth-license-family-independent-20261009-completion.json",
+        "sixth-license-family-weighted-jensen-independent-20261009.json",
+        "sixth-pair17-winner-independent-20261009.json",
+        "sixth-pair12-ascending-independent-20261009.json",
+        "sixth-tent33-ascending-independent-20261009.json",
+        "sixth-log-moment-jensen-independent-20261009.json",
+        "sixth-tent33-descending-independent-20261009.json"
+      ]
+    },
+    {
+      "id": "U9",
+      "name": "Later sixth cap and local corrections",
+      "assertion": "Ascending/descending34 use actual already upgraded old caps. Lower clipping windows and selected local corrections are separate domains or telescoping same-node differences; only selected_gain from the larger local audit is used. Four nonsingleton regions have complete exact geometry and floor evidence.",
+      "status": "covered_by_proved_enclosure_and_complete_selected_output",
+      "proof_sources": [
+        "sixth-tent34-upgrade-analytic-20261009.tex",
+        "sixth-lower-complement-analytic-20261009.tex",
+        "sixth-lower-local-additions-independent-20261009.py"
+      ],
+      "complete_records": [
+        "sixth-tent34-ascending-independent-20261009.json",
+        "sixth-tent34-descending-independent-20261009.json",
+        "sixth-lower-clip-window-independent-20261009.json",
+        "sixth-lower-desc34-window-independent-20261009.json",
+        "sixth-lower-local-additions-independent-20261009.json",
+        "sixth-nonsingleton-independent-20261009.json"
+      ]
+    },
+    {
+      "id": "U10",
+      "name": "First thirty eighth cells",
+      "assertion": "One original +14 ascending +15 descending, all exact full cell geometry. A complete face-lattice pulling construction proves nonoverlap inside each convex cell. Pattern/tent separators prove between-cell disjointness. Radial whole-cell max replaces the original seed bound once.",
+      "status": "covered_by_proved_enclosure_and_complete_selected_output",
+      "proof_sources": [
+        "eighth-family-independent-engine-20261009.py",
+        "eighth-prefix-family-independent-20261009.py",
+        "eighth-prefix-family-20261009.tex"
+      ],
+      "complete_records": [
+        "eighth-prefix-cell-independent-20261009.json",
+        "eighth-prefix-family-independent-20261009.json",
+        "eighth-prefix-descending-independent-20261009.json",
+        "eighth-radial-independent-20261009.json"
+      ]
+    },
+    {
+      "id": "U11",
+      "name": "Fifteen unequal-parent eighth cells",
+      "assertion": "Winner9 seed+12 further cells and two winner50 cells are complete exact geometry, with all105 pair separations and the original seed excluded from its family sum. Current sixth parent remains the comparison input.",
+      "status": "covered_by_proved_enclosure_and_complete_selected_output",
+      "proof_sources": [
+        "eighth-unequal-analytic-union-review-20261009.tex",
+        "eighth-unequal-parent-interface-20261009.tex"
+      ],
+      "complete_records": [
+        "eighth-unequal-parent-nine-independent-20261009.json",
+        "eighth-unequal-nine-family-independent-20261009.json",
+        "eighth-unequal-parent-fifty-independent-20261009.json",
+        "eighth-unequal-parent-fifty-desc-independent-20261009.json",
+        "eighth-unequal-moment-independent-20261009.json"
+      ]
+    },
+    {
+      "id": "U12",
+      "name": "Thirteen and twentynine final eighth families",
+      "assertion": "Complete selected affine cells and disjointness proofs cover13 ascending-third and29 first-failure domains. Their 28918 and78777 simplex log refinements replace their own old lower floors.",
+      "status": "covered_by_proved_enclosure_and_complete_selected_output",
+      "proof_sources": [
+        "eighth-third-minorant-analytic-review-20261009.tex",
+        "eighth-history-first-failure-analytic-review-20261009.tex",
+        "sixth-jensen-curvature-analytic-20261009.tex"
+      ],
+      "complete_records": [
+        "eighth-third-minorant-independent-20261009.json",
+        "eighth-third-moment-refinement-independent-20261009.json",
+        "eighth-history-first-failure-independent-20261009.json",
+        "eighth-history-moment-independent-20261009.json"
+      ]
+    },
+    {
+      "id": "U13",
+      "name": "Unequal seed mixed/curvature replacement",
+      "assertion": "All11026 seed simplices and771820 mixed-factor moments are covered. The common P10/means reused by the mixed calculation have their own full prior independent proof/record. Curvature and mixed differences are successive maxima-minus-adopted, not extra integrals.",
+      "status": "covered_by_proved_enclosure_and_complete_selected_output",
+      "proof_sources": [
+        "eighth-joint-affine-curvature-20261009.tex",
+        "eighth-joint-transverse-mixed-20261009.tex",
+        "eighth-joint-transverse-mixed-fast-20261009.tex"
+      ],
+      "complete_records": [
+        "eighth-joint-affine-curvature-independent-20261009.json",
+        "eighth-joint-transverse-mixed-independent-20261009.json"
+      ]
+    },
+    {
+      "id": "T1",
+      "name": "Initial seed",
+      "assertion": "The ordinary baseline is >.020249>.02 and the positive feedback coefficient is >.13. Four exact rounds from.02 prove.02327; no fixed point or unproved initial improvement is assumed.",
+      "status": "covered_by_proved_enclosure_and_complete_selected_output",
+      "proof_sources": [
+        "second-seed-certified-finite-feedback.tex",
+        "replay_second_seed_first_feedback.py",
+        "second-seed-omega-certified.tex"
+      ],
+      "complete_records": [
+        "replay_second_seed_first_feedback.json",
+        "replay_second_seed_omega_independent.json"
+      ]
+    },
+    {
+      "id": "T2",
+      "name": "All seventy W1 primitives",
+      "assertion": "All70 ordinary bases, ten J queries,200 Buchstab weights,1858 feedback weights and exact anchor mass recalibrations are enclosed. Simpson fourth derivatives, positive J series and log tails supply proofs.",
+      "status": "covered_by_proved_enclosure_and_complete_selected_output",
+      "proof_sources": [
+        "numerical-w1-primitive-independent-20261010.txt",
+        "numerical-w1-primitive-independent-20261010.py"
+      ],
+      "complete_records": [
+        "numerical-w1-primitive-independent-20261010.json"
+      ]
+    },
+    {
+      "id": "T3",
+      "name": "All thirtysix W2 bases and closed masses",
+      "assertion": "All216 ordinary components and468 closed mass intervals have centered affine-series products through degree64 and explicit remainder. Sign, unit terms and original3 versus expanded33 anchors are retained.",
+      "status": "covered_by_proved_enclosure_and_complete_selected_output",
+      "proof_sources": [
+        "numerical-w2-affine-series-mathematical-review-20261010.txt",
+        "numerical-w2-affine-series-independent-20261010.py"
+      ],
+      "complete_records": [
+        "numerical-w2-affine-series-independent-20261010.json",
+        "numerical-w2-affine-series-mathematical-review-20261010.json"
+      ]
+    },
+    {
+      "id": "T4",
+      "name": "All W2 feedback weights and variable kernel boxes",
+      "assertion": "Original3:2400 polygon queries,628 positive pair weights and424 singleton weights; expanded33:12624 pieces,5224 pair weights and3626 singleton weights. Separate full variable-kernel covers have559560 and6089150 disjoint accepted boxes; omitted kernel saving is nonnegative.",
+      "status": "covered_by_proved_enclosure_and_complete_selected_output",
+      "proof_sources": [
+        "original3-w2-feedback-series-independent-20261010.py",
+        "expanded248-remaining-integrals-independent-proof.tex",
+        "expanded248-numeric-closure-independent.tex"
+      ],
+      "complete_records": [
+        "original3-w2-feedback-series-independent-20261010.json",
+        "expanded248-remaining-integrals-independent-v1.json",
+        "expanded33-w2-geometry-recurrence-review.json",
+        "w2-variable-kernel-independent-replay.json",
+        "expanded33-w2-kernel-independent-replay.json"
+      ]
+    },
+    {
+      "id": "T5",
+      "name": "Finite table and two upper-cost insertions",
+      "assertion": "Fresh one-bank430-round replay from seed alone reproduces selected430 exactly and dominates248/312 at their depths. All106 final constants have original component/anchor proofs. Complete210 rational inverse cells plus positive-measure clamp at2 prove the312-to430 U3/U4 replacement;248-to312 has its own full insertion.",
+      "status": "covered_by_proved_enclosure_and_complete_selected_output",
+      "proof_sources": [
+        "fixed-action-stationarity-independent-20261009.tex",
+        "fixed-action-stationarity-independent-20261009.py",
+        "table-k-feedback-structure-20261009.tex"
+      ],
+      "complete_records": [
+        "table-k-feedback-independent-20261009.json",
+        "table-k-feedback-two-cost-independent-20261009.json",
+        "fixed-action-stationarity-independent-20261009.json",
+        "fixed-action-current-k-two-cost-20261009.json"
+      ]
+    },
+    {
+      "id": "L1",
+      "name": "Eleven term baseline and pair512",
+      "assertion": "Direct selected endpoints cover all L1,L2,U3,U4 intervals and pair512 L5/L6 cells, including diagonal ordered triangles, both L6 ranges and guard at s=2. The selected numerical formula uses no obsolete n32 patch. The changed start removes the entire corresponding H248 interval once.",
+      "status": "covered_by_proved_enclosure_and_complete_selected_output",
+      "proof_sources": [
+        "sharp-eleven-term-baseline-proof.tex",
+        "independent_sharp_248_baseline_replay.py",
+        "independent_sharp_248_pair512_replay_20261008.py",
+        "lower-start-convex-corner-transfer-independent-review.py"
+      ],
+      "complete_records": [
+        "independent-sharp-248-baseline-replay.json",
+        "independent-sharp-248-pair512-replay-20261008.json",
+        "lower-start-convex-corner-transfer-independent-review.json"
+      ]
+    },
+    {
+      "id": "L2",
+      "name": "Complete fixed switching costs U7,U8,U9",
+      "assertion": "Each selected upper endpoint and the positive lower endpoint used for later slope is enclosed by complete one-dimensional Simpson quadrature with explicit absolute fourth derivative. U7 Fubini correction and multiplicity2 are included once.",
+      "status": "covered_by_proved_enclosure_and_complete_selected_output",
+      "proof_sources": [
+        "sharp-switch-midpoint-proof.tex",
+        "sharp-switch-simpson-independent.py"
+      ],
+      "complete_records": [
+        "sharp-switch-simpson-independent.json",
+        "sharp-switch-midpoint-1024.json"
+      ]
+    },
+    {
+      "id": "L3",
+      "name": "Complete U10/U11 minima and priority replacements",
+      "assertion": "All C(51,4)+48*C(50,3)=1190700 ordered rows are covered, including tied-bin exact log moments. A selected method chooses one bound, not a sum. All40000 priority parents and516779 disjoint children have complete floor evidence.",
+      "status": "covered_by_proved_enclosure_and_complete_selected_output",
+      "proof_sources": [
+        "sharp-248-four-min48-independent-review-20261008.tex",
+        "independent_sharp_248_four_min48_replay_20261008.py"
+      ],
+      "complete_records": [
+        "independent-sharp-248-four-min48-replay-20261008.json",
+        "four-min-priority40000-independent-20261009.json"
+      ]
+    },
+    {
+      "id": "L4",
+      "name": "Both current I3 totals",
+      "assertion": "M1600 full arrangements at a and h cover29652+8911 retained boxes. Complete history splitting and rational wall arrangements license all selected core/strip floors; discarded ideal contributions are nonnegative. Full second output limit0 covers both saved totals.",
+      "status": "covered_by_proved_enclosure_and_complete_selected_output",
+      "proof_sources": [
+        "third-m1600-arrangement-independent-20261010.txt",
+        "third-m1600-arrangement-independent-20261010.py"
+      ],
+      "complete_records": [
+        "third-m1600-arrangement-independent-20261010.json"
+      ]
+    },
+    {
+      "id": "L5",
+      "name": "Both current I4 totals",
+      "assertion": "h:M800 independent smaller total on294115 history leaves/83807 positive parents plus75609 disjoint oblique bands. a:all6545 selected geometry cells/420 positive parents. Repeated-bin symmetry is justified for the sorted target, with exact factorials after a valid full-box bound.",
+      "status": "covered_by_proved_enclosure_and_complete_selected_output",
+      "proof_sources": [
+        "lower-start-fourth-chord-m800-independent-review.tex",
+        "fourth-history-oblique-band-certificate-20261009.tex",
+        "lower-start-fourth-chord-independent-review.tex"
+      ],
+      "complete_records": [
+        "lower-start-fourth-chord-m800-independent-replay.json",
+        "fourth-history-oblique-band-independent-20261009.json",
+        "l1-fourth-all-masks-independent-20261009.json"
+      ]
+    },
+    {
+      "id": "L6",
+      "name": "Both current I5 totals",
+      "assertion": "Current selection uses only all-new h floors158251 and679 a integrals, dropping160 obsolete pre-Jensen floors. The4977 slab and18685 tied-bin additions are disjoint and complete, with all permutations tested before factorial division.",
+      "status": "covered_by_proved_enclosure_and_complete_selected_output",
+      "proof_sources": [
+        "fifth-extra-coverage-independent-review-20261009.tex",
+        "replay_fifth_joint_independent_20261009.py",
+        "replay_fifth_l1_independent_20261009.py"
+      ],
+      "complete_records": [
+        "fifth-joint-independent-closure-20261009.json",
+        "fifth-extra-coverage-independent-full-20261009.json",
+        "lower-start-method-coverage-20261009.json"
+      ]
+    },
+    {
+      "id": "L7",
+      "name": "Selected own-cube fourth restoration",
+      "assertion": "98668 boxes and789344 slanted layers use exact reflected-corner Cartesian CDF volume, positive log series and one whole-box strategy maximum. Their old-exit region is separate from retained fourth/fifth gains; selected slanted total replaces the old whole-box total.",
+      "status": "covered_by_proved_enclosure_and_complete_selected_output",
+      "proof_sources": [
+        "lower-fourth-restoration-slanted-20261009.tex",
+        "lower-fourth-restoration-slanted-independent-20261009.py"
+      ],
+      "complete_records": [
+        "lower-fourth-restoration-slanted-independent-20261009.json"
+      ]
+    },
+    {
+      "id": "L8",
+      "name": "Fixed K feedback and restrictable majorant ownership",
+      "assertion": "Full n48 row scan partitions1011131 retained switched rows, ordinary rows and40000 priority rows. Exact positive remainders prove A_B/K0>=s_B and hence current majorants remain positive and restrictable. Five-cost slope includes2U7 and global quarter; refinements are excluded.",
+      "status": "covered_by_proved_enclosure_and_complete_selected_output",
+      "proof_sources": [
+        "selected-sieve-budget-feedback-audit-20261010.txt",
+        "selected-sieve-budget-feedback-audit-20261010.py"
+      ],
+      "complete_records": [
+        "selected-sieve-budget-feedback-audit-20261010.json"
+      ]
+    },
+    {
+      "id": "L9",
+      "name": "Both paired deletion masks and integral charges",
+      "assertion": "6091 zero-floor cells plus11481 positive-net cells are disjoint. Full parent intersection proves no ordinary or priority replacement is touched. Exact inner fibre logarithm formula and two-sided intervals certify gross lower/loss upper; the charge is the removed saved lower estimator, not actual count.",
+      "status": "covered_by_proved_enclosure_and_complete_selected_output",
+      "proof_sources": [
+        "paired-y6-y11-improvement-20261010.txt",
+        "positive-pair-deletion-improvement-20261010.txt",
+        "positive-pair-deletion-selected-parent-cover-20261010.txt"
+      ],
+      "complete_records": [
+        "paired-y6-y11-improvement-assembly-20261010.json",
+        "positive-pair-deletion-independent-rational-20261010.json",
+        "positive-pair-deletion-selected-parent-cover-20261010.json",
+        "positive-pair-deletion-final-independent-validation-20261010.json"
+      ]
+    },
+    {
+      "id": "S1",
+      "name": "Direct current ledgers, both reserves and final scalar inequalities",
+      "assertion": "Fresh exact direct upper4-minus22 and direct signed eleven-term lower formula reproduce/dominate selected endpoints. Both density and compiler allowances remain positive and retained. Separate192-term rational logs prove primary/secondary surpluses, and crop feedback uses gross/K.",
+      "status": "covered_by_proved_enclosure_and_complete_selected_output",
+      "proof_sources": [
+        "global-selected-numeric-completion-20261010.py",
+        "selected-sieve-budget-feedback-audit-20261010.txt"
+      ],
+      "complete_records": [
+        "positive-pair-deletion-improvement-assembly-20261010.json"
+      ]
+    }
+  ],
+  "excluded": [
+    "Old n32 logmean gains and old four-prefix patch after n48 replacement",
+    "Optional old fifth pre-Jensen floors and extra candidate rows",
+    "Rank7, history-restoration, Bernstein and floating navigation pilots not adopted",
+    "Larger rank2 numerical fallback alternative (only coarse lower used)",
+    "Old fourth-tail and old compact-third upper schemes superseded by complete selected bounds",
+    "Infinite fixed-point optimality or exhaustive search of profitable regions"
+  ],
+  "analytic_outside_scope": [
+    "Exact ordinary and Buchstab function definitions and their analytic shape/delay identities",
+    "Derivation of the Chen pointwise weight and its paired injection",
+    "Derivation of W1/W2 positive switched mass formulae and typed state closure",
+    "Raw F/f density equality, same-rho compiler, complete actual coefficient licenses, and restricted signed PP",
+    "Uniform finite-family approximation and all-even asymptotic quantifiers",
+    "Literature priority, an effective target threshold, formalization and external validation"
+  ]
+}

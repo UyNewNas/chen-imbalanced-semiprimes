@@ -1,0 +1,303 @@
+% Independent joint density/geometry audit, 2026-10-08.
+% New file only. No H table or Chen lower-count claim is part of this audit.
+\subsection{One compatible density construction for the current product constant}
+\label{sec:actual-k-density-joint-audit}
+
+The combination is valid under the named ordinary-density,
+selected-subproduct and signed-distribution interfaces. The number
+\[
+ E=\frac{2444205458396424207668787105}
+         {361468820064774123237146624}
+\]
+is an upper certificate for a limiting endpoint density. The precise
+finite assertion supplied by this audit is: for every fixed $K>E$,
+one common finite buffered tree has density coefficient below $K$,
+after budgeting the finite boxing and small-prime errors. In particular
+$K=67619/10000$ is available. Attainment of $E$ itself by one finite
+tree with positive buffers is not asserted. This distinction is
+necessary when passing from integral certificates to a sieve weight.
+
+\paragraph{The common reference tree.}
+Put $\rho=19/96$, $\mu=25/128$, $\Theta=299/500$,
+$\Lambda=153/256$ and
+\[
+ v(u)=\min\{(1+u)/2,57/64-3u/2\}.
+\]
+The reference $\mathcal T_3$ is exactly the extended first-stop tree,
+not the former compact third-prefix tree. Its first stop is $\rho$.
+Below $t_1=\mu$, its third endpoint is
+\[
+ L_3=\max\{v(t_1),v(t_1+t_2),v(t_1+t_3),v(t_2+t_3),
+                  v(S_3),\Lambda-3t_3/8\};
+\]
+above $\mu$ its inherited endpoint is $v(t_1)$. The minimum with
+$\Theta$ is retained in the general definition. It is redundant in
+the displayed lower region because all six components are at most
+$\Lambda<\Theta$. The ordered-envelope identity explains why the
+raw-looking pair terms here do not discard their original gates.
+The first and third membership decisions of this tree remain fixed
+in every subsequent construction.
+
+The reference certificate encloses precisely
+\[
+ K_{\rm ext}=\frac4\Theta+I_1+I_3+I_{\rm tail}
+ \le U_0:=\frac{1230679674488580033396846301}
+                 {180734410032387061618573312}.
+\]
+Here $I_1$ is the first-stop correction, $I_3$ is the third-cap
+correction on $t_3\ge1/100$, and $I_{\rm tail}$ is its explicit
+noncompact tail upper bound. The audit script reconstructs $U_0$
+from these four saved rational components. The numerical certificate
+did not prove its attempted target $6.809$; that target is not used.
+Its final endpoint is the upper fraction displayed above.
+
+\paragraph{Fourth replacement, not a union with the old fourth patches.}
+Let $\mathcal C_4$ be the frozen $3699127$ disjoint rectangles in
+\texttt{fourth-prefix-stronger-certified-boxes.npz}. They have
+$t_4>3/200$, $t_1<39/200<\mu$, and retain the old third cube.
+Each has one fixed selected mask and endpoint $M_4=v(s_I)$ with
+strict full and remaining-selected gates and $M_4>L_3$ everywhere.
+Define $\mathcal T_4$ by retaining membership through rank four,
+and using this increased cap only for subsequent odd cubes.
+Outside these patches it is $\mathcal T_3$.
+
+The exact even-subtree difference is evaluated by ordinary upper
+density equality, giving
+\[
+ V_3-V_4\longrightarrow
+ 4\int_{\mathcal C_4}
+ [\bar F((L_3-S_4)/t_4)-\bar F((M_4-S_4)/t_4)]
+ \frac{d\mu_4}{t_4}.
+\]
+The certified lower bound is
+\[
+ D_4=\frac{10601625247768616959055}{302231454903657293676544}.
+\]
+The whole-box positive gap, rather than the positive corner mean
+alone, licenses these boxes. Their subsequent common refinement
+allows constant caps despite correlated endpoint inequalities.
+The old partial-four and fourth-tail certificates are completely
+replaced. They supply no additional subtraction in this audit.
+
+On every fifth or sixth witness domain the limiting fourth cap obeys
+\[
+ L_3\le L_4\le R_4:=
+ \max\{\Lambda-3t_3/8,\ v(s_I):
+                  \varnothing\ne I\subseteq\{1,2,3,4\}\}.
+\]
+Indeed its new caps are selected endpoints and its unchanged cap
+is one of the preceding six branches.
+This upper envelope includes ineligible branches deliberately.
+The upper inequality is valid for the finite buffered fourth tree
+as well. Its lower inequality instead uses the corresponding
+buffered third cap, which approximates $L_3$ from below; no finite
+cap is assumed to exceed the unbuffered $L_3$ endpoint.
+
+\paragraph{Fifth saving against that actual fourth tree.}
+For $t_5\ge1/50$, on old retained third prefixes let $L_5^*$ be
+the maximum of $L_4$ and all eligible fifth selected endpoints.
+At rank five itself replace the old fifth cube by the new one;
+freeze the winning cap only after that decision. This restores
+some formerly rejected fifth nodes, rather than requiring the
+old fifth cube as an extra condition. A full rank-five subtree
+has sign minus and residual lower parity. Consequently
+\[
+ V_4-V_5\longrightarrow
+ 4\int [\bar f((L_5^*-S_5)/t_5)
+                -\bar f((L_4-S_5)/t_5)]\,\frac{d\mu_5}{t_5}.
+\]
+Here $\bar f$ is clipped to zero at arguments at most two.
+The explicit own-cube indicator in the exact subtree identity
+justifies this convention, including restored fifth nodes.
+This integrand is nonnegative by monotonicity of the limiting $f$.
+No monotonicity of finite signed M\"obius sums is used.
+
+The three certified covers are: the original $292633$ grid-$400$
+parents $\mathcal O$; the new $43236$ grid-$400$ boxes $\mathcal C$;
+and the new $1720184$ grid-$800$ boxes $\mathcal F$.
+Every coarse key avoids $\mathcal O$. Every fine key, after
+coordinatewise division by two and taking integer parts, avoids
+both $\mathcal O$ and $\mathcal C$. All same-grid keys are unique.
+Thus their interiors are disjoint. Within each old parent its
+64 children are a complete partition. The saved bound is
+\[
+ \max\{J_P,T_P,\sum_{C\subset P}B_C\},
+\]
+where each alternative bounds the same whole-parent integral.
+It is neither a sum of those alternatives nor an old-parent bound
+plus selected improved children.
+
+All these fifth bounds use a convex affine majorant
+$U_4\ge R_4\ge L_4$. Changing its chosen global majorant planes
+between certificate boxes, including between grids, changes an
+inequality used to certify the integral, not the actual fourth tree.
+The same is true of taking the best of the Jensen and Taylor bounds.
+The concave gap $M-\max(U_4,S_5+2t_5)$, its positive part, and
+Jensen's convex function are used only on $0\le e\le b-2$, with
+$2<b\le4$. This preserves the zero portion of $\bar f$.
+
+The combined fifth lower certificate is
+\[
+ \begin{split}
+ D_{5,O}&=\frac{3037921066812732539869}
+                    {302231454903657293676544},\\
+ D_{5,\rm new}&=\frac{1648717268323516459667}
+                    {1208925819614629174706176},\\
+ D_5&=D_{5,O}+D_{5,\rm new}
+     =\frac{13800401535574446619143}
+                    {1208925819614629174706176}.
+ \end{split}
+\]
+The earlier coarse fifth, Jensen-only and Taylor totals are
+replaced by $D_{5,O}$; only the new disjoint cover is additive.
+For an explicit witness it is also permissible to activate fifth
+upgrades only on $\mathcal O\cup\mathcal C\cup\mathcal F$, retaining
+$L_4$ elsewhere. Every displayed local lower bound still holds:
+on a negative-gap piece this restricted tree also has nonnegative
+saving. The sixth comparison below applies to either this restricted
+tree or the full fifth tree. No saving outside the three covers is
+needed for the final constant.
+
+\paragraph{Sixth saving uses the resulting fifth cap.}
+The expanded sixth witness contains $632104$ disjoint grid-$400$
+boxes, with $t_6\ge1/50$ and $t_1\le\mu$. Hence its fifth prefix
+is inside the fifth positive-cutoff range. Its old-third and
+old-fifth retention checks are both made against $L_3$:
+\[
+ S_2+3t_3<L_3,\qquad S_4+3t_5<L_3.
+\]
+At the endpoint any allowed fourth/fifth cap is at least $L_3$.
+For the finite construction the stored retention margins are
+strictly positive on all boxes. Uniform approximation of $L_3$
+on their compact union therefore preserves both inequalities at
+the buffered third cap. These tests retain the actual rank-six
+node regardless of which permitted fifth candidates won or where
+an upgrade was deactivated.
+They also give
+\[
+ L_5-S_6\ge L_3-S_6>2t_5-t_6>t_6
+\]
+away from the ordering faces, so the residual old upper argument
+exceeds one.
+
+Every actual fifth cap in this class is bounded above by
+\[
+ R_5=\max\{\Lambda-3t_3/8,\ v(s_I):
+                 \varnothing\ne I\subseteq\{1,\ldots,5\}\}.
+\]
+The certificate's fixed-plane maximum $U_5$ majorizes every one
+of these 31 raw caps. On the active region $M_6-U_5>0$ we therefore
+have $M_6>L_5$, even after the new fifth coverage. Preserve all
+membership through rank six; use the new cap only at ranks
+$7,9,\ldots$. The exact even-subtree difference is between
+$\mathcal T_5$ and this $\mathcal T_6$, not between two alternative
+trees both based at $\mathcal T_4$.
+
+The new argument is at most three, and the old one lies between
+one and it. Thus $\bar F(s)=1/s$ gives the positive density
+\[
+ \frac{4(M_6-L_5)}{(L_5-S_6)(M_6-S_6)}\,d\mu_6.
+\]
+Replacing the numerator by $(M_6-U_5)_+$ and denominators by their
+certified upper bounds is conservative. The positive part is
+inserted before extracting a lower bound for the positive measure;
+then concavity permits its integral to be bounded below by the
+signed vertex average. This is why negative gap vertices do not
+invalidate the certificate. The new sixth lower sum is
+\[
+ D_6=\frac{145496122603609407505}{151115727451828646838272}.
+\]
+It replaces the entire earlier sixth witness. Intermediate grids
+and the former strict-root sixth total are not added. Repeated
+root bins only enumerate final distinct ordered boxes and require
+no additional permutation factor.
+
+\paragraph{Why the different ranks can be added.}
+For the same four successive trees, the exact densities satisfy
+\[
+ V_3-V_6=(V_3-V_4)+(V_4-V_5)+(V_5-V_6).
+\]
+The fourth and fifth/sixth prefix cylinders need not be disjoint
+across ranks. Their nesting is handled by this telescoping identity.
+Disjointness is required within each same-rank certificate cover,
+and has been checked there. All residual-density normalizations
+are the same: $2e^{-\gamma}F=4\bar F$ and likewise for $f$.
+Ordered prime prefixes are integrated once with $d\mu_r$;
+the certificates introduce no extra factorial or family mass.
+
+For a new branch at rank $r$, all initial complete squares and
+all remaining-selected squares are checked below its endpoint.
+After the selected slots have occurred, every later remaining
+square is exactly $S_{j-1}+2t_j$. An admitted odd cube bounds its
+own square; at an even rank ordering gives
+$S_{j-1}+2t_j\le S_{j-2}+3t_{j-1}$. Initial gates therefore
+propagate through every complete descendant. Along the constructed
+path a later change increases the cap; it never reinstates the
+superseded smaller later-cube tests. First exclusions stay odd.
+This verifies the support and factorization hypotheses of the
+existing finite-atom compilation rather than merely bounding the
+sum of selected exponents.
+
+\paragraph{One common finite buffered construction.}
+Choose the base first/third approximation and all fourth labels
+together. Refine by every fifth and sixth label and by the finitely
+many active affine branches. Trim ordering faces, inherited
+membership boundaries, strict gate surfaces, and positive-gap
+boundaries. On the remaining compact pieces choose increasing
+constant caps strictly below their selected endpoints, above the
+inherited caps and all required gates. On deleted upgrade strips
+revert to the inherited rule; never delete an even node arbitrarily.
+An identically tied endpoint uses a fixed tie rule; an identically
+zero strict gate contributes no active branch.
+
+All new coordinates have fixed positive lower bounds
+($3/200$ at rank four, $1/50$ in the later witnesses).
+Their density kernels are bounded after the indicated trimming,
+and their limiting integrals are controlled on compact sets.
+The only improper small-prime tail remains the original third
+correction; its existing uniform $O(h\log^2(1/h))$ majorant
+is unchanged. Ordinary upper and lower residual-density
+\emph{equalities}, rather than differences of one-sided estimates,
+evaluate the exact signed identities at fixed cutoffs.
+
+Fix an error allowance smaller than one tenth of $K-E$ for each
+base approximation, each of the three refinements, and the finite
+boxing/small-prime errors. Common refinements may increase the
+number of labels but it stays finite. After freezing these data,
+choose the presieve precision and then the finer atom grid as in
+the compilation lemma. Their constants may depend on the chosen
+finite tree. Take $N\to\infty$ only after these choices.
+The dominated limits show that some such common choice has total
+error below $K-E$. There is no $N$-dependent adaptive cap choice,
+no infinite iteration, and no demand for error estimates uniform
+in an unbounded number of labels.
+
+\paragraph{Exact result and audit strength.}
+The independent short program reconstructs
+\[
+ \boxed{U_0-D_4-D_{5,O}-D_{5,\rm new}-D_6=E}
+\]
+and the strictly positive rounding gap
+\[
+ \frac{67619}{10000}-E
+ =\frac{6597499732460155296657391}
+         {225918012540483827023216640000}.
+\]
+It rechecks all 72 old-parent block bindings and whole-parent
+sums, all 94 new-cover block bindings and cross-cover exclusions,
+and the sixth whole-box retention and full/selected gates using
+affine endpoint minimization independent of the earlier
+64-vertex implementation. It imports no author integration helper.
+The local integral values are inherited from the hash-checked
+complete independent replays, not newly recomputed here.
+
+The baseline two-million-split enclosure retains its previously
+stated review strength: reviewed enclosure primitives and a
+targeted independent driver replay, not a fresh independent
+full two-million-split evaluation. Ordinary density equality,
+the selected-subproduct factorization and the signed product
+distribution theorem remain named analytic inputs. This audit
+finds no additional gap in their use for the combined density
+strategy; it does not reprove their external foundations.
+No $H/h$ table, Chen lower count, imbalance deduction, main/state
+file, Lean formalization or publication claim is part of this work.

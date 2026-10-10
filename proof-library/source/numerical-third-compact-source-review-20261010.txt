@@ -1,0 +1,173 @@
+Independent mathematical/source review of the new compact-third enclosure
+10 October 2026. This review does not run the adaptive integral or establish
+that a pilot has reached the frozen numerical allowance.
+
+Subject: numerical-third-compact-independent-20261010.py. All line references
+below refer to the frozen file bound by this review. The new implementation
+reuses the separately proved112-bit numerator-chord table and160-bit rational
+interval/log arithmetic; it does not import the original E0 enclosure. It
+reconstructs the same analytic inequalities, rather than claiming a new
+analytic formula. This review is a direct examination of those inequalities
+and their implementation, not another execution of the author's integral.
+
+1. Explicit inputs and normalization
+
+The target is the compact part z>=h=1/100 of
+
+ 4 integral_[0<z<=y<=x<=rho, x+y+3z<=Theta]
+ [f0((Theta-x-y-z)/z)-f0((L-x-y-z)/z)] dx dy dz/(xyz^2),
+
+where Theta=299/500, rho=19/96, mu=25/128, f0=f/(2 exp(gamma)) and
+L=min(Theta,Phi) below mu, or v(x) above mu. The reduced envelope identity
+for Phi, and the ordinary sieve definition/monotonicity, remain explicit
+mathematical inputs; this computation does not prove prime distribution.
+On the symmetric extension below mu the reduced Phi is the maximum of
+v(x),v(y),v(x+y),v(x+z),v(y+z),v(x+y+z),W(z), with
+W(z)=153/256-3z/8. Above mu the symmetric extension is v(max(x,y)).
+
+The integer denominator48000*2^24 represents all four fixed cutoffs exactly.
+Every argument passed to the table is dimensionless. The mass formula at
+lines161--164 is exactly
+ 4 log(x1/x0) log(y1/y0) (1/z0-1/z1),
+not an extra factor4 beyond the target normalization. Multiplying a point
+bound in unitsP by the interval mass in unitsP and dividing byP gives the
+correct final unitsP; lower floor and upper ceiling have the right direction.
+
+2. Coverage, pruning, and repeated bins
+
+The finite initial z-cuts include h,mu,rho and an increasing3/2 progression.
+Each z-strip [z0,z1] receives a disjoint rectangular partition of
+[z0,rho]^2 in x,y, additionally cut at mu. This covers every ordered point
+z<=y<=x in that strip. All later integer-midpoint subdivisions partition the
+parent rectangle exactly; largest-relative-span selection affects efficiency,
+not coverage. The fixed cut at mu is preserved by every subdivision.
+
+The three outside tests in line142 use y0>=x1, z0>=y1, or
+x0+y0+3z0>=Theta. An equality case contains at most a lower-dimensional
+ordered/raw-boundary subset and therefore has zero3D measure. The density
+is bounded on the compact z>=h set, so these equality cases may be discarded.
+A boundary rectangle contributes zero lower bound and a nonnegative upper
+bound for its whole rectangular mass; this only enlarges the integral.
+
+The halving rule is used only when the x and y intervals are identical and
+z1<=y0. Below mu the reduced envelope and the raw cube condition are symmetric
+in x,y. Above mu the code explicitly uses the extension v(max(x,y)). Thus
+the ordered half of the square has exactly half the full-square integral,
+even if the raw cube boundary cuts it. Arbitrary partially overlapping x/y
+intervals are NOT halved; they remain conservative boundary boxes. The test
+`full` is stronger and also requires the entire raw cube inequality, as
+needed for Jensen. No lower bound is assigned to an unverified ordered part.
+
+3. Cap ranges and affine selection
+
+For v(t)=min((1+t)/2,57/64-3t/2), a whole interval lower bound is the minimum
+of its endpoint values; an upper bound is the maximum of the endpoints,
+or153/256 if it crosses mu. max over branches preserves both directions.
+W(z) is decreasing. Above mu, v is decreasing, giving precisely the separate
+cap_bounds branch at lines74--75. Taking min with Theta preserves the range.
+All endpoint evaluations are floored on the lower side and ceiled on the
+upper side. Assertions ca>x1+y1 ensure the positive residual numerator used
+for the subsequent argument extrema; failure would abort, not silently prune.
+
+An affine plane is selected only when the exact sign of its difference from
+the other tent plane is constant on the entire box. It then equals that
+tent branch throughout the box, hence is a minorant of the max envelope.
+The extra test max_box plane<=Theta licenses the final clipping. Choosing
+the best among these available minorants by midpoint/range score cannot
+invalidate the bound; an unavailable plane causes no claimed improvement.
+
+There is a necessary special case: above mu on a symmetric square, v(x)
+itself is NOT a pointwise minorant of v(max(x,y)). The code does not use its
+mean there. Instead it uses the exact mean of v(max(x,y)) in Section5 below.
+The diagonal endpoint extrema computed with the plane v(x) are still the
+true extrema of the symmetric residual argument: max(x,y) and x+y increase
+together, and57/64-3max(x,y)/2-x-y stays positive. This exception is essential.
+
+4. Rectangular difference bounds and decay
+
+For2<=s, f0 increases and is concave. Indeed the delay equation gives
+ f0'(s)=[F0(s-1)-f0(s)]/s >=0,
+ f0''(s)=[F0'(s-1)-2 f0'(s)]/s <=0
+on each smooth piece, with compatible one-sided derivatives at the delay
+breakpoints. The definition f0=0 below2 has a derivative jump at2, so global
+concavity across2 must NOT be used. The new code respects this distinction.
+
+The separate extrema in box() use positivity of cap-x-y and Theta-x-y:
+the minimum argument is at largest x,y,z and smallest cap, the maximum at
+smallest x,y,z and largest cap. Thus separate f0 endpoint intervals give
+a valid difference enclosure. The integrand is nonnegative since L<=Theta.
+
+For a fixed increment delta>=0, f0(s+delta)-f0(s) decreases in s>=2.
+For s<=2 it is at most f0(2+delta)-f0(2). Hence lines152--153 use
+s0=max(2,ao/z1) and delta=(Theta-ca)/z0 correctly, including when a boundary
+box extends outside the raw cube. No concavity below2 is assumed.
+
+For D0=F0-f0, D0(s)<=D0(k)(k/s)^2 when3<=k<=s. The implementation selects
+only eligible integer anchors and takes their minimum, always rounding up.
+Because f0(new)<=the common limit<=F0(old), the difference is at mostD0(old).
+When old>=4, f0'(s)<=D0(s-1)/s yields the further upper bound
+ D0(ao/z1-1)*(Theta-ca)*z1/(z0*ao).
+This is exactly line155's expression, with all positive denominators.
+
+5. Product-weighted Jensen and the old chord
+
+Only a `full` rectangle enters mean_upper. There the new argument is>=2,
+so concavity gives E f0(new)<=f0(E new). Under normalized density1/(xyz^2),
+
+ E x=(x1-x0)/log(x1/x0), E y=(y1-y0)/log(y1/y0),
+ E(1/z)=(z0+z1)/(2z0z1).
+
+The code's integer-coordinate/D conversions give exactly these physical
+quantities. Independence of x,y,z gives E new=(Theta-E x-E y)E(1/z)-1.
+The upper interval endpoint for this mean may be passed to increasing f0.
+
+For an affine minorant p=a+b x+d y+e z, b,d<=1 and the residual numerator
+a+(b-1)x+(d-1)y>0, the old minorant argument lies between its diagonal
+endpoints. If that range crosses2, no chord estimate is used. If entirely
+below2, the old lower bound is zero. If entirely above2, the concave f0 lies
+above the line joining its endpoint values. Replacing both values by rigorous
+lower bounds still leaves a lower line, regardless of the line's slope.
+The mean chord uses the exact affine mean and E(1/z). Clipping the interval
+for its interpolation weight to[0,1] is legitimate because that exact mean
+weight belongs to[0,1]. Every multiplication uses signed interval arithmetic.
+
+For the symmetric square above mu, X,Y are independent log-uniform on[a,b].
+Direct integration gives
+ E max(X,Y)=2[b log(b/a)-b+a]/log(b/a)^2.
+Line128 computes this exact quantity as an interval; line129 then uses
+ E old=[57/64-E X-E Y-(3/2)E max(X,Y)] E(1/z)-1.
+Its diagonal range is the one justified in Section3. Applying the chord to
+this exact mean bounds the symmetric target itself; division by2 is then
+valid. Below mu an arbitrary nonsymmetric affine minorant can likewise bound
+the full square first, before halving the symmetric target integral.
+
+6. Ordinary queries and finite aggregation
+
+The new112-bit numerator chords have already been independently justified.
+Their new wrapper interpolates concave L=s f0(s) below and adds
+1/[8 n(i-n)] above; this is M h^2/8 with M<=1/(i/n-1).
+Exact knots have no interpolation error. Division by the positive s and
+conversion by the exact integer factor2^(160-112) preserve the bounds.
+For s>12 the wrapper uses f0(12)<=f0(s)<=F0(12), not extrapolation.
+The extension s<=2 is exactly zero. Anchor differences Hhi-Llo are upward
+bounds. These statements cover arbitrary queried rational arguments, not
+only previously sampled ones.
+
+The heap sums all inserted rectangle lower/upper contributions; before a
+split it removes that parent's contribution and adds its two disjoint
+children. A zero-width contribution is not put in the heap but remains in
+the total, so exact or zero cells are not lost. The loop cannot certify the
+saved allowance merely by exhausting its split limit: status explicitly
+depends on the final exact upper rational being<=the saved upper rational.
+No claim in this review relies on a floating display or on the pilot value.
+
+The output field cell_evaluations is the count of positive-width heap
+insertions, not the number of all box calls. sum(counts.values()) is the
+actual total number of box evaluations. This naming issue does not affect
+integral sums, status or the stream digest; it must be reported accurately.
+
+Conclusion: no incorrect analytic direction, boundary pruning, symmetric
+halving, Jensen range or rounding step was found in this scoped direct
+review. Attainment of the old compact upper allowance is a separate numerical
+run result, and it is intentionally not asserted here. No original leaf
+partition or2M stream has been independently replayed by this reviewer.

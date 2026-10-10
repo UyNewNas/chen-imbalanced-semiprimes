@@ -1,0 +1,402 @@
+Finite compact approximation and actual positive licence reserves
+2026-10-10. New scoped upper-policy proof/audit; frozen sources unchanged.
+
+0. Conclusion and an explicit correction to the preceding parameter note
+
+The actual adopted upper strategy admits a common finite realization with
+positive PREFIX licensing and active-history reserves, and arbitrarily
+small density-approximation error. The argument below supplies the missing
+quantitative compact-approximation details instead of taking mu>0 as an
+unexplained premise. It uses the actual six-branch third envelope, exact
+first-exit/subtree identities and the finite, positive-cutoff adopted
+modifications. It does not assert a positive minimum on their untrimmed
+closed polytopes, or reprove the classical raw Rosser density equalities.
+
+There is one necessary clarification/correction to section4 of
+lichtman-common-parameter-selection-20261010.txt. Its equality
+  x^(vartheta-2zeta)=T^ell
+is an available convenient choice for an already strictly licensed level,
+NOT a requirement on every base W-rescue branch. In general the sufficient
+condition is
+  actual rough support and all relevant squares <= T^ell_aux
+       = x^(vartheta-2zeta),
+  ell_actual+endpoint inflation <= ell_aux.                 (C0)
+The auxiliary exponent ell_aux may be slightly ABOVE the actual frozen
+density cap. The W construction below requires this freedom near its gate.
+It is the original source's intermediate factorization parameter, not an
+increase of the raw tree cap. All density sums, histories, coefficients
+rho and saved integrals continue to use the SAME actual cap lambda.
+
+The greedy support proof is monotone in this upper bound: a full-square
+inequality at T^lambda is also true at the larger T^ell_aux, and the
+whole-slot assignment uses only those inequalities and its licensed
+capacities. Its three monomial bounds concern the auxiliary D, which is
+chosen with strict surplus below the branch endpoint. Therefore (C0)
+preserves the existing signed coefficient and does not replace it with a
+different density weight. No old file is edited by this clarification.
+
+1. Exact base functions and a uniform approximation bound
+
+Use distinct notation throughout:
+  rho=19/96, mu0=25/128, Lambda=153/256, Theta=299/500,
+  A(s)=(1+s)/2, D(s)=57/64-3s/2, v(s)=min(A(s),D(s)),
+  W(z)=Lambda-3z/8.
+On 0<=z<=y<=x<=mu0 the true gated envelope equals
+  L3=max(v(x),v(x+y),v(x+z),v(y+z),v(x+y+z),W(z)).           (C1)
+At x>mu0 the current base uses v(x), not this full formula.
+This is the ordered-envelope identity, not permission to remove arbitrary
+selected gates. I recheck the two ingredients used in finite approximation.
+
+For a nonleading pair, put (s,r)=(x+z,y) or(y+z,x). If v(s)>=v(x), then
+  v(s)-(s+2r)>=gamma,       gamma=3/256.                    (C2)
+For s<=mu0 this is 1/2-s/2-2r>=1/2-5mu0/2. For s>=mu0,
+v(s)>=A(x) implies s<=(25/32-x)/3, so the difference is at least
+23/96-7x/6>=3/256. A pair below v(x) cannot affect the maximum.
+The two W inner minima reduce to W(z) and W(y), since
+(66-34u)/107-W(u)=525/27392+49u/856>0 and
+1-2y>=39/64>Lambda. Their common gate is A(x). Hence their contribution
+TO THE MAXIMUM is max(A(x),W(z)); one does not claim an ungated W action
+at every point. These computations prove the actual gated interpretation
+of (C1), including its ties.
+
+Let B be any closed ordered coarse triple box of coordinate width<=chi,
+contained in x<=mu0. Every branch in (C1) is9/2-Lipschitz in the sup
+norm; the pair-gate differences are7-Lipschitz. Use the original Gamma_B
+rule: maxima of the indicated branch infima, max(A,W) for a W rescue,
+and include a nonleading pair only when its whole-box gate gap>=e.
+Choose e<gamma/100 and chi<min(e/10,gamma/28).
+
+If a pair realizes the maximum at a point of B, (C2) shows that its
+gate gap everywhere on B is at least gamma-7chi>=3gamma/4>e.
+It is therefore included. All other maximizing branches are included
+unconditionally. Each included continuous branch is bounded by L3.
+Taking its infimum loses at most(9/2)chi. Consequently, UNIFORMLY on B,
+  0<=L3(t)-Gamma_B<=(9/2)chi.                              (C3)
+This holds even on a branch tie. It is not merely an almost-everywhere
+convergence argument, and it needs no positive lower cutoff on z.
+
+The extended construction retains first labels with upper endpoint
+<=rho-4e and uses the full Gamma_B rule only on boxes wholly below
+x=mu0-4e. Otherwise it uses inf_B v(x). On the transition portion below
+mu0 we have x>=mu0-4e-chi and
+  0<=L3-v(x)<=Lambda-A(x)<=2e+chi/2.
+Above mu0 the fallback is exactly v(x). Since every branch is<=Lambda
+and Theta-Lambda=11/32000>0, the extended cap is simply
+  lambda_B=Gamma_B-2e < nu=Theta-2e.                       (C4)
+The minimum in the original formula is redundant here. Combining (C3)
+and the transition estimate gives a safe global bound
+  0<=L_endpoint-lambda_B<=4e+6chi                          (C5)
+on every retained ordered triple. Its first cube has positive margin:
+below mu0, v(x)-3x>=gamma; near rho the cutoff gives
+v(x)-3x>=18e, so lambda_B-3x>=16e-O(chi)>15e.
+
+2. Producing a real licence reserve, including the W gate
+
+Freeze e,chi and the finite Gamma_B list before the rough cutoff. The
+actual cap is always lambda_B. For factorization choose an auxiliary
+level on the SAME coarse box, then retain it on its fine refinements.
+Only fixed rational choices and finitely many branch labels are needed.
+
+For a maximizing ordinary v branch, the selected endpoint is at least
+Gamma_B. Choose ell_aux=lambda_B+e/4. Leading-product and singleton
+complement squares are supplied by the actual full support/first cube;
+nonleading pairs that can be needed have the stronger(C2) whole-box
+reserve, not merely the inclusion threshold e. For e,chi as above these
+gates are below ell_aux. The tent licence retains more than e surplus
+after taking vartheta=q ell_aux+2zeta with zeta and|q-1| sufficiently
+small compared with e. If a nonleading pair is everywhere dominated by
+A(x), choose the baseline label instead; it is not needed as a licence.
+
+For a maximizing rescue entry F=max(A(x),W_i), inf_B F=Gamma_B, use this
+explicit whole-box dichotomy (A oscillates by at most chi/2):
+
+  (i) inf_B A >= lambda_B+e/2.
+      Set ell_aux=lambda_B+e/4 and use the singleton-largest licence.
+      At q=1,2zeta<e/20 leaves at least e/5 below A throughout B.
+
+  (ii) inf_B A < lambda_B+e/2.
+      Then sup_B A < lambda_B+11e/20, since chi<e/10.
+      As max(A,W_i)>=Gamma_B=lambda_B+2e at every point, W_i>=Gamma_B
+      everywhere. Set ell_aux=lambda_B+e. It exceeds the W gate by
+      at least9e/20 and lies e below W_i. The other initial-prime
+      square has the independent reserve
+      1-Lambda-2mu0=3/256. The other third-slot inner branch has the
+      positive margin525/8704+49t3/272 at W(t3). Thus small zeta,
+      coordinate perturbations and fine endpoint inflation preserve
+      all the repaired W initialization and continuation inequalities.
+
+This is why requiring every W gate to lie below the ACTUAL lambda_B
+would be too strong. Case(ii) may have A>lambda_B. Enlarging only the
+analytic support envelope as in(C0) solves this without modifying lambda_B.
+It also explains why the exact equality convention in the previous common
+parameter note must not be read as compulsory. The envelopes satisfy
+ell_aux<=Gamma_B-e<=Lambda-e; they do not consume the full-carrier
+Theta=.598 margin. First/second-rank atoms remain in their separately
+proved below-half class. The case distinction is made on coarse data,
+not on an individual modulus or a progression error.
+
+After this construction, there is an explicit positive base licence
+reserve bounded below by a fixed multiple of min(e,gamma), up to the
+already fixed finite small coordinate perturbations. No limit of the
+rough cutoff is being used to create that reserve.
+
+3. The noncompact third tail, with a common dominating function
+
+On the endpoint ordered domain x<=rho,
+  L_endpoint-x-y>=rho.
+This follows from Theta-2rho>=rho and min_[0,rho](v(x)-2x)=rho.
+By(C5), for sufficiently small e,chi,
+  lambda_B-x-y>=u,             u=rho/2,                    (C6)
+uniformly even in boxes meeting z=0.
+
+Put D0(s)=Fbar(s)-fbar(s). The classical ordinary delay identities and
+monotonicity give (s D0(s))'=-D0(s-1), and hence
+D0(s)<=d0(s0/s)^2 for s>=s0>=3, if d0>=D0(s0). In particular d0=1,
+s0=3 is a harmless non-numerical majorant. For ordered old/new levels,
+the difference of the lower sieve values is between0 and D0(smallest
+argument). This uses the common limiting value between Fbar and fbar,
+not a finite signed-weight monotonicity claim.
+
+For 0<h<=u/(s0+1), the entire third correction below z=h, for every
+sufficiently small coarse buffer, is bounded by
+  T3(h)=2 d0 s0^2 h/(u-h)^2
+         *[log^2(rho/h)+2log(rho/h)+2].                    (C7)
+Indeed the z^-2 factor is canceled by the s^-2 bound, while
+integral_(z<=y<=x<=rho) dx dy/(xy)=log^2(rho/z)/2.
+Thus T3(h)->0 uniformly as h->0. The numerator lambda_B-x-y-z is
+at least u-z, and the upper limit in the logarithm remains rho.
+
+This controls the difference between an endpoint third policy and its
+deactivation below T^omega. It is a separate approximation loss; the
+adopted numerical allowance for the whole z<1/100 ideal integral is
+neither removed nor charged again. The two numerical tail allowances
+cannot be confused with the actual activation at p3>=T^omega.
+
+For a concrete order of choices, first select h by(C7) below a chosen
+small fraction of the density allowance. On z>=h all arguments lie in
+a fixed compact interval, with fbar extended continuously by0 at s<=2.
+Let F_h and L_h bound its value and Lipschitz constant on this interval.
+Changing a cap by epsilon changes its integrand by at most
+4 L_h epsilon/(xy z^3)<=4 L_h epsilon h^-5.
+The change from the carrier nu to Theta and from the first stop near rho
+has O(e+chi) loss with an explicit finite constant. For example its
+rank-one strip is bounded by4 F_h(4e+chi)/(rho-4e-chi)^2.
+The third carrier-cube strip has volume at most(2e/3)rho^2, since its
+z coefficient is3; its integrand is bounded on z>=h. These estimates
+plus(C5) make the compact error tend to zero with e,chi.
+There is no unproved limit exchange at unbounded sieve argument.
+
+The second fallback upgrade above mu0 has y>=3/16 and bounded rational
+kernel on both of its closed parameter charts. Its endpoint identification
+uses the same vanishing third tail. The third fallback upgrade has
+z>=5/96 and is compact. Their y>=3/16 and y<3/16 domains are separate,
+and neither changes any higher selected domain below t1=mu0.
+
+4. All adopted higher actions form one finite causal policy
+
+Use the witness-restricted versions of older fourth/fifth/sixth actions;
+no gain from an unmeasured full fifth envelope is required. Their later
+same-node upgrades and comparison-envelope corrections are implemented
+by sequential subtree replacement. A correction to the bound of an old
+integral, a Jensen/log/mixed-moment improvement, and a changed comparison
+majorant do NOT introduce another policy decision or another gain.
+
+After sorting all rational affine branch pieces, the endpoint decisions
+of each adopted rank are piecewise affine on a FINITE arrangement. A
+fixed priority chooses equal candidates. An inherited level can agree
+with its parent on an open region; retain the inherit label there. Such
+a region must not be removed, since a later descendant may improve it.
+Likewise winner identities and a fixed licence buffer are retained as
+identities. A would-be new action whose endpoint equals a required lower
+gate identically has no strictly licensed interval and supplies no such
+action. These two cases are different.
+
+For a proper affine wall a.t+b=0 with a!=0 in a bounded r-dimensional
+box, a width-delta neighbourhood has volume at most
+2delta*rho^(r-1)/max_i|a_i|. A finite union of such strips has volume
+tending to0. Rational strict centers/whole-cell definitions ensure that
+the rows called proper are not identities. Keep the prescribed identity
+rows separately; testing only a list of row labels would not prove this.
+
+Every adopted rank>=4 action has a positive last-coordinate cutoff:
+the original fourth has t4>3/200, old fifth/sixth covers use t5,t6>=1/50,
+and later below-cutoff sixth families have their proved positive compact
+cutoffs. Their rational kernels or ordinary-function differences are
+bounded on compact retained domains. Their admission histories keep
+ordinary upper arguments>=1 and lower arguments>=2; fbar at2 is0.
+There is no new improper small-coordinate tail in these actions.
+
+Freeze a third-prefix partition sufficiently fine to approximate L3
+uniformly on the required projections, using(C3)--(C5). Next freeze
+fourth decisions on their own prefixes and the current actual parent;
+continue through fifth, all ordered sixth changes and eighth. At an
+active new node choose a constant below its endpoint infimum but above
+its required gates and its actual parent supremum. Uniform continuity
+and the compact positive margin make this possible. On an inactive or
+unresolved child box retain its inherited rule. Later refinement inherits
+the already frozen ancestor cap; it does not recompute that cap using
+future coordinates.
+
+Crucially, do NOT delete the projection of every child boundary in parent
+space. That projection may have full measure. Keep the parent partition,
+and handle the boundary at the child's own rank. On a compact union of
+retained children the minimum history gap from their true ancestor is
+positive, so one uniform approximation on the UNION of prefix projections
+is sufficient for all children. This explains causality explicitly.
+
+An even-rank upgrade retains its node and changes only the later odd
+tests. An odd-rank restoration changes that odd test and then its residual.
+Boundary deactivation restores the legal inherited rule, never a new even
+first exit. The exact positive odd-first-exit identity therefore continues
+to hold for every finite construction. Differences of actual raw densities
+telescope in the order of the adopted changes; individual finite signed
+weights are not assumed monotone.
+
+5. The87 eighth domains: explicit common bounds and histories
+
+The four adopted groups are30+15+13+29. The first30 are the old ascending
+seed and the14 ascending/15 descending family, with R6=L3=D23 and mask129.
+The unequal15 are13 winner9/D23-minorant domains, one50A/A23-minorant,
+and one50D/A1-minorant domain. The next13 use A23 with s23<mu0.
+The last29 use A1 and s23>mu0, with the first failure of an OLD D23
+sufficient test at3,5 or7. That failure is not failure of actual admission.
+
+Each group explicitly has
+  H3,H5,H7<B3<=L3,  lambda3<=lambda6_current<=R6,
+  R6<M<S8+3r,  r=t8,                                     (C8)
+and all full/remaining-selected squares below M. The true L3 minorants
+are justified by(C1)--(C2); B3 is not substituted for lambda3. For
+mask138 the complete remaining list is1,3,5,6,7; for129 it is2,...,7;
+the184 and134 families keep their respective four and five complement
+tests. The new cap is the indicated tent branch minus the fixed10^-6.
+The current upper assembly and the four family sources specify these
+conditions; no unadopted actual-sixth-history pilot is included.
+
+For completeness, (C8), order and M<Q=S7+4r imply
+ t7<2r,  t5,t6<6r,  t3,t4<18r,  Q<2t1+54r.
+Since R6>=A(t1) and t1<mu0,
+  r>r0=(1-3mu0)/108=53/13824.                             (C9)
+This gives an absolute bound for all these domains. On their closures
+R6-S8>=r and M-S8>=r, so the conservative kernel
+  k8=4(M-R6)/[(R6-S8)(M-S8)prod_(i=1)^8 t_i]
+is bounded by4Lambda*r0^-10. Its derivative with respect to the NEW cap
+is bounded in absolute value by4r0^-10. Thus removing finitely many
+proper wall strips and lowering new caps by epsilon has a quantitatively
+vanishing error; a singular boundary denominator is not being hidden.
+
+Trim the87 cells to compact pieces first. Set
+ d_H=min_(retained union,j=3,5,7)(B3-H_j)>0.
+Take e,chi so4e+6chi<d_H/3, and ensure their first-prefix projections
+are away from the fallback transition at mu0. Then(C5) gives
+H_j<lambda3 for EVERY retained child using the same third-prefix rule.
+It follows that the previous seventh node is retained and
+  lambda6_current-S8>2t7-r>r.
+Every adopted sixth cap remains below a first-six tent or inherits one,
+so lambda6_current<=R6 irrespective of its precise earlier winner.
+This is why overlapping sixth/eighth cylinders do not require equality
+of the actual parent to the raw R6 majorant.
+
+Choose finite eighth caps m8 approaching M from below, with the whole-box
+initial gates and parent still below m8. On each finite tree the even
+eighth raw difference is g(P8)[V_old^+-V_new^+]. At fixed parameters,
+the SAME raw ordinary equality Fbar(s)=1/s, for1<s<=3, evaluates it.
+Replacing the actual parent by the larger R6 only decreases the saving.
+Cap and boundary errors above tend to0, so the conservative integral
+certificates and their same-domain moment refinements are retained up to
+any chosen positive allowance. No new integral or floor replay is asserted.
+
+These pieces stay disjoint within rank8 by their physical inequalities:
+old equal-parent versus strict L3<R6; opposite old tent halves and
+separated old subset assignment intervals; distinct true raw winners;
+s23<mu0 versus s23>mu0; and the first failed D23 test. Their proper tie
+walls may be trimmed. Their identities are preserved. One does not need
+to classify or certify any other eighth domain to realize these87.
+
+6. Weak squares, compiler, unit terms, and the order of limits
+
+After the marked selected slots have appeared, each later remaining-
+selected test equals S_(j-1)+2t_j. An admitted odd cube gives its own
+square; order gives the following even square from the preceding cube.
+They may be weak at an endpoint and need no independent strict margin.
+The fine compiler inflates their level by O(J tau), chooses the slot
+partition on ordered UPPER endpoints and freezes it for the whole box.
+The auxiliary envelope (C0) and the positive external licence reserve
+absorb this inflation. No factor assignment depending on the individual
+integer is inferred merely from support membership.
+
+Use the SAME frozen history in the full and rough trees. The positive
+odd-first-exit identity gives V_T(w)*rough_density<=full_raw_density,
+not equality. Fine parity rounding gives c(d)>=lambda_raw(d); positive
+terms take beta+ and negative terms beta-. The resulting same rho is a
+pointwise upper majorant even if beta- has a negative divisor polynomial.
+For a finite cap list the total normalized error is at most
+ C_policy tau omega^-5 + C_beta exp(-c/eta)omega^-2 + o_T(1).
+The number of labels is fixed before T, and may be arbitrarily large.
+
+The empty divisor and every residual empty product are retained EXACTLY
+in the first-exit and subtree identities. They are not integrated away as
+a t=0 face. Repeated interval labels carry their existing single factorial
+normalization; equal prime exponents in continuous prefix space do not
+license deleting discrete equal-label contributions. Outer product unit-
+quotient families, if present, have their own limiting dimension. Their
+positive mass on that stratum is retained before outer smoothing. The
+present compact deletion concerns inner full-dimensional proper policy
+walls, not a blanket assertion that every monomial equality has zero mass
+in an outer product family. The outer radial argument remains separate.
+
+Given positive existing density allowance E_d and compiler allowance E_c,
+the following order is explicit and sufficient:
+ (a) Allocate smaller positive fractions to the finitely many telescoping
+     pieces. Select h from(C7), and trim proper higher-rank walls so the
+     bounded-kernel loss in each piece fits its fraction.
+ (b) Choose e,chi satisfying the base inequalities, (C5) and all retained
+     history requirements. Freeze the third coarse rule and recursively
+     the finite higher-prefix caps as in sections4--5. Choose rational
+     auxiliary factorization envelopes by section2 and the selected/W
+     rules. Take the minimum of these finitely many POSITIVE licensing
+     and active-history reserves. This is the mu needed in the common
+     parameter lemma; identities and structural squares are excluded.
+ (c) Choose the source margins zeta,sigma,kappa,kappa0 below this reserve.
+     Take ell_beta=nu0 eta, omega=nu0 eta^2 with eta so small that
+     exp(-c/eta)omega^-2 and T3(omega) fit their fractions, and beta
+     support fits the source licence. Keep omega below all active cuts.
+ (d) Fix rough rank J>theta_star/omega+2, then choose tau so J tau fits
+     (C0) and the licence reserve and C_policy tau omega^-5<E_c's
+     remaining fraction. Every fine box inherits its coarse cap.
+ (e) Only now take T sufficiently large for PP and the fixed-cutoff raw
+     density equalities. The selected remaining strict K slack pays the
+     o_T(1) terms. No estimate uniform as eta,chi,tau vary with T is used.
+
+For fixed e,chi all tail estimates used in(c) are uniform; hence the
+coarse cap list really can be frozen BEFORE omega. There is no need to
+take a minimum over arbitrarily many weak residual-square gaps. The two
+limits, finite construction accuracy and the target tending to infinity,
+are therefore in the required order. Existing density/compiler budgets
+are not added again; the procedure fits smaller fractions of each.
+
+7. Audit boundary and remaining inputs
+
+This proof gives a positive reserve by a stated construction, not by
+reading a saved PASS field. It supplies uniform base approximation(C3),
+the W-envelope correction(C0), common tail(C7), finite wall/cap error
+bounds and the ancestor projection argument for the87 selected domains.
+I find no additional finite-approximation obstruction on that scope.
+
+The following remain genuine inputs: the exact raw ordinary density
+equalities and their classical convergence; the greedy/full/selected/W
+factorization proof (used with a support UPPER envelope); the signed
+compiler's tagged-prime error estimate; the retained correct physical
+domains and outward integral bounds; and the restricted PP theorem for
+the resulting finite class. Their complete reproof and a fresh replay of
+all geometry/integrals are NOT supplied here. The elementary source
+formulas just used have been read directly in the bound sources, including
+the base ordered-envelope proof. The latest large-residue repair is not
+replaced by the old unrestricted L23 citation in older fragments.
+
+No materialized global value of mu, final mesh or effective target T0 is
+computed. The strict current endpoint budget is enough for their finite
+existence; computing an effective T0 would require much more than these
+asymptotic arguments. Constants,87-domain policy, tables, main manuscript,
+research-state and frozen earlier reports are unchanged. The sole wording
+correction to the previous common-parameter note is the optional equality
+versus sufficient inequality in(C0), with the explicit W construction above.

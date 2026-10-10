@@ -1,0 +1,63 @@
+{
+  "status": "PASS_INDEPENDENT_ALL_1190700_FOUR_MIN_FLOORS_GEOMETRY_AND_COST_REPLAY",
+  "author_numerical_imports": false,
+  "shared_independent_engine": "independent_sharp_248_four_min_replay.py",
+  "own_interval_bits": 112,
+  "own_log_terms": 48,
+  "own_omega_mesh": 8192,
+  "counts": [
+    249900,
+    940800
+  ],
+  "strict_counts": [
+    194580,
+    830208
+  ],
+  "methods": [
+    {
+      "3": 1354,
+      "6": 14311,
+      "5": 1167,
+      "12": 60523,
+      "1": 7656,
+      "9": 2367,
+      "10": 18277,
+      "0": 144245
+    },
+    {
+      "6": 10653,
+      "12": 14761,
+      "1": 29651,
+      "10": 12731,
+      "0": 873004
+    }
+  ],
+  "all_rows_checked": 1190700,
+  "floor_shortfalls": [],
+  "stored_total_saving": "5008990161747276788863/75557863725914323419136",
+  "independent_total_lower": "344215937776596284257597246363985/5192296858534827628530496329220096",
+  "usable_total_lower": "5008990161747276788863/75557863725914323419136",
+  "independently_covered_baseline_c_lower": "4690749145630548006723123/2417851639229258349412352",
+  "independently_covered_increment_over_n32": "1273160983725595838039/4835703278458516698824704",
+  "minimum_geometric_integer_slack": 768,
+  "minimum_scaled_floor_slack": "3119120389000413495701102724644864",
+  "stream_sha256": "16e119b67306906b7b0d033c7df5c6e739238c22aa2742a21c196d98870ebf17",
+  "scope": [
+    "All weak-index ordered cells enumerated independently and checked in canonical order.",
+    "All sixteen corners verify full-square, selected-factor and W gates; closed H lookup is recomputed.",
+    "Ordered tied-block logarithmic mass and strict-box multilinear reciprocal cost are recomputed.",
+    "Saved omega or ordinary choice is a witness only; every saved numerical floor is recomputed.",
+    "This replaces the complete n32 U10/U11 patch. Do not add the separate n32 logmean gain.",
+    "Underlying product distribution and finite H table validity retain their separately audited scope."
+  ],
+  "elapsed_seconds": 165.62208970007487,
+  "bindings_sha256": {
+    "independent_sharp_248_four_min48_replay_20261008.py": "d6811714e8f3ab9810fd0b975a97b851fb83e264de8cb8265a0d10406479cdd6",
+    "independent_sharp_248_four_min_replay.py": "fe4e8ef657759e295312ebaf57a5187bb56d420e8129a6aa69ff11a322dce660",
+    "sharp-248-four-min-48.json": "3ab15ce29c820a861269682f51a004c4d9464aa3a4c861d0db71e95aaf78a4ff",
+    "sharp-248-four-min-48.witness.json": "4a7e02a9179da1016a69472ee1f439dc3caf9d06bd45f9e4d1a7e22162c0900d",
+    "sharp-248-four-min-32.json": "8b5154eef4b2d5cbcdd03ce44e30fc67999593ae41e5b0c5cf588ca0f23f2259",
+    "sharp-248-baseline-128.json": "eb33c788676f1fef56c984006d5e130169be0ad67d6b0bd2f2dd1ea55740040c",
+    "expanded-w2-midpoint-table248-v1.json": "a91c371b8c69398619ebee8b17598c163fbf8b6267fa0470ed6930e2097a98ed"
+  }
+}

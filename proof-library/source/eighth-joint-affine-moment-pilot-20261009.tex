@@ -1,0 +1,156 @@
+% New integral inequality and one bounded exact experiment; no policy change.
+\subsection{A common-affine AM--GM moment bound}
+\label{sec:eighth-joint-affine-moment-pilot-20261009}
+
+Let $T$ be a physical eight-simplex, let $g\ge0$ be affine with
+$\int_Tg>0$, and let $\ell_1,\ldots,\ell_{10}$ be strictly positive
+affine factors on its closure. All these conditions hold for the
+frozen unequal-parent winner9 seed used in this experiment. Put
+\[
+ d\nu=\frac{g\,dt}{\int_Tg},\qquad
+ m_j=E_\nu\ell_j,\qquad a_j=\ell_j/m_j,
+ \qquad P=\frac1{10}\sum_{j=1}^{10}a_j.
+\]
+Thus $E_\nu P=1$. The ordinary weighted Jensen bound for the density
+$4g/\prod_j\ell_j$ is
+\[
+ J_T=\frac{4\int_Tg}{\prod_jm_j}.
+\]
+
+\paragraph{Direction, expansion and positive remainder.}
+AM--GM gives $\prod_ja_j\le P^{10}$, so the reciprocal direction is
+\[
+ \prod_j\ell_j^{-1}\ge(\prod_jm_j)^{-1}P^{-10}.
+\]
+Let $U=\max_{v\in\operatorname{Vert}(T)}P(v)\ge1$ and
+$Y=1-P/U$. Positivity and affinity give $0\le Y\le q<1$ throughout
+the closed simplex. The binomial series converges uniformly there.
+Writing $\mu_Y=E_\nu Y=1-1/U$ and $c_k=\binom{9+k}{k}$,
+\[
+ E_\nu P^{-10}-1
+ =U^{-10}\sum_{k\ge2}c_k
+       \bigl(E_\nu Y^k-\mu_Y^k\bigr).
+ \tag{1}
+\]
+Indeed $U^{-10}(1-\mu_Y)^{-10}=1$; the constant and linear terms
+cancel exactly. Every summand is nonnegative by convexity of $y^k$.
+For any fixed integer $p\ge2$ define the finite rational quantity
+\[
+ T_p=U^{-10}\sum_{k=2}^pc_k
+       \bigl(E_\nu Y^k-\mu_Y^k\bigr)\ge0.
+ \tag{2}
+\]
+No estimate of an alternating or signed remainder is required. We obtain
+\[
+ 4\int_T\frac{g}{\prod_j\ell_j}\ge J_T(1+T_p).
+ \tag{3}
+\]
+This conclusion does not assume independence of the factors. It is a
+different lower bound from the existing factorwise log6--exp3 bound;
+the two increments cannot simply be added.
+
+\paragraph{Exact gap-weighted moments and integer protocol.}
+Write the nine vertex gaps as $g_i$, with $G=\sum_i g_i>0$.
+The barycentric law under $\nu$ is the mixture with weights $g_i/G$
+of Dirichlet laws having parameter two at vertex $i$ and one at the
+other eight vertices. For an affine $Y$ with vertex values $y_i$,
+\[
+ E_\nu Y^k=
+ \frac{\sum_i g_i h_k(y_0,\ldots,y_8,y_i)}
+      {G\binom{9+k}{k}},
+ \tag{4}
+\]
+where $h_k$ is complete homogeneous. Individual $g_i=0$ are permitted.
+This is the nine-vertex, total-parameter-ten formula.
+
+For the implementation, scale the gaps to nonnegative integers $g_i$.
+For factor $j$ scale its vertex values to integers $l_{ji}$ with common
+denominator $d_j$, and set
+\[
+ n_j=G\sum_i l_{ji}+\sum_i g_i l_{ji},\qquad
+ m_j=\frac{n_j}{10Gd_j}.
+\]
+Taking $L=\operatorname{lcm}_j n_j$, the exact vertex values of $P$ are
+\[
+ P_i=p_i/L,\qquad p_i=G\sum_j l_{ji}(L/n_j).
+\]
+The source checks the integer identity
+$\sum_i(G+g_i)p_i=10GL$, which is precisely $E_\nu P=1$.
+Let $B=\max_i p_i$ and $y_i=B-p_i$; now $Y_i=y_i/B$ and $U=B/L$.
+The author implementation forms the nine-node coefficients of
+$\prod_i(1-y_i z)^{-1}$ and convolves them with the weighted powers
+$\sum_i g_i y_i^k$. This equals the duplicated-node numerator in (4)
+without calling the independent Newton-identity implementation.
+
+All quantities in (2) are exact rational numbers. The stored protocol is
+\[
+ t_p=2^{-80}\lfloor2^{80}T_p\rfloor,\qquad
+ b_p=2^{-96}\lfloor2^{96}J_T(1+t_p)\rfloor.
+\]
+Given the current certified log bound $b_{\log}$ for this same simplex,
+retain $\max(b_{\log},b_p)$ and record only
+$\max(b_{\log},b_p)-b_{\log}$. The mean gaps, all ten means and the
+exact old $J_T$ are reconstructed from the frozen physical vertices;
+the old geometry and volume certificates are inputs, not newly replayed
+by this author calculation.
+
+\paragraph{Completed bounded experiment.}
+An initial deterministic sample of128 evenly spaced simplex indices
+tested degrees6 and10. Each improved four saved log floors; its
+degree10 increment was approximately $1.5011\cdot10^{-14}$.
+The subsequent complete run used degree10 on all $11{,}026$ original
+winner9 seed simplices, once, and finished in31.88 seconds.
+The current log6--exp3 total and the common-affine-only total are
+respectively
+\[
+ B_{\log}=\frac{475182339168330434688559}{2^{96}},\qquad
+ B_{P10}=\frac{471629548845801509674777}{2^{96}}.
+\]
+Thus the common-affine bound cannot replace the whole old sum.
+Taking the maximum separately on every simplex improves304 terms and
+gives
+\[
+ B_{\max}=\frac{237592771576150817599263}{2^{95}},\qquad
+ B_{\max}-B_{\log}
+ =\frac{3203983971200509967}{2^{96}}
+ \simeq4.04399631334\cdot10^{-11}>0.
+ \tag{5}
+\]
+Every candidate $T_p$ floor and every replacement floor is saved in the
+new compressed witness, keyed by the original simplex index. This is
+an author exact certificate, with a separate independent replay to be
+attributed if completed. No new domain, cap, sieve weight, $K$, $c$ or
+imbalance exponent is adopted by this experiment.
+
+\paragraph{A structural limitation and an uncomputed possible refinement.}
+The common-affine compression discards directions which cancel in the
+sum of the normalized factors. For example, take
+$(a_1,a_2,a_3,\ldots,a_{10})=(1+t,1-t,1,\ldots,1)$ with
+$E_\nu t=0$ and $|t|<1$. Then $P\equiv1$ and every $T_p=0$, while
+the reciprocal product is $(1-t^2)^{-1}$ and the factorwise logarithmic
+gap is positive unless $t$ is constant. Therefore no general dominance
+over the log method follows, even with unlimited degree. Conversely,
+if all $a_j$ coincide, AM--GM is exact; this explains why a common-mode
+bound is mathematically distinct rather than redundant.
+
+One possible next inequality, not evaluated or counted in (5), retains
+the lost directions. Let
+$V_j=\max_{v}\{a_j(v),P(v)\}$. The Hessian of $-\log x$ on the segment
+from $P$ to $a_j$ is at least $V_j^{-2}$, so
+\[
+ -\log a_j+\log P+(a_j-P)/P
+ \ge\frac{(a_j-P)^2}{2V_j^2}.
+\]
+The linear terms cancel pointwise when summed. Exponentiating and using
+$e^z\ge1+z$ for the resulting nonnegative sum yields
+\[
+ E_\nu\prod_j a_j^{-1}
+ \ge 1+T_p+
+ U^{-10}\sum_j\frac{E_\nu(a_j-P)^2}{2V_j^2}.
+ \tag{6}
+\]
+The additional moments in (6) are only degree two. This is a new
+pointwise-derived refinement of the common-affine bound, not permission
+to add the old log increment. Its usefulness and actual numerical
+gain remain untested in this report. The small gain in (5) alone does
+not bound the potential of (6), other domains, or different estimates.

@@ -1,0 +1,66 @@
+Primary sources for the current spectral correspondence and sieve density
+Metadata checked at the linked primary records on 10 October 2026.
+These are external sources, not copies distributed by this library.
+
+1. Edgar Assing, Valentin Blomer and Junxian Li,
+Uniform Titchmarsh divisor problems, arXiv:2005.13915v1 (28 May 2020).
+https://arxiv.org/abs/2005.13915v1
+https://arxiv.org/pdf/2005.13915v1
+Use: (3.1)–(3.8), Lemmas 3.1 and 3.2, PDF pages 7–11.
+The correspondence uses the coprime arithmetic-parameter class only.
+
+2. Alexandru Pascadi,
+Large sieve inequalities for exceptional Maass forms and the greatest
+prime factor of n^2+1, arXiv:2404.04239v3 (15 January 2026).
+Journal reference: Forum of Mathematics, Pi 14 (2026), e8.
+https://arxiv.org/abs/2404.04239v3
+https://arxiv.org/html/2404.04239v3
+https://doi.org/10.1017/fmp.2026.10025
+Use: Theorems A and J; Lemmas D and H; Proposition E. The current
+application retains one common interval and additive phase across levels.
+
+3. Sary Drappeau,
+Sums of Kloosterman sums in arithmetic progressions, and the error term
+in the dispersion method, arXiv:1504.05549v4 (11 December 2016).
+Journal reference: Proceedings of the London Mathematical Society
+114 (2017), no. 4, 684–732.
+https://arxiv.org/abs/1504.05549v4
+https://drappeau.perso.math.cnrs.fr/documents/divtm-siegel.pdf
+https://doi.org/10.1112/plms.12022
+Use: Lemma 4.3, Proposition 4.7 and Lemmas 4.9–4.10 in the cited
+author-hosted version. Formula numbering is version-specific.
+
+4. Matthew P. Young,
+Explicit calculations with Eisenstein series,
+arXiv:1710.03624v2 (3 November 2017).
+https://arxiv.org/abs/1710.03624v2
+https://arxiv.org/pdf/1710.03624v2
+https://doi.org/10.1016/j.jnt.2018.11.007
+Use: Proposition 8.2 and the formal continuous-spectrum normalization.
+
+5. James Maynard,
+Primes in arithmetic progressions to large moduli I: Fixed residue classes,
+arXiv:2006.06572v2 (5 April 2021).
+https://arxiv.org/abs/2006.06572v2
+https://arxiv.org/html/2006.06572v2
+Use: rough cross-coprime grouping (Lemma 13.2) and Poisson-tail distinctions
+(Lemma 13.4). The current proof constructs its own Gevrey majorant.
+
+6. James Maynard,
+Primes in arithmetic progressions to large moduli II: Well-factorable
+estimates, arXiv:2006.07088v1 (12 June 2020).
+https://arxiv.org/abs/2006.07088v1
+Earlier supporting modules refer to this version. These historical
+references do not extend its fixed-residue statements to moving residues.
+
+7. Yuta Suzuki,
+The Rosser--Iwaniec sieve, unpublished notes, 14 March 2023, 102 pp.
+https://www.suzuyu1729.com/notes/NagoyaSeminar2022/RosserIwaniec.pdf
+Use: Proposition 9.4(i), pp. 22-23; Proposition 11.8, pp. 64-65;
+Lemma 14.7, pp. 97-98. These are the dated notes cited in the current
+positive-upper and Chen-lower modules (manuscript Appendices F-G).
+
+See source/final-classical-input-correspondence-20261010.txt for the exact
+variables, coefficient normalization and limitations. This source map is
+not a claim that all cited literature has been reproved or all possible
+uniformity extensions are available.

@@ -1,0 +1,334 @@
+% New proof bridge. All earlier sources and audit files are preserved.
+\subsection{A retained-phase bridge through Proposition 5.2}
+\label{sec:lichtman-prop52-retained-phase-bridge-20261009}
+
+\paragraph{Scope and the two explicit analytic inputs.}
+This note supplies the small-factor, coefficient and error-composition
+argument replacing the invocation of L23 Lemma~4.6 inside its
+Proposition~5.2. It does not assume that the disputed phase-deletion
+estimate is true. The following two inputs are stated separately,
+so that a local replacement cannot silently stand in for a complete
+large-residue dispersion theorem.
+
+\begin{description}
+\item[Input D.] The large-residue version of the preliminary dispersion
+reduction, with $E=1$: for rough $\alpha_n,\Lambda_{d,r}$, full
+auxiliary Siegel--Walfisz for $\alpha$, and divisor-bounded coefficients,
+if $N>QD\log^{C}x$ and $M>\log^{C}x$, then
+\[
+ |\mathcal S|\ll_{A,B}
+ x\log^{-A}x+M(DQ)^{1/2}\log^{O_B(1)}x
+       (|\mathcal E_1|^{1/2}+|\mathcal E_2|^{1/2}).       \tag{D}
+\]
+The actual $\mathcal E_i$ are those at L23 primary text
+lines1660--1682, including the factor $1/d$ in $\mathcal E_2$.
+This input must include a valid treatment of $mn=a$, signs and
+shifted-divisor moments at large $a$; simply citing the fixed-residue
+Maynard proof is not a verification of that extension.
+
+\item[Input S.] The bounded-coefficient well-factorable exponential-sum
+estimate of Lemma~5.1, with fixed $d=x^{o(1)}$, its stated product
+endpoints, and the bounded-$h$/independent-coefficient extensions
+specified below. With source margin $\sigma$, its three size
+conditions $7\sigma,14\sigma,14\sigma$ and $Q<Nx^{-\sigma}$
+give $N^2Q^{-1}x^{-\sigma}$. The proof and spectral input, including
+all occurrences of $a$, are audited separately. The extension does
+not authorize arbitrary weights on the outer $q$ variable.
+\end{description}
+
+The separate $\mathcal E_1$ estimate used below is L23 Lemma~4.7,
+whose statement has $\sup_{a\ne0}$ and whose asserted proof uses
+Cauchy--Schwarz and the Weil bound, not Lemma~4.6. A failure of
+Input D is therefore an earlier obstruction than the replacement
+proved here. Conversely, once D and S are supplied with the stated
+uniformity, the following derivation has no additional unproved
+``precisely of the same form'' step.
+
+\paragraph{Proposition (precise conditional bridge).}
+Let $0<\sigma<1/100$, $0\le\kappa\le\sigma/100$ and
+$0\le\theta<1/2$. Choose the scale $x=NM$; replacing an asymptotically
+equivalent external scale by $NM$ only changes fixed constants and
+can be accommodated by decreasing the available strict margins.
+Let $a\in\mathbb Z\setminus\{0\}$ satisfy $|a|\le x^{1+\kappa}$.
+Assume
+\begin{align}
+ Q_1&<Nx^{-\sigma},                                      \tag{B1}\\
+ N^2Q_2Q_3^2&<x^{1-8\sigma},                              \tag{B2}\\
+ |a|^\theta NQ_1Q_2^5Q_3^2&<x^{2-15\sigma},               \tag{B3}\\
+ N^{1+2\theta}Q_1Q_2^{5-2\theta}Q_3^{2+2\theta}
+   &<x^{2-15\sigma}.                                    \tag{B4}
+\end{align}
+All lengths are at least one. Let $\alpha,\beta,\gamma,\lambda,\nu$
+be one-bounded, with the same roughness, full auxiliary SW, and
+primitive-modulus support assumptions as Proposition~5.2. All
+coefficient and SW bounds are uniform in $a$ if a supremum is taken.
+Under Inputs D and S and the stated uniform Lemma~4.7,
+\[
+ \sum_{q_1\sim Q_1}\sum_{q_2\sim Q_2}\sum_{q_3\sim Q_3}
+ \gamma_{q_1}\lambda_{q_2}\nu_{q_3}\Delta(q_1q_2q_3)
+ \ll_{A,\sigma} x\log^{-A}x,                             \tag{B5}
+\]
+uniformly on this residue range. No use is made of the erroneous
+deletion error of Lemma~4.6. The displayed $|a|^\theta$ is retained;
+it is not replaced by one when applying S.
+
+\paragraph{1. Elementary size consequences.}
+Put $n=\log_xN$, $q=\log_xQ_1$, $u=\log_xQ_2$ and
+$v=\log_xQ_3$. Dropping the nonnegative $\theta\log_x|a|$
+only for the following auxiliary bounds, (B2)--(B3) give
+\[
+ n+u\le\frac49(2n+u+2v)+\frac19(n+q+5u+2v)
+ <\frac23-\frac{47}{9}\sigma.
+\]
+Consequently
+\begin{align}
+ Q_2Q_3N^{3/2}&<x^{5/6-119\sigma/18},                    \tag{B6}\\
+ Q_1Q_2Q_3&<x^{7/10-13\sigma/2}.                         \tag{B7}
+\end{align}
+For (B7), use $q<n-\sigma$, half of (B2), and
+$u<(2-15\sigma)/5$. Also $N\le x^{1/2-4\sigma}$ and
+$N>x^\sigma$ on nonempty length ranges. Thus $M$ is a positive
+power of $x$, all relevant moduli are below $x^{1-\delta}$ with
+an absolute positive $\delta$, and (B6)--(B7) imply the two size
+conditions of Lemma~4.7 with margin $\sigma$.
+More precisely, the safe subrange of Input D needed here can use
+$\delta=\sigma/3$. For all sufficiently large $x$,
+$D=x^{o(1)}\le x^{\sigma/2}$, whence
+\[
+ N>x^\sigma,\qquad M\ge x^{1/2+4\sigma},\qquad
+ QD<Nx^{-\sigma/2},\qquad QD\mathcal R<x^{1-\sigma/3}.
+\]
+The fixed constants in $D\mathcal R\asymp Q_2Q_3$ are absorbed
+by the fixed positive gap in (B7). Thus a preliminary dispersion
+repair proved only under these additional power margins is enough;
+no extension to arbitrarily short $M$ or $N$ is required here.
+
+\paragraph{2. Smooth parts, including the modulus multiplicity.}
+Write
+\[
+ z_0=x^{1/(\log\log x)^3},\quad y_0=x^{1/\log\log x},
+ \quad q_2=u s_2,\quad q_3=v s_3,
+\]
+where $P^-(u),P^-(v)>z_0$ and $s_2,s_3$ are $z_0$-smooth.
+The terms with $s_2>y_0$ or $s_3>y_0$ are negligible with arbitrary
+logarithmic saving. Here is a weighted justification of this familiar
+smooth-part deletion, rather than multiplying an unweighted estimate
+by $\max\tau(q)^B$.
+
+The outer convolution has $|c_b|\le\tau(b)$ and is supported on
+$b\asymp x$. Grouping $q_1q_2q_3=l$ gives at most $\tau_3(l)$
+representations. The standard primitive progression divisor bound
+(Shiu, with zero shift and progression length $\asymp x$) bounds
+the absolute counting and mean terms by
+$x\tau(l)^C\log^C x/l$, uniformly in the primitive residue.
+This uses no moment of $\tau(b-a)$ and no fixed-size representative
+for $a$; the residue may first be reduced modulo $l$.
+For $\xi=1/\log z_0$, splitting $l$ into its smooth and rough parts,
+\[
+ \sum_{\substack{l\ll Q_1Q_2Q_3\\\operatorname{sm}(l;z_0)\ge y_0}}
+       \frac{\tau(l)^C}{l}
+ \ll \log^{C'}x\,y_0^{-\xi}
+       \prod_{p\le z_0}\sum_{j\ge0}(j+1)^C p^{-j(1-\xi)}
+ \le \exp\{- (\log\log x)^2+O_C(\log\log x)\}.             \tag{B8}
+\]
+The bound beats every inverse power of $\log x$. The modulus
+multiplicity has already been included by increasing $C$.
+
+Dyadically fix the four rough/smooth lengths and the total rough
+length $\mathcal R$, with $u\sim U$, $v\sim V$, $uv\sim\mathcal R$,
+$\mathcal R\asymp UV$, and $d=s_2s_3\sim D$. There are only
+logarithmically many such length choices. Keep all small factors
+inside the same dispersion problem; do not sum a logarithmic-error
+estimate separately over $x^{o(1)}$ individual values of $d$.
+We have $D\ll y_0^2=x^{o(1)}$ and $D\mathcal R\asymp Q_2Q_3$.
+Define exactly
+\[
+ \Lambda_{d,r}=\sum_{s_2s_3=d}
+   \sum_{uv=r}\lambda_{us_2}\nu_{vs_3}
+       \mathbf1_{\text{all fixed intervals and smooth/rough supports}}.
+                                                               \tag{B9}
+\]
+There is no summation over $q_1$ in this definition and no dependence
+on it. Since $(d,r)=1$, $|\Lambda_{d,r}|\le\tau(d)\tau(r)=\tau(dr)$.
+The original coefficient $\gamma_{q_1}$ remains outside this convolution.
+
+\paragraph{3. Dispersion and the first exponential sum.}
+Apply D with $Q=Q_1$, rough length $\mathcal R$ and the whole dyadic
+$d$ range. By (B1), $N>QD\log^Cx$ for all sufficiently large $x$;
+the other length hypothesis follows from (B2). The natural Fourier
+cutoffs are
+\[
+ H_1=\frac{QD\mathcal R}{M}\log^5x,
+ \qquad H_2=\frac{QD\mathcal R^2}{M}\log^5x.                 \tag{B10}
+\]
+The coefficient $\Lambda_{d,r}$ is independent of $q$, so Lemma~4.7
+applies. Equations (B6)--(B7), and $D\mathcal R\asymp Q_2Q_3$,
+give
+\[
+ |\mathcal E_1|\ll \frac{N^2}{DQ}x^{-\sigma}.              \tag{B11}
+\]
+Fixed multiplicative constants in the dyadic lengths fit the strict
+power margins. The one-bounded inputs $\alpha,\beta$ require no
+new truncation before this application. The divisor bound in (B9)
+is allowed by D and will be expanded exactly in the second sum.
+
+\paragraph{4. Keep $d$ fixed; do not replace $q$ by $qd$.}
+Write the exact second sum as
+\[
+ \mathcal E_2(a)=\sum_{d\sim D}\frac1d\,\mathcal E_3(a;d), \tag{B12}
+\]
+where $\mathcal E_3$ has denominator $qr_1r_2$, congruence modulo
+$qd$, the two original phases containing $qd$, and cutoff $H_2$.
+When bounding a supremum, first take absolute values term by term
+in this identity. The source's line2593 inserts an extra $1/d$
+in its displayed simplified $\mathcal E'$ although line2564's
+$\mathcal E_3$ has none; (B12) fixes the normalization without
+relying on that inconsistency.
+
+At fixed $d$, reciprocity gives the exact extra factor
+\[
+ e\!\left(\frac{ah}{qdr_1r_2n_1}\right).                 \tag{B13}
+\]
+In the five normalized variables $(q/Q,r_1/\mathcal R,
+r_2/\mathcal R,n_1/N,h/H_2)$, its coefficient is
+\[
+ \frac{aH_2}{Qd\mathcal R^2N}
+ =\frac ax\frac Dd\log^5x.
+\]
+Since $d\sim D$, no extra positive power from $d$ appears in the
+variation. The retained-phase candidate, with positive and negative
+$h$ split, gives a factor
+$x^{5\kappa+o(1)}$, adds one $n_1$ endpoint, and partitions
+$(n_1r_2,n_2)$ into the fixed cross-coprime sets.
+
+The outer variable is still the original unrestricted interval of
+$q$. Replacing it by $q'=qd$ and then restricting a theorem for all
+$q'$ to the multiples of $d$ would be invalid. It is unnecessary:
+Lemma~5.1 itself has a fixed $d$, congruence modulo $qd$, and $dq$
+inside its inverse phase. Its denominator is $qr_1r_2s_1s_2$,
+with no factor $d$, just as required by $\mathcal E_3$.
+The Fourier length in (B10) is admissible because
+$D\log^5x=x^{o(1)}$ in the lemma's condition
+$H'\le x^{o(1)}QR^2S^2/M$.
+
+\paragraph{5. Both small-factor choices must be expanded.}
+In $\Lambda_{d,r_1}\overline{\Lambda_{d,r_2}}$, choose independently
+$(s_2,s_3)$ and $(\widetilde s_2,\widetilde s_3)$, both with product
+$d$. There are at most $\tau(d)^2=x^{o(1)}$ choices. For each,
+the rough factors on the two sides have independent one-bounded
+sequences
+\[
+ \lambda_{us_2},\quad\lambda_{u\widetilde s_2},\qquad
+ \nu_{vs_3},\quad\nu_{v\widetilde s_3}.
+\]
+Their actual support intervals, and all original $us_2\sim Q_2$
+and $vs_3\sim Q_3$ restrictions, are included in those sequences.
+The endpoints for each total rough product are exactly the allowed
+cutoffs $r_is_i\le B_i$ of Lemma~5.1.
+
+Apply the non-Hermitian four-phase polarization separately in the
+two $\lambda$ sequences and the two $\nu$ sequences. After dividing
+each sum of two one-bounded sequences by2, this costs at most
+$4^2=16$. The independent $n_1$ endpoint costs at most another4.
+Thus the total constant is at most64, besides $\tau(d)^2$; no equality
+of the small-factor choices is assumed. Polarization is after the
+dispersion use of SW, so the resulting sequences need only be bounded.
+The bounded one-sided $h$ weights are permitted by the proof-level
+extension of S; they are not arbitrary $q$ weights.
+
+In Lemma~5.1 notation use $S=U=Q_2'$ and $R=V=Q_3'$.
+All powers of $Q_2',Q_3'$ in (B2)--(B4) are positive, including
+$5-2\theta$, so their size conditions with $7\sigma,14\sigma$
+follow from (B2)--(B4), after the fixed dyadic constants. Therefore
+\[
+ |\mathcal E_3(a;d)|
+ \ll\frac{N^2}{Q}x^{-\sigma+5\kappa+o(1)}.                \tag{B14}
+\]
+The subpower term includes small-factor pairs, coloring, divisor
+normalizations, product endpoints and logarithmic variation.
+It is uniform for $d\ll y_0^2$ and the fixed SW family.
+
+\paragraph{6. Final $d$ sum and the square root.}
+In a dyadic $d$ interval, $\sum_{d\sim D}1/d=O(1)$.
+Equation (B12) consequently preserves (B14) without an artificial
+factor $D$. To match the normalization of D, absorb the additional
+$D=x^{o(1)}$ as well. Choose $x$ sufficiently large that the whole
+subpower loss in these steps is at most $x^{\sigma/10}$. Since
+$5\kappa\le\sigma/20$, this proves the deliberately weaker bound
+\[
+ |\mathcal E_1|+|\mathcal E_2|
+ \ll\frac{N^2}{DQ}x^{-\sigma/2}.                          \tag{B15}
+\]
+Substitution into (D) yields
+\[
+ M(DQ)^{1/2}(|\mathcal E_1|^{1/2}+|\mathcal E_2|^{1/2})
+ \ll x^{1-\sigma/4}.
+\]
+All remaining fixed logarithmic powers are harmless, for example
+giving $O(x^{1-\sigma/5})$ for sufficiently large $x$. Take the
+logarithmic exponent in D larger than the requested $A$ plus the
+finite number of dyadic decompositions. Together with (B8) this
+proves (B5), subject exactly to the inputs at the beginning.
+
+\paragraph{7. Coefficient scope and the unresolved earlier boundary.}
+This proposition is the one-bounded Proposition~5.2 bridge. It is
+not automatically a theorem for arbitrary divisor-bounded HB
+convolutions. A log-height truncation of a rough SW sequence preserves
+SW by the separate Lemma~4.3, but discarding the large coefficients
+in moving progressions requires a valid uniform shifted-divisor
+estimate and handling of $nm=a$. No $x^{o(1)}$ multiplier is allowed
+to be silently applied to a merely logarithmic remainder. In this
+proof, the only $x^{o(1)}$ multiplicities occur after dispersion and
+are paid by a power saving; the original outer coefficients are
+already one-bounded.
+
+Before the separate supplements assembled in section~8, the earliest
+unjustified statement in a direct invocation of the source was Input D
+for the moving residue. Maynard~I
+Lemmas14.2--14.3 use $\tau(mn-a)$ and a fixed-shift divisor-moment
+bound. The formal expressions at $mn=a$ contain $\tau(0)$ and
+cannot be justified by the fixed-residue text. In particular the
+extra condition $Q_1Q_2Q_3<\sqrt{xN}$ does not follow from
+(B1)--(B4); it may not be used to hide this issue. A separate
+zero-deletion/shifted-moment reconstruction is necessary to supply D.
+The present note does not claim it by fiat. Nor does this note
+re-prove the spectral estimate in S or the downstream small-product
+tail and finite-tree applications. It provides the complete
+$D+S\Longrightarrow$(B5) bridge with the disputed deletion step
+removed and all small-factor and endpoint losses exposed.
+
+\paragraph{8. Restricted assembly with the separately supplied repairs.}
+The preceding proposition separates its inputs so that it also records
+precisely what remains conditional in the general $\theta$, all-$a$
+form.  At completion of this note three new, separately reviewed
+documents supply the needed inputs in the following smaller subclass:
+\[
+ \theta=7/32,\qquad c_0x\le |a|\le x^{1+\kappa},\qquad
+ 0\le\kappa\le\sigma/100,
+\]
+where $c_0>0$ is fixed and all four conditions (B1)--(B4) are retained.
+The zero-product dispersion supplement and its independent review
+supply D for $\delta=\sigma/3$.  Section~1 proves every extra power
+margin that supplement requires.  The large-residue Lemma~5.1 audit
+supplies S for the actual coprime spectral subclass: its level is
+$z=s_1s_2$ with $(a,z)=1$, a condition already present and preserved
+in the inner rough-factor sums here.  It replaces the printed
+phase-free same-eigenvector shortcut by a packet norm with retained
+phase; no unrestricted non-coprime spectral assertion is needed.
+
+Finally the direct Maynard~I Lemma~17.2 supplement, with the independent
+E1 review, gives (B11) with the weaker exponent $\sigma/2$, which is
+exactly enough for (B15).  It uses $|a|\ge c_0x$ and $\theta=7/32$;
+these hypotheses may not be dropped.  Its allowed $q$-dependent
+coefficients justify the fixed-$d$ substitution $q'=dq$ in E1 only.
+This is different from the E2 argument of section~4.
+
+Consequently (B5) is derived for this restricted subclass, relative
+to the explicitly named classical Shiu, Weil, Poisson, SW and spectral
+inputs in those three documents.  The composition is an analytic
+derivation, not a machine proof or a reproof of those external
+theorems.  It does not assert the original complete large-residue
+Theorem~1.7 or the unrestricted version of Theorem~1.8.  The original
+deletion proof remains invalid as written.  Project-wide HB and
+small-product applications and the separate reported Wu issue are
+outside this proposition; no global numerical record is reinstated.

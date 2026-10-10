@@ -1,0 +1,145 @@
+% Research synthesis, pending the separately named chain reviews.
+% The open manuscript and all previous certificates remain unchanged.
+\subsection{The own-count route and its precise completion boundary}
+
+For even $N$, use
+\[
+ \mathcal H_N=C_NN/\log^2N,\qquad
+ C_N=\prod_{p>2}(1-(p-1)^{-2})
+       \prod_{p\mid N,\ p>2}\frac{p-1}{p-2}.
+\]
+Let $D_{1,2}(N)$ count primes $p<N$ for which $N-p>1$ has at most
+two prime factors counted with multiplicity.  For $0<b<1$, let
+$D_b(N)$ count those with $N-p=rq$, $p,q$ prime, $r=1$ or prime,
+and $r\le q^b$.  Count each $p$ once, using $r\le q$ for a
+composite $N-p$.
+
+\paragraph{The standard analytic inputs being used.}
+The route uses the versioned L23 (arXiv:2309.08522v1) Proposition 5.2,
+Proposition 3.2 and Lemma 3.4, the arbitrary-subinterval form proved
+in Maynard II (arXiv:2006.07088v1), classical/generalized
+Bombieri--Vinogradov strictly below $1/2$, ordinary prime and
+M\"obius Siegel--Walfisz, the classical Rosser linear-sieve
+first-exit density formulae and fundamental lemma, PNT/Mertens,
+and the unconditional spectral bound $\sigma\le7/32$.
+No EH or eigenvalue conjecture is added.  Accepting these cited
+external theorems is different from leaving a new project interface
+as an assumption.  The actual interfaces required below must be
+proved by the named local constructions and checked against the
+actual coefficients, rather than certified by status strings.
+
+\paragraph{The local own-count implication.}
+The pointwise Chen weight must first supply
+\[
+ D_{1,2}(N)\ge
+ \frac{3Y_1+Y_2+Y_5+Y_6-Y_3-Y_4-2Y_7-Y_8-Y_9-Y_{10}-Y_{11}}4
+ -o(\mathcal H_N),
+\]
+where the $Y_j$ are the actual counts with their original
+multiplicities, including the full eleventh family.
+The new table-insertion chain is responsible for the exact meaning
+and proof of this inequality, the same-$248$ table on each licensed
+averaged family, and the entire matching $H$ removal at the $L_2$
+start change.  It may not insert a table at an unlicensed empty
+prefix, or use an arbitrary arithmetic restriction of a licensed
+family.  The starting-lower compiler chain must separately produce
+the actual lower divisor weight, with the correct sign-sensitive
+small-prime attachment, residual density equalities at every
+attained argument, and a signed remainder estimate uniform in $N$.
+These are the subjects of
+\texttt{own-chen-table-insertion-chain-20261009.tex} and
+\texttt{own-lower-compiler-chain-audit-20261009.tex}.
+
+Once those precise implications are available, the separately
+reconstructed numerical estimates enter the original weighted
+functional, rather than being added as unrelated improvements.
+The exact result of this replacement is
+\[
+ c_*=
+ \frac{10163509754447779483085347508831555}
+      {5192296858534827628530496329220096}
+ >c:=\frac{9787}{5000}.
+\]
+Its complete component list and the full-versus-shared numerical
+replay scopes are fixed by
+\texttt{lower-start-method-coverage-20261009.json} and
+\texttt{global-new-methods-independent-assembly-20261009.json}.
+In particular the newly recalculated pure fifth-layer bound
+replaces the old fifth value, the two additional fifth covers are
+disjoint, and no retained pre-Jensen floor is used.  The $1600$-mesh
+third estimates are new estimates of a previously reviewed independent
+engine; they are not labelled a second implementation of that grid.
+
+Set $\eta=(c_*-c)/4>0$.  Apply the joint finite causal approximation
+to both original lower occurrences together, with weighted loss
+less than $\eta$.  Choose all table generations, cutoffs, partitions,
+branch labels, buffers and the small-prime/fine-box parameters before
+$N$ tends to infinity.  Allocate a further $\eta$ to the total
+compilation loss in the complete coefficient.  The remaining
+arithmetic errors are $o(\mathcal H_N)$ along all even $N$.
+Consequently the local interfaces and numerical bounds imply
+\[
+ \liminf_{N\to\infty,\ 2\mid N}\frac{D_{1,2}(N)}{\mathcal H_N}
+ \ge c_*-2\eta>c=1.9574.
+\]
+The normalization and the uniformity of the target-dependent Euler
+factors are proved explicitly in
+\texttt{own-route-uniform-singular-series-20261009.tex}.
+No external numerical Chen counting constant is used in this route.
+
+\paragraph{The bad-set subtraction is exact.}
+Define
+\[
+ B_b(N)=\#\{p<N:N-p=rq,\ p,r,q\text{ prime},\ q^b<r\le q\}.
+\]
+Unique factorization gives the exact identity
+$D_b(N)=D_{1,2}(N)-B_b(N)$ for the definitions above.  A prime
+$N-p$ corresponds to $r=1$ and is always good.  A square $q^2$
+is included in the bad set when $b<1$; it is not silently omitted
+from this identity.  The diagonal may be discarded only as the
+separately bounded $O(\sqrt N)$ error in the upper estimate.
+
+For either value of $b$ used below, and more generally for
+$1/2<b<1$, the common-weight upper theorem of
+\texttt{actual-k-joint-theorem.tex}, with its density, compilation,
+distribution and positive-assembly proofs, supplies
+\[
+ \limsup_{N\to\infty,\ 2\mid N}\frac{B_b(N)}{\mathcal H_N}
+ \le K\log(1/b),\qquad K=\frac{67619}{10000}.
+\]
+Its finite upper strategy has strict density slack below $K$;
+no single strategy is required to attain its limiting endpoint.
+The moving-residue supremum and the positive radial smoothing in
+that proof preserve every sufficiently large even target.  The
+normalization $\log(1/b)$ comes from the ordered semiprime mass
+$\int_{b/(1+b)}^{1/2}dt/[t(1-t)]$ and introduces no factor of two.
+
+The exact rational logarithm enclosure then proves
+\[
+ c-K\log(50000/37433)>\frac1{100000},\qquad
+ c-K\log(100000/74867)>\frac1{10000}.
+\]
+Subtracting limsup from liminf, and using these strict margins to
+absorb the final errors, yields respectively
+\[
+ D_{37433/50000}(N)\ge\frac{\mathcal H_N}{100000},\qquad
+ D_{74867/100000}(N)\ge\frac{\mathcal H_N}{10000}
+\]
+for every sufficiently large even $N$, provided the local own-count
+interfaces just specified are established.  Since $C_N\ge C_2>0$,
+both bounds imply existence for all such $N$.  No effective threshold
+is claimed.
+
+\paragraph{What still separates this synthesis from the full goal.}
+This document supplies the final implication, not a replacement
+for the local analytic and numerical proofs on which it depends.
+The companion review must say whether those interfaces are actually
+closed or remain assumptions.  A strict rational comparison proves
+$0.74866<\exp(-1.9728/[2e^{-\gamma}6.06932])$, the one accepted
+published-constant-derived benchmark previously used in the project.
+It does not prove that this benchmark exhausts prior theorems or
+all available parameter choices.  The current primary-source audit
+and its unresolved full-text coverage are therefore kept separate.
+Neither a smaller coefficient bound nor a collection of local
+passes by itself establishes the requested superiority to every
+frontier result.  Formalization and GitHub remain user-paused.

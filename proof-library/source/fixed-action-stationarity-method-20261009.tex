@@ -1,0 +1,68 @@
+\subsection{An exact stopping criterion for the fixed action bank}
+Let $Q=2^{80}$, and retain the saved grid of200 cells and106 actions.
+The two arrays $H,h$ here are integer numerators of certified finite
+lower defects, not exact values of the analytic double-sieve functions.
+Each transition forms nonnegative weighted sums from the previous
+generation, takes the same prescribed downward integer floors, and
+retains the preceding entry by a maximum. Write this fixed map as $T$.
+It is order-preserving and $T(X)\ge X$ componentwise.
+
+If a finite execution from $X_0$ reaches $U$ with $T(U)=U$, then every
+subsequent execution of this same fixed map equals $U$. More generally,
+if $X_0\le U$ and $T(U)\le U$, monotonicity gives $T^j(X_0)\le U$ for
+every $j$. Thus a finite exact stationary vector is an upper bound on
+all further gains obtainable by this particular rounded recurrence.
+It is not an upper bound on the true sieve functions, better quadrature,
+another grid, or a larger action bank. No infinite analytic limit is
+inserted into the prime-counting argument.
+
+The first experiment retains $K=6.7618$ and starts from the adopted
+312-generation array. After63 changing steps, one further step is
+exactly stationary. The maximum remaining change in $H$ is below
+$3.485\times10^{-16}$. The second experiment first replaces the action
+baselines using the already proved $K'=6.761767$. For a saved certified
+net baseline slope $a_j>0$, it adds only
+\[
+ \left\lfloor Q(6.7618-K')a_j\right\rfloor
+\]
+to the saved312 baseline numerator. These are the previously audited
+net slopes: the reduction of a positive variable-kernel saving is
+already subtracted. All weights, targets, physical ceilings, and actual
+state restrictions remain unchanged. After118 changing steps, one
+more step is exactly stationary, so only a finite430-generation table
+is needed. These finite states inherit the established typed induction;
+the check of stationarity does not substitute for that induction.
+
+For a bound on the potential improvement in the already used $U_3,U_4$
+occurrences, let $\delta_H$ be the maximum cell increment from the old
+312 table to a specified final vector. At common endpoints the change
+of the adjacent minimum is also at most $\delta_H$.
+In both costs the residual logarithmic level satisfies $L\ge1/6$:
+the first segment has $L=(1-t)/2$, the enhanced middle segment has
+$L=57/64-5t/2$ up to $t=57/224$, and the last classical segment has
+$L=1/2-t$ with $t\le1/3$.
+Using $a=417/5000$ and $d=59/250$, the Chen-coefficient gain is at most
+\[
+ 6\delta_H\left(\log\frac{1/3}{a}+\log\frac d a\right).
+\]
+The factor4 in each cost cancels the global Chen factor$1/4$.
+Positive-series logarithmic upper bounds make this rationally checkable.
+For the first arm it is less than $5.072\times10^{-15}$, providing a
+precise reason not to continue iterating the unchanged bank merely to
+gain more digits. The second arm's coarse bound is not a positive
+gain certificate; its actual insertion must be computed separately.
+
+For the second arm, the companion one-dimensional certificate pulls
+each cell back under $s=\max(2,(A-Bt)/a)$ and integrates its constant
+nonnegative difference exactly up to a positive logarithm lower bound:
+\[
+ \int_l^r\frac{\delta}{t(A-Bt)}\,dt
+ =\frac{\delta}{A}\log\frac{r(A-Bl)}{l(A-Br)}.
+\]
+It retains the existing clamp at$s=2$ and the shared first segment's
+multiplicity2. This is a replacement difference from the312 table;
+the older248-to312 gain is not added again. All other table occurrences,
+minimum comparisons and ordinary restoration terms stay at their
+recorded choices. Any future global adoption must pay additional
+finite approximation and compiler allowances and use an independently
+verified finite recurrence and insertion certificate.

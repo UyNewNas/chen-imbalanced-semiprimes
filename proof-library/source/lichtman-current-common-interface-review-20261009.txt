@@ -1,0 +1,198 @@
+Common normalization and finite-family quantifiers in the current assembly
+9 October 2026. Root's direct mathematical interface review.
+
+Scope
+
+This note does not replace the new upper-density and lower-density reviews.
+It isolates the common interface needed when those two arguments are joined
+to the repaired (PP) discrepancy. The restricted convolution proof and its
+classical/spectral inputs remain explicitly separate inputs. This note does
+not claim a reproof of the unrestricted Lichtman theorem, external peer
+review, formalization, or identification of the unspecified Wu typo.
+
+1. Same coefficient and positive product mass
+
+Let H_T=C_T*T/log(T)^2, with T even. For a fixed finite upper strategy
+write R_T(n)=sum_{d|n}rho_T(d). Require all of the following for this SAME
+rho_T: |rho_T(d)|<=1; squarefree support with (d,T)=1 and d<=T^theta,
+theta<3/5; R_T(n)>=1_{(n,P_T(T^r0))=1} for every integer n including 0;
+and sum_d rho_T(d)/phi(d)<=(K+o(1))*C_T/log T. Here r0<1 is fixed.
+These are coefficient and density hypotheses, not consequences of PP.
+
+Fix k_*, a_*>0 and finitely many nonnegative labelled geometric product
+families, each with at most k_* prime slots, every prime >=c*T^a_*, total
+product O(T), and fixed bounded label coefficients. The family may include
+the canonical prime factorizations of a rough quotient, including its
+unit quotient as a separate lower-dimensional family. It may not insert
+an arbitrary arithmetic filter on an outer prime or an HB slot.
+
+For a nonnegative smooth tuple weight W_T of such a family, let X_W be
+its total unsifted mass, and X_W^(d) the mass with product coprime to d.
+For every prime p,
+
+  sum_{d:p|d} |rho_T(d)|/phi(d)
+      <= (p-1)^(-1) sum_{e<=T^theta/p} 1/phi(e)
+      << log T/(p-1).
+
+Thus replacing the exact mean in PP by X_W costs
+O_{a_*,k_*}(X_W*T^(-a_*)*log T), by the union bound over the actual slots.
+It costs no factor T^theta. If X_W=O(T/log T), this is o(H_T).
+Apply the pointwise nonnegative majorant first, then PP and this mean
+replacement. If X_W=(J_W+o(1))*T/log T, the resulting upper count is
+(K*J_W+o(1))*H_T. A limsup mass bound J_W<=J is sufficient as well.
+
+For k>2 the small remaining prime 0<T-product<T^r0 contributes at most
+T^(r0+o(1)), since a fixed number of labelled prime factorizations of one
+integer is bounded by a fixed divisor function. This replaces the
+special two-prime O(T^r0) observation in actual-k-positive-assembly.tex.
+Likewise, products <2*T^(1-kappa0) cost T^(1-kappa0+o(1)) after the full
+modulus sum, since the shifted integer is then nonzero. Exact products
+equal to T in smoothed weights cause no sign reversal because R_T(0)>=0;
+their treatment in the HB discrepancy is a distinct already stated step.
+
+Sharp geometric families are approached by nonnegative smooth majorants
+in simplex variables and product/T. Product equalities are treated in the
+radial variable, and a unit quotient is explicitly retained, not declared
+to be a zero-volume part of a higher-dimensional integral. After applying
+the positive bound, let T grow, then let the fixed smoothing mass tend to
+zero. Small boundary mass on its own is not a signed-discrepancy estimate.
+This proves the general positive-product implication, conditional on the
+same-rho upper hypotheses and the licensed PP statement. It is stronger
+than just the bad-semiprime removal bound and is what the H/h bank needs.
+
+2. Target-uniform normalization
+
+Use precisely C_T=C_2*product_{p|T,p>2}(p-1)/(p-2). Direct multiplication
+gives the identity in own-route-uniform-singular-series-20261009.tex:
+
+ V_T(z)/(2*M(z)*C_T)
+  = product_{p>=z}(1-1/(p-1)^2)^(-1)
+    * product_{p|T,p>=z}(1-1/(p-1)),
+
+where M(z)=product_{p<z}(1-1/p). Its logarithm is bounded in absolute value
+by (1+log T/log z)/(z-2). Therefore for every fixed u>0, Mertens' theorem
+implies V_T(T^u)=2*exp(-gamma)*C_T/(u*log T)*(1+o_u(1)), uniformly along
+all even T. No exceptional target set or bounded number of prime factors
+of T is assumed. Also C_T>=C_2>0.
+
+For a marked squarefree prefix B with a fixed number of primes, each
+>=T^a_*, phi(B)/B=1+o(1) and C_(BT)/C_T=1+o(1) uniformly on fixed boxes.
+The primes dividing T can be removed from that tuple family with
+O(T^(1-a_*+o(1))) mass; this is a deletion estimate, not a claim that an
+arbitrarily filtered prime coefficient has the SW property.
+
+At total exponent nu and marked exponent S, L=nu-S>0, take a nonnegative
+marked family sigma(B)>=0 and a nonzero normalization Theta_Q>0. Empty
+families give no term. The table mass is
+
+ Theta_Q=4*li(T)*sum_B sigma(B)*C_(BT)/(phi(B)*log(Q/B)).
+
+Its ratio to H_T tends to 4*integral dmu/L, where
+dmu=product_i dt_i/t_i. Appending exponent L*u changes the normalized
+child mass by du/[u*(1-u)], and appending L*u,L*v by
+du*dv/[u*v*(1-u-v)]. These are the same factors in the actual H/h
+recurrence; the global Chen factor 1/4 cancels the 4 once in U3/U4.
+It would be incorrect either to divide their table difference by 4
+again or to rescale K by the child's residual level.
+
+For a W1 switched mass, let I be a fixed upper bound on its normalized
+integral throughout the entire nonnegative marked family. Its actual
+unsifted mass is then at most (I+o(1))*T*sum_B sigma(B)/(phi(B)*log(Q/B)).
+The positive-product bound of part 1 divided by Theta_Q is at most
+K*I/4+o(1), using C_T<=C_(BT). If the integral varies with B and no uniform
+bound has been taken, retain its nonnegative weighted average instead;
+it cannot simply be pulled out of the prefix sum. Actual finite boxes
+use their uniform kernel bounds or this integrated version. The pointwise
+W1 inequality has leading factor 2, producing the cost K*I/8. For W2
+the corresponding factor 5 is applied once after assembling its ordinary
+and switched terms. The unit surfaces in terms 20 and 21 have their own
+prime-product masses and remain included.
+
+3. Exact residual density is a necessary distinct input
+
+The normalization in part 2 supplies no equality for a residual sieve
+weight. The ordinary third/fourth/fifth replacements need the actual
+raw Rosser densities V_T^+/V_T=F(s)+o(1) and V_T^-/V_T=f(s)+o(1).
+Subtracting two one-sided sieve estimates cannot prove these formulas.
+
+I read own-lower-compiler-chain-audit-20261009.tex, in particular its
+positive first-exit comparison and exact subtree identities, and the
+primary-interface note rosser-density-primary-interface-check-20261009.txt.
+I also read the saved Suzuki primary text, pp8-9, 66-68 and 97-98:
+the cubic raw support, exact positive-exit identity, convergence step,
+and Lemma14.7's one-sided inequalities. The literal raw-density match
+uses Suzuki, together with finite-depth prime harmonic limits and the
+convergent positive series. Motohashi's presieved K_nu alone would not
+identify the unpresieved raw sum and is not used for that purpose.
+
+The moving-T reduction is particularly useful here. A surviving exit
+term, normalized by V_T(y), is its fixed-g0 counterpart multiplied by
+product_{q_last<=p<y,p|T}(1-g0(p)) in [0,1]. Other exits disappear.
+Every fixed-rank last prime has a fixed positive exponent, so both
+the deletion and this multiplier tend uniformly to their desired
+limits. Sandwich first at fixed depth, then let the depth grow using
+the classical convergent series. This yields the target-uniform
+equalities, without interchanging an uncontrolled infinite sum with T.
+
+For the upper residual in 1<s<2, use exact support invariance under
+replacing y by R^(1/3), because the first upper cube forces p1^3<R.
+The equality at s=3 and V_T(R^(1/3))/V_T(y)=3/s+o(1) then give
+F(s)=2*exp(gamma)/s. No lower equality below s=2 is required.
+Thus the ordinary telescope uses differences of actual multiplicative
+density sums with their recorded parity, not subtraction of inequalities.
+
+4. Common finite choices and absence of a table/K cycle
+
+First fix the selected finite upper strategy domains and the lower
+policy, the finite 106-action bank, 430 generations, and all occurrences
+of the retained 248 or 430 arrays. Fix enough compact trims and coarse
+boxes to meet the positive reserved approximation budgets. Every
+admitted branch keeps its physical ceiling and has a positive exponent.
+A fixed finite recursion can make the minimum exponent extremely small;
+it cannot make it zero. It also has a finite maximum number of slots.
+
+Apply part 1 at that fixed outer cutoff. Choose an upper realization
+within the selected strict K allowance using its independent upper
+tree; its density argument uses no H/h table. Then this K may be used
+or weakened to an older larger coefficient in all switched terms.
+The table induction now uses only the preceding generation and these
+positive-product bounds. The current lower ordinary start is a
+separate lower compiler, not a deduction from an upper K theorem.
+This order has no directed cycle through the table.
+
+There is no need that distinct ordinary table states use one common
+modulus coefficient. Each application needs its own identical counting
+and density coefficient. After fixing finitely many such applications,
+choose the finite parameter precisions within their margins; the
+maximum of their sufficiently-large-T thresholds is finite. Nor must
+the same selected table replace every occurrence. The current policy
+uses 430 only in U3/U4 and retains the earlier ordinary occurrences.
+
+The new PP theorem is invoked at complete-product scale, with residue
+T and its explicit restricted large-residue range, after its low tail
+removal. An old citation to the original all-a Proposition5.2 is not
+a substitute for this invocation. No new marked branch is admitted by
+its support ceiling alone, and no finite maximum certifies an infinite
+adaptive policy or a cutoff that tends to zero with T.
+
+5. Weight and conclusion boundaries
+
+I directly checked the elementary full-Y11 case proof in
+own-chen-table-insertion-chain-20261009.tex §§1-3 and the displayed W1/W2
+occupancy formulas in generalized-one-step-double-sieve.tex and
+replacement-second-seed-route.tex. For the global weight, r>=2 reduces
+its first six terms minus Y10,Y11 to s-t<=0; for the remaining cases
+the actual Y9 count is used only through Y9>=1, never assumed equal
+to one. This proof uses the full Y11 sum, not Wu2008's contracted
+endpoint. The rough-square and unit errors are power-negligible or O(1).
+
+These elementary checks establish no numerical c on their own. Current
+raw endpoints, each actual gain domain, 248/430 occurrences, K-feedback
+costs and both cumulative budgets must still be matched in the separate
+upper/lower assembly reviews. The transfer review likewise treats K/c
+as hypotheses until they have been matched. This common-interface note
+does not restore a global status by reading old status strings.
+
+The current open manuscript and all pre-existing certificates are
+unchanged. Formalization, GitHub and external correspondence remain
+outside this work; the first two are user-paused.

@@ -1,0 +1,370 @@
+% Integration fragment: no documentclass.
+% Uses the main manuscript's notation and Lemma lem:semiprime55.
+% Do not interpret bounded multiplicity as arbitrary arithmetic weights.
+
+\subsection{The same upper sieve for finitely many prime factors}
+\label{sec:primeproducts55}
+
+The upper-weight factorization established in
+Lemma~\ref{lem:semiprime55} is a property of the modulus coefficients.
+It can also be used for the switched product sequences below.
+We record the additional argument, particularly the coprime main
+mass and the multiplicity of the factorizations.
+
+Put $a=100/1149$ and $K_0=\lfloor1/a\rfloor=11$.
+An admissible product multiset here means a finite positive sum
+of labelled prime-tuple families
+\[
+ m=p_1\cdots p_k,\qquad 1\le k\le K_0,
+ \qquad p_j\ge N^a,\qquad m\le N,
+\]
+whose domains are specified by finitely many ordering and monomial
+inequalities in the $p_j$ and $N$. Labels distinguish different
+specified-prefix choices for the same product.
+Their coefficients are fixed bounded nonnegative numbers.
+In particular, the resulting multiplicity $w(m)$ is bounded
+independently of $N$. This does not mean that an arbitrary
+bounded arithmetic function $w(m)$ is permitted: the tuple-domain
+description is needed for separation of variables.
+
+\begin{lemma}[Derived upper sieve for finite prime-product multisets]
+\label{lem:primeproducts55}
+Let $\mathcal M_N$ be an admissible product multiset as above,
+and write
+\[
+ X_N=\sum_m w(m).
+\]
+Assume its mass has a limit
+$X_N=(J+o(1))N/\log N$, evaluated with its stated labels and
+multiplicities. Then
+\begin{equation}\label{eq:primeproduct-prime-upper}
+ \sum_{\substack{m<N\\N-m\ {\rm prime}}}w(m)
+ \le\left(\frac{80}{11}J+o(1)\right)\HN .
+\end{equation}
+More generally the same conclusion applies to a finite positive
+sum of such domains and to positive smooth outer approximations,
+with their own total mass $X_N$.
+
+This lemma applies to all five switched multisets defined by
+$Y_7,Y_8,Y_9,Y_{10},Y_{11}^{\rm full}$ in
+Section~\ref{sec:repaired-chen-weight}. If $U_i=8J_i$ denotes
+the corresponding upper constant computed there with coefficient
+eight, then
+\begin{equation}\label{eq:switch-55}
+ \Upsilon_i\le\left(\frac{10}{11}U_i+o(1)\right)\HN
+ \quad(7\le i\le10),\qquad
+ \Upsilon_{11}^{\rm full}
+       \le\left(\frac{10}{11}U_{11}^{\rm full}+o(1)\right)\HN.
+\end{equation}
+Here the last mass uses the complete range
+$N^h\le p_4<N^d$.
+\end{lemma}
+
+\begin{proof}
+Fix $0<\varepsilon_0<1/100$ and put
+$D=N^{11/20-\varepsilon_0}$ and $z=N^{1/5}$.
+Use precisely the Iwaniec modified upper weight $\rho_D^+$
+and its normalized box-atom expansion constructed in
+Lemma~\ref{lem:semiprime55}. In particular
+\[
+ |\rho_D^+(d)|\le C_\eta,\qquad d\mid P(z),
+\]
+where $\eta$ is the fixed construction precision.
+Its factorization works for all medium lengths
+$U\in[x^{2\zeta},x^{1/3+\zeta/2}]$.
+The positive margins from the two cases
+$t_1\ge21/200$ and $t_1<21/200$ depend only on modulus
+factorization, not on the sequence being counted.
+Use
+\[
+ \eta\ll\epsilon\ll\zeta\ll\varepsilon_0,\qquad
+ 12\zeta<a/2,\qquad \kappa\ll\epsilon .
+\]
+All parameters and $K_0$ are fixed before $N\to\infty$.
+
+\paragraph{Small products, repeated primes, and smooth domains.}
+Products below $N^{1-\kappa}$ cost
+$O(N^{1-\kappa})$ in the prime count because $w$ is bounded.
+On $m\le CN$, the products having a repeated prime at least
+$N^a/2$ cost at most
+\[
+ C' N\sum_{\ell\ge N^a/2,\ \ell\ {\rm prime}}\ell^{-2}
+       \ll N^{1-a}
+\]
+for bounded multiplicity. Thus actual repeated primes can be
+removed before using strictly ordered prime tuples, with an
+additive error of this size in the desired upper bound.
+This removal does not identify distinct labelled prefix choices.
+
+Choose a single nonnegative smooth outer approximation of each
+tuple domain in the exponent variables
+$\log p_j/\log N$ and the product variable $m/N$.
+Preserve a separate lower-cutoff factor which is one when
+$p_j\ge N^a$ and zero when $p_j\le N^a/2$.
+Thus smoothing never lowers the individual prime-factor bound
+to $N^{a-\delta}$; all products in the outer family still have
+every prime factor at least $N^a/2$.
+This constant-factor boundary enlargement has vanishing width
+in exponent coordinates.
+
+A smooth dyadic partition of unity in each coordinate gives
+$O((\log N)^k)$ rectangles, with bounded overlap and uniformly
+bounded normalized derivatives, and sums back to the original
+global majorant. For each fixed smoothing precision $\delta>0$,
+the prime number theorem and partial summation evaluate its total
+mass. On the compact exponent domains $t_j\ge a+o(1)$, the
+prime-product integral has bounded density; the finite monomial
+and ordering boundaries have measure zero. Hence the excess
+mass is $o_\delta(1)N/\log N$, where $o_\delta(1)\to0$
+as $\delta\downarrow0$. This is one global mass estimate;
+it is not repeated for each dyadic rectangle.
+The same statement follows directly from the rough-number mass
+evaluation in the five applications below.
+A component supported only on a boundary can instead be included
+in a shrinking boundary strip.
+
+\paragraph{Distribution with the exact coprime mass.}
+For a smooth $k$-tuple weight $W$ on one rectangle, put
+\[
+ X_W^{(d)}
+   =\sum_{\substack{p_1,\ldots,p_k\ {\rm prime}\\
+                    (p_1\cdots p_k,d)=1}}
+                         W(p_1,\ldots,p_k).
+\]
+We first prove, on scales $N^{1-\kappa}/O(1)\le x\ll N$,
+\begin{equation}\label{eq:primeproduct-coprime-error}
+ \sum_{\substack{d\mid P(z)\\(d,N)=1}}\rho_D^+(d)
+ \left\{
+  \sum_{\substack{p_1,\ldots,p_k\ {\rm prime}\\
+            p_1\cdots p_k\equiv N\pmod d}}W(p_1,\ldots,p_k)
+       -\frac{X_W^{(d)}}{\varphi(d)}
+ \right\}
+ \ll_A N(\log N)^{-A}.
+\end{equation}
+
+Apply the $k_{\rm HB}=3$ Heath--Brown identity to each of the
+$k$ prime slots, at that slot's own scale, initially with
+$\Lambda$ weights. There are at most $6k\le66$ variables,
+of which at most $3k$ carry a $\mu$ coefficient.
+Retain the condition
+$P^-(p_1\cdots p_k)>x^{1/(\log\log x)^3}$ before expansion.
+Consequently every nonunit variable is rough at that cutoff.
+Each $\mu$ variable has length at most the cube root of
+its own original factor scale, and in particular at most
+$x^{1/3+o(1)}$.
+Before Mellin separation, discard every dyadic block that cannot
+intersect its original prime-slot interval. If the original slot has
+scale $R_i$, the product of that group's at most six dyadic lower
+endpoints is at least $R_i/2^6\ge N^a/O(1)$. This group-scale bound
+persists after separating the smooth weights, including at points
+outside the original curved domain.
+
+If an individual variable has length
+\[
+ x^{2\zeta}\le U\le x^{1/3+\zeta/2},
+\]
+take that individual variable as the Type II factor and group
+all the others. Its coefficient is $1$ or $\mu$, with a possible
+logarithm. Lemma~\ref{lem:rough-sw}, with $\xi=2\zeta$,
+verifies its complete rough Siegel--Walfisz input.
+The other coefficient is divisor-bounded, with fixed order
+depending on $K_0$. The normalized three-factor modulus
+coefficients satisfy $L_{23}$, Proposition~5.2, by the
+factorization already proved in Lemma~\ref{lem:semiprime55}.
+The truncation of divisor-bounded coefficients and their
+logarithmic losses are handled exactly as in that lemma.
+
+Suppose no individual variable is in this middle interval.
+All $\mu$ variables are then shorter than $x^{2\zeta}$.
+Every original prime group has at most six variables and
+original product at least $N^a/2$. It must therefore contain
+a variable longer than $x^{1/3+\zeta/2}$: otherwise its
+product would be at most $x^{12\zeta+o(1)}<N^a/2$.
+On the other hand there are at most two such long variables
+globally, because the entire product is comparable with $x$.
+It follows that this case is impossible for $k\ge3$.
+
+For $k=2$, there is exactly one long variable in each original
+group. Both have coefficient $1$ or a logarithm, and the
+remaining ten variables have product at most $x^{20\zeta+o(1)}$.
+Apply $L_{23}$, Proposition~3.2:
+\[
+ N_1,N_2>x^{1/3+\zeta/2}>x^{3\epsilon},
+ \qquad
+ Q_{\rm modulus}\le x^{3/5}
+       <(x/x^{20\zeta+o(1)})^{2/3-3\epsilon}.
+\]
+For $k=1$, either there is one long variable and the other
+five have product at most $x^{10\zeta+o(1)}$, so Lemma~3.4
+applies, or there are two long variables and the remaining
+four have product at most $x^{8\zeta+o(1)}$, so
+Proposition~3.2 applies. These include all alternatives.
+
+The separate original product cutoffs are retained using
+the $k$-variable Mellin transform of $W$, truncated at
+polylogarithmic frequencies. A chosen individual Type II
+variable acquires only a twist $n^{i\tau}$; partial summation
+preserves its Siegel--Walfisz estimates with a polylogarithmic
+loss. The two long variables, when present, are handled by
+two partial summations, using the arbitrary-subinterval form
+explicit in the proof of Maynard's Proposition~5.2,
+\href{https://arxiv.org/pdf/2006.07088v1}
+{arXiv:2006.07088v1}, which is the input for $L_{23}$,
+Proposition~3.2.
+The one-long-variable case allows the same partial summation
+in Lemma~3.4.
+No Siegel--Walfisz property of an arbitrary convolution or
+arbitrary-coefficient extension of the two-long-variable
+estimate is assumed.
+
+For every local scale use the fixed residue parameter
+$\alpha=1+3\kappa$. Then $N<x^\alpha<x^{1+\epsilon}$
+for sufficiently small $\kappa$ and sufficiently large $N$.
+Changes of exponent coordinates are $O(\kappa)$ and are
+absorbed by the fixed factorization margins.
+Rough modulus atoms with at most two large-prime slots have
+support below $N^{2\nu/3+O(\eta)}$, $\nu=11/20-\varepsilon_0$.
+They are covered by ordinary Bombieri--Vinogradov for $k=1$.
+For $k\ge2$, select one original prime-interval factor and
+group the other $k-1$; both have lengths between fixed
+positive powers of the product scale. The generalized
+Bombieri--Vinogradov input \eqref{eq:geh}, with its verified
+Siegel--Walfisz factor, applies. Smooth Mellin twists cost
+only logarithmic powers.
+
+As in Lemma~\ref{lem:semiprime55}, Mellin tails are controlled
+after summing over divisors of $N-m$, using
+\[
+ \sum_{\substack{m\ll N\\m\ne N}}
+      \tau_C(m)\tau_C(|N-m|)
+        \ll N(\log N)^{C'},
+\]
+which follows by Cauchy--Schwarz and divisor second moments.
+Any isolated $m=N$ term is $O(DN^{o(1)})$.
+Proper prime powers introduced by the $\Lambda$ identities
+have total mass at most $N^{1-a/2+o(1)}$; after the divisor
+argument their cumulative progression error still has
+this power saving. Their mean error uses
+$\sum_d|\rho_D^+(d)|/\varphi(d)\ll_\eta(\log N)^{C_\eta}$.
+Remove logarithmic prime weights by partial summation.
+This proves \eqref{eq:primeproduct-coprime-error}.
+Increasing $A$ absorbs the number of dyadic rectangles,
+Mellin losses, and the fixed number of prime-factor patterns.
+
+\paragraph{Replacing the coprime mass: a power-saving bound.}
+Here $X_W^{(d)}$ cannot be identified with $X_W$:
+some prime factors may be below $z$.
+The exact correction is nevertheless negligible even after
+the modulus weights have been summed in absolute value.
+For a prime $\ell$,
+\[
+ \sum_{\substack{d\mid P(z)\\\ell\mid d}}
+     \frac{|\rho_D^+(d)|}{\varphi(d)}
+ \le \frac{C_\eta}{\ell-1}
+          \sum_{e\le D/\ell}\frac1{\varphi(e)}
+ \ll_\eta \frac{\log N}{\ell-1}.
+\]
+Indeed $d$ is squarefree, so $d=\ell e$ with $(e,\ell)=1$
+and $\varphi(d)=(\ell-1)\varphi(e)$; dropping the residual
+support restrictions only increases this positive bound.
+After summing the smooth tuples, let $w_{\rm out}(m)$ denote
+their nonnegative bounded total multiplicity and $X_{\rm out}$
+their total mass. The union bound therefore gives
+\begin{align*}
+ &\sum_{\substack{d\mid P(z)\\(d,N)=1}}
+    \frac{|\rho_D^+(d)|}{\varphi(d)}
+                      (X_{\rm out}-X_{\rm out}^{(d)})\\
+ &\qquad\ll_\eta
+    (\log N)\sum_m w_{\rm out}(m)
+          \sum_{\ell\mid m}\frac1{\ell-1}\\
+ &\qquad\ll_{\eta,K_0}
+    X_{\rm out}N^{-a}\log N
+       \ll N^{1-a}(\log N)^{C}.
+\end{align*}
+Every such $\ell$ is at least $N^a/2$ and each product has at
+most $K_0$ distinct factors. This proves the claimed uniform
+power saving. It is valid for positive bounded labelled
+multiplicities and does not lose a factor $D$.
+If the original switched set excludes products sharing a prime
+factor with $N$, the raw mass of those products is separately bounded by
+\[
+ O\left(N\sum_{\substack{\ell\mid N\\\ell\ge N^a/2}}\frac1\ell\right)
+       =N^{1-a+o(1)}.
+\]
+This deletion is therefore also harmless; it is distinct from the
+coprime-main-mass correction just estimated.
+
+We may now replace $X_W^{(d)}$ by the total mass throughout
+\eqref{eq:primeproduct-coprime-error}.
+Apply the upper linear sieve with density
+$g_N(\ell)=1/(\ell-1)$ for $\ell\nmid N$ and zero otherwise.
+The uniform small-prime presieve and the full product $V_N(z)$
+are those established in Lemma~\ref{lem:semiprime55}.
+For $s=5\nu\in(1,3)$ one has $F(s)=2e^\gamma/s$, and hence
+\[
+ S\le\left(\frac4\nu+o(1)\right)
+                    \frac{\CN X_{\rm out}}{\log N}.
+\]
+If the outer approximation reaches products just above $N$,
+sieve $|N-m|$; every desired representation is still counted.
+The cases $0<N-m\le z$ in the desired prime count contribute
+$O(N^{1/5})$ for bounded
+multiplicity. First let $N\to\infty$, then remove the smooth
+outer approximation and the sieve precision within the fixed
+margins, and finally let $\varepsilon_0\downarrow0$.
+This proves \eqref{eq:primeproduct-prime-upper}.
+
+\paragraph{The five switched multisets and the rough quotient.}
+In each of $Y_7,Y_8,Y_9,Y_{10},Y_{11}^{\rm full}$, keep the
+specified primes with exactly their original labels and ordering.
+Factor the rough quotient uniquely as
+\[
+ u=q_1\cdots q_j,\qquad q_1<\cdots<q_j,
+\]
+after the repeated-prime exception above is removed.
+Split into the finitely many possible values of $j$.
+This is a canonical ordered factorization of the quotient;
+there is no additional division by $j!$ and no deletion of
+different specified-prefix choices for the same full product.
+All quotient primes are at least the prescribed roughness
+threshold, and in these five domains that threshold is at least
+$N^a$. Thus the entire product has at most $K_0$ factors.
+The resulting domains satisfy the finite monomial-inequality
+description used above, including the moving quotient threshold
+$(N/(p_1p_2))^{1/2}$ in $Y_9$.
+
+The case $u=1$ has negligible mass. The five possible specified
+prefix products are bounded respectively by
+\[
+ N^{2/3},\quad N^{2/3},\quad N^{(1+d)/2},
+                  \quad N^{4h},\quad N^{3h+d},
+\]
+all smaller than $N$ by a fixed power.
+Likewise, specified factors dividing $N$ or any repeated
+prime affect the original prime count only by a power-saving
+error. No restriction of the fourth-prime range is introduced:
+for $Y_{11}^{\rm full}$ it remains
+$N^a\le p_1<p_2<p_3<N^h\le p_4<N^d$.
+
+Reassembling the canonical quotient factorizations gives exactly
+the original rough-number mass, with its prefix multiplicities.
+Its Buchstab/prime-number-theorem evaluation is therefore
+unchanged. In the notation of the main calculation,
+\[
+ X_i=(J_i+o(1))\frac{N}{\log N},
+ \qquad J_i=\frac{U_i}{8}.
+\]
+The treatment of the Buchstab argument-one boundary by a thin
+strip is preserved; smoothing does not remove its mass silently.
+Applying the just-proved upper sieve to each of these masses
+gives \eqref{eq:switch-55}.
+\end{proof}
+
+\paragraph{Scope.}
+This is a derived extension of the modulus-atom and smooth
+product argument in Lemma~\ref{lem:semiprime55}.
+It retains the full domains and tuple multiplicities of the
+five switching terms. It changes only their analytic upper
+coefficient from $8$ to $80/11$.
+It makes no assertion of distribution for arbitrary bounded
+arithmetic reweightings or of bibliographic priority.

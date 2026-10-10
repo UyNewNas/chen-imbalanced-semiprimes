@@ -1,0 +1,128 @@
+% Same-simplex replacement, independent of any new sieve policy.
+\subsection{Restoring transverse variation in the common-affine bound}
+\label{sec:eighth-joint-affine-curvature-20261009}
+
+Retain the notation and hypotheses of
+\texttt{eighth-joint-affine-moment-pilot-20261009.tex}:
+ten positive affine factors on a physical eight-simplex, the
+nonnegative affine gap-weighted probability measure $\nu$,
+$a_j=\ell_j/m_j$, $P=\sum_ja_j/10$, $E_\nu P=1$ and
+$U=\max_{\operatorname{Vert}}P$. Let $T_{10}$ denote the exact degree10
+common-affine binomial-moment gap there. All geometry, caps and volumes
+remain the frozen winner9 seed; only its integral estimate is refined.
+
+\paragraph{A pointwise quadratic remainder.}
+For each $j$ set
+\[
+ V_j=\max_{v\in\operatorname{Vert}}\{a_j(v),P(v)\}>0.
+\]
+At a fixed point of the simplex, the entire segment joining $a_j$ to
+$P$ lies in $(0,V_j]$. The second derivative of $-\log x$ there is
+at least $V_j^{-2}$. Taylor's integral remainder therefore gives
+\[
+ -\log a_j+\log P+\frac{a_j-P}{P}
+ \ge\frac{(a_j-P)^2}{2V_j^2}.
+\]
+The linear terms cancel pointwise since $\sum_j(a_j-P)=0$. Hence
+\[
+ \prod_j a_j^{-1}
+ \ge P^{-10}\exp\!\left(\sum_j\frac{(a_j-P)^2}{2V_j^2}\right)
+ \ge P^{-10}\left(1+\sum_j\frac{(a_j-P)^2}{2V_j^2}\right).
+\]
+Since $P\le U$ and the squared remainder is nonnegative, expectation
+and the already proved $E_\nu P^{-10}\ge1+T_{10}$ yield
+\[
+ E_\nu\prod_ja_j^{-1}\ge1+T_{10}+Q_T,
+ \qquad
+ Q_T=U^{-10}\sum_{j=1}^{10}
+          \frac{E_\nu(a_j-P)^2}{2V_j^2}\ge0.
+ \tag{C}
+\]
+The density integral is consequently at least $J_T(1+T_{10}+Q_T)$.
+This is a pointwise-derived refinement of the common-affine inequality;
+it is not a sum of that inequality and the old factorwise logarithmic
+increment. Correlations between all factors remain allowed.
+
+\paragraph{Exact signed second moments.}
+Scale the nine vertex gaps to integers $g_i\ge0$, with
+$G=\sum_i g_i>0$. For an arbitrary signed affine $b$ with vertex
+values $b_i$, put $s=\sum_i b_i$, $q=\sum_i b_i^2$,
+$p=\sum_i g_i b_i$ and $w=\sum_i g_i b_i^2$. The same
+Dirichlet mixture of total parameter ten gives
+\[
+ E_\nu b^2=\frac{G(s^2+q)+2sp+2w}{110G}.
+ \tag{D2}
+\]
+This follows by averaging
+$[(\sum_i b_i+b_k)^2+(\sum_i b_i^2+b_k^2)]/(10\cdot11)$
+with weights $g_k/G$. It is valid for negative $b_i$; no positivity
+of individual cross moments is assumed. For $b=a_j-P$, the source
+also checks $Gs+p=0$, equivalent to $E_\nu b=0$.
+
+The integer implementation uses the exact common denominator $L$ of
+the normalized vertex values from the plain certificate. Write
+$a_j(v_i)-P(v_i)=b_{ji}/L$, $U=B/L$, and
+$V_j=v_j/L$. If $N_j$ is the numerator
+$G(s^2+q)+2sp+2w$ formed with the integer $b_{ji}$, then
+\[
+ Q_T=(L/B)^{10}\sum_j\frac{N_j}{220Gv_j^2}.
+\]
+The powers of $L$ cancel inside each quadratic ratio. Every $N_j$ is
+checked nonnegative by exact integer arithmetic. The author evaluates
+(D2); a separate pairwise barycentric-moment implementation can replay
+it without sharing this arithmetic formula.
+
+\paragraph{Rounding and accounting.}
+The total $T_{10}+Q_T$ is formed exactly before a single downward
+rounding to $2^{-80}$. Multiplication by the exact reconstructed
+$J_T$ is then rounded downward to $2^{-96}$:
+\[
+ \widehat T=2^{-80}\lfloor2^{80}(T_{10}+Q_T)\rfloor,
+ \quad
+ b_C=2^{-96}\lfloor2^{96}J_T(1+\widehat T)\rfloor.
+\]
+The accepted simplex value is $\max(b_{\log},b_C)$, where $b_{\log}$
+is the already adopted factorwise log6--exp3 floor. Because $Q_T\ge0$
+and rounding is monotone, this value also dominates the saved plain
+P10 maximum on every simplex. Thus the only admissible total addition
+is the new summed maximum minus the old log sum. The plain P10 gain
+must not be added again.
+
+\paragraph{Completed experiment on the full seed.}
+The deterministic128-index pilot completed in0.65 seconds, improving
+22 saved log floors and giving approximately $9.1860\cdot10^{-12}$.
+The complete run then processed all $11{,}026$ original simplices in
+44.47 seconds and improved2528 of them. The exact totals are
+\[
+ B_{\log}=\frac{475182339168330434688559}{2^{96}},\qquad
+ B_{C,\mathrm{raw}}=\frac{474139291291580412934007}{2^{96}},
+\]
+\[
+ B_{C,\max}=\frac{237629874802202295777015}{2^{95}},\qquad
+ B_{C,\max}-B_{\log}
+ =\frac{77410436074156865471}{2^{96}}
+ \simeq9.77057066800\cdot10^{-10}.
+ \tag{R}
+\]
+The additional gain over the unadopted plain P10 maximum is
+$4637903256434772219/2^{92}$, but it is not separately added to (R).
+The raw curvature sum is still below the old log sum, so per-simplex
+maximization remains essential. Relative to the old seed log sum,
+(R) is about $0.01629\%$: larger than the plain common-affine gain,
+but small in the current global ledger.
+
+Each witness row retains the original simplex identifier, the old log
+floor, the plain maximum, the new total $T$ floor, the quadratic-term
+floor for diagnostics, and the new raw/selected floors. The physical
+factors, gap means, factor means and exact $J_T$ are reconstructed.
+The source imports the frozen plain author's physical-reconstruction
+helper; it does not claim that reuse to be independent verification.
+Complete geometry and volumes are inherited from the existing bound
+reviews. This is an author arithmetic certificate, to be attributed
+separately from any subsequent independent numerical replay.
+
+The method changes no cap, domain, history, factorization or distribution
+input. Any future global use is a same-domain integral replacement
+under the existing finite realization interfaces and explicit budgets.
+This report selects no new $K,c,b$, makes no claim of optimality, and
+does not extrapolate its small seed gain to other cells.

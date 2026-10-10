@@ -1,0 +1,33 @@
+{
+  "status": "PASS_FULL_INDEPENDENT_L5_L6_PAIR512_REPLAY",
+  "ordinary_mesh": 32768,
+  "bits": 112,
+  "pairs": 512,
+  "cell_counts": {
+    "L5": 131328,
+    "L6": 524288
+  },
+  "author_source_imports": false,
+  "independent_lower": {
+    "L5": "770569489516562329960359925964727/324518553658426726783156020576256",
+    "L6": "15679955690921897798443071674870407/5192296858534827628530496329220096"
+  },
+  "author_floor_covered": {
+    "L5": true,
+    "L6": true
+  },
+  "selected_lower": {
+    "L5": "1435297520488717065538013/604462909807314587353088",
+    "L6": "3650774173156900914101685/1208925819614629174706176"
+  },
+  "coefficient_gain_lower": "585336053267750504125/4835703278458516698824704",
+  "scope": "Full two-term replacement under the already audited same248 table and analytic pair interface; does not independently regenerate the table.",
+  "bindings_sha256": {
+    "independent_sharp_248_pair512_replay_20261008.py": "674ed6ce3b2185479a022b21b63e13187cc96220c135c367ea716c96c940ba26",
+    "independent_sharp_baseline_replay.py": "ffc5b0b749099f4384b82283dd5605cc05d88bfbd6f63cb8eb26cb0733c6e633",
+    "independent_sharp_four_min_replay.py": "d88e0ffc73adcc5f234785917f1ab64c58674048206c0afd9d7a5ecf91610a38",
+    "sharp-248-pair-refinement-512.json": "dc76a40c74f687f8ac684342e2c19091b4ef8694c7823d268d2b3b2b38db5194",
+    "expanded-w2-midpoint-table248-v1.json": "a91c371b8c69398619ebee8b17598c163fbf8b6267fa0470ed6930e2097a98ed"
+  },
+  "elapsed_seconds": 863.2835472000297
+}

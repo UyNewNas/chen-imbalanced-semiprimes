@@ -1,0 +1,52 @@
+{
+  "status": "EXACT_FULL_ORDERED_COVER_VARIABLE_OMEGA_OR_LEGAL_PREFIX_MIN",
+  "n": 48,
+  "omega_mesh": 4096,
+  "Q": "1208925819614629174706176",
+  "K": "67619/10000",
+  "terms": {
+    "U10": {
+      "ordered_cells": 249900,
+      "strict_cells": 194580,
+      "ordinary_wins": 105655,
+      "omega_wins": 144245,
+      "gain_lower": "27331146559517734089717/604462909807314587353088",
+      "gain_diagnostic": 0.04521558910575691
+    },
+    "U11full": {
+      "ordered_cells": 940800,
+      "strict_cells": 830208,
+      "ordinary_wins": 67796,
+      "omega_wins": 873004,
+      "gain_lower": "12740774734460480221187/604462909807314587353088",
+      "gain_diagnostic": 0.021077843698502317
+    }
+  },
+  "total_saving_lower": "5008990161747276788863/75557863725914323419136",
+  "U10_U11_cost_upper": "408427750921032759710349/604462909807314587353088",
+  "old_U10_U11_effective_cost_upper": "210034580692970596506109/302231454903657293676544",
+  "replacement_increment_c_lower": "11641410464908433301869/2417851639229258349412352",
+  "combined_baseline_c_lower": "4690749145630548006723123/2417851639229258349412352",
+  "combined_baseline_c_diagnostic": 1.940048375807634,
+  "witness_file": "sharp-248-four-min-48.witness.json",
+  "witness_sha256": "4a7e02a9179da1016a69472ee1f439dc3caf9d06bd45f9e4d1a7e22162c0900d",
+  "stream_sha256": "16e119b67306906b7b0d033c7df5c6e739238c22aa2742a21c196d98870ebf17",
+  "scope": [
+    "Replaces both old uniform U10/U11 costs and the entire old four-prefix patch.",
+    "Weakly ordered bin tuples partition the entire ordered domain up to null boundaries; tied bins use ordered simplex log masses.",
+    "Pointwise alpha is physical 1 here; ordinary table defects are inserted only under full and selected stable-prefix gates and alpha>=2 residual criterion proved for this parameter box.",
+    "Buchstab argument is the actual (1-S)/z>=2, not a substituted parameter; unit residual is impossible because S<=d+3h<1.",
+    "Each box selects max of certified savings, never adds omega and ordinary savings.",
+    "Primitive ordinary/table/product inputs inherited; no new lower-start gain included."
+  ],
+  "elapsed_seconds": 313.9518185000634,
+  "bindings_sha256": {
+    "certify_sharp_248_four_min.py": "83c5922badeafa1b3ddf5a35f95be07f4969a0db01e49d85bc0fdc663deb900a",
+    "certify_sharp_184_baseline.py": "a4ebffaf2b13123cf8d7510fed18482f85ec1a79f1bcddb220bd3d3ec8197639",
+    "sharp-248-baseline-128.json": "eb33c788676f1fef56c984006d5e130169be0ad67d6b0bd2f2dd1ea55740040c",
+    "certify_combined_four_prefix_min.py": "a2fc98cc4490063514ce1be0ec1f1c30fb454fa33ff619143cb8e88a8af5330f",
+    "certify_conservative_chen.py": "67b9429667e18786058e0fe58676fbe09d556868468f1281166cac2b55f8604e",
+    "expanded-w2-midpoint-table248-v1.json": "a91c371b8c69398619ebee8b17598c163fbf8b6267fa0470ed6930e2097a98ed",
+    "four-prefix-safe-minimum.tex": "0f8b0d768ed73df44336b6caf9132c7648a022ed5792e0a8daf77208be512a4f"
+  }
+}

@@ -1,0 +1,124 @@
+Same-mask paired certificate v2: improved Buchstab threshold7/3
+10 October 2026. New files; the12/5 certificate and old state stay frozen.
+
+1. Replacement, not accumulation of versions
+
+This version replaces the prospective12/5 refinement by the stronger7/3
+refinement. They are alternative estimates of the SAME new mass, and must
+never both be added. The starting point remains the adopted E0/E1 assembly,
+with K=8452171/1250000 and the same6091+11481=17572 pair512 rectangles.
+The old assembly's17772 total field was a transcription error, not a mask
+or numerical-sum discrepancy. No new cell, parent or table entry is used.
+
+Keep the existing total gross .002095161+.003799514. Add ONLY the new safe
+gross delta .000558583. Replace the old positive saved-estimator loss
+.002372094 by .002334885. This supplies the raw increment
+
+ .000558583 + (.002372094-.002334885) = .000595792 =37237/62500000.
+
+The root must first match this arithmetic to its independent checks and
+complete the final scalar assembly. This certificate alone does not adopt
+new c,b, change the manuscript, or alter the research-state.
+
+2. Elementary omega bound with the improved threshold
+
+Claim: omega(s)>=11/20 for every s>=7/3.
+First omega>=1/2 for every s>=1: it equals1/s on[1,2], and the delay
+equation (s*omega(s))'=omega(s-1) proves the lower bound on successive
+unit intervals from the value at2.
+
+For7/3<=s<=3, the exact formula is omega(s)=(1+log(s-1))/s. For x>=1,
+log x>=2(x-1)/(x+1), by the positive atanh expansion. Hence
+
+ omega(s)>=(3s-4)/s^2.
+
+After multiplying by20s^2, the difference from11/20 has numerator
+60s-80-11s^2, a concave quadratic. Both endpoint differences are
+positive, since27/49>11/20 and5/9>11/20. Thus the whole interval is
+admitted, without using sampled monotonicity of omega.
+
+For3<=s<=10/3, the global1/2 bound gives
+
+ s*omega(s)>=1+log2+(s-3)/2 >=s/2+1/6,
+
+using log2>=2/3. Therefore omega(s)>=1/2+1/(6s)>=11/20.
+For s>=10/3 the derivative of s*omega(s)-(11/20)s is
+omega(s-1)-11/20. The already proved interval starts at7/3, so induction
+on consecutive unit intervals extends nonnegativity to infinity.
+The numerical program checks the rational endpoints and independently
+encloses log2>2/3. The certificate agent supplies a separate analytic review.
+
+3. The inner fibre and its exact extra mass
+
+The inherited parent majorant dominates
+K*omega((1-t-u-z-w)/z)/z on a<w<z<u<h<t<d. For a pair rectangle
+B=[tl,tr]x[ul,ur], now take
+
+ Z=min(ul,3*(1-tr-ur)/13).
+
+On a<w<z<Z, strict order gives z<u and w<z, and
+
+ 1-t-u-z-w >=1-tr-ur-2z >=(7/3)z.
+
+Thus the majorant has an additional1/20 in omega on this whole inner
+fibre, over the old1/2 already used. The additional gross mass in Chen
+coefficient units, including its factor1/4, is at least
+
+ (K/80)*log(tr/tl)*log(ur/ul)*[1/a-(1+log(Z/a))/Z].
+
+The last bracket integrates log(z/a)/z^2 on[a,Z]. It has no extra
+permutation factor. All remaining fibres retain their old bound.
+The complete new gross is enclosed at
+
+ E0: .0001931809125035256...
+ E1: .00036540308173821915...
+ sum: .0005585839942417448... > .000558583.
+
+These are ADDITIONAL masses only. The old gross gains and their rounding
+surpluses remain inside the baseline. It is the existing explicit positive
+majorant that is restricted, never a reversed upper estimate on actual
+removed arithmetic counts. The same E0/E1 masks imply the exact same
+saved method0 parents and no intersection with priority40000.
+
+4. Replayed floor loss and feedback
+
+The literal author512 evaluator, mesh16384 and h248 table are executed
+on every deleted cell. All6091 E0 cells and all227 E1 crossing cells
+return zero. The E1 sum is the Q80 integer11290806845175652020270.
+After division by4*Q80, the exact discarded saved lower estimate is
+
+ 5645403422587826010135/2417851639229258349412352
+ =.0023348841306025784... <.002334885.
+
+The root's independently authored upper bound can also be compared to
+.002334885 without reproducing the original DDE mesh. The enhanced L6
+half remains unchanged, and the retained lower bound becomes
+old_L6-4*.002334885. This replacement concerns saved floors, not true
+positive counts. The selected old whole L6 is verified to be the author512
+sum, so it has this cell decomposition.
+
+The correct new future K-feedback slope is
+
+ A_new=A_old-.000558583/K=A_old-558583/6761736800.
+
+The loss recovery is independent of K. Using the net gain divided by K
+would give the wrong slope. Keep every old allowance and, conservatively,
+add .000595792/8 to each lower finite-density and compiler allowance.
+The resulting increment after allowances is3*.000595792/4=.000446844.
+Prospective endpoints and the exact slope appear in JSON; selecting c,b
+still requires the root's strict rational-log transfer calculation.
+
+5. Numerical evidence and frozen boundaries
+
+The new interval engine is standalone Q160. Logarithms use96 positive
+atanh terms at Q224 with tail9/(4*193*3^193), then outward rounding.
+All17572 rows store the group, cell indices, exact Z, discarded Q80
+integer, and both extra-gross endpoints. Every bound is rational; floats
+serve only displayed summaries. Literal old floor replay is explicitly
+declared and not called an independent implementation.
+
+Both current parent covers, their witness/source dependencies, all old
+evaluator source modules, chosen h248 table, author512 sum and prior
+assembly are hash-bound. Source hashes are checked before and after.
+No old file, main, state, formalization or GitHub action is modified.
+The12/5 certificate is retained as an obsolete candidate, not another gain.

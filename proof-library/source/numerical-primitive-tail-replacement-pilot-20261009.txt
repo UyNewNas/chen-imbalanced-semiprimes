@@ -1,0 +1,77 @@
+Single-component tail replacement in the unchanged current upper policy
+9 October 2026. Candidate arithmetic only; no selected K/c/b or state changed.
+
+The newly certified bound in numerical-primitive-adversarial-20261009.json
+can replace the original third-tail upper component without rerunning the
+two-million-cell compact integral. This needs independent acceptance of
+that new primitive certificate before promotion. The proposal uses only
+its complete tail bound; no new table estimate is substituted inside any
+of the old compact leaves.
+
+1. The original tail occurs once
+
+certify_extended_prefix.py lines374--389 gives the entire ordered0<z<.01
+tail. Lines400--402 set
+ fixed_hi=4/Theta+(first_hi+tail_hi)/Q.
+The initial_cells() construction at361--371 starts every z interval at
+z>=.01. Thus the saved exact identity is
+ U0=4/Theta+first_integral_upper+third_integral_upper+third_tail_upper.
+Every compact leaf and both other terms remain unchanged. Changing the
+scalar tail allowance does not invalidate the saved compact partition or
+its leaf bounds; we do not rerun its adaptive stopping decisions.
+
+actual-k-density-joint-audit.tex, reference paragraph and final boxed
+identity, gives E0=U0-D4-D5old-D5new-D6. The old partial-four and fourth-tail
+certificates were both replaced by D4 (line79); the name fourth-tail refers
+to a different saving and supplies no additional subtraction. The four
+subtractions concern actual same-tree refinements, not deletion of the
+base third-tail allowance.
+
+The subsequent two fallback gains and ten ledger stages retain the preceding
+raw endpoint and subtract certified policy or same-domain estimate gains.
+The companion small checker reconstructs that whole linear chain from the
+saved components. The coefficient of the original third-tail upper bound
+remains exactly+1 in the latest raw endpoint. It was neither replaced nor
+deducted elsewhere. The common raw-tree identity, not disjoint projections
+of every later refinement, is the reason all these subtractions can be
+retained: changing an upper estimate for the same reference functional
+changes no ancestor cap, gate, membership decision or refinement gain.
+
+The numerical split at t3=.01 is distinct from the rough prime cutoff and
+the threshold activating the finite third cap. The small activation-tail
+limit and finite compiler/boxing losses remain in their original budgets.
+The replacement does not set that limit error to zero or subtract it a
+second time. All87 adopted eighth regions and their actual sixth ancestors
+are unchanged.
+
+2. Exact replacement and optional extra precision reserves
+
+The frozen original bound and the new outward-rounded rational bound are
+ T_old=1028753216356588863/2^80,
+ T_new=319683857488126290909150567/2^111.
+Consequently the ONLY new raw-density improvement is
+ Delta=T_old-T_new=1889546852465054429442261657/2^111
+       approximately7.278269728970198e-7.
+This is neither a new sieve action nor a new domain. It cannot be added
+alongside a full recomputed E0 that has already used T_new.
+
+A conservative continuation of the existing accounting rule is
+ E_new=E_current-Delta,
+ u_density,new=u_density,current+Delta/8,
+ u_compiler,new=u_compiler,current+Delta/8.
+Although this scalar estimate introduces no new geometric policy, adding
+these reserves is permitted and leaves all earlier choices intact. It gives
+ E_new+u_density,new+u_compiler,new
+ =39918955314804871987714689824694921587630224517/
+  5903654203848804911787122476397412860559360000
+ approximately6.761736703477698.
+The optional rational K=8452171/1250000=6.7617368 therefore has strict slack
+ 71229286727542131248758574547050908572431/
+ 737956775481100613973390309549676607569920000000
+ approximately9.65223019751e-8.
+
+The selected K remains6.76173728 until the root makes a separate reviewed
+adoption. This note supplies no new lower feedback, c, imbalance exponent
+or count. All explicit PP/density/numerical input scopes remain as in the
+current end-to-end assembly. Neither a state update nor an external claim
+is performed here.

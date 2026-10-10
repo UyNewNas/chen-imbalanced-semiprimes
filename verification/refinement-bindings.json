@@ -1,0 +1,721 @@
+{
+  "comparisons": [
+    {
+      "record": "corpus-renewal-improvement-assembly-20261010.json",
+      "file": "finalize_corpus_renewal_improvement_20261010.py",
+      "original_sha256": "ebda0269312e3c0dac4932604c2e9d7cb46300dc03d208a3ef32e5216578ebea"
+    },
+    {
+      "record": "corpus-renewal-improvement-assembly-20261010.json",
+      "file": "corpus-renewal-progress-20261010.txt",
+      "original_sha256": "38deb820de70c9c246f1a9c9aff530880d8cdeac139a73550c1c74e4e14c72b6"
+    },
+    {
+      "record": "corpus-renewal-improvement-assembly-20261010.json",
+      "file": "corpus-renewal-paired-independent-20261010.txt",
+      "original_sha256": "2fe26dc34fcefb01add98a8f14fd0931c706fca8d3010462c5e513966d00dbae"
+    },
+    {
+      "record": "corpus-renewal-improvement-assembly-20261010.json",
+      "file": "global-theorem-completion-assembly-20261010.json",
+      "original_sha256": "4f4c33d91e414118a5ec3b391ed37c4652b0e035fbf0e502502a6c8a753aaf11"
+    },
+    {
+      "record": "corpus-renewal-improvement-assembly-20261010.json",
+      "file": "corpus-renewal-analytic-20261010.json",
+      "original_sha256": "76b7546e0358f88f90201cf705185313d606833f9c12c0ec6af0bf944c542547"
+    },
+    {
+      "record": "corpus-renewal-improvement-assembly-20261010.json",
+      "file": "corpus-renewal-certificate-methods-20261010.json",
+      "original_sha256": "46b729ff96291331f8a822ffeb87818a963edd7388c312d5645de213bde5c543"
+    },
+    {
+      "record": "corpus-renewal-improvement-assembly-20261010.json",
+      "file": "corpus-renewal-paired-certificate-v2-20261010.json",
+      "original_sha256": "f6d31386f93cf77888ea4771ffa549a1cf61dca700bac618ff7646566a02f9b7"
+    },
+    {
+      "record": "corpus-renewal-improvement-assembly-20261010.json",
+      "file": "corpus-renewal-paired-certificate-v2-20261010.txt",
+      "original_sha256": "2eac3c36c34d240262659b23b5319919c7d8a6c1e5a7505b83a2916f38527214"
+    },
+    {
+      "record": "corpus-renewal-improvement-assembly-20261010.json",
+      "file": "corpus-renewal-paired-independent-v2-20261010.json",
+      "original_sha256": "e18e78975bb982db64fc6b4038866919bbf0702306eb26f9d42076e77b042f7c"
+    },
+    {
+      "record": "corpus-renewal-improvement-assembly-20261010.json",
+      "file": "corpus-renewal-omega-independent-20261010.json",
+      "original_sha256": "fa37636c67afbf9a63a40beb793d61757c2b505b7bfe1f7f1eee637cfb0e1c91"
+    },
+    {
+      "record": "corpus-renewal-improvement-assembly-20261010.json",
+      "file": "corpus-renewal-omega-count-and-formal-crosscheck-20261010.json",
+      "original_sha256": "087e6bbef28774a812da1cb4db5fb98e2456a366ffde74eb18e9099e2cd76b06"
+    },
+    {
+      "record": "corpus-renewal-improvement-assembly-20261010.json",
+      "file": "corpus-renewal-paired-final-review-20261010.json",
+      "original_sha256": "fb4a656c3bd1b27b9e56ab15714db8a7f2e0ed3773448813de9e52956c276edf"
+    },
+    {
+      "record": "corpus-renewal-improvement-assembly-20261010.json",
+      "file": "corpus-renewal-paired-final-review-20261010.txt",
+      "original_sha256": "b80190f054682689262c0dd4d7b85fba3f3aa7f0256c5a4ce9b2c4a5d8469cef"
+    },
+    {
+      "record": "corpus-renewal-paired-certificate-v2-20261010.json",
+      "file": "corpus-renewal-paired-certificate-v2-20261010.py",
+      "original_sha256": "6e47caa91bd5e47678bcd8e2a1dc35659d25d44481c41dc437002be92d8b83dc"
+    },
+    {
+      "record": "corpus-renewal-paired-certificate-v2-20261010.json",
+      "file": "corpus-renewal-paired-certificate-v2-20261010.txt",
+      "original_sha256": "2eac3c36c34d240262659b23b5319919c7d8a6c1e5a7505b83a2916f38527214"
+    },
+    {
+      "record": "corpus-renewal-paired-certificate-v2-20261010.json",
+      "file": "positive-pair-deletion-certificate-20261010.json",
+      "original_sha256": "c6adf210c69f1eccb5921622762249d1fcf714abb62c42a493dcac23a609d8c7"
+    },
+    {
+      "record": "corpus-renewal-paired-certificate-v2-20261010.json",
+      "file": "paired-y6-y11-zero-strip-certificate-20261010.json",
+      "original_sha256": "1dc70cf76c35c41161fb5236c608c7da8c0ee4dbeeae9153f0ce30cd63e007ab"
+    },
+    {
+      "record": "corpus-renewal-paired-certificate-v2-20261010.json",
+      "file": "positive-pair-deletion-selected-parent-cover-20261010.json",
+      "original_sha256": "2b9706b0f0b78234d0bebb0cdc18fb0cd5108ce2df39d215a0b22ccec9993c2a"
+    },
+    {
+      "record": "corpus-renewal-paired-certificate-v2-20261010.json",
+      "file": "paired-y6-y11-parent-cover-root-check-20261010.json",
+      "original_sha256": "92e09a2bcc297fbb6f3991a0da4a8339d4df9f1dc24bd801ead00f32e068d135"
+    },
+    {
+      "record": "corpus-renewal-paired-certificate-v2-20261010.json",
+      "file": "positive-pair-deletion-improvement-assembly-20261010.json",
+      "original_sha256": "5540ee62e07acbfcea9786e8784427fa5c8bb293a997823140aecf6c3b6ef32b"
+    },
+    {
+      "record": "corpus-renewal-paired-certificate-v2-20261010.json",
+      "file": "positive-pair-deletion-improvement-20261010.txt",
+      "original_sha256": "10182dae3bb7466ab93a991d7e355fd1c572b98461e79007868428c48b87d0c7"
+    },
+    {
+      "record": "corpus-renewal-paired-certificate-v2-20261010.json",
+      "file": "paired-positive-cell-loss-interface-independent-20261010.txt",
+      "original_sha256": "60c1288adefbbaf3929b7c27b8a6eb6f7f4d0b6921d10e5890e7324ce27b9e95"
+    },
+    {
+      "record": "corpus-renewal-paired-certificate-v2-20261010.json",
+      "file": "chen-transfer-paired-deletion-independent-20261010.txt",
+      "original_sha256": "92307f6e4871648629dcaa8fe3cae72571600a43fda433fb941cccba48ed4482"
+    },
+    {
+      "record": "corpus-renewal-paired-certificate-v2-20261010.json",
+      "file": "global-chen-lower-completion-20261010.txt",
+      "original_sha256": "8597fd1dc01d3fc49e5b31d28afeab3cf48e88ae23908fb6777a1c23f5b360e5"
+    },
+    {
+      "record": "corpus-renewal-paired-certificate-v2-20261010.json",
+      "file": "corpus-renewal-paired-certificate-20261010.json",
+      "original_sha256": "e82237e9172b25e7d0754c41823d3f65b22c8e9011e27aa7886ae16e28b0aae3"
+    },
+    {
+      "record": "corpus-renewal-paired-certificate-v2-20261010.json",
+      "file": "sharp-248-pair-refinement-512.json",
+      "original_sha256": "dc76a40c74f687f8ac684342e2c19091b4ef8694c7823d268d2b3b2b38db5194"
+    },
+    {
+      "record": "corpus-renewal-paired-certificate-v2-20261010.json",
+      "file": "independent-sharp-248-pair512-replay-20261008.json",
+      "original_sha256": "c2e82ed984d1b62c54d193b61befe94d6719e542187daedbc98bf0312081348c"
+    },
+    {
+      "record": "corpus-renewal-paired-certificate-v2-20261010.json",
+      "file": "certify_sharp_248_pair_refinement.py",
+      "original_sha256": "508a864aef36136c91e249cfe11166afd01c198ecdd19cd4d319c9cac97bca2e"
+    },
+    {
+      "record": "corpus-renewal-paired-certificate-v2-20261010.json",
+      "file": "certify_sharp_184_baseline.py",
+      "original_sha256": "a4ebffaf2b13123cf8d7510fed18482f85ec1a79f1bcddb220bd3d3ec8197639"
+    },
+    {
+      "record": "corpus-renewal-paired-certificate-v2-20261010.json",
+      "file": "certify_conservative_chen.py",
+      "original_sha256": "67b9429667e18786058e0fe58676fbe09d556868468f1281166cac2b55f8604e"
+    },
+    {
+      "record": "corpus-renewal-paired-certificate-v2-20261010.json",
+      "file": "certify_extended_prefix.py",
+      "original_sha256": "1b77aa5deb90e0f39e06c776847a7e9fff27e23d584036955741b015ca05ad29"
+    },
+    {
+      "record": "corpus-renewal-paired-certificate-v2-20261010.json",
+      "file": "certify_combined_chen_functional.py",
+      "original_sha256": "2d33559abaeb08d076a0185952ef7a1697ed1ca0b5beade129aa443a9ac4876b"
+    },
+    {
+      "record": "corpus-renewal-paired-certificate-v2-20261010.json",
+      "file": "expanded-w2-midpoint-table248-v1.json",
+      "original_sha256": "a91c371b8c69398619ebee8b17598c163fbf8b6267fa0470ed6930e2097a98ed"
+    },
+    {
+      "record": "corpus-renewal-paired-certificate-v2-20261010.json",
+      "file": "positive-pair-deletion-certificate-20261010.py",
+      "original_sha256": "bf0e9e494e4da8919cb47a312db5d22090dacc05432c7e7ad46559fa7a785251"
+    },
+    {
+      "record": "corpus-renewal-paired-certificate-v2-20261010.json",
+      "file": "paired-y6-y11-zero-strip-certificate-20261010.py",
+      "original_sha256": "c623535f5499b922b1b775a36ffb6c505918582e0ed946b893e50c5c9cf9deba"
+    },
+    {
+      "record": "corpus-renewal-paired-certificate-v2-20261010.json",
+      "file": "paired-y6-y11-improvement-assembly-20261010.json",
+      "original_sha256": "c866226a4799f385a9cfbef24de0b546a1e8549d5c66431cceffc06a7fb2c683"
+    },
+    {
+      "record": "corpus-renewal-paired-certificate-v2-20261010.json",
+      "file": "wu-y6-weight-impact-20261010.txt",
+      "original_sha256": "fc05a78a14153a145ae3eee913ebf0316f6a85f30b3140cda8a66b652e2cff6f"
+    },
+    {
+      "record": "corpus-renewal-paired-certificate-v2-20261010.json",
+      "file": "wu-y6-numeric-impact-20261010.json",
+      "original_sha256": "9178f14fa01ad4cf185332de0ded05c8a32012be5f942cafd53439a5013a8e80"
+    },
+    {
+      "record": "corpus-renewal-paired-certificate-v2-20261010.json",
+      "file": "independent_sharp_248_pair512_replay_20261008.py",
+      "original_sha256": "674ed6ce3b2185479a022b21b63e13187cc96220c135c367ea716c96c940ba26"
+    },
+    {
+      "record": "corpus-renewal-paired-certificate-v2-20261010.json",
+      "file": "lichtman-bottom-inputs-and-tail-assembly-20261010.json",
+      "original_sha256": "e83ac5671702ab55bdc42cad626f1dc24663732d770033a257d58f02da612901"
+    },
+    {
+      "record": "corpus-renewal-paired-certificate-v2-20261010.json",
+      "file": "paired-y6-y11-low-positive-parent-mask-20261010.json",
+      "original_sha256": "d54f89bde59cf9f9a9dc60a597abfddbe4507abd9c96ba1e1e2f57d1bbef6acd"
+    },
+    {
+      "record": "corpus-renewal-paired-certificate-v2-20261010.json",
+      "file": "sharp-248-four-min-48.witness.json",
+      "original_sha256": "4a7e02a9179da1016a69472ee1f439dc3caf9d06bd45f9e4d1a7e22162c0900d"
+    },
+    {
+      "record": "corpus-renewal-paired-certificate-v2-20261010.json",
+      "file": "four-min-priority40000-20261009.witness.json.gz",
+      "original_sha256": "feed08120834005b73501be9947de7fec63a1da9a7b34b2c75da703e09520530"
+    },
+    {
+      "record": "corpus-renewal-paired-certificate-v2-20261010.json",
+      "file": "verify_paired_y6_y11_parent_cover_20261010.py",
+      "original_sha256": "958311b8f05422d4be6fa4362e5a5369e4c1e4bb8e748bd18ddbf61c174a55bc"
+    },
+    {
+      "record": "corpus-renewal-paired-certificate-v2-20261010.json",
+      "file": "certify_sharp_248_four_min.py",
+      "original_sha256": "83c5922badeafa1b3ddf5a35f95be07f4969a0db01e49d85bc0fdc663deb900a"
+    },
+    {
+      "record": "corpus-renewal-paired-certificate-v2-20261010.json",
+      "file": "four-min-k-feedback-route-20261009.py",
+      "original_sha256": "3f8f40a389a245a5407da46687e5d289332bd59a2cc630161c859e7286b566f6"
+    },
+    {
+      "record": "corpus-renewal-paired-certificate-v2-20261010.json",
+      "file": "chen-transfer-paired-deletion-independent-20261010.json",
+      "original_sha256": "7536f789f6cdae1a21f47ac3579ce6dad8523185c7f10b6345ea6d481fb5d14e"
+    },
+    {
+      "record": "corpus-renewal-paired-certificate-v2-20261010.json",
+      "file": "sharp-248-baseline-128.json",
+      "original_sha256": "eb33c788676f1fef56c984006d5e130169be0ad67d6b0bd2f2dd1ea55740040c"
+    },
+    {
+      "record": "corpus-renewal-paired-certificate-v2-20261010.json",
+      "file": "sharp-eleven-term-baseline-proof.tex",
+      "original_sha256": "b05e8ca64c6128353b33e137dc0ba99199427ccc0c4a0c361eed7d8afefe69ce"
+    },
+    {
+      "record": "corpus-renewal-paired-certificate-v2-20261010.json",
+      "file": "sharp-248-baseline-insertion.tex",
+      "original_sha256": "58f961188dac2838ade358498127cf8ae92d55af7f80f07a9da4d2e7d0bba546"
+    },
+    {
+      "record": "corpus-renewal-paired-certificate-v2-20261010.json",
+      "file": "independent_sharp_baseline_replay.py",
+      "original_sha256": "ffc5b0b749099f4384b82283dd5605cc05d88bfbd6f63cb8eb26cb0733c6e633"
+    },
+    {
+      "record": "corpus-renewal-paired-certificate-v2-20261010.json",
+      "file": "independent_sharp_four_min_replay.py",
+      "original_sha256": "d88e0ffc73adcc5f234785917f1ab64c58674048206c0afd9d7a5ecf91610a38"
+    },
+    {
+      "record": "corpus-renewal-paired-certificate-v2-20261010.json",
+      "file": "certify_expanded_w2_joint_table.py",
+      "original_sha256": "1d6d504bd1f676bd99ce35e332f32987dccd10a1221d268e4728fab3bd4f8f9e"
+    },
+    {
+      "record": "corpus-renewal-paired-certificate-v2-20261010.json",
+      "file": "expanded-w2-midpoint-bank33-v1.json",
+      "original_sha256": "4c6a282f32278cc7b62cf3b2a30c18de6b0bac69d5b769776c376f03969f171f"
+    },
+    {
+      "record": "corpus-renewal-paired-certificate-v2-20261010.json",
+      "file": "certify_variable_kernel_finite_table.json",
+      "original_sha256": "87f0d0a7a5ee1552462449e669cf13d46ff78de88c258d094f697dc08a6ff951"
+    },
+    {
+      "record": "corpus-renewal-paired-certificate-v2-20261010.json",
+      "file": "certify_finite_step_table.json",
+      "original_sha256": "21a4b241c1eb50381a543d3f9c582f6d3281cce959e950a6f9e957d66d46069b"
+    },
+    {
+      "record": "corpus-renewal-paired-certificate-v2-20261010.json",
+      "file": "certify_finite_w2_action_bank.json",
+      "original_sha256": "11198d4c3b85f8691f2d8e7198b9bb4a1ca5e024e0f52386910f460911583884"
+    },
+    {
+      "record": "corpus-renewal-paired-certificate-v2-20261010.json",
+      "file": "certify_lower_k_finite_table.json",
+      "original_sha256": "3b0bade588ef3248568442e69b683da3b9deedaa5513fd0fe8be06256e0070ac"
+    },
+    {
+      "record": "corpus-renewal-paired-certificate-v2-20261010.json",
+      "file": "finite-step-typed-closure-audit.json",
+      "original_sha256": "8ed2d1c947e37a3d7003a16a3d9c8fd57efd3c1e7af330f9fb9f682853fd5653"
+    },
+    {
+      "record": "corpus-renewal-paired-certificate-v2-20261010.json",
+      "file": "finite-w2-action-bank.tex",
+      "original_sha256": "c9e9f297cd937dc3ec8005c58b8423cff840e50a4a972a485a8d343636674db7"
+    },
+    {
+      "record": "corpus-renewal-paired-certificate-v2-20261010.json",
+      "file": "second-seed-finite-feedback.tex",
+      "original_sha256": "434b6af31ef86cfacf224aae9ec53a6cd87fd1a636a7da712e098e20b2bfe66f"
+    },
+    {
+      "record": "corpus-renewal-paired-certificate-v2-20261010.json",
+      "file": "second-seed-stable-prefix-extension.tex",
+      "original_sha256": "4f34200171f30f6934ee6f63dba78ba005219c19a603047c02650152d5e02ad0"
+    },
+    {
+      "record": "corpus-renewal-paired-certificate-v2-20261010.json",
+      "file": "w2-variable-kernel-finite-table-independent-audit.json",
+      "original_sha256": "0e59ab84e9481d3d21cb81d597b313627c1fccfdfebded854dffa366d272789d"
+    },
+    {
+      "record": "corpus-renewal-paired-independent-v2-20261010.json",
+      "file": "positive-pair-deletion-certificate-20261010.json",
+      "original_sha256": "c6adf210c69f1eccb5921622762249d1fcf714abb62c42a493dcac23a609d8c7"
+    },
+    {
+      "record": "corpus-renewal-paired-independent-v2-20261010.json",
+      "file": "paired-y6-y11-zero-strip-certificate-20261010.json",
+      "original_sha256": "1dc70cf76c35c41161fb5236c608c7da8c0ee4dbeeae9153f0ce30cd63e007ab"
+    },
+    {
+      "record": "corpus-renewal-paired-independent-v2-20261010.json",
+      "file": "expanded-w2-midpoint-table248-v1.json",
+      "original_sha256": "a91c371b8c69398619ebee8b17598c163fbf8b6267fa0470ed6930e2097a98ed"
+    },
+    {
+      "record": "corpus-renewal-paired-independent-v2-20261010.json",
+      "file": "certify_sharp_184_baseline.py",
+      "original_sha256": "a4ebffaf2b13123cf8d7510fed18482f85ec1a79f1bcddb220bd3d3ec8197639"
+    },
+    {
+      "record": "corpus-renewal-paired-independent-v2-20261010.json",
+      "file": "certify_combined_chen_functional.py",
+      "original_sha256": "2d33559abaeb08d076a0185952ef7a1697ed1ca0b5beade129aa443a9ac4876b"
+    },
+    {
+      "record": "corpus-renewal-paired-independent-v2-20261010.json",
+      "file": "certify_extended_prefix.py",
+      "original_sha256": "1b77aa5deb90e0f39e06c776847a7e9fff27e23d584036955741b015ca05ad29"
+    },
+    {
+      "record": "corpus-renewal-paired-independent-v2-20261010.json",
+      "file": "sharp-248-pair-refinement-512.json",
+      "original_sha256": "dc76a40c74f687f8ac684342e2c19091b4ef8694c7823d268d2b3b2b38db5194"
+    },
+    {
+      "record": "corpus-renewal-paired-independent-v2-20261010.json",
+      "file": "positive-pair-deletion-selected-parent-cover-20261010.json",
+      "original_sha256": "2b9706b0f0b78234d0bebb0cdc18fb0cd5108ce2df39d215a0b22ccec9993c2a"
+    },
+    {
+      "record": "corpus-renewal-paired-independent-v2-20261010.json",
+      "file": "paired-y6-y11-parent-cover-root-check-20261010.json",
+      "original_sha256": "92e09a2bcc297fbb6f3991a0da4a8339d4df9f1dc24bd801ead00f32e068d135"
+    },
+    {
+      "record": "corpus-renewal-paired-independent-v2-20261010.json",
+      "file": "corpus-renewal-omega-independent-20261010.txt",
+      "original_sha256": "76f74437696d832f66c0d6fff252be6f466a75aca2598a3348c79c435eab3ecd"
+    },
+    {
+      "record": "corpus-renewal-paired-independent-v2-20261010.json",
+      "file": "corpus-renewal-omega-independent-20261010.json",
+      "original_sha256": "fa37636c67afbf9a63a40beb793d61757c2b505b7bfe1f7f1eee637cfb0e1c91"
+    },
+    {
+      "record": "corpus-renewal-paired-independent-v2-20261010.json",
+      "file": "corpus-renewal-paired-independent-v2-20261010.py",
+      "original_sha256": "521ed8e9ff82a06f9f6b4feedb853b0d9ada32e063056ab12c96f1994c915f51"
+    },
+    {
+      "record": "corpus-renewal-paired-final-review-20261010.json",
+      "file": "positive-pair-deletion-improvement-assembly-20261010.json",
+      "original_sha256": "5540ee62e07acbfcea9786e8784427fa5c8bb293a997823140aecf6c3b6ef32b"
+    },
+    {
+      "record": "corpus-renewal-paired-final-review-20261010.json",
+      "file": "positive-pair-deletion-certificate-20261010.json",
+      "original_sha256": "c6adf210c69f1eccb5921622762249d1fcf714abb62c42a493dcac23a609d8c7"
+    },
+    {
+      "record": "corpus-renewal-paired-final-review-20261010.json",
+      "file": "paired-y6-y11-zero-strip-certificate-20261010.json",
+      "original_sha256": "1dc70cf76c35c41161fb5236c608c7da8c0ee4dbeeae9153f0ce30cd63e007ab"
+    },
+    {
+      "record": "corpus-renewal-paired-final-review-20261010.json",
+      "file": "expanded-w2-midpoint-table248-v1.json",
+      "original_sha256": "a91c371b8c69398619ebee8b17598c163fbf8b6267fa0470ed6930e2097a98ed"
+    },
+    {
+      "record": "corpus-renewal-paired-final-review-20261010.json",
+      "file": "certify_sharp_184_baseline.py",
+      "original_sha256": "a4ebffaf2b13123cf8d7510fed18482f85ec1a79f1bcddb220bd3d3ec8197639"
+    },
+    {
+      "record": "corpus-renewal-paired-final-review-20261010.json",
+      "file": "certify_combined_chen_functional.py",
+      "original_sha256": "2d33559abaeb08d076a0185952ef7a1697ed1ca0b5beade129aa443a9ac4876b"
+    },
+    {
+      "record": "corpus-renewal-paired-final-review-20261010.json",
+      "file": "certify_extended_prefix.py",
+      "original_sha256": "1b77aa5deb90e0f39e06c776847a7e9fff27e23d584036955741b015ca05ad29"
+    },
+    {
+      "record": "corpus-renewal-paired-final-review-20261010.json",
+      "file": "sharp-248-pair-refinement-512.json",
+      "original_sha256": "dc76a40c74f687f8ac684342e2c19091b4ef8694c7823d268d2b3b2b38db5194"
+    },
+    {
+      "record": "corpus-renewal-paired-final-review-20261010.json",
+      "file": "corpus-renewal-paired-certificate-v2-20261010.py",
+      "original_sha256": "6e47caa91bd5e47678bcd8e2a1dc35659d25d44481c41dc437002be92d8b83dc"
+    },
+    {
+      "record": "corpus-renewal-paired-final-review-20261010.json",
+      "file": "corpus-renewal-paired-certificate-v2-20261010.json",
+      "original_sha256": "f6d31386f93cf77888ea4771ffa549a1cf61dca700bac618ff7646566a02f9b7"
+    },
+    {
+      "record": "corpus-renewal-paired-final-review-20261010.json",
+      "file": "corpus-renewal-paired-certificate-v2-20261010.txt",
+      "original_sha256": "2eac3c36c34d240262659b23b5319919c7d8a6c1e5a7505b83a2916f38527214"
+    },
+    {
+      "record": "corpus-renewal-paired-final-review-20261010.json",
+      "file": "corpus-renewal-paired-independent-v2-20261010.py",
+      "original_sha256": "521ed8e9ff82a06f9f6b4feedb853b0d9ada32e063056ab12c96f1994c915f51"
+    },
+    {
+      "record": "corpus-renewal-paired-final-review-20261010.json",
+      "file": "corpus-renewal-paired-independent-v2-20261010.json",
+      "original_sha256": "e18e78975bb982db64fc6b4038866919bbf0702306eb26f9d42076e77b042f7c"
+    },
+    {
+      "record": "corpus-renewal-paired-final-review-20261010.json",
+      "file": "corpus-renewal-paired-independent-20261010.txt",
+      "original_sha256": "2fe26dc34fcefb01add98a8f14fd0931c706fca8d3010462c5e513966d00dbae"
+    },
+    {
+      "record": "corpus-renewal-paired-final-review-20261010.json",
+      "file": "corpus-renewal-paired-final-review-20261010.py",
+      "original_sha256": "a9eb7b1611a0cf410af2bbf9642adef1776c5705413bf64c2b164c0b5d0f6911"
+    },
+    {
+      "record": "positive-pair-deletion-certificate-20261010.json",
+      "file": "positive-pair-deletion-certificate-20261010.py",
+      "original_sha256": "bf0e9e494e4da8919cb47a312db5d22090dacc05432c7e7ad46559fa7a785251"
+    },
+    {
+      "record": "positive-pair-deletion-certificate-20261010.json",
+      "file": "paired-y6-y11-zero-strip-certificate-20261010.py",
+      "original_sha256": "c623535f5499b922b1b775a36ffb6c505918582e0ed946b893e50c5c9cf9deba"
+    },
+    {
+      "record": "positive-pair-deletion-certificate-20261010.json",
+      "file": "expanded-w2-midpoint-table248-v1.json",
+      "original_sha256": "a91c371b8c69398619ebee8b17598c163fbf8b6267fa0470ed6930e2097a98ed"
+    },
+    {
+      "record": "positive-pair-deletion-certificate-20261010.json",
+      "file": "paired-y6-y11-improvement-assembly-20261010.json",
+      "original_sha256": "c866226a4799f385a9cfbef24de0b546a1e8549d5c66431cceffc06a7fb2c683"
+    },
+    {
+      "record": "positive-pair-deletion-certificate-20261010.json",
+      "file": "certify_sharp_184_baseline.py",
+      "original_sha256": "a4ebffaf2b13123cf8d7510fed18482f85ec1a79f1bcddb220bd3d3ec8197639"
+    },
+    {
+      "record": "positive-pair-deletion-certificate-20261010.json",
+      "file": "certify_combined_chen_functional.py",
+      "original_sha256": "2d33559abaeb08d076a0185952ef7a1697ed1ca0b5beade129aa443a9ac4876b"
+    },
+    {
+      "record": "positive-pair-deletion-certificate-20261010.json",
+      "file": "sharp-248-pair-refinement-512.json",
+      "original_sha256": "dc76a40c74f687f8ac684342e2c19091b4ef8694c7823d268d2b3b2b38db5194"
+    },
+    {
+      "record": "positive-pair-deletion-certificate-20261010.json",
+      "file": "independent-sharp-248-pair512-replay-20261008.json",
+      "original_sha256": "c2e82ed984d1b62c54d193b61befe94d6719e542187daedbc98bf0312081348c"
+    },
+    {
+      "record": "paired-y6-y11-zero-strip-certificate-20261010.json",
+      "file": "paired-y6-y11-zero-strip-certificate-20261010.py",
+      "original_sha256": "c623535f5499b922b1b775a36ffb6c505918582e0ed946b893e50c5c9cf9deba"
+    },
+    {
+      "record": "paired-y6-y11-zero-strip-certificate-20261010.json",
+      "file": "wu-y6-weight-impact-20261010.txt",
+      "original_sha256": "fc05a78a14153a145ae3eee913ebf0316f6a85f30b3140cda8a66b652e2cff6f"
+    },
+    {
+      "record": "paired-y6-y11-zero-strip-certificate-20261010.json",
+      "file": "wu-y6-numeric-impact-20261010.json",
+      "original_sha256": "9178f14fa01ad4cf185332de0ded05c8a32012be5f942cafd53439a5013a8e80"
+    },
+    {
+      "record": "paired-y6-y11-zero-strip-certificate-20261010.json",
+      "file": "certify_sharp_184_baseline.py",
+      "original_sha256": "a4ebffaf2b13123cf8d7510fed18482f85ec1a79f1bcddb220bd3d3ec8197639"
+    },
+    {
+      "record": "paired-y6-y11-zero-strip-certificate-20261010.json",
+      "file": "certify_sharp_248_pair_refinement.py",
+      "original_sha256": "508a864aef36136c91e249cfe11166afd01c198ecdd19cd4d319c9cac97bca2e"
+    },
+    {
+      "record": "paired-y6-y11-zero-strip-certificate-20261010.json",
+      "file": "independent_sharp_248_pair512_replay_20261008.py",
+      "original_sha256": "674ed6ce3b2185479a022b21b63e13187cc96220c135c367ea716c96c940ba26"
+    },
+    {
+      "record": "paired-y6-y11-zero-strip-certificate-20261010.json",
+      "file": "independent-sharp-248-pair512-replay-20261008.json",
+      "original_sha256": "c2e82ed984d1b62c54d193b61befe94d6719e542187daedbc98bf0312081348c"
+    },
+    {
+      "record": "paired-y6-y11-zero-strip-certificate-20261010.json",
+      "file": "lichtman-bottom-inputs-and-tail-assembly-20261010.json",
+      "original_sha256": "e83ac5671702ab55bdc42cad626f1dc24663732d770033a257d58f02da612901"
+    },
+    {
+      "record": "positive-pair-deletion-selected-parent-cover-20261010.json",
+      "file": "positive-pair-deletion-certificate-20261010.json",
+      "original_sha256": "c6adf210c69f1eccb5921622762249d1fcf714abb62c42a493dcac23a609d8c7"
+    },
+    {
+      "record": "positive-pair-deletion-selected-parent-cover-20261010.json",
+      "file": "paired-y6-y11-low-positive-parent-mask-20261010.json",
+      "original_sha256": "d54f89bde59cf9f9a9dc60a597abfddbe4507abd9c96ba1e1e2f57d1bbef6acd"
+    },
+    {
+      "record": "positive-pair-deletion-selected-parent-cover-20261010.json",
+      "file": "paired-y6-y11-zero-strip-certificate-20261010.json",
+      "original_sha256": "1dc70cf76c35c41161fb5236c608c7da8c0ee4dbeeae9153f0ce30cd63e007ab"
+    },
+    {
+      "record": "positive-pair-deletion-selected-parent-cover-20261010.json",
+      "file": "sharp-248-four-min-48.witness.json",
+      "original_sha256": "4a7e02a9179da1016a69472ee1f439dc3caf9d06bd45f9e4d1a7e22162c0900d"
+    },
+    {
+      "record": "positive-pair-deletion-selected-parent-cover-20261010.json",
+      "file": "four-min-priority40000-20261009.witness.json.gz",
+      "original_sha256": "feed08120834005b73501be9947de7fec63a1da9a7b34b2c75da703e09520530"
+    },
+    {
+      "record": "paired-y6-y11-parent-cover-root-check-20261010.json",
+      "file": "verify_paired_y6_y11_parent_cover_20261010.py",
+      "original_sha256": "958311b8f05422d4be6fa4362e5a5369e4c1e4bb8e748bd18ddbf61c174a55bc"
+    },
+    {
+      "record": "paired-y6-y11-parent-cover-root-check-20261010.json",
+      "file": "paired-y6-y11-zero-strip-certificate-20261010.json",
+      "original_sha256": "1dc70cf76c35c41161fb5236c608c7da8c0ee4dbeeae9153f0ce30cd63e007ab"
+    },
+    {
+      "record": "paired-y6-y11-parent-cover-root-check-20261010.json",
+      "file": "sharp-248-four-min-48.witness.json",
+      "original_sha256": "4a7e02a9179da1016a69472ee1f439dc3caf9d06bd45f9e4d1a7e22162c0900d"
+    },
+    {
+      "record": "paired-y6-y11-parent-cover-root-check-20261010.json",
+      "file": "four-min-priority40000-20261009.witness.json.gz",
+      "original_sha256": "feed08120834005b73501be9947de7fec63a1da9a7b34b2c75da703e09520530"
+    },
+    {
+      "record": "paired-y6-y11-parent-cover-root-check-20261010.json",
+      "file": "certify_sharp_248_four_min.py",
+      "original_sha256": "83c5922badeafa1b3ddf5a35f95be07f4969a0db01e49d85bc0fdc663deb900a"
+    },
+    {
+      "record": "paired-y6-y11-parent-cover-root-check-20261010.json",
+      "file": "four-min-k-feedback-route-20261009.py",
+      "original_sha256": "3f8f40a389a245a5407da46687e5d289332bd59a2cc630161c859e7286b566f6"
+    },
+    {
+      "record": "paired-y6-y11-parent-cover-root-check-20261010.json",
+      "file": "chen-transfer-paired-deletion-independent-20261010.json",
+      "original_sha256": "7536f789f6cdae1a21f47ac3579ce6dad8523185c7f10b6345ea6d481fb5d14e"
+    },
+    {
+      "record": "sharp-248-pair-refinement-512.json",
+      "file": "certify_sharp_248_pair_refinement.py",
+      "original_sha256": "508a864aef36136c91e249cfe11166afd01c198ecdd19cd4d319c9cac97bca2e"
+    },
+    {
+      "record": "sharp-248-pair-refinement-512.json",
+      "file": "certify_sharp_184_baseline.py",
+      "original_sha256": "a4ebffaf2b13123cf8d7510fed18482f85ec1a79f1bcddb220bd3d3ec8197639"
+    },
+    {
+      "record": "sharp-248-pair-refinement-512.json",
+      "file": "certify_conservative_chen.py",
+      "original_sha256": "67b9429667e18786058e0fe58676fbe09d556868468f1281166cac2b55f8604e"
+    },
+    {
+      "record": "sharp-248-pair-refinement-512.json",
+      "file": "certify_extended_prefix.py",
+      "original_sha256": "1b77aa5deb90e0f39e06c776847a7e9fff27e23d584036955741b015ca05ad29"
+    },
+    {
+      "record": "sharp-248-pair-refinement-512.json",
+      "file": "certify_combined_chen_functional.py",
+      "original_sha256": "2d33559abaeb08d076a0185952ef7a1697ed1ca0b5beade129aa443a9ac4876b"
+    },
+    {
+      "record": "sharp-248-pair-refinement-512.json",
+      "file": "expanded-w2-midpoint-table248-v1.json",
+      "original_sha256": "a91c371b8c69398619ebee8b17598c163fbf8b6267fa0470ed6930e2097a98ed"
+    },
+    {
+      "record": "sharp-248-pair-refinement-512.json",
+      "file": "sharp-248-baseline-128.json",
+      "original_sha256": "eb33c788676f1fef56c984006d5e130169be0ad67d6b0bd2f2dd1ea55740040c"
+    },
+    {
+      "record": "sharp-248-pair-refinement-512.json",
+      "file": "sharp-eleven-term-baseline-proof.tex",
+      "original_sha256": "b05e8ca64c6128353b33e137dc0ba99199427ccc0c4a0c361eed7d8afefe69ce"
+    },
+    {
+      "record": "sharp-248-pair-refinement-512.json",
+      "file": "sharp-248-baseline-insertion.tex",
+      "original_sha256": "58f961188dac2838ade358498127cf8ae92d55af7f80f07a9da4d2e7d0bba546"
+    },
+    {
+      "record": "independent-sharp-248-pair512-replay-20261008.json",
+      "file": "independent_sharp_248_pair512_replay_20261008.py",
+      "original_sha256": "674ed6ce3b2185479a022b21b63e13187cc96220c135c367ea716c96c940ba26"
+    },
+    {
+      "record": "independent-sharp-248-pair512-replay-20261008.json",
+      "file": "independent_sharp_baseline_replay.py",
+      "original_sha256": "ffc5b0b749099f4384b82283dd5605cc05d88bfbd6f63cb8eb26cb0733c6e633"
+    },
+    {
+      "record": "independent-sharp-248-pair512-replay-20261008.json",
+      "file": "independent_sharp_four_min_replay.py",
+      "original_sha256": "d88e0ffc73adcc5f234785917f1ab64c58674048206c0afd9d7a5ecf91610a38"
+    },
+    {
+      "record": "independent-sharp-248-pair512-replay-20261008.json",
+      "file": "sharp-248-pair-refinement-512.json",
+      "original_sha256": "dc76a40c74f687f8ac684342e2c19091b4ef8694c7823d268d2b3b2b38db5194"
+    },
+    {
+      "record": "independent-sharp-248-pair512-replay-20261008.json",
+      "file": "expanded-w2-midpoint-table248-v1.json",
+      "original_sha256": "a91c371b8c69398619ebee8b17598c163fbf8b6267fa0470ed6930e2097a98ed"
+    },
+    {
+      "record": "expanded-w2-midpoint-table248-v1.json",
+      "file": "certify_expanded_w2_joint_table.py",
+      "original_sha256": "1d6d504bd1f676bd99ce35e332f32987dccd10a1221d268e4728fab3bd4f8f9e"
+    },
+    {
+      "record": "expanded-w2-midpoint-table248-v1.json",
+      "file": "expanded-w2-midpoint-bank33-v1.json",
+      "original_sha256": "4c6a282f32278cc7b62cf3b2a30c18de6b0bac69d5b769776c376f03969f171f"
+    },
+    {
+      "record": "expanded-w2-midpoint-table248-v1.json",
+      "file": "certify_variable_kernel_finite_table.json",
+      "original_sha256": "87f0d0a7a5ee1552462449e669cf13d46ff78de88c258d094f697dc08a6ff951"
+    },
+    {
+      "record": "expanded-w2-midpoint-table248-v1.json",
+      "file": "certify_finite_step_table.json",
+      "original_sha256": "21a4b241c1eb50381a543d3f9c582f6d3281cce959e950a6f9e957d66d46069b"
+    },
+    {
+      "record": "expanded-w2-midpoint-table248-v1.json",
+      "file": "certify_finite_w2_action_bank.json",
+      "original_sha256": "11198d4c3b85f8691f2d8e7198b9bb4a1ca5e024e0f52386910f460911583884"
+    },
+    {
+      "record": "expanded-w2-midpoint-table248-v1.json",
+      "file": "certify_lower_k_finite_table.json",
+      "original_sha256": "3b0bade588ef3248568442e69b683da3b9deedaa5513fd0fe8be06256e0070ac"
+    },
+    {
+      "record": "expanded-w2-midpoint-table248-v1.json",
+      "file": "finite-step-typed-closure-audit.json",
+      "original_sha256": "8ed2d1c947e37a3d7003a16a3d9c8fd57efd3c1e7af330f9fb9f682853fd5653"
+    },
+    {
+      "record": "expanded-w2-midpoint-table248-v1.json",
+      "file": "finite-w2-action-bank.tex",
+      "original_sha256": "c9e9f297cd937dc3ec8005c58b8423cff840e50a4a972a485a8d343636674db7"
+    },
+    {
+      "record": "expanded-w2-midpoint-table248-v1.json",
+      "file": "second-seed-finite-feedback.tex",
+      "original_sha256": "434b6af31ef86cfacf224aae9ec53a6cd87fd1a636a7da712e098e20b2bfe66f"
+    },
+    {
+      "record": "expanded-w2-midpoint-table248-v1.json",
+      "file": "second-seed-stable-prefix-extension.tex",
+      "original_sha256": "4f34200171f30f6934ee6f63dba78ba005219c19a603047c02650152d5e02ad0"
+    },
+    {
+      "record": "expanded-w2-midpoint-table248-v1.json",
+      "file": "w2-variable-kernel-finite-table-independent-audit.json",
+      "original_sha256": "0e59ab84e9481d3d21cb81d597b313627c1fccfdfebded854dffa366d272789d"
+    }
+  ],
+  "author_source_dependency_pairs": 53,
+  "scope": "Frozen v2 direct certificate bindings plus the original author source-dependency audit; no external manuscript library recursion."
+}

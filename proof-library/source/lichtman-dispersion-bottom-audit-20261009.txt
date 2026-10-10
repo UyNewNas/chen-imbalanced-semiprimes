@@ -1,0 +1,280 @@
+Bottom-level audit of preliminary dispersion D for a moving residue
+2026-10-09. New independent audit; no previous source or state is changed.
+
+0. Result, independence and precise scope
+
+I find no remaining gap in the two repairs supplied by
+lichtman-zero-product-dispersion-repair-20261009.txt, for E=1 and the
+fixed power margins stated below. This conclusion follows from the
+explicit moment and indicator calculations here, not from its previous
+independent-review status. In particular the exact-product double
+diagonal is not discarded without accounting for it: it is absent in
+the modified first moment, and is never reinserted into the variance.
+
+This reviewer previously authored the separate spectral S audit and
+reviewed the restricted D/S/E1 composition. I did not author the D
+repair or its earlier independent audit. The present work rereads
+Maynard's preliminary proof and reconstructs D directly. It does not
+reprove Shiu, Poisson, or the SW mean-square theorem, and gives no new
+estimate for E1/E2 or any global sieve constant.
+
+The usable statement is as follows. Fix delta>0, K>=1, B0 and the
+smooth cutoff. Let MN be comparable to x, N,M>=x^delta,
+
+  QD<=N*x^(-delta),       QDR<=x^(1-delta),       0<|a|<=x^K.
+
+Keep the original divisor-power coefficient bounds, rough support of
+alpha_n and lambda_(q,d,r), and the full auxiliary-coprimality SW
+hypothesis on alpha. If coefficients vary with a or x, these divisor
+and SW constants must be uniform in that family. This is a necessary
+interpretation of a uniform-in-a assertion, not a consequence of each
+individual sequence having some unspecified SW constant. The actual
+HB insertion supplies this separately; it is not reproved here.
+
+For every A, preliminary dispersion has the source form
+
+ |S(a)| << x/log(x)^A
+       + M*sqrt(QD)*log(x)^O_B0(1)
+           *(sqrt(|E1(a)|)+sqrt(|E2(a)|)).                 (D)
+
+The constants may depend on A,B0,delta,K and the uniform SW constants,
+but not on a in the stated range. Fixing a first proves the displayed
+inequality; supremums, if used, are supremums of absolute values.
+The additional exact-product errors before absorption are
+QDR*x^o(1) in the first moment and x^(1-delta/2+o(1)) after Cauchy.
+The latter, not x^(1-sigma/5), is the appropriate contribution when
+delta=sigma/3 in a subsequent application. No endpoint without a fixed
+power margin and no E>1 extension is claimed.
+
+1. Primary-text locations actually checked
+
+Maynard I v2, arXiv:2006.06572v2, local text
+external-source-audit-20261009/maynard-I-v2-phase-candidate-20261009.txt:
+ - lines1150--1155: standing convention that a is fixed and constants
+   may depend on it. Uniformity is therefore reconstructed, not quoted.
+ - lines1260--1269: full auxiliary-coprimality SW condition(6.1).
+ - lines1994--2005: Lemma8.7 with |b|<x-y; that literal shift range
+   is insufficient for the present application.
+ - lines4158--4220: Lemma13.8, the SW mean-square statement and its
+   divisor-weighted reduction. This remains an external source input.
+ - lines4334--4404: Lemma14.1 and its unshifted divisor errors.
+ - lines4405--4541: Lemma14.2, particularly removal of (m,r2)>1,
+   then one-congruence Poisson and restoration of its main term.
+ - lines4542--4903: Lemma14.3, logarithmic truncation, common-factor
+   and close-pair exclusions, equations(14.4)--(14.7), CRT/Poisson,
+   and the final SW mean square.
+ - lines4905--5124: Proposition14.4, including the Cauchy multiplier
+   MQD*log(x)^O(1) and the exact expansion(14.8).
+
+Lichtman v1, local external-source-audit/l23-v1-joint-current.txt,
+lines1486--1506 and1619--1714: Lemma4.1 and Proposition4.5. The
+claim of residue uniformity is not assumed in place of this check.
+
+For the classical Shiu input I read the explicit statement in Wright,
+arXiv:2508.17217v1, Theorem1.1, local
+external-source-audit-20261009/shiu-classical-statement-20261009.txt,
+lines113--176. For a fixed nonnegative multiplicative f it assumes
+f(p^j)<=A1^j and f(n)<<_epsilon n^epsilon; its primitive progression
+bound applies on [X,X+H), X^beta<=H<=X, q<H^(1-alpha), with fixed
+0<alpha,beta<1/2. This audit uses that classical theorem, not Wright's
+new variable-function theorem. I checked the original bibliographic
+record (Shiu, J. Reine Angew. Math.313(1980),161--170, DOI
+10.1515/crll.1980.313.161). The original-library content endpoint
+https://eudml.org/doc/152201 returned403 in this audit. I do not claim
+to have read the full1980 proof. Its standard theorem statement is
+an explicit external input, whose hypotheses are verified next.
+
+2. Moving and nonprimitive shifted moments
+
+Let I lie in [-x^K,x^K], have length at most L<=x^K, and let
+q<=L*x^(-delta). For k=r mod q, k!=0, put g=(r,q), q'=q/g,
+k=g*t. The resulting residue of t modulo q' is primitive, also when
+r=0 (then q'=1). Since tau(gt)^C<=tau(g)^C*tau(|t|)^C and
+L'=L/g satisfies L'/q'=L/q>=x^delta, it suffices to bound that
+primitive progression in an interval of length L'. The gcd factor
+tau(g)^C<=tau(q)^C must be kept.
+
+Values 0<|t|<=q'*x^(delta/2) contribute at most
+O(x^(delta/2)+1)*x^(delta/4)=O(x^(3delta/4)) per gcd factor.
+Here the pointwise divisor bound uses the fixed exponent delta/(4K)
+and polynomial bound on |t|. This is smaller than L'/q', so this
+part does not leave a pointwise x^epsilon loss in the final mean.
+
+For larger |t| split signs and positive dyadic ranges. Short dyadic
+ranges can be included whole; for ranges longer than L' extend each
+intersection to a positive interval of length comparable to L'.
+The total covering length is O(L') (an extra log would suffice), and
+each interval [X,X+H) may be chosen with
+
+ H<=X, H>=c*q'*x^(delta/2), H>=c*x^(delta/2), X<=C*x^K.
+
+Taking alpha=beta=min(1/4,delta/(8K)) gives, eventually,
+X^beta<=H and q'/H^(1-alpha)<=x^(-3delta/8+o(1))<1.
+Fixed constant endpoint enlargements can alternatively be absorbed by
+slightly reducing these positive parameters. All interval and modulus
+conditions are satisfied in the Shiu variables X,H; the ambient x
+is not silently substituted for a much smaller interval endpoint.
+
+For f(t)=tau(t)^C, f(p^j)=(j+1)^C<=2^(Cj) and the required
+subpower bound holds. The prime exponential and q'/phi(q') cost only
+fixed logarithmic powers. Therefore uniformly in I,r,q,
+
+ sum_(k in I,k=r mod q,k!=0) tau(|k|)^C
+   << (L/q)*tau(q)^C*log(x)^O(C,K,delta).                 (M1)
+
+Apply Cauchy to one and the same b progression in [1,C0*x], with
+the two factors tau(b)^(2B) and tau(|b-a|)^(2C), omitting b=a.
+Each is covered by(M1), the second on a translated interval and
+residue r-a. Both possible gcd factors divide q. Hence
+
+ sum_(b=r mod q,b!=a) tau(b)^B*tau(|b-a|)^C
+   << (x/q)*tau(q)^O(B,C)*log(x)^O(B,C,K,delta).          (M2)
+
+This uses q<=x^(1-delta), allows either sign of b-a and arbitrary
+polynomial-sized a, and contains NO tau(a) factor. A tiny actual
+interval may be enlarged to the stated length; no short-interval
+estimate below the Shiu range is being asserted. The integer zero
+stays excluded throughout(M1)--(M2).
+
+3. Every use of the shifted moment in the dispersion proof
+
+In Lemma14.2 keep mn1!=a while removing (m,r2)>1. A common factor
+f>1 is >z0 because r2 is rough. The ordinary divisor sum over its
+multiples r2 contributes (R/f)*log^O times a fixed divisor power of
+f. Collapsing b=mn1 with f|m implies f|b; the multiplicity and
+all m,n1 divisor weights are bounded by tau(b)^O(1). Since
+f<=O(M)<=O(x^(1-delta)), (M2) applies with a smaller fixed delta.
+Together with the outer1/f, this gives the sum
+
+ (N/(QD))*x*log^O *sum_(f>z0) tau(f)^O(1)/f^2
+   << (MN^2/(QD))*log^O/z0.                              (M3)
+
+The divisor tail is bounded by ordinary divisor means and partial
+summation. It is logarithmic, not x^o(1): z0=x^(1/(loglog x)^3)
+would not absorb an arbitrary subpower loss. In E=1, the source's
+separate removal of (e,r1r2)>1 is vacuous.
+
+In Lemma14.3 both products mn_i-a are nonzero. After absolute values,
+symmetry and uv<=(u^2+v^2)/2 bound the two shifted-divisor factors
+by a single higher moment in (m,n1). The number of possible n2 in
+its progression is O(N/(QD)+1). Collapsing b=mn1 and applying(M2)
+with q=1 gives x*log^O, so the large-coefficient/divisor cutoff costs
+
+ (xN/(QD)+x)*log(x)^(C0-C1).
+
+Here C0 depends on the fixed divisor exponent, not on the moving a.
+Choose C1 sufficiently large for the desired logarithmic error.
+
+Under the remaining logarithmic cutoffs the source's later elementary
+counts are uniform in a. For (r1,r2)>1 a common f divides both shifts;
+since mn1=a mod r1 and (a,r1)=1, (m,f)=1 and f divides n1-n2.
+For (n1,n2)>1, roughness supplies f>z0 and the progression step is
+at least qd*f, with the n1-multiple count supplying the needed mean.
+For (qd,r2)>1, f divides qd and (m,qd)=1; the stronger congruence
+modulo qd*f again has only one n2 residue. These are algebraic
+coprimality facts, not assumptions that the integer representative a
+is small. Their errors are bounded by
+
+ (xN/(QD))*log^C2/z0 + x*log^C2.
+
+The close-pair exclusion similarly costs
+(xN/(QD))*log^(C3-Cclose)+x*log^C3. The power bound QD/N<=x^-delta
+makes the x terms negligible; z0 dominates every fixed log power.
+Choose Cclose after C1. Restore the large logarithmic cutoffs only
+on the still-nonzero pairs. The printed line4743 has tau(mn2 a)
+in the reinsertion sentence; the preceding definition of the starred
+sum unambiguously has tau(mn2-a). This audit uses that definition,
+not the isolated missing-minus typography.
+
+4. Exact product: modify before Cauchy, restore only single zeros
+
+For a>0 define E(m,n)=1_(mn=a) and replace each congruence indicator
+I_(qdr) by I'_(qdr)=I_(qdr)-E. Because (qdr,a)=1, E implies all
+the needed congruences and coprimalities, so I' is precisely the
+indicator with the zero shift deleted. Leave the coprime mean intact.
+The first-moment change is at most QDR*x^o(1): there are tau(a)
+factorizations and all coefficients are divisor bounded on polynomial
+scales. If a<0 there is no positive exact product.
+
+Apply Cauchy to the MODIFIED expression. In E=1, for each (q,d,m)
+there is one allowed n residue modulo qd. Ordinary divisor means
+bound the eliminated beta_m and gamma_(q,d) by
+MQD*log(x)^O(B0), with no moving-residue factor. Extending with the
+same nonnegative smooth majorants is valid before expanding the square.
+The exact expansion has unchanged S1, S2 with E1 removed, and S3
+with both zero shifts removed. In particular
+
+ (I1-E1)(I2-E2)=I1*I2*(1-E1)*(1-E2),
+
+where in this identity Ei=E(m,ni), not the exponential remainder Ei(a).
+
+The E1*E2 term has not been forgotten; this identity describes why
+it is absent from the modified variance. No m-dependent SW sequence
+is created, since only the counting indicator was changed.
+
+In S2 restore mn1=a only after(M3), immediately before its Poisson
+step. For each of the x^o(1) exact factorizations there are N choices
+of n2, QD choices of q,d, R^2 choices of r1,r2 and a mean factor
+1/phi(qdr2)<<x^o(1)/(QDR). The restoration is RN*x^o(1).
+
+In S3 retain the exclusion through ALL divisor cutoffs and the close-
+pair deletion. Its S4 now has n1!=n2. Fixing mn1=a leaves
+O(N/(QD)+1) choices of n2 per(q,d); mn2-a is nonzero. Thus r2
+has x^o(1) divisor choices, whereas r1 has O(R) choices. Both
+single-zero cases together cost R*(N+QD)*x^o(1)=RN*x^o(1).
+They may now be restored to the complete smooth m sum used by CRT
+and Poisson. Both zeros cannot occur in this S4. Later restoration
+of close pairs is in the mean term AFTER Poisson, where ordinary
+progression/SW estimates apply and no shifted zero divisor appears.
+
+The normalization is explicit. Set V=xN/(QD), the raw variance
+scale. Its multiplier under outer Cauchy is MQD*log^O. The RN
+restoration has relative size QDR/x, and its squared-first-moment
+contribution is
+
+ (MQD)*(RN)*x^o(1)=x*(QDR)*x^o(1)<=x^(2-delta+o(1)).
+
+Taking a square root yields x^(1-delta/2+o(1)). The first-moment
+QDR correction is smaller. These are the ONLY places an uncontrolled
+fixed-order divisor x^o factor remains, apart from the small-t part
+of(M1), which was already absorbed by its power reserve.
+
+For comparison, reinserting both zeros too early would permit a term
+QD*R^2*x^o(1), requiring (QDR)^2<xN. This does not follow from D's
+hypotheses: exponents N=.4,M=.6,QD=.3,R=.55 satisfy the stated
+conditions for delta=.05 but give 2(.3+.55)=1.7>1.4=1+.4.
+That is an obstruction to the prematurely reinserted proof, not to
+the reviewed late-restoration argument.
+
+5. Remaining uniformity and error ledger
+
+S1 involves only unshifted divisor sums; dropping target coprimality
+conditions in absolute errors makes its constants independent of a.
+CRT uses primitive residues, and Poisson's tail estimate is uniform
+in those residues; a occurs only in a modulus-one exponential at this
+stage. No approximation of its phase is made in D. After Poisson,
+all restored main-term exclusions are controlled by ordinary divisor
+counts with the same QD/N and z0 gaps. Lemma13.8 is applied to the
+ORIGINAL uniformly SW alpha, with modulus range O(QD)<N/log(N)^C.
+Since N>=x^delta, log N and log x are comparable. The target a only
+restricts outer moduli and does not become a large nonprimitive
+residue inside that mean-square estimate.
+
+The losses can therefore be kept in three separate classes:
+ - Logarithmic: divisor averages, Cauchy multiplier, coefficient
+   truncations, SW mean-square. Select their target exponents larger
+   than every fixed log loss; no x^o is multiplied into them.
+ - Roughness: V*log^C/z0, still log-small for every fixed C.
+   Its divisor tails use means, not pointwise x^o bounds.
+ - Fixed-power: V*x^-delta*log^C, the small-t estimate in(M1),
+   QDR*x^o and RN*x^o. Only here are fixed-order subpower factors
+   absorbed by a genuine positive exponent margin.
+
+This closes the requested moving-shift and exact-product checks under
+the stated D hypotheses. There is no claimed Shiu theorem for arbitrary
+ultrashort intervals or unrestricted nonprimitive residues without their
+tau(q) factor. Uniform SW constants, fixed polynomial a-range, positive
+power margins and E=1 remain indispensable hypotheses. The standard
+Shiu and SW mean-square theorems remain external inputs. No statement
+about the later spectral proof, full repaired convolution assembly or
+global K,c,b follows from this record alone.

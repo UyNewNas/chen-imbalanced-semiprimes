@@ -1,0 +1,183 @@
+Independent Buchstab lower envelope and fixed-mask inner-fibre audit
+10 October 2026. New proof and independent arithmetic only.
+
+Scope and conclusion
+
+This note proves, without a numerical Buchstab table,
+   omega(s) >= 11/20 for every s >= 7/3.
+It therefore proves the requested range s>=5/2 and the pilot's slightly
+stronger range s>=12/5. The proof uses only the definition/delay equation
+of Buchstab's function and rational inequalities. It independently checks
+the pilot's inner-fibre geometry and integral, then encloses its extra
+gross saving on all 17772 fixed pair cells using a distinct decimal-integer
+Mercator implementation. The old discarded L6 floors are NOT replayed here.
+No theorem constant, research-state file, old certificate or manuscript changes.
+
+1. Elementary proof from the defining delay equation
+
+Define omega(s)=1/s on [1,2], continuously, and for s>2 define
+   (s omega(s))' = omega(s-1).
+In particular omega(s)=(1+log(s-1))/s on [2,3].
+
+First prove the global baseline omega(s)>=1/2 for s>=2.
+On [2,3], H(s)=1+log(s-1)-s/2 is concave, H(2)=0,
+and H(3)=log2-1/2>0. For example log2>=2/3 proves strict positivity
+at3. Concavity gives H>=0 on the entire interval.
+If the bound is proved through integer j>=3, then on [j,j+1]
+   s omega(s)=j omega(j)+int_j^s omega(v-1)dv >=j/2+(s-j)/2=s/2.
+This is induction, since v-1 lies in the already proved interval.
+
+For completeness, the rational logarithm bound used here is
+   log x >= 2(x-1)/(x+1) for every x>=1.
+The difference is zero at1 and has derivative
+   1/x-4/(x+1)^2 = (x-1)^2/[x(x+1)^2] >=0.
+Thus log2>=2/3, without decimal approximations.
+
+Now put q=7/3 and m=11/20. On [q,3], the same logarithm inequality gives
+   omega(s) >= (3s-4)/s^2.
+The cleared polynomial Q(s)=3s-4-m s^2 is concave. At both endpoints
+it is nonnegative, since
+   (3q-4)/q^2-m = 27/49-11/20 = 1/980 >0,
+   (3*3-4)/3^2-m = 5/9-11/20 = 1/180 >0.
+Concavity therefore proves omega>=m on [7/3,3].
+
+On [3,10/3], use the already established global1/2 bound:
+   s omega(s) >=1+log2+(s-3)/2 >=s/2+1/6.
+Consequently omega(s)>=1/2+1/(6s)>=1/2+1/20=11/20.
+The complete length-one seed interval [7/3,10/3] is now proved.
+If omega>=m is known through q+j for an integer j>=1, then for
+q+j<=s<=q+j+1,
+   s omega(s)=(q+j)omega(q+j)+int_(q+j)^s omega(v-1)dv >=m s.
+Here v-1>=q and v-1<=q+j, so the induction hypothesis applies.
+This proves the bound on the whole half-line. Since
+   7/3 < 12/5 < 5/2,
+both requested/pilot ranges follow. There is no infinite numerical
+iteration, inferred limiting value, or invocation of an unverified paper.
+
+2. The exact domain and the parent-density issue
+
+Current U11 exponents are in the order
+   a<w<z<u<h<t<d,
+   a=417/5000, h=19/125, d=59/250,
+with positive measure dmu4=dt du dz dw/(t u z w).
+The fixed saved-parent proof gives a restrictable positive majorant
+   F_B'(t,u,z,w)=A_B'/(Z_B' z)
+          >=K omega((1-t-u-z-w)/z)/z.
+The quantities Z_B', A_B' here belong to the historical four-dimensional
+parent and are unrelated to the new scalar cutoff Z below.
+The exact old pair masks E0,E1 were already removed, with Y6 loss paid.
+This audit improves only the guaranteed integral of the majorant removed
+on those same masks. It does not reverse an upper bound for an actual
+arithmetic count, and does not alter the outer pointwise Chen weight.
+
+For a fixed adopted pair rectangle B=[tl,tr]x[ul,ur], choose
+   Z=min(ul,5(1-tr-ur)/22).
+Every point of the nonempty subfibre a<w<z<Z satisfies
+   z<u,
+   s=(1-t-u-z-w)/z
+      >=(1-tr-ur-2z)/z
+      >=(1-tr-ur-2Z)/Z >=12/5.
+The third inequality uses 1-tr-ur>0, verified for every cell.
+The last is equivalent to Z<=5(1-tr-ur)/22. At boundary equality
+the lower envelope is still valid; no claim of a strict positive margin
+is required for this elementary omega bound.
+
+A universal check also gives s>=(1-d-3h)/h=77/38>2 throughout the
+full ordered domain, so the old1/2 baseline remains valid off the subfibre.
+If Z<=a for a future cell its subfibre is empty and contributes zero;
+one must not use the displayed integral formula with inverted limits.
+The independent checker establishes Z>a for all17772 adopted cells.
+
+These subfibres are fixed before N tends to infinity. Each pair cell has
+fixed rational endpoints, and its internal walls are z=Z, w=z, w=a.
+There are finitely many cells and fixed positive prime-exponent cutoffs.
+One can refine jointly with the saved four-dimensional parent partition,
+then use the already admitted positive-family approximation/trim arguments.
+No selected arithmetic remainder, prime-count outcome, growing-with-N
+policy, or unsupported arbitrary signed sharp indicator is introduced.
+Different pair interiors are disjoint, and E0 and E1 are disjoint.
+
+The phrase 'local selection by Buchstab parameter' must be interpreted
+as this deterministic geometric restriction of already removed mass.
+If one instead changes the actual outer Y11 tuple set or adds new pair
+cells, its injection/positive-loss/ordinary-branch/priority-parent checks
+must be re-established for that new set. This pilot makes neither change.
+
+3. Independent integration in the separate directions
+
+The additional Buchstab amount is 11/20-1/2=1/20 on this subfibre.
+Including the outer Chen coefficient1/4, the additional gross saving is
+at least K/80 times int_subfibre dmu4/z.
+
+For fixed z, integration in w gives
+   int_a^z dw/w =log(z/a).
+Next integrate z:
+   J(Z)=int_a^Z log(z/a)/z^2 dz
+       =1/a-(1+log(Z/a))/Z.
+An antiderivative is -(1+log(z/a))/z. In particular J(a)=0 and
+J'(Z)=log(Z/a)/Z^2>=0; the integrand and integral are positive.
+Because the chosen Z is CONSTANT on each pair rectangle, the remaining
+two integrations factor exactly, giving
+   extra_B = K/80 log(tr/tl) log(ur/ul)
+                     [1/a-(1+log(Z/a))/Z].
+There is no extra permutation factor: the inner variables already run
+over the ordered triangle w<z. The additional1/z from the switched
+majorant makes z^2 in the denominator; omitting it gives a different mass.
+
+As a cross-check, for the entire removed fibre a<w<z<u the same primitive
+gives J(u); integrating u then gives
+   log(tr/tl)*[log(ur/ul)/a
+      +(log(ur/a)+2)/ur-(log(ul/a)+2)/ul],
+which is the existing full-fibre mass I_B. This cross-check follows by
+differentiating the displayed u primitive, independently of old code.
+If a future choice uses Z(t,u), the product of two outer logarithms is
+no longer valid; one must integrate J(Z(t,u)) against dt du/(t u),
+or use a constant lower cutoff with the correct direction.
+
+4. Independent arithmetic coverage
+
+The companion checker imports no project numerical modules and no pilot
+code. It reconstructs E0 from the90 adopted strips and reads E1 from the
+adopted positive-pair mask; it checks counts6091/11481, disjointness,
+all rational endpoint inequalities, and every nonempty inner fibre.
+
+For every logarithm x in[1,2], it uses the positive expansion
+   log x=sum_(j>=1) y^j/j, y=1-1/x in[0,1/2].
+With256 terms the analytic remainder is at most 2^(-256)/257.
+Powers, terms and arithmetic are enclosed with integer floor/ceiling
+at decimal scale10^72. Thus this is independent of the pilot's Q224
+atanh-log engine and Q160 arithmetic. All products use positive interval
+endpoints; subtracting the logarithmic term reverses endpoints explicitly.
+
+Only AFTER all gross integrals have been constructed does the checker
+read the pilot's numerical outputs for comparison. It checks that the
+independent interval lies inside the pilot interval for each of the11481
+E1 cells, both group sums, and the total. E0 has no pilot per-cell list;
+all6091 E0 cells are independently integrated and its full total compared.
+The companionJSON reports the exact enclosures, without copying the
+pilot endpoints as evidence. All read input hashes are checked unchanged.
+
+This audit does not replay or attest the exact discarded L6-floor sum.
+That separate calculation is needed before adopting the pilot's loss
+recovery. The additional gross integral alone has full coverage here.
+
+5. Accounting and overlap
+
+Keep the previous adopted gross lower bounds, and ADD only this extra
+1/20 subfibre mass. This preserves old rounding slack and avoids charging
+the previous deleted mass twice. Future K-feedback must subtract only
+the newly adopted GROSS amount/K. A recovered lower-floor loss is
+K-independent and must not enter that slope.
+
+The separate certificate-methods note also offers a global rational
+minorant3002/5929. Its extra mass overlaps the present subfibre improvement.
+One cannot add both complete deltas. A legitimate combined envelope is
+   m0+(11/20-m0)1_(s>=12/5),
+with m0=3002/5929, or simply the current pilot's
+   1/2+(1/20)1_(inner subfibre).
+This audit certifies the latter, exactly matching the fixed pilot.
+
+Allocation of new approximation/compiler allowances, selection of c/b,
+and the exact logarithmic transfer surplus are separate final-assembly
+obligations. This note proves the local analytic change and its gross
+integral, not a replacement global completion claim.

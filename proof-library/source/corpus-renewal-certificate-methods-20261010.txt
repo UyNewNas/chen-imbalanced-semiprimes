@@ -1,0 +1,198 @@
+本地论文再读：正测度限制、精确矩证书与配对裁剪的延迟下包络
+2026-10-10。新增研究说明；不修改历史主稿、研究状态或旧证书。
+
+结论
+
+本轮精读了本地 papers.json 的 #272 与 #537 中此前方法报告没有正文审查的证明。
+它们分别提供“把界做成对所有可测子域都有效的正测度证书”和“数值搜索只负责
+提出候选，最终用原始矩坐标、精确线性消元与正矩阵证明”的模板。
+两篇的重大主定理及完整程序未在本次重放，也不作为素数分布输入。
+
+具体可立即实施的项目侧改进是：当前 Y6/Y11 配对删除在所有已删纤维上都用
+omega(s)>=1/2，而事实上 s>=77/38。下面独立证明一个有理、逐对子盒的延迟
+下包络 m_B，替换1/2后无需重算四维积分，不改变当前权的注入论证。
+最弱统一版本已给 m=3002/5929>1/2；逐盒版本可达到11/20。
+本文件没有运行新选盒或组装新c/b，因而不宣布新的最终数值结论。
+
+路径约定
+
+项目根目录以本研究工作区为准；本地绝对路径不在公开副本中列出。
+P 为 OpenAI-Math-2026-10-06/preprints/；下列行号是源TeX行号。
+编号是 papers.json 的 manuscript number，不是 CONTENTS.md 的 family number。
+
+一、来源 #272：Projection moments, positive cap domination, and Riesz estimates on the sphere
+
+源目录 P/Projection-moments-positive-cap-domination-and-Riesz-estimates-on-the-sphere-September-27-2026/build/sections/。
+
+1. projection.tex:288–342，Theorem “Normalized moment for unit-ball measures”，
+   label p:frame-positive：d足够大、k=p=floor(d/16)、lambda=(d-1)/2；
+   nu是单位球上的有限正测度，质量<=1，独立于新抽取的标准Gaussian矩阵X，
+   对所有中心与半径满足 nu(B(b,t))<=D^d t^lambda，并且几乎处处投影绝对连续。
+   其归一化投影密度满足 E int g_X^p dm_k<=exp(C_D d p)。
+   原证明从正交投影矩定理得到结果，并明确检查 lambda-k-(p-2)>3d/8。
+   本项目没有这类随机正交投影或相应局部质量条件；这个高维概率定理不能被
+   直接替换为筛模数分布估计，更不能据常数exp(Cd)改进K。
+
+2. positive-caps.tex:80–255，Proposition “Positive domination after one block”，
+   label p:cap-domination：给有限个Borel核0<=K_w<=1，sum_w K_w<=1，
+   原文构造 f_w mu_parent <= sum_i a_i mu_cap_i，a_i>=0，
+   并控制 sum_i a_i(r/rho_i)^alpha。这里是正测度不等式，适用于每一个可测集；
+   并非仅在整个母区域上比较一次积分。Gaussian独立性、参照律、cap质量估计
+   以及上述投影矩定理都是得到量化成本的实质输入。
+
+3. 本轮完整读了其中183–255行的抽象表示证明，而非只摘命题：
+   字典 phi_i>=0、int phi_i=1；每层有限、成本b_i随层趋无穷。
+   C_K={sum a_i phi_i : a_i>=0, sum a_i b_i<=K}。
+   统一尾估计 ||sum_(j>J) a_i phi_i||_1<=K 2^(-alpha(J+1))，加对角子列，
+   给L1范数紧性。它的向下闭包D_K闭且凸；若正目标F不在D_K，分离泛函的
+   有限上确界迫使其密度h>=0。其支撑函数恰为
+       K sup_i (int h phi_i)/b_i。
+   把h按该上确界归一化，就与所有非负测试的已有界矛盾。
+   这是可以独立核对的泛函分析论证；尾紧性不能省略，也不能直接把无穷字典
+   丢进有限LP而不控制尾项。
+
+4. positive-caps.tex:262–319，Lemma “Cost of a forward block”，
+   label p:cap-forward-step：乘非负函数、求和、迭代都保留正测度支配；
+   条件标签的参照概率仍针对每个母cap，最后由Holder控制状态成本。
+   其中并未把signed density当成概率，更未声称事后取每个算术误差最优动作合法。
+
+对本项目的真实对应
+
+当前配对裁剪所需的正对象已经存在：在每个已保存四前缀母盒B'上，
+   F_B'(t,u,z,w)=A'_B'/(Z_B' z) >= K omega((1-t-u-z-w)/z)/z。
+这是可限制的密度上界，不只是整个母盒的一个数。
+删去对子集合E时，可以从保存的上估计中扣除 int_E F_B'，也可以扣除其已证
+下界。不能扣除“实际Y11(E)的一个上界”并把它当作保证的节省。
+#272使这一接口格外清楚：只有全部子域上的支配，才支持适应几何边界的选择。
+这个接口在旧配对证明中已经完成，本轮不把它算成新的K/c收益。
+
+进一步可实施的有限字典版本：将母盒、其子片和全部旧合法解析包络表示为
+正密度phi_i，把新候选包络对每片的支配写成严格有理约束。候选发现可用LP，
+但最终只需逐片核对一组有理系数；若只需一个有限选择集，无须搬入源文的无穷
+cap字典或高维矩定理。实际F_B'已经足够，故本轮首选直接提高它的下包络。
+
+二、来源 #537：Exact Fourier certificates for complex Hadamard matrices of order six
+
+源目录 P/Exact-Fourier-certificates-for-complex-Hadamard-matrices-of-order-six-September-24-2026/build/sections/。
+
+1. 04-mixed.tex 的 sec:mixed、lem:gram 和 lem:mixed-reductions 已完整阅读。
+   原对象是假设存在七组互不偏基后的transition matrices；还假设原文的
+   g_H(P alpha)=0。原始变量是有明确共同概率空间的实际矩。
+   Gram构造的所有函数使用同一列z；两次F1展开共有25个有序标签对，
+   其中5个同标签、20个异标签，故系数必须是1/5与4/5。
+   不能把这些正交性、消失关系、六维对称性迁移到筛积分，亦不能将原始
+   共同变量独立化后仍保留它的Gram矩阵。
+
+2. 05-verification.tex:24–95，Lemma “Exact substitutions”，
+   label lem:exact-elimination：取真实整数方程矩阵W，r个pivot列J的W_J
+   模某素数可逆。令F为其余坐标。若有有理P满足
+       P_FF=I, P_*,J=0, WP=0，
+   则每个实解W m=0满足m=P m。
+   证明：模可逆推出det W_J非零，精确WP=0给P_JF=-W_J^(-1)W_F。
+   有限域和有理重构只找候选；真正证明是最后的有理恒等式。
+   不必声称选中行已经穷尽原系统秩，也不必穷举所有可能真关系。
+
+3. 05-verification.tex:322–396，精确正矩阵与残余界：
+   对B=[[C,u],[u^T,p]]，验证有理p>0并递归检查C-u u^T/p；
+   配方恒等式证明正定，避免浮点特征值作为证据。
+   原文以原始有界矩的线性组合计算残余 c0+sum c_K mu_K，再使用|mu_K|<=1。
+   被消元表达式不是新“单位有界矩”；任何系数放大都必须留在sum|c_K|中。
+   原文列出的巨大整数数据和全部98个pivot未在本次重放；本轮只核局部机制。
+
+对当前积分证书的迁移
+
+可用浮点LP/SDP找到低次数有理minorant，随后交付正分母清除后的精确恒等式
+和有理Gram分解，而不是再要求所有Bernstein系数正。
+若有当前真实域 g_i(x)>=0，则
+   N(x)-D(x)P(x)=sum_j v_j(x)^T Q_j v_j(x)
+                 +sum_i g_i(x) sum_j v_ij(x)^T Q_ij v_ij(x)，
+且D>0、所有Q精确半正定，就得到P<=N/D。
+这只是充分证书类，不宣称某一固定次数完备；Gram矩阵奇异时须显式分块/零pivot
+处理，不可将源文正定pivot算法硬用于任意半正定候选。
+有理多面体几何、真实测度与所有归一化仍须来自本项目。源文的矩方程不能照抄。
+当前首个实例甚至不需要优化器：下一节的一元二次多项式用端点直接证正。
+
+三、可立即实施的新增项目引理：Buchstab延迟下包络
+
+设omega(s)=1/s (1<=s<=2)，(s omega(s))'=omega(s-1) (s>2)。
+采用已证omega(s)>=1/2 (s>=2)。对任意2<=q<=7/3，定义
+   g(q)=(3q-4)/q^2，m(q)=min(g(q),11/20)。
+则
+   omega(s)>=m(q)  对所有s>=q。                         (A)
+
+证明的每一步均独立于两篇原文的重大主定理：
+
+(i) 对x>=1，log x>=2(x-1)/(x+1)，因为两边相减的导数是
+    (x-1)^2/[x(x+1)^2]>=0，且x=1时为0。
+    因此在2<=s<=3，omega(s)=(1+log(s-1))/s>=g(s)。
+
+(ii) m=m(q)<=g(q)，且m<=11/20<5/9=g(3)。
+     二次多项式 Q(s)=3s-4-m s^2 为凹函数，Q(q)>=0、Q(3)>=0，
+     故Q在[q,3]上非负，omega(s)>=m。
+     这是整个区间上的精确有理证书，并非采样。
+
+(iii) 对3<=s<=q+1<=10/3，延迟方程与已有1/2下界给
+      s omega(s)>=3 omega(3)+(s-3)/2
+                   =1+log2+(s-3)/2
+                   >=s/2+1/6。
+      故omega(s)>=1/2+1/(6s)>=11/20>=m。
+      (i)给log2>=2/3。于是[q,q+1]完整种子区间已覆盖。
+
+(iv) 若omega>=m在[q,q+j]，则对q+j<=s<=q+j+1，
+     s omega(s)=(q+j)omega(q+j)+int_(q+j)^s omega(v-1)dv>=m s。
+     j>=1时v-1落在已证区间，逐段归纳证明(A)。
+     这不是未证明的数值极限或无限表迭代，而是解析延迟方程的归纳。
+
+四、代入当前配对删除；不必新做四维积分
+
+当前对子网格B=[tl,tr]×[ul,ur]，变量满足 a<w<z<u，t<=tr，u<=ur，
+a=417/5000。Buchstab参数为 s=(1-t-u-z-w)/z。
+在当前域1-t-u>0，依次用w<=z、z<=u可得
+   s>=(1-t-u-2z)/z >=(1-t-3u)/u >=(1-tr-3ur)/ur=:q_B。
+全部候选的q_B>=77/38>2，因为tr<=d=59/250，ur<=h=19/125。
+
+置
+   qhat_B=min(q_B,7/3)，m_B=min((3qhat_B-4)/qhat_B^2,11/20)。
+这些均为有理数。由(A)，F_B'>=K*m_B/z在对应对子纤维上成立。
+
+旧证书的精确正质量为
+   I_B=log(tr/tl)*[log(ur/ul)/a
+        +(log(ur/a)+2)/ur-(log(ul/a)+2)/ul]。
+旧gross=K*I_B/8，源自omega>=1/2和Chen总权的1/4。
+新gross可用 K*m_B*I_B/4 = (2m_B)*旧gross。
+失去的Y6保存下界仍付旧L_B；不把这个L_B当实际Y6的上界。
+
+首试建议：保持已采用6091+11481个对子盒不变，重用每盒I_B的有理下包络；
+将gross乘2m_B，L_B不变，所有旧正性、注入和父盒覆盖无需重新扩张。
+这是替换旧gross，而不是把新gross再加一遍。
+随后可在原22271个候选上用新gross-L_B重新选盒；原整个候选区的switched
+母盒覆盖已有证明，但新选子集仍须精确生成、与E0去重并绑定。
+不在这个候选区的新增盒不自动继承ordinary/full-square和priority40000检查。
+
+快速保底版本：q0=77/38时
+   m0=g(q0)=3002/5929，2m0=6004/5929=1+75/5929。
+所以仅对已固定两组掩码，使用保存的安全gross G0=.002095161、G1=.003799514，
+即可证明新的raw增量至少
+   (75/5929)*(G0+G1)=17684025/237160000000 >0。
+这是由已有积分证书推出的有理算术增量，不是本次新积分运行。
+仍需根任务决定采用的舍入及误差预算，再计算新的c/b；这里不替它宣布新端点。
+如沿用每项新增lower误差各取增量1/8的规则，净增量为3/4倍上述raw增量。
+
+反馈必须同步：若新增的安全gross为DeltaG，则旧future-K斜率应减去DeltaG/K；
+不得减net/K，也不得将失去的正项下界或两份误差预算错误当成K线性成本。
+K本身、实际分布系数、固定cutoff和已保存H/h表均不由该计算改变。
+
+五、范围、阅读新颖性和交付状态
+
+已读 paper-method-certification-rescan-20261009.txt、paper-method-structural-rescan-
+20261009.txt、paper-method-focused-rescan-20261009.txt、paper-method-scan-certification.txt。
+这些记录涉及#181/#183的Bernstein与相关参数、#54/#641的熵/树对偶，以及#49/#50/#7/#25。
+#272与#537的上述正文机制在这些报告中没有被展开；本轮不重报旧Jensen、
+logmoment、Bernstein degree2/4或有限停止树作为新成果。
+另读#226的07-optimization.tex中feasibility repair/exact penalty，但未将其作为
+本次改进依据，也不因同样有LP就主张其matching约束适用于筛权。
+
+本次未接受或证明两篇完整主定理，未重放其完整整数证书，未重新审722篇全部正文。
+已完成的是两篇新方法的局部精读、明确迁移边界和一个当前可执行的解析改进引理。
+配套JSON绑定实际读到的源文件、前次方法报告和当前配对证据；不绑定活的research-state。
+主稿、旧文件、形式化暂停、GitHub暂停均保持原样。

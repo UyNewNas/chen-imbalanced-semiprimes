@@ -1,0 +1,33 @@
+\subsection{The exact coprime mean in the one-long-variable case}
+\label{sec:one-long-coprime-mean}
+Here is an explicit reconciliation needed when applying L23,
+Lemma~3.4, in the one-long-variable alternatives above.
+Write $z_0=x^{1/(\log\log x)^3}$ and let $R(n)$ be the indicator
+that all prime factors of $n$ exceed $z_0$. The printed main
+sum in that lemma is unrestricted, whereas our discrepancy uses
+the exact coprime sum. For $q\le x^{3/5}$ and a long-variable
+endpoint $t\gg x^{1-10\zeta}$, the difference is bounded by
+\[
+ \frac{1}{\varphi(q)}
+ \sum_{\substack{p\mid q\\p>z_0}}(t/p+1)
+ \ll \frac tq\left\{\frac{\log^C x}{z_0}
+                         +\frac{\log^C x}{t}\right\}
+ \ll_A\frac{t}{q\log^A x}
+\]
+for every fixed $A$. Indeed, a rough integer not coprime to
+$q$ is divisible by one of the displayed primes; use the union
+bound, $q/\varphi(q)\ll\log^C x$, and
+$\omega(q)\ll\log x$. The bound applies at both endpoints
+of any long-variable interval. Partial summation allows the
+logarithm and Mellin twist already present in the proof.
+
+For a fixed short product $m$, if $(m,q)>1$, the progression
+and exact coprime terms both vanish, since $(N,q)=1$.
+Otherwise the long-variable residue is $N\overline m\pmod q$
+and is primitive. Summation over the short products and
+moduli costs only powers of the logarithm, by the fixed
+divisor moment estimates for $\sum_{m\asymp M}\tau(m)^C/m$
+and $\sum_{q\le Q}\tau(q)^C/q$. Increasing $A$ therefore
+absorbs this correction in the stated remainder. This
+reconciliation changes neither a distribution level nor a
+sieve constant.

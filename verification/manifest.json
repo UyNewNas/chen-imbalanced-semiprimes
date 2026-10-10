@@ -1,0 +1,460 @@
+{
+  "description": "Public current-v2 compact verification files; manifest itself excluded.",
+  "files": [
+    {
+      "name": "data/actual-k-density-joint-audit.json",
+      "size": 35243,
+      "sha256": "d557a5a085987a2778392749bfc0cf24b5a6523fb321c0f0a0b2d32b556b5236"
+    },
+    {
+      "name": "data/certify_combined_chen_functional.py",
+      "size": 10034,
+      "sha256": "2d33559abaeb08d076a0185952ef7a1697ed1ca0b5beade129aa443a9ac4876b"
+    },
+    {
+      "name": "data/certify_conservative_chen.py",
+      "size": 12905,
+      "sha256": "67b9429667e18786058e0fe58676fbe09d556868468f1281166cac2b55f8604e"
+    },
+    {
+      "name": "data/certify_extended_prefix.json",
+      "size": 2751,
+      "sha256": "f13a607d03e46987e12c4192bfe466a20827f1b2778e4659b2210e7aa00c18ab"
+    },
+    {
+      "name": "data/certify_extended_prefix.py",
+      "size": 19385,
+      "sha256": "1b77aa5deb90e0f39e06c776847a7e9fff27e23d584036955741b015ca05ad29"
+    },
+    {
+      "name": "data/certify_finite_step_table.json",
+      "size": 319109,
+      "sha256": "21a4b241c1eb50381a543d3f9c582f6d3281cce959e950a6f9e957d66d46069b"
+    },
+    {
+      "name": "data/certify_finite_w2_action_bank.json",
+      "size": 182184,
+      "sha256": "11198d4c3b85f8691f2d8e7198b9bb4a1ca5e024e0f52386910f460911583884"
+    },
+    {
+      "name": "data/certify_sharp_184_baseline.py",
+      "size": 9567,
+      "sha256": "a4ebffaf2b13123cf8d7510fed18482f85ec1a79f1bcddb220bd3d3ec8197639"
+    },
+    {
+      "name": "data/corpus-renewal-improvement-assembly-20261010.json",
+      "size": 27096,
+      "sha256": "9254e419145a0a48954c3ca9af1d76a4312dd280dcdbac5bfd216d8b2f49e27c"
+    },
+    {
+      "name": "data/corpus-renewal-omega-independent-20261010.json",
+      "size": 3483,
+      "sha256": "fa37636c67afbf9a63a40beb793d61757c2b505b7bfe1f7f1eee637cfb0e1c91"
+    },
+    {
+      "name": "data/corpus-renewal-omega-independent-20261010.txt",
+      "size": 9020,
+      "sha256": "76f74437696d832f66c0d6fff252be6f466a75aca2598a3348c79c435eab3ecd"
+    },
+    {
+      "name": "data/corpus-renewal-paired-certificate-v2-20261010.json",
+      "size": 3604398,
+      "sha256": "f6d31386f93cf77888ea4771ffa549a1cf61dca700bac618ff7646566a02f9b7"
+    },
+    {
+      "name": "data/corpus-renewal-paired-certificate-v2-20261010.py",
+      "size": 14016,
+      "sha256": "6e47caa91bd5e47678bcd8e2a1dc35659d25d44481c41dc437002be92d8b83dc"
+    },
+    {
+      "name": "data/corpus-renewal-paired-certificate-v2-20261010.txt",
+      "size": 5554,
+      "sha256": "2eac3c36c34d240262659b23b5319919c7d8a6c1e5a7505b83a2916f38527214"
+    },
+    {
+      "name": "data/corpus-renewal-paired-final-review-20261010.json",
+      "size": 25119,
+      "sha256": "fb4a656c3bd1b27b9e56ab15714db8a7f2e0ed3773448813de9e52956c276edf"
+    },
+    {
+      "name": "data/corpus-renewal-paired-final-review-20261010.py",
+      "size": 9433,
+      "sha256": "a9eb7b1611a0cf410af2bbf9642adef1776c5705413bf64c2b164c0b5d0f6911"
+    },
+    {
+      "name": "data/corpus-renewal-paired-final-review-20261010.txt",
+      "size": 8253,
+      "sha256": "b80190f054682689262c0dd4d7b85fba3f3aa7f0256c5a4ce9b2c4a5d8469cef"
+    },
+    {
+      "name": "data/corpus-renewal-paired-independent-20261010.txt",
+      "size": 5848,
+      "sha256": "2fe26dc34fcefb01add98a8f14fd0931c706fca8d3010462c5e513966d00dbae"
+    },
+    {
+      "name": "data/corpus-renewal-paired-independent-v2-20261010.json",
+      "size": 3327321,
+      "sha256": "e18e78975bb982db64fc6b4038866919bbf0702306eb26f9d42076e77b042f7c"
+    },
+    {
+      "name": "data/corpus-renewal-paired-independent-v2-20261010.py",
+      "size": 7884,
+      "sha256": "521ed8e9ff82a06f9f6b4feedb853b0d9ada32e063056ab12c96f1994c915f51"
+    },
+    {
+      "name": "data/eighth-history-moment-independent-20261009.json",
+      "size": 30359,
+      "sha256": "f8ef53b17c2ea4e733c051f840630a7680e7fb85f3aa448fb5f302e060eb17db"
+    },
+    {
+      "name": "data/eighth-joint-affine-curvature-independent-20261009.json",
+      "size": 4514,
+      "sha256": "2c56615f94e78ee1aa3798806540b1b80a82e566ad250519f0d32791ad35e91b"
+    },
+    {
+      "name": "data/eighth-joint-transverse-mixed-independent-20261009.json",
+      "size": 4463,
+      "sha256": "52ac04bd2d251f65c17ec46deb8522764f645057ac8509556418c6f3390ec80f"
+    },
+    {
+      "name": "data/eighth-prefix-descending-independent-20261009.json",
+      "size": 36017,
+      "sha256": "30c1cb5d91b42fa675119f9848a4384ce0f46b84ebee7661a81aabd651c2db28"
+    },
+    {
+      "name": "data/eighth-prefix-family-independent-20261009.json",
+      "size": 35050,
+      "sha256": "8c77f5ddd868fa74183bdd27b71da534dbd143c3f78aa75270e84eb92c307aeb"
+    },
+    {
+      "name": "data/eighth-radial-independent-20261009.json",
+      "size": 7810,
+      "sha256": "5fef334f2bc4a2f5a361d5b9eb57e6474c2d889b5d5b5b082bbac5e911be99ff"
+    },
+    {
+      "name": "data/eighth-third-moment-refinement-independent-20261009.json",
+      "size": 13774,
+      "sha256": "e3241b43644f708a37bd83ad8177ea6e3f8adcd6f44fa5f0c931964027a3e84e"
+    },
+    {
+      "name": "data/eighth-unequal-moment-independent-20261009.json",
+      "size": 16093,
+      "sha256": "f86413bdd8ac6b38041cc4eabebdc7e01f2625098de1ce8a04597f6fcdd63de3"
+    },
+    {
+      "name": "data/expanded-w2-midpoint-bank33-v1.json",
+      "size": 1631068,
+      "sha256": "4c6a282f32278cc7b62cf3b2a30c18de6b0bac69d5b769776c376f03969f171f"
+    },
+    {
+      "name": "data/expanded-w2-midpoint-table248-v1.json",
+      "size": 137623,
+      "sha256": "a91c371b8c69398619ebee8b17598c163fbf8b6267fa0470ed6930e2097a98ed"
+    },
+    {
+      "name": "data/fifth-new-coverage-independent-audit.json",
+      "size": 5430,
+      "sha256": "414f3a358602dbd6ea5a8f2739c25ad1fd26763eef12b8142926944e9d798f1e"
+    },
+    {
+      "name": "data/fixed-action-current-k-two-cost-20261009.json",
+      "size": 3303,
+      "sha256": "8cbbaf5a09cca710c4ceb9d26044f464ffda1399ec731381d713ec3a6a066d28"
+    },
+    {
+      "name": "data/fixed-action-stationarity-pilot-20261009.json",
+      "size": 102224,
+      "sha256": "ebb7b76ccc2298751eff2c0aa044e018b0eda297054916113dcd31549ab71561"
+    },
+    {
+      "name": "data/four-min-priority40000-independent-20261009.json",
+      "size": 2439,
+      "sha256": "462512ddb9c38bc4881bc1fb33334410b4140b905d232fc98a88f1351b2e6cb2"
+    },
+    {
+      "name": "data/global-selected-numeric-completion-20261010-obligations.json",
+      "size": 24395,
+      "sha256": "0185582f3c2e172320119d3f0f1d818805bccebbafc8f4fff272ee52b86ea6c0"
+    },
+    {
+      "name": "data/global-selected-numeric-completion-20261010.json",
+      "size": 186276,
+      "sha256": "9101ddb9d109782aa99385cb02895c13cfa3f492306f8f5aab0f576335ab90b8"
+    },
+    {
+      "name": "data/global-selected-numeric-completion-20261010.py",
+      "size": 19861,
+      "sha256": "625f1cd20dd3e00a94fd4b68857b03294ba437b60456641dae666fc8598c78fc"
+    },
+    {
+      "name": "data/global-selected-numeric-completion-20261010.txt",
+      "size": 15706,
+      "sha256": "d02f2f62993faac60ac4cc4df957877b235313632ffc78f991e74f5fbf458255"
+    },
+    {
+      "name": "data/global-theorem-completion-assembly-20261010.json",
+      "size": 82533,
+      "sha256": "4f4c33d91e414118a5ec3b391ed37c4652b0e035fbf0e502502a6c8a753aaf11"
+    },
+    {
+      "name": "data/imbalanced-chen-transfer.tex",
+      "size": 535593,
+      "sha256": "06ecf0c7a8d767115dd0ef595e52844d49486b4b98d5979300faf47f4e09ff78"
+    },
+    {
+      "name": "data/independent-sharp-248-four-min48-replay-20261008.json",
+      "size": 2874,
+      "sha256": "7b23f0f535f346024133c7e7010700e8096c4b7d40dc69549351b105f5b0f997"
+    },
+    {
+      "name": "data/independent-sharp-248-pair512-replay-20261008.json",
+      "size": 1528,
+      "sha256": "c2e82ed984d1b62c54d193b61befe94d6719e542187daedbc98bf0312081348c"
+    },
+    {
+      "name": "data/independent_fifth_subdivision_replay.json",
+      "size": 64527,
+      "sha256": "9566bd3499d8333c1d95c3576b342017827a506d65828dba901214a7ca1c527d"
+    },
+    {
+      "name": "data/lichtman-current-upper-density-assembly-20261009.json",
+      "size": 22869,
+      "sha256": "6e3430578383d390dff47e630b0e369d7fc79f7bbf33594dd7f445c540aa51d2"
+    },
+    {
+      "name": "data/lower-fourth-restoration-slanted-independent-20261009.json",
+      "size": 2211,
+      "sha256": "735eaa80d870fdc4a50ca8a39f5da2cd0bbaf27ce3cdf2fac898da6bbc334162"
+    },
+    {
+      "name": "data/lower-start-convex-corner-transfer-independent-review.json",
+      "size": 13287,
+      "sha256": "47864cce555dc17e0bd9e355065bc6bd908e152e714b4c11918fb2350519c268"
+    },
+    {
+      "name": "data/lower-start-method-coverage-20261009.json",
+      "size": 12397,
+      "sha256": "13a03d4aab556416a96af67d9baa020118a69a1ac24225527ed38941abda0280"
+    },
+    {
+      "name": "data/numerical-primitive-adversarial-20261009.json",
+      "size": 84755,
+      "sha256": "d02c907da2c9810f3a93696bd4a4533a2de3ec4349da32701f661077dd51baca"
+    },
+    {
+      "name": "data/numerical-third-compact-independent-full-20261010.json",
+      "size": 2100,
+      "sha256": "cf6c2b7afd50cd811436cc6e110657ce83fce4d6726b5dd067b0855aecc24fe9"
+    },
+    {
+      "name": "data/paired-y6-y11-parent-cover-root-check-20261010.json",
+      "size": 2773,
+      "sha256": "92e09a2bcc297fbb6f3991a0da4a8339d4df9f1dc24bd801ead00f32e068d135"
+    },
+    {
+      "name": "data/paired-y6-y11-zero-strip-certificate-20261010.json",
+      "size": 46273,
+      "sha256": "1dc70cf76c35c41161fb5236c608c7da8c0ee4dbeeae9153f0ce30cd63e007ab"
+    },
+    {
+      "name": "data/positive-pair-deletion-certificate-20261010.json",
+      "size": 457909,
+      "sha256": "c6adf210c69f1eccb5921622762249d1fcf714abb62c42a493dcac23a609d8c7"
+    },
+    {
+      "name": "data/positive-pair-deletion-improvement-assembly-20261010.json",
+      "size": 26692,
+      "sha256": "5540ee62e07acbfcea9786e8784427fa5c8bb293a997823140aecf6c3b6ef32b"
+    },
+    {
+      "name": "data/positive-pair-deletion-independent-rational-20261010.json",
+      "size": 44907,
+      "sha256": "55a51a81897218ccff66a5aba6c1cd88f9671350cdaabd27ca7941c09f67f12f"
+    },
+    {
+      "name": "data/positive-pair-deletion-selected-parent-cover-20261010.json",
+      "size": 47713,
+      "sha256": "2b9706b0f0b78234d0bebb0cdc18fb0cd5108ce2df39d215a0b22ccec9993c2a"
+    },
+    {
+      "name": "data/replay_second_seed_first_feedback.json",
+      "size": 5564,
+      "sha256": "4f9385ceaab18229ce1d56f342dc774d112c74b61f0fd915934f2d10dfed871d"
+    },
+    {
+      "name": "data/second-prefix-upper-fallback-independent-review-20261009.json",
+      "size": 3862,
+      "sha256": "6aa6886728dfa9ddb7bdaa97727067eb040bb592ba65fa7ddceda3a51a437c45"
+    },
+    {
+      "name": "data/selected-sieve-budget-feedback-audit-20261010.json",
+      "size": 17693,
+      "sha256": "a33ce6cc36c1e48dab05c684e35556e19e3c7666356f8e7feb2f88db21586def"
+    },
+    {
+      "name": "data/sharp-248-baseline-128.json",
+      "size": 6046,
+      "sha256": "eb33c788676f1fef56c984006d5e130169be0ad67d6b0bd2f2dd1ea55740040c"
+    },
+    {
+      "name": "data/sharp-248-four-min-48.json",
+      "size": 3005,
+      "sha256": "3ab15ce29c820a861269682f51a004c4d9464aa3a4c861d0db71e95aaf78a4ff"
+    },
+    {
+      "name": "data/sharp-248-pair-refinement-512.json",
+      "size": 1870,
+      "sha256": "dc76a40c74f687f8ac684342e2c19091b4ef8694c7823d268d2b3b2b38db5194"
+    },
+    {
+      "name": "data/sharp-switch-midpoint-1024.json",
+      "size": 3033,
+      "sha256": "05286de6a5e8dc9671c0d7fc131c7e9aea190f2b53fc5d7abc1884fe11916e08"
+    },
+    {
+      "name": "data/sixth-log-moment-jensen-independent-20261009.json",
+      "size": 7312,
+      "sha256": "e0f3753a2609d0cfae8eba6521159a05a17a1aafc3fdfc448a03c62971a74478"
+    },
+    {
+      "name": "data/sixth-lower-clip-window-independent-20261009.json",
+      "size": 6524,
+      "sha256": "f9018f2082c50140834600ab40095eae7568bfa8a6a129b87518843007232677"
+    },
+    {
+      "name": "data/sixth-lower-desc34-window-independent-20261009.json",
+      "size": 6740,
+      "sha256": "c708f36691bff7e6735653fa7fefef8ad955d6c5755aba626ef9d8072014619b"
+    },
+    {
+      "name": "data/sixth-lower-local-additions-independent-20261009.json",
+      "size": 25321,
+      "sha256": "139ed99096fb3e41a2040297e656f237fa3d9a790174bc71f041afbf1ba64142"
+    },
+    {
+      "name": "data/sixth-nonsingleton-independent-20261009.json",
+      "size": 7280,
+      "sha256": "adfa6e6e7a3e9c51b23a88653d6da9a6a175976d901c354d90341ec75076d0a5"
+    },
+    {
+      "name": "data/sixth-prefix-expanded-independent-audit.json",
+      "size": 3691,
+      "sha256": "63de5509f974945d6073383be89264e79a594a619d8893dffbba905524217dc2"
+    },
+    {
+      "name": "data/sixth-tent33-descending-independent-20261009.json",
+      "size": 4543,
+      "sha256": "ee4090ba12c50a245a7f6cc905acf238296815d5c9540c8d35dccf78dd531482"
+    },
+    {
+      "name": "data/sixth-tent34-ascending-independent-20261009.json",
+      "size": 4361,
+      "sha256": "1be5fbe2fc4f6bc35680ed454280039de48aa3c82473797b9a4f6830a1e86412"
+    },
+    {
+      "name": "data/sixth-tent34-descending-independent-20261009.json",
+      "size": 10834,
+      "sha256": "400fc8ce32ded403ebb0b0afe6aeb8433e4867d5d602ea20cc2cee031a4b28cf"
+    },
+    {
+      "name": "data/slanted-restoration-assembly-20261009.json",
+      "size": 5173,
+      "sha256": "c277a6092ee21d2e788349b21b7b482a54c3bfeb8efba4014c509e7243828aed"
+    },
+    {
+      "name": "data/stronger-fourth-independent-replay.json",
+      "size": 2393,
+      "sha256": "4b782dea4276b75a31439f241360e7bee6782897ce330bcf8529a0899033257f"
+    },
+    {
+      "name": "data/table-k-feedback-pilot-20261009.json",
+      "size": 856949,
+      "sha256": "548dbe89bd26d8a14df784c30f3042513c700f15a0f57d93f1c56d798959b9a0"
+    },
+    {
+      "name": "data/table-k-feedback-transfer-assembly-20261009.json",
+      "size": 7958,
+      "sha256": "6f137a75a43ded4fe68abe587e178e1a708fdb8947178bb48a037fc3edfeca08"
+    },
+    {
+      "name": "data/third-prefix-upper-fallback-independent-review-20261009.json",
+      "size": 3693,
+      "sha256": "2db1d48baa5a68b495e1d9fd1f01c0da0663cbf35cc33df40a42058b96cea22f"
+    },
+    {
+      "name": "full-numerical-source-manifest.json",
+      "size": 214011,
+      "sha256": "9ace611e583298bc9b693300ea72d299f721b6d1e36116fa8d9b96af227a404b"
+    },
+    {
+      "name": "public_normalizations.json",
+      "size": 16956,
+      "sha256": "b92acd1221776a33e4dc25ade9935d57b2a975f3bf3325b1ef8c4abc5ad0e984"
+    },
+    {
+      "name": "quick-inputs.json",
+      "size": 2580,
+      "sha256": "9e83ecde934ef8d77f790c736aa4465bfb3272024c6412d1395702a4260385ef"
+    },
+    {
+      "name": "README.txt",
+      "size": 5680,
+      "sha256": "9609671f7b86bfe250a6f61e841be37e762fe0de31d7e37b5b61bd6af25d5ec4"
+    },
+    {
+      "name": "refinement-bindings.json",
+      "size": 34113,
+      "sha256": "2b2c50ac9f63080c0d181aaf3b6635f18c0a4a34e1cbb5ce7ef6c4da86a9172c"
+    },
+    {
+      "name": "refinement-inputs.json",
+      "size": 1281,
+      "sha256": "defb19176815f10a6afcef5b83c344eb174d1fb31d4ea4547d41d0400d5d9caa"
+    },
+    {
+      "name": "replay_refinement_author.py",
+      "size": 12167,
+      "sha256": "757bfba400a6d8615b6ee2a399cb5074da535e3027642db3f3774344283ece07"
+    },
+    {
+      "name": "replay_refinement_review.py",
+      "size": 9705,
+      "sha256": "4eaef4a43ff7c30265b7e208f695b9bb6347e6cbf8495a8098e67d743b4738e8"
+    },
+    {
+      "name": "replay_selected_ledger.py",
+      "size": 16238,
+      "sha256": "3e83eae04f7ebf8cd185a0c0715feec20793d0a124239df1ead51e2900ff0288"
+    },
+    {
+      "name": "run_full_verification.py",
+      "size": 4726,
+      "sha256": "b10cc34e4a3547a7e60ab4f43dbfd9ab38b38a44ff885844831100516cf3cd30"
+    },
+    {
+      "name": "run_refinement.py",
+      "size": 3285,
+      "sha256": "adde7314a2c63987adc4e3157226554dc885b917f5b58069c2382d213c9cc0e4"
+    },
+    {
+      "name": "run_verification.py",
+      "size": 3153,
+      "sha256": "daf9d50b0c13101ee0f624ab569f73bd11ac47ecb1394e10ecb26979f541a210"
+    },
+    {
+      "name": "verification-results.json",
+      "size": 3691,
+      "sha256": "4a5e9b68cc1edfe7de3c050f186f3a9cc90bfa26255df5cd4d1b739b9a9ca97f"
+    },
+    {
+      "name": "verify_latest_transfer.py",
+      "size": 2408,
+      "sha256": "f727b7c18571bb96de80f4159b9e11e9b90b8f580d237078b5e2b0814c88b00f"
+    },
+    {
+      "name": "verify_transfer.py",
+      "size": 2355,
+      "sha256": "cf9918a67ff14b285145b780182f45b8644af475a16c830fdefe332c9be8385d"
+    }
+  ]
+}

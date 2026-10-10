@@ -1,0 +1,133 @@
+% Independent numerical audit; no locked author artifact is modified.
+\subsection{Independent replay scope for the fifth-prefix subdivision}
+\label{sec:independent-fifth-subdivision-replay}
+
+The new replay source is
+\texttt{independent\_fifth\_subdivision\_replay.py}. It imports neither
+the author subdivision source nor any author or previous geometry helper.
+Its companion JSON is the authoritative count, final status and hash
+manifest. A partial status is not a complete replay. The mathematical
+scope is numerical validation of the new within-parent subdivision
+certificate under the already-reviewed Jensen/tree lemma. It is not an
+independent validation of every analytic distribution interface.
+
+\paragraph{Precisely what is inherited.}
+The $292633$ parent coordinates and masks are bound by the original
+witness SHA256. Ordered interiors, original first/third admission, all
+full and selected square gates, and validity of the normalized density
+are inherited from the previously reviewed tree and the locked full
+independent Jensen replay. The old $30668$ Taylor replacements are
+inherited only after checking each old NPZ against the hashes in its
+locked independent replay, with each row matched to its parent.
+The old Jensen rational floor is freshly recomputed and each old
+whole-parent floor must match the new author's stored old floor.
+These inherited claims are not silently recertified by the present run.
+
+\paragraph{New geometry reconstructed independently.}
+All $64$ children of each parent are rebuilt with widths $(2,2,2,2,1)$
+on the grid $1600$. Four binary indices generate the first four offsets,
+and the remaining two bits generate the four fifth-coordinate offsets.
+This is a complete Cartesian partition in a different traversal order
+from the author's. All $32$ vertices of each child are regenerated.
+
+For an old selected subset, write $m_I=\sum_{j\in I}(2\ell_j+1)$
+using its grid-$400$ parent. Its frozen affine upper plane is ascending
+if $64m_I\le25\cdot400$, and descending otherwise. This independent
+classification follows directly from the kink of $v(s)$ at $25/128$.
+The constant alternative $153/256$ can never strictly beat both affine
+planes at the midpoint; the equality tie chooses the ascending one.
+Thus this classification reproduces precisely the parent's frozen
+plane without using the author's three-entry minimum code.
+
+The maximum of all fifteen planes and the old $W$ plane is recomputed
+at every child vertex, as is the truncating plane $S_5+2t_5$. The
+minimum of the selected new candidate's two affine planes is also
+recomputed. Their vertex difference sum is consequently a freshly
+calculated $d_\Sigma$, not a trusted witness field.
+
+For either affine new plane, all coefficients of
+$\text{plane}-S_5$ are negative. Fixing $t_5$, its ratio by $t_5$
+is therefore maximal when the first four coordinates are at their
+lower endpoints. The remaining affine-over-$t_5$ expression attains
+its maximum at one of the two fifth endpoints. Taking the smaller of
+the two plane maxima yields the independently reconstructed bound
+$b=A/B$. This coordinate elimination is different from the author's
+$32$-vertex ratio scan, while proving the same bound. For every
+positive-mean child, the replay explicitly checks
+\[
+ 2B<A\le4B,\qquad
+ d_\Sigma B\le(A-2B)1024h_5.
+\]
+Thus $e=d_\Sigma/(1024h_5)$ lies in exactly the convexity interval
+$0<e\le b-2$. Children of nonpositive mean receive zero.
+
+\paragraph{An independent rational evaluator.}
+The shared mathematical formula is necessarily
+\[
+ Q_b(e)=\frac{a\log((b-1)/(a-1))-e\log(a-1)}{ab},
+ \qquad a=b-e.
+\]
+The implementation does not use the author's expanded integer
+polynomial. Instead it builds the positive common-denominator atanh
+series directly. If $L_m=\operatorname{lcm}(1,3,\ldots,2m-1)$, put
+\[
+ P_m(p,q)=\sum_{j=0}^{m-1}\frac{L_m}{2j+1}
+                  p^{2j}q^{2m-2-2j}.
+\]
+Then the lower rational is
+$2pP_m/(L_mq^{2m-1})$. The upper rational adds the positive geometric
+tail $2(p/q)^{2m+1}/[(2m+1)(1-(p/q)^2)]$ by exact integer
+common-denominator addition. The new replay uses four lower terms for
+the positive logarithm and five upper terms for the subtracted one.
+These are respectively at least and at most the author's three/four
+term bounds. All rational products and floors use arbitrary-precision
+integers; NumPy is used only for the independently rebuilt bounded
+integer geometry. A separate direct \texttt{Fraction} construction
+checks the rational engine on its explicitly enumerated test cases.
+The startup test contains twenty interior cases. Five additional exact
+$a=2$ cases, with $b\in\{9/4,5/2,3,7/2,4\}$, were checked without
+changing the running source and are recorded in
+\texttt{independent-fifth-subdivision-boundary-check.json}.
+
+\paragraph{Every saved parent bound must be covered.}
+The independently rounded child floors are summed across the complete
+$64$-child partition. The resulting sum is compared by a maximum with
+that parent's locked old bound. The replay asserts, separately for
+every parent, that this independently valid maximum is at least its
+saved new floor. Thus it cannot pass merely by matching a total sum,
+nor by re-adding the old parent and selected children. Every changed
+parent is covered by a newly recomputed child integral.
+Checkpoint blocks save the independent parent floors, source and
+target hashes, child count, domain slack and a stream digest of the
+new child geometry and floors. Completed checkpoints are accepted
+only under those bindings.
+
+Python exact integer arithmetic, NumPy and the original coordinate
+witness are common general-purpose foundations. The Jensen lemma and
+the sieve density on $[2,4]$ are shared mathematical inputs. The new
+implementation is an independent numerical replay using alternate
+algebra and geometry; it is not a second independent proof of the
+entire original analytic argument.
+
+\paragraph{Completed result.}
+The complete run finished normally, with status
+\texttt{PASS\_INDEPENDENT\_FULL\_CHILD\_REPLAY}, after about $366$
+seconds (execution session $9659$, now exited). It verified all
+$292633$ parents and all $18728512$ children. Every saved parent
+floor is covered. The minimum parent-floor slack is zero, as allowed
+when the old certified bound is retained. Among positive-mean children
+the minimum scaled integer convexity-domain slack is $8871936$.
+Exactly $511336$ nonpositive-mean children receive zero, also agreeing
+with the author count.
+
+The stored certificate therefore passes this independent replay:
+\[
+ \Delta_5\ge
+ \frac{3037921066812732539869}{302231454903657293676544}
+ >\frac{10051}{1000000}.
+\]
+The stricter independent logarithm bounds yield a slightly larger
+internal comparison sum; it is used only to cover the stored certificate,
+not to propose an additional saving. The original fifth total is
+replaced as a whole. No old analytic gate, main-manuscript change or
+global all-$N$ conclusion gains a broader approval from this replay.

@@ -1,0 +1,100 @@
+% A new fixed-choice feedback fragment; all old artifacts remain immutable.
+\paragraph{A cheap feedback of the new product constant into the two final costs.}
+Put $K_0=67619/10000$, $K_1=33809/5000$, and
+$C=70893/125000$.  The complete $n=48$ four-prime certificate already uses
+$K_0$, rather than the older $6.7672$.  Its ordered cells $B$ partition
+$\Omega_{10}$ and $\Omega_{11}$ as defined in
+\texttt{four-prefix-safe-minimum.tex}.  Write
+\[
+ d\mu={dt_1dt_2dt_3dt_4\over t_1t_2t_3t_4},\quad
+ Z_B=\int_B{d\mu\over t_3},\quad
+ T_B=\int_B\omega\left({1-\sum_i t_i\over t_3}\right){d\mu\over t_3}.
+\]
+Here $t_3$ is the second smallest specified prime exponent.  On both
+domains the Buchstab argument exceeds $(1-d-3h)/h>2$ and the main-scale
+unit residual is absent.  The positive-product theorem supplies $K T_B$
+as the switched upper coefficient for each fixed positive cell.  This
+is an averaged cell statement, not an individual-prime-tuple assertion.
+
+The saved witness records a method and a nonnegative rational saving
+$g_B$.  For method zero its exact established meaning is
+\begin{equation}\label{eq:four-min-k-fixed-switch-input}
+ K_0T_B\le A_B:=K_0 C Z_B-g_B.
+\end{equation}
+Indeed a positive saved saving was rounded down from a lower enclosure
+of $K_0 C Z_B$ minus an upper enclosure of $K_0\omega_B Z_B$.
+If the saving is zero, $\omega\le C$ gives the same conclusion.
+The old independent replay checks this particular saved method, rather
+than merely checking some possibly different minimum.  No assertion of
+the form \eqref{eq:four-min-k-fixed-switch-input} is made for a cell
+whose saved method is an ordinary selected-subset or $W$ branch.
+
+At the new constant, retain exactly the same switched choice.  Then
+\[
+ K_1T_B\le{K_1\over K_0}A_B
+ =A_B-{K_0-K_1\over K_0}A_B.
+\]
+Consequently any rational lower bound $z_B\le Z_B$ gives the additional
+cost reduction
+\begin{equation}\label{eq:four-min-k-cheap-saving}
+ d_B=\left[{K_0-K_1\over K_0}
+                   (K_0 C z_B-g_B)\right]_+,
+ \qquad {K_0-K_1\over K_0}={1\over67619}.
+\end{equation}
+Taking the positive part is legitimate because $A_B\ge0$, and retaining
+the old bound is always an alternative.  This formula scales only a
+proved switched cell bound.  It does not scale the entire $U_{10}$ or
+$U_{11}$ cost, and it does not assume that the ordinary branch improves
+when $K$ decreases.  Numerical slack in the old enclosures only weakens
+the saved reduction; it does not invalidate this implication.
+
+\paragraph{Purely rational mass, including repeated bins.}
+Let the physical intervals be $[l_i/N,u_i/N]$, with $N=240000$.
+The $U_{10}$ widths are all $343$; $U_{11}$ has first-coordinate width
+$420$ and the other widths $343$.  For a consecutive group of $m$ equal
+bins, retain its ordered simplex, and let $D_B$ be the product of these
+$m!$.  Its Euclidean volume is the full rectangular volume divided by
+$D_B$.  Positivity of the integrand therefore gives
+\begin{equation}\label{eq:four-min-k-rational-mass}
+ Z_B\ge z_B:={N\prod_i(u_i-l_i)\over
+                 D_B\,u_1u_2u_3^2u_4}.
+\end{equation}
+This remains true when the distinguished third slot lies inside a
+repeated-bin block: only a constant pointwise lower bound is integrated,
+not an incorrectly symmetrized $1/t_3$ moment.  All factors are rational;
+no logarithm, Buchstab table, ordinary table, or new gate calculation is
+needed.  Round \eqref{eq:four-min-k-cheap-saving} down at $Q=2^{80}$
+and sum the resulting nonnegative integers.
+
+\paragraph{Compatibility with the current parent replacement.}
+The current cost also uses \texttt{four-min-priority40000-20261009}:
+each selected parent retains the larger of its original saving and the
+sum of its child's savings.  A parent feedback need not remain valid
+on top of that maximum if an improved child uses the ordinary option.
+Accordingly this certificate excludes all $40000$ such parents in their
+entirety.  It also excludes every other cell with a nonzero method.
+These exclusions leave disjoint, unchanged $n=48$ switched cells.  Their
+new reductions may be subtracted from the current full cost once:
+\[
+ U^{\rm current}_{10}+U^{\rm current}_{11}
+ \ \leadsto\ U^{\rm current}_{10}+U^{\rm current}_{11}
+                    -\sum_{B\text{ retained}}d_B.
+\]
+The Chen coefficient gains one quarter of this sum.  All existing
+ordinary/H-table choices, child replacements, and lower-start policies
+stay unchanged.  The old $6.7672\to6.7619$ replacement and the old
+$n=32$ logarithmic-mean experiment are not added again.
+
+\paragraph{Scope and finite limits.}
+The new program checks hashes, canonical old cell keys, the disjoint
+parent exclusion, and every rational mass/floor in this formula.  It
+does not rerun the old high-dimensional integrations; their saved
+method-specific inequalities are explicit previously verified inputs.
+The only new arithmetic input required for the analytic implication is
+the same positive-product estimate with $K=K_1$ on these fixed positive
+families.  As in the existing complete minimum proof, ordinary endpoint
+realizations and null ordering walls use a common finite refinement
+before $N$ tends to infinity.  The feedback uses no new cap or gate and
+requires no uniform limit in a refining mesh.  A final rounded global
+constant must reserve sufficient finite-compilation/asymptotic slack;
+this local certificate itself does not change the project's main state.

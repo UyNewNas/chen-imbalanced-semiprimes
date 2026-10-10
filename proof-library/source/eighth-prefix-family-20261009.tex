@@ -1,0 +1,125 @@
+% New selected family only. Earlier sources, main and state are unchanged.
+\subsection{A finite family of twenty-nine new eighth-node cells}
+
+The reference is the adopted tree and ledger in
+\texttt{eighth-prefix-transfer-assembly-20261009.json}. Keep its previous
+eighth cell exactly as adopted. The present family uses the same raw old
+comparison and histories as that cell,
+\[
+ d=t_2+t_3,\quad R=L_3=R_6=D(d),\quad
+ A(s)=(1+s)/2,\quad D(s)=57/64-3s/2,\quad\mu=25/128.
+\]
+In particular $t_1<\mu$, $t_3>1/100$, $H_3,H_5,H_7<R$, the initial
+cube, and all complete and selected support tests are retained. No new
+odd seventh policy is assumed. The two candidate new caps are
+\[
+ M_A=A(t_1+t_8)-\eta,\qquad M_D=D(t_1+t_8)-\eta,
+ \qquad\eta=10^{-6}.
+\]
+Each cap is used only on its own tent half and only where $R<M<S_8+3t_8$.
+The new selected subset is always $\{1,8\}$, binary mask129.
+
+\paragraph{Exact old branch separation.}
+The old winner condition $D(d)<A(d)$ gives $d>\mu$. Put
+$a=2R-1=25/32-3d$. For each nonempty subset $I\subseteq[6]$,
+\[
+ v(s_I)\le R\quad\Longleftrightarrow\quad
+ s_I\le a\ \hbox{or}\ s_I\ge d,
+ \qquad d-a=4(d-\mu)>0.
+\]
+Thus a complete assignment of the 63 subsets to the two closed halfspaces
+specifies a convex rational polytope, and different assignments have
+disjoint interiors. On its left branch the ascending plane is indeed
+active, since $a<\mu$; on its right branch the descending plane is active,
+since $d>\mu$. Merely bounding a tent by a chosen plane would already be
+sufficient, but this stronger separation identifies the cells precisely.
+
+All singletons are left: their sums are at most $t_1<\mu<d$, so the right
+choice is unavailable. The winner subset $\{2,3\}$ is the identity $s_I=d$;
+its zero row is retained as an identity, never required to be strict.
+For ordered coordinates, prefix-count dominance of subsets implies
+dominance of their sums, by summation by parts in the positive adjacent
+coordinate gaps. Therefore left assignments propagate downwards and
+right assignments upwards in this partial order. This finite reduction
+was used for navigation only. No floating LP failure is promoted to an
+exact infeasibility or completeness certificate.
+
+\paragraph{Selected family and the already adopted region.}
+The finite navigation found fifteen complete assignments with strictly
+positive rational centers in each tent half. Fourteen ascending cells
+are selected: indices $0,\ldots,14$ except7. The omitted ascending cell7
+has exactly the old adopted 63-way assignment. The finalizer compares
+its complete affine-row multiset with the old navigation record, so the
+same old region is not silently enlarged, reweighted or re-added.
+All fifteen descending cells are selected. The ascending half has
+$t_1+t_8<\mu$; the descending half has $t_1+t_8>\mu$. Consequently the
+two halves are disjoint up to their common hyperplane boundary,
+independently of their old branch assignments. The twenty-nine selected
+new cells are therefore pairwise interior-disjoint and also disjoint
+from the previously adopted ascending cell.
+
+The descending navigation is an explicit affine transformation of the
+ascending physical rows. Its cap change is
+\[
+ \delta=M_D-M_A=25/64-2(t_1+t_8).
+\]
+Add $\delta$ to every new-cap improvement or support slack, subtract it
+from $S_8+3t_8-M_A$, and reverse the nontrivial tent-half inequality.
+Old histories and all old subset rows are untouched. Both constant
+identities (the old winning pair and the selected buffered active new
+plane) stay separate from the nonconstant constraints. This supplies a
+direct way to reconstruct every physical row without relying on the
+navigation LP.
+
+\paragraph{Exact geometry and integral.}
+Each selected cell has 96 nonconstant rational rows and a strictly
+positive rational center. Candidate facet lists have at most sixteen
+members. The exact author calculation checks rank eight and a strictly
+positive zero balance of their normals, enumerates every active-eight
+system, and verifies every original inequality at every resulting vertex.
+Boundedness and the vertex test show that the candidate-facet polytope
+equals the complete original cell. Reverse pulling then triangulates its
+faces without overlapping interiors. Floating hulls serve only to suggest
+facets; they are not used as volume or integration evidence.
+
+In each cell the signed eighth-node difference has lower density
+\[
+ \frac{4(M-R)}{(R-S_8)(M-S_8)\prod_{j=1}^{8}t_j}.
+\]
+All ten affine denominator factors are strictly positive at every vertex.
+The same weighted Jensen formula as the first cell applies: on a simplex
+with nine vertices, $G=\sum_v(M-R)(v)$, mean gap $G/9$, and a factor's
+gap-weighted mean is
+\[
+ \frac1{10}\left(\sum_v\ell(v)+
+ \frac{\sum_v(M-R)(v)\ell(v)}G\right).
+\]
+The physical Jacobian is one and the simplex volume is its determinant
+divided by $8!$. Each rational bound is rounded down separately at
+denominator $2^{96}$. The two exact aggregate JSON records contain the
+resulting totals; the final author manifest adds the new totals once.
+The old cell's $74010257929342545968375/2^{96}$ is excluded, and a stronger
+quadrature on that old region would have to enter as a replacement
+difference in a separate calculation.
+
+\paragraph{One common causal finite realization.}
+The raw equality $L_3=R$ is not a lower bound on an arbitrary pre-frozen
+finite third cap. Trim all proper cell boundaries, jointly refine the
+first-three-coordinate projections of this finite union with every old
+label, and choose actual third caps uniformly close enough from below
+that $H_3,H_5,H_7<\lambda_3\le\lambda_6$ on every retained descendant.
+This is a choice of a fixed finite precision, not a future-dependent
+third decision. After this common realization is chosen, keep the old
+sixth actions and seventh first exit, and change only the selected
+eighth upper residuals. Every actual adopted sixth cap lies below its
+selected first-six tent or an inherited fifth cap, so
+$\lambda_6\le R_6=R$ still holds. Therefore replacing $\lambda_6$ by $R$
+only decreases the new positive difference. The inequalities
+$\lambda_6-S_8>2t_7-t_8>t_8$ and $M-S_8<3t_8$ keep both ordinary upper
+arguments in the rational range where $\bar F(s)=1/s$.
+
+All earlier allowances must be retained and the extra finite
+approximation/compiler loss paid in any subsequent assembly. This family
+does not itself choose a new $K,c,b$, change a distribution theorem,
+certify all old winners or new masks, or assert exhaustion of either
+tent half. No new sampling or large blind grid was performed.

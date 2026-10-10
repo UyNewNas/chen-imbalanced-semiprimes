@@ -1,0 +1,60 @@
+{
+  "status": "PASS_INDEPENDENT_LOCAL_STRATEGY_AND_COMPLETE_2048_EXACT_FLOOR_REPLAY",
+  "date": "2026-10-09",
+  "author_bindings_checked": 10,
+  "cells": 2048,
+  "corner_checks": 8192,
+  "all_floor_values_identical": true,
+  "coordinate_formula": "x=(75+u)/384,y=(75+k*u*v)/384; Ro=(159-5u-2kuv)/768,Rn=(159-2u-(2k+3)uv)/768",
+  "independent_chart_sums": {
+    "-3": "2611861591688900926105713",
+    "1": "881363628245954213539124"
+  },
+  "independent_floor_stream_sha256": "6f6197ff84a93421479df99932f0957297696d7fbf1dc3a99099467a610e0909",
+  "independent_gain_lower": "3493225219934855139644837/79228162514264337593543950336",
+  "rounding_bits": 96,
+  "gain_decimal_display_only": 4.4090700946218846e-05,
+  "no_grid_coarse_lower": "640339/15210735000",
+  "coarse_chart_lowers": [
+    "3/95000",
+    "32/3042147"
+  ],
+  "denominator_component_positive_lower_bounds": [
+    "25/128",
+    "3/16",
+    "19/96",
+    "19/96"
+  ],
+  "original_fifth_parent_count": 292633,
+  "original_fifth_first_endpoint_max": "77/400",
+  "old_new_cover_disjointness": "Fourth/new-fifth t1<=39/200; original fifth checked here; sixth t1<=mu. Use witness-restricted old higher strategy, not hypothetical full fifth outside its cover.",
+  "old_endpoint_upper": "2444205458396424207668787105/361468820064774123237146624",
+  "endpoint_minus_coarse": "4647241256329845264129698609292513683/687275804095995252927197431726080000",
+  "endpoint_minus_fine": "160182404447127296352094877907017/23689220591765036940469641150464",
+  "illustrative_strict_K": "135237/20000",
+  "strict_K_slack_over_new_endpoint": "344882061949177387353191404999/14805762869853148087793525719040000",
+  "finite_scope": "Endpoint lower gain. Realize any strictly smaller gain using common finite caps, boundary trim, old small-third tail and signed compiler; no equality asserted for arbitrary old frozen finite coefficients.",
+  "normalization": "Old minus new K-density in C_N/log(N) units; factor4 included, no factorial.",
+  "not_claimed": [
+    "A new global representation count or imbalance theorem",
+    "Reproof of external distribution or ordinary-density theorems",
+    "Addition of coarse and fine bounds",
+    "Uniform positive buffers on the closed charts"
+  ],
+  "bindings_sha256": {
+    "second-prefix-upper-fallback-independent-review-20261009.py": "b3f77483a1fd0d1aa1e56b70656503baeedd82c274e3adbdb71e0ba6ac29270e",
+    "second-prefix-upper-fallback-independent-review-20261009.txt": "7b635c55e18572e6a242208c5b175dfc0373848106839f0eca016ad4a391e59a",
+    "second-prefix-upper-fallback-20261009.py": "443c5f8003d879e5a9f0d0eef0de6edbad16b325927420a564edb6a5f7bc1099",
+    "second-prefix-upper-fallback-20261009.tex": "355954ab0d4d1d23ce6045a4baa2dee3b71f124a8550e8f1eae71fbcae70821d",
+    "second-prefix-upper-fallback-20261009.json": "d51d1fcd891160dbc4237400012cdb77e623c72820b642860daf6788f40c5871",
+    "second-prefix-upper-fallback-20261009.witness.json": "5b634d156e89aab2a36a31ea1cf7417747354ade567c3179fbcfa38398546660",
+    "extended-prefix-upper.tex": "504aec8ff78ba22fe4789a4e4306c70d373aef766fa1388f3c2163743b656df7",
+    "actual-k-density-joint-audit.tex": "7a3723a75eedb85d5617ffdf043713580e9e895291e83f8038aedfd610fb5222",
+    "actual-k-density-joint-audit.py": "7355c2fa780d4728a6eb5af0a743b5b67b7924fa704abce12c1512c434f06183",
+    "actual-k-compilation-joint-audit.tex": "fd7b8917b59b2ae1896023a1b64d32344b49a92e10c8b91fa51ac8a030f0c812",
+    "actual-k-distribution-joint-audit.tex": "e435985ab5c74c551da8f1c7e91e916831464dbf3232a03328c945078628ecf6",
+    "selected-subproduct-factorization.tex": "9699f9a772fa3f5ed512891283eb511138327f4b3e6469cfa134b789dd6f95d9",
+    "fifth-prefix-jensen-accepted-witness.npz": "2473b7457e09eb67b4f0b99a7c58c4a52ccd5262d8bf28138f638dd562428d6e"
+  },
+  "seconds": 0.5149690000107512
+}

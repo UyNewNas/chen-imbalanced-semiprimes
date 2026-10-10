@@ -1,0 +1,408 @@
+From the restricted medium estimate to the actual smooth prime-product estimate
+10 October 2026. New proof; all earlier files and the manuscript remain unchanged.
+
+Conclusion
+
+This note proves the prime-product INSERTION, with the restricted medium
+convolution estimate and the recorded finite whole-box licences as explicit
+premises. It does not prove that medium estimate by naming it. The new
+substantive step is a direct elementary Brun reduction for BOTH one-long
+and two-long branches. It keeps the exact coprime mean, permits the actual
+complex smooth profiles, and handles sharp individual intervals without a
+moving-shift divisor moment, a product=T exception, or freezing a small
+sieve divisor. Its smooth cores are uniform in every primitive residue.
+The resulting long-branch argument needs no fundamental lemma of the sieve.
+
+The physical upper/lower compiler still has its own fundamental-lemma and
+density obligations. The elementary q=1 shifted moments are still used for
+the medium beta truncation and the geometric Fourier tail. No global
+K,c,b, density allowance, numerical table, or selected domain changes here.
+The older common kappa cap, including the now unnecessary long-boundary
+orders, may be retained unchanged; this note does not enlarge that range.
+
+1. Exact assertion and premises
+
+For even T, a fixed smooth geometric weight W_T on k<=k_star labelled
+original primes, and (q,T)=1, define
+ E_q(T;W)=sum_(p_1,...,p_k) W_T(p_1,...,p_k)
+       [1_(p_1...p_k=T mod q)-1_((p_1...p_k,q)=1)/phi(q)].
+All original primes are >=c*T^a_star, with fixed a_star>0; their product is
+O(T). The fixed smooth family has polylogarithmic mixed Euler derivative
+norms after the changes of variables below. Its actual geometric labels
+are retained. Arbitrary additional arithmetic filters are not allowed.
+
+The fixed finite compiler provides the SAME rho_T in this count and mean:
+ (i) its low-rank/classical part is bounded by a fixed constant and has
+     complete support <=x^(1/2-epsilon_L) on retained local scales;
+ (ii) each high-rank part is a fixed finite scalar combination of labelled
+     rough-prime convolutions with a one-bounded small-prime beta factor;
+     the original global rough squarefreeness is retained until its
+     separately estimated collision remainder is removed;
+ (iii) for every medium length, a partition fixed on each WHOLE atom box
+     gives three one-bounded factors at Q_1,Q_2,Q_3 satisfying (M) below;
+ (iv) the complete local support is <=x^Theta_loc, Theta_loc<3/5, with
+     20*zeta+Theta_loc<1 and 40*zeta+3*Theta_loc/2<1.
+The number of atoms and their total restoring scalar norm are fixed before
+T grows. All coarse/fine labels and finite ancestor choices are fixed.
+The auxiliary support envelope ell_aux may exceed the physical density
+cap lambda: this is correction (C0) in the bound source. It licenses the
+same coefficient; it does not replace lambda in rho or its density.
+
+Premise M is the signed local medium convolution estimate for one individual
+rough HB slot alpha, a fixed-divisor-bounded complement beta, and three
+separate one-bounded gamma_i, with exact coprime mean. Write x=NM, a=T,
+theta=7/32 and require
+ Q_1<N*x^(-sigma),                 N^2*Q_2*Q_3^2<x^(1-8*sigma),
+ |a|^theta*N*Q_1*Q_2^5*Q_3^2<x^(2-15*sigma),
+ N^(1+2*theta)*Q_1*Q_2^(5-2*theta)*Q_3^(2+2*theta)<x^(2-15*sigma), (M)
+ c0*x<=|a|<=x^(1+kappa),           0<kappa<=sigma/100.
+Its conclusion is O_A(x/log^A x), uniform in this coefficient class and in
+the permitted intervals/twists. The individual alpha must have auxiliary
+SW uniformly in all auxiliary coprimality integers, with fixed tau(k)^1
+loss. Section 5 below supplies that property, rather than assuming a
+general arbitrary rough coefficient is SW. Root's separate local-medium
+audit owns the proof of M itself.
+
+Under these premises the conclusion proved here is
+             sum_q rho_T(q) E_q(T;W_T)=O_A(T/log^A T).          (PP)
+It holds for every sufficiently large even T, with an absolute error.
+No almost-all-target conclusion, relative error in a cell's mass, sharp
+signed coupled-domain theorem, or arbitrary high-level rho theorem is used.
+
+2. Complete scales, an explicitly SMOOTH trim, and the exact HB identity
+
+Choose eta in C-infinity([0,infinity)), 0<=eta<=1, equal to zero on [0,1]
+and one on [2,infinity). Before charting multiply W_T by
+                  eta(product p_i / T^(1-kappa0)).
+This makes the complete-product trim smooth. All its Euler derivatives
+are bounded uniformly, since they vanish off 1<=product/T^(1-kappa0)<=2.
+The discarded complete products are <2*T^(1-kappa0), hence are not T for
+large T. Their fixed divisor multiplicity and the modulus-divisor sum
+give O(T^(1-kappa0+o(1))); their exact means have only fixed logarithmic
+losses. This supplies the trim without inserting a new sharp coupled wall.
+
+Insert an exact smooth nonnegative dyadic partition
+ sum_j psi(p_i/2^j)=1, psi=chi(t)-chi(2t),
+where chi is one on t<=1 and zero on t>=2. Then psi is supported in
+[1/2,2]. Set R_i=2^j, X=product R_i, Xplus=2^k X. On each original chart
+fix Zchart=f(2^(6*k_star+2)*Xplus), f(v)=v^(1/(loglog v)^3), BEFORE HB.
+Every original prime exceeds Zchart eventually. Replace primes by the
+rough sequence Lambda(n)/log n and remove proper prime powers absolutely.
+The sum of reciprocals of proper powers n>=c*T^a_star is
+T^(-a_star/2+o(1)), so their total tuple mass is T^(1-a_star/2+o(1)).
+For nonzero complete product minus T the modulus sum costs T^o(1);
+the exact product T is bounded separately by T^(Theta+o(1)), Theta<1.
+The mean has only a reciprocal-totient logarithmic loss. All are power-small.
+
+For an original group at scale R put Z_HB=(2R)^(1/3), mu_Z=mu*1_(n<=Z_HB).
+With Dirichlet convolution identity delta, E=delta-1*mu_Z is supported
+above Z_HB. Hence Lambda*E^3 vanishes at n<=2R, and expansion gives
+ Lambda=sum_(j=1)^3 (-1)^(j-1) binom(3,j)
+                   mu_Z^{*j}*1^{*(j-1)}*log.                (HB)
+Multiplication by psi(n/R) makes this identity valid everywhere needed.
+The same chart-rough projector becomes the product of its projectors on
+ALL HB variables. Units use Pminus(1)=infinity; a unit log slot vanishes.
+There is no residual sharp indicator R<=product(HB group)<=2R.
+
+Retain only individual HB rectangles meeting the smooth support. Each
+group has at most six variables and product of lower endpoints >=R_i/128.
+Thus 2^(-7k)X<=x_HB<=Xplus. After dyadically grouping a complementary
+product the local complete scale satisfies
+        2^(-7k-1)X<=x<=2^(6k-1)Xplus,
+        f(x)<=Zchart<=x^(2/(loglog x)^3).                    (S)
+In particular c*T^(1-kappa0)<=x<=C*T. Retain the current choices
+ kappa<=min(kappa_old,1/(2*K_mom)),
+ 0<kappa0<min(kappa0_old,kappa/[4*(1+kappa)]).
+Then c0*x<=T<=x^(1+kappa) eventually. All scale constants depend only on
+the fixed maximum rank; strict power margins absorb them.
+
+3. Same coefficient, finite tensor identity, and global collisions
+
+Refine interval labels to a common disjoint half-open alphabet. For a
+slot list J with m_I occurrences of label I, its unrestricted convolution
+at n equals product_I m_I! / product_p nu_p(n)! on the correct support.
+For a fixed partition into three groups set M_j=product_I m_(I,j)! and
+gamma_j=(group convolution)/M_j. Each gamma_j is one-bounded on ALL
+integers. With M_all=product_I m_I!,
+       (full convolution)/M_all
+       =(product_j M_j/M_all)*(gamma_1*gamma_2*gamma_3).      (T)
+For a raw marked convolution divide only by the ordered residual-slot
+factorial. Its existing marked multiplicity stays in the external scalar.
+This changes neither side of the count/mean pair. The small/rough prime
+universes are disjoint, so attaching the bounded small-prime beta to one
+group still gives a one-bounded coefficient by UNIQUE factorization into
+its small and rough parts. A single beta pair works for the finite marked
+family because every marked prime is above its fixed small-prime cutoff.
+
+Within-group squarefreeness does not imply global squarefreeness. Keep
+the latter in rho itself. For discrepancy estimation only, dropping it
+adds moduli divisible by p^2 with p>=T^omega. Summing complete integers
+first, including the +1 for any exact product T, bounds this difference by
+              (T+T^Theta)*T^(-omega+o(1)).                 (C)
+Indeed sum_(p>=T^omega)1/p^2<<T^(-omega), and each modulus contributes
+T/q+1+T/phi(q), up to fixed divisor powers. This is a fixed power error.
+
+On each length block the whole-box partition in (T) is fixed before any
+integer or error sign is inspected. It may change with LENGTH or atom,
+since (T) remains the same coefficient identity. Dyadic restrictions of
+the gamma_j cost only a fixed logarithmic number of pieces. Smaller Q_i
+preserve every inequality (M), whose exponents on Q_i are positive.
+
+4. Geometric separation and the exhaustive HB alternatives
+
+For individual coordinates z_j=log(n_j/U_j), extend the smooth geometric
+factor with a compact cutoff equal to one on the individual rectangle.
+If D=sum_(S subset [m])||partial_(2S)w||_1, then Fourier integration gives
+ |w_hat(xi)|<=D*product_j(1+xi_j^2)^(-1),
+ integral |w_hat|/(2*pi)^m<=D/2^m,
+ sup|w-w_H|<=m*D/H,                                      (F)
+where w_H keeps |xi|_infinity<=H. Here D is a fixed logarithmic power.
+The new factors psi(c_i*exp(sum_group z_j)) have uniformly bounded mixed
+Euler derivatives, as does the smooth trim in section 2. No hard group
+cutoff is being differentiated. All finite arithmetic sums commute with
+the absolutely integrable Fourier representation.
+
+The Fourier tail is bounded AFTER the complete modulus sum. For b!=T it
+is a pointwise tail error times sum_b tau(b)^R tau(|b-T|)^S. The elementary
+near-linear mixed moment in the bound source is O(x*log^E x), for fixed
+R,S and the retained kappa cap. At b=T use T^(Theta+o(1)), without tau(0).
+For the mean use sum_q |rho(q)|/phi(q)<<log^E T. Choose a fixed logarithmic
+H after these fixed orders. The Fourier norm, rather than H^m, is charged
+when applying uniform block estimates to the retained modes.
+
+Select one medium slot, if present, in the ORIGINAL window
+                X^(3*zeta)<=U<=X^(1/3+zeta/4).
+By (S) its local length lies in [x^(2*zeta),x^(1/3+zeta/2)]. If none is
+present, every group must have a long slot: six short slots have product
+<X^(18*zeta), contrary to R_i/128 and zeta<a_star/100. Three long slots
+would exceed the complete scale O(X). A truncated mu slot is <=O(X^(1/3))
+and cannot be long. Thus the no-medium alternatives are exactly one or
+two unweighted integer long slots, apart from their logarithms, separated
+smooth twists, intervals and the common rough projector. The conservative
+short-product bounds are x^(20*zeta) and x^(40*zeta), respectively.
+
+5. The actual medium coefficient has full auxiliary SW
+
+The selected individual slot is
+ e(n)*1_I(n)*1_(Pminus(n)>Zchart)*h(n)*n^(it), e=1 or mu,
+with normalized |h|<=1 and fixed polylogarithmic variation/frequency.
+It is one-bounded. For U>=x^xi, fixed xi>0, the rough-SW derivation gives
+ |sum_(n=b mod q,(n,k)=1)alpha_n
+       -phi(q)^(-1)sum_((n,kq)=1)alpha_n|
+              <<_A U*tau(k)*log^(-A)x                     (SW)
+uniformly in EVERY k,q, primitive b, interval and admitted frequency.
+Here are the essential actual identities and exponents, not a SW label.
+Use even Brun order h=2 floor((loglog x)^2). Its next divisor support
+Zchart^(h+1) is <U^(1/4) eventually, and its gap density is smaller than
+every logarithmic power. For squarefree ell, mu(ell v)=mu(ell)mu(v)1_(v,ell)=1.
+The exact identity
+ mu(v)1_((v,E)=1)=sum_(w|v, p|w implies p|E) mu(v/w)
+reduces to classical unrough mu SW at w<=V^(1/4). The smallest inner
+scale is U^(9/16); the large-w remainder is <=2*V^(7/8)*tau(E)^2.
+After summing ell<=U^(1/4) this is O(U^(29/32)*log^4 U).
+Small q therefore gives arbitrary log saving; large q follows from the
+one-bounded interval count O(U/sqrt(q)+1). Auxiliary k removes only primes
+p|k above Zchart and costs <=2*(U/Zchart+1)*omega(k), bounded as in (SW).
+Partial summation pays the fixed variation/frequency by a stronger initial
+SW exponent. No modulus-dependent filter is introduced into alpha.
+
+The complement of at most 6*k_star-1 slots is bounded by a FIXED divisor
+power, independent of accuracy and frequency. If M is provided first for
+one-bounded beta, the bound source's beta-only truncation proves the stated
+extension: deleted nonzero products cost log^(-Ccut)x times the elementary
+mixed moment; exact b=T costs Dtot*x^o(1); the mean costs fixed log powers.
+Choose Ccut after the fixed divisor orders, then ask for the stronger local
+log exponent needed to restore beta's normalization. Alpha is never
+truncated. With (T), (M), and (F), all medium blocks give O_A(T/log^A T).
+
+6. Explicit elementary Brun weights, uniform in deleted modulus primes
+
+The next construction applies to either long alternative. Write L2=loglog x,
+h=2 floor(L2^2), z=Zchart and P(z)=product_(p<=z)p, using the same endpoint
+convention as the rough projector. Put
+ lambda^+(d)=mu(d)*1_(d|P(z),omega(d)<=h),
+ lambda^-(d)=mu(d)*1_(d|P(z),omega(d)<=h+1),
+ y=z^(h+1)=x^o(1),
+ U_z(n)=sum_(d|n)lambda^+(d), L_z(n)=sum_(d|n)lambda^-(d),
+ G_z(n)=U_z(n)-L_z(n), r_z(n)=1_((n,P(z))=1).
+The coefficients are one-bounded and d<=y. For s=omega(gcd(n,P(z))),
+the finite alternating binomial identity gives
+ L_z(n)<=r_z(n)<=U_z(n), U_z(n)>=0,
+ G_z(n)=binom(s,h+1)>=0.                                  (B1)
+This includes s=0, when both polynomials equal one. L_z may be negative;
+its positivity is NEVER assumed.
+
+For every q define
+ A_q=sum_((d,q)=1)lambda^+(d)/d,
+ g_q=sum_((d,q)=1)(lambda^+(d)-lambda^-(d))/d,
+ V_q=product_(p<=z,p not|q)(1-1/p).
+Finite inclusion-exclusion (equivalently Bonferroni for independent
+Bernoulli variables with probabilities 1/p) gives
+       0<=A_q-V_q<=g_q<=H(z)^(h+1)/(h+1)!=:epsilon_x,       (B2)
+where H(z)=sum_(p<=z)1/p. This is UNIFORM in q, regardless of its factors.
+One elementary bound is H(z)<=e*log(1+log z), by comparison with
+log zeta(1+1/log z). Thus epsilon_x<=exp(-c*L2^2*log L2) eventually,
+while log y/log x<=2*(h+1)/L2^3=O(1/L2). In particular A_q<=2 eventually.
+No fundamental lemma, distribution theorem or growing divisor-moment
+order is required for (B1)--(B2). The growing h is paid only through
+y=x^o(1) in POWER-saving remainders; not through a log-saving term.
+
+7. Two smooth cores with the EXACT coprime mean
+
+Let alpha_m be a fixed complex short sequence with
+ sum|alpha_m|<<M*log^B x; write the complete scale as x~M*U (one long)
+or x~M*U*V (two long). Let f,g be compactly supported C^2 profiles on
+[1/2,5/2] whose relevant norms are fixed logarithmic powers. For any
+(a,q)=1 and fixed m with (m,q)>1 both discrepancy terms vanish.
+
+For one long, ordinary progression counting and Mobius inversion give
+ sum_(n=b mod q) f(n/U)=(U/q)*integral f+O(N1(f)),
+ sum_((n,q)=1) f(n/U)=U*phi(q)/q*integral f+O(tau(q)*N1(f)),
+where N1(f)=||f||_1+||f'||_1. The exact discrepancy for each fixed m is
+therefore O(N1(f)*(1+tau(q)/phi(q))), uniformly in U and primitive b.
+This applies at U/d, with m replaced by m*d; nonunits again vanish.
+
+For two long, write fhat(t)=integral f(s)e(-ts)ds. Double periodization
+gives the EXACT fixed-m discrepancy
+ U*V/q^2 sum_(j,k in Z) fhat(jU/q)ghat(kV/q)
+ [S(a*m^(-1)*j,k;q)-c_q(j)c_q(k)/phi(q)].                  (P1)
+Both coordinate axes vanish identically, including their nonzero Fourier
+masses: S(0,k)=c_q(k), S(bj,0)=c_q(j) for primitive b, c_q(0)=phi(q).
+For nonzero frequencies use the composite Weil bound
+ |S(bj,k;q)|<=tau(q)*sqrt(q)*gcd(j,k,q)^(1/2)
+and |fhat(t)|<<N2(f)*(1+|t|)^(-2), N2(f)=||f||_1+||f''||_1.
+The elementary sum
+ sum_(j!=0,d|j)(1+|j|/H)^(-2)<=2H/d
+holds for all H>0. Expanding the gcd through divisors gives the uniform
+fixed-m bound
+ N2(f)N2(g)*[sqrt(q)*tau(q)+tau(q)^2/phi(q)].              (P2)
+The first term uses sum_(d|q)d^(-3/2)<=zeta(3/2); the second uses
+|c_q(j)|<=gcd(j,q) and sum_(d|q)phi(d)/d<=tau(q).
+For q=1 the discrepancy is exactly zero. There is NO size bound on a.
+
+If |rho(q)|<=tau(q)^J*log^B1 x and q<=D, summing fixed divisor means
+turns these smooth core bounds into
+ one long: O(M*D*log^C x),
+ two long: O(M*D^(3/2)*log^C x).                           (P3)
+For fixed d_1,d_2<=y the profiles are exactly f(n_1/(U/d_1)),
+g(n_2/(V/d_2)); their norms in (P2) are unchanged. The short product
+becomes m*d_1*d_2 only inside the primitive residue. The core was proved
+pointwise in that product, so its L1 mass is still sum|alpha_m|. Sum the
+d pairs by their number, at most y^2. No dyadic freezing, new common
+interval, or regrouped high-order divisor sequence is required. Thus
+the expanded two-variable Brun errors cost M*y^2*D^(3/2)*log^C x.
+The product-divisor support is d_1*d_2<=y^2=x^o(1), explicitly retained.
+
+8. Passing from these smooth cores to rough smooth variables
+
+First, for any nonnegative smooth F and any q, exact Mobius inversion gives
+ sum_((n,q)=1) F(n/U)*U_z(n)
+ =U*phi(q)/q*(integral F)*A_q+O(y*tau(q)*N1(F)),
+ sum_((n,q)=1) F(n/U)*G_z(n)
+ =U*phi(q)/q*(integral F)*g_q+O(y*tau(q)*N1(F)).            (E1)
+The left sides are nonnegative by (B1); the second upper bound uses
+g_q<=epsilon_x. This is a comparison of EXACT coprime sums, not a
+replacement by an unrestricted Euler mean. The factor phi(q)/q cancels
+against the exact mean's 1/phi(q) where appropriate.
+
+For two variables abbreviate U_i=U_z(n_i), L_i=L_z(n_i), r_i=r_z(n_i),
+G_i=U_i-L_i. The valid product sandwich is
+ L_1*U_2+U_1*L_2-U_1*U_2 <= r_1*r_2 <= U_1*U_2,
+ 0<=U_1*U_2-r_1*r_2<=B:=G_1*U_2+U_1*G_2.                (E2)
+Indeed U_i>=r_i>=0 and U_i-r_i<=G_i. This proves (E2) even if either
+L_i is negative; using L_1*L_2 as a lower bound would be invalid.
+
+For complex f,g choose fixed nonnegative smooth majorants F>=|f|,
+G>=|g| with fixed polylog norms, and replace alpha by |alpha| only in
+the following absolute error bound. Write C_q and M_q for the counting
+and exact coprime-mean functionals, respectively, and Delta_q=C_q-M_q.
+Then
+ |Delta_q(alpha*f*g*r_1*r_2)-Delta_q(alpha*f*g*U_1*U_2)|
+ <= C_q(|alpha|*F*G*B)+M_q(|alpha|*F*G*B)
+ <= |Delta_q(|alpha|*F*G*B)|+2*M_q(|alpha|*F*G*B).         (E3)
+Every count on the right is nonnegative; no order on a complex sequence
+has been asserted. Expanding U_1*U_2 and B into their d pairs uses (P3)
+with at most y^2 terms and coefficients of bounded absolute value.
+
+Use (E1) for each factor of the mean in (E3) and then
+sum_(q<=D)|rho(q)|*tau(q)^j/phi(q)<<log^C x for each FIXED j. The complete
+rough smooth two-variable discrepancy is bounded by
+ O(log^C x)*[M*U*V*epsilon_x
+             +M*(U+V)*y+M*y^2+M*y^2*D^(3/2)].             (E4)
+For one variable the same argument with 0<=U_z-r_z<=G_z gives
+ O(log^C x)*[M*U*epsilon_x+M*y+M*y*D].                     (E5)
+Here C depends on fixed profile/divisor norms, not on h. The epsilon_x
+term is multiplied only by fixed logarithmic factors. All y factors
+occur in errors with a fixed power reserve. In the actual alternatives
+M<=x^(20*zeta) or x^(40*zeta), min(U,V)>=x^nu for fixed nu>0, and (iv)
+therefore makes (E4)--(E5) O_A(x/log^A x) for every fixed A.
+
+9. Sharp INDIVIDUAL intervals, with no shifted-moment step
+
+Fix delta=log^(-B)x. A sharp interval I subset [U,2U] has a smooth
+approximation h_I(n/U), 0<=h_I<=1, whose pointwise error is bounded by
+a nonnegative smooth k_I(n/U), supported in O(delta)-width strips at
+the two endpoints. This also works when |I|<delta*U: take h_I=0 and a
+single strip covering I. The profiles satisfy
+ integral k_I<<delta, N1(k_I)<<1, N2(k_I)<<delta^(-2).
+Constants are uniform in interval endpoints. Multiplying by the smooth
+logarithm/twist costs only its fixed polylog norms. The product interval
+error is bounded by a sum of two such strips times fixed positive smooth
+envelopes in the other variable.
+
+Apply the ALREADY PROVED rough smooth bound (E4), or (E5), to each
+nonnegative strip weight with |alpha| and |rho|. Its exact mean is bounded
+using r_z<=U_z and (E1): in the two-variable case the total is
+ O(log^C x)*[x*delta+M*(U+V)*y+M*y^2],                    (I)
+and for one variable O(log^C x)*[x*delta+M*y]. Its counting sum equals
+this mean plus the rough smooth discrepancy. The latter may have a
+larger fixed log power from N2(k_I), but all non-epsilon remainders still
+have a fixed power reserve. Choose B after the fixed coefficient/profile
+orders and the desired accuracy. Since epsilon_x beats every log power,
+the interval error is O_A(x/log^A x).
+
+This controls both count and exact mean and is uniform in EVERY primitive
+a. No tau(|product-a|) estimate occurs, including at product=a. In this
+new long-branch proof, the old boundary Cauchy, its doubled tau^(4J)
+requirement, intermediate product=a isolation, and small-divisor freezing
+are ALL unnecessary. The global Fourier tail and medium beta truncation
+still need their separate elementary shifted moments and zero handling.
+
+10. Low rank and final assembly
+
+Before HB, low-rank moduli have a complete fixed gap below x^(1/2).
+For at least two original primes choose one prime interval as alpha,
+the others as beta; both lengths are positive powers of x. Prime SW
+with auxiliary coprimality has fixed tau(k)^1 loss, because inserting
+(p,k)=1 deletes only omega(k) primes. The bound source's explicit
+primitive-character proof supplies
+ sum_(q<=x^(1/2-epsilon)) max_((a,q)=1)|Delta_q(alpha,beta)|
+                         <<_A x/log^A x.
+In that proof induced characters retain coprimality on BOTH factors;
+the large-conductor k-sum uses sum 1/(k*phi(k))<infinity, and the small
+conductors pay their number and sum tau(k)^1/phi(k) by fixed log powers.
+Its fixed coefficient norm (not x^o(1)) permits the actual bounded rho.
+For one original prime use ordinary maximal prime BV instead. A singleton
+unit product, if present, has elementary T^o(1) discrepancy, and is not
+confused with a unit quotient in a nonempty prime-product family.
+
+The order is now: same-coefficient tensor/collision reduction and smooth
+trim; exact original charts and HB; Fourier separation; medium M with
+the actual rough-SW slot OR direct Brun one/two-long estimates; low-rank
+BV separately; restore fixed scalar factors, prime powers and all tails.
+There are only fixed/logarithmic numbers of atoms/charts/modes and their
+integrated coefficient norm is polylogarithmic. Request sufficiently
+strong local log exponents before summing. The finite common parameter
+choice fixes a positive reserve in every POWER error, and kappa/kappa0
+are reduced only after their actual finite divisor orders are known.
+One eventual T threshold therefore works for all members of the family.
+This proves (PP) under the explicit premises of section 1.
+
+New closure supplied by this note is the direct Brun long-branch theorem,
+with exact mean and sharp individual endpoints, and its complete insertion.
+The local medium theorem, actual finite licence construction, positive
+same-rho majorant, raw Rosser density, Chen weight/table inequalities and
+numerical certificates remain separate proof components. No conclusion
+about their truth is inferred from this insertion alone. No old files,
+selected constants, paused formalization, GitHub objects or external
+communications have been changed.

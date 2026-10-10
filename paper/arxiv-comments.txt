@@ -1,0 +1,1 @@
+82 pages. Source, reading guide and computational verification materials: https://github.com/UyNewNas/chen-imbalanced-semiprimes/releases/tag/v2026.10.10

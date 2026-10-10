@@ -1,0 +1,174 @@
+% Research integration fragment; no documentclass. Not yet in the main file.
+% This supplies an algebraic comparison and a derived local interface.
+% It is not an independent verification of Li's Chen constant or a priority claim.
+
+\subsection{The small-initial-cutoff limit of the published four-term sieve}
+\label{sec:g1-limit-comparison}
+
+Write $\mu=25/128$, $\Lambda=153/256$, and let
+$\Phi(t_1,t_2,t_3)$ be the eight-branch expression in
+\href{https://arxiv.org/html/2309.08522v1}{Lichtman,
+arXiv:2309.08522v1}, (6.4), with residue exponent $1$ and
+spectral exponent $7/32$. In this subsection
+\[
+ \mathcal T_\mu=\{0<t_3<t_2<t_1<\mu\},\qquad
+ S=t_1+t_2+t_3,\qquad d\omega=\frac{dt_1dt_2dt_3}{t_1t_2t_3^2}.
+\]
+Extend the lower linear-sieve function by $f(s)=0$ for $s\le2$,
+and put $\bar f=f/(2e^\gamma)$. Its usual normalization is
+$F(s)\to1$, $f(s)\to1$, with $F\ge1\ge f\ge0$.
+
+The published formula (29) in
+\href{https://imar.ro/journals/Mathematical_Reports/Pdfs/2026/1_2/3.pdf}
+{Runbo Li, \emph{On Chen's theorem, Goldbach's conjecture and almost
+prime twins II}} uses the fixed initial exponent $\sigma=1/500$
+and gives the numerical upper bound $G_1<6.06932$.
+The limiting functional below is an algebraic consequence of that
+four-term architecture. It is not a numerical theorem explicitly
+printed in that source.
+
+\paragraph{A limit independent of the first three levels.}
+For $0<\sigma<\mu$, consider
+\begin{align*}
+ G_\sigma={}&\frac1\sigma F(\nu_0/\sigma)
+ -\frac1\sigma\int_\sigma^\mu
+          f((\nu_1(t)-t)/\sigma)\frac{dt}{t}\\
+ &+\frac1\sigma\int_{\sigma<t_2<t_1<\mu}
+          F((\nu_2(t_1,t_2)-t_1-t_2)/\sigma)
+                         \frac{dt_1dt_2}{t_1t_2}\\
+ &-\int_{\sigma<t_3<t_2<t_1<\mu}
+          f((\Phi(\boldsymbol t)-S)/t_3)\,d\omega.
+\end{align*}
+Suppose the first three residual exponents have a positive uniform
+lower bound:
+\[
+ \nu_0\ge c,\qquad \nu_1(t)-t\ge c,\qquad
+ \nu_2(t_1,t_2)-t_1-t_2\ge c>0.
+\]
+They may depend on $\sigma$. Then
+\begin{equation}\label{eq:g1-limit-identity}
+ \lim_{\sigma\downarrow0}G_\sigma
+ =\frac1\mu+\int_{\mathcal T_\mu}
+       \{1-f((\Phi(\boldsymbol t)-S)/t_3)\}\,d\omega
+ =:\mathcal G_\Phi.
+\end{equation}
+This covers Li's first three levels, since
+$\Phi(t_1,t_2,t_3)\ge(1+t_1)/2$ on this domain. It also covers
+the more conservative choice of total level $1/2-\delta$ for
+\emph{all} of the first three terms: then one may take any
+$c<7/64-\delta$, since $1/2-2\mu=7/64$.
+
+Here is a direct convergence proof, avoiding an unquantified
+cancellation of divergent integrals. Put $h=F-f$. The
+delay equations give $(sh(s))'=-h(s-1)$ for $s>3$.
+Thus $h$ is decreasing and
+\[
+ h'(s)=-\frac{h(s-1)+h(s)}s\le-\frac{2h(s)}s,
+ \qquad h(s)\le\frac{9h(3)}{s^2}\quad(s\ge3).
+\]
+In particular $|F-1|+|1-f|\ll s^{-2}$ suffices here.
+The first three terms can therefore be replaced by
+\[
+ T_\sigma=\frac1\sigma
+    \left\{1-\log(\mu/\sigma)+\frac12\log^2(\mu/\sigma)\right\}
+\]
+with error $O_c(\sigma(1+\log^2(\mu/\sigma)))$.
+Direct integration gives
+\[
+ \int_{\sigma<t_3<t_2<t_1<\mu}d\omega=T_\sigma-\frac1\mu.
+\]
+Finally
+\[
+ \Phi-t_1-t_2\ge\frac12-\frac32t_1
+       \ge\frac{53}{256}>0.
+\]
+For sufficiently small $t_3$, the remaining sieve argument is
+at least $c_0/t_3$. Consequently the integrand's numerator is
+$O(t_3^2)$, and the integrated small-$t_3$ tail is bounded by a
+constant times $\int_0^\sigma\log^2(\mu/t_3)\,dt_3$.
+This proves both absolute convergence and
+\eqref{eq:g1-limit-identity}. The proof only uses the standard
+linear-sieve functions and their displayed delay equations;
+it does not assume that Li's fixed-$\sigma$ numerical value equals
+its limit.
+
+\paragraph{Exact comparison with the compact candidate.}
+Take $3\mu<\Theta<3/5$, and set
+$L_\Theta(\boldsymbol t)=\min(\Theta,\Phi(\boldsymbol t))$.
+The compact first-stop candidate has functional
+\begin{equation}\label{eq:compact-g1-functional}
+ K_\Theta=
+ \frac{2e^{-\gamma}}\mu F(\Theta/\mu)
+ +2e^{-\gamma}\int_{\mathcal T_\mu}
+       \left\{f((\Theta-S)/t_3)
+                    -f((L_\Theta-S)/t_3)\right\}\,d\omega.
+\end{equation}
+The integrand is zero outside the ordinary third-cube domain
+$S+2t_3<\Theta$. Also the ordinary term can be written as
+\begin{equation}\label{eq:first-stop-base-identity}
+ \frac{2e^{-\gamma}}\mu F(\Theta/\mu)
+ =\frac4\Theta+
+   4\int_\mu^{\Theta/3}
+       \frac{\bar f((\Theta-t)/t)}{t^2}\,dt.
+\end{equation}
+Indeed, for $3<s<4$,
+$sF(s)/(2e^\gamma)=1+\int_2^{s-1}\bar f(u)\,du$.
+Thus a first-prefix stop at $\mu$ is simply a change of the
+sifting limit to $N^\mu$ at the density-functional level.
+
+Apply the same four-term identity at a constant level $\Theta$.
+It follows either by separating an ordinary Rosser upper weight
+according to its first zero, one, two, or three primes above
+$N^\sigma$, or by the corresponding delay identities. Since
+$\Theta>3\mu$, all first-prefix cubes are admitted. Taking
+$\sigma\downarrow0$ as above gives
+\[
+ \frac1\mu F(\Theta/\mu)
+ =\frac1\mu+\int_{\mathcal T_\mu}
+          \{1-f((\Theta-S)/t_3)\}\,d\omega.
+\]
+Combining this with \eqref{eq:compact-g1-functional} proves
+\begin{equation}\label{eq:g1-cap-exact-comparison}
+ K_\Theta=2e^{-\gamma}\mathcal G_\Phi+
+ 4\int_{\mathcal T_\mu}
+       \left\{\bar f((\Phi-S)/t_3)
+             -\bar f((\min(\Theta,\Phi)-S)/t_3)\right\}\,d\omega.
+\end{equation}
+The correction is nonnegative. Every branch of $\Phi$ is at most
+$\Lambda=153/256$: the $v$ branches have maximum $\Lambda$, and
+each $w$ branch is at most $\Lambda-3t_3/8$ or
+$\Lambda-3t_2/8$. Hence equality holds in
+\eqref{eq:g1-cap-exact-comparison} whenever $\Theta\ge\Lambda$.
+At $\Theta=.597<\Lambda$ the inequality is strict. For example,
+near $(t_1,t_2,t_3)=(.11,\mu-.11,.08)$ the ungated
+$v(t_1+t_2)$ branch is larger than $.597$, and both lower-sieve
+arguments are larger than $2$ on an open subregion.
+
+For the proposed certification values $.596$ and $.597$, all
+nonzero third-correction points have
+\[
+ t_3\ge k_\Theta:=\frac{153/32-8\Theta}{3}>0.
+\]
+To see this, either $v(t_1)\ge\Theta$, or
+$(1+t_1)/2<\Theta$. In the latter case $t_3\le k_\Theta$
+makes every inner entry of $w(t_1,t_2,t_3)$ at least $\Theta$;
+its gate is also satisfied. Thus $\Phi\ge\Theta$.
+The two concrete lower bounds are $53/12000$ and $7/4000$,
+respectively. This explains why the capped functional is convenient
+for a compact exact enclosure even though the uncapped limit is
+numerically a little smaller.
+
+\paragraph{What an exact improvement would mean.}
+Li prints a fixed-$\sigma$ bound, not an optimality assertion.
+A new certificate $K_\Theta<K_*$ would imply
+$2e^{-\gamma}\mathcal G_\Phi<K_*$ by
+\eqref{eq:g1-cap-exact-comparison}. Together with the local
+distribution interface below, it would give an improved explicit
+consequence of the published sieve method. This does not make
+that newly certified consequence pre-existing prior art, and it
+does not establish a new analytic method or world priority.
+An uncomputed possible optimization must not be substituted for
+an established numerical comparison bound.
+
+The shifted prime-product proof and the order of limits are written
+in the separate fragment \texttt{g1-optimized-transfer.tex}.

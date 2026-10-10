@@ -1,0 +1,491 @@
+A restricted moving-target distribution proposition for the actual finite families
+10 October 2026. Statement and interface reconstruction; no old file changed.
+
+0. Scope, current record, and authorship
+
+This note states one usable signed distribution proposition and the local
+convolution lemma used in its proof. It joins the actual coefficient,
+endpoint and mean classes; it is not a numerical improvement, unrestricted
+restoration of Lichtman's theorem, or independent reproof of every classic
+input. I participated in the earlier compiler, long-variable, Gram and
+spectral-return work. The contribution here is their explicit common
+statement and checking of their intersections, not a second-author audit
+of those earlier whole proofs. No PASS string is a mathematical premise.
+
+The selected record read is
+  lichtman-bottom-inputs-and-tail-assembly-20261010.json,
+with K=8452171/1250000, c=48966843/25000000, primary b=1497023/2000000
+and count 1/100000. These values identify the application only; none is
+assumed or proved in the distribution statement. Older PP/lower notes
+print older constants. The latest local corrections used here are the
+exact smooth pre-HB partition, paid filtered BDH and exact Gram main
+terms, explicit E1 completion, and primitive S=1 spectral/E2 connection.
+
+The common numerical choice of small parameters is reviewed separately.
+Below all relevant strict inequalities are hypotheses of the local lemma
+or explicit requirements on the finite compiler. A permitted fixed common
+choice exists when those finitely many requirements have positive reserved
+gaps; this note does not replace that parameter check by a status label.
+
+1. Definitions that keep the exact mean and the target distinct
+
+Write T for the even target, x for a COMPLETE distributed integer scale,
+and q for a complete arithmetic modulus. For sequences on n~N,m~M, x=NM,
+define
+  Delta_q(a;alpha,beta)
+   =sum_(n,m) alpha_n beta_m
+        [1_(nm=a mod q)-1_(gcd(nm,q)=1)/phi(q)].             (1)
+The mean in (1) is the exact coprime mass. It is not total mass/phi(q),
+nor a singular-series approximation. Throughout the application a=T.
+It is not T divided by a marked prefix; the prefix belongs in the modulus.
+
+For k labelled original prime slots and a weight W_T, define
+  E_q(T;W_T)=sum_(p1,...,pk) W_T(p1,...,pk)
+      [1_(product p_i=T mod q)-1_(gcd(product p_i,q)=1)/phi(q)]. (2)
+The labelled multiplicities and any fixed scalar are identical on both
+sides. One may sum finitely many such families. The target may influence
+fixed cutoffs, geometric boxes, marked labels and coefficient sequences,
+but all stipulated bounds must have constants uniform in that influence.
+
+2. Local medium convolution lemma: the minimal class actually needed
+
+Fix theta=7/32, sigma>0 sufficiently small, 0<=kappa<=sigma/100 and c0>0.
+Let N,M,Q1,Q2,Q3>=1, x=NM, c0*x<=|a|<=x^(1+kappa), and require
+  Q1 < N*x^(-sigma),
+  N^2 Q2 Q3^2 < x^(1-8sigma),
+  |a|^theta N Q1 Q2^5 Q3^2 < x^(2-15sigma),
+  N^(1+2theta) Q1 Q2^(5-2theta) Q3^(2+2theta)
+                                    < x^(2-15sigma).       (3)
+Fixed factors in dyadic endpoint conventions are paid by strict margins.
+Unit modulus groups may be delta_1, at a bounded nominal scale; they are
+not asserted to be SW sequences or to have positive growing length.
+
+The n-sequence alpha is one-bounded, supported in one fixed subinterval
+of [N,2N] and on Pminus(n)>z0=x^(1/(loglog x)^3). It has FULL auxiliary
+SW: for every A>0 and every k,q>=1, uniformly for gcd(b,q)=1,
+  |sum_(n=b mod q,(n,k)=1)alpha_n
+       -phi(q)^(-1)sum_((n,kq)=1)alpha_n|
+             <= C_A N tau(k)^C0 (log x)^(-A),              (4)
+with one fixed C0 and constants uniform in the coefficient family.
+In the actual HB class C0=1. Only small q is used in the character
+mean-square proof, but the actual rough-SW derivation supplies (4) for
+all q. The sequence alpha cannot vary with the modulus being summed.
+
+The complementary beta is supported in [M,2M] and satisfies
+|beta_m|<=tau(m)^B for a FIXED B. It need not be SW or one-bounded.
+For i=1,2,3 let gamma_i be one-bounded complex sequences on q_i~Qi,
+supported on gcd(q_i,a)=1. They are separate one-variable sequences.
+Then, relative to the standard inputs listed in section 8,
+  |sum_(q1,q2,q3) gamma_1(q1)gamma_2(q2)gamma_3(q3)
+                             Delta_(q1q2q3)(a;alpha,beta)|
+                       <<_A x (log x)^(-A)                (5)
+for every A>0. Constants depend on the fixed coefficient and margin data,
+not on a or endpoints within their stated uniform family.
+
+This is a signed, factorized-modulus estimate. It does not bound the sum
+of absolute discrepancies up to the full high level, nor allow an arbitrary
+divisor-bounded coefficient rho(q) in place of the three factors. Grouping
+the three factors gives a divisor majorant only for auxiliary tail estimates.
+There is no supremum over independently chosen alpha_q or beta_q.
+
+The actual alpha is one individual rough 1 or mu HB slot, with individual
+interval, normalized logarithms, and a Mellin twist |t|<=log^J x.
+The explicit rough-SW proof derives (4), uniformly in the chart cutoff
+  f(x)<=Zchart<=x^(2/(loglog x)^3), f(x)=x^(1/(loglog x)^3),
+and all auxiliary integers. A larger fixed chart projector is retained
+literally: support above Zchart implies the source support above z0.
+Internal splitting of q2,q3 at z0 does not change that HB projector.
+Alternatively splitting at Zchart changes only fixed constants in the
+smooth-part bound. These are different operations on different integers.
+
+The other HB slots have normalized convolution bound d_J<=tau^(J-1),
+J<=6k_star-1. Thus the actual application needs ONLY beta truncation:
+beta'=beta*1_(tau(m)<=log^C x), followed by log^(BC) normalization.
+Alpha and (4) are unchanged. For nm=v!=a the deleted coefficient has
+bound log^(-C)x*tau(v)^(B+2), and summing moduli costs a fixed power of
+tau(|v-a|). The nonzero shifted-moment estimate gives x*log^(E-C)x,
+where E is independent of C. The exact v=a is isolated at first-moment
+cost Dtot*x^o(1), Dtot<=x^(1-delta); no tau(0) is used. Its coprime mean
+uses sum |rho(q)|/phi(q)<<log^O(1)x. Choose C first, then the one-bounded
+theorem's logarithmic exponent to pay normalization. Therefore (5) for
+the actual HB family does not require a separate SW-after-alpha-truncation
+theorem. The broader frozen divisor-extension lemma remains an optional
+extension, not a hidden necessary premise of this minimal route.
+
+3. Why the local proof supplies (5) with the claimed normalization
+
+For one-bounded beta, split q2=u*s, q3=v*t into rough and smooth parts.
+Discard smooth parts exceeding y0=x^(1/loglog x) by the weighted Rankin
+and primitive Shiu estimate; its divisor order is fixed. On each dyadic
+small-factor range d=st~D<=y0^2 and rough product w~Rcal, write exactly
+  Lambda_d(w)=sum_(st=d,uv=w) gamma_2(us)gamma_3(vt)
+                     1_(all fixed intervals/rough-smooth conditions).
+This coefficient is independent of q1. The number of length blocks is
+polylogarithmic. Individual d values are NOT separately summed after a
+merely logarithmic theorem; they stay together in preliminary dispersion.
+
+The four inequalities (3) imply N,M>=x^(sigma/3),
+Q1 D<=N*x^(-sigma/3), and Q1 D Rcal<=x^(1-sigma/3) eventually.
+They provide the preliminary e=1 margins, not just a formal appeal to a
+fixed-residue result. Delete nm=a from the original congruence indicator
+before Cauchy; leave the exact coprime mean unchanged. The original
+first-moment deletion is O(Q1 D Rcal*x^o(1)). Nonzero shifted moments
+control roughness/large-divisor cutoffs. Restore S2's single-zero terms
+only immediately before its one-congruence Poisson step; restore S3's
+single-zero terms only after n1!=n2. Their variance cost is Rcal*N*x^o(1),
+giving x^(1-sigma/6+o(1)) after outer Cauchy in this safe subrange.
+
+Let ell=q1*d, Y=Q1*D and eta_r=Lambda_d(r). The exact principal-term
+kernel is
+  c_ell(r,s)=phi(ell*r*s)/(ell*r*s*phi(ell*r)*phi(ell*s)).
+It is a positive finite-unit Gram kernel. On the clean CRT set,
+phi(ell)c_ell(r,s)=1/(ell*r*s), exactly. The three terms S1-2Re S2+S3
+therefore cancel their common mean and leave the NONNEGATIVE variance P;
+they do not simply cancel to zero. Own restrictions (n,r)=1 remain.
+For fixed r, apply auxiliary BDH to alpha*1_(n,r)=1/tau(r)^C0.
+Its paid factor tau(r)^(2C0) is averaged, not placed in a uniform constant.
+For a sufficiently large fixed B the bound has the form
+  P << M log^2(x)/(Y Rcal) sum_(r~Rcal) tau(r)^(2B)
+             sum_(ell<=8Y) tau(ell)^(2B+1) V_r(ell)
+    << M N^2/(Y log^A x).                                 (6)
+Here V_r uses the exact coprime mean. Alpha^(r) is independent of ell;
+fix r before its full modulus sum. Multiplicity of ell=q1*d costs tau(ell),
+and the remaining r-divisor mean cancels the displayed 1/Rcal up to logs.
+BDH follows from primitive multiplicative large sieve plus (4), with the
+induced-character coprimality filter kept. It is not an additional
+beyond-half distribution assumption.
+
+The nonzero-frequency terms enter as
+  |S(a)| << x/log^A x + M sqrt(DQ1)log^C x
+                           (sqrt(|E1|)+sqrt(|E2|)),         (7)
+besides the already power-small exact-product restoration error.
+The explicit E1 completion/Weil calculation gives
+  |Z_E1|^2 << x^o(1) N^4/Q^2
+          [NQ/x+NQ^(5/2)R^3/x^2+N^2QR/x^2]
+in its fixed-d variables. Its zero Ramanujan term and ell=0 subcase are
+retained; the actual substitution, using |a|>=c0*x, theta=7/32 and (3),
+gives |E1|<<N^2/(DQ1)*x^(-sigma/2).
+
+For E2 keep q=q1 and fixed d; E2=sum_(d~D)E3(a;d)/d. Exact reciprocity
+retains e(ah/(q d r1 r2 n1)), whose five-coordinate variation costs
+x^(5kappa+o(1)). It is paid ONCE. The coprime coloring, two independent
+small-factor choices and three polarizations reduce to bare L51 with
+fixed product upper endpoints. Lower product endpoints are differences
+of upper endpoints. The smooth q support is split into a bounded number
+of common intervals; no arbitrary new q weight is left.
+
+The primitive S=1 spectral return applies with
+  (C,D,N,R,s,q0)=(C,B,Yspec,Zspec,1,1), (a,Z-level)=1.
+Its positive tuple multiplicity is x^o(1)(HS)^2F/nu for every nu|a^infinity,
+including exact zero beyond support. The m interval/phase is common to
+all levels; arbitrary level-dependent phases occur only on the n side.
+The return retains the large-a factor 1+|a|/x in its natural L51 bound.
+At source margin 3sigma/4, the explicit ledger, with kappa<=sigma/100,
+absorbs constant endpoint changes and the single retained-phase charge.
+Uniformly in fixed d, summing 1/d=O(1) then paying D=x^o(1) yields
+  |E2| << N^2/(DQ1)*x^(-sigma/2).                          (8)
+Inserting E1 and (8) into (7) gives their x^(1-sigma/4) contribution.
+The earlier zero-restoration can be weaker. The conclusion (5) is only
+arbitrary logarithmic saving, not an unqualified overall fixed power
+x^(1-sigma/5). Every x^o(1) factor above multiplies a power-saving bound;
+none multiplies the final arbitrary-log remainder.
+
+4. Proposition for the actual compiled prime-product families
+
+Fix a_star>0, k_star, a finite policy and its ancestor/marked labels,
+finite approximation tolerances, fixed rough exponent omega>0 and beta
+parameters, and a fixed complete modulus ceiling T^Theta with Theta<3/5.
+All these choices precede T->infinity. The policies may give a very small
+fixed positive a_star, but may not send it to zero with T.
+
+For each T let W_T be a signed or nonnegative smooth geometric weight on
+at most k_star labelled original primes p_i>=c*T^a_star, product p_i<=C*T.
+It has no arbitrary arithmetic filter on an original prime or HB slot.
+After original-chart and HB changes of variables its finite mixed Euler
+derivative/L1 separation norm is bounded by C_W log^J T with fixed C_W,J.
+Individual interval endpoints are allowed. A genuinely coupled sharp
+geometric indicator is not part of this smooth signed statement.
+The exact smooth original-group partition below gives that norm for the
+actual smooth approximants; it is not an extra unverified hard cutoff.
+
+Let rho_T be the SAME compiled signed modulus coefficient in the count
+and in the exact mean, supported on gcd(q,T)=1 and q<=T^Theta. Require the
+following actual finite coefficient classes, not just support membership:
+
+(a) Low rough ranks and classical states have |rho_T(q)|<=C_F with C_F
+fixed, and their COMPLETE support after beta/endpoint/local conversion
+is <=x^(1/2-epsilon_L) for some fixed epsilon_L>0 on all near-target blocks.
+
+(b) Every high-rank atom is a fixed-scalar labelled rough prime convolution
+with a one-bounded small-prime beta factor, retaining global rough
+squarefreeness. Interval labels first undergo a common disjoint half-open
+refinement. All original multiplicities, including marked/residual colors,
+are kept. For each Type II length block a partition of its slots is chosen
+once on the WHOLE upper-endpoint box. On removing the separately bounded
+square-collision remainder, the resulting atom is an exact finite sum of
+three one-bounded convolution factors times fixed scalars. The number and
+total absolute scalar mass are bounded in terms of the fixed family.
+
+(c) For each medium HB block those group lengths satisfy (3). This is
+ensured by the actual full-square and selected-complement tests, or the
+repaired W initialization/first-failure rule, applied to upper endpoints
+with the reserved support buffer. If the physical cap is T^ell and
+qscale=log_x T, the factorization parameter is qscale*ell+2zeta, not
+qscale*ell; it must stay inside its source license. The local tent uses
+alpha>=log_x T and its full three affine bounds. A mask sum alone is not
+a license. The partition may depend on T and the Type II LENGTH, but
+does not vary with individual arithmetic tuples or observed errors.
+
+(d) After local conversion the complete high-rank modulus support has a
+fixed bound x^Theta_loc with Theta_loc<3/5; the one/two-long gaps and the
+low-rank gap in (a) are retained. All outer weights and coefficient
+families have the uniform bounds just specified.
+
+Then for every A>0, uniformly for all sufficiently large even T,
+  sum_(q,(q,T)=1) rho_T(q) E_q(T;W_T) <<_A T/log^A T.       (PP)
+Its constant depends only on fixed family data and uniform norm bounds.
+It is a signed discrepancy estimate with ABSOLUTE error. It does not
+assert an error relative to a possibly zero or tiny unsifted mass.
+
+5. Why the coefficient and HB alternatives really match that proposition
+
+For a disjoint label alphabet, a slot convolution has multiplicity
+  product_I m_I! / product_p nu_p(n)!
+on its actual support. Normalize group j by product_I m_(I,j)! and retain
+the scalar product_j product_I m_(I,j)! / product_I m_I! externally.
+Each group is <=1 on all integers. The older group-rank factorial is an
+equivalent exact normalization with a larger fixed external scalar.
+A raw marked sigma has its existing multiplicity; only the ordered
+residual slots get their original repeated-label denominator. This same
+scalar is present in the count and in Theta. Nothing is silently divided
+out on just one side. Global rough collisions are not equivalent to
+within-group squarefreeness: they cost
+  (T+T^Theta) T^(-omega+o(1)),
+paid against a fixed power gap. Beta attaches to one group because the
+small/rough factorization is unique. It is one-bounded, not asserted to
+be positive; signs select beta+ or beta- in the separate pointwise compiler.
+
+Before HB insert the exact partition sum_j psi(p/2^j)=1, psi>=0, supported
+on [1/2,2]. It is an identity in BOTH terms of (2). Do not retain the older
+hard indicator R_i<=product(HB group)<=2R_i after this replacement.
+For original centers R_i, X=product R_i and Xplus=2^k X, each group now
+has lower endpoint product at least R_i/128. A complete source x=UV obeys
+  2^(-7k-1)X <= x <= 2^(6k-1)Xplus.
+The fixed chart projector Zchart=f(2^(6k_star+2)*Xplus) consequently stays
+in [f(x), x^(2/(loglog x)^3)] eventually. It is chosen BEFORE HB and is
+common to all summands. These are the corrected smooth-chart constants,
+not the earlier sharp R_i/64 bounds.
+
+Apply the exact order-three HB identity to EACH original prime group,
+using cutoff (2R_i)^(1/3); inverse prime logarithms and remaining logarithms
+are normalized smooth factors on positive prime scales. Proper prime
+powers are removed with a fixed power error. In log individual coordinates,
+the new group cutoff has bounded mixed derivatives. Its Fourier integral
+has total variation <=log^J T; at frequencies |t_i|<=log^L T the medium
+slot is precisely rough 1/mu with its individual interval and twist.
+No coupled hard original-group condition is lost. Separated summands
+outside the original group support are treated as HB summands, not
+individually claimed to be prime indicators there.
+
+Classify medium lengths by the buffered ORIGINAL window
+  X^(3zeta)<=U<=X^(1/3+zeta/4),
+which lies in [x^(2zeta),x^(1/3+zeta/2)] eventually. A fixed chart rule
+chooses a single medium slot and the whole-box modulus partition. Apply
+(5) with alpha that slot and beta the complementary convolution. This
+uses the modulus tensor identity, not a pointwise factorization of q.
+
+If there is no medium slot, a group containing only short slots has at
+most six of them and upper product O(X^(18zeta)), contradicting its
+original prime cutoff when zeta<a_star/100. Three long slots exceed O(X).
+Thus every original group
+has a long slot, there are at most two, and each is an unweighted integer
+1/log slot rather than truncated mu. Conservative short-product lengths
+are x^(20zeta) for one long and x^(40zeta) for two long.
+
+One long: the rough progression fundamental lemma gives the exact
+coprime mean with O_A(V/(q log^A x)) error when V/q has a fixed power
+gap. Its sum over short coefficients and complete moduli uses ordinary
+divisor MEANS, not a pointwise subpower multiplier on a log error.
+Here V>=x^(1-20zeta) and q<=x^Theta_loc ensure the required gap.
+
+Two long: first remove roughness and smooth endpoints with the fixed
+chart window and nonzero shifted moments, isolating intermediate product=T.
+After freezing the two small sieve divisors, the grouped short length is
+Zshort<=x^(40zeta+o(1)). Exact double Poisson and the exact coprime mean
+cancel BOTH coordinate axes. Complete Weil and the full frequency sums
+give, for smooth normalized profiles,
+  |E_q| << ||short||_1 N2(f)N2(g)
+               [sqrt(q)tau(q)+tau(q)^2/phi(q)].
+Thus all complete moduli cost
+  Zshort Dtot^(3/2) log^O(1)x.
+Since 40zeta+(3/2)Theta_loc<1, this has a fixed power gap. Residues are
+arbitrary primitive classes; |a| is absent in the smooth core. Rough
+indicators or arbitrary arithmetic filters cannot be inserted directly
+into its long profiles; the preceding smoothing reduction is required.
+
+Low rough rank is a DIFFERENT branch, before HB. For k>=2 choose one
+original prime interval as alpha, the others as its divisor-bounded
+complement. Both lengths are fixed positive powers; prime SW with
+arbitrary auxiliary coprimality has the fixed tau(k)^1 loss. Primitive
+character large sieve then gives absolute BV below one half, uniformly
+over all primitive residues and fixed-polylog twists/endpoints. It allows
+the bounded rho_T in (a), without tensor factorization. This permission
+does not transfer to high rank. For one original prime use ordinary
+maximal prime BV separately; do not invent a positive-length complement.
+A wholly constant product 1, if present, has elementary T^o(1) discrepancy;
+a UNIT QUOTIENT inside a nonempty prime family is not removed this way.
+
+6. Error and common-threshold ledger
+
+Choose the complete-product trim before applying local distribution:
+v<2T^(1-kappa0). Then v!=T for large T. Fixed divisor multiplicities and
+the sum over q|T-v give T^(1-kappa0+o(1)); the exact mean costs only
+fixed logarithmic factors. On retained blocks
+  c1*T^(1-kappa0)<=x<=C1*T,
+so c0*x<=T<=x^(1+kappa) eventually when kappa0/(1-kappa0)<kappa.
+This is the complete product, not the residual quotient of a marked state.
+
+Fourier tails are summed AFTER the modulus sum. The nonzero shifted
+moment gives x*log^E x times their uniform approximation error; the exact
+v=T contributes at most T^(Theta+o(1)) times that error. Never write
+tau(0), and do not use final rough parity to skip an intermediate equality.
+Proper original prime powers cost T^(1-a_star/2+o(1)), plus the separately
+isolated exact-product term. Rough modulus collisions have the bound in
+section 5. Each of these has a fixed power reserve.
+
+First fix the finite geometric family, its smoothing tolerances, actual
+compiler and positive support reserves. Fix the common small parameters
+so every local (3), low-rank and long-slot gap is positive; source sigma
+and moving-range kappa are independent parameters, not the same epsilon.
+Fix the finite derivative orders, divisor orders and frequency cutoff
+power. Then choose requested SW/distribution logarithmic exponents to
+pay ALL fixed polylogarithmic chart counts and Fourier total variations.
+The complement divisor order depends on k_star, not on those exponents.
+Finally take one sufficiently large T threshold for the uniform family.
+
+Growing O(log^J T) HB charts do not become an unbounded collection of
+uncontrolled constants: the individual estimates are uniform by their
+norm hypotheses, and the counted total norm is paid explicitly. Atom
+count/rank may be large but is fixed after the rough cutoff omega is
+fixed. No assumption of uniformity as omega or a_star tends to zero is
+made. The separate common-parameter review checks this ordering for
+ordinary tails as well as enhanced compact labels. One possible hierarchy
+is sigma=zeta/2000, kappa=sigma/200, kappa0<kappa/[4(1+kappa)], with zeta
+further below every fixed licence, low-rank and complete-support reserve.
+Coarse caps and their strict licence reserves are fixed before omega;
+then rank J is fixed, and the common endpoint width tau is made small
+enough to pay O((J+2)tau). Ordinary-tail full-square inequalities may
+remain structurally weak: their endpoint inflation is paid by the
+external licence reserve. The proposition requires the resulting
+whole-box inequalities, not an invented strict margin at every raw
+boundary point. This hierarchy does not supply a missing compiler or
+density identity.
+
+7. Exact downstream boundary: what PP supplies and does not supply
+
+(PP) applies to the actual positive upper tree, ordinary lower compiler,
+and finite marked H/h descendants WHEN their stated atom/support data
+are supplied as in sections 4--5. Each occurrence may have its own rho;
+count and exact mean must use that identical rho. The latest policy uses
+finite430 only in U3/U4 and retains finite248 elsewhere. Finitely many
+generations leave a fixed positive minimum prime exponent and finite
+maximum slot count, even if the minimum is extremely small. No new
+distribution assertion uniform in an infinite recursion is needed.
+
+To obtain a positive product theorem one still needs, separately, a
+pointwise nonnegative upper majorant and a density bound for that SAME
+rho. For large original primes the exact coprime mean can then be replaced
+by its unsifted mass with a power-small error; PP alone is not that density
+bound. The sufficient final form is
+  count <= K C_T X_T/log T + o(H_T), H_T=C_T*T/log^2 T,
+with absolute error. Empty/zero-main-mass families are not given a relative
+o(X_T) assertion. A retained positive fixed state may divide by Theta_Q
+only after Theta_Q/H_T tends to a fixed positive number. The W1 mass must
+keep its nonnegative prefix-weighted integral until a uniform bound is
+taken; actual alpha is not reset to 2. W2 unit surfaces stay in the positive
+mass. These are downstream requirements, not coefficient variants of (5).
+
+Sharp positive geometric counts follow only by fixed-tolerance positive
+outer smoothing, then T->infinity, then the tolerance tending to zero.
+An arbitrary sharp SIGNED coupled-domain PP theorem is not asserted.
+Radial product equalities and unit quotients require their existing
+separate treatment. Uniform C_T>=C_2 suffices to compare absolute errors
+with H_T; no uniform upper bound on C_T is assumed.
+
+PP does not prove exact raw Rosser density identities, first-exit parity,
+the full-Y11 pointwise weight, W1/W2 operator inequalities, finite table
+values, quadrature floors, or the final numerical budgets. It neither
+uses external Li's c=1.9728 nor restores that result. The separately
+identified Wu Y6 correction and the project's full-Y11/no-loss check
+are logically outside this distribution proposition.
+
+8. Explicit standard inputs versus locally derived components
+
+Standard external inputs retained:
+* Classical prime and Mobius Siegel--Walfisz, possibly ineffective;
+  ordinary maximal prime BV for the singleton low-rank case.
+* Primitive multiplicative large sieve; complete Kloosterman Weil;
+  Poisson/Fourier identities and ordinary divisor moment bounds.
+* Classical dimension-one fundamental lemma for the one/two-long
+  smoothing reduction, with its stated uniform deletion-of-primes class.
+* Classical Shiu for fixed divisor powers in its primitive progression
+  and length range; nonprimitive shifts are reduced explicitly before use.
+* Kuznetsov with the stated DI normalization, Bessel transform bounds,
+  regular spectral large sieve, and DI exceptional estimates as stated
+  in Pascadi Theorems A/J; theta=7/32.
+* The normalized coprime ABL oldform packet and continuous character-pair
+  fiber/Plancherel statements, used only at q0=1 and (a,level)=1.
+
+Locally supplied, not assumed as the desired distribution theorem:
+exact HB and smooth chart partition; rough full-auxiliary SW for a single
+1/mu slot; beta-only truncation; shifted nonzero moment and exact-product
+handling; induced-character auxiliary BDH and low-rank convolution BV;
+Gram main-term reduction; explicit E1; coprime S=1 spectral return and
+actual multiplicity; retained-phase fixed-d E2; one/two-long calculations;
+fixed atom tensorization with all factorials and beta signs.
+
+The restricted (PP) follows by the chain above relative to those named
+standard inputs and the explicit actual finite compiler hypotheses.
+This is narrower than unrestricted L23, arbitrary triply factorizable
+weights at an unsupported level, or all conceivable target-dependent
+arithmetic families. It gives a concrete every-even-target distribution
+interface; it is not a claim of new external validation or a full
+primitive-independent numerical replay.
+
+9. Minimal source map for checking the present composition
+
+* restricted P52 bridge: lichtman-prop52-retained-phase-bridge-20261009.tex,
+  (B1)--(B15), final restricted theta=7/32 and c0*x lower-residue paragraph.
+* new medium class and beta-only reduction:
+  lichtman-medium-rough-sw-explicit-20261010.txt, sections 1--6.
+* exact pre-HB partition and corrected constants:
+  lichtman-hb-smooth-dyadic-addendum-20261010.txt, sections 2--6;
+  lichtman-mellin-separation-explicit-20261010.txt, Fourier lemma and tail.
+* common finite-family parameter order:
+  lichtman-common-parameter-selection-20261010.txt, (P1)--(P8), with
+  coarse-cap reserves before omega and the structural-tail discussion.
+* modulus classes: lichtman-hb-modulus-insertion-20261009.tex, paragraphs
+  1--6; lichtman-compiler-orbit-interface-20261010.txt, (O1)--(O5).
+* preliminary main/zero terms:
+  lichtman-dispersion-main-term-cancellation-20261010.txt, (9)--(17);
+  lichtman-auxiliary-sw-mean-square-20261010.txt, (H1)--(H2), (BDH);
+  lichtman-zero-product-dispersion-repair-20261009.txt, (Z1)--(Z7).
+* exponential errors: lichtman-E1-completion-explicit-20261010.txt;
+  lichtman-S1-Poisson-spectral-return-20261010.txt, (P0)--(P10);
+  lichtman-lemma51-multiplicity-independent-20261010.txt, (7)--(8);
+  lichtman-E2-retained-phase-unified-interface-20261010.txt, (1)--(13).
+* other HB alternatives: low-rank-convolution-bv-20261010.txt, sections
+  1--7; lichtman-hb-long-branches-20261009.txt, sections 3--6, with
+  lichtman-two-long-exact-axes-20261010.txt, (A)--(F), for the new core.
+* downstream use: own-lower-compiler-chain-audit-20261009.tex;
+  lichtman-current-common-interface-review-20261009.txt;
+  lichtman-current-lower-interface-addendum-20261009.txt.
+* primary definitions rechecked directly: L23 saved text lines2411--2452
+  for actual alpha/beta/modulus hypotheses and exact coprime Delta;
+  2477--2531 for small-factor/dispersion arrays. Their unrestricted
+  conclusions are not taken as a replacement for the local derivation.
+
+All hashes in the companion record bind immutable inputs to this note.
+The mutable research-state was only observed to identify the selected
+assembly; it is not a recursively bound proof premise. No old file,
+manuscript, state, global constant, Lean project or GitHub object is changed.

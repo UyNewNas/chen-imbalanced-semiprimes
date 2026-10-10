@@ -1,0 +1,160 @@
+Independent final reverse review of the same-mask v2 refinement
+10 October 2026. New review files only; no state, manuscript or old evidence edits.
+
+Result: PASS for this incremental calculation, subject to the retained analytic
+interfaces already used by the baseline. This review does not independently
+reprove all those interfaces or establish external frontier priority.
+
+1. Literal source, sign and endpoint checks
+
+Read certify_sharp_184_baseline.py, lines50-95, rather than relying on its
+description. With enhance=False and t>=mu=25/128, the active tent is exactly
+R=57/64-(5/2)t-u. The other tent exceeds it by2(t-mu)>=0. The source first
+maximizes its ordinary constant/chord alternatives, then adds a separate
+nonnegative h correction. It does not sum overlapping ordinary estimates.
+
+For a box with residual endpoints r,R0 and logarithmic mass M, let MR be
+the integral of R against dt/t du/u. On the audited E1 boxes, sh=R0/a<=9/4.
+When sl=r/a>=2, the exact ordinary endpoints are
+fl=log(sl-1)/sl and fh=log(sh-1)/sh. They dominate the historical sf lower
+endpoints; see certify_extended_prefix.py, lines54-110. The two old ordinary
+floors, after division by the Chen factor4, are bounded above by
+
+ fl*M/a,
+ [fl*(R0*M-MR)+fh*(MR-r*M)]/[a*(R0-r)].
+
+The coefficient integrals are positive, so replacing lower endpoints by true
+values has the required upper-bound direction. Taking the maximum preserves
+that direction. All fixed-point .lo roundings in the historical evaluator
+can only decrease its saved value.
+
+The minimum h248 entry over closed cells meeting the exact [sl,sh] interval
+is at least the minimum over the old outward-rounded lookup interval. Thus
+this closed-cell minimum times M/R0 is an upper bound on the old defect
+floor in Chen units. At a knot both adjoining cells must be included.
+This matches the literal lookup at certify_combined_chen_functional.py:68.
+All h248 entries were separately checked nonnegative. If the outward old
+lookup drops below2 and returns0, the same upper bound remains valid.
+
+For sl<2, the constant is0, every active chord is skipped and lookup is0.
+There are exactly227 E1 crossing boxes. All6091 E0 boxes satisfy sh<=2
+and also have exactly0 saved floor. No true positive arithmetic count has
+been bounded above or set to0 by these observations: only saved estimators.
+
+The root's independent-v2 decimal interval arithmetic, 320-term alternating
+Mercator sums and next-term remainder were read in full. Range reduction
+leaves logarithm arguments in[1,3/2], every division has positive interval
+denominator, and all integer arithmetic rounds outward. The code imports
+no project interval or sieve implementation. Its proposed proxy is therefore
+an independent analytic upper bound on the saved historical floors, not a
+claim to reconstruct the old ordinary mesh exactly.
+
+2. Actual old ledger and cellwise comparison
+
+The historical L6 program certify_sharp_248_pair_refinement.py:28-35 uses
+the enhanced [h,mu] half and the nonenhanced [mu,d] half, each with512
+divisions. The selected L6 integer3650774173156900914101685 equals its
+recomputed author512 sum, not a different branch of the historical max.
+The selected ordinary mesh is16384. Therefore subtracting the recorded
+nonenhanced cell floors has the required decomposition; the enhanced half
+is unaffected.
+
+Reconstructed both old masks independently: E0=6091, E1=11481, disjoint,
+total17572. Historical total17772 is a scalar addition/transcription typo;
+its masks and actual sums have17572 entries. No old file was corrected.
+E1 mask SHA256:
+696c5feacd6404b94438131e767817f0bd379fbd171d946068c873609948ec55
+
+The review program compared every E1 root proxy against the corresponding
+literal author replay integer and found all11481 upper comparisons valid.
+It also compared all11481 E1 Q160 and decimal extra-mass intervals: each
+pair intersects. It independently checked every17572 exact Z value and
+geometry inequality, row membership, zero boxes and positive h entries.
+All53 unique source/dependency bindings from the two new ledgers passed
+fresh hash checks. The review does not relabel this row check as a fresh
+execution of the old DDE mesh.
+
+Literal discarded floor loss:
+5645403422587826010135/2417851639229258349412352
+=.0023348841306025784...
+Independent root upper proxy:
+.0023348841363598131014744273487904210482525025346147...
+Both are strictly below .002334885, so replacement of the old paid loss
+.002372094 recovers exactly .000037209 safely.
+
+3. Analytic new gross bound
+
+The v2 omega proof is valid. First omega(s)>=1/2 for all s>=1 by its
+formula on[1,2] and the delay equation. For7/3<=s<=3,
+log(s-1)>=2(s-2)/s gives omega(s)>=(3s-4)/s^2. The quadratic
+60s-80-11s^2 is concave with positive endpoint values, equivalently
+27/49>11/20 and5/9>11/20. For3<=s<=10/3,
+s*omega(s)>=1+log2+(s-3)/2>=s/2+1/6, using log2>=2/3.
+Hence omega(s)>=11/20 there. The derivative of
+s*(omega(s)-11/20) is omega(s-1)-11/20; unit-interval induction now
+extends the bound from10/3 to infinity. The review also certified
+log2>2/3 by its own exact rational positive series.
+
+For each same-mask pair rectangle, Z=min(ul,3*(1-tr-ur)/13) satisfies
+Z>a and1-tr-ur-2Z>=(7/3)Z. On a<w<z<Z the actual Buchstab
+argument is therefore at least7/3. The old1/2 mass and the new1/20
+subfibre mass are simultaneous pointwise bounds, not alternative estimates
+of the same component. Existing parent majorant domination by K*omega/z
+and positive restriction are retained inputs; their inequality direction
+supports adding this new mass. The exact primitive of log(z/a)/z^2 is
+-(1+log(z/a))/z. Including the Chen factor1/4 gives the additional mass
+
+ (K/80)*log(tr/tl)*log(ur/ul)*[1/a-(1+log(Z/a))/Z].
+
+There is no further permutation or factor2. The independent lower endpoints
+sum to .0005585839942417448..., strictly above adopted .000558583.
+This v2 value replaces the prospective12/5 value; both must not be added.
+
+4. Independent scalar calculation and strict transfer
+
+Read the original current selected_result and matched its selected fields
+against positive-pair-deletion-improvement-assembly-20261010.json. From
+that baseline, without importing the root's scalar calculation:
+
+ K=6.7617368 remains fixed.
+ Raw gain=.000558583+.000037209=.000595792.
+ Each of the two old lower-error budgets increases by gain/8=.000074474.
+ After-budget gain=3*gain/4=.000446844.
+ New raw c lower=1.962824630647271778912819571344383598829165747...
+ Each new lower budget=.000531052870574657461473432230858583127094513...
+ New after-budget c=1.961762524906122463989872706882666432574976721...
+ Safe c, rounded downward to8 decimal places, is1.96176252.
+
+For both transfer checks the review used64 exact rational atanh terms:
+log(q)=2*sum_(j=0)^63 z^(2j+1)/(2j+1)+R, z=(q-1)/(q+1),
+0<=R<=2*z^129/[129*(1-z^2)]. No floating-point logarithm supplies any
+proof endpoint. Exact fractions and their complete error bounds are in JSON.
+
+Primary b=.74816964, count=1e-5:
+c-K*log(1/b)-count >1.14971251731193680737366369829298458e-8.
+Previous8-decimal b=.74816963 has margin <-7.8879929490426287e-8.
+
+Secondary b=.74816865, count=1e-6:
+c-K*log(1/b)-count >6.41628535880799327954570752244619892e-8.
+Previous8-decimal b=.74816864 has margin <-2.6214320665192871e-8.
+
+Thus each selected b is the minimal8-decimal value allowed by this safe
+c and its separately stated count. The secondary b cannot be presented
+with the primary count. The next8-decimal c exceeds the certified
+after-budget endpoint and cannot be rounded upward.
+
+5. Feedback and frozen boundaries
+
+Future raw slope is A_new=A_old-.000558583/K, namely
+258927760442716265426451560820213255040820787/
+662397247406248872798412414697830450253004800
+=.3908949825147984339331947236256855173819442997...
+The .000037209 saved-loss recovery is independent of K and is NOT included
+in this slope subtraction. All old allowances are retained. The root may
+now assemble the new selected scalar ledger, subject to the same retained
+proof interfaces; this scoped report itself changes no selected state.
+
+Main manuscript SHA256 remains
+06ecf0c7a8d767115dd0ef595e52844d49486b4b98d5979300faf47f4e09ff78.
+No formalization, GitHub, external message, new distribution theorem or
+external priority claim is part of this review.

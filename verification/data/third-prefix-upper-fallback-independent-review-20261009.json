@@ -1,0 +1,57 @@
+{
+  "status": "PASS_INDEPENDENT_ANALYTIC_AND_COMPLETE_4096_CELL_LOWER_REPLAY",
+  "date": "2026-10-09",
+  "cells": 4096,
+  "corner_checks": 32768,
+  "author_direct_bindings_checked": 12,
+  "domain": "mu<x<rho,a(x)<s=y+z<x,z=sw/2,5/9<w<1; two chart interiors disjoint",
+  "independent_numeric_backend": "160-bit upward integer Horner,48 positive atanh terms plus geometric tail; no author numerical imports",
+  "independent_log_precision_bits": 160,
+  "independent_log_terms": 48,
+  "whole_box_argument_bounds": [
+    "2",
+    "4"
+  ],
+  "floor_comparison_counts": {
+    "equal_floor": 2305,
+    "own_floor_greater": 1791,
+    "own_floor_smaller": 0
+  },
+  "smaller_own_rows": [],
+  "own_complete_lower": "774253169646080426842143/19807040628566084398385987584",
+  "selected_lower": "3097012678584315027795429/79228162514264337593543950336",
+  "author_lower": "3097012678584315027795429/79228162514264337593543950336",
+  "selected_rule": "sum min(author_floor,independently_recomputed_floor), never sum alternative bounds",
+  "selected_chart_sums": {
+    "-3": "2273760546844112511182079",
+    "1": "823252131740202516613350"
+  },
+  "own_floor_stream_sha256": "b362d1002e0c4f0e1038f7468b0b1c39e5fce89aa808809f486c4139af323086",
+  "no_grid_backup_subset_lower": "15/2238884",
+  "combination_given_old_endpoint_upper": "304559842319344672946113646826404881205963/45041307097235144895836810885600378880000",
+  "illustrative_K": "33809/5000",
+  "strict_rounding_slack": "468010739929810555701019847760704821/45041307097235144895836810885600378880000",
+  "geometry_and_scope": "Selected-pair full/remaining gates, odd rank3/lower residual sign, positive cutoff, endpoint/finite distinction, and separation from rank2 plus witness-restricted old higher actions checked in companion text.",
+  "not_claimed": [
+    "Attainment by an unbuffered finite tree",
+    "New global count or b",
+    "Reproof of external distribution or raw-density theorems",
+    "Combination with hypothetical full higher actions outside their certified witnesses"
+  ],
+  "bindings_sha256": {
+    "third-prefix-upper-fallback-independent-review-20261009.py": "cc4fc44a3cf10b6c5709b169e4fada36ff2c163845c39e4633d1efb4d4b3fb05",
+    "third-prefix-upper-fallback-independent-review-20261009.txt": "611845c2c48b26186598b740b5f451209b1700bb5e2761ed516af7bb6de44657",
+    "third-prefix-fallback-pair-20261009.tex": "24e3272f2f2c78b34c907251e26cb98ee069c4c70c9fc447cc0c849adddd8af7",
+    "third-prefix-fallback-pair-20261009.py": "58b24f33b6805bc4594fef5faa82700a34928aaa6f4b7b6e44ed03872b84e19c",
+    "third-prefix-fallback-pair-20261009.json": "d56a11c3e0dd0d958a530ff8aaf79d17cc6f86325cf7a01186c245e65d142536",
+    "third-prefix-fallback-pair-20261009.witness.json": "0401062c690c7993fd34722dca97d3c504f3e72f83d87659f597d135490d50a5",
+    "second-prefix-upper-fallback-independent-review-20261009.json": "6aa6886728dfa9ddb7bdaa97727067eb040bb592ba65fa7ddceda3a51a437c45",
+    "second-prefix-upper-fallback-20261009.tex": "355954ab0d4d1d23ce6045a4baa2dee3b71f124a8550e8f1eae71fbcae70821d",
+    "extended-prefix-upper.tex": "504aec8ff78ba22fe4789a4e4306c70d373aef766fa1388f3c2163743b656df7",
+    "actual-k-density-joint-audit.tex": "7a3723a75eedb85d5617ffdf043713580e9e895291e83f8038aedfd610fb5222",
+    "actual-k-compilation-joint-audit.tex": "fd7b8917b59b2ae1896023a1b64d32344b49a92e10c8b91fa51ac8a030f0c812",
+    "actual-k-distribution-joint-audit.tex": "e435985ab5c74c551da8f1c7e91e916831464dbf3232a03328c945078628ecf6",
+    "selected-subproduct-factorization.tex": "9699f9a772fa3f5ed512891283eb511138327f4b3e6469cfa134b789dd6f95d9"
+  },
+  "seconds": 1.4510217000497505
+}

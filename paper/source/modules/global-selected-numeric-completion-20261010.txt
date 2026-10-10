@@ -1,0 +1,274 @@
+Selected finite numerical completion map and shorter certificate spine
+10 October 2026. New audit; no old artifact, state or main source is changed.
+
+Conclusion and exact scope
+
+The selected finite numerical premises for K=6.7617368,c=1.96131568 have
+enclosure proofs and complete output/selection coverage in the current files.
+The accompanying obligation map covers ALL numerical components actually
+entering those two selected inequalities, rather than a representative sample
+of fourth/eighth integrals. No unmet selected finite numerical item was found.
+
+This is a conclusion about finite numerical inequalities, given the specified
+analytic functions and density functionals. It is not a proof that those
+functionals equal the physical sieve densities, that the finite H/h actions
+are analytically admissible, or that the required signed distribution theorem
+holds. Those are separate substantive theorem requirements. Nor does this
+audit invent a requirement for a new independent implementation of every
+general-purpose routine. A proved algorithm and a complete corresponding
+run suffice; separate implementations are useful corroboration, not axioms.
+
+The new contribution is more than assembling old success labels:
+ (i) a direct four-component upper expression minus22 final selected savings
+     reproduces the current exact raw endpoint, without replaying historical
+     safe constants or counting alternative refinements;
+ (ii) a direct eleven-term lower expression with the six current I3/I4/I5
+      values and the current restoration reconstructs a bound slightly ABOVE
+      the conservative selected raw endpoint;
+ (iii) one fresh430-round simultaneous map, beginning only with the original
+       certified seed, reproduces ALL400 selected430 entries exactly. No
+       intermediate248/312 generation arrays are inputs to this replay.
+
+What is freshly run versus read
+
+The new script imports only the Python standard library. It recomputes direct
+rational ledgers, endpoint directions, reserves, count margins, seed rounds,
+and all430 table transitions. It checks actual full-run count fields and
+bound-file identities. It does NOT rerun large quadratures or every simplex
+floor. Those are supported by their existing complete result records together
+with the enclosure and partition algorithms identified in the obligation map.
+
+Source examination here covered the directed arithmetic/series arguments,
+ordinary interpolation and primitive interface, representative generic exact
+polytope verifier, pulling triangulation and weighted moments, the selected
+builders' complete finite sums, and the current selection/ownership formulas.
+In particular the exact polytope algorithm does not accept a floating hull:
+positive normal balance plus full rank proves boundedness; all active bases
+of the selected facet system are solved exactly; every vertex satisfies every
+original row; the intersection face lattice is reconstructed; reverse pulling
+triangulates the convex polytope. This is the common algorithm for the entire
+selected affine-cell family. Its complete output is needed separately for
+every selected cell. The map names every such result family.
+
+The obsolete bounded report and inventory were used to locate evidence, not
+as blanket proofs of completeness. In particular all later replacements were
+followed before treating an old shared-backend or partial-run statement as a
+live gap. Every direct source binding used by the new report is rechecked.
+Hashes identify the inspected evidence; they do not establish its mathematics.
+
+1. The exact upper numerical spine
+
+Let U0=4/Theta+I1+I3_compact+I3_tail, with Theta=299/500, rho=19/96
+and compact split z=1/100. The selected tail is the newer full-tail upper
+bound, not the old tail plus a saving on a different domain. Then subtract:
+
+ 1 replacement fourth, all3699127 selected boxes;
+ 2 replacement old fifth,292633 parents and18728512 children;
+ 3 disjoint new fifth,1763420 boxes;
+ 4 replacement old sixth,632104 cubes;
+ 5 coarse above-mu rank2 fallback (not its larger fine alternative);
+ 6 above-mu rank3 fallback,4096 cells;
+ 7 final log-moment total on the original eleven new sixth cells;
+ 8 the two further descending33 sixth cells;
+ 9 ascending34 actual-parent difference;
+10 descending34 actual-parent difference;
+11 lower clip window;
+12 lower descending34 window;
+13 the SELECTED local cap corrections, not their larger all-replayed total;
+14 four nonsingleton sixth domains;
+15 radial maximum on the original eighth seed;
+16 fourteen further ascending eighth domains;
+17 fifteen descending eighth domains;
+18 final log total on the fifteen unequal-parent eighth domains;
+19 final log total on the thirteen ascending-third eighth domains;
+20 final log total on the twentynine history eighth domains;
+21 seed curvature increment over its already adopted log bound;
+22 seed mixed increment over its already adopted curvature maximum.
+
+Their source fields and exact fractions are in selected_upper_direct_savings.
+Direct subtraction gives exactly
+ E=9979702576710911234850619807816847864907359959/
+   1475913550962201227946780619099353215139840000.
+This agrees with the selected raw upper, not merely its rounded display.
+
+All22 terms are lower bounds for positive improvements. Their selected cover
+may be a proper subset of possible profitable regions: proving the omitted
+gain nonnegative is sufficient. This is different from negative-cost upper
+integration, for which the whole retained domain must be covered. Same-node
+upgrades use the actual current cap, or a proved upper comparison that makes
+the improvement smaller. Old/new sixth overlap with eighth cylinders is
+handled by telescoping the actual cap differences. Within the87 eighth cells
+the separate30+15+13+29 partition and pattern/half/history separators prevent
+duplicate eighth integration. Navigation exclusions need not prove that the
+chosen positive subsets exhaust every possible improvement.
+
+Primitive coverage for U0 is also complete. I1 has a full positive series with
+an explicit tail. Compact I3 has a complete separately reconstructed covering
+partition whose upper endpoint is at most the selected upper. Boundary boxes
+are kept with conservative upper mass. The noncompact tail uses
+D(s)<=D(10)(10/s)^2 and is integrated over the ENTIRE z<1/100 region. It is
+not a sampled small-z cutoff. Ordinary nodes and arbitrary rational queries
+have the numerator-chord, shape and curvature proof; shared Q160 logs have
+explicit series remainders. The old two-million heap need not be the selected
+proof when the complete alternate integral covers the same upper allowance.
+
+The two upper error reserves are reconstructed from the one post-fallback
+reference and one eighth-of-each-subsequent-saving increment. They are equal,
+positive and retained. The exact inequality is E+u_density+u_compiler<K,
+with the already selected remaining slack about9.6522301975e-8. No Chen quarter
+is introduced in these upper-density units.
+
+2. A table proof from the seed directly to the final arrays
+
+The seed numerical certificate has an ordinary lower value>.020249>.02 and
+a positive feedback coefficient>.13. Consequently four exact applications of
+J -> .020249+.13 J, beginning withJ=.02, give
+ .023273777353 > 2327/100000.
+This establishes the input seed by finite arithmetic. Its typed-state
+admissibility remains the separately proved analytic seed theorem.
+
+Take the final106 action constants at K_anchor=6.761767:70 W1,3 originalW2,
+and33 expandedW2. Their ordinary base, positive switched mass, variable-kernel
+gain, feedback weights, target lists and anchor corrections all have the
+complete evidence listed in T2--T4. The subtraction of the kernel slope is
+kept in W2 recalibration. No action is silently evaluated at a different K.
+The actual selected K=6.7617368 implies this weaker positive-product anchor.
+
+On the200 closed cells with endpoints1+i/50 initialize
+ H_i=floor(2^80*2327/100000) if the right endpoint<=11/5, otherwise0;
+ h_i=0.
+Apply430 times the final simultaneous positive action map. Every right side
+reads only the preceding H,h arrays. Positive products are individually
+rounded down, W2 feedback is divided by5, and the previous value is retained
+by a maximum. Buchstab tails use the right endpoint of the target cell;
+lower h remains zero below2. Thus each step is a valid finite lower-bound
+propagation once the action identities and typed closure are available.
+
+Fresh exact result:
+ round248: all400 selected248 entries dominated;350 strictly;
+ round312: all400 selected312 entries dominated;350 strictly;
+ round430: all400 selected430 entries EQUAL, including every zero cell.
+
+No selected intermediate array is used to generate the new arrays. They are
+read only at the three comparison points. The final array hash equals the
+original selected arm's hash. This provides a short numerical proof of the
+selected arrays without an obligation to walk every historical24->56->120
+->184->248->312 continuation. It is still a FINITE430-round proof, not an
+infinite fixed-point assertion. No new larger table or gain is adopted.
+
+Complete primitive counts:70 W1 bases,10 J queries,200 Buchstab weights,
+1858 W1 weights;36 W2 bases,216 components,468 closed masses; original3 pair
+feedback has2400 polygon queries/628 positive weights plus424 singleton
+weights; expanded33 has12624 pieces/5224 pair weights/3626 singleton weights.
+The variable-kernel covers have559560 and6089150 boxes. The original3 pair
+backend gap has its later centered-series proof/output. The shared lower
+ordinary profiles have all23199750 node intervals checked by the separate
+chord construction, plus general query/interpolation proofs.
+
+3. A direct lower expression with no obsolete patch
+
+Use the current lower endpoints L1,L2 from the248 baseline, selected pair512
+L5,L6 lower endpoints, baseline U3,U4 upper endpoints, selected new1024 U7,U8,
+U9 upper endpoints, and the complete n48 U10+U11 upper cost. Define
+
+ C11=[3L1+L2+L5+L6-U3-U4-2U7-U8-U9-(U10+U11)]/4.
+
+This formula uses neither the old n32 minimum nor its patch/logmean gain.
+Its exact value exceeds the conservative baseline-after-refinements by
+1/2417851639229258349412352. The n48 bound covers all1190700 ordered rows,
+including tied-bin simplices; the count is C(51,4)+48*C(50,3). Its ordinary
+and switched alternatives enter as one maximum saving. Every one of40000
+priority parents is replaced by a maximum with its complete child sum;
+all516779 children are covered. The fixed K slope excludes these parents.
+
+Let B be the independent ordinary-start-change lower endpoint and Hrem the
+whole removed H248 upper endpoint. Put
+
+ C_at_K0=C11+priority_gain
+   +[B-Hrem+3I3(a)+I3(h)+3I4(a)+I4(h)+3I5(a)+I5(h)+restoration(h)]/4.
+
+All six I values are the current selected values. Specifically:
+ - I3: full M1600 result limit0, both cutoff domains, actual selected totals
+   covered by the independent arrangement method;
+ - I4(h): the smaller independent M800 total, plus disjoint75609 bands;
+   I4(a): complete6545-cell/420-positive-parent all-mask evidence;
+ - I5(h): all-new158251 floors, excluding160 obsolete pre-Jensen parents,
+   plus all23662 slab/tied additions; I5(a):679 full integrals;
+ - restoration: selected slanted98668-box/789344-layer total. It replaces
+   the old whole-box restoration and lies on the old rejected-node region.
+
+Numerical omitted histories/boundary strips are permitted only for these
+nonnegative lower gains. Tied boxes are not assigned a fictitious factorial
+symmetry for an asymmetric integrand: the sorted actual target is symmetric,
+and a valid full-box bound is obtained before division by the exact factorial.
+Inner slices, log moments, ordinary primitives and all used argument ranges
+have the explicit enclosure proofs identified in L4--L7.
+
+Write A for the proved fixed five-cost slope, T312 for only the248->312
+U3/U4 difference, and T430 for only the312->430 difference. The complete
+current direct raw lower is
+
+ C_at_K0 + A*(6.7619-K) + T312 + T430
+             + .002095161 + .003799514 - .002372094.
+
+The resulting exact rational is slightly above the stored selected raw.
+The companion JSON records the exact surplus. It is not selected as a new
+improvement; keeping the smaller historical raw value is conservative. This
+identity exhausts every currently used numerical gain in c. It does not add
+any old narrow seed contribution, repeated table generation, old n32 patch,
+fifth alternative, or change of the U10/U11 table profile.
+
+4. Paired masks, reserves and transfer
+
+The6091 zero-floor and11481 new positive-net pair512 cells are disjoint.
+Their actual whole-parent cover, including priority exclusions, is recorded
+completely. Every new gross lower exceeds.003799514; the summed discarded
+saved lower-estimator upper is below.002372094. These are leading functional
+bounds. The loss is not an upper estimate for the actual removed Y6 count.
+
+The full n48 ownership/remainder certificate supplies the needed restrictable
+majorant after K feedback. It checks all1011131 retained switched rows. Its
+identity A_B/K0>=s_B gives
+ A_B-(K0-K)s_B >= (K/K0)A_B >= K*omega_B*Z_B.
+The paired change therefore removes a majorant's positive mass on a fixed
+subdomain; it never changes an upper bound for a removed count into a lower
+bound. The geometric paired injection itself is outside this numerical audit.
+
+Each new lower reserve retains the original table312 allowance and adds
+[A*(6.7618-K)+T430+.002095161+.003799514-.002372094]/8.
+Both reserves agree exactly with the currently selected fields. After BOTH
+reserves the conservative current raw exceeds1.96131568 by the selected
+positive rational slack about9.0612246399e-10. The larger direct reassembly
+is not needed to obtain this strict inequality.
+
+Future sensitivity is A-(.002095161+.003799514)/K. The positive-floor loss
+is not K-linear, so subtracting the net gain/K would be incorrect. Fresh
+192-term rational Mercator enclosures also give the two final count surpluses
+about7.1260773775e-8 and3.4146633105e-8, respectively. Float displays decide
+none of these signs.
+
+5. What this resolves and what it leaves to the global proof
+
+The finite obligation list P1,U1--U13,T1--T5,L1--L9,S1 is the requested
+requirement-level numerical map. For each entry it supplies the mathematical
+enclosure/geometry method and the actual complete corresponding output. Every
+raw upper term, lower term, selected difference, table primitive, fixed mask,
+positive floor charge, and reserve appears in the direct ledgers. Full selected
+coverage does not mean exhaustive search of possible improvements.
+
+There is no concrete failed numerical primitive, uncomputed selected term,
+unpaid numeric deficit, uncovered negative-cost region, or duplicated selected
+gain left by this map. This result should replace the earlier statement that
+only a bounded representative numerical audit is available. It should NOT be
+presented as a new simultaneous rerun or formal verification of all historical
+computations, or as a certificate for upstream analytic requirements.
+
+The global theorem still needs its mathematical identification of these exact
+functionals: ordinary/Buchstab identities, raw same-weight density, W1/W2 mass
+and state derivations, compatible finite coefficient policies and PP, Chen
+pointwise weight and paired injection, finite approximation before the all-even
+limit, and final normalization. The companion map names these as outside this
+numerical subtask, not as asserted open gaps in the other agents' proofs.
+
+No current constant, selected mask, table entry, budget, analytic policy, main
+source, formalization status, GitHub repository or external message is changed.

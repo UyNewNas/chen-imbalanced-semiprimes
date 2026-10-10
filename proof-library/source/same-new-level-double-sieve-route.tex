@@ -1,0 +1,325 @@
+% Derived one-step double-sieve fragment, 2026-10-08.
+% Not inserted in the main manuscript; no global Chen constant asserted.
+% The full Wu H-table migration was rejected during independent review.
+
+\subsection{A same-new-level one-step correction on a Buchstab block}
+\label{sec:same-new-level-double-sieve-route}
+
+Write $\mathcal A_N=\{N-P:P<N,\ P\text{ prime}\}$,
+$K=681/100$, $\mu=25/128$, and $v(t)=(1+t)/2$ for $t<\mu$.
+We use
+\href{https://www.impan.pl/shop/en/publication/transaction/download/product/82961}
+{Wu 2004, Lemma 4.1 and equations (5.1)--(5.10)},
+\href{https://arxiv.org/html/2109.02851v2}
+{Lichtman, arXiv:2109.02851v2, Lemma 6.4},
+and the already derived moving-residue prefix interface based on
+\href{https://arxiv.org/html/2309.08522v1}
+{Lichtman, arXiv:2309.08522v1, Propositions 5.2 and 6.1}.
+The $K$ input is the previously certified positive prime-product upper
+bound from \texttt{extended-prefix-upper.tex}. The exact small
+calculation below is saved in
+\texttt{certify-same-new-level-double-sieve-route.py} and
+\texttt{same-new-level-double-sieve-route.json}.
+
+This construction does not infer the signed switched-distribution
+hypothesis (5.22) of L21 from a bound for the number of primes. Instead
+we use the positive switched count at its actual place in Wu's first
+weighted inequality. We do not use the $H,h$ tables or their full
+iteration. The resulting explicit function $J$ is a new-argument
+correction to a linear upper bound at the same new total level.
+
+\begin{proposition}[A one-step correction for the $L_2$ Buchstab terms]
+\label{prop:same-new-level-one-step}
+Let
+\[
+ \frac{31}{200}\le t\le\frac4{25},\qquad
+ p=N^{t+o(1)},\qquad \nu=v(t)=\frac{1+t}{2},\qquad
+ s=\frac{\nu-t}{t}=\frac{1-t}{2t}.
+\]
+On every positive averaged prefix box in this interval, after the
+usual fixed level buffers and exponent-box limits, the permissible
+upper multiplier for $S(\mathcal A_{N,p},p)$ is
+\begin{equation}\label{eq:same-new-one-step-upper}
+ F(s)-\frac{2e^\gamma}{s}J_0,\qquad J_0=\frac1{250}.
+\end{equation}
+It is a bound averaged over the prefix primes, with their usual
+positive main-factor measure, not an estimate for each individual
+prime. In the existing variable-level Buchstab lower bound for $L_2$,
+this yields an additional lower coefficient
+\begin{equation}\label{eq:same-new-one-step-L2}
+ \Delta L_2\ge8J_0\log\frac{676}{651}.
+\end{equation}
+Consequently the complete Chen functional increases by at least
+\begin{equation}\label{eq:same-new-one-step-Chen}
+ \Delta c\ge2J_0\log\frac{676}{651}>
+ \frac2{6635}.
+\end{equation}
+The last inequality is purely rational after using
+$\log(676/651)=2\operatorname{atanh}(25/1327)>50/1327$.
+\end{proposition}
+
+\begin{proof}
+Fix a compact exponent box $t\in[t_-,t_+]$ strictly inside
+$(31/200,4/25)$.
+Use a single total level $Q=N^\nu$ with
+$\nu<v(t_-)$ and a fixed positive margin. Then choose all sieve,
+factorization, local-scale and mesh precisions inside that margin.
+The centre notation below denotes the subsequent shrinking-box limit.
+The local exponents are
+\[
+ \nu\in[231/400,29/50],\qquad
+ R=Q/p=N^{L+o(1)},\qquad L=\nu-t=\frac{1-t}{2},
+\]
+and
+\[
+ \frac{21}{8}\le s\le\frac{169}{62},\qquad s_0=\frac72,\qquad
+ y=R^{1/s_0},\qquad z=p=R^{1/s}.
+\]
+All inequalities used below have strict surplus, so fixed buffers
+preserve them.
+
+For $\sigma(p)$ equal to the anchor prime-box indicator, or a fixed
+finite nonnegative constant combination of such indicators, define
+\[
+ \Phi_s=\sum_p\sigma(p)S(\mathcal A_{N,p},p),\qquad
+ \Theta_Q=4\operatorname{li}(N)
+   \sum_p\frac{\sigma(p)\mathcal C(pN)}
+                 {\varphi(p)\log(Q/p)}.
+\]
+The ordinary normalized main multipliers are
+$A(s)=sF(s)/(2e^\gamma)$ and $a(s)=sf(s)/(2e^\gamma)$.
+In particular $A(s)=1$ on this block.
+
+Wu's first weighted inequality has the form
+\begin{equation}\label{eq:same-new-one-step-weight}
+ 2\Phi_s\le
+  2\sum_p\sigma(p)S(\mathcal A_{N,p},y)
+ -\sum_p\sigma(p)\sum_{y\le q<z}S(\mathcal A_{N,pq},y)
+ +\sum_p\sigma(p)\!\sum_{y\le q_1<q_2<q_3<z}
+        S(\mathcal A_{N,pq_1q_2q_3},q_2)
+ +o(\Theta_Q).
+\end{equation}
+The prime set excludes divisors of $pN$, with the same additional
+prefix exclusions as in Wu's formula. Repeated-prime exceptions can
+be removed with a power saving. The inequality follows from the
+pointwise Buchstab identities in Wu (4.1)--(4.5); it does not require
+the original short-box class after this fixed positive box has been
+specified. Thus no error relative to a vanishing short-box mass is
+being inferred from a fixed-mass asymptotic.
+
+\paragraph{The two non-switched terms.}
+The first term has the ordinary upper multiplier $2A(s_0)$.
+Its residual primes are below $y<p$, so the largest modulus prime
+remains the anchor. For the second term write
+$q=N^{Lu+o(1)}$, $1/s_0\le u\le1/s$. Then
+\[
+ N^{3/25+o(1)}\le q\le p,\qquad
+ t+2Lu\le3t\le\frac{12}{25}<\nu,\qquad
+ 2t\le\frac8{25}<\nu.
+\]
+The endpoint equality $q=p$ is trimmed before taking limits.
+The lower residual argument is
+\[
+ s_0(1-u)\in[13/6,5/2].
+\]
+These are exactly the ordered two-prefix configurations covered by
+the existing residual prime-prefix interface: the cutoff $y$ is at
+most the smaller specified prime $q$, both initial square conditions
+hold with fixed margins, and every later rough square condition
+follows from its residual level. Empty residual rough atoms are
+included. Both signs retain their original Iwaniec atom coefficients,
+small-prime weights, and multiplicity factorials. Every concatenated
+rough atom has largest exponent in $[t_-,t_+]$, and hence cap
+$v(t_-)> \nu$; L23 Proposition 6.1 supplies its factorization.
+The moving-residue argument uses Proposition 5.2 on the true local
+scales, as already proved in \texttt{prefix-sieve-interface.tex}.
+
+The negative term in \eqref{eq:same-new-one-step-weight} is therefore
+bounded below, after division by $\Theta_Q$, by
+\[
+ B(s)=\int_{1/s_0}^{1/s}
+  \frac{\log(s_0(1-u)-1)}{u(1-u)}\,du
+ =\int_{1-1/s}^{1-1/s_0}
+  \frac{\log(s_0x-1)}{x(1-x)}\,dx.
+\]
+No lower double-sieve correction is used here.
+
+\paragraph{The exact positive switched mass.}
+The last term counts primes $N-m$ in a labelled product multiset
+\[
+ m=pq_1q_2q_3n\le N,\qquad
+ y\le q_1<q_2<q_3<z,\qquad P^-(n)\ge q_2,
+\]
+after the same coprimality and repeated-prime exceptions as in
+Wu (5.3)--(5.4). Canonically factor $n$ into its ordered prime factors.
+Every prime factor of $m$ is at least $N^{3/25+o(1)}$, which is
+strictly larger than the $N^{100/1149}$ cutoff of the existing
+$K$ theorem. The fixed level buffers are chosen small enough to
+preserve this strict gap; the exact exponent $3/25$ is the unbuffered
+limiting value. There are only finitely many prime-factor patterns.
+All ordering, roughness, product, and prefix-box constraints become
+finite monomial inequalities; their labels are retained. Thus the
+existing positive-count theorem applies to this exact multiset.
+
+The quotient $n=1$ contributes at most $N^{4t+o(1)}\le N^{16/25+o(1)}$
+to the unsifted mass and to the desired count. It is harmless here
+by this explicit power bound. Also, throughout the triple integration,
+\[
+ \alpha=\frac{\log(N/p)}{\log(Q/p)}\ge2+o(1),\qquad
+ \frac{\alpha-u_1-u_2-u_3}{u_2}\ge2s-3\ge\frac94.
+\]
+The standard rough-number estimate is therefore used away from its
+argument-one boundary. In particular no six-prime unit-quotient
+boundary is present in this one-step construction.
+
+Let $X$ be the unsifted labelled mass. The same partial summation as
+in Wu (5.8) gives
+\[
+ X\le (I(s)+o(1))N
+       \sum_p\frac{\sigma(p)}{\varphi(p)\log(Q/p)},
+\]
+where
+\[
+ I(s)=\sup_{\alpha\ge2}
+ \int_{1/s_0\le u_1\le u_2\le u_3\le1/s}
+ \omega\!\left(\frac{\alpha-u_1-u_2-u_3}{u_2}\right)
+ \frac{du_1\,du_2\,du_3}{u_1u_2^2u_3}.
+\]
+For completeness $\omega(w)\le3/5$ for $w\ge2$ follows from
+$\omega(w)=(1+\log(w-1))/w$ on $[2,3]$ and the delay equation.
+The maximum of
+$1+\log(w-1)-(3/5)w$ on $[2,3]$ is at $w=8/3$ and is negative:
+$\log(5/3)\le((5/3)-(3/5))/2=8/15<3/5$.
+The delay equation propagates this upper bound on successive unit
+intervals. Hence
+\begin{equation}\label{eq:same-new-one-step-Ibar}
+ I(s)\le\overline I(s)=\frac35
+ \left\{(s_0+s)\log\frac{s_0}{s}-2(s_0-s)\right\}.
+\end{equation}
+The elementary integration here first integrates $u_1,u_3$, leaving
+$\int_{1/s_0}^{1/s}\log(s_0u)\log(1/(su))u^{-2}\,du$.
+
+The $K$ upper bound, in its common-mass normalization, is
+$(K+o(1))\mathcal C(N)X/\log N$. Since
+$\mathcal C(N)\le\mathcal C(pN)$ and $\operatorname{li}(N)\sim N/\log N$,
+the last term in \eqref{eq:same-new-one-step-weight}, divided by
+$\Theta_Q$, is at most $(K/4)\overline I(s)+o(1)$.
+The factor is $K/4$, not $K/(4/(\nu-t))$.
+This is an upper bound for a positive prime count, not a signed
+distribution assertion for a specified global sieve weight.
+The $K$ proof's one common positive smooth outer approximation may be
+used here on each fixed exponent box, followed by its smoothing limit;
+there is no need to claim uniformity over Wu's shrinking short boxes.
+
+\paragraph{An explicit new-argument saving.}
+Since
+\[
+ A(7/2)=1+C,\qquad
+ C=\int_2^{5/2}\frac{\log(x-1)}x\,dx,
+\]
+the three estimates in \eqref{eq:same-new-one-step-weight} give
+\begin{equation}\label{eq:same-new-one-step-J}
+ \Phi_s\le\{1-J(s)+o(1)\}\Theta_Q,\qquad
+ J(s)=-C+\frac12B(s)-\frac{681}{800}\overline I(s).
+\end{equation}
+Every argument and every baseline in this formula uses the same $Q$.
+No saving evaluated at $(1/2-t)/t$ is added.
+
+Here is a short outward certificate for $J(s)>1/250$ on the entire
+interval $[s_-,s_+]=[21/8,169/62]$. The function $B$ decreases because
+its positive-integrand interval shrinks with $s$. Also
+\[
+ \overline I'(s)=\frac35\left(\log(s_0/s)+1-s_0/s\right)\le0.
+\]
+Consequently
+\[
+ J(s)\ge-C+\frac12B(s_+)-\frac{681}{800}\overline I(s_-).
+\]
+The integrands defining $C$ and $B(s_+)$ are increasing on their
+integration intervals. For $C$ this follows from
+$x/(x-1)>\log(x-1)$; for $B$, the positive numerator increases and
+$x(1-x)$ decreases because $x>1/2$.
+Use a right Riemann sum for $C$ and a left Riemann sum for $B(s_+)$,
+each with $32768$ equal rational subintervals.
+The existing $80$-bit integer interval logarithm routine, with its
+explicit atanh remainder, gives the exact lower bound
+\[
+ -C_{\rm right}+\frac12B_{\rm left}
+       -\frac{681}{800}\overline I(s_-)
+ \ge
+ \frac{4850531719234607697725}{1208925819614629174706176}
+ >\frac1{250}.
+\]
+No floating point number decides this inequality. The saved certificate
+also records a stronger optional check, using $16$ rational
+$s$-subintervals and $8192$ cells in each one-dimensional Riemann sum;
+its minimum lower bound exceeds $1/200$. The proposition only uses
+the simpler bound $1/250$.
+
+In terms of the ordinary main factor at cutoff $p$, the normalized
+defect in \eqref{eq:same-new-one-step-J} is
+$2e^\gamma J_0/s$, proving \eqref{eq:same-new-one-step-upper}.
+The existing Buchstab lower bound for $L_2$ subtracts the ordinary
+upper kernels for $S(\mathcal A_{N,p},p)$ over
+$25/224<t<50/309$. Our entire block lies strictly inside this range.
+Its ordinary kernel uses precisely the level $v(t)$, so the saving
+can be inserted in that identity:
+\[
+ \Delta L_2\ge
+ 4J_0\int_{31/200}^{4/25}\frac{dt}{t(v(t)-t)}
+ =8J_0\log\frac{(4/25)(169/200)}{(31/200)(21/25)}
+ =8J_0\log\frac{676}{651}.
+\]
+The $L_2$ coefficient in the complete eleven-term weight is $1/4$.
+This proves \eqref{eq:same-new-one-step-Chen}.
+All parameters are fixed before $N\to\infty$; next remove the
+smoothing and sieve-precision errors, shrink the boxes and their
+level buffers within the open anchor interval, and only then exhaust
+that interval by compact subintervals. On each such compact interval
+the buffered arguments remain inside the certified $s$ interval.
+The endpoints have zero main-factor mass. The strict numerical
+surplus above $J_0$ absorbs the remaining errors.
+\end{proof}
+
+\paragraph{Why the full old $H$ table was not imported.}
+The preceding proposition proves a positive correction directly.
+It does not prove the stronger proposed statement that the entire
+old table, such as $H(3)\ge72943/10^7$, transfers to all new-level
+states. Independent review found a concrete interface gap in that
+proposed extension.
+
+In Wu's Lemma 4.2, terms $\Gamma_1$ and $\Gamma_5,\ldots,\Gamma_8$
+are positive non-switched upper terms; $\Gamma_2,\Gamma_3,\Gamma_4$
+are negative lower terms; and $\Gamma_9,\ldots,\Gamma_{21}$ are
+positive switched terms. The latter consist of respectively three
+additional primes for indices $9$--$15$, four for $16$--$19$, five
+for $20$, and six for $21$. Replacing their final positive prime-count
+upper bounds by $K$ would have the correct $K/4$ normalization.
+That replacement alone does not check terms $5$--$8$.
+
+Specifically, the published seed at $s=2.2$ uses $\phi_2=2.90$.
+The $\Gamma_5$ domain allows two new exponents $u<v<1/\phi_2$,
+measured relative to $R=Q/b$. Near its upper corner,
+$v+2u>1$. The enlarged prefix then has square exponent
+$T+L(v+2u)>\nu$, and is outside the full
+$\mathcal D^{\rm well}(Q)$ class of the presently proved prefix
+interface. Its small bare product does not solve this: residual
+modulus atoms can raise the full modulus above $N^{1/2}$.
+A new factorization theorem for that explicit enlarged-prefix domain,
+or a replacement upper kernel and a recomputed recursion, is needed
+before importing the old $\Psi_2$ seeds or their nine-by-nine matrix.
+
+There is a second mass check to retain for such a future construction.
+In the five- and six-extra-prime terms, the unit quotient may lie on
+a product boundary at scale $N$. Keeping it in the exact multiset
+does not by itself show that an integral involving only the ordinary
+Buchstab function includes that boundary mass. Its negligibility,
+or its separate mass term, must be checked before reusing those
+$I_{2,i}$ envelopes. Neither issue occurs for the one-step triple
+term proved above.
+
+Thus the direct L21 black-box route still lacks its requested signed
+switched-distribution statement at level $v(t)$. The proposition gives
+a different, explicitly proved positive-count route on a concrete
+$L_2$ block. It does not restore a universal mixed-level bridge and
+does not independently certify a new global counting coefficient.

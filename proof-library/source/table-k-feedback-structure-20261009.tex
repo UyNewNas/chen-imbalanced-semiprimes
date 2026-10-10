@@ -1,0 +1,155 @@
+% New structural audit; all prior files are immutable.
+\subsection{A smaller product constant in the actual finite action bank}
+
+The current table has 248 finite generations, 200 closed cells on
+$[1,5]$ and denominator $Q=2^{80}$. Its 70 W1 baselines still use
+$K_{1}=67633/10000$. Its original three W2 baselines were constructed
+from costs at $K_0=681/100$, recalibrated to $K_{2}=67619/10000$,
+then given a positive variable-kernel saving. The 33 additional W2
+actions were directly certified at $K_2$, with their own kernel savings.
+These different anchors are explicit in the actual source; replacing
+only a metadata value would not change any proved table bound.
+
+Assume the separately proved positive-product upper theorem is now
+available with $K'=33809/5000=6.7618$ on the same fixed positive-cutoff
+families. A bound restricted only to bad semiprimes would not suffice.
+The new upper proof is independent of this table, so the use is acyclic.
+
+\paragraph{W1.}
+At parameters $(s,s_0)$ the ordinary baseline has the form
+$A-KT/8$, where
+\[
+ T=C\{(s+s_0)\log(s_0/s)-2(s_0-s)\}>0,
+ \qquad C=70893/125000.
+\]
+Using an independently enclosed positive $T_-\le T$, a saved baseline
+numerator $b$ at $K_1$ may be replaced by
+\[
+ b+\lfloor Q(K_1-K')T_-/8\rfloor.
+\]
+No point, pair, target or feedback coefficient changes. The existing
+kernel improvement belongs to W2, not to these 70 W1 baselines.
+
+\paragraph{W2: the kernel saving must scale as well.}
+Let $P_-$ be the saved lower bound for the sum of
+\texttt{bad5\_positive\_replacement} and \texttt{switched\_cost},
+evaluated at its recorded cost anchor $K_c$. The $+\mathrm{bad\_old}$
+ordinary term is independent of $K$ and must not be removed again.
+The positive unit summands in $\Gamma_{20},\Gamma_{21}$ are included
+in the switched cost. All divisions by five below occur once.
+
+Let $g=\mathrm{kernel\_seed\_floor}/Q$ be the explicit positive
+kernel saving already included at $K_2$. It is legal to use this
+particular certified lower coefficient, even if the actual kernel
+saving is larger. At $K'$ its corresponding guaranteed contribution
+is $(K'/K_2)g$. Keeping $g$ unchanged while claiming the full decrease
+of the old coarse cost would overstate the improvement.
+
+For either W2 family the safe additional baseline slope is
+\[
+ M_-=\frac{P_-}{5K_c}-\frac{g}{K_2},\qquad
+ b'=b+\lfloor Q(K_2-K')M_-\rfloor,
+\]
+where $K_c=K_0$ for the original three actions and $K_c=K_2$ for the
+33 directly certified actions. The companion arithmetic verifies
+$M_->0$ for all 36 actions. More generally, a negative proposed update
+could simply be discarded in favour of the previous bound.
+
+To see why the original three actions admit this formula despite
+earlier rounding, write their saved baseline as $b_0/Q+r+g$, with
+$b_0/Q\le A-K_0M$ and
+$r\le(K_0-K_2)P_-/(5K_0)$. The new true action is at least
+\[
+ \frac{b_0}Q+(K_0-K')\frac{P_-}{5K_0}
+              +\frac{K'}{K_2}g
+ \ge\frac bQ+(K_2-K')M_-.
+\]
+For the 33 direct actions use $b_0/Q\le A-K_2M$ and $r=0$.
+Thus prior discarded rounding slack need not be reconstructed or spent.
+
+\paragraph{Finite induction on the same real families.}
+Keep the old 248 table as the initial seed. Each new W1/W2 or Buchstab
+right-hand side uses only the preceding generation, followed by a
+finite maximum with the previous value. The typed-state proof retains
+the marked prefix, selected slots, full and remaining-square support,
+physical ceiling, actual residual level and $\alpha\ge2$. Smaller $K$
+changes only the positive switched estimates; it does not change any
+of those gates or reinterpret $\alpha$ as two.
+
+All feedback weights remain nonnegative and are rounded downward.
+The same closure proof therefore applies to every specified finite
+number of further rounds. It does not prove an infinite fixed point
+or uniformity as depth tends to infinity. The baseline savings are
+used inside this induction; they are not extra global Chen terms.
+
+The companion first-round check also evaluates a control round with
+all old baselines on the same 248 input. There are 95 cells with a
+strict $K$-only improvement of $H$; the largest is
+$3126880469362054931/2^{80}<2.587\cdot10^{-6}$. The new $h$ array
+is identical to the control $h$ array in this first round because it
+reads the same old $H$. Subsequent finite rounds can propagate the
+improvement. These facts certify arithmetic under the inherited action
+inputs; the old primitive integral replays are not rerun here.
+
+\paragraph{The minimal global insertion changes only two occurrences.}
+Every finite table is separately a valid estimate on the same admitted
+family. Different terms of the eleven-term inequality may choose
+different already proved tables; there is no global requirement to
+replace every lookup with the newest one.
+
+Keep all terms and correction ledgers of the current lower bound,
+except replace $H_0$ by $H_1\ge H_0$ in $U_3,U_4$. Their parameters
+and cap choices are unchanged. With $a=417/5000$, $d=59/250$,
+$e=57/224$, write
+\[
+ L(t)=v(t)-t\quad(t<e),\qquad L(t)=1/2-t\quad(t>e),
+ \quad s(t)=\max(2,L(t)/a).
+\]
+The second branch is needed only for $U_3$. The exact increase of
+the complete Chen coefficient is
+\[
+ \Delta_{34}=\int_a^{1/3}\frac{(H_1-H_0)(s(t))}{tL(t)}dt
+             +\int_a^d\frac{(H_1-H_0)(s(t))}{tL(t)}dt.
+\]
+The upper-count factor four cancels the Chen weight $-1/4$.
+On each affine $L=A-Bt$ and inverse table-cell interval $(l,r)$,
+the primitive is $A^{-1}\log\{r(A-Bl)/(l(A-Br))\}$.
+There are only finitely many rational cell cuts, so no high-dimensional
+integration or ordinary-function table is required for this step.
+
+Preserve the existing endpoint convention. In particular the clamp
+$s=2$ has positive measure: with the saved minimum-adjacent convention
+its difference is
+$\min(H_{1,49},H_{1,50})-\min(H_{0,49},H_{0,50})\ge0$.
+It must not be discarded as a null cell wall. For an uncertain range
+spanning multiple cells, take a lower bound for the difference cellwise
+before its range minimum, rather than subtracting unrelated lookup
+minima. Exact inverse-cell partitioning avoids that issue here.
+
+\paragraph{What remains fixed, and what a broader update would require.}
+There is no direct table lookup in $L_1$: its empty-prefix ratio is
+below two. Its ordinary starting gains remain fixed. The final $L_2$
+start is $w=h$, so its entire former $H$ term has already been removed.
+Keeping that occurrence on $H_0$ retains both its old baseline and
+its old subtraction. If one rewrites the entire baseline with $H_1$,
+the corresponding new $L_2$ gain and larger removal must both be
+included; they cancel exactly. Adding only the positive side is wrong.
+
+$L_5,L_6$ may stay on $h_0$. A further improvement there would require
+the new lower-defect difference on their actual two-prefix states,
+with the same affine cap, cutoff and gates; it is not a free action
+baseline increment. $U_{10},U_{11}$ may retain their complete old
+ordinary/switching minimum and all frozen refinements. Replacing them
+would require comparing the full old and new minima on each family;
+the switching improvement and ordinary-table improvement cannot be
+added on overlapping regions. $U_7,U_8,U_9$ have no table lookup;
+their already counted outer-$K$ feedback is separate and remains fixed.
+All ordinary lower-start, restoration and selected-prefix gains remain
+the earlier estimates of the same causal policies.
+
+Finally preserve all previous error budgets and allocate any additional
+finite table/box/compilation losses below a fresh strict rounding gap.
+Fix the finite table, common marked partitions and both families of
+weights before $N\to\infty$. This structural audit selects no new
+rounded $c,b$, performs no high-dimensional integration, and makes no
+formalization or publication claim.

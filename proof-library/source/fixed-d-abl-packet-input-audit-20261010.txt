@@ -1,0 +1,276 @@
+Fixed-d retained-phase E2: application of the ABL spectral input
+10 October 2026. New local applicability audit; all older files unchanged.
+
+0. Finding and independence boundary
+
+The actual application is in the coprime, trivial-character, singleton-s
+subclass of the external spectral results. I find no missing factor of
+the dispersion parameter d in that subclass. This conclusion is based
+on the parameter and norm calculations below, not on an earlier PASS.
+It does not prove the classical spectral estimates from first principles,
+or certify the whole moving-target distribution proposition.
+
+I wrote the older packet-adversarial and S1-return notes. Thus this is a
+new adversarial applicability check by a prior participant, not a claim
+of independent authorship of the complete E2 proof. In particular I
+re-read ABL v1 Lemmas 3.1/3.2, (3.1)--(3.8), and the precise DI statements
+in Pascadi v3. The useful additional clarification is that the continuous
+part can be supplied by ABL's cumulative quadratic-form statement itself;
+one need not postulate individual L2 vectors of Eisenstein series.
+
+The statements below retain the hypotheses (a,z)=1, a common m interval
+across levels, and polynomially bounded scales. Removing any of those
+hypotheses is outside this audit. Two literal endpoint distinctions are
+also necessary: s=1 means the integer singleton, and a nonempty Y/nu
+block can have length parameter between 1/2 and 1.
+
+1. Dictionary and the exact disappearance of fixed d
+
+Write d0 for the smooth dispersion factor, to distinguish it from an
+oldform dilation. In the actual E2 array, d0~D, (a,d0)=1, with
+D<=x^(2/log log x); d0 is not bounded independently of x. The residue a
+can be T, with c*x<=T<=x^(1+kappa). All remaining scales are bounded by
+a fixed power of x. These assumptions are those of the actual fixed-d
+and common-parameter interfaces, not new enlarged ranges.
+
+After the retained reciprocity phase has been separated and charged,
+the bare L5.1 phase is
+
+ e(a*h*(n1-n2)*inverse(n2*q*d0*r1*s1)/(n1*r2*s2)).       (1)
+
+The retained gcd indicators make q*d0 invertible modulo n1*r2*s2.
+The congruence n1-n2=f*q*d0 therefore changes (1) EXACTLY to
+
+ e(a*h*f*inverse(n2*r1*s1)/(n1*r2*s2)).                  (2)
+
+There is no Taylor deletion and no small-a estimate in this step.
+The true f range is |f|<=2N/(d0*q0). Its enlargement to 2N/q0 is made
+only after the positive Cauchy majorant has been formed. Hence it cannot
+lose cancellation needed for that majorant. The coefficients and their
+positive multiplicity bounds may still depend on d0; they are not
+claimed identical for different d0.
+
+Set b=n2*r1, c=n1*r2*s2. After the inner square, the new spectral indices
+are z=s1*s2 and y=f*(h1*s1-h2*s2), with y!=0 treated here. The original
+(a,s1*s2)=1 restriction is retained, so (a,z)=1. The geometric sum has
+(c,b*z)=1. Product endpoints are removed before this square, and the
+bounded weight omega_h is independent of b,c. Unit phases chosen after
+grouping (z,y) change only beta(y,z). They do not enlarge its positive
+coefficient envelope, or introduce b,c dependence.
+
+In the notation of ABL (3.1), the actual map is
+
+ q_ABL=1, r_ABL=z, s_ABL=1, Q_ABL=z, q_chi=1,
+ Q_bad=(Q_ABL,(r_ABL*s_ABL)^infinity)=z, Q_good=1.       (3)
+
+The dispersion d0 is neither q_ABL, q_chi nor an oldform dilation.
+The restriction (c,z)=1 is the geometric coprimality used by the cusp
+formula; (a,c)=1 is not required. The later outer sum retains 1/d0.
+Nothing here removes the separately accounted D loss when comparing
+the fixed-d estimate with the target normalization containing 1/D.
+
+2. Completion and the coefficient class presented to the spectrum
+
+Poisson summation in b gives, up to the fixed smooth normalization,
+
+ (B/c) sum_m psihat(m*B/c) S(m*inverse(z mod c), a*y; c). (4)
+
+The bar on z is essential. The cusp identity has the two cusps infinity
+and 1 at level z, with cusp modulus c*sqrt(z), and a unit phase
+e(-a*y/z). In the DI Fourier normalization, rho_DI(n)=sqrt(|n|)rho_ABL(n),
+this is exactly the normalization needed in ABL (3.2), not a new factor
+sqrt(a) or sqrt(nu).
+
+The zero m term is treated separately by the Ramanujan-sum estimate.
+It is not fed to an exceptional-spectrum large sieve. Its established
+bound uses sum_(c~C) gcd(a*y,c)<<C*tau(|ay|), with ay!=0.
+
+For nonzero m use ONE cutoff |m|<=(C/B)*x^delta and common signed dyadic
+m intervals. If this cutoff is <1, the entire nonzero contribution is
+a Schwartz tail. Otherwise an integer block can have parameter >=1/2
+even if C/B<1; comparisons with the real number C/B are comparisons of
+positive polynomials, not applications of a theorem to an empty block.
+
+On a fixed block m~M, |y|~Y, z~Z, set
+
+ Y0=4*pi*sqrt(|a|*M*Y)/(C*sqrt(Z)),
+ v=m/M, w=|y|/Y, zeta=z/Z,
+ t=(4*pi*sqrt(|a|*m*|y|)/(c*sqrt(z)))/Y0.
+
+Then c/C=sqrt(v*w/zeta)/t. Thus normalized smooth derivatives in the
+four-variable separation do not acquire a new power of a. Fourier
+expansion gives a common m sequence 1_I(m)e(m*omega), and arbitrary
+level-dependent n coefficients beta(n,z)e(k_n*n/(P*Y)+k_z*z/(P*Z)).
+The latter retain their l2 norm. The interval I and omega do not depend
+on z. Decaying Fourier coefficients pay the finitely many smooth
+seminorms. The retained five-variable reciprocity variation has already
+been charged upstream and must not be charged again here.
+
+This checks the exact distinction needed by the two spectral inputs:
+the n side permits arbitrary coefficients for each level; the stronger
+level-averaged m estimate permits a common additive phase/interval,
+not arbitrary level-dependent m coefficients or endpoints.
+
+3. Coprime oldform reduction, including its norm
+
+Let f be a newform packet at level z, and let v|z/q_f be its oldform
+dilation. In ABL Lemma 3.1 put s=1 and n=a*nu, m=n0, where
+nu|a^infinity and (n0,a)=1. Its integer
+
+ K=gcd(z/gcd(v*q_f,z),(a*nu)^infinity)
+
+equals 1 because (a,z)=1. This is uniform in the dilation and the
+newform level. In DI normalization, the lemma consequently states
+
+ rho_(f_v,1)(a*nu*n0)
+ =lambda_v(a*nu)e(n0*(a*nu-1)/z)rho_(f_v,1)(n0).        (5)
+
+The negative-argument formula has the corresponding minus signs.
+The Hecke multiplier can depend on v. There is no valid need to replace
+it by a common packet scalar. With Theta=7/32,
+|lambda_v(a*nu)|<<(a*nu)^(Theta/2+epsilon), uniformly in the packet.
+
+Combine (5) with the cusp phase e(-a*nu*n0/z). The resulting coefficient
+is, in the positive-sign case,
+
+ beta_nu(n0,z)=1_((n0,a)=1)*beta(nu*n0,z)*e(-n0/z).      (6)
+
+Thus its phase no longer depends on a, nu or the oldform dilation, and
+||beta_nu||_2^2<=sum_(z,n0)|beta(nu*n0,z)|^2. Sign changes do not change
+this inequality. The Fourier modes from section 2 are included in beta.
+
+For clarity, the packet norm step is as follows. ABL (3.3) writes an
+orthonormal packet basis e_g=sum_(v|g)xi_g(v)f_v, with ||f_v||=1 and
+sum_(g,v)|xi_g(v)|^2<<z^epsilon after divisor losses. For a functional
+L_nu on the packet, |L_nu(f_v)|<=||L_nu||. Applying this to (5), then
+the triangle inequality in nu, gives
+
+ ||L_a|| << (aYz)^epsilon
+             sum_(nu|a^infinity,nu<=2Y)(a*nu)^(Theta/2)||L_nu||. (7)
+
+Pair this functional with the unchanged m-side functional in the
+ORIGINAL orthonormal packet. Cauchy--Schwarz costs its original norm.
+Every element of a packet has the same spectral parameter, so any
+positive exceptional or regular spectral weight commutes with this
+step. There is no extra factor equal to the level z. The nu divisor
+count can alternatively convert (7) into the quadratic-form sum in
+ABL Lemma 3.2, at a selectable x^epsilon cost.
+
+The support condition (a,z)=1 is substantive. For instance, in the
+integer formula with z=4, a=2, q_f=1, dilations v=1 and v=4 produce
+K=4 and K=1. This is a negative control for an attempted K=1 argument
+without coprimality, not a counterexample to ABL's general theorem.
+The actual coefficient support excludes precisely this situation.
+
+4. Continuous and regular spectra: the printed quadratic form suffices
+
+An Eisenstein series is not an L2 cusp-form vector. No such vector is
+used here. ABL (3.2) defines its cumulative, cusp-summed continuous
+quadratic form E, including the Plancherel normalization. Lemma 3.2
+explicitly extends the reduction to E, with the powers a^Theta and
+nu^Theta removed. Its proof on PDF page 11 specifies the character-pair
+basis and cites Young sections 8.5 and 9.1 for that normalization.
+
+Under (3), the sum over K|Q_good in that lemma is a singleton. Therefore
+for a spectral height U>=1, the actual continuous norm is bounded by
+
+ E_a(U,z,Y,beta) << (aYz)^epsilon
+                 sum_(nu|a^infinity,nu<=2Y) E_1(U,z,Y/nu,beta_nu). (8)
+
+This is a direct application of the published cumulative quadratic form,
+not an extra unproved per-Eisenstein-vector assertion. ABL (3.8), in the
+SAME normalization, supplies the regular large-sieve bound
+
+ E_1(U,z,L,b) << (zL)^epsilon (U^2+L/z)||b||_2^2.       (9)
+
+Equivalently it is the continuous instance of DI regular large sieve;
+Pascadi Lemma H writes the normalized form with mu(cusp1)=1/z. Using
+the weaker common factor (a*nu)^Theta>=1 in (8) is permitted if one
+wishes to keep the same polynomial as the Maass contribution. The
+holomorphic analogue is also part of ABL Lemma 3.2; regular Maass uses
+the displayed Hecke factors. Heights |t|<=1 use U=1, and higher shells
+use these cumulative norms and the explicitly decreasing Bessel majorant.
+This audit does not reproduce the previously separate shell summation.
+
+ABL prints Y>=1. A nonempty transformed interval L=Y/nu can instead
+lie in [1/2,1), in which case its only possible integer is 1. The proof
+of (5)--(8) is a finite sum identity and remains unchanged: nu<=2Y,
+orthonormal completion and the divisor count still apply. Alternatively
+one can read (8) with its literal finite support rather than a new
+application with a smaller input length. For (9), the DI statement in
+Pascadi Lemma H explicitly permits length >=1/2. A singleton n=1 must
+not be dropped, or placed without explanation in the block (1,2].
+
+5. Exceptional inputs and endpoint completion checked against primary
+
+Pascadi v3 Theorem A, (1.4)--(1.5), permits arbitrary coefficients and
+length L>=1/2 at a cusp with mu=1/z. Its admissible weight includes
+max(1,z/L,z^2/L^3). Our weight 2+Z/L is at most a fixed multiple of
+max(1,z/L); the unused third term is unnecessary. Hence
+
+ sum_exc (2+Z/L)^tau_j |sum b_n rho_(j,1)(n)|^2
+ << (zL)^epsilon (1+L/z)||b||_2^2,  tau_j<=Theta.       (10)
+
+For the unchanged m-side vector, Pascadi Theorem J, (3.34)--(3.35),
+states the level average with a common e(m*omega), uniformly in omega,
+up to weight X<<max(M,Z^2/M), and right side (ZM)^epsilon(Z+M)M.
+For a common integer interval I in (M,2M], expand 1_I in a finite DFT
+of period P>2M. Its coefficient l1 norm is O(log(2M)). Hilbert-space
+Minkowski gives the square of that logarithm, not a maximum of endpoint
+sums chosen separately at every level. A common pre-existing phase just
+shifts every DFT frequency. Subsets of levels (a,z)=1 may be enlarged
+to all levels after the positive squared norm has been formed.
+
+Weights above that threshold are bounded using tau_j<=Theta. The
+bounded positive exceptional cosh factor may be retained at constant
+cost. These are precisely the two a-free inputs needed after (7).
+Neither an arbitrary-coefficient version of Theorem J nor L23's more
+general printed Theorems 9.1/9.5 is required.
+
+6. Uniformity, limits, and what remains an external input
+
+All norms above are uniform over the actual coefficient values, endpoint
+choices and d0, subject to the same smooth seminorm bounds. The required
+coprimality is kept before polarizations, not obtained by deleting an
+unknown error afterward. No sum over possible a or possible d0 is hidden
+inside a spectral constant. For any prescribed epsilon>0 and fixed
+polynomial scale bounds, a-smooth nu<=2Y has at most x^epsilon elements:
+Rankin bounds its count by (2Y)^delta product_(p|a)(1-p^(-delta))^-1;
+the product is x^o(1) for fixed delta>0. Choose delta first. Thus the
+divisor, packet and completion losses are selectable subpower losses.
+
+The separate retained-phase loss x^(5*kappa+o(1)) and the outer D factor
+are NOT included in this selectable epsilon assertion. They remain in
+the existing explicit parameter budget. This note neither removes nor
+recomputes them. In particular it does not assert uniformity for d0
+outside the original subpower range.
+
+Accepted external inputs: the normalized Kuznetsov/cusp identities;
+ABL Lemmas 3.1/3.2 and their stated continuous normalization (with their
+standard oldform/Young ingredients); DI regular large sieve; the precise
+DI exceptional statements A/J as reproduced in Pascadi; and the bound
+Theta=7/32. The argument above checks their actual hypothesis overlap.
+It does not independently prove those classical theorems, estimate E1,
+reconstruct all multiplicities, or certify the final density and sieve
+constants. The retained-phase separation and positive Cauchy interfaces
+are read inputs, with their restrictions explicitly preserved here.
+
+7. Source locations actually used
+
+* ABL, Uniform Titchmarsh divisor problems, arXiv:2005.13915v1,
+  saved primary text PDF pages 7--11: (3.1)--(3.8), Lemmas 3.1 and 3.2.
+  https://arxiv.org/abs/2005.13915v1
+* Pascadi, arXiv:2404.04239v3, Theorem A (1.4)--(1.5), Lemma H,
+  and Theorem J (3.34)--(3.35); saved primary TeX-preserving text.
+  https://arxiv.org/html/2404.04239v3
+* L23 v1 saved primary, Lemma 5.1 proof, text lines 1911--2295:
+  fixed d, inverse phase, positive square and (a,z)=1 support.
+* lichtman-E2-retained-phase-unified-interface-20261010.txt, sections
+  1--6 and final d normalization: actual omega, endpoints and array.
+* lichtman-S1-Poisson-spectral-return-20261010.txt, sections 3--5:
+  common cutoff, four-variable separation and spectral coefficient map.
+* The prior packet/classical-substitution and regular-polynomial notes
+  specify the inherited shell and exceptional polynomial conclusions.
+
+No file in the frozen record, manuscript, state, formalization project,
+or GitHub has been edited. No new global numerical claim is made.

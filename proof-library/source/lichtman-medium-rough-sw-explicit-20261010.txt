@@ -1,0 +1,348 @@
+Actual medium HB coefficient: a renewed quantifier and insertion audit
+2026-10-10. Scope: one separated medium block of the restricted PP route.
+
+Finding
+
+No counterexample or unfilled coefficient hypothesis was found for the
+actual individual medium factor described below. Its full auxiliary SW
+property follows from classical unrough Mobius SW by explicit finite
+identities, uniformly in the original chart, target, interval, and allowed
+Mellin frequency. There is a useful simplification: the actual alpha is
+already one-bounded. Truncate only the complementary beta. This removes
+Maynard Lemma13.7 / L23 Lemma4.3 from this particular insertion, without
+claiming that their general statements are false.
+
+The resulting block estimate is conditional on the separately stated
+restricted one-bounded convolution estimate and the fixed tensor modulus
+assignment. This note does not infer that estimate from SW, re-prove its
+spectral or preliminary-dispersion components, establish the coupled
+Mellin decomposition, or validate all PP, K, c, b. Those dependencies are
+identified explicitly below. In particular a status label is not used as
+a substitute for any of them.
+
+Authorship disclosure. This reviewer wrote the earlier rough-SW fragment,
+spectral-interface audit and restricted composite audit. The present
+work is a renewed derivation and adversarial check, not a second-person
+independent verification of those earlier documents. The independent
+root SW/L review exists separately. No old artifact was changed and no
+integral or numerical geometry was rerun.
+
+1. The actual block, before invoking a distribution estimate
+
+Fix the outer positive cutoff, maximum original prime count k_star, one
+finite policy, and its positive support margins. On an original chart
+p_i in [R_i,2R_i], set X=product R_i and Xplus=2^k X. Fix
+
+  Zchart=f(C_k Xplus),  f(v)=v^(1/(log log v)^3),
+  C_k=2^(6 k_star+2),
+
+BEFORE the order-three HB expansion. All individual variables in every
+HB summand have this same rough projection. Original group labels remain
+fixed. The medium index is selected deterministically from its dyadic
+lengths on this chart, before the values of integers or modulus errors
+are known; it is not selected separately at each integer.
+
+The source x=UV is the COMPLETE product scale after grouping the other
+variables. On retained rectangles x is within fixed factors of X and
+x<=C_k Xplus. Hence, uniformly on those rectangles, eventually
+
+  f(x)<=Zchart<=x^(2/(log log x)^3),
+  x^(2 zeta)<=U<=x^(1/3+zeta/2).
+
+The medium slot comes from one of the factors mu_{(2R_i)^(1/3)}, 1, log
+in the exact groupwise HB identity. After allowed separation and log
+normalization its coefficient has the form
+
+  alpha_n=e(n) 1_{Pminus(n)>Zchart} 1_I(n) h(n) n^(it),       (M1)
+  e=1 or mu, I subset [U,2U], |h|<=1,
+  Var h<=C_h (log x)^B, |t|<=(log x)^B,
+
+where B,C_h are fixed before x tends to infinity. A truncated mu factor
+merely changes I. The modulus does not enter (M1). Coprimality with that
+modulus belongs in the discrepancy, not in an unlicensed alpha filter.
+Units cannot be medium. Fixed HB coefficients and omitted logarithmic
+normalizations are outside this sequence and have fixed/polylog cost.
+
+If there are J complementary slots, J<=6 k_star-1, their normalized
+convolution satisfies |beta_m|<=d_J(m)<=tau(m)^(J-1). Indeed, for p^a
+the number of weak J-part compositions is at most (a+1)^(J-1).
+Subintervals and unit-modulus twists do not increase this bound. Thus
+the divisor order B_beta is fixed by k_star, not by the desired saving,
+target, SW exponent, or Mellin frequency. For example, a two-original-
+prime, twelve-slot HB term has J<=11 and B_beta<=10.
+
+This deduction assumes a genuinely separated summand. Whether a coupled
+original group cutoff has been separated with the required total norm is
+the separate HB/Mellin obligation being audited in the parallel report;
+this note does not silently discard that cutoff.
+
+2. Classical input and the precise uniform SW statement
+
+The external input is classical unrough Mobius Siegel-Walfisz: for every
+fixed A0,B0, q<=log(V)^B0, primitive b mod q, and any interval J in
+[V,2V], the primitive-class discrepancy of mu is O(V log(V)^(-A0)),
+uniform in q,b,J. Constants may be ineffective. Endpoint subtraction
+supplies arbitrary subintervals. Maynard I v2 Definition1, (6.1), and
+the examples immediately after it explicitly record even the full
+auxiliary SW property of unrough mu; only its auxiliary-free special
+case is used here. This is not the disputed large-residue proposition.
+
+For fixed xi>0, 0<c1<=c2, let x^xi<=U<=x and
+x^(c1/(log log x)^3)<=Z<=x^(c2/(log log x)^3). Then (M1) satisfies,
+for EVERY d,q>=1 and primitive b mod q,
+
+ |sum_{n=b mod q,(n,d)=1} alpha_n
+  -phi(q)^(-1) sum_{(n,dq)=1} alpha_n|
+       <=C_A U tau(d) (log x)^(-A).                         (M2)
+
+Constants are uniform in Z, d, q, b, interval endpoints, target-dependent
+choices within this window and the stipulated h,t. No limit xi->0,
+c1->0 or infinite policy is allowed. The divisor exponent on d is 1
+and does not grow with A. This distinction is needed by the source's
+SW condition and by its subsequent logarithmic truncations.
+
+3. Explicit derivation of (M2), including the shortest inner scale
+
+Write L2=log log x, m=2 floor(L2^2), k=m+1 and L=U^(1/4).
+For sufficiently large x, uniformly in Z, Z^k<=L. The even and odd
+Brun polynomials rho^+,rho^- summing squarefree small-prime divisors
+with at most m,m+1 factors satisfy
+
+ rho^-<=1_{Pminus>Z}<=rho^+,
+ rho^+-rho^-=binom(omega(gcd(n,product_{p<=Z}p)),k)>=0.
+
+There are at most L possible supported divisors. On a primitive
+progression, divisors sharing a prime with q disappear exactly. The
+sum of the gap, and its primitive-class average, are at most
+
+  (U/q) H(Z)^k/k! + O(L),  H(Z)=sum_{p<=Z}1/p.
+
+The elementary Euler product bound H(Z)<=e log(1+log Z)=O(L2) gives
+H(Z)^k/k!<=exp(-c L2^2 log L2), smaller than every log power.
+For mu the replacement error is bounded ABSOLUTELY by this nonnegative
+gap, since |mu 1_rough-mu rho^+|<=rho^+-rho^-.
+
+For a squarefree divisor ell in the expansion,
+mu(ell v)=mu(ell)mu(v)1_{(v,ell)=1}. The auxiliary restriction is
+handled by the exact primewise identity
+
+ mu(v)1_{(v,E)=1}=sum_{w|v, p|w implies p|E} mu(v/w).        (M3)
+
+On scale V split w at V^(1/4). For small w, (w,q)>1 makes both
+primitive expressions zero; otherwise change b to b/w mod q and apply
+classical SW. The harmonic sum over w supported on E is
+product_{p|E}(1-1/p)^(-1)<=tau(E). The large-w mass is bounded by
+
+  2V sum_{w>V^(1/4),w|E^infinity}1/w
+  <=2 V^(7/8) product_{p|E}(1-p^(-1/2))^(-1)
+  <=2 V^(7/8) tau(E)^2.
+
+The counting bound floor(2V/w)<=2V/w is essential: no uncontrolled
+sum of ones is added. In the Brun expansion V=U/ell>=U^(3/4), so the
+shortest scale in a classical SW use is V/w>=V^(3/4)>=U^(9/16).
+Consequently every fixed q<=log(x)^B0 is in a fixed logarithmic range
+of that inner scale; enlarge its logarithmic exponent once if needed.
+This is uniform, including at chart, interval and HB-cutoff endpoints.
+
+After summing all ell<=L, the errors are bounded by
+
+ U log(x)^(-A0) sum_{ell<=L}tau(ell)/ell
+       << U log(x)^(2-A0),
+ U^(7/8) sum_{ell<=L}tau(ell)^2/ell^(7/8)
+       << U^(29/32)(1+log U)^4.
+
+The growing Brun order causes no growing divisor exponent here.
+For e=1 the expanded progression counts have O(1) discrepancy each.
+These arguments prove auxiliary-free rough SW for small q. For large
+q use one-boundedness and phi(q)>>sqrt(q): the discrepancy is
+O(U/sqrt(q)+1). A sufficiently large fixed logarithmic threshold for
+q proves the assertion for every modulus, even q beyond the support.
+
+Now insert any auxiliary d. Only prime divisors p|d with p>Z can
+remove a rough integer. The change in either counting expression is
+at most the total removed mass; the change in the discrepancy is
+
+ <=2 sum_{p|d,p>Z}(U/p+1)
+ <=2(U/Z+1)omega(d)<<_A U tau(d)log(x)^(-A).
+
+This is a sum over PRIME divisors, works for arbitrarily large d, and
+does not use d<=x^constant. Finally Stieltjes partial summation costs
+at most 1+Var h+|t|log2=O(log(x)^B). Start with A+B+3 in the rough
+estimate. This proves (M2), including the exact coprime mean, without
+asserting positivity for a signed mu sum.
+
+4. Target and selection changes: what is and is not uniform
+
+Original chart constants depend only on the fixed k_star. The cutoff
+window has c1=1,c2=2, and the medium length has xi=2 zeta (or any
+fixed smaller value). The estimate above therefore permits a target-
+dependent chart, interval and fixed-polylog twist. Deterministic choice
+among finitely many HB slot types, or logarithmically many charts,
+does not alter a common constant. A stronger requested log saving pays
+their count and their separated total norm.
+
+An extra arbitrary target-dependent arithmetic weight is NOT permitted.
+For example 1_{n=1 mod 3} is not covered by this argument. A choice of
+the medium slot depending on n or on signs of modulus errors is likewise
+not covered. The project's stated choice depends only on fixed length
+charts; the original group cutoff is retained until valid separation.
+This is the exact boundary of the conclusion, not an all-coefficient
+SW stability principle.
+
+5. Beta-only normalization: no SW truncation lemma is needed here
+
+Put Lx=log x and beta'=beta*1_{tau(m)<=Lx^C}, for a fixed C chosen
+below. Leave alpha completely unchanged. Then beta'/Lx^(B_beta C)
+is one-bounded and (M2) remains literally the same statement.
+
+For b=nm the absolute deleted coefficient is bounded by
+
+ sum_{nm=b}|alpha_n beta_m|1_{tau(m)>Lx^C}
+       <= Lx^(-C) tau(b)^(B_beta+2).                       (M4)
+
+If the original three-factor modulus coefficient is grouped as rho_l,
+its fixed divisor majorant gives, for b!=T,
+sum_{l|b-T}|rho_l|<=tau(|b-T|)^(J0+1), with fixed J0. Thus the deleted
+counting term is at most
+
+ Lx^(-C) sum_{b~x,b!=T}tau(b)^(B_beta+2)tau(|b-T|)^(J0+1)
+       << x Lx^(E-C),                                    (M5)
+
+where E depends on fixed divisor orders and a fixed polynomial range
+for T, not on C. This is the q=1 case of the shifted-moment bound.
+For this case alone it can be seen directly by Cauchy: use standard
+divisor moments for b, and classical Shiu for the nonzero interval
+|b-T|. Here b~x and T<=x^(1+kappa), with kappa<1; each relevant large
+interval of length comparable to x has length at least its location
+to a fixed power <1/2. For small |b-T| use ordinary dyadic divisor
+moments. Shiu's modulus is 1, so there is no primitive/nonprimitive
+residue issue in this use. The quoted primitive Shiu hypotheses are
+not being extended to an unsupported moving shift.
+
+The exact b=T is kept separate. Its full coefficient mass is at most
+tau(T)^(B_beta+1), and its modulus mass is
+Dtot log(x)^O(1). Hence it is Dtot*x^o(1). The restricted four scale
+conditions give Dtot<<x^(7/10-13sigma/2); fixed constants can be
+absorbed to get, for example, Dtot<=x^(4/5) eventually. Therefore the
+exact-product term is x^(4/5+o(1)), before any optional use of rough
+parity. It has a fixed power margin and causes no tau(0).
+
+For the removed coprime mean, sum (M4) over b and use
+sum_{l<=Dtot}|rho_l|/phi(l)<<log(x)^E1. Dropping its coprime indicator
+only increases the absolute bound. This gives x log(x)^(E2-C), again
+with E2 independent of C.
+
+Fix the desired block exponent A and an extra fixed logarithmic cost K
+for recombination. First choose C>A+K+max(E,E2)+3. Request the one-
+bounded proposition with A0=A+K+B_beta*C+3 and multiply its conclusion
+back by log(x)^(B_beta*C). Then the retained and deleted terms are
+O(x log(x)^(-A-K)). Only the exact-product term uses x^o(1), and it
+has the fixed power saving just proved. There is no fixed-point choice
+of C and A0 and no x^o(1) multiplier on a log-saving remainder.
+
+The one-bounded proposition still sees its ORIGINAL separate bounded
+gamma(q1),lambda(q2),nu(q3). The grouped rho majorant was used only
+for deleted tails; it does not license arbitrary rho in the retained
+convolution theorem. Beta needs no SW assertion. This simpler actual-
+coefficient argument does not require any claim about SW after a cutoff
+in |alpha| or tau(alpha's argument).
+
+6. Insertion into the restricted proposition, including large residue
+
+Use N=U, M=V, a=T, theta=7/32, and the fixed tensor assignment of the
+modulus atom. The necessary inequalities, including the T factor, are
+
+ Q1<U x^(-sigma), U^2 Q2 Q3^2<x^(1-8sigma),
+ T^(7/32) UQ1Q2^5Q3^2<x^(2-15sigma),
+ U^(23/16)Q1Q2^(73/16)Q3^(39/16)<x^(2-15sigma).              (M6)
+
+These are exactly the original four monomials in the restricted
+proposition, not a claim for every residue up to x^(1+kappa) without
+its own third inequality. The modulus-insertion proof supplies (M6)
+from a fixed endpoint assignment: the weakest residual margin before
+8sigma/15sigma is 7zeta/16, whereas sigma<=zeta/1000. That geometry
+proof is a separate input here; the present calculation changes no
+scale, support, coefficient factor or assignment used there.
+
+After the complete-product tail has been removed,
+c T^(1-kappa0)<=x<=C T. Choose kappa=sigma/200 and
+kappa0<sigma/(1000+sigma). Then eventually
+
+  c0 x<=T<=x^(1+kappa).
+
+The scale is the complete product, NOT the residual quotient after
+deleting marked primes. Thus the required near-linear lower bound on
+a in the E1 repair is retained. Every a-dependent SW constant in this
+insertion is uniform by (M2).
+
+For completeness, the residual proof's parameter normalization is
+consistent with this family: Dpre applies with delta=sigma/3; the
+retained phase costs x^(5kappa+o(1)); dyadic smooth factors are treated
+inside the power estimates, not multiplied into a log error; E1 and E2
+have N^2/(D Q1)*x^(-sigma/2). After Cauchy they contribute
+x^(1-sigma/4) times fixed logs. The separate exact-product dispersion
+restoration is only x^(1-sigma/6+o(1)). Therefore the complete theorem
+asserts arbitrary logarithmic saving, not an unqualified overall
+x^(1-sigma/5). Its SW mean-square input consumes finitely many SW
+estimates; common constants from (M2) are sufficient even for a target-
+dependent family. No larger a-range is inferred here.
+
+7. Dependencies and the first obligations outside this audit
+
+The coefficient hypothesis is derived, not reintroduced as an unnamed
+assumption. Its external distribution input is classical unrough mu SW.
+The beta-tail bound additionally invokes classical Shiu for a fixed
+divisor power, or the already explicit shifted-moment proof. Neither
+input is the desired beyond-half convolution conclusion.
+
+For the final BLOCK remainder one must separately supply the restricted
+one-bounded convolution theorem, whose inputs are preliminary dispersion,
+Weil/Poisson, SW mean square, and the stated classical spectral estimates;
+and the fixed tensor modulus assignment proving (M6). This audit has
+read their stated parameters and normalization but has NOT re-proved
+their complete analytic proofs. The current classical spectral
+substitution is therefore still an external component of this block's
+derivation, not a consequence of this report.
+
+For recombination one must also prove that the original coupled HB
+constraints yield separated summands with the stipulated fixed-polylog
+norm and error, with the original rough projector unchanged. That
+separate task cannot be replaced by (M2). The no-medium long alternatives,
+finite sieve compiler, raw densities, Chen insertion and numeric ledger
+are outside scope. Failure of the restricted convolution theorem, its
+modulus assignment or that separation would still invalidate the
+high-rank medium contribution to PP and hence the present beyond-half
+K/c route. Closing this coefficient block alone does not repair them.
+
+Primary and local locations actually read
+
+* external-source-audit-20261009/maynard-I-v2-phase-candidate-20261009.txt:
+  lines1252-1281, Definition1/(6.1) and mu example; lines4121-4156,
+  Lemma13.7 and proof (read for comparison, unnecessary in our beta-only
+  insertion); lines4158-4221, Lemma13.8 (named SW mean-square input).
+  Primary work: Maynard, Primes in arithmetic progressions to large
+  moduli I, arXiv:2006.06572v2.
+* external-source-audit/l23-v1-joint-current.txt: lines1239-1268,
+  Definition2.1/(2.2); lines2413-2455, Proposition5.2; lines2625-2667,
+  its divisor-coefficient reduction. The original all-a conclusion is
+  NOT invoked as a valid input by this report.
+* external-source-audit-20261009/shiu-classical-statement-20261009.txt:
+  lines123-170, fixed-function class and Theorem1.1 (Shiu1980), as
+  restated in Wright arXiv:2508.17217v1. Only the classical theorem is
+  invoked, not Wright's stronger result. The modulus here is 1.
+* lichtman-hb-product-reduction-20261009.txt: lines51-128, fixed
+  original group HB, chart projector and individual medium selection.
+* lichtman-prime-product-insertion-assembly-20261009.txt: lines83-145,
+  common parameters and medium interface. Read together with
+  lichtman-hb-modulus-insertion-20261009.tex, paragraph4, for (M6).
+* lichtman-hb-rough-sw-insertion-20261009.tex: paragraphs2-6, compared
+  term-by-term with the rederivation above; no status used as evidence.
+* lichtman-divisor-coefficient-extension-20261009.txt: sections1-4;
+  our beta-only specialization avoids its alpha-truncation citation.
+* lichtman-restricted-prop52-composite-independent-20261009.tex:
+  D, RP/S and normalization paragraphs, for the conditional block
+  estimate and its sigma/6 limiting power error.
+* lichtman-dispersion-bottom-audit-20261009.txt and
+  lichtman-classical-spectral-substitution-20261009.txt: read to locate
+  the separate D and classical spectral obligations, not recertified
+  by this coefficient audit.

@@ -1,0 +1,265 @@
+Actual prime-product reduction to the repaired convolution estimate
+2026-10-09. New proof supplement; existing bound artifacts are unchanged.
+
+Scope
+
+This note reconstructs the elementary HB decomposition and error-removal
+parts of the actual project insertion. It is a CONDITIONAL reduction to
+the explicitly named distribution inputs below, not a restoration of K,c,b.
+In particular, a statement that a fixed modulus weight has the necessary
+three-factor representation must be proved for that weight separately.
+
+Write T for the even target, x for the complete local integer-product
+scale, theta=7/32, sigma for the repaired convolution saving parameter,
+and z(x)=x^(1/(loglog x)^3). Fix a>0 and k<=k_star, with k_star fixed.
+Every original prime group has scale R_i>>T^a, the complete product is
+O(T), and the original weight is smooth with fixed polylogarithmic
+bounds on normalized derivatives. Its support can impose fixed
+geometric conditions on the original groups, but not an extra arithmetic
+residue restriction on one of the primes. A finite family is handled by
+using the minimum positive cutoff and common fixed parameter choices.
+
+For each target there is one fixed signed modulus coefficient rho_T(l),
+coprime to T and supported on l<=T^theta_star, theta_star<3/5. Its
+absolute value is bounded by a fixed divisor power; the actual compiled
+coefficients are more restrictive. At high rough rank, after removal of
+rough square collisions, assume the exact finite atom representation
+and a fixed slot partition on each atom described in the modulus
+insertion review. Its three factors are one-bounded after fixed
+factorial normalization and meet all four repaired monomial conditions
+for each selected medium scale. At low rough rank, assume instead the
+complete support has a fixed gap below x^(1/2), and use the actual
+compiled coefficient's uniform bound |rho_T|<=1 (a fixed constant also
+suffices). An arbitrary divisor-bounded modulus weight would require
+a separately supplied weighted BV extension; it is not inferred by
+multiplying an unweighted BV remainder by x^o(1). No factorability is
+inferred from a support bound alone, and no modulus partition may be
+chosen in response to the observed progression-error signs.
+
+The analytic inputs still to be supplied at their stated scope are:
+ (SW) full auxiliary, interval/twist-uniform SW for individual rough
+      1 and rough mu on scales U>=x^(2*zeta), uniformly for thresholds
+      between z(x) and x^(2/(loglog x)^3);
+ (P) the restricted convolution repair, including its reviewed divisor-
+     bounded alpha,beta extension and the original modulus hypotheses;
+ (L) the one- and two-long estimates with their actual roughness,
+     interval/twist conditions and primitive coprime means;
+ (BV) classical/generalized BV in the strictly-below-half range.
+The separate HB reviews address SW, L and BV. This note does not certify
+them merely by naming them. Its elementary reductions are proved below.
+
+1. Exact order-three identity, at each ORIGINAL group scale
+
+For one group n in [R,2R], put Z=(2R)^(1/3), and let mu_Z(n) be mu(n)
+for n<=Z and zero otherwise. All operations in this paragraph are
+Dirichlet convolution, with identity delta. Since 1*Lambda=log, set
+E=delta-1*mu_Z=1*(mu-mu_Z). The support of E is contained in n>Z.
+Thus Lambda*E*E*E vanishes for n<=Z^3. Expanding the cube gives the
+exact identity, on that range,
+
+ Lambda = sum_{j=1}^3 (-1)^(j-1) binom(3,j)
+              mu_Z^{*j} * 1^{*(j-1)} * log.                 (HB)
+
+This proves the identity used here without importing a different
+global-scale truncation. Every term has 2j<=6 individual variables:
+j truncated mu variables, j-1 unrestricted 1 variables and one log
+variable. Unit variables are retained; a unit log variable contributes
+zero. No SW claim is needed for a unit variable.
+
+Apply (HB) to each original group separately. Retain only dyadic HB
+rectangles meeting EACH original group interval and the FULL original
+geometric support, BEFORE Mellin separation. Removing an identically
+zero rectangle at this stage changes no sum. If U_1,...,U_s are the
+lower endpoints in one retained group, s<=6, then
+
+          product U_j >= R/2^6.
+
+Write x_HB=product_all U_j. It is comparable, within a constant depending
+only on k_star, to a complete product in the original support. When a
+slot is selected and the complementary convolution is split into dyadic
+intervals, the source scale is x=U*V. This x can differ from x_HB by
+another fixed factor at most 2^(6*k_star+1). Every one of these scales
+is comparable to the original X=product R_i. Consequently each
+R_i<=C(k_star)*x. This remains true on the entire separated rectangle,
+even where the original weight is zero. It justifies the individual
+mu-slot bound U_j<<x^(1/3), but does not justify identifying all the
+scale endpoints exactly.
+
+The roughness threshold must be fixed BEFORE the HB expansion, not
+changed independently for its different summands. On the original
+group chart put X=product R_i, Xplus=2^k*X, C_k=2^(6*k_star+2), and
+choose Zchart=(C_k*Xplus)^(1/(loglog(C_k*Xplus))^3). Every source
+scale after complementary dyadic subdivision is <=C_k*Xplus and
+comparable to X. Since this function is eventually increasing,
+z(x)<=Zchart<=x^(2/(loglog x)^3) for all sufficiently large x.
+Thus the same roughness indicator used throughout (HB) is strong
+enough for P's support hypothesis, and belongs to the uniform SW
+window specified above. Fixed multiplicative chart constants cause
+no loss in a strict exponent margin.
+
+Insert 1_{Pminus(n_1 ... n_k)>Zchart} into the ORIGINAL group sequence.
+It is automatic for the original primes, but not for every prime power:
+p^r~R_i>=T^a need not imply p>Zchart. Instead replace the original
+primes by the ROUGH von Mangoldt sequence and remove its proper prime
+powers as in paragraph 5. On that sequence the insertion is exact.
+Under (HB) it is the product of the SAME Zchart-roughness indicators
+on all individual variables. Units use Pminus(1)=infinity.
+
+2. The medium/long dichotomy and why the residual exponent is fixed
+
+Choose 0<zeta<min(a/48,1/1000), with zeta additionally below all fixed
+compiler margins. First classify slots on the ORIGINAL group chart.
+A medium slot has lower scale
+
+             X^(3*zeta)<=U<=X^(1/3+zeta/4).
+
+The deliberately narrower chart interval absorbs all fixed scale
+constants. For every eventual source x=U*V comparable to X it implies
+x^(2*zeta)<=U<=x^(1/3+zeta/2), the precise interval required by the
+modulus factorization with A0=U*x^(-zeta). No decision is made using
+an as-yet unspecified complementary dyadic scale.
+
+If it exists, select ONE such individual slot, not a grouped
+convolution. After separating smooth factors, its coefficient is
+rough 1 or rough mu, on a subinterval, possibly with a normalized
+logarithm and a Mellin twist. These are exactly the coefficients of
+input SW. Grouping the remaining at most 6*k_star-1 variables gives
+a complementary coefficient of fixed divisor order, after normalizing
+the finitely many logarithms. Input P and its divisor truncation apply
+when the actual atom partition supplies the four scale inequalities.
+
+If there is no medium slot, every slot is short (<X^(3*zeta)) or long
+(>X^(1/3+zeta/4)). A group containing only short slots would have
+lower-endpoint product <X^(18*zeta), contradicting R_i/64>>T^a
+for large T. Hence every original group contains a long slot.
+Three long slots would have product >X^(1+3*zeta/4), impossible since
+the product of all dyadic lower endpoints is x_HB=O_k(X), with each
+individual endpoint >=1.
+There are at most two long slots and at most two original groups.
+A truncated mu slot cannot be long, because its endpoint is
+O(x^(1/3)); a long coefficient is therefore rough 1, with only the
+allowed log, interval and smooth factors before partial summation.
+
+With one long slot there is one original group, at most five remaining
+short variables, and their product is O_k(X^(15*zeta))<=x^(16*zeta)
+eventually. With two long slots there are at most twelve total variables
+and at most ten short ones; their product is O_k(X^(30*zeta))
+<=x^(32*zeta). The independent long-branch proof may use its own
+precision zeta_L=2*zeta, giving the conservative bounds x^(10*zeta_L)
+and x^(20*zeta_L). Zeta is chosen small enough for its stronger
+proof-level modulus condition theta_star<(2/3)*(1-40*zeta)-4*epsilon_L.
+Thus no residual bound of the
+form x^(O(k_star*zeta)) is silently used in these exceptional cases.
+This only reduces the problem to L; in particular it does not prove
+that a fixed-residue or interval-restricted version of L is adequate.
+
+3. The actual large-residue range
+
+Remove the low complete-product tail below O(T^(1-kappa0)) using
+the separately reviewed absolute tail estimate. Every retained HB
+rectangle then has
+
+             c1*T^(1-kappa0)<=x<=C1*T
+
+with positive constants depending only on the fixed family. Thus a_res=T
+satisfies T>=x/C1. If kappa0/(1-kappa0)<kappa, it also satisfies
+T<=x^(1+kappa) for sufficiently large T, absorbing the fixed c1 factor.
+For example choose sigma after zeta and all compiler margins, then
+
+     kappa=sigma/200,  0<kappa0<sigma/(400+sigma),
+
+and also impose the finite local-level and gate-continuity constraints.
+Then kappa0/(1-kappa0)<sigma/400<kappa<=sigma/100. This verifies BOTH
+residue endpoints of P with c0=1/C1. It does not revive the source's
+larger all-a range, and does not replace x by T divided by a marked
+prefix. The required x is the complete product being distributed.
+
+4. Smooth separation and the logarithmic error budget
+
+On a retained dyadic rectangle, use logarithmic coordinates
+log(n_j/U_j), with a fixed smooth cutoff equal to one on that rectangle.
+Fourier inversion separates its smooth geometric weight into products
+of n_j^(it_j). Normalized derivative bounds imply, by integration by
+parts, arbitrarily rapid frequency decay with fixed logarithmic
+constants. Truncating all |t_j| at a sufficiently large fixed power
+of log T leaves a pointwise O(log^(-B)T) error for any requested B.
+The retained frequency domain and transform L1 norm cost at most a
+fixed logarithmic power. The input bounds must be uniform on that
+domain; this is precisely why SW and L include interval/twist scope.
+
+The truncation error is estimated AFTER summing the moduli. For a
+complete integer v!=T the sum of fixed-divisor-order modulus weights
+over l|(v-T) is at most tau(|v-T|)^C. The coefficient at v from finitely
+many HB variables is also bounded by a fixed divisor power, times a
+fixed logarithmic power. The reviewed nonzero shifted-divisor moment
+Z2 therefore gives an error O(x*log^(C'-B)x) on the complete local
+scale. The logarithmic exponent C' is fixed before B is chosen.
+For v=T use the first-moment bound T^(theta_star+o(1)), with the
+extra log^(-B) harmless; the fixed gap theta_star<1 provides a power
+saving. In the actual even-target rough problem that equality is
+already excluded by parity, but the argument does not require this.
+The coprime mean is controlled by the fixed logarithmic sum
+sum_l |rho_T(l)|/phi(l), without a modulus-level factor.
+
+All cutoff and frequency choices are fixed logarithmic powers. Start
+with a larger arbitrary-log exponent in SW, P, L and BV to absorb
+their total costs and the polylogarithmic number of HB/dyadic pieces.
+Subpower factors are used only against the fixed power-saving terms,
+never multiplied into a remainder that has only logarithmic saving.
+
+5. Prime powers and rough-square collisions
+
+Proper prime powers in an original group are removed by an absolute
+estimate, independently of distribution. For group size >=c*T^a,
+the sum of 1/p^r over prime powers p^r>=c*T^a, r>=2, is
+T^(-a/2+o(1)), by dyadic summation of the elementary prime-power
+count O(y^(1/2)*log y). The number of remaining product tuples of
+size O(T) has at most fixed divisor order. Hence their total mass is
+T^(1-a/2+o(1)). Summing congruences first costs only a divisor power
+of |v-T| for v!=T, which is T^o(1); the exact v=T term contributes
+at most T^(theta_star+o(1)). The mean has only a logarithmic additional
+factor. This proves that replacing original primes by rough Lambda,
+using HB, and then removing prime powers introduces a power-saving
+error. Partial summation removes the prime logarithms, since every
+original group is >=c*T^a. This covers both rough and excluded
+nonrough proper prime powers; no assumption on their base primes
+was necessary.
+
+For removing a rough-square modulus collision, let w=T^omega with
+fixed omega>0, and let C be the moduli <=D=T^theta_star divisible
+by p^2 for some prime p>w. Elementary divisor counting gives
+sum_{l in C}1/l << log T/w and #C<<D/w. Including divisor weights
+in both the sequence and modulus costs T^o(1). Both the progression
+count and its primitive mean therefore contribute at most
+
+             (T+D)*T^o(1)/w = O(T^(1-omega/2))
+
+eventually. The +1 in the progression count is retained, so v=T
+is covered here as well. After this error is paid, the exact atom
+representation may replace its squarefree rough convolution by
+the unrestricted convolution whose factors can be normalized.
+Small-prime beta support is disjoint from rough prime support;
+factorial normalization and repeated-label factors must still be
+tracked as in the separate modulus review.
+
+6. Exact implication, not a global certificate
+
+Given SW, P, L, BV and the actual finite compiler assumptions stated
+above, the argument yields for each permitted fixed smooth family W_T
+
+ sum_l rho_T(l) [ sum_{p1...pk=T (mod l)} W_T(p1,...,pk)
+           - phi(l)^(-1) sum_{(p1...pk,l)=1} W_T(p1,...,pk) ]
+                   = O_A(T/log(T)^A)
+
+for every fixed A, uniformly in the even target. Positive outer
+weights and signed lower-sieve weights use the SAME discrepancy;
+the absolute error does not assume a positive error sign or a
+positive lower bound on an individual cell's mass. Finite exact
+linear combinations preserve the conclusion. This is an analytic
+reduction, not yet a proof that every current compiler supplies
+its assumptions or that the separate L and BV sources apply.
+
+The current numeric tuple, density budgets, full-Y11 pointwise proof,
+finite H/h table induction, and the unidentified Wu weight-domain correction are
+not validated by this reduction. Old files labelled 'closed' remain
+subject to the external-input alert. No global K,c,b status is changed.

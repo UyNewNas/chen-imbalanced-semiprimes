@@ -1,0 +1,148 @@
+% Generalization of the existing eleven-term functional, 2026-10-08.
+% Numerical diagnostics using this fragment are not certified bounds.
+\subsection{Allowing the three weight thresholds to vary}
+\label{sec:free-weight-thresholds}
+
+The identity $d=1/2-3a$ is not used in the direct quotient-weight
+proof. The following range records sufficient conditions for retaining
+that weight and all of the ordinary-sieve inputs used in the current
+separate calculation. Put
+\[
+ \mu=\frac{25}{128},\quad e=\frac{57}{224},\quad
+ \nu_*=\frac{249}{448},\quad w_*=\frac{25}{224},
+ \qquad \bar f=\frac{f}{2e^\gamma}.
+\]
+Take fixed parameters satisfying
+\begin{equation}\label{eq:free-threshold-range}
+ \frac1{12}<a<h<d<e,\quad w_*<h<\min(\mu,2a),\quad
+ h+d>\frac13,\quad h+d<\frac12,\quad
+ 4a+d<1,\quad 4h+d<1.
+\end{equation}
+The conditions are sufficient, not claimed necessary or optimal.
+All appearances of $Y_i$ and $\Upsilon_i$ in this subsection use these
+new thresholds in their original quotient definitions, with the full
+fourth-prime interval $h<t_4<d$.
+
+\begin{proposition}[Parameterized ordinary-sieve functional]
+\label{prop:free-weight-thresholds}
+Under the already derived distribution and switching interfaces,
+the eleven-term lower bound continues to hold under
+\eqref{eq:free-threshold-range}. It gives
+\[
+ \liminf_{\substack{N\to\infty\\N\ {\rm even}}}
+ \frac{D_{1,2}(N)}{\HN}\ge c(a,h,d),
+\]
+where
+\[
+ c(a,h,d)=\frac{3L_1+L_2+L_5+L_6-U_3-U_4
+                 -2U_7-U_8-U_9-U_{10}-U_{11}}4.
+\]
+The upper terms have the integral definitions in the original functional,
+with every switching coefficient $8$ replaced by the established cap
+$K=681/100$. The last domain is always the full domain
+$a<t_1<t_2<t_3<h<t_4<d$.
+For the single-prefix upper terms use
+\[
+ U_3=\frac{2e^{-\gamma}}a
+ \left\{\int_a^e F\left(\frac{v(t)-t}{a}\right)\frac{dt}{t}
+       +\int_e^{1/3}F\left(\frac{1/2-t}{a}\right)\frac{dt}{t}\right\},
+ \qquad
+ U_4=\frac{2e^{-\gamma}}a
+       \int_a^dF\left(\frac{v(t)-t}{a}\right)\frac{dt}{t}.
+\]
+If a displayed upper argument is in $(0,1)$, the notation $F(s)$
+means the extension $2e^\gamma/s$. It is implemented by lowering the
+sifting cutoff; no linear-sieve theorem at an argument below one is
+being invoked.
+The lower terms are
+\[
+ L_1=\frac4a\bar f(\nu_*/a),\qquad
+ L_2=4\left\{(1/h+1)\bar f\left(\frac{1/h+1}{2}\right)
+                         -\bar f(249/50)\right\}.
+\]
+For $a\le u\le\min(t,h)$, define
+\[
+ V_{2,a}(t,u)=
+ \begin{cases}
+ \max\{v(t),v(t+u),153/256-3a/8\},&t\le\mu,\\
+ v(t),&t>\mu.
+ \end{cases}
+\]
+Use $V_{2,a}$ in the existing two-prefix lower integrals for $L_5,L_6$.
+These are integral statements; floating-point evaluations of $c$ do not
+supply a rigorous lower bound.
+\end{proposition}
+
+\begin{proof}
+The pointwise weight proof uses the counts $r,s,t$ of prime factors
+below $N^h,N^d,N^{1/3}$, respectively. Its algebra and the identities
+$Y_{10}=\binom{r-2}{2}$ and $Y_{11}=(r-2)(s-r)$ for $r\ge2$
+do not require a relation between $d$ and $a$.
+The quotient cutoff in $Y_9$ is at least $N^{(1-d)/4}>N^a$ by
+$4a+d<1$, so every term has the required initial roughness.
+In the case $r=0,s=1,t\le2,k\ge4$, the product of the first four
+factors is greater than $N^{h+d+2/3}>N$; this uses $h+d>1/3$.
+All other cases of the previous pointwise proof are unchanged.
+The exceptional square factors and $n<N^{1-a}$ still cost
+$O(N^{1-a})$. In particular, every prime-product sequence in the
+switching argument has at most eleven factors, since $a>1/12$.
+
+For the one-prefix upper bounds, $2t<v(t)$ holds for $t<e$.
+Beyond $e$ the classical upper sieve supplies the stated option.
+If its residual parameter is less than two, lower the sifting cutoff
+to half the residual level exponent. Since $sF(s)=2e^\gamma$ on
+$0<s\le3$, this gives the same displayed kernel. Boundary strips
+are removed using the existing order of limits.
+
+The uniform restricted-lower argument only requires that the actual
+largest rough prime exponent be at most $h<\mu$. For three or more
+rough slots the repaired full envelope is at least
+\[
+ \max\{(1+t_1)/2,153/256-3t_1/8\}\ge\nu_*.
+\]
+For at most two slots, $2h<1/2$ permits the same ordinary
+Bombieri--Vinogradov treatment. Thus the proof of $L_1$ applies at
+cutoff $a$. For $L_2$, start the exact least-prime Buchstab identity
+at $w_*<h$ and use the one-prefix upper bound on $[w_*,h]$.
+Its smallest limiting upper-sieve argument is
+$(1-h)/(2h)>2$, and the initial square condition has a positive
+margin since $h<\mu<1/3$. The antiderivative already derived in
+Section~\ref{sec:buchstab-restricted-lower} yields the stated full
+$f$ expression. Its later specialization to an elementary logarithm
+at the old value of $h$ is not imposed on this parameter range.
+
+In the two-prefix lower sieve, all residual rough primes are below
+$N^a$, while the two specified primes exceed it. The proof of the
+$V_{2,a}$ envelope applies because $1-2h>153/256$ and $a<h<\mu$.
+The empty residual atom has total support below $N^{d+h}<N^{1/2}$.
+On the part where the lower function is positive,
+$V_{2,a}-t-u>2a>h\ge u$ proves the second prefix square condition.
+The first condition follows from $2t<v(t)$ for $t<d<e$.
+Where the function is zero, nonnegativity suffices.
+These checks replace numerical inequalities special to the old
+thresholds; the signed box construction and its density are unchanged.
+
+Finally, $S+z<1$ throughout the two four-prefix switching domains,
+where $S$ is the sum of the four exponents and $z$ is the second
+smallest. For $U_{11}$ this follows from $S+z<d+4h<1$;
+for $U_{10}$ it follows from $5h<1$, since $h<\mu<1/5$.
+The quotient-unit boundary is therefore avoided. The already derived
+finite-prime-product switching proof also permits the current $a$ in
+place of the original fixed roughness lower bound. Its uses of that
+bound are a fixed positive prime-factor exponent, at most eleven
+factors, the choice $12\zeta<a/2$, and errors of sizes
+$N^{1-a+o(1)}$ and $N^{1-a/2+o(1)}$. Choose $\zeta$ again for this
+fixed $a$; those errors remain negligible. The coefficient integral
+of the modulus sieve is independent of $a$, so the established
+$K$ applies to all five terms. This is an adaptation of the earlier
+proof, rather than an application of its old fixed-$a$ statement.
+Retain fixed positive margins, let $N$ tend to
+infinity, and only then remove the construction parameters and
+boundary strips. Combining the eleven estimates proves the assertion.
+\end{proof}
+
+The rational tuple $(a,h,d)=(43/500,3/20,47/200)$ satisfies every
+inequality in \eqref{eq:free-threshold-range}. It also has
+$a>(153/256)/7$, so the four-prefix ordinary upper option from the
+separate minimum construction uses its simpler kernel on this tuple.
+No numerical value for its integral functional is certified here.

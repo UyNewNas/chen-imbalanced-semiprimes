@@ -1,0 +1,109 @@
+Independent upper bound for the discarded L6 floors, and the selected v2 mass
+10 October 2026. New report; no old manuscript or certificate is replaced.
+
+This report explains the independent-v2 checker. The earlier independent
+checker implements the 12/5 candidate. Only the v2, threshold7/3, gain is
+selected; its mass is a replacement for that candidate, never an addition.
+
+1. What has to be bounded
+
+The selected historical L6 estimate is a sum of author512 integer floors,
+with denominator Q80. E1 consists of the same11481 pair rectangles; E0 has
+6091 rectangles with zero saved floors. Their total is17572. Older textual
+total17772 is an addition typo; both masks and all actual sums have the
+correct sizes. Neither mask is enlarged by this change.
+
+We need an UPPER bound for the sum of the discarded LOWER ESTIMATOR divided
+by4, not an upper bound on the arithmetic Y6 count. This allows the kept
+lower estimator to be bounded by old_L6 minus four times the upper loss.
+
+2. Derivation from the literal historical cell evaluator
+
+On each E1 rectangle B=[tl,tr]x[ul,ur], put
+ R=C-(5/2)t-u, C=57/64, a=417/5000,
+ r=R(tr,ur), R0=R(tl,ul), sl=r/a, sh=R0/a,
+ M=log(tr/tl)log(ur/ul),
+ MR=C M-(5/2)(tr-tl)log(ur/ul)-(ur-ul)log(tr/tl).
+The actual nonenhanced author function has exactly this active affine
+residual plane. The other plane cannot win since t>=mu=25/128.
+All E1 cells have2<sh<=9/4. For sl<2, all saved options are zero by the
+source guards; there are227 such cells. Otherwise set
+ f_l=log(sl-1)/sl, f_h=log(sh-1)/sh.
+These are true ordinary fbar values on the explicit [2,3] branch, hence
+at least the historical certified lower endpoint values used by the
+original ordinary-function mesh. Both source options, in Chen units,
+are bounded above respectively by
+ C_B=f_l M/a,
+ A_B=[f_l(R0 M-MR)+f_h(MR-r M)]/[a(R0-r)].
+The two coefficients R0 M-MR and MR-r M are positive integrals; the
+checker verifies strict positivity of their outward enclosures. Thus
+substituting true endpoint values has the required direction even when
+one of the original numerical endpoints was rounded further downward.
+The max of the two original downward-rounded options is at most
+max(C_B,A_B). A larger collection of overlapping ordinary estimates is
+not being summed.
+
+Let H_B be the minimum h248 entry over ALL closed table cells meeting
+[sl,sh]. At a table knot both adjacent cells are included. The historical
+lookup queries an outward enclosure, and hence may inspect more cells;
+its minimum cannot exceed H_B. The old defect floor is therefore at most
+H_B M/R0 in Chen units. The complete cell loss is bounded above by
+ max(C_B,A_B)+H_B M/R0.
+
+The independent code imports no original interval or sieve implementation.
+It encloses these analytic upper bounds using decimal integer intervals
+and alternating Mercator logarithms, with range reduction to[1,3/2].
+The even partial sum and its next term provide both analytic endpoints;
+all multiplications, divisions and cancellations are outward rounded.
+This establishes the bound without independently reconstructing every
+historical ordinary-function mesh point.
+
+The resulting sum is enclosed around
+ .0023348841363598131014744273487904210482525025346147,
+strictly below the chosen .002334885. The separate author-floor replay
+gives .0023348841306025784..., which is smaller, as required. Agreement
+of those two different quantities is not asserted; the independent
+analytic quantity is deliberately a rigorous upper estimate.
+Against the old paid loss .002372094, the certified recovery is .000037209.
+
+3. Independent mass and the analytic interface
+
+The separate Buchstab proof establishes omega(s)>=11/20 for s>=7/3
+using only log x>=2(x-1)/(x+1), a concave quadratic on[7/3,3], and the
+delay equation, first through10/3 and then by unit-interval induction.
+It also proves omega>=1/2 on all s>=2. For each fixed pair rectangle set
+ Z=min(ul,3(1-tr-ur)/13).
+On a<w<z<Z, the actual argument(1-t-u-z-w)/z is at least7/3.
+Every full fibre has argument at least77/38>2. Thus the old1/2 mass and
+the new1/20 extra on this subfibre are pointwise simultaneously valid.
+
+The retained parent density is >=K omega(actual)/z, and the extra Chen
+mass is exactly bounded below by
+ (K/80)log(tr/tl)log(ur/ul)[1/a-(1+log(Z/a))/Z].
+The z primitive is -(1+log(z/a))/z. The outer variables separate only
+because Z is constant within each pair rectangle. The v2 independent
+code verifies Z>a and the argument inequality on every adopted cell.
+Its two group intervals give .0001931809125035256... for E0 and
+.00036540308173821915... for E1. Their sum strictly exceeds .000558583.
+
+The old removed majorant mass was bounded using1/2 on the SAME fibres.
+The new minorant1/2+(1/20)1_subfibre stays below omega pointwise, so the
+extra mass can be added once to the previous safe gross deletion. This
+uses the already restrictable positive majorant, not an upper estimate
+for a removed arithmetic count. Fixed finite rational walls are handled
+by the retained positive-family approximation and common refinement.
+
+4. Ledger and scope
+
+Safe extra gross .000558583 plus recovery .000037209 gives raw increment
+.000595792. Keeping all old allowances and adding this increment/8 to
+each of the two lower allowances leaves .000446844. K stays6.7617368.
+Future raw K-feedback slope decreases ONLY by .000558583/K; the recovered
+saved loss is independent of K. The v1 and v2 gains are never both used.
+
+This review does not establish a new distribution theorem, revalidate
+every retained analytic module or reinstate Li1.9728. It proves the new
+numerical improvement relative to the actual existing proof interfaces.
+The source-method report separately distinguishes fresh readings from
+project-side elementary derivations. Full rows and source bindings are
+in the paired-certificate-v2 and paired-independent-v2 JSON records.

@@ -1,0 +1,365 @@
+% Derived route fragment, 2026-10-08. Not inserted in main/state.
+% Companion JSON distinguishes exact algebra from floating diagnostics.
+
+\subsection{A fourth-prefix refinement of the product upper sieve}
+\label{sec:fourth-prefix-K-refinement-route}
+
+This construction keeps every first- and third-prefix decision of
+\texttt{extended-prefix-upper.tex}. It changes only the later odd
+cube tests inside selected surviving third-prefix trees.
+It therefore avoids making a rank-three decision depend on an
+unseen fourth prime. The resulting coefficient improvement is
+strictly positive on an explicit rational box.
+
+Write
+\[
+ \rho=\frac{19}{96},\quad \mu=\frac{25}{128},\quad
+ \Theta=\frac{299}{500},\quad \Lambda=\frac{153}{256},
+ \qquad v(t)=\min\{(1+t)/2,57/64-3t/2\}.
+\]
+Let \(L_3(x,y,z)\) be exactly the limiting cap of the extended
+construction, and put \(S_3=x+y+z\), \(S_4=S_3+w\).
+Below \(x=\mu\), its existing simplified formula is
+\[
+ L_3=\max\{v(x),v(x+y),v(S_3),
+                 \Lambda-3z/8,v(x+z),v(y+z)\};
+\]
+above \(\mu\) it is the original fallback \(v(x)\).
+The minimum with \(\Theta\) is retained if needed.
+
+For four ordered slots \(t=(x,y,z,w)\), define
+\[
+ W_4=\max\{2x,x+2y,x+y+2z,S_3+2w\}.
+\]
+For a nonempty subset \(I\subseteq\{1,2,3,4\}\), put
+\[
+ s_I=\sum_{i\in I}t_i,\qquad
+ G_I=\max_{j\notin I}
+       \left(s_I+\sum_{\substack{k<j\\k\notin I}}t_k+2t_j\right),
+ \qquad \max\varnothing=0.
+\]
+The already derived selected-subproduct interface licenses
+the endpoint \(v(s_I)\) when it strictly exceeds
+\(\max\{1/2,W_4,G_I\}\), with the actual level taken strictly
+between that gate and endpoint.
+
+\paragraph{Admissible compact patches.}
+Choose a finite union \(\mathcal C\) of compact positive exponent
+boxes with strict ordering and fixed positive margins such that
+\[
+ 0<w<z<y<x<\rho,\qquad S_3+2z<L_3,
+ \qquad L_3<M<\Theta .
+\]
+Here \(M(t)\) is one fixed eligible selected-subproduct endpoint
+on each branch of the patch, with
+\[
+ \max\{1/2,W_4,G_I\}<M=v(s_I).
+\]
+The inequality \(S_3+2z<L_3\) is the old third cube:
+only third prefixes already retained by the old sieve are changed.
+One may take inner approximations to a bounded piecewise-affine
+region and then remove its gate and ordering strips.
+The explicit patch below stays away from every such boundary.
+
+Let
+\[
+ s_i=\frac{L_i-S_4}{w},\qquad (L_3,L_4)=(L_3,M),
+ \qquad \overline F=F/(2e^\gamma).
+\]
+The old third cube gives \(L_3-S_4>2z-w>w\), so \(s_3>1\).
+Define
+\begin{equation}\label{eq:fourth-prefix-K-gain}
+ \Delta_{\mathcal C}
+ =4\int_{\mathcal C}
+       \frac{\overline F(s_3)-\overline F(s_4)}
+            {xyzw^2}\,dx\,dy\,dz\,dw.
+\end{equation}
+On a patch with \(s_4<3\), both arguments lie in \((1,3)\),
+and this becomes the rational kernel
+\begin{equation}\label{eq:fourth-prefix-K-rational-gain}
+ \Delta_{\mathcal C}
+ =4\int_{\mathcal C}
+ \frac{M-L_3}{xyzw(L_3-S_4)(M-S_4)}\,dx\,dy\,dz\,dw.
+\end{equation}
+
+\begin{proposition}[Fourth-prefix descendant refinement]
+\label{prop:fourth-prefix-descendant-refinement}
+Assume the existing extended upper-weight, finite-prime-product
+distribution, and selected-subproduct interfaces with their stated
+strict margins. For every
+\[
+ K_*>K_{\rm ext}-\Delta_{\mathcal C},
+\]
+the same upper estimate with coefficient \(K_*\) holds for all the
+original admissible labelled positive product families.
+Their masses and multiplicities are unchanged.
+The proposition provides a new weight construction and its analytic
+coefficient; the large floating gain reported below is not a
+certified numerical value.
+\end{proposition}
+
+\begin{proof}
+Freeze the old coarse third labels and their caps \(\lambda_B\).
+Inside a retained third tree, subdivide the fourth-prime range by
+fixed coarse labels. On an active fourth box \(C\), select one
+branch and a buffered cap \(\lambda_C\) satisfying
+\[
+ \lambda_B<\lambda_C<\nu<\Theta,\qquad
+ \max_C\{1/2,W_4,G_I\}<\lambda_C<\inf_C v(s_I).
+\]
+Here the notation suppresses fixed positive margins, and
+\(\nu\) is the old buffered global exponent. Refine the third and
+fourth boxes enough that these intervals are nonempty.
+Outside active fourth boxes, keep the old cap.
+
+Let \(\mathcal R_3\) be the old raw upper support.
+For ranks at most four, retain precisely its membership rule.
+For rank at least five in an active box, retain the old first
+and third cube tests and replace each later odd cube by
+\[
+ t_1+\cdots+t_{j-1}+3t_j<\lambda_C,
+       \qquad j=5,7,\ldots.
+\]
+Do not retain the later old \(\lambda_B\) tests as extra conditions:
+those are the conditions being relaxed.
+Call the resulting support \(\mathcal R_4\).
+A tuple whose third prefix failed the old test remains excluded.
+
+This support is prefix closed. The fourth box makes no new
+rank-four exclusion, and its cap is frozen for every descendant.
+Every first exclusion is therefore still odd.
+Equivalently, in the lower residual tree after the third prime,
+the first possible changed exclusion has residual rank two,
+which is full rank five. Thus
+\(\mu(d)\mathbf1_{\mathcal R_4}(d)\) is an upper weight by the
+same exact first-exit identity as the old construction.
+This argument does not assume coefficientwise monotonicity of
+M\"obius sums under support enlargement.
+
+For factorization, all first four square conditions are below
+\(\lambda_B\): the first three follow from the old upper support,
+while
+\[
+ S_3+2w\le S_3+2z<\lambda_B.
+\]
+At every later odd slot the new cube implies its square test.
+At a subsequent even slot, ordering gives
+\[
+ t_1+\cdots+t_{j-2}+t_{j-1}+2t_j
+ \le t_1+\cdots+t_{j-2}+3t_{j-1}<\lambda_C .
+\]
+Hence every new complete rough vector belongs to the buffered
+\(\mathcal D^{\rm well}(N^{\lambda_C})\).
+The selected four-slot gate then supplies the same three-factor
+partition as the previously derived four-prefix argument.
+It remains fixed on the fine box. Appending the small factor,
+perturbing the true local scale and the residue exponent, and
+normalizing slot convolutions cost only the already budgeted
+fixed margins. The cap remains below \(3/5\).
+
+Apply the old parity boxing to both the inherited early cube tests
+and the new later cube tests. The number of frozen levels is finite.
+The coefficientwise upper comparison and the tagged-boundary estimate
+therefore remain valid, with the same error type
+\[
+ O(C_{\rm grid}\tau\omega^{-5}
+        +e^{-c/\eta}\omega^{-2}+o_N(1)).
+\]
+Attach the upper small-prime weight at even rough rank and the lower
+one at odd rough rank. Unique small/rough decomposition, factorial
+normalization, and the exact coprime-mass correction are unchanged.
+The existing double Heath--Brown product distribution proof only
+needs the verified factorization of these bounded atoms, not the
+whole weight to have an unproved global factorability property.
+All parameters are fixed before \(N\to\infty\).
+
+It remains to justify the density subtraction.
+For an active four-prime prefix \(P=p_1p_2p_3p_4\), its rank is even.
+Its full subtree contribution is
+\[
+ g_N(P)V_N^+(N^\lambda/P,p_4).
+\]
+Indeed the subsequent full odd cubes are precisely residual odd cubes.
+The active four-prefix trees are disjoint, so the exact identity is
+\begin{equation}\label{eq:fourth-prefix-exact-density-difference}
+ V_{\mathcal R_3}-V_{\mathcal R_4}
+ =\sum_{\text{active }P}g_N(P)
+ \left\{V_N^+(N^{\lambda_B}/P,p_4)
+              -V_N^+(N^{\lambda_C}/P,p_4)\right\}.
+\end{equation}
+A one-sided upper estimate for each term is not enough for this
+identity's limiting evaluation. The required ordinary upper-density
+equality is proved in the next paragraph.
+Together with prime-number-theorem integration it turns
+\eqref{eq:fourth-prefix-exact-density-difference} into
+\eqref{eq:fourth-prefix-K-gain}, since
+\(2e^{-\gamma}F=4\overline F\).
+Outside the compact patch, every coefficient and every tail estimate
+is the old one. Thus there is no new improper-cutoff limit.
+Taking the same ordered limits and using strict slack proves the
+proposition.
+\end{proof}
+
+\paragraph{Uniform ordinary upper-density equality.}
+For \((\beta,t)\) in a compact set with \(\beta/t>1\),
+\[
+ V_N^+(N^\beta,N^t)/V_N(N^t)=F(\beta/t)+o(1)
+\]
+uniformly in even \(N\). Here \(g_N(p)=
+\mathbf1_{p>2,\ p\nmid N}/(p-1)\), and the support is the ordinary
+cubic Rosser upper support.
+
+The proof is the odd-exit counterpart of the already written
+uniform residual lower-density lemma. The exact identity is
+\[
+ V_N^+/V_N=1+\sum_{\substack{j\ge1\\j\ {\rm odd}}}T_{j,N},
+ \qquad T_{j,N}\ge0.
+\]
+For each fixed depth \(j\), the preceding square inequalities imply
+that the last prime of a first exit exceeds \(N^{c_j}\), uniformly
+on the compact parameter set. Prime-number-theorem integration gives
+\(T_{j,0}=a_j(\beta/t)+o(1)\).
+Deleting primes dividing \(N\) changes this by \(o(1)\), since
+\(\sum_{p\mid N,\ p\ge N^{c_j}}1/(p-1)
+ \ll N^{-c_j}\log N\).
+The classical compact-uniform positive-exit series is
+\[
+ 1+\sum_{\substack{j\ge1\\j\ {\rm odd}}}a_j(s)=F(s).
+\]
+It is the upper half of the same recurrence and convergence input
+used in the lower-density lemma; see
+\href{https://www.suzuyu1729.com/notes/NagoyaSeminar2022/RosserIwaniec.pdf}
+{Suzuki, Sections 9--12, Propositions 9.4 and 11.8}.
+A finite sum gives the required lower limit. The ordinary one-sided
+linear upper-density bound gives the reverse limit.
+Take \(N\to\infty\) first, then the fixed depth to infinity.
+For \(1<s\le3\), one may also replace the cutoff by \(N^{\beta/3}\):
+the raw support is unchanged because its first cube already forces
+every supported prime below that threshold.
+This proves the claimed equality without subtracting two one-sided
+bounds or assuming a two-sided dimension estimate uniform in \(N\).
+
+\paragraph{An exact positive box.}
+Consider
+\[
+ \mathcal B=
+ [17/100,89/500]\times[27/250,111/1000]
+ \times[97/1000,99/1000]\times[17/200,19/200].
+\]
+Its ordering is strict. On this entire box the old simplified
+envelope is \(L_3=(1+x)/2\).
+For example \(y+z\ge.205>\mu\) gives
+\(v(y+z)\le.583125<.585\le v(x)\); the other nonbaseline
+branches are smaller as well.
+
+Choose \(I=\{3,4\}\).
+Then \(z+w\le.194<\mu\), and
+\[
+ M=v(z+w)=\frac{1+z+w}{2},\qquad M-L_3\ge\frac1{500}.
+\]
+The old third-cube margin and the nontrivial selected gate margin are
+\[
+ L_3-(x+y+3z)\ge\frac3{1000},\qquad
+ M-(z+w+x+2y)\ge\frac3{1000}.
+\]
+The other selected gate \(z+w+2x\) has greater surplus;
+the four square tests follow from the old third cube.
+Moreover
+\[
+ 1<\frac{106}{95}\le s_3<s_4\le\frac{131}{85}<3,
+ \quad L_3-S_4\le\frac18,\quad M-S_4\le\frac{131}{1000}.
+\]
+Thus the rational kernel applies everywhere.
+The box volume is \(3/6250000000\).
+Bounding its positive numerator below and every denominator above gives
+\begin{align}
+ \Delta_{\mathcal B}
+ &\ge
+ \frac{4(1/500)(3/6250000000)}
+ {(89/500)(111/1000)(99/1000)(19/200)(1/8)(131/1000)}
+ \notag\\
+ &=\frac{1024}{811431423}>\frac1{10^6}.
+ \label{eq:fourth-prefix-exact-small-gain}
+\end{align}
+Every displayed comparison here is rational.
+In particular this proves a strict improvement of \(K_{\rm ext}\)
+within the inherited analytic inputs.
+Combining it with the existing strict cap \(K_{\rm ext}<6.810\)
+permits the deliberately small new cap \(6.809999\).
+This is a local existence demonstration, not a useful optimized
+numerical claim.
+
+\paragraph{A coarse rigorous gain certificate.}
+The separate script \texttt{certify\_fourth\_prefix\_K\_refinement.py}
+now supplies a substantially larger exact lower bound. It uses grid
+interiors \((k/800,(k+1)/800)\), with
+\(32\le i_w<i_z<i_y<i_x<156\). Thus \(w>1/25\) and
+\(x<39/200<\mu\). It tests just the three subsets
+\(\{1,4\},\{2,4\},\{3,4\}\); it need not use all fifteen.
+Every old-cap interval bound, selected gate, square condition and
+\(s_4<3\) test uses integers with common affine denominator
+\(D=25600\). On each retained box choose one certified branch.
+The old cap is bounded above by an integer \(l\) divided by \(D\),
+and the chosen new cap is bounded between \(m_-/D\) and \(m_+/D\).
+Writing \(I=i_x+i_y+i_z+i_w\), that box contributes at least
+\[
+ \frac{4D(m_--l)}
+ {(i_x+1)(i_y+1)(i_z+1)(i_w+1)
+             (l-32I)(m_+-32I)}.
+\]
+The factor \(800^{-4}\) from the box volume has cancelled that
+same factor in the product of coordinate upper endpoints.
+The denominator is positive on every retained box.
+Round each displayed rational number down onto the common
+\(2^{80}\) lattice and sum. Of 9381251 disjoint candidate boxes,
+483089 pass all tests. The resulting rigorous lower bound is
+\[
+ \Delta_{\rm grid}\ge
+ \frac{10720642480494928338187}{604462909807314587353088}
+ >\frac{3}{200}=0.015.
+\]
+All decisive comparisons and the branch selection are integer exact.
+The companion JSON records the complete replay parameters and a
+hash of the selected-box stream. No old certificate is rerun.
+In particular, the previously established strict bound
+\(K_{\rm ext}<681/100\) gives the safe new coefficient
+\[
+ K=\frac{1359}{200}=6.795.
+\]
+The old certificate's sharper exact endpoint may permit a smaller
+rounded value; that comparison and all Chen-transfer arithmetic
+are separate integration steps. The decimal value
+\(0.01773581522795561\) is informational only.
+
+\paragraph{A larger diagnostic region.}
+For a fixed \(a_0>0\), take all ordered points \(w\ge a_0\),
+\(x<\rho\), with the old third cube strictly present.
+Test all fifteen subsets and put \(M\) equal to the largest
+eligible endpoint above \(L_3\).
+Keep only points with \((M-S_4)/w<3\).
+The gain has exactly the rational kernel
+\eqref{eq:fourth-prefix-K-rational-gain}; no interpolation of
+sieve functions is involved.
+
+Two independently scrambled Sobol samples of \(2^{19}\) points
+gave the following floating diagnostics:
+\[
+\begin{array}{c|cc}
+ a_0 & \text{seed }271 & \text{seed }902\\ \hline
+ .03&.0279464644930&.0279862348447\\
+ .04&.0278865355751&.0279691400924\\
+ .05&.0276469125785&.0274150278547
+\end{array}
+\]
+These are neither error bounds nor a certificate for a \(0.027\)
+improvement. The domain includes sampled gate boundaries and the
+samples cannot decide a theorem constant.
+A finite collection of rational inner boxes with outward rational
+kernel bounds would provide an appropriate next certificate.
+The old \(K\) certificate need not be rerun to certify a subtraction
+from its already established strict cap.
+
+The route proves no improvement for old rejected third prefixes.
+It imports no old double-sieve table and changes no Chen weights
+or main/state file. Larger gains and their final consequences
+require independent review and their own rigorous integration.

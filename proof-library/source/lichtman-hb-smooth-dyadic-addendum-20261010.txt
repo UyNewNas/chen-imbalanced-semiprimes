@@ -1,0 +1,205 @@
+Exact smooth original-group charts before Heath--Brown expansion
+2026-10-10. Addendum to the explicit Mellin-separation audit; old files unchanged.
+
+1. The actual omitted coupling and the correction
+
+In lichtman-hb-product-reduction-20261009.txt, lines 51--80, an ORIGINAL
+group is first put in a sharp interval [R,2R], and HB is then expanded in
+individual variables. If n=prod n_j is that group, its chart indicator becomes
+1_{R<=prod n_j<=2R}. This is itself a sharp coupled cutoff. Smoothness of the
+external W_T does not make this indicator smooth. Neither those lines nor
+the stated Mellin paragraph at 177--209 supplies a smooth partition of unity.
+The earlier independent HB review repeats sharp original charts; it does not
+fill this step by an explicit partition either.
+
+Thus the previous report lichtman-mellin-separation-explicit-20261010.txt was
+too broad when it described all current separated smooth blocks as already
+matched: its section 2 still retained this original-group indicator without
+accounting for it. The Fourier lemma and its hard-cutoff warning remain valid,
+but this concrete auxiliary hard cutoff needs the construction below. This
+is an omitted argument that can be repaired exactly, not a proof that the
+underlying distribution conclusion is false. No old record is edited.
+
+Only the AUXILIARY dyadic decomposition is replaced. A sharp condition that
+belongs to the problem's actual outer weight is not removed by renaming it
+a chart. PP here still starts with a smooth global outer weight W_T; the
+separate fixed-tolerance positive radial smoothing handles genuinely sharp
+positive counting domains. This addendum adds no claim of arbitrary sharp
+signed discrepancy.
+
+2. An exact nonnegative smooth dyadic partition
+
+Choose once a nonincreasing C-infinity function chi on (0,infinity), equal to
+1 on t<=1 and to 0 on t>=2, flat at both joining points. Such a function is
+given, for 1<t<2, by
+ chi(t)=b(2-t)/(b(2-t)+b(t-1)), b(u)=exp(-1/u) for u>0,
+with the constant extensions just specified. Define
+ psi(t)=chi(t)-chi(2t).
+Then psi>=0 is smooth and supported in [1/2,2], with zero value and all
+derivatives at the two support endpoints. For R_j=2^j and every n>0,
+
+ sum_{j in Z} psi(n/R_j)=1.                              (S1)
+
+Indeed the sum from j=-J to J is chi(n/2^J)-chi(n*2^(J+1)), which is exactly
+1 once J is sufficiently large for this n. At most two chart weights are
+nonzero for each n; at a dyadic boundary just one is nonzero. Hence there
+is no convergence issue in the pointwise identity. If the outer support is
+c*T^a<=p_i<=C*T, only O(log T) charts per group can occur. Use a finite range
+slightly larger than [log2(c*T^a)-1,log2(C*T)+1] so that (S1) is exact on
+the entire support, including endpoints.
+
+For k original groups, insert prod_i sum_{j_i} psi(p_i/R_{j_i})=1 BEFORE
+expanding any group. This is an exact equality of the original weighted
+prime sum, its residue-class sum, and its exact coprime mean. It also holds
+for signed W_T. The chart weights do not depend on the modulus or error
+signs. For nonnegative W_T they are a nonnegative exact partition, not an
+outward approximation; there is no extra density allowance or factor two.
+
+3. HB cutoff and individual intervals
+
+On the chart with center R_i, its nonzero weight implies
+ R_i/2 < p_i < 2R_i.
+The groupwise order-three identity is still used with the SAME cutoff
+Z_i=(2R_i)^(1/3), mu truncated at Z_i. It holds for every integer n<=2R_i,
+because Lambda*(delta-1*mu_{Z_i})^3 is supported above Z_i^3=2R_i. The new
+chart extends downward, not upward. Multiplying that identity by psi(n/R_i)
+is therefore exact on all n; the multiplier vanishes where the identity
+has not been asserted.
+
+There are at most six individual variables in each group. Keep their
+ordinary dyadic intervals sharp: n_j in [U_j,2U_j), with a unit variable
+retained separately if desired. These are individual interval restrictions
+permitted by the actual coefficient hypotheses, not coupled group filters.
+All group information after HB is now the smooth factor
+ psi((prod_{j in group i} n_j)/R_i),
+together with the already smooth global W_T. Do not also retain the old
+indicator 1_{R_i<=prod n_j<=2R_i}; that would undo this repair.
+
+Retain a rectangle only if it meets the support of all these chart factors
+and W_T. With at most six variables, existence of a nonzero point gives
+
+        prod_{j in group i} U_j >= R_i/128.               (S2)
+
+This follows from prod n_j>R_i/2 and n_j<2U_j. The old R_i/64 must not be
+quoted for these new original charts. Weak inequalities in the resulting
+bounds suffice; zero-weight endpoints cause no exceptional arithmetic term.
+
+4. Complete scales and the unchanged common projector
+
+Put X=prod_i R_i, Xplus=2^k X, m<=6k, and x_HB=prod_{j=1}^m U_j. Every
+retained HB rectangle contains a point with each original group between
+R_i/2 and 2R_i. Consequently
+
+       2^(-7k) X <= x_HB <= Xplus.                       (S3)
+
+Select the medium slot with lower endpoint U. Write P_other for the product
+of all other individual lower endpoints. When the complementary convolution
+is split into nonempty dyadic intervals [V,2V), its support gives
+ P_other/2 <= V <= 2^(m-1) P_other.
+The formula also safely covers a complementary unit product. Thus the source
+scale x=U*V satisfies the generous, uniform bounds
+
+       2^(-7k-1) X <= x <= 2^(6k-1) Xplus.              (S4)
+
+The original fixed constant C_k=2^(6*k_star+2) is STILL sufficient for the
+roughness choice Xtop=C_k*Xplus and Zchart=f(Xtop), where
+ f(v)=v^(1/(loglog v)^3).
+It was an upper-scale reserve; smoothing changes only the necessary lower
+comparison constant. More explicitly 1<=Xtop/x<=2^(14*k_star+3), a fixed
+number. Since f is eventually increasing, the SAME single chart projector,
+fixed before HB and used in every summand, obeys
+
+       f(x)<=Zchart<=x^(2/(loglog x)^3)                  (S5)
+
+for all sufficiently large x. The upper bound follows from the fixed ratio
+Xtop/x: its logarithm and loglog differ from those of x by o(log x) and o(1).
+No individual variable gets a newly selected roughness threshold afterward.
+
+The complete product at an original nonzero point lies between 2^(-k)X and
+2^k X. Hence the existing low-product trim and upper support O(T) still imply
+c1*T^(1-kappa0)<=x<=C1*T, with new FIXED constants. Thus c0*x<=T and
+T<=x^(1+kappa) remain valid with the existing strict kappa0/kappa choices.
+The power exponents are not changed by these chart constants.
+
+5. Medium and no-medium alternatives, with all constants accounted for
+
+Use the unchanged original-chart medium window
+ X^(3*zeta)<=U<=X^(1/3+zeta/4).
+By (S4), fixed scale ratios are eventually absorbed by the strict powers,
+so this lies in [x^(2*zeta),x^(1/3+zeta/2)] on every eventual source block.
+The fixed medium choice is not made again after a Fourier frequency or an
+arithmetic tuple is observed.
+
+If there is no medium slot, all individual slots are short (<X^(3*zeta))
+or long (>X^(1/3+zeta/4)). A group of only short slots would have lower
+product <X^(18*zeta), contrary to (S2) and R_i>>T^a, since X=O(T) and the
+existing choice zeta<a/48 gives 18*zeta<a. The changed factor 128 is fixed.
+Three long slots would exceed X^(1+3*zeta/4), contrary to x_HB<=2^k X for
+large T. Therefore every group has a long slot, at most two long slots exist,
+and k<=2 in this alternative. For large T all R_i>=1, so R_i<=X; a truncated
+mu slot has endpoint at most (2R_i)^(1/3)=O(X^(1/3)) and cannot be long.
+
+With one long slot there are at most five short slots; with two there are
+at most ten. Their lower-endpoint products are at most X^(15*zeta) and
+X^(30*zeta). The actual integer products have additional fixed factors at
+most 2^5 and 2^10. Both are at most x^(16*zeta) and x^(32*zeta), respectively,
+after absorbing these factors and the fixed scale ratios.
+The previously proved one/two-long bounds using x^(20*zeta),x^(40*zeta)
+are unchanged. This paragraph checks their input sizes, not their analytic
+proof a second time.
+
+6. Fourier norm, complete licences, and precision order
+
+In the individual coordinates z_j=log(n_j/U_j), the new chart factor is
+psi(c_i*exp(sum_{j in group i} z_j)), c_i=prod U_j/R_i. Every mixed z
+derivative of total order r is an Euler derivative (t*d/dt)^r psi(t).
+Those derivatives are uniformly bounded for all t>0, because psi is fixed,
+smooth and supported in [1/2,2]. There is no derivative loss from R_i or U_j,
+even outside the original nonzero group range. Multiplying the finitely
+many chart factors into the global smooth W_T thus preserves the norm
+ D_T=sum_{S subset [m]} ||partial_{2S} w_T||_1=log^O(1) T
+required by the new explicit Mellin lemma. It removes the omitted sharp
+coupling rather than estimating its Fourier tail as though it were smooth.
+
+The number of original charts is only log^O(1) T. Their full original mass
+still sums EXACTLY to the previous mass by (S1); only the analytic remainder
+estimates pay this piece count. The individual sharp HB intervals and the
+final sharp interval [V,2V) of the arbitrary complementary coefficient remain
+permitted as before. This operation does not change any modulus atom, group
+factorial, cap, selected mask, tree membership, or stored numerical integral.
+
+For the high-rank modulus compiler, the local change in q=log_x T caused by
+a fixed multiplicative scale factor is O(1/log T). Use the same whole-box
+factor partition and auxiliary vartheta=q*ell+2*zeta, after the previously
+reserved beta and endpoint losses. Every actual full/selected/W licence
+has a FIXED positive margin. Therefore all those inequalities, including
+the separate W initial-square margin, and all four strict source monomials
+continue to hold once T is sufficiently large. No zero-margin endpoint is
+being absorbed in this argument. Constants may change the threshold for T,
+not the licensed exponents or the fixed precision budgets.
+
+Fix the global smoothing tolerance/policy, margins, partition template and
+chart/projector prescription first. For each T these fixed rules specify its
+finite original dyadic charts, followed by HB, medium selection, source blocks
+and the modulus partition. The Fourier cutoff exponent and the SW/P precision
+are fixed uniformly for this family before T tends to infinity; R_i and the
+individual source blocks themselves need not be independent of T.
+The Mellin tail still uses the
+nonzero shifted moment after the modulus sum and isolates v=T separately.
+No new density loss or additional retained-phase variation is introduced.
+
+7. Exact scope
+
+This gives an identity-preserving replacement of the missing auxiliary
+sharp group partition in the high-rank proof. It supplies the concrete
+hypothesis that the frozen Mellin audit had not fully matched. The Fourier
+norm proof, individual rough-SW/coefficient class, unchanged projector,
+strict factorization margins and the separately repaired P5.2 may now be
+combined on these new auxiliary charts.
+
+The restricted moving-residue theorem, rough SW, nonzero moment, long and
+low-rank estimates, actual finite compiler, and numerical inputs remain their
+separately stated proofs/inputs. This is not an independent reproof of all of
+them, not an arbitrary hard-cutoff PP theorem, and not a numerical improvement.
+It neither changes an already paid density budget nor adds another copy of
+the adopted tail. The current selected K/c/b and all old hashes stay unchanged.

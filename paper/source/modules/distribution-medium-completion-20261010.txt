@@ -1,0 +1,504 @@
+Completion of the local medium convolution theorem, with a Poisson-tail repair
+10 October 2026. New proof; the old records, manuscript and state are unchanged.
+
+1. The theorem actually established
+
+Fix theta=7/32, 0<sigma<1/100, c0>0, a fixed divisor order B, and
+0<=kappa<=sigma/100. Put x=NM and assume
+ c0*x<=|a|<=x^(1+kappa),
+ Q1<N*x^(-sigma),
+ N^2*Q2*Q3^2<x^(1-8sigma),
+ |a|^theta*N*Q1*Q2^5*Q3^2<x^(2-15sigma),
+ N^(1+2theta)*Q1*Q2^(5-2theta)*Q3^(2+2theta)<x^(2-15sigma).  (1)
+All lengths are at least one, with fixed endpoint multiples allowed using
+the strict margins. A bounded nominal group may carry delta_1.
+
+Let alpha be one-bounded, supported on one interval in [N,2N] and on
+Pminus(n)>z=x^(1/(loglog x)^3). Assume full auxiliary Siegel--Walfisz:
+ for each A>0 and every k,q>=1, (b,q)=1,
+ |sum_(n=b mod q,(n,k)=1)alpha_n
+   -phi(q)^(-1)sum_((n,kq)=1)alpha_n|
+       <=C_A*N*tau(k)^C0*log(x)^(-A),                       (2)
+with fixed C0 and uniform family constants. Alpha is fixed while the
+moduli are summed. Let |beta_m|<=tau(m)^B, m in [M,2M]. Let gamma_i be
+three separate one-bounded sequences on qi~Qi with (qi,a)=1. Define
+ Delta_l=sum_(n,m)alpha_n beta_m
+       [1_(nm=a mod l)-1_((nm,l)=1)/phi(l)].
+Then, relative to the finite list of established classical inputs in
+section 10, for every A>0,
+ |sum_(q1,q2,q3)gamma_1(q1)gamma_2(q2)gamma_3(q3)Delta_(q1q2q3)|
+                         <<_A x/log(x)^A.                  (3)
+
+The proof below derives (3); it does not assume preliminary moving-a
+dispersion, a bare L51 bound, or an unrestricted large-residue theorem as
+additional analytic inputs. It retains the exact coprime mean. Its
+constant is uniform in a and all coefficient families with the stated
+uniform bounds. The assertion is a signed factorized-modulus estimate;
+it is not an absolute discrepancy sum over arbitrary moduli.
+
+For the current application alpha is an individual chart-rough 1 or mu
+slot with an individual interval and a fixed-polylogarithmic Mellin twist.
+The explicit rough-SW derivation supplies (2) with C0=1 from classical
+Mobius SW. Beta's order is fixed by the finite number of remaining HB
+slots. The currently adopted elementary q=1 alternative also requires
+kappa<=1/(2*K_mom), with the already fixed maximum moment order; this
+only narrows the application of (3), whose more general proof may retain
+classical Shiu at q=1. No new constraint on K,c,b follows here.
+
+2. A small omitted specification and its constructive repair
+
+The preliminary notes call the majorant merely a fixed smooth function,
+then truncate Poisson at H=(modulus/M)*log(x)^5 with a power-small tail.
+An arbitrary C-infinity majorant supplies Schwartz decay, which alone
+does not prove that stated power-small tail at this logarithmic cutoff.
+Maynard Lemma 13.4 expressly distinguishes its general-smooth cutoff
+from its derivative-controlled cutoff. The free dispersion majorant
+must be chosen in the latter class. This is a specification repair,
+not a counterexample to the intended local theorem.
+
+Here is a sufficient choice with no new external theorem. Choose positive
+lengths a_j=c/j^2 with sum_j a_j=1/2. Let u_j be the uniform probability
+density on [-a_j/2,a_j/2] and let phi be their infinite convolution.
+This probability measure has support [-1/4,1/4]. Differentiating the
+first j box factors as finite signed measures gives total variation
+at most prod_(i<=j)(2/a_i)=C^j*(j!)^2. The remaining convolution is a
+probability measure. Additional undifferentiated box factors give
+continuous densities, so this also proves the required differentiability
+of the final convolution to every fixed order. Set
+                 psi=1_[3/4,9/4]*phi.
+Then 0<=psi<=1, psi=1 on [1,2], support(psi) subset [1/2,5/2], and
+                 ||psi^(j)||_infinity<=C^j*(j!)^2.         (4)
+The construction and its constants are fixed, independently of x and a.
+
+Integrating by parts j times and choosing j proportional to sqrt(|t|)
+in (4), with j!<=j^j, gives
+                 |psihat(t)|<=C1*exp(-c1*sqrt(|t|)).        (5)
+For any polynomial-sized modulus l and scale M, exact Poisson followed
+by (5), with H>=C2*l*log(x)^5/M, gives
+ (M/l)*sum_(|h|>H)|psihat(hM/l)|=O_D(x^(-D))               (6)
+for every fixed D. A decreasing-integral comparison bounds the left
+side by a polynomial prefactor times exp(-c2*log(x)^(5/2)). If H<1,
+the first omitted integer already has |h|M/l>c*log(x)^5, so (6) still
+holds. This argument also allows polynomial l>x; no truncated source
+lemma with l<=x is being overextended.
+
+Use this same psi for the positive q and m majorants in dispersion.
+E1 needs only its fixed first few seminorms after completion; E2's five
+coordinate derivatives also use only fixed seminorms. Thus (4)--(6)
+validate their unchanged logarithmic H cutoffs and introduce no new
+power loss. The smooth majorants used much later in the spectral return
+may remain ordinary C-infinity: there the cutoff is x^epsilon and its
+tail is paid by a fixed derivative order. These are distinct operations.
+
+3. Preliminary lengths, smooth-factor deletion, and beta normalization
+
+Write n=log_x N, q=log_x Q1, u=log_x Q2, v=log_x Q3. From (1),
+ n>sigma, n<=1/2-4sigma,
+ q+u+v<7/10-13sigma/2.                                   (7)
+The last follows from q<n-sigma, 2n+u+2v<1-8sigma,
+and u<(2-15sigma)/5. In particular the complete modulus is eventually
+at most x^(4/5), and both N and M are fixed positive powers of x.
+
+Put y=x^(1/loglog x) and split q2=u0*s, q3=v0*t into their z-rough
+and z-smooth parts. Terms with s>y or t>y are negligible. Indeed, the
+collapsed product coefficient is divisor bounded. Primitive Shiu for
+integers of size x, with modulus l<=x^(4/5), bounds count plus coprime
+mean by x*tau(l)^C*log(x)^C/l, uniformly in the residue represented by a.
+The modulus multiplicity is included in this fixed C. Rankin with
+xi=1/log z gives
+ sum_(l<=x^(4/5),sm(l;z)>=y)tau(l)^C/l
+   <<exp(-(loglog x)^2+O_C(loglog x)).                    (8)
+This is stronger than every requested logarithmic saving. A pointwise
+x^epsilon divisor bound would not suffice in (8), and is not used.
+
+Dyadically fix s,t,u0,v0 and their products d=st~D, w=u0*v0~Rcal.
+There are a fixed power of log x such blocks,
+ D<=y^2=x^o(1), D*Rcal comparable to Q2*Q3.
+Define literally
+ Lambda_d(w)=sum_(st=d,u0*v0=w)gamma_2(u0*s)gamma_3(v0*t)
+                  *1_(all the fixed intervals/supports).
+It is independent of q1 and |Lambda_d(w)|<=tau(d*w).
+All d in this dyadic block remain inside ONE preliminary dispersion
+estimate. We never sum D separate arbitrary-logarithmic remainders.
+With Q=Q1,Y=QD and delta=sigma/3, (7) gives eventually
+ N,M>=x^delta, Y<=N*x^(-delta), Y*Rcal<=x^(1-delta).        (9)
+
+It suffices initially to prove (3) for one-bounded beta. For general
+beta, truncate at tau(m)<=log(x)^C and normalize by log(x)^(BC).
+Alpha and (2) remain unchanged. The discarded coefficient at v=nm is
+at most log(x)^(-C)*tau(v)^(B+2). For v!=a, summing the three-factor
+modulus coefficient over l|v-a costs at most tau(|v-a|)^3. Fixed shifted
+moments therefore make the discarded count O(x*log(x)^(E-C)), E fixed
+independently of C. The coprime mean has the same form by ordinary
+divisor means and sum_l |rho(l)|/phi(l)<<log(x)^O(1).
+The exact v=a instead costs x^(4/5+o(1)); never write tau(0).
+Choose C first, then the one-bounded theorem's log exponent to pay BC.
+The current elementary mixed-moment lemma supplies this q=1 cleanup
+under its additional fixed kappa cap, and is independent of log precision.
+
+4. Shifted progressions and the exact-product order
+
+The nonprimitive shifted progression bound used here is, for fixed
+C,K,delta and I of length at most L in [-x^K,x^K],
+ sum_(v in I,v=r mod f,v!=0)tau(|v|)^C
+       <<(L/f)*tau(f)^C*log(x)^O(1), f<=L*x^(-delta).       (10)
+To derive it put g=(r,f), v=g*w and f'=f/g. The w progression is
+primitive and has L/g divided by f' equal to L/f>=x^delta.
+Values |w|<=f'*x^(delta/2) cost x^(3delta/4) by a fixed divisor bound.
+For the rest, split signs and dyadic sizes; cover by intervals of length
+H comparable to the smaller of their scale and L/g. They satisfy
+H>=c*f'*x^(delta/2), H>=c*x^(delta/2), and location X<=C*x^K.
+Primitive Shiu applies with fixed alpha,beta<=delta/(8K), giving
+(L/f)*tau(g)^C*log(x)^O(1). This proves (10), including a translated
+interval at a polynomially large shift. Cauchy gives the mixed version
+for tau(v)^B*tau(|v-a|)^C on a progression v=r mod f, v!=a.
+
+Delete nm=a from every original congruence indicator BEFORE Cauchy;
+leave its coprime mean unchanged. The first-moment correction is
+O(Y*Rcal*x^o(1)), power-small by (9). The sequences are unchanged;
+no m-dependent SW hypothesis is introduced. The square has unchanged
+pure-mean S1, singly deleted S2', and doubly deleted S3'.
+
+In S2' removal of (m,s)>1 uses a rough common factor f>z. The r-sum
+contributes Rcal/f times a divisor power; collapsing v=mn with f|m
+and applying (10) supplies x/f times a fixed logarithmic/divisor cost.
+Thus the error is V*log(x)^C/z, V=MN^2/Y, by the divisor tail
+sum_(f>z)tau(f)^C/f^2<<log(z)^O(1)/z. Only afterwards restore nm=a
+for the one-congruence Poisson step. Its cost is Rcal*N*x^o(1).
+
+In S3' first discard large coefficients or large tau(mn_i-a), using
+(10) at f=1 and the n2 progression length O(N/Y+1). The error is
+(x*N/Y+x)*log(x)^(C0-Ccut); C0 is fixed before Ccut. Under the remaining
+logarithmic cutoffs, the exclusions (r,s)>1, (n1,n2)>1 and (s,ell)>1,
+ell=qd, cost V*log(x)^C/z+x*log(x)^C. The counting reasons are concrete:
+ * a common rough f in r,s gives n1=n2 mod ell*f, since m is a unit;
+ * a common rough f in n1,n2 is coprime to ell; one n1 multiple count
+   and one progression count give the two factors 1/f;
+ * f|(s,ell) forces mn2=a mod ell*f, again one primitive class.
+Their +1 terms contribute x*log(x)^C, absorbed by Y/N<=x^(-delta).
+The close-pair restriction |n1-n2|>=N/log(x)^Csep costs
+V*log(x)^(C-Csep)+x*log(x)^C. Choose Csep after Ccut. Restore large
+coefficient cutoffs while the shifts are still nonzero.
+
+Now n1!=n2. A single equality mn1=a leaves x^o(1) choices of m,n1,
+O(N/Y+1) choices of n2 for each q,d, and only x^o(1) possibilities
+for the other rough modulus dividing the NONZERO mn2-a. Its total
+restoration cost is Rcal*(N+Y)*x^o(1)=Rcal*N*x^o(1). Both equalities
+cannot hold. Restore these single zeros now, immediately before CRT
+and full smooth Poisson. A premature double-zero restoration, of
+size Y*Rcal^2*x^o(1), is neither made nor covered by (9).
+
+5. The exact principal terms and their positive variance
+
+Fix q,d; let ell=qd, eta_r=Lambda_d(r),
+ B_r=sum_((n,ell*r)=1)alpha_n,
+ A_r(b)=sum_(n=b mod ell,(n,r)=1)alpha_n, (b,ell)=1,
+ d_r(b)=A_r(b)-B_r/phi(ell),
+ c_ell(r,s)=phi(ell*r*s)/(ell*r*s*phi(ell*r)*phi(ell*s)).
+With h0=integral psi and w_q=psi(q/Q), the pure mean is
+ MT=M*h0*sum_(q,d)w_q*sum_(r,s)eta_r*conj(eta_s)
+                                            *c_ell(r,s)*B_r*conj(B_s).
+The S1 counting error is O(N^2*log(x)^C/Y), by Mobius inversion and
+ordinary divisor means. It is V times a fixed inverse power by (9).
+
+For any common multiple L of ell and its finitely many supported r,
+ c_ell(r,s)=(1/L)*sum_(v mod L)
+    [1_((v,ell*r)=1)/phi(ell*r)]*[1_((v,ell*s)=1)/phi(ell*s)].  (11)
+This is an exact positive Gram kernel. L is never used as an error scale.
+In the restored S2 zero mode the coefficient is
+1/(ell*r*phi(ell*s)); its ratio to c_ell(r,s) is 1+O(log(x)/z).
+Hence S2'=MT+M*E1+O_A(V/log(x)^A+Rcal*N*x^o(1)).
+
+On the S3 clean CRT set (r,s)=(s,ell)=1,
+                  phi(ell)*c_ell(r,s)=1/(ell*r*s)          (12)
+exactly, even if r shares prime factors with ell. The h=0 CRT term
+may have its rough common-factor and close-pair exclusions restored;
+ordinary progression counts give the same V/log(x)^A errors, with
+own conditions (n1,ell*r)=(n2,ell*s)=1 retained. It becomes MT+P, where
+ P=M*h0*sum_(q,d)w_q*phi(ell)*sum_(r,s)eta_r*conj(eta_s)*c_ell(r,s)
+                                       *sum_b d_r(b)*conj(d_s(b))>=0.   (13)
+The equality follows from sum_b A_r(b)=B_r; positivity follows from
+(11). Thus the three main terms leave P, not zero.
+
+For any fixed w and A, auxiliary SW (2) and the primitive character
+large sieve imply
+ sum_(ell<=8Y)tau(ell)^w*sum_b |d_r(b)|^2
+                 <<tau(r)^(2C0)*N^2/log(x)^A.              (14)
+Here is the essential derivation, including the imprimitive characters.
+Normalize alpha*1_((n,r)=1) by tau(r)^C0; auxiliary SW constants stay
+uniform because tau(kr)<=tau(k)tau(r). Character orthogonality gives
+variance phi(l)^(-1)*sum_(chi!=principal)|sum alpha_n chi(n)|^2.
+Write l=f*k with primitive conductor f>1 and
+chi(n)=chi_star(n)*1_((n,k)=1). Since phi(fk)>=phi(f)phi(k), the
+large sieve on dyadic f~R0 for a FIXED k gives
+ O(N/phi(k)*(N/R0+R0)). Summing f>log(x)^b and k gives
+O(N^2*log(x)^2/log(x)^b+N*Y). Small conductors are bounded by (2),
+with the explicit cost tau(k)^C0; their total is
+O(N^2*log(x)^(3b+C1-2Bsw)), C1 fixed before Bsw. Choose b, Bsw last.
+For the weight tau(l)^w use variance<=O(N^2/l), ordinary divisor
+means, and Cauchy in l with the unweighted arbitrarily strong saving.
+This proves (14) since Y<=N*x^(-delta), without an x^o(1) on a log error.
+
+Use Cauchy on the O(Rcal) terms in (11), phi(ell*r)^(-1)<<log(x)/(Y*Rcal),
+and the at most tau(ell) representations ell=qd. With a fixed common
+divisor order B0 dominating C0 and the actual Lambda bound,
+ P<<M*log(x)^2/(Y*Rcal)*sum_(r~Rcal)tau(r)^(2B0)
+         *sum_(ell<=8Y)tau(ell)^(2B0+1)*sum_b|d_r(b)|^2
+   <<MN^2/(Y*log(x)^A).                                  (15)
+The last step keeps tau(r)^(2C0) from (14) and sums it by an ordinary
+divisor MEAN. This is uniform in r, not an unproved filter-stability claim.
+
+Outer Cauchy has multiplier M*Y*log(x)^C. Equations (13)--(15), the two
+Poisson remainders, and section 4 prove
+ |S_block|<<_A x/log(x)^A
+    +M*sqrt(Y)*log(x)^C*(sqrt(|E1|)+sqrt(|E2|)).            (16)
+The single-zero cost becomes sqrt(MY*Rcal*N)*x^o(1)
+=sqrt(x*Y*Rcal)*x^o(1)<=x^(1-delta/2+o(1)). This verifies its uniform
+absorption in the logarithmic term. Equation (6) pays all Fourier tails.
+
+6. E1: complete inversion sums and explicit scale margins
+
+For a fixed smooth w, complete inverse phases satisfy
+ |sum_((n,l)=1)w(n/N)e(A*inverse(n)/l)|
+   <<tau(l)^2*sqrt(l)+(N/l)*gcd(A,l).                      (17)
+Poisson gives N/l times complete Kloosterman sums. The zero frequency
+is the displayed Ramanujan term. For the other frequencies use Weil,
+sqrt(gcd(k,A,l))<=sum_(d|gcd(A,l),d|k)sqrt(d), and
+sum_(k!=0,d|k)(1+|k|/V)^(-2)<=2V/d. This proves (17) for every A.
+
+Cauchy on the actual E1 sum, with its original unconstrained r,s support,
+reduces the phase to A=a*(h*r'-h'*r), l=q*r*r'. On primitive moduli
+gcd(A,l)=gcd(h*r'-h'*r,l). Write j=h*r'-h'*r. The j=0 tuples number
+O(R*H*x^o(1)); no tau(0) is used. For j!=0,
+sum_(q~Q)gcd(j,q)<=3Q*tau(|j|),
+sum_(|h|<=H,h!=0)gcd(h,r)<=2H*tau(r),
+sum_(r,r'~R)gcd(r,r')^2<<R^3.
+Factoring gcd(r,r') in j shows that these bound the Ramanujan term.
+The complete result, for H=O(QR/M*log(x)^5), is
+ |Z_E1|^2<<x^epsilon*N^4/Q^2
+                 *[NQ/x+NQ^(5/2)R^3/x^2+N^2*Q*R/x^2].    (18)
+Every epsilon here is freely chosen before x; no log remainder is involved.
+
+For fixed d use Q'=d*Q1, R=Rcal and restrict q' to multiples of d in
+the permitted bounded q'-dependent coefficient. This substitution is
+allowed in E1 only. Absorb Lambda's fixed divisor bound at this power
+stage. All three brackets have a strict power gap from (1). Explicitly,
+ n+q<1-9sigma, 2n+q+u+v<17/10-29sigma/2,
+ n+(5/2)q+3u+3v
+  =(35/16)(q-n)+(23/16)(2n+u+2v)
+     +(5/16)(n+q+5u+2v)-v/2
+  <1021/512-(147/8)sigma+O(1/log x).                      (19)
+The final line uses |a|>=c0*x and theta=7/32. All exponents of D cost
+only genuine vanishing subpowers. Formula (18) therefore gives, with
+spare power, |E1(d)|<<N^2/(d*Q1)*x^(-sigma+o(1)). Summing all d in
+the dyadic block uses sum_d 1/d=O(1); then pay one D=x^o(1) to get
+                  |E1|<<N^2/(D*Q1)*x^(-sigma/2).          (20)
+
+7. E2: the exact phase, coefficient class and spectral return
+
+For fixed d the actual normalization is E2=sum_(d~D)E3(d)/d, and
+E3 has denominator q*w1*w2, with w_i~Rcal. Its two phases satisfy
+ e(ah*inverse(n1*w2)/(q*d*w1)+ah*inverse(n2*q*d*w1)/w2)
+  =e(ah*(n1-n2)*inverse(n2*q*d*w1)/(n1*w2))
+                 *e(ah/(q*d*w1*w2*n1)).                  (21)
+All inverses are licensed by the clean CRT coprimalities. For
+H=QD*Rcal^2*log(x)^5/M, the last phase has normalized amplitude
+(a/x)*(Q/q0)*(D/d)*log(x)^5 on each q0~Q block. Five-coordinate
+partial summation, in q,w1,w2,n1,h, consequently costs at most
+                         x^(5kappa+o(1)).                (22)
+This charge is paid once. The resulting endpoints are frozen scalars,
+and the h weight is independent of all remaining summation variables.
+The smooth q support is split into a bounded number of common intervals;
+there is no arbitrary q weight in the resulting bare sum.
+
+Partition the rough coprime pairs (n1*w2,n2) by the named coprime-coloring
+lemma into exp(O((loglog x)^4)) cross-coprime classes. Expand both copies
+of Lambda_d independently, including both st=d choices. Put S=rough Q2
+length, R=rough Q3 length. Product windows on w1,w2 are differences of
+two product upper cutoffs. Non-Hermitian polarization makes the two
+R, the two S and the two n coefficients diagonal at cost at most 4^3.
+No SW is reapplied after polarization. The fixed signed h interval
+still supplies only one scalar one-bounded coefficient omega_h.
+
+The bare sum is reduced by f=(n1-n2)/(dq), then positive Cauchy, to a
+smooth reciprocal kernel with outside factor
+                         P=N/(Q*R*S^(3/2)),
+up to subpowers, and variables b=n2*r1, c=n1*r2*s2. Only after Cauchy
+is f enlarged to O(N/Q); a favorable d^(-1/2) is dropped. Fixed smooth
+majorants remove the b,c arithmetic coefficients at a divisor cost.
+After squaring, the kernel coefficient is dominated by the positive
+count of z=s1*s2, y=f*(h1*s1-h2*s2)!=0; (a,z)=1 is retained.
+A unit phase for each y,z aligns the kernel, leaving no dependence on
+the future completed m variable. The separate zero difference costs
+x^epsilon*H*S*Bspec*F*Cspec.
+
+For nu>=1 its actual counting norm obeys
+ B_nu^2<=x^epsilon*(1+H/S)*(HS)^2*F/nu.                    (23)
+Indeed fix z,y and use Cauchy over the divisor-bounded decompositions
+(s1,s2,f,k); then count colliding h pairs with nonzero k. Equal pairs
+cost (HS)^2*F/nu. For unequal pairs put g=gcd(s1,s2), s1=g*u,s2=g*v;
+the differences are m1=j*v,m2=j*u with nonzero |j|<=2Hg/S. Nonzero
+multiples k/g of nu/(c*gcd(g,nu/c)), c|nu, number O(HSc*gcd(g,nu/c)/(g*nu)).
+Factoring the remaining nonzero h2*v costs only a divisor factor.
+The total unequal contribution is
+x^epsilon*H^3*S*F/nu*sum_(g<=2S)gcd(g,nu)/g,
+and that sum is <=tau(nu)*(1+log(2S)). This proves (23). Counting
+nonzero multiples from zero has no +1. Beyond the nonzero y support
+B_nu=0. The actual H/S<=x^o(1)*(Q/N)*D0<1, D0=N^2*R^2*S/x.
+
+For completeness the exact spectral return used at this point is
+written here, to avoid assuming the desired bare L51 estimate. At generic
+scales C,D,U,Z with (a,z)=1, Poisson in b gives
+ (D/c)*sum_m psihat(mD/c)*S(m*inverse(z),a*y;c).
+The m=0 term contributes D^2*U*Z*B_all^2 to the squared bound. Truncate
+nonzero m at the GLOBAL cutoff (C/D)*x^epsilon, split common dyadic m
+intervals, and separate the smooth amplitude on the fixed normalized
+coordinates. The change c/C=sqrt((m/M)*(y/U)/(z/Z))/t cancels a exactly;
+its Fourier norm costs a selectable small power only. It leaves a common
+m interval and a common additive phase at every level z.
+
+At level z and cusps infinity,1 the phase conversion is e(-a*y/z).
+The coprime normalized ABL packet has transformed coefficient
+ beta_nu(n,z)=1_((n,a)=1)*beta(nu*n,z)*e(-n/z), cost (|a|nu)^(theta/2).
+The transformation is common to every oldform dilation, since (a,z)=1.
+The continuous part uses its formal Plancherel quadratic form, not an
+L2 vector for one Eisenstein series. The regular cumulative large sieve,
+fixed-level exceptional estimate F and common-interval exceptional J
+listed in section 10 therefore apply with these precise coefficients.
+
+Their algebra yields, with actual common m scale V,
+ |L_V|^2<<x^epsilon*P0*{
+   sum_nu (|a|nu)^theta*(U/nu+Z+T0)*(V+Z+T0)*B_nu^2
+       +(C^2*Z)^theta*(U+Z)^(1-theta)*(V+Z)^(1-2theta)*B_all^2},
+ P0=V*C^4*Z/(|a|*V*U+C^2*Z), T0=|a|*V*U/C^2.             (24)
+Here the regular transform is summed over heights max(1,2Y0), then
+dyadic shells: its high-height bounds t^(-5/2)+Y0*t^(-3) multiplied
+by the two cumulative norm factors grow as 2^(-j/2)+2^(-j), a convergent
+sum. The level Cauchy costs sqrt(Z), not Z. For exceptional forms use
+1+X^tau<=2*(1+X/sqrt(X0))^tau*(1+X0)^(tau/2), X0=1+Z/(U/nu).
+The packet power cancels |a|nu only in the improved exceptional term.
+These operations give exactly (24) from the stated classical norms.
+
+Multiplying by (D/C)^2 and using
+ Z*(L+Z+T0)*(V+Z+T0)/(Z+T0)<=(L+Z)*(V+Z)+Z*T0
+for L=U/nu, V<=C/D, gives the returned squared polynomial
+ sum_nu (|a|nu)^theta*[C*(U/nu+Z)*(C+D*Z)+|a|*U*Z]*B_nu^2
+ +[C*(C*D*sqrt(Z))^(2theta)*(U+Z)^(1-theta)*(C+D*Z)^(1-2theta)
+                                   +D^2*U*Z]*B_all^2.     (25)
+The actual cutoff V<=x^epsilon*C/D costs at most x^(2epsilon) here.
+It is valid also when C/D<1/2: that real value is only a comparison
+point, and spectral estimates are invoked on nonempty actual intervals.
+
+Now substitute Bspec=N*R, Cspec=N*R*S, Z=S^2,
+U=N*R^2*S^3/M, F=N/Q, H=x^o(1)*Q*R^2*S^2/M, D=Bspec.
+Apply (25) first on actual dyadic blocks and then enlarge positive
+scales. Since U/Z=D0<1, Bspec*Z>=Cspec, Bspec^2<x, and
+Cspec*Bspec*Z=x*U, equations (23)--(25) and the two square roots give
+ |W_bare|<<N^2/Q*x^epsilon*
+     {D0^(1/2)+[(1+|a|/x)*D1+D2]^(1/4)},                  (26)
+ D1=|a|^theta*N*Q*R^2*S^5/x^2,
+ D2=N^(1+2theta)*Q*R^(2+2theta)*S^(5-2theta)/x^2.
+The weighted auxiliary sum is
+sum_(nu|a^infinity)nu^(theta-1)=x^o(1), uniformly for polynomial a.
+Its logarithm is O((log x)^theta) by splitting primes at log x.
+Thus neither nu nor the zero Poisson mode was silently dropped.
+
+8. Finish E2 and the local theorem
+
+All powers of R,S in (26) are positive. Hence the original four
+inequalities imply D0<<x^(-8sigma), D1,D2<<x^(-15sigma), uniformly
+over every small-factor choice and fixed q0~Q block. The latter needs
+only the relaxed q0<N*x^(-3sigma/4), eventually. Since |a|/x<=x^kappa,
+(22) and (26), including every endpoint/coloring/normalization loss,
+give a bound of the form
+ |E3(d)|<<N^2/Q*
+ [x^(-4sigma+5kappa+epsilon)
+     +x^(-15sigma/4+21kappa/4+epsilon)].                  (27)
+Choose all selectable classical epsilons after sigma and all finite
+derivative orders. Their total, every genuine vanishing subpower, and
+ONE extra factor D needed below fit, for example, x^(sigma/10).
+For kappa<=sigma/100 both savings in (27) then exceed sigma/2.
+Sum E2=sum_d E3(d)/d using sum_(d~D)1/d=O(1), and express it in the
+normalization of (16). This proves
+                    |E2|<<N^2/(D*Q)*x^(-sigma/2).         (28)
+No second D factor and no second 5kappa phase charge occur.
+
+Equations (20),(28) in (16) give an exponential-sum contribution
+x^(1-sigma/4) times fixed logarithms. The preliminary exact-product
+restoration is weaker, x^(1-sigma/6+o(1)), but still power-small.
+Choose the preliminary SW/logarithmic precisions to pay the fixed
+number of dyadic length choices, and the beta normalization of section 3.
+The smooth-part error (8) has arbitrary logarithmic saving as well.
+Together these prove (3). No overall x^(1-sigma/5) assertion is made.
+
+9. What this completion discharges
+
+This note supplies a single local derivation from the exact Delta to
+the restricted medium estimate (3), after the explicit majorant choice
+(4). Its intersections have been checked: the q-independent Lambda,
+paid r-filtered BDH, primitive phase inverses, common spectral m interval,
+nonzero shifted moments, and harmonic d sum all use compatible classes.
+The extra majorant choice is implementable within the proof and changes
+no coefficient class, support test, numerical margin or selected constant.
+There is no remaining unspecified local-medium analytic proposition in
+this derivation beyond the precise established inputs of section 10.
+
+It does not establish that EVERY compiled atom satisfies (1), perform
+HB/Mellin recombination, prove low-rank or long-variable alternatives,
+or derive the pointwise/density/numerical Chen constructions. Those are
+separate finite-family obligations. It also does not prove unrestricted
+L23, arbitrary q-dependent Lambda, noncoprime (a,z) spectral reduction,
+or arbitrary level-dependent m intervals. Formalization, external review
+and a reproof of all classical spectral theory are not new hypotheses.
+
+10. Finite established-input boundary and source map
+
+The established analytic inputs are exactly:
+ (i) classical Mobius Siegel--Walfisz only for the actual rough-slot
+     derivation of (2); alternatively (2) itself is the theorem hypothesis;
+ (ii) classical primitive multiplicative large sieve, ordinary divisor
+      means, primitive Shiu in fixed polynomial interval/modulus ranges;
+ (iii) Fourier/Poisson summation and complete Kloosterman Weil;
+ (iv) the rough cross-coprime partition, Maynard I Lemma 13.2;
+ (v) normalized Kuznetsov at level z, cusps infinity/1, trivial character,
+     spectral arithmetic singleton s=1; Bessel transforms and the regular
+     cumulative large sieve in the matching coefficient convention;
+ (vi) ABL Lemmas 3.1/3.2 only when (a,z)=1, with oldform packet and
+      continuous formal Plancherel normalization; Kim--Sarnak theta=7/32;
+ (vii) exceptional norms as printed in Pascadi Theorems A/J, using
+      fixed-level arbitrary n coefficients, and one common m interval
+      and additive phase across levels. Exact finite Fourier completion
+      extends J to that common partial interval at logarithmic norm cost.
+
+In (v)--(vii) use R(n)=sqrt(|n|)*rho_ABL(n). The continuous measure is
+dt/cosh(pi*t), up to Kuznetsov's fixed 1/(4pi). The required exceptional
+input forms, with tau_j<=theta, are
+ sum_exc X^tau_j*|sum_(n~L)b_n R_j,1(n)|^2
+       <<(zL)^epsilon*(1+L/z)*||b||_2^2,
+            X<<max(1,z/L),
+ sum_(z~Z)sum_exc X^tau_j*|sum_(m in I)e(m*omega)R_j,infty(m)|^2
+       <<(ZM)^epsilon*(Z+M)*M,
+            X<<max(M,Z^2/M), I common, omega common.
+The continuous n-removal has no extra height power: ABL's continuous
+bound uses theta=0 and the same t-independent transformed coefficient.
+No unrestricted moving-target distribution theorem is on this list.
+
+Principal sources read in this audit:
+ * Maynard I v2, actual saved lines 3940--4089 (Poisson distinction),
+   4542--4903 (all third-variance cutoff/CRT operations), and the prior
+   local equations bound below. Live primary page opened:
+   https://arxiv.org/html/2006.06572v2 .
+ * Pascadi, primary live page opened; the exact A/J, cusp and regular
+   conventions were checked against the fresh source-bound spectral
+   audit and regular-polynomial derivation:
+   https://arxiv.org/html/2404.04239v3 .
+ * The current local Delta statement, preliminary Gram and filtered BDH
+   proofs, shifted-zero proof, full E1 completion, fixed-d E2 interface,
+   multiplicity proof, spectral return, regular polynomial, and fresh
+   normalized spectral boundary were read as equations, not PASS labels.
+ * The current assembly identifies the actual scope and parameter
+   overrides. It is not evidence for any analytical inequality above.
+
+The companion JSON binds every principal local source and this report.
+No numerical certificate was rerun or modified. No old source, state,
+main TeX, formalization project, GitHub object or external message changed.

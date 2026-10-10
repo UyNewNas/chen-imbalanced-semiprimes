@@ -1,0 +1,55 @@
+% New independent execution and scope record; frozen old files are unchanged.
+\subsection{Complete independent reconstruction of the mesh-$800$ fourth cover}
+
+This review uses the previously frozen independent fourth-chord
+implementation, originally written separately from the numerical
+author implementation. Its geometry and integral functions accept
+arbitrary rational boxes; only its old driver fixed mesh $400$ and
+old output filenames. The new driver instead enumerates mesh $800$
+at $w=19/125$, with the exact terminal partial interval and the same
+depth-four history subdivision. No old source or output is edited.
+
+The independent history enumeration produces $294115$ leaves. Every
+one of the author's $83807$ positive parent boxes must occur in this
+set exactly once. Their multiplicity factors are reconstructed as
+the product of factorials of repeated outer bins. The numerical
+prefilter is not imported or reproduced: any chosen finite subfamily
+may omit nonnegative ideal fourth gain. Only the actually contributing
+parent boxes require integral reconstruction.
+
+On every saved positive parent the independent engine reconstructs
+the symmetric third-cap lower and upper bounds, its affine majorant,
+all possible orders of old unselected slots, whole-box selected gates,
+candidate last-variable partitions and range cutoffs. It separately
+computes the lower eight-corner new term and upper Jensen old term,
+their exact ordinary $H(u)=u\bar F(u)$ primitive integrals, the
+constant-corner fallback and the unique-lowest-bin ordering strip.
+The core contributes the maximum of its two alternative bounds;
+only the disjoint strip is added. The same ideal $C_3$ and full
+all-mask $C_4$ remain the target.
+
+The ordinary delay table at mesh $65536$, maximum $32$, and $112$
+fixed-point bits is an explicitly shared, previously audited
+dependency. Logarithms and interval operations use the independent
+$112$-bit, $64$-term backend. No author chord, Jensen, slice or
+prefilter implementation is imported by the reconstruction. This
+is a complete new execution of a previously independently authored
+engine, not a claim that a third numerical engine has been written.
+
+Differences in outward arithmetic may make individual reconstructed
+floors smaller than the author's corresponding floors. The final
+JSON therefore records both totals, every-parent comparison counts,
+the total signed difference, and a complete new witness containing
+all independently reconstructed components. The independently
+computed lower total is the value proposed for use, whether or not
+it contains the author's total. An output labelled as a successful
+reconstruction does not imply domination of every author floor.
+
+This result replaces the previous mesh-$400$ lower bound for the
+same $I_4(h)$; their overlapping integrals cannot be added. Its
+increase contributes one quarter as much to the $L_2$ occurrence
+of the complete Chen coefficient. The previous same-policy third
+and fifth inputs remain compatible. One common finite causal
+approximation and the original ordinary-density and signed-atom
+distribution inputs are still necessary; numerical reconstruction
+alone establishes none of those analytic theorems.

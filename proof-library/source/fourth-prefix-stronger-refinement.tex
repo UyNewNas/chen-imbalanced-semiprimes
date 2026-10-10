@@ -1,0 +1,229 @@
+% New replacement certificate fragment, 2026-10-08. Main/state untouched.
+\subsection{A stronger complete fourth-prefix certificate}
+\label{sec:fourth-prefix-stronger-refinement}
+
+This construction replaces the entire earlier partial fourth-prefix
+plus fourth-tail subtraction.  Neither of those two old numerical
+gains is added to the new gain.  It keeps the old extended tree through
+rank four, and changes only subsequent odd cube tests on the new finite
+collection of fourth-prefix boxes.  All first and third decisions,
+selected-subproduct interfaces, signed atoms, and product-family
+normalizations are those of Proposition
+\ref{prop:fourth-prefix-descendant-refinement}.
+
+Write $t=(x,y,z,w)$, $S=x+y+z+w$, and
+\[
+ v(s)=\min\{(1+s)/2,57/64-3s/2\},\quad
+ L=\max\{v(x),v(x+y),v(x+y+z),v(x+z),v(y+z),153/256-3z/8\}.
+\]
+Every box has $3/200<w<z<y<x<39/200<25/128$, the old third
+cube $x+y+3z<L$, a chosen endpoint $M=v(s_I)>L$, and the full
+square and all selected-subproduct gates below $M$.  No gate is
+replaced by a top-slot-only surrogate.  The new cap is frozen at rank
+four and used for ranks $5,7,\ldots$; no fourth-rank exclusion is added.
+The exact even-subtree identity gives the gain
+\begin{equation}\label{eq:fourth-stronger-target}
+ 4\int_{\mathcal C}\frac{
+   \overline F((L-S)/w)-\overline F((M-S)/w)}{xyzw^2}\,dt,
+ \qquad \overline F=F/(2e^\gamma).
+\end{equation}
+The old third cube makes the first argument greater than one.
+Only boxes whose certified upper argument is below five are used.
+
+All fifteen subsets have been accounted for.  Subsets contained in
+the first three slots already occur in $L$, except for the singleton
+second and third slots, which are bounded by $v(x)$ since $v$ is
+increasing below $25/128$.  The singleton fourth slot is likewise
+bounded by $v(x)$.  Thus only masks $9,\ldots,15$ can improve $L$
+in this region.  This pruning removes no potentially improving branch.
+
+\paragraph{A positive derivative numerator through argument five.}
+Define $\mathcal N(s)=s^2(-\overline F'(s))$.
+For $1<s\le3$, $\mathcal N(s)=1$.  For $3\le s\le5$, the
+ordinary sieve delay equation and the explicit lower function on
+$2\le s-1\le4$ give
+\begin{align*}
+ A(s)&=1+\int_3^s\frac{\log(t-2)}{t-1}\,dt,
+ &\overline F(s)&=A(s)/s,\\
+ \mathcal N(s)&=A(s)-\frac{s}{s-1}\log(s-2),
+ &\mathcal N'(s)&=\frac{s}{(s-1)^2}
+       \left(\log(s-2)-\frac{s-1}{s-2}\right)<0.
+\end{align*}
+Indeed $1+1/u-\log u$ decreases on $1\le u\le3$, and is positive
+at $u=3$ since $\log3<10/9<4/3$.  The same inequality proves
+that $\log(t-2)/(t-1)$ increases on $[3,5]$.
+The exact table below proves $\mathcal N(5)>0$, so the numerator
+is positive and nonincreasing throughout the range used here.
+In particular the factor $s/(s-1)$ has been retained.
+
+Take $m=4096$, $Q=2^{80}$, and $s_j=3+j/m$ for $0\le j\le2m$.
+For $z=j/(2m+j)$ use the first $24$ terms of
+$2\sum_{k\ge0}z^{2k+1}/(2k+1)$, with each term rounded down to
+the $Q^{-1}$ lattice.  An upper bound is obtained by adding
+$24/Q$ and the geometric tail bound
+\[
+ \frac{2z^{49}}{49(1-z^2)}.
+\]
+Denote the resulting logarithm intervals by
+$[\ell_j/Q,u_j/Q]$.  Left Darboux sums and integer rounding give
+\[
+ n_j=Q+\sum_{i<j}\left\lfloor\frac{\ell_i}{2m+i}\right\rfloor
+       -\left\lceil\frac{(3m+j)u_j}{2m+j}\right\rceil
+ \le Q\mathcal N(s_j).
+\]
+For arbitrary $s\in(3,5]$ use $n_{\lceil m(s-3)\rceil}/Q$.
+For $s\le3$ use one.  This direction follows from the proved
+monotonicity, independently of any floating interpolation.
+The table's endpoint is
+\[
+ \frac{n_{8192}}Q
+ =\frac{19821997013242695217835}{604462909807314587353088}
+ >0.03279.
+\]
+
+\paragraph{Correlated affine bounds.}
+Every old component is a minimum of one or two affine functions.
+Let $\mathcal A$ be the two affine pieces of $M$, and let
+$\mathcal B_j$ be the pieces of old component $L_j$.
+For a box $B$, write $\inf_B a$ and $\sup_B a$ for exact affine
+endpoint evaluation.  A valid whole-box improvement margin is
+\[
+ d_B=\min_j\min_{a\in\mathcal A}
+                 \max_{b\in\mathcal B_j}\inf_B(a-b)
+ \le\inf_B(M-L).
+\]
+This is valid because $a-L_j=\max_{b\in\mathcal B_j}(a-b)$.
+It retains correlations between shared coordinates.  Similarly
+$\max_j\min_{b\in\mathcal B_j}\inf_B(b-x-y-3z)$ is a lower
+old-cube margin, and $\min_{a,g}\inf_B(a-g)$ checks every full
+and selected gate $g$.  All these margins must be strictly positive.
+
+These numerical rectangles certify pointwise correlated inequalities;
+they need not satisfy $\inf_B M>\sup_B L$.  The actual sieve labels
+are allowed a further finite common refinement.  The uniform positive
+gap and gate margins, together with the piecewise-affine continuity of
+$L$ and $M$, then give on each smaller label a constant buffered cap
+above its inherited old cap and all gates, and below its new endpoint.
+For every prescribed positive error, this refinement and buffering
+approximate the displayed endpoint gain integral within that error.
+Thus the exact integral certificate and a strict final numerical
+margin yield a single finite legal tree; a frozen constant cap over
+each original numerical rectangle is not being assumed.
+
+For each old component choose one of its affine pieces $b_j$.
+The implementation chooses the piece smallest at the box center,
+but validity does not depend on that rule.  Then
+$U=\max_j b_j\ge L$ is convex, and $M-U$ is concave.  Multilinear
+corner interpolation therefore gives
+\[
+ \frac1{|B|}\int_B(M-L)\,dt
+ \ge\frac1{16}\sum_{v\text{ vertex of }B}(M(v)-U(v)).
+\]
+Take $\widehat d_B$ to be the larger of $d_B$ and this average
+bound rounded down to the common affine lattice.  Then
+$\int_B(M-L)\,dt\ge|B|\widehat d_B$.
+The separate condition $d_B>0$ continues to license the entire box;
+a positive average never licenses a point with a failed gate.
+
+\paragraph{Four positive subintervals of the cap difference.}
+Put $r_0=L-S$, $r_1=M-S$.  Use the correlated residual bounds
+\[
+ R_0=\max_j\min_{b\in\mathcal B_j}\sup_B(b-S),\qquad
+ R_1=\max\{R_0,\min_{a\in\mathcal A}\sup_B(a-S)\}.
+\]
+Thus $0<r_0\le R_0\le R_1$ and $r_1\le R_1$.
+Write $R_\theta=(1-\theta)R_0+\theta R_1$ and let
+$\ell_w$ be the lower fourth-coordinate endpoint.  Require
+$R_1/\ell_w<5$.  If $c_j$ is the certified lower value for
+$\mathcal N(R_{j/4}/\ell_w)$, then the box contributes at least
+\begin{equation}\label{eq:fourth-stronger-box}
+ \frac{4|B|\widehat d_B}{\prod_{i=1}^4 u_i}
+ \sum_{j=1}^4\frac{c_j}{4R_{(j-1)/4}R_{j/4}}.
+\end{equation}
+To check the normalization, the cap difference equals
+\[
+ \overline F(r_0/w)-\overline F(r_1/w)
+ =w(M-L)\int_0^1
+ \frac{\mathcal N(((1-\theta)r_0+\theta r_1)/w)}
+ {((1-\theta)r_0+\theta r_1)^2}\,d\theta.
+\]
+The displayed factor $w$ cancels one of the two fourth-coordinate
+factors in \eqref{eq:fourth-stronger-target}.
+The table and $R_\theta$ bound the remaining positive integrand
+uniformly on the box.  Finally
+$\int_{(j-1)/4}^{j/4}R_\theta^{-2}d\theta
+=1/(4R_{(j-1)/4}R_{j/4})$, also when $R_0=R_1$.
+
+\paragraph{Integer implementation and independent finite geometry.}
+The coordinate lattice is $n=204800$ and the affine lattice is
+$D=32n$.  Let a stored rectangle have integer lower and upper
+coordinates $a_i,b_i$, and put $h_i=b_i-a_i$.
+Write $d=D\widehat d_B$, $r=D R_0$, and $q=D R_1$.
+For subinterval $j$ define
+\[
+ A_j=(5-j)r+(j-1)q,\qquad B_j=(4-j)r+jq.
+\]
+If $n_{k_j}$ is the table integer at the upward-rounded argument
+$B_j/(128a_4)$, the subinterval contributes at least the following
+number of $Q^{-1}$ units:
+\[
+ \left\lfloor
+ \frac{16D d\{\prod_i h_i\}n_{k_j}}
+      {\{\prod_i b_i\}A_jB_j}
+ \right\rfloor.
+\]
+There is no floating arithmetic in this formula or in any gate.
+
+The adaptive probe supplies only a finite witness of integer boxes
+and branch labels.  The exact replay checks their dyadic alignment,
+membership in individual $1/200$ root cubes, and pairwise disjointness
+by recursive midpoint separation.  It does not trust the generation
+history, the refinement priorities, the diagnostic gains, or the
+floating sieve-function values.  All geometry and all contributions
+are recomputed.  The NPZ witness, outward derivative table, script,
+and final output are hash-bound by the companion files.
+
+\begin{proposition}[Certified replacement fourth-prefix gain]
+\label{prop:fourth-prefix-stronger-certificate}
+Under the inherited fourth-prefix analytic interfaces, the stored
+finite witness has limiting gain at least
+\begin{equation}\label{eq:fourth-stronger-exact-gain}
+ \Delta_{4,\mathrm{new}}\ge
+ \frac{10601625247768616959055}{302231454903657293676544}
+ >\frac7{200}=0.035.
+\end{equation}
+Consequently every coefficient
+\[
+ K_*>
+ \frac{1224339902590414400455331411}
+      {180734410032387061618573312}
+ =6.774249034099353\ldots
+\]
+is permitted by the previous exact extended-tree bound and this
+replacement gain.  In particular $K_*=67743/10000=6.7743$ is a
+safe standalone fourth-prefix coefficient.  No earlier partial
+fourth-prefix or fourth-tail gain is added to this subtraction.
+\end{proposition}
+
+The exact output is recorded in
+\texttt{certify\_fourth\_prefix\_stronger.json}.
+There are $3699127$ certified boxes, inside $9963$ original root
+cubes.  The independent disjointness routine visits $7607322$ nodes.
+The branch counts for masks $9,10,11,12,13,14,15$ are respectively
+\[
+ 1235537,\quad1931050,\quad36,\quad430050,\quad152,\quad102302,\quad0.
+\]
+The minimum positive affine slack in the combined checks is $128/D$.
+All geometry is exact; the final sum rounds each of the four positive
+subinterval contributions on every box downward.  The complete
+selected-stream SHA256 is
+\texttt{6b068f041379c73d01624e0014980ca71bfef6baa0c178398b0298c847b4b936}.
+
+Compactly trim
+coordinate boundaries and buffer the finitely many frozen levels
+before applying the inherited density theorem.  The finite limits
+and a strict final numerical margin give one legal fourth-prefix
+tree.  Its cap is everywhere bounded above by the maximum of all
+eligible four-slot endpoints.  Hence a later fifth-prefix certificate
+using an upper envelope over every potentially eligible four-slot
+cap continues to apply to this replacement tree.

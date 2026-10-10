@@ -1,0 +1,166 @@
+Moving-residue preliminary dispersion: nonzero shifts and the exact-product term
+2026-10-09. New proof supplement; not a restoration of the global sieve constants.
+
+1. Scope and additional power margins
+
+Use x=MN, up to fixed constants, and fixed delta>0. Assume
+  N,M >= x^delta, QD <= N*x^(-delta), QDR <= x^(1-delta),
+and that every scale and |a| are bounded by x^K for fixed K.
+Coefficients have a fixed divisor-power bound, with the roughness and
+Siegel--Walfisz hypotheses of L23 Proposition4.5 unchanged. Only its E=1
+application is needed here. The source reduction is Maynard I,
+Proposition14.4 and Lemmas14.1--14.3. The discussion below supplies two
+uniformity details not covered by simply saying that proof is uniform in a:
+  (i) divisor moments of |mn-a| when the shift is comparable to or exceeds x;
+  (ii) the exceptional equality mn=a, where tau(0) must never be used.
+Shiu's theorem, the ordinary divisor estimates, Poisson summation and the
+source's SW mean-square lemma remain explicitly cited external inputs.
+This note does not prove the subsequent E1 or spectral E2 estimates.
+
+2. A uniform shifted divisor-moment bound
+
+Claim. For fixed C,K,delta>0, let I be an interval of length at most L,
+contained in [-x^K,x^K], with 1<=q<=L*x^(-delta) and L<=x^K.
+For any residue r, after omitting the integer zero,
+  sum_{k in I, k=r mod q, k!=0} tau(|k|)^C
+    << (L/q) tau(q)^C (log x)^O_{C,K,delta}(1).                 (Z1)
+The same statement with an enlarged constant covers intervals intersecting
+zero. The parameters K,delta are fixed before x tends to infinity.
+
+Proof. Put g=(r,q), q'=q/g and k=g*t. The progression in t is primitive,
+and tau(|g*t|)^C <= tau(g)^C tau(|t|)^C. Its interval length bound is
+L'=L/g, with L'/q'=L/q>=x^delta. Split signs. Values with
+  0<|t|<=q'*x^(delta/2)
+contribute at most (x^(delta/2)+1)*x^(delta/4) times tau(g)^C, by the
+fixed-power divisor bound on the polynomial-sized t range. This is
+O((L/q)*tau(g)^C).
+
+For the remaining values split into dyadic ranges in |t|. If the range
+length is at most L', use the full dyadic interval; otherwise cover the
+intersection by at most two positive intervals of length comparable to L'.
+In every such interval J, its length H and left endpoint X satisfy
+  H>=q'*x^(delta/2)/O(1), H>=x^(delta/2)/O(1), X<=x^K,
+  q'<=H*x^(-delta/2)*O(1).
+Thus Shiu's theorem applies with fixed positive parameters, for example
+alpha=beta=min(1/4,delta/(8K)), after enlarging x. For f(t)=tau(t)^C,
+f(p^j)=(j+1)^C<=2^(Cj) and f(t)<<_eta t^eta for every eta>0.
+The resulting bound is H/phi(q') times a fixed power of log x.
+The dyadic intervals of length below L' have total length O(L'); the
+larger intersections have total length O(L') and only O(log x) pieces
+even with a wasteful cover. Also q'/phi(q') is bounded by a fixed power
+of log x. This proves (Z1), since tau(g)<=tau(q).
+
+The standard primitive Shiu statement used here is recorded, with both
+coprimality and interval/modulus hypotheses, in Thomas Wright,
+arXiv:2508.17217v1, Theorem1.1, citing Shiu1980. This use is of the classical
+fixed-function theorem, not Wright's stronger main theorem. In particular
+we do not apply a primitive progression bound to a nonprimitive class.
+
+By Cauchy--Schwarz applied to the same progression, (Z1) gives, for
+I subset [1,C0*x], |a|<=x^K, q<=x^(1-delta), and fixed B,C,
+  sum_{b in I, b=r mod q, b!=a} tau(b)^B tau(|b-a|)^C
+    << (x/q) tau(q)^O_{B,C}(1) (log x)^O_{B,C,K,delta}(1).     (Z2)
+Use L=C1*x in (Z1), increasing K slightly to cover fixed constants.
+Neither a factor tau(a) nor a pointwise x^eta loss is inserted in this
+mean bound. The exact zero b=a has been excluded explicitly.
+
+3. Where these moments replace the fixed-shift source argument
+
+For mn!=a and n~N,m~M, collapse b=mn; the number of factorizations and
+all fixed divisor powers in m,n are bounded by a fixed power of tau(b).
+Equation (Z2), with q=1, bounds each moment used in the large-coefficient
+and large-tau(mn-a) truncation in Maynard Lemma14.3 by x*(log x)^O(1).
+Choosing the logarithmic cutoff exponent sufficiently large therefore
+gives arbitrary logarithmic savings, uniformly in polynomial-sized a.
+
+The removal of (m,r2)>1 in Lemma14.2 requires an extra f|m. Collapsing
+to b now gives f|b; here f<=O(M)<=x^(1-delta)/O(1) after shrinking delta.
+Equation (Z2) with q=f gives x/f * tau(f)^O(1) * log^O(1). Its outer
+factor 1/f leaves
+  sum_{f>z0} tau(f)^O(1)/f^2 << (log z0)^O(1)/z0.
+This is the required rough-factor saving. The same collapsed nonzero
+moments cover the coefficient cutoffs. The subsequent common-factor and
+close-pair exclusions in Lemma14.3 use the logarithmic divisor cutoff,
+ordinary progression counts, and roughness. Their counting inequalities
+do not require |a|<x-y once mn_i=a is excluded.
+
+4. Delete the exact product before taking the variance
+
+If a<=0 no positive product equals a. Otherwise replace each congruence
+indicator in the original discrepancy by
+  1_{mn=a mod qdr} - 1_{mn=a}.                               (Z3)
+Keep the original coprime mean term unchanged. Since (qdr,a)=1,
+the subtracted exact product was indeed counted by the congruence.
+There are at most tau(a)=x^o(1) pairs (m,n) with mn=a, and at most
+O(QDR) triples (q,d,r), with all divisor-bounded coefficients x^o(1).
+Consequently the original first moment changes by
+  O(QDR*x^o(1)) = O(x^(1-delta+o(1))),                       (Z4)
+which is smaller than x/log^A x for every fixed A.
+
+Apply the original Cauchy step to this modified inner expression.
+No SW condition is imposed on an m-dependent sequence: alpha and the
+mean term are unchanged, and (Z3) is part of the counting indicator.
+After inserting the same nonnegative smooth majorants and expanding the
+square, the pure-mean term S1 is unchanged. The cross term S2 has mn1=a
+omitted; the two-indicator term S3 has both mn1=a and mn2=a omitted.
+Thus all divisors of mn_i-a introduced in the ensuing proof are divisors
+of a nonzero integer, and (Z2) applies to their absolute values.
+
+5. Reinsert only after the dangerous double diagonal is excluded
+
+In S2 the terms omitted by mn1=a are bounded as follows. Fix a factorization
+(m,n1) of a; there are x^o(1) such choices. The remaining n2 has O(N)
+choices, q,d have O(QD) choices, r1,r2 have O(R^2) choices, while the mean
+coefficient 1/phi(qdr2) is <<x^o(1)/(QDR). Hence the total omitted S2 is
+  O(R*N*x^o(1)).                                            (Z5)
+This argument includes all original coprimality restrictions by dropping
+them only in an absolute-value upper bound.
+Keep the exclusion throughout the rough-factor removal in section3;
+reinsert these S2 terms only just before the one-congruence Poisson step.
+Thus the original rough-factor argument is never asked to evaluate tau(0).
+
+For S3 perform all the original nonzero divisor cutoffs and rough
+coprimality/close-pair exclusions first. In the resulting S4 we have
+|n1-n2|>=N/log^C x>0. Therefore both mn1=a and mn2=a cannot occur.
+If mn1=a, fix the x^o(1) possible (m,n1). For each q,d the congruence
+n2=n1 mod qd leaves O(N/(QD)+1) choices of n2. The integer mn2-a is now
+nonzero, so the possible r2 divide it and number x^o(1); r1 still has
+O(R) choices. Thus the omitted S4 terms, including their conjugates, total
+  O(R*(N+QD)*x^o(1)) = O(R*N*x^o(1)).                       (Z6)
+At this point they may be reinserted, and the source's exact CRT/Poisson
+calculation applies to the full smooth m sum. The mean-term restoration
+and SW mean-square steps then proceed with the original alpha.
+
+The scale of the raw dispersion remainder is MN^2/(QD)=xN/(QD).
+Relative to this scale, (Z5)--(Z6) cost
+  (RN)/(xN/(QD)) = QDR/x <= x^(-delta),                     (Z7)
+up to x^o(1). After the outer Cauchy step their contribution is bounded
+by x^(1-delta/2+o(1)); it is absorbed by every fixed logarithmic target.
+Together with (Z4), this supplies the exact-product correction to the
+E=1 preliminary dispersion reduction under the stated power margins.
+
+It would be incorrect to reinsert the double exact diagonal before the
+close-pair exclusion: that crude term is QD*R^2*x^o(1), whose comparison
+would demand (QDR)^2<xN. This stronger condition does not follow from
+the four monomial conditions of Proposition5.2. The order above avoids
+requiring that unjustified additional inequality.
+
+6. Scope of the resulting preliminary bridge
+
+Subject to the explicitly cited Shiu, Poisson and SW inputs and the
+unchanged elementary nonzero dispersion manipulations just located,
+the E=1 Proposition4.5 bound extends to |a|<=x^K with the additional
+fixed power margins in section1. The extra errors in sections4--5 are
+absorbed by its x/log^A x error. This statement supplies no new bound
+for E1 or E2 and is not a reproof of any spectral theorem. Combining it
+with a retained-phase E2 estimate still requires all of that estimate's
+hypotheses and an independent final parameter audit.
+
+Sources read:
+ - Maynard I v2, arXiv:2006.06572v2, Lemma8.7 and section14;
+   local external-source-audit-20261009/maynard-I-v2-phase-candidate-20261009.txt.
+ - Lichtman v1, arXiv:2309.08522v1, Lemmas4.1--4.4 and Proposition4.5;
+   local external-source-audit/l23-v1-joint-current.txt.
+ - Classical Shiu statement as reproduced in arXiv:2508.17217v1, Theorem1.1.
+The original Shiu article's online library endpoint was inaccessible in
+this read; no claim of rereading its full proof is made.

@@ -1,0 +1,357 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=25mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs}
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}[proposition]{Lemma}
+\newcommand{\HH}{\mathcal H}
+\newcommand{\hh}{\mathcal h}
+\title{Typed-state closure of the certified finite $M=5$ table}
+\author{Independent local mathematical audit}
+\date{8 October 2026}
+\begin{document}
+\maketitle
+
+This audit concerns exactly the two Buchstab operators, the first-weighted
+bank $2.4\le v\le3$, $3.2\le s_0\le5$, and upper cutoff comparison
+used by \texttt{certify\_finite\_step\_table.py}. Its 24 generations
+use $K=681/100$ and the separately proved initial seed $J=2327/100000$.
+No new second-weighted bank is authorized. The independent numerical
+replay is a separate input; numbers alone do not prove state admission.
+
+The primitive ordinary signed-prefix interface, the first-weighted
+pointwise inequality with its positive switched-product estimate, and
+the four-round seed are treated as named inputs. This note checks their
+state transformations and finite reuse. It does not re-prove their
+moving-residue distribution theorem. The relevant sources are
+\texttt{new-finite-double-sieve-recursion.tex},
+\texttt{generalized-one-step-double-sieve.tex},
+\texttt{second-seed-stable-prefix-extension.tex}, and
+\texttt{second-seed-certified-finite-feedback.tex}.
+
+\section{The exact class quantified over}
+A state carries its marked prefix $B$, one unchanged total level $Q$,
+and
+\[
+ T=\log_N B,\quad Q=N^\nu,\quad R=Q/B=N^L,\quad
+ L=\nu-T>0,\quad \alpha=\frac{1-T}{L}\ge2.
+\]
+These formulas may be read as exact logarithmic identities. On a fixed
+positive box their limiting parameters differ by the usual controlled
+box errors. The marked slots, signs, residual atom factorials and
+positive box coefficients are retained, not replaced by an arbitrary
+coefficient sequence or an estimate for one individual prime tuple.
+
+An enhanced state additionally retains all of the following data:
+\begin{itemize}
+\item Ordered specified slots $t_1>\cdots>t_r>0$ and every complete
+square test $\sum_{i<j}t_i+2t_j<\nu$.
+\item One previously licensed factorization branch, its unchanged level,
+all its strict cap and gate margins, and its originally selected slots.
+For a selected subproduct of exponent $U$, every old remaining-slot
+test $U+\sum_{i<j}v_i+2v_j<\nu$ is retained as well.
+\item A ceiling $\chi\le t_r$ below which appended primes preserve that
+branch. A $W$ branch based on a future third-slot bound $c$ also has
+$\chi\le c$. Once its first three actual slots exist, later primes do
+not change them.
+\end{itemize}
+A classical state instead uses its fixed-margin total level $\nu<1/2$.
+Its complete-modulus interface does not need enhanced full-well or
+selected-square tests. It retains the labelled slots and the positive
+lower bound on their exponents required for bounded multiplicities.
+
+An enhanced state is admitted at physical argument $s$ only when its
+cutoff $R^{1/s}$ is at most $N^\chi$, in addition to the preceding
+tests. Upper arguments are at least one, lower arguments at least two.
+These are conditions on the actual state, not consequences of the value
+of a numerical table entry. The statement below is uniform on fixed
+compact positive admitted families. It does not assert one uniform
+threshold as $L$ or the prime exponents tend to zero.
+
+\paragraph{Structural cutoff equalities.}
+The physical cutoff of a Buchstab child is its newly marked prime $q$.
+Consequently its new ceiling may equal $\log_Nq$; this is a structural
+equality, not an entire state family that can be discarded as a thin
+exception. Sifting at $q$ introduces primes strictly below $q$, so the
+order-preservation argument uses ``at most the ceiling'' for the physical
+cutoff and strict order for newly added primes. Complete-square and
+factorization gates remain strict. Isolated integral endpoints where a
+new square test becomes equality have measure zero and are approached
+from the interior. They do not relax the state gates.
+
+If a primitive seed is stated with strict comparison cutoff $L/S<\chi$,
+its closed-cutoff endpoint is interpreted through the same buffered
+asymptotic limit. For example, decrease $\nu$ by a positive amount
+smaller than every old square and gate margin, apply the seed with its
+strictly smaller comparison cutoff, and let that amount tend to zero.
+The physical target count is bounded by the compared count by positivity;
+the normalizing factor changes continuously by $L/(L-\varepsilon)$.
+The ratio $\alpha$ increases, and all old strict gates survive for small
+$\varepsilon$. This recovers the claimed limiting bound at equality.
+This endpoint device does not change the levels inside an unbuffered
+operator identity or reset a child's argument.
+
+\section{Appending a marked prime preserves all retained support tests}
+\begin{lemma}\label{lem:append}
+Suppose an enhanced state has an added prime of exponent
+$0<x\le\chi$ satisfying $2x<L$. Set
+\[
+ B'=Bq,\quad T'=T+x,\quad L'=L-x,\quad
+ \chi'=\min(\chi,x),\quad
+ \alpha'=\frac{\alpha L-x}{L-x}
+           =1+\frac{\alpha-1}{1-x/L}\ge\alpha.
+\]
+Then the complete and selected-remaining prefix tests persist, and any
+residual full-well atom below cutoff $N^{\chi'}$ at level $N^{L'}$
+merges into a valid complete atom for the same retained branch.
+\end{lemma}
+\begin{proof}
+All old specified slots precede $q$, so their tests are unchanged.
+The only new specified complete-square test is $T+2x<\nu$,
+equivalent to $2x<L$. For a retained selected subproduct, the selected
+slots remain fixed. Before a new unselected slot, their exponent plus
+all old unselected exponents equals $T$. Hence its selected-remaining
+test is also $T+2x<\nu$. For later residual exponents
+$y_1\ge y_2\ge\cdots$, the corresponding full or selected test is
+\[
+ T+x+\sum_{i<j}y_i+2y_j<\nu,
+\]
+which follows from the residual well-support condition at $L'=\nu-T-x$.
+This checks the complete concatenated atom, not just the bare product
+$Bq$. The old selected critical interval is unchanged since its selected
+product and $\nu$ are unchanged. The largest prime and the retained
+first three $W$ slots persist. A future-third bound persists since
+$x\le\chi\le c$ and all subsequent slots are at most $x$.
+\end{proof}
+
+For a classical state, the corresponding simpler observation is
+$B' d\le B'(R/q)=Q$ for every residual modulus $d\le R/q$.
+Appending finitely many labelled primes preserves the bounded number
+of possible label assignments at each complete modulus when all prime
+exponents have a fixed positive lower bound. No enhanced ordering or
+well-support condition is silently imposed on the classical family.
+
+\section{Both Buchstab operators at the common ordinary baseline six}
+Let
+\[
+ A(s)=\frac{sF(s)}{2e^\gamma},\qquad
+ a(s)=\frac{sf(s)}{2e^\gamma}.
+\]
+Use $a(s)=0$ below two and the positive-count upper convention $A(s)=1$
+on $1\le s\le3$. No ordinary lower-sieve assertion below two is used.
+For $2\le s\le5$, Buchstab begins at $R^{1/6}$ and subtracts primes
+\[
+ R^{1/6}\le q<R^{1/s}.
+\]
+Writing $x=L/(w+1)$ gives $s-1<w\le5$, apart from endpoint conventions,
+and the child data are
+\begin{equation}\label{eq:Bchild}
+ L'=\frac{Lw}{w+1},\quad
+ \alpha'=\alpha+\frac{\alpha-1}{w},\quad
+ \log_N(\hbox{child physical cutoff})=x,\quad
+ \frac{L'}x=w.
+\end{equation}
+The new prime lies below the parent's cutoff and ceiling. Since $w>1$
+in the interior, $2x<L$. Lemma~\ref{lem:append} applies and the child
+physical cutoff equals its new smallest specified slot. Its ratio is
+at least two.
+
+The existing positive prime-prefix normalization gives measure
+$L\,dx/[x(L-x)]$. The exact substitution in \eqref{eq:Bchild} turns
+its absolute value into $dw/w$. The ordinary delay identities give
+\begin{align*}
+ A(6)-\int_{s-1}^{5}a(w)\frac{dw}{w}&=A(s),\\
+ a(6)-\int_{s-1}^{5}A(w)\frac{dw}{w}&=a(s).
+\end{align*}
+Thus the ordinary baseline is six, not five; no positive correction at
+six is presumed. Its cutoff $L/6$ is below the admitted physical cutoff,
+so its ordinary upper and lower atoms have the same retained branch.
+
+An upper parent uses lower child estimates in the subtracted sum and
+therefore gains
+\[
+ \mathcal B_H[h](s)=\int_{\max(2,s-1)}^5h(w)\frac{dw}{w}.
+\]
+A lower parent uses upper child estimates and gains
+\[
+ \mathcal B_h[H](s)=\int_{s-1}^5H(w)\frac{dw}{w}.
+\]
+The part $1\le w<2$ in the latter is licensed. Indeed, at an upper
+child one can compare to $v\ge2>w$ at the smaller cutoff
+\[
+       (R/q)^{1/v}\le(R/q)^{1/w}=q.
+\]
+Any prime $q'$ then introduced by that comparison has
+$(q')^2\le R/q$, and the complete next test is
+$q(q')^2\le R$. It is not the stronger, unwarranted condition $q^3\le R$.
+All actual comparisons used in the finite bank have $v\le3$, so the
+ordinary shift $A(w)-A(v)$ is zero in this below-two use.
+
+For a closed target cell $[a,b]\subset[2,5]$, replace the lower limit
+by $\max(2,b-1)$ or $b-1$, respectively. For every $s\in[a,b]$ the
+resulting tail is a subset of its licensed child interval, so the
+nonnegative integral is a uniform lower bound. The same admission
+test is imposed at the actual $s$, not merely at the cell midpoint.
+
+\section{The actual first-weighted bank and its lower children}
+Let $v\in\{2.4,2.5,\ldots,3\}$ and
+$s_0\in\{3.2,3.4,\ldots,5\}$. At a state admitted at $v$, the
+first-weighted inequality has same-prefix upper term at argument
+$s_0$ and negative singleton terms
+\[
+ q=R^u,\qquad 1/s_0<u<1/v.
+\]
+Here $u<1/v\le5/12<1/2$, so $2\log_Nq<L$ strictly, and
+$q<R^{1/v}\le N^\chi$. For the lower singleton child the exact data are
+\begin{equation}\label{eq:Wchild}
+ L_u=L(1-u),\quad \alpha_u=\frac{\alpha-u}{1-u}\ge\alpha,\quad
+ \rho=s_0(1-u),\quad
+ \log_N(\hbox{actual cutoff})=\frac L{s_0}\le Lu.
+\end{equation}
+It is an admitted lower state whenever $\rho\ge2$. Its residual
+argument is $\rho$, not $s_0$, an old-level parameter, or two. If
+$\rho<2$, the construction uses count nonnegativity and zero defect.
+The unchanged-prefix $H(s_0)$ term is admitted because $L/s_0<L/v$.
+
+In particular it is \emph{not} necessary that the lower state in
+\eqref{eq:Wchild} itself admits the initial seed comparison at $S=11/5$.
+For its own next Buchstab child indexed by $w\ge\rho-1$,
+\[
+ x'=\frac{L(1-u)}{w+1}\le\frac{L(1-u)}\rho
+      =\frac L{s_0}\le Lu.
+\]
+This preserves the old and newly marked slots. When that new child
+uses the initial seed at $w\le S$, its compared cutoff has exponent
+\[
+             \frac{L(1-u)w}{S(w+1)}\le x'.
+\]
+When it uses a later upper-bank comparison $v'\ge w$, the same
+calculation with $v'$ gives a cutoff at most $x'$. These are the actual
+child-state admission tests needed by the induction.
+
+As a concrete check of this distinction, take a one-prime largest-slot
+state with $T=1/5$, $\nu=11/20$, $L=7/20$, $\chi=1/5$ and
+$\alpha=16/7$. It is strictly below its largest-prime cap and passes
+its complete square test. The bank choice $v=12/5$, $s_0=5$ and
+$u=21/100$ has
+\[
+ x=147/2000,\quad L_u=553/2000,\quad
+ \rho=79/20,\quad L/s_0=7/100<x.
+\]
+The lower child is admitted, but $L_u/S=553/4400>x$.
+Forcing the seed comparison at this lower parent would incorrectly
+reject a legal state. The next-child calculation above gives the
+correct admission instead. It does not apply the seed where its
+comparison test fails.
+
+The positive switched triple is not inserted into this non-switched
+typed family. It uses the separately assumed positive finite-product
+theorem. Its actual ratio remains $\alpha\ge2$, and its factors have
+fixed positive cutoffs. For this bank
+\[
+ \frac{\alpha-u_1-u_2-u_3}{u_2}\ge2v-3\ge\frac95>\frac1C,
+ \qquad C=\frac{70893}{125000}.
+\]
+The audited Buchstab envelope therefore supplies the constant $C$.
+The unit-quotient gap is at least $\alpha-3/v\ge3/4>0$.
+This yields the already specified positive triple cost and no child
+feedback. The resulting upper candidate is precisely
+\[
+ A(v)-A(s_0)+H_n(s_0)-\frac K8\overline I(v,s_0)
+ +\frac12\int_{1/s_0}^{1/v}
+      \frac{a(s_0(1-u))+h_n(s_0(1-u))}{u(1-u)}\,du.
+\]
+Here $\rho\le s_0-1\le4$, which is the range used by the ordinary
+logarithmic kernel. The feedback retains its actual $\rho$.
+
+\section{Upper comparison, the initial seed, and finite induction}
+For the same prefix and the same $Q$, a proved upper bound at $v\ge s$
+gives $\Phi_s\le\Phi_v$ because $R^{1/v}\le R^{1/s}$. The resulting
+defect is $A(s)-A(v)+H(v)$. In the implemented bank every comparison
+has $1\le s\le v\le3$, so that shift is exactly zero. If the physical
+target is admitted, the smaller comparison cutoff is automatically
+admitted. This includes $s<2$; no lower node below two is introduced.
+Comparisons above three would require their nonzero shift and are
+outside this implementation.
+
+For each target cell whose right endpoint is $b\le v$, the same
+fixed bank candidate is valid throughout the cell, subject to actual
+state admission. For an $s_0$ exactly at a grid endpoint, its left
+closed cell supplies a valid uniform bound; no interpolation is used.
+
+The initial $J=2327/100000$ is the separately audited result of four
+finite second-seed rounds. That theorem is used on its stated stable
+enhanced or classical families, with comparison cutoff $L/S\le\chi$
+on enhanced states and all square and ratio tests retained. At an
+admitted physical upper argument $1\le s\le S$, this comparison
+condition follows from $L/S\le L/s\le\chi$. Hence it licenses the
+initial uniform cells ending at or below $S$. All other initial
+defects are zero. No direct $S$-seed is presumed for a lower parent
+whose comparison cutoff is inadmissible.
+
+\begin{proposition}\label{prop:closure}
+Assume the primitive interfaces and the four-round seed on the typed
+families stated above. Every finite generation of the implemented
+$M=5$ table gives simultaneous uniform upper and lower defect bounds
+on its admitted physical states. In particular the independently
+replayed 24-generation table is licensed there. It is not licensed
+on all prefix families regardless of their gates.
+\end{proposition}
+\begin{proof}
+The seed establishes generation zero. Suppose the preceding generation
+holds simultaneously on the admitted family. The two Buchstab actions
+use only admitted children by \eqref{eq:Bchild} and Lemma~\ref{lem:append}.
+The first-weighted actions use their old-generation unchanged-prefix
+upper value and lower children \eqref{eq:Wchild}; both are admitted by
+the preceding analysis. Upper comparison only lowers the cutoff and
+does not change $T,L,\alpha,Q$ or the normalizing factor.
+
+Positive integral coefficients, downward rounded numerical weights,
+and maxima of competing lower bounds for the same defect preserve
+the inequalities. Taking a maximum chooses among estimates; it does
+not add overlapping estimates. The implementation uses $H_n,h_n$
+throughout each right-hand side, never a value newly computed at
+generation $n+1$. Consequently these actions prove generation $n+1$
+without circularity. Closed-cell choices can be made on finite common
+positive marked-box partitions, retaining all gate conditions and
+applying the existing uniform boxed interfaces before their limiting
+refinement.
+
+Each new Buchstab marked prime is at least $R^{1/6}$ and leaves
+$L'\ge L/2$. A first-weighted marked prime is at least $R^{1/5}$ and
+leaves $L'\ge7L/12>L/2$. Thus at any fixed number of generations all
+marked prime exponents and residual exponents retain a fixed positive
+lower bound on compact starting boxes. The fixed finite seed proof
+adds only another fixed finite depth. Its factor counts, partitions
+and precision parameters can be fixed before $N\to\infty$; finitely
+many errors remain $o(1)$. This proves finite closure, not convergence
+or uniformity at infinite depth.
+\end{proof}
+
+\section{Required exclusions and the outcome}
+A future-third ceiling cannot be forgotten. For example, the two
+specified exponents $(.16,.15)$, a retained third-slot bound $c=.04$,
+and level $\nu=.581$ satisfy the old complete tests and lie below
+$153/256-3c/8=.58265625$. But the residual exponent is $.271$.
+At target $v=5/2$ the cutoff exponent is $.1084$, which exceeds $c$.
+For the valid interior first-weighted parameter $s_0=4$, $u=.39$,
+an appended prime has exponent $.10569$ and gives an actual third-slot
+cap $.5580225$, below $.581$. The state is correctly excluded
+by $L/v>\chi$ when $\chi\le c$; a table lookup that checked only the
+smallest old slot $.15$ would be invalid.
+
+Likewise, the table does not supply an unrestricted $L_1$ defect,
+does not replace failed full-square or selected-remaining gates by a
+numeric argument test, and does not convert an averaged marked-prefix
+statement into an estimate for each tuple. The claimed $K$ in the
+seed and in the table is still $6.81$; newer constants are not imported
+into their proofs. No new $W_2$ feedback beyond the initial four-round
+seed is used here.
+
+With these explicit qualifications, no closure counterexample was
+found for the actions actually used. The independent numerical
+certificate and this state-induction proof address different steps:
+together they license the finite table on its specified family.
+They do not complete the distribution foundations or certify its
+integration into the entire Chen functional.
+\end{document}

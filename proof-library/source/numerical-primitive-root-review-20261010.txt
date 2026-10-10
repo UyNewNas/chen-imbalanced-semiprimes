@@ -1,0 +1,109 @@
+Independent mathematical review of the new chord primitive and tail
+10 October 2026. Reviewer: root; producer: richer_weight_route.
+
+Scope and result
+
+I read the final numerical-primitive-adversarial-20261009.txt and its
+Python implementation, including the added convex-H query comparisons.
+I independently checked the recurrence, interval directions, weight
+expansions, interpolation error, delayed indices and noncompact-tail
+inequality. No mathematical or rounding error was found in this scope.
+This is a distinct review of that new method, not a third integration run.
+Its standard linear-sieve definition, positivity and monotonicity remain
+explicit inputs. It does not validate every cell of the multidimensional
+integrals or every geometric rejection predicate elsewhere in the project.
+
+1. Independent derivation of the recurrence enclosure
+
+Let L=s*f0 and H=s*F0 with L'=H(s-1)/(s-1) and
+H'=L(s-1)/(s-1), on their respective nonconstant ranges. With
+a=j/n, b=(j+1)/n, direct integration of the affine endpoint interpolant
+of a numerator V gives
+  integral_a^b chord(V)(u)/u du = w0 V(a)+w1 V(b),
+  w0=(j+1)log(1+1/j)-1,
+  w1=1-j log(1+1/j).
+The weights are integrals of nonnegative linear basis functions divided
+by u>0, hence positive. They are not trapezoid weights for V/u.
+
+The standard monotonicities give L''=F0'(s-1)<=0 and H''=f0'(s-1)>=0.
+From F0<=1, 0<=f0'<=1/s and |F0'|<=1/s follow from their equations;
+thus the absolute numerator curvature on a delayed cell is <=1/(a-1).
+Integrating |V-chord(V)|<=(M/2)(u-a)(b-u) against 1/u<=1/a gives
+  error <= M*(b-a)^3/(12a)=1/[12*n*j*(j-n)].
+For a convex H its chord is an upper estimate, so only the lower L
+increment loses this error. For a concave L the chord is a lower
+estimate, so only the upper H increment gains it. The code has these
+directions. The exact H=1 range permits the logarithmic L update through
+s=4. H first updates strictly after s=3, where j>n and the denominator
+is positive. Both delayed indices precede the target index.
+
+Expanding log(1+1/j) independently gives the two alternating weight
+series printed in the producer report. Their fourth partial sums,
+with denominator 60*j^5, have numerators
+  30*j^4-10*j^3+5*j^2-3*j,
+  30*j^4-20*j^3+15*j^2-12*j.
+The next positive terms add respectively 2 and 10. The logarithm's
+fourth numerator is 60*j^4-30*j^3+20*j^2-15*j and its next term adds12.
+These agree with the code. Alternating terms decrease for j>=1.
+The fourth sums are positive, so multiplication by nonnegative endpoint
+intervals preserves direction. All floors/ceilings use positive divisors.
+The monotone maximum on the lower L endpoint remains a lower bound.
+
+For interpolation, a chord error <=M*h^2/8 with M<=1/(i/n-1)
+gives 1/[8*n*(i-n)], exactly the independent implementation's bound.
+At a knot the code returns the knot and does not access its successor.
+No grid cell crosses the initial derivative break at2 or an integer
+delay break. The extension beyond the last lower-function knot uses
+f0(max)<=f0(s)<=F0(max), and makes no analogous unsupported H extension.
+The final 197 H queries are additional comparisons, not the justification
+for this general interpolation argument.
+
+2. Integer-anchor decay and the full omitted integral
+
+For s>=3, D=F0-f0>=0 is decreasing and
+  D'(s)=-(D(s)+D(s-1))/s <= -2D(s)/s.
+Therefore D(s)<=D(k)*(k/s)^2 for 3<=k<=s. Taking an eligible minimum
+over upward-rounded integer anchors is safe. The independently enclosed
+H(10)-L(10), divided by10 and rounded upward, is an upper bound for D(10).
+
+On the original ordered tail write z=t3, z<=y<=x<=rho=19/96.
+The existing cap and theta=299/500 give cap-x-y>=rho: on the lower
+branch 1/2-3*(25/128)/2=53/256>rho; on the upper branch the minimum
+57/64-7*rho/2 equals rho; theta-2*rho>rho also holds. For h=1/100,
+h<=rho/11, hence sold>=(rho-z)/z>=10 throughout the entire tail.
+Monotonicity and the common limiting value imply
+f0(snew)-f0(sold)<=D(sold), whether or not the difference is positive.
+Consequently its nonnegative density contribution is bounded by
+4*D(10)*100/[x*y*(rho-z)^2]. Enlarging to the whole ordered xy triangle
+gives integral dx dy/(xy)=log(rho/z)^2/2. Replacing rho-z by rho-h and
+integrating exactly from0 to h gives
+  tail <= 2*D(10)*100*h/(rho-h)^2
+             *[log(rho/h)^2+2log(rho/h)+2].
+The logarithmic singularity is integrable; this covers all z>0, with no
+sampling, omitted-endpoint assumption or unjustified zero-tail step.
+
+The separate 160-term -log(1-w) series bounds its positive remainder by
+w^161/[161*(1-w)]. Power-of-two reduction and outward final rounding
+therefore give the certified rational
+  Tnew=319683857488126290909150567/2^111.
+The frozen old allowance is Told=1028753216356588863/2^80.
+The raw improvement, if separately adopted, is exactly
+  Delta=Told-Tnew=1889546852465054429442261657/2^111 >0.
+
+3. Admissibility of a single-component replacement
+
+I also read numerical-primitive-tail-replacement-pilot-20261009.txt and
+its exact checker. The original compact leaves lie at z>=.01 and
+the tail allowance enters U0 additively once. The current raw ledger
+subtracts subsequent certified refinements from that same U0. Replacing
+only this upper allowance preserves the compact leaf inequalities and
+all existing policy decisions. The distinct fourth-tail saving and the
+rough-activation limiting error must not be confused with this tail;
+neither is removed here. The pilot preserves both, including all earlier
+error budgets, and traces a coefficient of exactly+1 through the ledger.
+
+Thus a separately reviewed scalar K/c/b feedback may use Delta once.
+This review alone does not select new constants or update the global
+state. It relies on the existing analytic assembly and frozen compact
+integral bounds for everything outside the explicit primitive scope.
+It neither repairs unrestricted L23 nor identifies the Wu weight-domain correction.

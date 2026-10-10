@@ -1,0 +1,341 @@
+Preliminary dispersion: the common main term and its positive SW remainder
+2026-10-10. New mathematical reconstruction, restricted to e=1.
+
+0. Result and independence
+
+The three dispersion terms have a common main term with their original
+q,d,r coefficients and coprime means. Their remaining zero-frequency
+difference is a positive Gram-weighted Siegel--Walfisz variance. This
+statement is exact for the restored main terms, not an assertion that
+the two-indicator term has no nonzero Fourier frequencies.
+
+One detail needs more care than the printed transition to Maynard (14.6):
+the restrictions (n_i,r_i)=1 cannot simply disappear from an identity.
+I retain them throughout. Normalizing alpha_n 1_(n,r)=1 by tau(r)^B
+preserves uniform auxiliary-coprimality SW. Its BDH cost tau(r)^(2B)
+is retained and averaged over r, costing logarithms only. Thus no
+unproved free uniformity in the auxiliary integer r is required.
+
+I previously participated in the project's exact-product repair review
+and long-variable audits. This is a fresh reconstruction of the principal
+terms, not a wholly independent review of every earlier error estimate.
+The preliminary roughness/close-pair error reductions are located below;
+Shiu, ordinary divisor means, smooth Poisson and the stated BDH lemma are
+explicit analytic inputs. No estimate of the later E1/E2 exponential sums,
+no full distribution theorem and no global K,c,b are proved here.
+
+1. Quantifiers and notation
+
+Fix delta>0, a divisor exponent B>=1, and K>=1. All constants in the
+coefficient and SW bounds are uniform if those coefficients depend on a.
+Let MN be comparable to x, M,N>=x^delta, QD<=N*x^(-delta),
+QDR<=x^(1-delta), and 0<|a|<=x^K. Every scale is polynomially bounded.
+Set Y=QD and ell=qd. Each (q,d) pair remains separately weighted; we
+collapse ell only in an absolute upper bound, with multiplicity <=tau(ell).
+Always (ell,a)=1 and r~R, (r,a)=1. Write eta_r=lambda_(q,d,r).
+Assume |eta_r|<=tau(ell*r)^B and |alpha_n|<=tau(n)^B.
+The single alpha sequence is fixed before the q,d,r summations; a
+modulus-dependent choice of alpha is not allowed by this argument.
+The original rough support P^-(r),P^-(n)>=Z is kept, with
+Z=x^(1/(log log x)^3), or the chart-fixed comparable threshold already
+permitted by the preliminary error reduction. No roughness hypothesis is
+needed for the finite Gram identity itself.
+
+The full auxiliary SW condition is, for every integer d0>=1 and A>0,
+
+ |sum_(n~N,n=b mod s,(n,d0)=1) alpha_n
+   - 1/phi(s) sum_(n~N,(n,d0*s)=1) alpha_n|
+ <= C_A N tau(d0)^B (log N)^(-A),                 (SW)
+
+uniformly in (b,s)=1. B may be enlarged to include the source SW exponent.
+Let psi be a fixed nonnegative smooth majorant and h0=integral psi>=0.
+Write w_q=psi(q/Q), and psi_m=psi(m/M).
+
+2. The exact square, including the deleted exact product
+
+For fixed (q,d), define
+
+ B_r=sum_(n~N,(n,ell*r)=1) alpha_n,
+ A_r(b)=sum_(n~N,n=b mod ell,(n,r)=1) alpha_n,  (b,ell)=1,
+ I_r(m,n)=1_(mn=a mod ell*r),
+ E(m,n)=1_(mn=a),
+ C_r(m)=1_(m,ell*r)=1 * B_r/phi(ell*r),
+ X_r(m)=sum_(n~N,(n,ell*r)=1) alpha_n [I_r(m,n)-E(m,n)].
+
+For negative a, E is identically zero. For positive a, (ell*r,a)=1
+implies that E=1 already imposes all the displayed coprimalities.
+The modified discrepancy at m is sum_r eta_r[X_r(m)-C_r(m)].
+After Cauchy eliminates beta_m and gamma_(q,d), and the nonnegative
+majorants extend the q,m sums, the resulting variance is exactly
+
+ V'=S1-2 Re S2'+S3',
+ S1=sum_(q,d) w_q sum_m psi_m |sum_r eta_r C_r(m)|^2,
+ S2'=sum_(q,d) w_q sum_m psi_m
+                         (sum_r eta_r X_r(m)) overline(sum_s eta_s C_s(m)),
+ S3'=sum_(q,d) w_q sum_m psi_m |sum_r eta_r X_r(m)|^2.       (1)
+
+The original first moment differs from the modified one by at most
+QDR*x^o(1). The Cauchy multiplier is M QD (log x)^O_B(1), since there
+is only one compatible residue b=a*m^(-1) modulo ell when e=1.
+No 1/phi(ell) is lost or introduced at this stage.
+
+Expanding S2' gives the coefficient eta_r*conj(eta_s)/phi(ell*s),
+the n-conditions (n1,ell*r)=(n2,ell*s)=1, and the m-conditions
+mn1=a mod ell*r, (m,s)=1, mn1!=a. Expanding S3' gives eta_r*conj(eta_s),
+the two congruences, n1=n2 mod ell, and both mn_i!=a. The latter n
+congruence follows since m is invertible modulo ell. In particular the
+double exact-product diagonal has not been omitted from an expansion:
+it is absent from the squared modified indicator from the outset.
+
+3. Pure mean: the common coefficient is a Gram kernel
+
+Put delta(u)=phi(u)/u and
+
+ c_ell(r,s)=delta(ell*r*s)/(phi(ell*r) phi(ell*s)).           (2)
+
+Then elementary smooth counting of coprime m gives
+
+ MT=M h0 sum_(q,d) w_q sum_(r,s) eta_r conj(eta_s)
+                                      c_ell(r,s) B_r conj(B_s),
+ S1=MT+O(N^2 (log x)^C/Y).                                (3)
+
+Indeed sum_(m,(m,ell*r*s)=1) psi_m=M h0 delta(ell*r*s)
++O(tau(ell*r*s)); summing this error uses ordinary divisor means.
+The fixed power lower bound on M absorbs it into V(log x)^(-A),
+where V=MN^2/Y=xN/Y, with any requested fixed A.
+
+For a finite set of supported r, choose any common multiple L of
+ell and all these r. The exact identity
+
+ c_ell(r,s)=1/L sum_(v mod L)
+ [1_(v,ell*r)=1/phi(ell*r)] [1_(v,ell*s)=1/phi(ell*s)]       (4)
+
+shows that c_ell is a real positive semidefinite Gram matrix.
+L is used only to prove a finite identity; it is never counted in an
+error bound and is not assumed polynomially small. This observation
+also proves MT is real and nonnegative for complex eta and alpha.
+No assumption (q,d)=1, squarefreeness of the moduli, or (r,s)=1 is used.
+
+4. The cross term and the exact place roughness is used
+
+Keep mn1!=a while removing (m,s)>1. The nonzero shifted-divisor estimate
+(Z2) in lichtman-zero-product-dispersion-repair-20261009.txt bounds that
+removal by V(log x)^C/Z. Only then restore mn1=a, immediately before
+one-congruence Poisson. Its absolute cost is RN*x^o(1), not QD R^2.
+The zero Fourier frequency has coefficient
+
+ M h0 eta_r conj(eta_s)/(ell*r*phi(ell*s)) * B_r conj(B_s).
+
+Its ratio with (2) is
+
+ c_ell(r,s) / [1/(ell*r*phi(ell*s))]
+ =delta(ell*r*s)/delta(ell*r)
+ =product_(p|s,p not dividing ell*r) (1-1/p).              (5)
+
+Consequently (5)=1+O(log x/Z), uniformly over all supported r,s.
+This is not an exact equality before making that roughness comparison.
+The summed error is V(log x)^C/Z, by divisor means for B_r and eta.
+With E1 defined by the remaining frequencies 0<|h|<=QDR log^5(x)/M,
+using the full phase e(a*h*inverse(n1)/(ell*r)), we have
+
+ S2'=MT+M E1+O(V(log x)^(-A)+RN*x^o(1)).                 (6)
+
+Here and below logarithmic cutoff exponents are chosen for the final A.
+There is no expansion or deletion of an a-dependent phase in (6).
+
+5. The two-indicator term, CRT, and restoration of the main term
+
+Maintain both exact-product exclusions during the shifted-divisor
+cutoffs, rough common-factor exclusions and close-pair exclusion.
+On the resulting clean set retain
+
+ (r,s)=1, (s,ell)=1,
+ (n1,ell*r)=(n2,ell*s)=1, (n1,n2)=1,
+ n1=n2 mod ell, |n1-n2|>=N/(log x)^C.                      (7)
+
+These are the source restrictions for E=1. Only after n1!=n2 is fixed
+may a single exact product be restored. If mn1=a, fixing that
+factorization leaves O(N/Y+1) choices of n2 per (q,d); s divides the
+nonzero mn2-a while r has O(R) choices. The two single-zero cases total
+R(N+Y)x^o(1)=RN*x^o(1). Both zeros cannot occur in (7).
+
+For (7), the two congruences specify exactly one class m=b modulo ell*r*s:
+
+ b=a*inverse(n1) mod ell*r, b=a*inverse(n2) mod s.
+
+Compatibility with the missing ell part of the second congruence is
+precisely n1=n2 mod ell. Poisson therefore gives h=0 equal to M h0/(ell*r*s),
+and retains for h!=0 the CRT phase
+
+ e(a*h*[inverse(n1*s)/(ell*r)+inverse(n2*ell*r)/s]).         (8)
+
+Under (r,s)=1 and (s,ell)=1 there is the EXACT Euler-factor identity
+
+ phi(ell)*c_ell(r,s)=1/(ell*r*s).                         (9)
+
+In fact (9) already holds whenever no prime outside ell divides both
+r and s. Thus the E=1 zero-frequency conversion on the clean set has
+no missing totient factor and needs no approximate prime-product identity.
+
+Restore the exclusions in (7) ONLY IN THIS h=0 main term, not in the
+nonzero-frequency expression (8). Keep (n1,ell*r)=(n2,ell*s)=1.
+The resulting complete zero term is
+
+ J=M h0 sum_(q,d) w_q phi(ell) sum_(r,s) eta_r conj(eta_s)c_ell(r,s)
+                           sum_(b mod ell,(b,ell)=1) A_r(b)conj(A_s(b)). (10)
+
+The standard restoration bounds used at this step are
+O(V(log x)^C/Z + MN(log x)^C + V(log x)^(C-Cclose)).
+They concern ordinary n-congruences, not divisors of a zero shifted product.
+For example a shared rough prime f in n1,n2 is coprime to ell, so the
+two counts have respective sizes N/f and N/(ell*f)+1. A shared prime
+in r,s gives two factors 1/f; a shared prime in s,ell gives one from
+each modulus sum. The divisor-weighted sums are the source's ordinary
+mean estimates, leaving sum_(f>Z) tau(f)^C/f^2, hence logarithms/Z.
+For close n pairs replace N by N/(log x)^Cclose in one progression
+count; its +1 term contributes MN(log x)^C. These are exactly the
+restoration operations at Maynard v2 lines4839--4856, with fewer
+conditions removed because the two own r-coprimalities are retained.
+The rough-cutoff and restoration estimates, including their divisor
+means, remain the preliminary error reductions already checked in the
+bottom audit; the present note does not replace them by pointwise x^o/Z.
+
+Let E2 consist of the remaining h!=0 terms on (7), with its coefficient
+eta_r conj(eta_s)/(ell*r*s) and phase (8). Consequently
+
+ S3'=J+M E2+O(V(log x)^(-A)+RN*x^o(1)).                   (11)
+
+The signed error in (11) can be complex in notation; its magnitude has
+the stated bound. In the final real variance use |E2|. Restoring the
+close pairs after this Poisson step never recreates a tau(0).
+
+6. Exact positive remainder, with all coprime means retained
+
+For b coprime to ell put d_r(b)=A_r(b)-B_r/phi(ell). Since
+sum_b A_r(b)=B_r, elementary expansion gives exactly
+
+ sum_b A_r(b)conj(A_s(b))-B_r conj(B_s)/phi(ell)
+       =sum_b d_r(b)conj(d_s(b)).                         (12)
+
+Equations (3),(10),(12) give J=MT+P, with
+
+ P=M h0 sum_(q,d) w_q phi(ell) sum_(r,s) eta_r conj(eta_s)c_ell(r,s)
+                                                sum_b d_r(b)conj(d_s(b)).
+
+Using (4), each (q,d) contribution equals
+
+ M h0 w_q phi(ell)/L sum_(v mod L) sum_(b mod ell)^*
+   |sum_r eta_r 1_(v,ell*r)=1 d_r(b)/phi(ell*r)|^2 >=0.    (13)
+
+Thus the common main terms cancel as 1-2+1, while the positive SW
+variance remains. There is neither a fictitious exact cancellation of
+P nor a need to assume its sign from complex r-coefficients individually.
+
+7. Bounding P without discarding the r-coprimalities
+
+Use the following explicit BDH input, for every fixed A,D>0:
+if a divisor-bounded sequence satisfies full auxiliary SW uniformly,
+then for Q0<=N/(log N)^C(A,D,B),
+
+ sum_(s<=Q0) tau(s)^D sum_b^* |sum_n alpha_n
+ [1_(n=b mod s)-1_(n,s)=1/phi(s)]|^2 << N^2/(log N)^A.    (BDH)
+
+This is the correct coprime-mean form of Maynard Lemma13.8, and can
+also be supplied by a primitive-character large-sieve derivation. The
+printed line4202 with an unqualified constant mean is not used here.
+For the current insertion, the separate new proof
+lichtman-auxiliary-sw-mean-square-20261010.txt, sections1--7, supplies
+this precise input directly from primitive-character large sieve and
+(SW). I read its fixed-conductor/inducing-modulus decomposition: the
+coefficient retains (n,k)=1 before applying large sieve at fixed k,
+and the small-conductor step retains the full auxiliary SW price.
+That proof does not use the Gram identity of this note, so the two
+components can be joined without a circular appeal to dispersion.
+
+For each r, the normalized sequence
+
+ alpha^(r)_n=alpha_n 1_(n,r)=1 / tau(r)^B                 (14)
+
+has the SAME uniform SW constants: the auxiliary d0 condition for its
+numerator is that for alpha with d0*r, and
+tau(d0*r)^B/tau(r)^B<=tau(d0)^B. Its divisor bound does not increase.
+Hence (BDH), uniformly in r with the same cutoff Q0, gives
+
+ sum_(ell<=8Y) tau(ell)^D sum_b^* |d_r(b)|^2
+                  << tau(r)^(2B) N^2/(log N)^A.          (15)
+
+This tau(r) factor is kept, not absorbed into a constant. Bound (13)
+by Cauchy over its O(R) r terms, use phi(ell*r)^(-1)<<log x/(ell*r),
+|eta_r|<=tau(ell)^B tau(r)^B and phi(ell)<=ell. Since ell~Y,
+and there are at most tau(ell) original (q,d) pairs,
+
+ P << M(log x)^2/(Y R) sum_(r~R) tau(r)^(2B)
+                 sum_(ell<=8Y) tau(ell)^(2B+1) sum_b^* |d_r(b)|^2.
+
+Choose D>=2B+1 in (15). Ordinary divisor means give
+sum_(r~R) tau(r)^(4B)<<R(log x)^C_B. Therefore, for any A0,
+
+ 0<=P<<MN^2/(Y(log x)^A0),                               (16)
+
+by selecting the BDH exponent A>A0+C_B+2. The fixed power gap
+Y<=N*x^(-delta), with log N comparable to log x, supplies the common
+BDH cutoff for every r. No number of r-families is absorbed into SW
+constants, and no pointwise subpower factor multiplies a log-saving.
+In this application r is fixed first and (BDH) then sums over ALL ell.
+The normalized alpha^(r) does not depend on ell or its representation
+ell=qd. Any q,d dependence of lambda has already been removed by its
+absolute divisor bound. The condition (a,ell)=1 can be dropped in this
+nonnegative variance upper bound; it does not change the sequence.
+
+8. Assembly and exact-product budget
+
+Equations (1),(3),(6),(11),(13) yield
+
+ V'=P+M(E2-2 Re E1)+O(V(log x)^(-A)+RN*x^o(1)),
+
+with real parts understood for the harmless complex error notation.
+In particular V'<=P+M(2|E1|+|E2|)+the absolute error.
+Multiplying by M Y(log x)^C and taking square roots gives
+
+ |S(a)| << x/(log x)^A0
+       + M sqrt(Y)(log x)^C (sqrt(|E1|)+sqrt(|E2|)),       (17)
+
+after increasing the preliminary logarithmic exponents. The restored
+single-zero contribution has squared-first-moment size
+(MY)(RN)x^o(1)=x*(QDR)x^o(1), hence square-root size
+x^(1-delta/2+o(1)). The original exact-product correction QDR*x^o(1)
+is smaller. Conversely premature reinsertion of both zeros could cost
+QD R^2*x^o(1) in the variance and would require the extra unsupported
+condition (QDR)^2<xN. No such reinsertion occurs above.
+
+Uniformity in a enters here only through the explicitly uniform
+nonzero shifted moments, the power-bounded exact-product correction,
+and the original uniform SW/divisor bounds. CRT h=0 is independent
+of a; CRT h!=0 retains its full phase. This note supplies no license
+to bound or simplify that phase in a subsequent spectral argument.
+
+9. Sources and review boundary
+
+Primary: Maynard, Primes in arithmetic progressions to large moduli I,
+arXiv:2006.06572v2, https://arxiv.org/html/2006.06572v2 . Actual saved
+text read: external-source-audit-20261009/maynard-I-v2-phase-candidate-20261009.txt:
+SW lines1252--1272; BDH4158--4209; first main term4334--4403;
+cross term4405--4540; CRT/restoration4751--4894; Cauchy4905--5124.
+The saved v1 is also bound for comparison; the line references here
+are explicitly v2 and do not pretend the two files have identical lines.
+
+Internal error reductions actually read:
+lichtman-dispersion-bottom-audit-20261009.txt,
+lichtman-zero-product-dispersion-repair-20261009.txt.
+The new mean-square proof actually read is
+lichtman-auxiliary-sw-mean-square-20261010.txt, sections1--8; only
+sections1--7 are needed as its independently proved input here.
+Their conclusions are not substituted for equations (2)--(16).
+They supply the separately scoped roughness/error bookkeeping explicitly
+identified in sections4--5. In particular the Gram construction and
+tau(r)-paid BDH passage are new explicit derivations in this record.
+
+The remaining external inputs are the classical divisor means, the
+primitive Shiu bound used in those error reductions, smooth Poisson,
+and (BDH) with uniform constants as stated. This scoped reconstruction
+does not infer a global sieve theorem from the positivity of (13).

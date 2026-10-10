@@ -1,0 +1,77 @@
+% A scoped independent replay; no previously frozen file is modified.
+\paragraph{The complete $n=48$ replacement.}
+Put $a=417/5000$, $h=19/125$, $d=59/250$, $K=67619/10000$,
+and $C=70893/125000$.  The new certificate replaces the complete
+$U_{10},U_{11}$ upper cost on the same two ordered domains as the
+previous $n=32$ certificate.  It uses the same certified 248-generation
+$H$ array.  It changes neither the eleven-term coefficients nor a
+lower-start policy.
+
+The first domain has all four coordinates in $[a,h]$ in decreasing
+order.  The second has its first coordinate in $[h,d]$ and its remaining
+three coordinates in decreasing order in $[a,h]$.  Enumerating weakly
+ordered bin indices gives respectively
+\[
+ {51\choose4}=249900,\qquad 48{50\choose3}=940800.
+\]
+Within a repeated bin, the actual ordered simplex is retained.  For a
+block of $m$ coordinates its logarithmic mass is
+$\log(u/l)^m/m!$.  If $z$ has $r$ coordinates of this block before it
+and $s$ after it, $r+s=m-1$, its additional $1/z$ moment is
+\[
+ {1\over l r!s!}\int_0^{\log(u/l)}
+ e^{-t}(\log(u/l)-t)^r t^s\,dt.
+\]
+The independent implementation expands this fixed polynomial with
+directed interval arithmetic; it does not divide a rectangular
+nonconstant cost by a factorial.  Bin-boundary faces have zero limiting
+mass, as in the previously reviewed fixed-partition compiler.
+
+\paragraph{Every saved method is verified.}
+The saved method number is only a finite choice of one admissible
+upper bound.  For an ordinary branch the replay constructs all sixteen
+vertices and checks every full-square, selected-factor residual-square,
+and applicable $W$ gate.  It reconstructs the residual range, its closed
+$H$-cell minimum, and the integrated separately convex reciprocal
+majorant on strict rectangles.  A tied simplex uses a constant
+reciprocal majorant times its exact mass.  The already proved parameter
+inequalities give $\alpha\ge2$ and
+$2\le \max(2,R/w)\le1249/417<3$; no new table extrapolation is used.
+
+For a switched branch the replay uses the actual argument
+$(1-x-y-z-w)/z$, whose whole-domain minimum exceeds two.
+Since $x+y+z+w\le d+3h<1$, no unit residual occurs here.
+The independent Buchstab table has mesh $8192$, exact initial solution
+$s\omega(s)=1+\log(s-1)$ on $[2,3]$, and outward delay integration
+thereafter.  Its logarithms use 48 rational atanh terms at 112 bits.
+The author uses mesh $4096$ and 80 bits.  No author geometry or numerical
+function is imported.  The reusable independent $n=32$ module supplies
+the interval backend and mathematical primitives; this reuse is explicit.
+
+For each cell $B$, with $d\mu=\prod_i dt_i/t_i$, the reference is
+$KC\int_Bd\mu/z$.  If $T_B$ is the chosen ordinary or switched upper
+cost, the independently valid saving is
+\[
+ \max\bigl(0,(KC\int_Bd\mu/z)_--(T_B)_+\bigr).
+\]
+The replay compares this directly to each saved 80-bit floor.  It
+neither assumes the author's choice is optimal nor adds the two
+alternative savings.
+
+\paragraph{Replacement arithmetic and limits.}
+Let $S_n$ be the certified total saving over the complete $n$-bin
+partition and let $C_0$ be the common uniform $KC/z$ upper cost.
+The new combined baseline is obtained by replacing the old complete
+effective cost with $C_0-S_{48}$.  Therefore its improvement over
+$n=32$ is exactly $(S_{48}-S_{32})/4$.  The separate $n=32$
+logmean gain must not also be added to this $n=48$ certificate; it is
+a different alternative bound on overlapping domains.  The independent
+$U_7,U_8,U_9$ improvement and separate $L_5,L_6$ replacements concern
+different terms, but their combinations require their own exact ledger.
+
+The companion JSON records every checked floor, source hashes,
+the canonical stream hash, complete counts, and exact replacement
+arithmetic.  This is a full numerical replay of these two terms under
+the existing distribution and finite-table inputs.  It does not claim
+a new independent proof of those analytic inputs or of every other
+term of the Chen functional.

@@ -1,0 +1,374 @@
+Fixed-d E2 to the well-factorable exponential sum: a unified interface
+2026-10-10
+
+0. Result, scope, and reviewer role
+
+This note reconstructs the actual fixed-d E3 array, rather than applying
+the conclusion of the disputed phase-deletion lemma. Exact reciprocity,
+five-variable summation by parts, a disjoint coprime partition, expansion
+of BOTH small-factor choices, and three bounded-coefficient polarizations
+reduce this array to the bare exponential sum in L23 Lemma 5.1.
+
+Two endpoint details missing from the concise earlier bridge are supplied:
+(i) a LOWER cutoff on either total rough product must be written as a
+difference of upper cutoffs, not inserted into one individual factor;
+(ii) the smooth q support can cross constant dyadic scales, so the source
+margin is relaxed to sigma_S=3 sigma/4. The residue condition remains
+kappa<=sigma/100; the natural-scale estimate verifies this directly,
+without falsely invoking a corollary requiring kappa<=sigma_S/100.
+
+The resulting bound is
+  |E2(a)| << N^2/(DQ) x^(-sigma/2),
+uniformly for the stated fixed family, conditional on the BARE coprime
+spectral exponential-sum input S0 specified below. No independent extra
+q weight, endpoint depending on a summation variable, or h weight coupled
+to q,n,r is admitted. The retained phase is charged exactly once.
+
+This is an audit of the E2 CONNECTION. It is not a reproof of the spectral
+theorems, preliminary dispersion D, its main-term/zero corrections, E1,
+the complete prime-product theorem, or any K,c,b value. I previously
+authored the scoped bounded-h/polarization review and large-residue S
+audit. Those are disclosed inputs/earlier derivations, not represented
+as an independent second-person validation of my own work. The actual
+coefficient and endpoint mapping is reconstructed here from the primary
+arrays and checked without using a prior PASS status as a premise.
+
+1. Notation, actual hypotheses, and the analytic input being used
+
+Set x=NM and L=log x. Fix 0<sigma<1/100, 0<=kappa<=sigma/100 and a!=0
+with |a|<=x^(1+kappa). The restricted application has theta=7/32 and also
+c0*x<=|a|, but the lower bound on |a| is needed by E1, not by this E2
+connection. Assume the four actual scale inequalities
+  Q < N x^(-sigma),
+  N^2 Q2 Q3^2 < x^(1-8 sigma),
+  |a|^theta N Q Q2^5 Q3^2 < x^(2-15 sigma),
+  N^(1+2theta) Q Q2^(5-2theta) Q3^(2+2theta)
+       < x^(2-15 sigma).                                      (1)
+All lengths are at least one. Parameters and constants in coefficient
+bounds are fixed before the asymptotic limit. All relevant scales are
+bounded by a fixed power of x.
+
+Split q2=u*s and q3=v*t into rough and smooth parts, respectively. On the
+piece under consideration u~U, v~V, s~S0, t~T0, st=d~D, and uv~Rcal.
+Here Rcal is comparable to UV, D*Rcal is comparable to Q2*Q3, and
+D<=x^(2/log log x) up to fixed constants. The rough factors u,v and
+alpha_n are supported on P^->=Z, with log Z bounded below by a positive
+constant times log x/(log log x)^3. The chart-fixed larger Z permitted
+by the HB reduction satisfies this requirement. Smooth s,t have no prime
+factor above Z. Thus (d,uv)=1 automatically. Only d coprime to a occurs.
+
+For fixed d define EXACTLY
+  Lambda_d(w) = sum_{st=d} sum_{uv=w}
+                   lambda_(us) nu_(vt) I(s,t,u,v),              (2)
+where I contains the fixed individual intervals and smooth/rough
+supports. A total-product interval w~Rcal may be left outside (2);
+if it is included it is preserved explicitly below. Lambda_d is
+independent of q. The spurious q1 summation printed in the source
+definition at lines2479--2485 is not part of (2).
+The original one-bounded gamma_q has already been eliminated by the
+outer dispersion Cauchy step. It is absent from the actual E3 array.
+This absence, visible in source lines2561--2569, is essential.
+
+The analytic input S0 is the bare fixed-d, cross-coprime well-factorable
+exponential-sum estimate, with diagonal one-bounded Gamma_r, Lambda_s,
+alpha_n and exactly the kernel and restrictions at L23 lines1935--1949.
+It has q0<=q<=q0'<=2q0 and product upper cutoffs r_i*s_i<=B_i, and permits
+fixed (d,a)=1 with d=x^o(1). It does NOT assert arbitrary q weights.
+The restricted coprime spectral derivation gives the natural form
+  |W| << N^2/q0 * x^o(1)
+          [D0^(1/2)+((1+|a|/x)*D1+D2)^(1/4)],                (S0)
+  D0=N^2 R^2 S/x,
+  D1=|a|^theta N q0 R^2 S^5/x^2,
+  D2=N^(1+2theta) q0 R^(2+2theta) S^(5-2theta)/x^2.
+Here R=V and S=U, not the total rough-product length Rcal. The bare W
+has no extra smooth reciprocity phase. Its allowed H is
+x^o(1) q0 R^2 S^2/M. The internal subpower losses in S0 can be made
+smaller than an independently fixed positive exponent. This note does
+not prove that spectral input anew; it specifies precisely where it is
+used. Its bounded-h extension is justified in section6, with unchanged
+positive multiplicity envelopes and the same coprime spectral support.
+
+2. The exact fixed-d array and reciprocity
+
+Put H=QD Rcal^2 L^5/M. For one fixed a, before taking a supremum, let
+  E2(a) = sum_{d~D,(d,a)=1} E3(a;d)/d.                        (3)
+E3(a;d) is the sum over q, w1,w2~Rcal, n1,n2~N and 1<=|h|<=H of
+  Lambda_d(w1) conjugate(Lambda_d(w2))
+  *alpha_(n1) conjugate(alpha_(n2))/(q*w1*w2)
+  *psi0(q/Q) hatpsi0(hM/(qd*w1*w2))
+  *e(ah inverse(n1*w2)/(qd*w1)
+                  +ah inverse(n2*qd*w1)/w2).                 (4)
+All of these original restrictions are retained:
+  (q,a)=1, (w1,a*w2)=1, (w2,a*q*d*w1)=1;
+  n1=n2 (mod qd), (n1,n2*q*d*w1)=1,
+  (n2,n1*q*d*w2)=1, |n1-n2|>=N/L^Csep.                       (5)
+The smooth support is q/Q in [1/2,5/2]. Supremums over a are bounded
+uniformly AFTER (3), using the triangle inequality; the supremum of a
+sum has not been written as an equality of independent supremums.
+
+The two phases in (4) combine EXACTLY to
+  e(ah*(n1-n2)*inverse(n2*qd*w1)/(n1*w2))
+       *e(ah/(qd*w1*w2*n1)).                                 (6)
+To verify this, apply reciprocity with the coprime integers n1*w2 and
+qd*w1. Lift the inverse of n2*qd*w1 from modulus w2 to modulus n1*w2;
+this is allowed by (5). Modulo n1*w2, inverse(qd*w1) is n2 times that
+lifted inverse. Their difference gives (6). No inverse is used without
+the corresponding coprimality in (5), and no Taylor deletion is made.
+
+In particular E3 has denominator q*w1*w2, NOT q*d*w1*w2. Source line2593
+inserts an extra d although line2564's E3 has none. Equations (3)--(4)
+avoid that inconsistency. The q variable is never replaced by qd.
+
+3. Five-variable variation produces scalar, frozen endpoints
+
+If H<1 the sum is empty. Otherwise split h into its positive and negative
+signs and split the q support
+into disjoint intervals inside dyadic scales q0=Q/2,Q,2Q. Endpoint
+rounding or half-open conventions can be implemented by differences
+of anchored sums; only an absolute number of terms is needed.
+If Q/2<1, use scale1 for the nonempty positive-integer part; all scales
+remain within fixed factors of Q and the same argument applies.
+Normalize the variables as
+  (q/q0,w1/Rcal,w2/Rcal,n1/N,h/H)=(v1,v2,v3,v4,v5).
+The first four coordinates are in fixed compact positive intervals;
+v5 lies in [0,1] or [-1,0]. The smooth weight removed by summation by
+parts is exactly
+  W(v)=psi0(q0*v1/Q)
+       *hatpsi0(Ld*v5/(v1*v2*v3))
+       *e(thetad*v5/(v1*v2*v3*v4)),
+  Ld=HM/(q0*d*Rcal^2)=(Q/q0)(D/d)L^5,
+  thetad=aH/(q0*d*Rcal^2*N)=(a/x)(Q/q0)(D/d)L^5.             (7)
+Because d~D, both ratios Q/q0 and D/d are bounded by absolute constants.
+For every subset I of the five coordinates, each differentiated at
+most once, the product/chain rules give
+  ||partial_I W||_infinity
+       <<_I (1+L^5+(|a|/x)L^5)^|I|.
+The sum of all face-integrated variations is therefore
+  V5(W) << (1+L^5+(|a|/x)L^5)^5 = x^(5kappa+o(1)).          (8)
+There is no singular derivative at h=0; the original integer h=0 term
+is simply absent from the coefficient array. Denominator 1/(q*w1*w2),
+all congruences, gcd indicators, and the separation condition remain
+in that array. No derivative of an arithmetic indicator is taken.
+
+Repeated summation by parts bounds the weighted sum by V5(W) times
+the supremum of the corresponding anchored rectangular sums. Every
+integration endpoint is frozen before invoking a bound on a rectangle.
+On each resulting rectangle:
+  q lies in one interval contained in [q0,2q0];
+  each wi has a scalar lower and upper endpoint;
+  n1 has its independent endpoint n1<=N1 (n2 has its original support);
+  omega_h is the indicator of a fixed signed interval, |omega_h|<=1.
+One may take the h range in S0 to be the entire 1<=|h|<=H and encode the
+chosen signed interval in omega. This also handles a negative anchored
+interval whose absolute values are not anchored at zero.
+Omega may depend on fixed a,d and all chosen endpoint parameters. It
+may not depend on the summation values q,w1,w2,n1,n2. There is no weight
+W(q,...,h) left in the rectangle: its derivatives have been integrated
+as scalar total-variation measures. Reintroducing such a coupled omega
+after (8) would invalidate the proposed application of S0.
+
+4. Coprime classes and the full list of endpoint operations
+
+From (5), the pair (n1*w2,n2) is coprime. Its entries are polynomially
+bounded and rough, so each has O((log log x)^3) prime factors. Maynard I
+Lemma13.2 gives a DISJOINT partition into exp(O((log log x)^4)) classes
+N_j such that any two pairs (b,c),(b',c') in a class satisfy
+(b,c')=(b',c)=1. Partition all possible pairs once; restricting endpoints
+thereafter preserves the property. The construction is independent of
+coefficient values and a, so no number of a values or endpoint choices
+is paid. Fix a class before the next operations.
+
+Expand BOTH Lambda factors in (4), independently choosing
+  st=d and s't'=d.
+There are at most tau(d)^2 choices. Write w1=v1'*u1' and w2=v2'*u2',
+where v_i'~V and u_i'~U. The coefficient is then
+  nu_(v1'*t) conjugate(nu_(v2'*t'))
+       *lambda_(u1'*s) conjugate(lambda_(u2'*s')).             (9)
+All restrictions on individual u_i',v_i' belong in their respective
+one-variable sequences. Different s,s',t,t' generally produce different
+sequences; setting the two choices equal is not an identity.
+
+The total-product window on each wi is handled as follows, including
+any original w~Rcal restriction and the endpoint from section3:
+  1_(A_i<r_i*s_i<=B_i)
+       =1_(r_i*s_i<=B_i)-1_(r_i*s_i<=A_i).                  (10)
+Thus two total-product intervals produce at most four terms. These are
+EXACTLY the independent upper cutoffs B1,B2 allowed in S0. This operation
+does not place a coupled product indicator in Gamma_r or Lambda_s, and
+does not drop any lower restriction. Upper endpoints below the possible
+product range give empty sums, not an exceptional theorem case.
+
+After expansion, the coprime class becomes (n1*r2*s2,n2) in N_j, precisely
+as in S0. The other conditions become the full displayed restrictions
+at source lines1937--1946. Source q0<=q<=q0'<=2q0 matches each anchored
+q endpoint. A general subinterval is a difference of two such anchored
+intervals; it is NOT an arbitrary bounded q sequence. A smooth function
+supported on [Q/2,5Q/2] cannot in general be replaced by a single source
+interval [Q,2Q]; the explicit constant-scale subdivision above is used.
+
+5. Independent coefficients and why SW is not reapplied
+
+For any fixed kernel B(u,v), linear in u and conjugate-linear in v,
+let Q_B(w)=B(w,w). Even if the kernel is not Hermitian,
+  B(u,v)=(1/4) sum_(j=0)^3 i^j Q_B(u+i^j v).
+If u,v are one-bounded, (u+i^j v)/2 is one-bounded, so a uniform diagonal
+bound Bcal gives |B(u,v)|<=4 Bcal. Apply this independently to the two
+nu sequences, the two lambda sequences in (9), and finally
+  u_n=alpha_n*1_(n<=N1), v_n=alpha_n.
+The total polarization factor is at most 4^3=64. It is in addition to
+the at most four product-interval terms in (10), not a replacement for
+them. All coprime restrictions and the class N_j are held fixed in each
+of these algebraic identities. Rough supports are preserved under the
+linear combinations. S0 requires boundedness here, not SW. The earlier
+dispersion application of SW precedes these operations; no claim of SW
+for an arbitrary polarized sequence is made.
+
+6. The bounded-h extension and fixed-d proof are compatible
+
+The bare source statement sums symmetrically in h. Its proof supports
+the fixed omega_h above: insert omega inside the inner (s1,h) sum before
+Cauchy in f,n1,n2,r1,r2,s2. The ensuing square adds only
+omega_(h1)*conjugate(omega_(h2)). It has absolute value at most one and
+is independent of the completed variables b=n2*r1,c=n1*r2*s2. For
+k=h1*s1-h2*s2=0 the same positive collision count dominates. For k!=0
+the coefficient after grouping z=s1*s2, y=f*k is dominated by the same
+positive multiplicity b_(z,y). Both its ordinary and restricted n''
+L2 norms are therefore unchanged as upper bounds. Keep (s_i,a)=1
+throughout; then (z,a)=1, the coprime spectral subclass actually used.
+
+The printed 1<|h| in some W3/W4 lines must not delete h=+1 or -1. Keep
+1<=|h| in those displays; the positive counts and the source's later
+b_(z,y) definition already include them. Positive/negative y can be
+estimated separately after taking the kernel absolute value; omega
+need not be symmetric. This is a local notation issue, not phase loss.
+
+The source's product-endpoint Fourier integral removes r1*s1<=B1 with
+an L1 kernel O(log x); use periodic distance ||u|| in the Dirichlet-kernel
+bound near both 0 and 1. The resulting e(s1*u) changes a one-variable
+coefficient; omega_h remains independent of b,c. That logarithm is in
+the bare S0 proof, not a second five-variable variation charge here.
+
+Finally put f=(n1-n2)/(dq), a nonzero signed integer. Its natural range
+is |f|<=2N/(d*q0). The exact inverse phase becomes
+  e(ah*f*inverse(n2*r1*s1)/(n1*r2*s2)).
+The source may enlarge the f range to 2N/q0 after its Cauchy square.
+The condition n1=n2 (mod df) is dropped only from a positive sum after
+Cauchy, not from E3 itself. For f<0 the two inequalities describing
+q0<=q<=q0' reverse order; splitting the two signs is an absolute cost.
+No sparsity condition d|q' is created, and no theorem with arbitrary
+weights on q is used. These facts explain why treating d as fixed is
+compatible with S0, whereas replacing q by qd and selecting multiples
+of d without a new theorem would not be justified.
+
+7. Uniform scales, one phase charge, and the final d normalization
+
+Because R=V<<Q3 and S=U<<Q2, with fixed comparison constants, all three
+natural ratios in S0 have positive exponents of U,V. In particular
+5-2theta>0. The fixed-factor choices only shorten the original lengths.
+Consequently (1) gives, uniformly in the endpoint blocks,
+  D0 << x^(-8sigma),  D1,D2 << x^(-15sigma).                (11)
+The q block q0 is between Q/2 and 2Q. Call the source estimate with
+sigma_S=3sigma/4. For large x, q0<N*x^(-sigma_S), and (11) implies
+its 7sigma_S/14sigma_S conditions with strict spare power. Also
+  H/(q0*V^2*U^2/M) << D L^5 = x^o(1),
+so the SAME full H used for a signed interval is allowed. Product
+endpoints do not change this length condition.
+
+There is a small but important quantifier detail. The simplified old
+S audit stated kappa<=sigma_S/100; here kappa<=sigma/100 need not satisfy
+that inequality after relaxing sigma_S. Use its natural formula instead:
+before the retained phase, the saving is at least
+  (7/2)sigma_S - kappa/4 - epsilon_internal.
+With the retained phase charged ONCE it is at least
+  (7/2)sigma_S - (21/4)kappa - epsilon_internal.
+For epsilon_internal<=sigma_S/4 and kappa<=sigma/100 this exceeds
+2 sigma. Thus the weaker bare estimate N^2/q0*x^(-sigma_S) needed here
+has ample slack. This direct check supplies the slightly changed
+parameter ratio; it does not silently reuse the narrower corollary.
+
+Alternatively, use the stronger actual ratios (11) directly. After
+one phase-variation charge they save
+  15sigma/4 - 21kappa/4 - o(1),
+which is also more than sufficient. These are alternative ledgers;
+the phase multiplier from (8) must not be applied twice to a bound
+that has already included it. Hereafter use the weak BARE S0 saving
+sigma_S and charge (8) just once.
+
+The partition count, tau(d)^2 pairs, fixed endpoint/polarization counts,
+the fixed smooth derivatives, dyadic decompositions, and internal source
+normalizations are all a single collection of x^o(1) factors. This
+collection is independent of a,d and the frozen endpoints in their
+stated ranges. The shorthand x^o(1) in the spectral estimate needs a
+precise distinction: an external theorem's selectable exponent is
+fixed BEFORE x tends to infinity; it is not a genuine vanishing o(1).
+After fixing sigma and the finite polynomial scale bounds, choose all
+such spectral/smoothing epsilons so that their accumulated fixed power
+is at most sigma/20. Then take x large enough that the genuine vanishing
+losses (divisors, D, coprime classes, logarithms, fixed counts) together
+are at most sigma/20. The total allowance is sigma/10. If source-internal
+losses were already absorbed when forming the weaker bare bound with
+saving sigma_S, they are not multiplied in again; only the remaining
+external losses are charged, bounded conservatively by the same total
+allowance. This is an order of choices, not free epsilon absorption.
+Every such loss multiplies a POWER-saving bound, never just a
+logarithmic dispersion remainder. We obtain
+  |E3(a;d)| << N^2/Q*x^(-sigma_S+5kappa+o(1)).              (12)
+In (3), sum_(d~D)1/d=O(1); taking the uniform bound (12) therefore
+introduces no D from the count of small factors. To express the result
+in the D-normalized form used by outer dispersion, pay the one extra
+factor D=x^o(1). Choose x large enough that ALL remaining subpower
+losses, including this factor, are at most x^(sigma/10). Then
+  sigma_S-5kappa-sigma/10 >= 3sigma/5 > sigma/2,
+and hence
+  |E2(a)| << N^2/(DQ)*x^(-sigma/2).                        (13)
+The resulting contribution to dispersion is
+  M sqrt(DQ) sqrt(|E2|) << x^(1-sigma/4),
+before fixed external logarithms. This is only the E2 contribution;
+no such exponent is asserted for preliminary D's zero-restoration
+error or for the complete final discrepancy.
+
+8. Boundaries of the conclusion
+
+The connection is valid for the actual factorized, q-independent
+Lambda_d of (2). It does not give S0 for arbitrary lambda_(q,d,w),
+arithmetic restrictions on q, or rectangles whose endpoint changes
+with a summation variable. It uses the real rough support of n,w to
+partition coprime pairs; an arbitrary unprojected HB coefficient would
+not automatically satisfy that partition hypothesis. Neither arbitrary
+geometric inequalities nor signed compiler weights can simply be put
+into the rectangle kernel: any earlier Mellin/finite-class separation
+must already have supplied the stated one-variable coefficient form.
+
+Within these limits, no extra E2 interface hypothesis is needed beyond
+the bare coprime spectral input and the actual fixed-d array supplied
+by dispersion. The two endpoint supplements and the weakened source
+margin above close omissions in the concise earlier mapping. This
+result alone cannot declare the full repaired dispersion theorem or
+the project's global sieve constants proved.
+
+9. Source locations actually checked
+
+L23 current local primary extraction
+external-source-audit/l23-v1-joint-current.txt:
+  1623--1682: dispersion inputs and actual E1/E2 normalization;
+  1711--1791: disputed simplification and exact reciprocity;
+  1911--1960: bare Lemma5.1 statement and explicit fixed d/B1/B2;
+  1962--2054: signed f substitution, product endpoint, Cauchy;
+  2089--2150: h square, signed k, positive multiplicity;
+  2411--2452: Proposition5.2 four conditions and coefficients;
+  2477--2499: small/rough grouping (printed extra q1 sum not used);
+  2517--2531 and2561--2569: E2 and fixed-d E3;
+  2589--2618: printed extra d and the original abbreviated insertion.
+Maynard I v2 current local primary extraction
+external-source-audit-20261009/maynard-I-v2-phase-candidate-20261009.txt:
+  3924--3966: Lemma13.2, disjoint coprime partition and its hypotheses;
+  5126--5282: Lemma14.5 proof, partial summation and partition precedent.
+
+The retained-phase candidate and its prior bounded-h review are read
+as local derivations, not as an independent full S theorem. The scoped
+large-residue S audit supplies the natural-scale expression; its two
+a-free spectral invocations are replaced by the separately documented
+classical spectral substitution. The latter's external spectral inputs
+and the remaining multiplicity/packet analysis are not re-proved here.
+All input files are hash-bound in the accompanying JSON. No old source,
+main manuscript, state file, numerical certificate or constant is changed.

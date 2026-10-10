@@ -1,0 +1,42 @@
+{
+  "status": "INDEPENDENT_COMPACT_THIRD_UPPER_WITHIN_FROZEN_ALLOWANCE",
+  "method": "Independent160-bit intervals/log,112-bit numerator-chord table, explicit cap/geometry/Jensen reconstruction; no original E0 numerical routine imported.",
+  "upper_exact": "87399695979595658659131184196685521294426184555/730750818665451459101842416358141509827966271488",
+  "lower_exact": "129940083843673651100321589892214922329961912227/1461501637330902918203684832716283019655932542976",
+  "saved_upper_exact": "144590669409566793572719/1208925819614629174706176",
+  "saved_allowance_verified": true,
+  "mesh": 16384,
+  "bits": 160,
+  "split_limit": 2500000,
+  "splits": 2034177,
+  "leaves_in_heap": 1997339,
+  "cell_evaluations": 4031516,
+  "counts": {
+    "boundary": 250900,
+    "outside": 36871,
+    "full": 3780616
+  },
+  "cell_stream_sha256": "d36ed2edbcc6fe7f04ec1a4c06bcca6d89d1380cbb91ff58e3782d4ea8dc055d",
+  "display_only": {
+    "splits": 2034177,
+    "cells": 1997339,
+    "lower": 0.08890861325409075,
+    "upper": 0.11960259742056961,
+    "target": 0.11960259849165777,
+    "seconds": 532.1157517000102
+  },
+  "original_leaf_partition_replayed": false,
+  "new_gain_adopted": false,
+  "scope": [
+    "Compact z>=1/100 only; first and omitted tail are separate.",
+    "Uses the reduced envelope identity and standard sieve monotonicity/concavity as explicit mathematical inputs.",
+    "Sharing of previously independently verified chord/interval primitives is disclosed.",
+    "No selected constant, state, manuscript or prior certificate is changed."
+  ],
+  "bindings_sha256": {
+    "numerical-third-compact-independent-20261010.py": "005fcc24c3431753e2530ab90f70e80d2256b3691cd45d14e13eb9191b0caa7c",
+    "numerical-w2-affine-series-independent-20261010.py": "3634931e61c7eeb074840deee2247b1e225e561802c173e07a508b2f2399de08",
+    "numerical-primitive-adversarial-20261009.py": "3f2e4d93ffe2c1e4e6dca19b263c762f64f65a3b31307bab51f72d7c07d4d0c0",
+    "certify_extended_prefix.json": "f13a607d03e46987e12c4192bfe466a20827f1b2778e4659b2210e7aa00c18ab"
+  }
+}

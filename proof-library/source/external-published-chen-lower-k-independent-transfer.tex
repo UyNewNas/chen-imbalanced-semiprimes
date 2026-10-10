@@ -1,0 +1,216 @@
+% Independent review fragment. No documentclass and no changes to the main draft.
+\subsection{The published Chen input and the smaller removal coefficient}
+\label{sec:external-published-chen-lower-k-independent-transfer}
+
+\paragraph{Citation and normalization.}
+Runbo Li, \emph{On Chen's theorem, Goldbach's conjecture and almost prime
+twins II}, Mathematical Reports 28(78) (2026), 1--2, 39--61,
+\href{https://imar.ro/journals/Mathematical_Reports/Pdfs/2026/1_2/3.pdf}
+{publisher PDF}, states Theorem~1.1 on p.~40 without a conjectural
+hypothesis. Its definitions (1) and (3), on p.~39, give exactly
+\[
+ D_{1,2}(N)\ge\frac{1233}{625}\mathcal H_N,\qquad
+ \mathcal H_N=\mathcal C(N)\frac{N}{\log^2N},\qquad
+ \mathcal C(N)=\prod_{\ell>2}\left(1-\frac1{(\ell-1)^2}\right)
+ \prod_{\substack{\ell\mid N\\\ell>2}}\frac{\ell-1}{\ell-2},
+\]
+for every sufficiently large even integer. Prime factors are counted
+with multiplicity. There is no extra factor two to import from a twin-prime
+normalization. For even $N>2$, its $p\le N$ and our $p<N$ are identical;
+the possible convention at $N-p=1$ changes the subsequent subtraction
+by at most one. This paragraph checks the published statement, not its proof.
+
+\paragraph{The exact additional theorem required from this project.}
+Write
+\[
+ B_b(N)=\#\{p<N:p\text{ prime},\ N-p=rq,\ q^b<r\le q,
+                 \ r,q\text{ prime}\}.
+\]
+The necessary original conclusion is, for every fixed $1/2<b<1$,
+\begin{equation}\label{eq:external-lower-k-required-upper}
+ B_b(N)\le\left(\frac{67619}{10000}\log(1/b)+o(1)\right)
+               \mathcal H_N
+ \quad(N\longrightarrow\infty,\ 2\mid N).
+\end{equation}
+This is a statement about actual prime counts uniformly along even $N$.
+It is not the numerical statement that a displayed integral is below
+$67619/10000$.
+
+The finite-product theorem under review specializes to this domain
+without arbitrary arithmetic weights. For fixed small $\kappa>0$,
+discard $rq<N^{1-\kappa}$, costing $O(N^{1-\kappa})$ prime counts.
+On the retained region,
+\[
+ r,q\ge N^{(1-\kappa)b/(1+b)},
+\]
+so a fixed positive factor cutoff is available. The inequalities
+$rq\le N$, $r\le q$ and $r>q^b$ are finite monomial constraints with
+positive weight one and one ordered factorization. Repeated factors
+can either be kept or removed with error $O(\sqrt N)$; they belong to
+the bad set for $b<1$.
+
+Here is a direct derivation of the needed mass and its prime-count
+specialization. Put $\beta=b/(1+b)$ and fix
+$0<\eta<\beta/2$. If $r\le N^{\beta-\eta}$ and $r>q^b$, then
+\[
+ rq<r^{1+1/b}\le N^{1-(1+1/b)\eta}.
+\]
+All such bad products therefore cost $o(\mathcal H_N)$ in the prime
+count, for each fixed $\eta$. If $r\ge N^\beta$, then
+$q\le N/r\le r^{1/b}$; hence the bad condition is automatic on
+$r\le q$, $rq\le N$, apart from its equality boundary. The PNT and
+partial summation give
+\[
+ \sum_{\substack{N^\beta<r\le\sqrt N\\r\ {\rm prime}}}
+       \bigl(\pi(N/r)-\pi(r)\bigr)
+ =\left(\int_\beta^{1/2}\frac{dt}{t(1-t)}+o(1)\right)
+      \frac{N}{\log N}.
+\]
+Indeed the sum of $\pi(r)$ is $O(N/\log^2N)$, while uniformly
+$\pi(N/r)=(1+o(1))N/[r\log(N/r)]$ on this fixed exponent interval.
+The equality boundary contributes at most $O(\sqrt N)$ pairs.
+The intervening strip $N^{\beta-\eta}<r<N^\beta$ is dominated by the
+positive domain $r\le q$, $rq\le N$, whose PNT mass is
+\[
+ \left(\int_{\beta-\eta}^{\beta}\frac{dt}{t(1-t)}+o(1)\right)
+ \frac{N}{\log N}=\bigl(O_b(\eta)+o(1)\bigr)\frac{N}{\log N}.
+\]
+It is a fixed positive-cutoff product family for each fixed $\eta$.
+Applying the required positive-product theorem to both the main
+region and this outer strip bounds their prime counts by $K$ times
+their respective mass coefficients, in units $\mathcal H_N$.
+First let $N\to\infty$ with $\eta$ and all sieve parameters fixed,
+and then let $\eta\downarrow0$. The resulting coefficient is
+\[
+ J_b=\int_{b/(1+b)}^{1/2}\frac{dt}{t(1-t)}=\log(1/b).
+\]
+The ordering $r\le q$ counts each composite just once; squares cost
+$O(\sqrt N)$ and require no extra symmetry factor. Thus a proved
+positive-product upper theorem with coefficient $K$ gives
+$KJ_b\mathcal H_N$, without a new Chen lower-sieve calculation.
+Since $\mathcal C(N)$ has a fixed positive
+lower bound, the preceding errors and a possible unit are
+$o(\mathcal H_N)$.
+
+\paragraph{Transfer and exact arithmetic.}
+Each nonunit Chen representation is either in $D_b$ or in $B_b$.
+Consequently Li's cited theorem and
+\eqref{eq:external-lower-k-required-upper} imply
+\begin{equation}\label{eq:external-lower-k-transfer}
+ \liminf_{\substack{N\to\infty\\2\mid N}}
+ \frac{D_b(N)}{\mathcal H_N}
+ \ge \frac{1233}{625}-\frac{67619}{10000}\log(1/b).
+\end{equation}
+For $0<b<1$, set $u=(1-b)/(1+b)$. A positive series gives the elementary
+strict upper bound
+\[
+ \log(1/b)<2\left(u+\frac{u^3}{3}
+                     +\frac{u^5}{5(1-u^2)}\right).
+\]
+For the requested $b=467/625=0.7472$, this yields
+\[
+ \log(625/467)<\frac{51919349923661}{178158313856250},
+ \qquad
+ \frac{1233}{625}-\frac{67619}{10000}\log(625/467)
+ >\frac{3972693268066841}{1781583138562500000}>\frac1{500}.
+\]
+Thus this route gives $D_{0.7472}(N)\ge\mathcal H_N/500$ eventually,
+subject to the precise project upper theorem above.
+The same rational calculation also permits
+\[
+ \begin{array}{c|c|c}
+ b&\text{strict elementary lower margin}&\text{eventual count}\ \hline
+ 7471/10000&
+ \displaystyle\frac{52783078628162452078269}
+ {39841164849867281000000000}&\mathcal H_N/1000\\[4pt]
+ 747/1000&
+ \displaystyle\frac{167157268015739833}
+ {398289921308100000000}&\mathcal H_N/2500
+ \end{array}
+\]
+An independent twelve-term positive-series enclosure is recorded in the
+companion JSON. Decimal evaluation is only explanatory:
+the respective sharper margins are greater than
+$0.00223092707$, $0.00132590131$, and $0.00042075440$.
+The exact critical expression is
+$\exp(-19728/67619)$, approximately $0.7469535199$.
+Only exponents strictly above this threshold follow from these two
+coefficients; no equality-endpoint assertion is made.
+Every eventual bound means that there exists a threshold such that it
+holds for every even integer above that threshold. The strict rational
+surplus absorbs the $o(1)$ and unit errors; it gives no effective threshold.
+
+\paragraph{Where the original work remains.}
+The logical dependency diagram is
+\[
+ \begin{array}{c}
+ \text{Li Theorem 1.1}\ \Downarrow\
+ \text{total Chen lower count}
+ \end{array}
+ \qquad
+ \begin{array}{c}
+ \text{actual finite upper weights and their factorization}\\
+ +\ \text{uniform distribution for their signed atoms}\\
+ +\ \text{density certificate and boundary/error control}\ \Downarrow\
+ \text{bad-semiprime upper count}
+ \end{array}
+ \quad\Longrightarrow\quad
+ \text{the transfer}.
+\]
+On the right one must still justify the original compiled replacement
+tree, its full and selected prefix gates and pointwise upper property;
+the expansion of the actual signed sieve atoms into the coefficient
+classes admitted by the cited dispersion theorems; moving residue
+$N\pmod d$ uniformly in $N$; the exact coprime main mass, HB grouping,
+rough Siegel--Walfisz estimates and Mellin restrictions; positive radial
+outer approximation before signed distribution; and the finite
+parameter and limit order. These are analytic obligations, not
+consequences of positive rational quadrature results.
+
+The numerical part also has its own boundary: the saved fifth-domain
+gain must be disjoint from the earlier gain and compatible with the
+sixth tree. The recorded replacement arithmetic gives
+\[
+ K_{\rm end}\le
+ \frac{2444205458396424207668787105}{361468820064774123237146624}
+ <\frac{67619}{10000}.
+\]
+This audit reconstructs that subtraction and strict rounding, accepting
+the separately replayed density and geometry certificates. It does not
+reintegrate them or infer distribution from this fraction. The scope of
+the original positive-product theorem is a finite positive sum of
+fixed tuple domains at a fixed positive factor cutoff, not arbitrary
+bounded arithmetic reweightings, a cutoff vanishing with $N$, or an
+infinite adaptive tree.
+
+Once the total lower count is taken directly from Li, this branch does
+not use the project's eleven-term Chen lower-weight proof, its
+W1/W2 recursions, finite H/h tables, or the 184-generation lower
+functional. In particular no table correction may be added to $1.9728$
+merely because it improved the separate project lower coefficient.
+
+\paragraph{Meaning of the earlier proof-interface objections.}
+The files \texttt{external-chen-input-resolution.tex} and
+\texttt{external-chen-input-independent-review.json} establish that
+certain separate old-level and new-level inequalities do not by
+themselves imply the mixed saving used in the checked derivation.
+They also exhibit rational points outside a stated largest-prime
+restriction where a printed envelope would affect the integrand.
+These are concrete nonimplication or applicability witnesses. They are
+not actual prime-count counterexamples to Theorem~1.1, do not prove its
+numerical conclusion false, and do not constitute a recomputation of its
+full proof with all repairs. This distinction does not erase the
+unresolved proof-interface questions.
+
+It is mathematically legitimate to use the final published unconditional
+theorem as a named external theorem rather than independently reprove
+it. That adds no RH-type conjectural hypothesis. The honest audit
+statement is nevertheless: \emph{the final Li theorem is accepted as an
+external input, its proof has not been independently closed here, and
+the smaller removal coefficient requires the project's separate
+analytic theorem}. If that original theorem is established using its
+stated unconditional inputs, the resulting implication is an
+unconditional corollary with citations. This narrow review certifies
+the citation scope, normalization, specialization and exact transfer;
+it does not certify the full analytic dependency chain or literature
+priority.

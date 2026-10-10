@@ -1,0 +1,270 @@
+{
+  "status": "SCOPED_CURRENT_TAIL_AND_FIVE_COST_INTERFACE_VERIFIED_RELATIVE_TO_FROZEN_ENCLOSURES",
+  "selected_assembly": "lichtman-bottom-inputs-and-tail-assembly-20261010.json",
+  "selected_K": "8452171/1250000",
+  "selected_c": "48966843/25000000",
+  "no_global_parameter_change": true,
+  "no_project_module_imports": true,
+  "state_read_as_metadata_only": true,
+  "complete_new_interface_check": {
+    "old_rows": 1190700,
+    "selected_switch_rows": 1011131,
+    "ownership_counts": [
+      {
+        "ordinary": 86996,
+        "priority": 22639,
+        "retained_switch": 140265
+      },
+      {
+        "ordinary": 52573,
+        "priority": 17361,
+        "retained_switch": 870866
+      }
+    ],
+    "all_current_affine_costs_have_positive_certificate": true,
+    "certificate": "Q*A_lower=67619*d+remainder/denominator; Q*new_cost=10000*K*d+remainder/denominator",
+    "nonnegative_remainders_checked": 1011131,
+    "zero_remainders": 0,
+    "old_feedback_stream_sha256": "63930c49561d5c5279784c3eceff69cfa7cd915109ed73eaed1c58dd909306d5",
+    "current_interface_stream_sha256": "ad454063f90939acd35ef7b0211bb57018548d10076c51099b87e723c10cd529",
+    "Q80_floor_sums": [
+      "1277985388931956822",
+      "7976183963523684871"
+    ],
+    "examples": [
+      {
+        "index": 8117,
+        "tie_factorial": 2,
+        "A_mass_lower": "1860528385606592662230145575734461190410017/4064853092431828265980858958725919644057600000000",
+        "slope": "5114490456636875/75557863725914323419136",
+        "current_cost_lower_certificate": "1860483481329313942832938390344394219922517/4064853092431828265980858958725919644057600000000",
+        "current_minus_scaled_lower": "3629765733260760315051070103871/4294707832142934304958745342657624381430169600000000000"
+      },
+      {
+        "index": 8119,
+        "tie_factorial": 2,
+        "A_mass_lower": "12617525514888737343971523637845466207/28092337252669002863975496794767360000000000",
+        "slope": "5018769438718125/75557863725914323419136",
+        "current_cost_lower_certificate": "12617220988030305580245462645732653707/28092337252669002863975496794767360000000000",
+        "current_minus_scaled_lower": "15436763176576573365052341/29680871135753520385299361215083970560000000000000"
+      },
+      {
+        "index": 8934,
+        "tie_factorial": 2,
+        "A_mass_lower": "1102536438547588141764324304993488268909061/2435059568477837640613668850572689846304768000000",
+        "slope": "1264836230650625/18889465931478580854784",
+        "current_cost_lower_certificate": "1102509828578974149050082134681084843695061/2435059568477837640613668850572689846304768000000",
+        "current_minus_scaled_lower": "55455280675803518482419971561/100892336373102269252852741425781075194413056000000000"
+      },
+      {
+        "index": 8935,
+        "tie_factorial": 1,
+        "A_mass_lower": "2205073668348757031333930062173953495927497/2458393798571928781886800895489336005361664000000",
+        "slope": "10022650310886875/75557863725914323419136",
+        "current_cost_lower_certificate": "2205020448392431960488474813096507871734247/2458393798571928781886800895489336005361664000000",
+        "current_minus_scaled_lower": "252421934419722637536497526869/203718296894160848409808320774624278610968576000000000"
+      },
+      {
+        "index": 8937,
+        "tie_factorial": 2,
+        "A_mass_lower": "2205074439425623096434673620338689848208747/4963903263060501223168314463893285758828544000000",
+        "slope": "4963761112944375/75557863725914323419136",
+        "current_cost_lower_certificate": "2205021219450687908618101106732085010214497/4963903263060501223168314463893285758828544000000",
+        "current_minus_scaled_lower": "186182064448263946325366526869/411340900422656902217424333007353051135082496000000000"
+      },
+      {
+        "index": 8939,
+        "tie_factorial": 2,
+        "A_mass_lower": "269174298641196034374333800544940128041/617502661208770742041771044043436851200000000",
+        "slope": "608857550606875/9444732965739290427392",
+        "current_cost_lower_certificate": "269167802058055461193008002143336428041/617502661208770742041771044043436851200000000",
+        "current_minus_scaled_lower": "8566194700149784774503041/25585117921737664709633894747042375270400000000000"
+      },
+      {
+        "index": 9710,
+        "tie_factorial": 2,
+        "A_mass_lower": "1102537208408158886171229866319147611002811/2460066617800446073145116073131146699866112000000",
+        "slope": "5007919207283125/75557863725914323419136",
+        "current_cost_lower_certificate": "1102510598420964134729846766397777038213311/2460066617800446073145116073131146699866112000000",
+        "current_minus_scaled_lower": "283316858871821192822197859489/216597974777406722682291150714915375909175296000000000"
+      },
+      {
+        "index": 9714,
+        "tie_factorial": 2,
+        "A_mass_lower": "3721065410081585168041841637019214408585659/8464165216635101032818965936030742487236608000000",
+        "slope": "1228101063860625/18889465931478580854784",
+        "current_cost_lower_certificate": "3720975601318526664236981190920898635612659/8464165216635101032818965936030742487236608000000",
+        "current_minus_scaled_lower": "5569168305650925034539172649859/17885574618239028023068301800889461757639131136000000000"
+      }
+    ]
+  },
+  "slope": {
+    "U789": "8178654643669015576752563601342614375/21943620079829156838350226955345854464",
+    "retained_U1011": "5783855845284776058125/302231454903657293676544",
+    "total": "8598593512394265568060189496377494375/21943620079829156838350226955345854464"
+  },
+  "exact_current_lower": {
+    "anchor_raw": "171922231055429732079198118276413681459/87774480319316627353400907821383417856",
+    "anchor_K": "33809/5000",
+    "once_only_T430": "282218209595396890358020075/1298074214633706907132624082305024",
+    "cumulative_feedback": "1086862219966635167802807952342115289/43887240159658313676700453910691708928000",
+    "raw": "85962211931591389990338026505638908557289/43887240159658313676700453910691708928000",
+    "density_budget": "142688350725874936927881710078221123899/8777448031931662735340090782138341785600000",
+    "compiler_budget": "142688350725874936927881710078221123899/8777448031931662735340090782138341785600000",
+    "net": "8596078504808413124096874768853812634605001/4388724015965831367670045391069170892800000",
+    "slack": "13800409850786237403769938113086087973/548590501995728920958755673883646361600000000"
+  },
+  "later_lower_steps": [
+    {
+      "input": "sixth-eleven-cell-transfer-assembly-20261009.json",
+      "K_before": "33809/5000",
+      "K_after": "845223/125000",
+      "feedback": "13757749619830824908896303194203991/2194362007982915683835022695534585446400",
+      "table_only": "0"
+    },
+    {
+      "input": "sixth-thirteen-cell-transfer-assembly-20261009.json",
+      "K_before": "845223/125000",
+      "K_after": "3380891/500000",
+      "feedback": "13757749619830824908896303194203991/17554896063863325470680181564276683571200",
+      "table_only": "0"
+    },
+    {
+      "input": "sixth-mask34-transfer-assembly-20261009.json",
+      "K_before": "3380891/500000",
+      "K_after": "6761771/1000000",
+      "feedback": "151335245818139073997859335136243901/35109792127726650941360363128553367142400",
+      "table_only": "0"
+    },
+    {
+      "input": "sixth-lower-complement-transfer-assembly-20261009.json",
+      "K_before": "6761771/1000000",
+      "K_after": "6761767/1000000",
+      "feedback": "13757749619830824908896303194203991/8777448031931662735340090782138341785600",
+      "table_only": "0"
+    },
+    {
+      "input": "eighth-prefix-transfer-assembly-20261009.json",
+      "K_before": "6761767/1000000",
+      "K_after": "33808831/5000000",
+      "feedback": "13757749619830824908896303194203991/43887240159658313676700453910691708928000",
+      "table_only": "282218209595396890358020075/1298074214633706907132624082305024"
+    },
+    {
+      "input": "eighth-family-transfer-assembly-20261009.json",
+      "K_before": "33808831/5000000",
+      "K_after": "67617501/10000000",
+      "feedback": "2214997688792762810332304814266842551/351097921277266509413603631285533671424000",
+      "table_only": "0"
+    },
+    {
+      "input": "eighth-unequal-transfer-assembly-20261009.json",
+      "K_before": "67617501/10000000",
+      "K_after": "16904351/2500000",
+      "feedback": "1334501713123590016162941409837787127/351097921277266509413603631285533671424000",
+      "table_only": "0"
+    },
+    {
+      "input": "eighth-third-moment-transfer-assembly-20261009.json",
+      "K_before": "16904351/2500000",
+      "K_after": "2113043/312500",
+      "feedback": "96304247338815774362274122359427937/87774480319316627353400907821383417856000",
+      "table_only": "0"
+    },
+    {
+      "input": "eighth-history-curvature-transfer-assembly-20261009.json",
+      "K_before": "2113043/312500",
+      "K_after": "67617373/10000000",
+      "feedback": "41273248859492474726688909582611973/351097921277266509413603631285533671424000",
+      "table_only": "0"
+    },
+    {
+      "input": "eighth-mixed-moment-transfer-assembly-20261009.json",
+      "K_before": "67617373/10000000",
+      "K_after": "21130429/3125000",
+      "feedback": "13757749619830824908896303194203991/1755489606386332547068018156427668357120000",
+      "table_only": "0"
+    }
+  ],
+  "exact_current_upper": {
+    "old_tail": "1028753216356588863/1208925819614629174706176",
+    "new_tail": "319683857488126290909150567/2596148429267413814265248164610048",
+    "tail_coefficient": 1,
+    "replacement_difference": "1889546852465054429442261657/2596148429267413814265248164610048",
+    "raw": "9979702576710911234850619807816847864907359959/1475913550962201227946780619099353215139840000",
+    "density_budget": "145007961227048312210593427530128000784681/11807308407697609823574244952794825721118720000",
+    "compiler_budget": "145007961227048312210593427530128000784681/11807308407697609823574244952794825721118720000",
+    "after_budgets": "39918955314804871987714689824694921587630224517/5903654203848804911787122476397412860559360000",
+    "slack": "71229286727542131248758574547050908572431/737956775481100613973390309549676607569920000000"
+  },
+  "new_tail_feedback_only": "41273248859492474726688909582611973/219436200798291568383502269553458544640000",
+  "old_tail_difference_added_directly_to_c": false,
+  "profile_policy": {
+    "U3_U4": "430 arm1 at K6.761767; only difference from312 once",
+    "L5_L6": "h248, current pair512; no later extra h gain",
+    "U10_U11": "H248 old n48 minimum+priority40000, only unrefined method0 affine feedback",
+    "L2": "ordinary h start; full former H248 defect removed once",
+    "U7_U8_U9": "complete K-linear positive costs; no H/h"
+  },
+  "scope": [
+    "Existing saved cost/integral enclosures and pointwise/product inputs remain premises.",
+    "New all-row check is cost-extension/ownership, not a replay of omega/H/log integrals.",
+    "Complete base2M enclosure geometry still lacks a separate whole-leaf independent primitive implementation.",
+    "No analytic allowance is used to hide a failed outward numerical enclosure.",
+    "Finite density/compiler errors are distinct, in K units above and already Chen-quarter c units below."
+  ],
+  "bindings_sha256": {
+    "actual-k-density-joint-audit.json": "d557a5a085987a2778392749bfc0cf24b5a6523fb321c0f0a0b2d32b556b5236",
+    "actual-k-density-joint-audit.tex": "7a3723a75eedb85d5617ffdf043713580e9e895291e83f8038aedfd610fb5222",
+    "assemble_table_k_feedback_transfer_20261009.py": "25761f56355b29ddb53f044be3b7f0a5ade69eec506b661118b6af506cb5ea1a",
+    "certify_extended_prefix.json": "f13a607d03e46987e12c4192bfe466a20827f1b2778e4659b2210e7aa00c18ab",
+    "certify_extended_prefix.py": "1b77aa5deb90e0f39e06c776847a7e9fff27e23d584036955741b015ca05ad29",
+    "certify_sharp_248_four_min.py": "83c5922badeafa1b3ddf5a35f95be07f4969a0db01e49d85bc0fdc663deb900a",
+    "eighth-family-transfer-assembly-20261009.json": "29861dc82a7c8a0577a6d1da5a16ace4b1118e8a5ce3de488c406f21cb336193",
+    "eighth-history-curvature-transfer-assembly-20261009.json": "be813c14a6c72bd54ccf72359f67f1f726afe3e99d80b0b768bf6937c2170976",
+    "eighth-mixed-moment-transfer-assembly-20261009.json": "afef4f18228520f0907f4aac5af1261a2c35c19695c5f6e92179223a524b44aa",
+    "eighth-prefix-transfer-assembly-20261009.json": "1c84eb599cc46b9b8d994db796ef546834adb3891c5ff3a9c6040e670593a6eb",
+    "eighth-third-moment-transfer-assembly-20261009.json": "51ca3284331eb1a0c2944030ad4957f24409d0d4fc89dd1aa6d4e3aeb3b66d11",
+    "eighth-unequal-transfer-assembly-20261009.json": "8aaf6a4cbf03b2091654fa4af71d157d05d1bfff5ca90ae0c8bc3aac82c6b03c",
+    "expanded-w2-midpoint-table248-v1.json": "a91c371b8c69398619ebee8b17598c163fbf8b6267fa0470ed6930e2097a98ed",
+    "expanded248-numeric-closure-independent.json": "bfb8d463a78afe0dfe961a2cb09b0ca4e9e2bf0dd62c76478aa7041aca59b4d4",
+    "extended-prefix-full-driver-replay.json": "5a32fe32120bbc924b0a153fb73b6869ea7bfcc46ee6ff57000ff1f3a358ea83",
+    "fixed-action-current-k-two-cost-20261009.json": "8cbbaf5a09cca710c4ceb9d26044f464ffda1399ec731381d713ec3a6a066d28",
+    "fixed-action-stationarity-pilot-20261009.json": "ebb7b76ccc2298751eff2c0aa044e018b0eda297054916113dcd31549ab71561",
+    "four-min-k-feedback-independent-20261009.json": "76d88868a6014deddb9841a3f92fde7c9fd2a3cc23ac6e7ae0ebf228d23bf926",
+    "four-min-k-feedback-route-20261009.json": "5033d987b0242c0aebe554bf40e27ac9a92f184b44c0d13b84acede5f53de193",
+    "four-min-k-feedback-route-20261009.py": "3f8f40a389a245a5407da46687e5d289332bd59a2cc630161c859e7286b566f6",
+    "four-min-priority40000-20261009.json": "4bf8ffbc5c9dad96e0c5ada265f8a2ad1275f8638e6fd09b668172ce3912f0db",
+    "four-min-priority40000-20261009.witness.json.gz": "feed08120834005b73501be9947de7fec63a1da9a7b34b2c75da703e09520530",
+    "independent-sharp-248-pair512-replay-20261008.json": "c2e82ed984d1b62c54d193b61befe94d6719e542187daedbc98bf0312081348c",
+    "lichtman-bottom-inputs-and-tail-assembly-20261010.json": "e83ac5671702ab55bdc42cad626f1dc24663732d770033a257d58f02da612901",
+    "lichtman-current-lower-density-assembly-20261009.txt": "2b320f37baad0abadafab53afabcebf43592a0d4e30bc4f1f5d9756ec3f586ea",
+    "lichtman-current-lower-interface-addendum-20261009.txt": "3c81529d4e7eccad7a0f56622d0d737b507ddada5ab4b286ecf6cf1068665952",
+    "lichtman-current-upper-density-assembly-20261009.json": "6e3430578383d390dff47e630b0e369d7fc79f7bbf33594dd7f445c540aa51d2",
+    "lichtman-current-upper-density-assembly-20261009.txt": "6a272a3d80d6765575cb795508b2f9aa3f654f1bc5cfcc081c518df63f77f861",
+    "lower-start-method-coverage-20261009.json": "13a03d4aab556416a96af67d9baa020118a69a1ac24225527ed38941abda0280",
+    "lower-start-refined-methods-20261008.json": "8d08cefc5586b13a597bf00c099dcff81da7c986f8520cf04486ac36825aee7d",
+    "numerical-primitive-adversarial-20261009.json": "d02c907da2c9810f3a93696bd4a4533a2de3ec4349da32701f661077dd51baca",
+    "numerical-primitive-tail-replacement-pilot-20261009.json": "3993e767e8b998c9f5f2d275b8e181e3dbc3499bb94dd7ea295cd4055f7e5d87",
+    "numerical-tail-feedback-candidate-20261010.json": "ee760b165c289a69be219c04badfe0fc818f688f8d9040b5b097b50830856ea8",
+    "numerical-tail-feedback-candidate-20261010.py": "9562d3aa1d64c3844742cda60d31f5139cb29d01620b74a57e6cf652863c5df8",
+    "numerical-tail-feedback-independent-20261010.json": "a481c1e022b97ac1d1ca5517deef413c149fbb5cf543189d4ee2d7838b7fc373",
+    "numerical-w1-primitive-independent-20261010.json": "f67bdb6368d9ee62da536752bc126e8da599dc6816a5e29c4b9bb8fae1205945",
+    "selected-sieve-budget-feedback-audit-20261010.py": "ed1272bf07f10bce77b9e95b960b0c526e71accbe845c2de78b1064ca175b959",
+    "selected-sieve-budget-feedback-audit-20261010.txt": "fdbeb27d2aaccd1a4b0b7b89af3fad47890229af84dbf7ed510c2cd092f23025",
+    "sharp-248-baseline-128.json": "eb33c788676f1fef56c984006d5e130169be0ad67d6b0bd2f2dd1ea55740040c",
+    "sharp-248-four-min-48.json": "3ab15ce29c820a861269682f51a004c4d9464aa3a4c861d0db71e95aaf78a4ff",
+    "sharp-248-four-min-48.witness.json": "4a7e02a9179da1016a69472ee1f439dc3caf9d06bd45f9e4d1a7e22162c0900d",
+    "sharp-switch-midpoint-proof.tex": "3b89076e90113e4b8d0a85feb02196c19b7090e546911d0a1f874dffa0dacbaa",
+    "sharp-switch-simpson-independent.json": "55916ccef112e0a3eff02407a51fdec47f613e059f4809ee29b994590c13a6a7",
+    "sharp-switch-simpson-independent.py": "545a9e5772f11bb51b91e742ba0f9a61debd0a4e460ff7b0b41515adb12cb792",
+    "sixth-eleven-cell-transfer-assembly-20261009.json": "f2960bd521f493a025050fc341a2c146bd5242f45c985918087a91879a855217",
+    "sixth-lower-complement-transfer-assembly-20261009.json": "9186ca0ab87cbe1abefdba4c01c4d8538978bef2a25cc4ff09c6118fc81ea371",
+    "sixth-mask34-transfer-assembly-20261009.json": "41f839ad0ddc1f7b382dc72fda12fd42acbd40457f4c3421906a365b7a3e938f",
+    "sixth-thirteen-cell-transfer-assembly-20261009.json": "17a73c6d183526248726c1ed94fccc8fe3518b7e7b78a17526a64f6da13a0c0f",
+    "table-k-feedback-transfer-assembly-20261009.json": "6f137a75a43ded4fe68abe587e178e1a708fdb8947178bb48a037fc3edfeca08",
+    "upper-k-to-current-lower-feedback-20261009.tex": "a04298b57b45b52c7d9211b4968e14093c6cc73d61823406f4c80604b5040f20",
+    "wu-y6-numeric-impact-20261010.json": "9178f14fa01ad4cf185332de0ded05c8a32012be5f942cafd53439a5013a8e80"
+  },
+  "seconds": 6.081050299922936
+}

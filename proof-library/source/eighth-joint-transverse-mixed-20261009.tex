@@ -1,0 +1,78 @@
+% Same-domain method extension; no manuscript or selected constant changed.
+\subsection{Positive mixed moments in the transverse correction}
+\label{sec:eighth-joint-transverse-mixed-20261009}
+
+Keep the frozen winner9 seed, gap-weighted probability measure $\nu$,
+normalized positive affine factors $a_j=\ell_j/E_\nu\ell_j$,
+$P=\sum_ja_j/10$, $U=\max_{\mathrm{Vert}}P$, and
+$V_j=\max_{\mathrm{Vert}}\{a_j,P\}$. Write $b_j=a_j-P$ and
+$Y=1-P/U$, so $0\le Y<1$. The previously proved pointwise estimate is
+\[
+ \prod_ja_j^{-1}\ge P^{-10}
+              \left(1+\sum_j\frac{b_j^2}{2V_j^2}\right).
+\]
+For any fixed nonnegative integer $d$, the nonnegative binomial series
+gives the stronger, finite mixed correction
+\[
+ Q_d=U^{-10}\sum_j\frac1{2V_j^2}
+       \sum_{k=0}^d {9+k\choose k}E_\nu[Y^k b_j^2].
+\]
+Thus $E_\nu\prod_ja_j^{-1}\ge1+T_{10}+Q_d$, where the common-affine
+degree10 gap $T_{10}$ is unchanged. Every added term is nonnegative
+pointwise. The old transverse correction is exactly $Q_0$, so
+$Q_d\ge Q_0$. No independence or covariance sign assumption is made.
+The present finite choice is $d=6$. Only the difference from the
+already adopted per-simplex maximum may enter the global ledger.
+
+\paragraph{A weighted generating function for exact mixed moments.}
+Let the nine vertex gap values be scaled to $g_i\ge0$, with $G=\sum_i g_i>0$.
+The probability measure is the mixture of Dirichlet parameters
+$(1,\ldots,1)+e_i$ with probabilities $g_i/G$, of total parameter10.
+For rational vertex values $y_i,b_i$, set
+\[
+ H(t)=\prod_{i=1}^9(1-ty_i)^{-1},\quad
+ B_1(t)=\sum_i\frac{b_i}{1-ty_i},\quad
+ B_2(t)=\sum_i\frac{b_i^2}{(1-ty_i)^2},
+\]
+\[
+ W_0(t)=\sum_i\frac{g_i}{1-ty_i},\quad
+ W_1(t)=\sum_i\frac{g_i b_i}{(1-ty_i)^2},\quad
+ W_2(t)=\sum_i\frac{g_i b_i^2}{(1-ty_i)^3}.
+\]
+The mixture generating function is
+\[
+ F(t,u)=\prod_i(1-ty_i-ub_i)^{-1}
+                  \sum_i\frac{g_i}{1-ty_i-ub_i}.
+\]
+Twice its coefficient of $u^2$ equals
+\[
+ H(t)\bigl(2W_2+2B_1W_1+(B_1^2+B_2)W_0\bigr).
+\]
+Consequently
+\[
+ E_\nu[Y^k b^2]=\frac{k!}{G(10)_{k+2}}
+ [t^k]H(t)\bigl(2W_2+2B_1W_1+(B_1^2+B_2)W_0\bigr).
+ \tag{M}
+\]
+This is a formal-power-series identity for signed $b_i$ as well.
+It follows directly from the Dirichlet multinomial moment formula;
+the square ensures nonnegativity of the final expectation, although
+individual intermediate coefficients can have either sign.
+
+The author implements (M) by integer power sums and Newton identities
+for $H$, followed by finite convolutions. Common denominators for
+$y_i$ and $b_i$ are restored as $d_y^k d_b^2$. All coefficients through
+$k=6$ are exact. The $k=0$ correction is checked against every frozen
+previous curvature ledger entry; beta and signed constant controls
+also test the formula. This is author arithmetic, not a new independent
+verification of the mixed moments.
+
+The single exact sum $T_{10}+Q_6$ is rounded down once to $2^{-80}$.
+Multiplication by the reconstructed Jensen factor $J_T$ is then
+rounded down to $2^{-96}$. The selected value is the maximum of this
+new floor and the actually adopted log/curvature maximum. In particular
+the old curvature gain is not added again. Physical geometry, density,
+caps, histories, compiler, and external distribution inputs are unchanged.
+Any global use must separately budget the incremental saving and bind
+a full independent mixed-moment replay. The pilot is not extrapolated
+to uncomputed simplices.

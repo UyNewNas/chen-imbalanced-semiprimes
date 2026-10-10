@@ -1,0 +1,79 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,booktabs,array,xurl}
+\usepackage[a4paper,margin=22mm]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+\hypersetup{pdftitle={Reading guide: imbalanced semiprime representations, 10 October 2026},pdfauthor={Slava Chan}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\setlength{\emergencystretch}{3em}
+\pagestyle{empty}
+\begin{document}
+{\LARGE Reading guide}\par
+{\large Imbalanced semiprime representations of even integers}\par
+Slava Chan\hfill 10 October 2026
+\vspace{3pt}\hrule\vspace{6pt}
+
+\textbf{Current claim.} For every sufficiently large even $N$, the draft claims
+at least $H_N/100000$ representations
+\[
+ N=p+rq,\qquad p,q\text{ prime},\quad r=1\text{ or prime},\quad
+ r\le q^{0.74816964}.
+\]
+Here $H_N=C_NN/\log^2N$, with the singular factor in Section~1.
+Distinct primes $p$ are counted once. The general claimed coefficient is
+$1.96176252-6.7617368\log(1/b)$ for fixed $1/2<b<1$.
+The secondary choice $b=0.74816865$ gives $H_N/1000000$.
+No effective threshold for $N$ is supplied.
+
+\textbf{A short route through the 82-page manuscript.}
+\begin{center}
+\begin{tabular}{@{}p{.70\linewidth}r@{}}
+\toprule
+Result and normalization (Section 1) & p. 3\\
+Restricted distribution and coefficient scope (Section 2) & p. 4\\
+Positive upper sieve and full Chen weight (Sections 3--4) & pp. 7--10\\
+Lower construction and finite evidence (Sections 5--6) & pp. 11--19\\
+Bad-semiprime mass and exact transfer (Section 7) & p. 20\\
+Comparison, limitations and AI disclosure (Section 8) & p. 21\\
+Complete baseline modules (Appendices A--J) & from p. 25\\
+Adopted same-mask refinement (Appendices K--L) & from p. 78\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{What changed.} The revision supplies a restricted moving-residue
+argument for the coefficient families actually used, retaining the
+oscillatory phase and charging its loss. It uses a full eleven-term weight
+and paired geometric deletion. The old external $1.9728$ coefficient and
+its derived branch are not inputs. A separate indexed library contains
+151 supporting proof texts, with historical material clearly marked.
+The latest refinement uses $\omega(s)\ge11/20$ for $s\ge7/3$ on the same
+17,572 paired cells; the $12/5$ candidate is superseded.
+
+\textbf{Reproduce the finite checks.} Use Python 3.11 or later, from the
+repository root; no third-party Python package is needed:
+\begin{verbatim}
+python verification/run_verification.py --work-dir replay-quick
+\end{verbatim}
+The output directory must be new. The compact replay checks the input
+manifest, rational upper/lower ledgers, budgets and logarithm margins,
+and all 400 final entries after 430 rounds of 106 finite actions from the
+seed, then regenerates the adopted refinement using two interval
+implementations. The separate release archive supplies the complete selected
+numerical evidence and its inherited-binding audit. Consult each README
+for commands, hash manifests and the scope of recorded runs.
+
+\textbf{Review status.} This is an AI-assisted research manuscript for
+mathematical scrutiny. Successful finite replays do not validate the whole
+analytic proof. The release does not claim fresh regeneration of every
+historical quadrature, complete machine formalization, or independent
+human peer review. Documented provenance edits remove private information;
+they do not alter mathematical coefficients or certificate arrays.
+
+\vfill
+\small
+\href{https://github.com/UyNewNas/chen-imbalanced-semiprimes}{Repository, source and review discussion}
+\hfill\href{mailto:ch4nslava@gmail.com}{ch4nslava@gmail.com}
+\end{document}

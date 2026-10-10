@@ -1,0 +1,220 @@
+% Independent inequalities on an unchanged simplex and unchanged licensed policy.
+\subsection{Curvature and finite-moment refinements of gap-weighted Jensen}
+\label{sec:sixth-jensen-curvature-independent}
+
+Let $T$ be a nondegenerate physical six-simplex, with volume $V$ and
+vertices $v_0,\ldots,v_6$. The gap $g\ge0$ and all eight factors
+$\ell_j>0$ are affine on $T$. Write
+\[
+ g_i=g(v_i),\quad G=\sum_{i=0}^6g_i>0,\quad
+ I_g=\int_Tg\,dt=VG/7,
+ \quad dP_g=g(t)\,dt/I_g.
+\]
+The desired integral is $4I_g E_g[f(\ell)]$, where
+$f(\ell)=\prod_{j=1}^8\ell_j^{-1}$.
+Put $m_j=E_g\ell_j$ and $L_j=\max_T\ell_j>0$.
+Some $g_i$ may vanish. Only $G>0$ is required; if $G=0$ then
+$g\equiv0$ and the contribution is zero. All formulas below use exact
+rational vertex data and concern the same old licensed region.
+
+\paragraph{The proposed Hessian bound is valid.}
+In the eight \emph{factor coordinates}, let $u_j=1/\ell_j$. Then
+\[
+ \nabla^2 f=f\{\operatorname{diag}(u_j^2)+uu^T\}
+ \succeq f_{\min}\operatorname{diag}(L_j^{-2}),
+ \qquad f_{\min}=\prod_jL_j^{-1}.
+\]
+Dropping the rank-one matrix is legitimate because it is positive
+semidefinite. The diagonal comparison follows from $f\ge f_{\min}$
+and $\ell_j\le L_j$. Affine dependence among the eight factors is
+irrelevant: this matrix inequality can be pulled back to the physical
+six-dimensional coordinates. It should not be read as an eight-entry
+diagonal Hessian in six physical coordinates without that pullback.
+
+The segment from the factor mean $m$ to any factor vector lies in
+the same positive rectangle. Taylor's integral remainder therefore gives
+\[
+ E_g f\ge f(m)+\frac{f_{\min}}2
+                   \sum_j\frac{\operatorname{Var}_g(\ell_j)}{L_j^2}.
+\]
+The linear term has expectation zero. This is a correct, though
+conservative, improvement of ordinary weighted Jensen.
+One must not replace the dropped rank-one term by a fixed rank-one
+matrix merely because its entries are smaller: entrywise order is not
+positive-semidefinite order. For example the difference of the outer
+products of $(1,2)$ and $(1,1)$ has determinant $-1$.
+
+\paragraph{A stronger logarithmic route.}
+For one factor write $m=E_g\ell$, $L=\max\ell$. Its logarithmic
+Bregman remainder is
+\[
+ B(x,m)=-\log x+\log m+(x-m)/m
+       =x/m-1-\log(x/m).
+\]
+Its integral expression, valid for both $x\ge m$ and $x<m$, is
+\begin{equation}\label{eq:sixth-curvature-bregman-integral}
+ B(x,m)=\frac{(x-m)^2}{m}
+             \int_0^1\frac{s\,ds}{m+s(x-m)}.
+\end{equation}
+Because $x\le L$ and all denominators are positive,
+\[
+ B(x,m)\ge\frac{(x-m)^2}{2mL}.
+\]
+Consequently the exact log Jensen gap
+$J_j=E_g[-\log\ell_j]+\log m_j$ satisfies
+\[
+ J_j\ge\frac{\operatorname{Var}_g(\ell_j)}{2m_jL_j}
+ \ge\frac{\operatorname{Var}_g(\ell_j)}{2L_j^2}.
+\]
+For any nonnegative certified $T\le\sum_jJ_j$, Jensen for the
+exponential function yields
+\begin{equation}\label{eq:sixth-curvature-exponential}
+ E_g f=E_g e^{\log f}\ge e^{E_g\log f}
+ \ge f(m)e^T
+ \ge f(m)\sum_{k=0}^{q}\frac{T^k}{k!}\quad(q\ge0).
+\end{equation}
+The last finite sum is a lower bound because $T\ge0$; no numerical
+exponential or upper remainder estimate is needed. At $q=1$ this
+contains the stronger factor-$f(m)$ variance bound. Increasing $q$
+only improves this exact rational lower bound. No independence of
+the eight factors is used.
+
+\paragraph{A cheap rational sharpening of the Bregman coefficient.}
+The integral in \eqref{eq:sixth-curvature-bregman-integral} is at least
+$\int_0^1s/(m+s(L-m))\,ds$. Applying reciprocal convexity with
+probability density $2s$ gives the additional valid coefficient
+\[
+ J_j\ge\frac{3\operatorname{Var}_g(\ell_j)}
+                     {2m_j(m_j+2L_j)}.
+\]
+It improves $\operatorname{Var}/(2mL)$ since $m\le L$.
+More generally fix any rational partition of $[0,1]$. For an interval
+$[a,b]$ put
+\[
+ w_{ab}=(b^2-a^2)/2,
+ \qquad \xi_{ab}=\frac{2(b^3-a^3)}{3(b^2-a^2)}.
+\]
+Then the exact rational number
+\[
+ c(m,L)=\frac1m\sum_{[a,b]}
+             \frac{w_{ab}}{m+(L-m)\xi_{ab}}
+\]
+satisfies $J_j\ge c(m_j,L_j)\operatorname{Var}_g(\ell_j)$.
+Refining this scalar partition increases its lower bound by
+conditional Jensen. This partition is only a quadrature device for
+the scalar coefficient; it does not alter any prime-prefix region.
+
+\paragraph{Third simplex moments give the variance exactly.}
+For a factor's vertex values $l_i$, set
+\[
+ S=\sum_i l_i,\quad Q=\sum_i l_i^2,\quad
+ U=\sum_i g_i l_i,\quad V_2=\sum_i g_i l_i^2.
+\]
+The weighted first and second moments are
+\begin{equation}\label{eq:sixth-curvature-variance}
+ m=\frac{S+U/G}{8},\qquad
+ E_g\ell^2=\frac{G(S^2+Q)+2US+2V_2}{72G},
+ \qquad\operatorname{Var}_g(\ell)=E_g\ell^2-m^2.
+\end{equation}
+They follow by expanding $g\ell^2$ and using
+\[
+ E[\lambda_i\lambda_j\lambda_k]
+ =\frac{1+\delta_{ij}+\delta_{ik}+\delta_{jk}
+                   +2\delta_{ij}\delta_{ik}}{7\cdot8\cdot9}.
+\]
+The variance is nonnegative exactly; rational evaluation avoids
+spurious negative floating-point cancellation. For two factors with
+vertex values $l_i,h_i$, the corresponding cross moment is
+\[
+ E_g(\ell h)=
+ \frac{G(S_lS_h+\sum_i l_ih_i)+U_lS_h+U_hS_l
+                      +2\sum_i g_i l_i h_i}{72G}.
+\]
+This also supplies the covariance matrix if a full Hessian minorant
+is used instead of its diagonal part.
+
+\paragraph{Finite power moments give a stronger optional log-gap bound.}
+For a single factor define $Y=1-\ell/L$. Then $0\le Y\le Y_{\max}<1$
+on the closed simplex. Uniform convergence of the logarithm series gives
+\begin{equation}\label{eq:sixth-curvature-log-moment}
+ J=\sum_{k=2}^{\infty}\frac{E_gY^k-(E_gY)^k}{k}
+ \ge T_p:=\sum_{k=2}^{p}\frac{E_gY^k-(E_gY)^k}{k}\ge0.
+\end{equation}
+Each term is nonnegative by convexity of $y\mapsto y^k$ on $[0,1)$.
+Thus this is a lower truncation of the exact log Jensen gap, not an
+unsigned Taylor approximation with an omitted remainder. One may
+take $T=\sum_jT_{p,j}$ in \eqref{eq:sixth-curvature-exponential}.
+Alternatively take the maximum of individually valid lower bounds
+\emph{for each factor's same gap} and then sum over factors. Adding
+two different bounds for that same gap would be invalid.
+
+The moments have a simple exact formula. Let $y_i=1-l_i/L$ and let
+$h_k$ denote the complete homogeneous polynomial of degree $k$.
+Since $P_g$ is the mixture with weights $g_i/G$ of barycentric
+Dirichlet laws having parameter2 at $i$ and parameter1 elsewhere,
+\begin{equation}\label{eq:sixth-curvature-duplicated-vertex}
+ E_gY^k=
+ \frac{\sum_{i=0}^6g_i\,
+      h_k(y_0,\ldots,y_6,y_i)}{G\binom{k+7}{k}}.
+\end{equation}
+The repeated argument is intentional. Equivalently, splitting the
+parameter2 coordinate into two parameter1 coordinates yields eight
+uniform barycentric coordinates. The formula follows directly from
+the elementary simplex monomial integral. It remains valid when
+some $g_i$ or $y_i$ vanish.
+
+For efficient evaluation, compute $H_k=h_k(y_0,\ldots,y_6)$ for
+$0\le k\le p$. Then
+\[
+ \sum_i g_i h_k(y_0,\ldots,y_6,y_i)
+ =\sum_{a=0}^{k}H_{k-a}\sum_i g_i y_i^a.
+\]
+All quantities are rational, and no logarithm is evaluated. In
+particular the proposed choice $p=6$, $q=3$ is certified by
+\begin{equation}\label{eq:sixth-curvature-moment-six-exp-three}
+ \int_T4g f\,dt\ \ge\
+ 4I_g f(m)\left(1+T+T^2/2+T^3/6\right),\qquad
+ T=\sum_{j=1}^{8}\sum_{k=2}^{6}
+                  \frac{E_gY_j^k-(E_gY_j)^k}{k}.
+\end{equation}
+It is at least the old weighted Jensen bound. Before integer rounding
+the improvement is strict whenever a factor has positive variance.
+No universal claim that $p=6$ dominates every Bregman variant is made;
+any such comparison on the recorded factors is a separate rational
+check. The analytic implication does not need that comparison.
+
+\paragraph{Two safe refinements if more accuracy is later needed.}
+One can split a physical simplex by a rational edge point and apply
+these formulas to the two interior-disjoint children. The affine cap,
+history and factor licenses remain those of the parent. Basic Jensen
+is monotone under such conditioning, but no unproved monotonicity of
+every finite corrected formula is needed: retain the maximum of the
+old whole-parent bound and the sum of the new child bounds.
+
+Alternatively, use a rational constant matrix $H_0$ with a proved
+uniform $\nabla^2 f\succeq H_0$ on the factor rectangle. Taylor gives
+$E_gf\ge f(m)+\tfrac12\operatorname{tr}(H_0\operatorname{Cov}_g\ell)$.
+A sufficient construction is $H_0=\nabla^2 f(m)-\epsilon I$, where
+$\epsilon$ bounds the maximum absolute row sum of the Hessian's
+interval error matrix. Entry extrema are bounded using the positive
+factor endpoints. This follows from the symmetric matrix norm bound;
+entrywise Hessian comparison alone would not suffice. If that bound
+is weak or negative, keep the maximum with the proved Jensen/moment
+bound. No additional term may be added merely because it came from
+a different lower estimate of the same expectation.
+
+\paragraph{Accounting and unchanged analytic scope.}
+Each formula estimates exactly the old integral on the same simplex.
+For a fixed denominator $Q$, replace its old floor by the floor of
+the chosen new valid lower bound, or by their maximum. Sum the new
+floors once over the already validated disjoint triangulation. The
+additional certified saving is the difference of the new and old
+totals, not their sum. Physical volume already includes every affine
+Jacobian, and ordered prime slots supply no extra factorial.
+
+These estimates change neither the finite policy nor its support,
+ancestor history, cutoff, distribution theorem or compiler hypothesis.
+The old ordinary-density and finite-approximation scopes remain in
+force. The present note proves the inequalities and exact moment
+normalizations only; it does not replay the2631 recorded simplices,
+certify their reported aggregate increment or choose a new $K$.

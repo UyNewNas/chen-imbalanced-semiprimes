@@ -1,0 +1,139 @@
+{
+  "status": "PASS_INDEPENDENT_COMPLETE_DESCENDING_TENT33_SUBPOLICY_GEOMETRY_AND645_JENSEN_FLOORS",
+  "classification": [
+    {
+      "pattern": 0,
+      "status": "DUAL_PASS",
+      "constant": "-159533/5125000",
+      "closed_empty": true
+    },
+    {
+      "pattern": 1024,
+      "status": "DUAL_PASS",
+      "constant": "-99429/5375000",
+      "closed_empty": true
+    },
+    {
+      "pattern": 1032,
+      "status": "DUAL_PASS",
+      "constant": "-79377/5500000",
+      "closed_empty": true
+    },
+    {
+      "pattern": 1096,
+      "status": "DUAL_PASS",
+      "constant": "-6307/500000",
+      "closed_empty": true
+    },
+    {
+      "pattern": 1097,
+      "status": "DUAL_PASS",
+      "constant": "-28536/2703125",
+      "closed_empty": true
+    },
+    {
+      "pattern": 1352,
+      "status": "DUAL_PASS",
+      "constant": "-207509/27500000",
+      "closed_empty": true
+    },
+    {
+      "pattern": 1353,
+      "status": "DUAL_PASS",
+      "constant": "-165951/39250000",
+      "closed_empty": true
+    },
+    {
+      "pattern": 1355,
+      "status": "DUAL_PASS",
+      "constant": "-7977/24875000",
+      "closed_empty": true
+    },
+    {
+      "pattern": 1371,
+      "status": "STRICT_CENTER_PASS"
+    },
+    {
+      "pattern": 1864,
+      "status": "DUAL_PASS",
+      "constant": "-13751/3300000",
+      "closed_empty": true
+    },
+    {
+      "pattern": 1865,
+      "status": "DUAL_PASS",
+      "constant": "-981/362500",
+      "closed_empty": true
+    },
+    {
+      "pattern": 1867,
+      "status": "STRICT_CENTER_PASS"
+    },
+    {
+      "pattern": 1871,
+      "status": "DUAL_PASS",
+      "constant": "-95389/162900000",
+      "closed_empty": true
+    },
+    {
+      "pattern": 1883,
+      "status": "DUAL_PASS",
+      "constant": "-1460951/180500000",
+      "closed_empty": true
+    },
+    {
+      "pattern": 1887,
+      "status": "DUAL_PASS",
+      "constant": "-14539217/722500000",
+      "closed_empty": true
+    },
+    {
+      "pattern": 1919,
+      "status": "DUAL_PASS",
+      "constant": "-6234389/153400000",
+      "closed_empty": true
+    },
+    {
+      "pattern": 2047,
+      "status": "DUAL_PASS",
+      "constant": "-112981/2000000",
+      "closed_empty": true
+    }
+  ],
+  "finite_old_patterns": 2048,
+  "logical_exclusions": 2031,
+  "cells": [
+    {
+      "pattern": 1371,
+      "active6_sets": 462,
+      "vertices": 52,
+      "simplices": 420,
+      "gain_lower": "142427419400936663244783/79228162514264337593543950336",
+      "all_rows_vertices_faces_floors": "PASS"
+    },
+    {
+      "pattern": 1867,
+      "active6_sets": 462,
+      "vertices": 43,
+      "simplices": 225,
+      "gain_lower": "3203594816246007271041/39614081257132168796771975168",
+      "all_rows_vertices_faces_floors": "PASS"
+    }
+  ],
+  "simplices": 645,
+  "gain_lower": "148834609033428677786865/79228162514264337593543950336",
+  "gain_display_only": 1.8785568705652149e-06,
+  "independence": "No author tent modules imported; independent physical semantics, alternative rational geometry implementation, maximal-face pulling, barycenter Jensen versus author double moments.",
+  "scope": "Complete fixed R5=L3=v(t1),newmask33,M=D33-eta,C>A33,D33<A33-eta subpolicy only; not all descending caps. Shared analytic input and finite compiler scope retained; no global promotion.",
+  "bindings_sha256": {
+    "sixth-tent33-descending-independent-20261009.py": "81674b91fe26096eedc41af1a2e51ad13f57dd29f84bba8aab9128f5c686bc08",
+    "sixth-license-cell-independent-20261009-geometry.py": "5987bef6e0c029970eecdf28430d3ab0e2eede701c5daa791a44351ad0b12e93",
+    "sixth-tent33-descending-20261009.py": "4ba171069f4a88b0b14d7801c37fa5be76b8dcb5e18e99e9a55de80dce815eb4",
+    "sixth-tent33-descending-20261009.tex": "cd98de762a53f30ab89c7062354938b431d795ac58cb641edf41cd6c37e416cb",
+    "sixth-tent33-descending-20261009.json": "9c6287cf709dec5c7b421fb180306a1e99620b49e842843e4f29468a565fdcd4",
+    "sixth-tent33-descending-20261009-navigation.json": "54689cd669d32ec7354591eef385648733e2ab56b848ff09f010bebbf037f2fb",
+    "sixth-tent33-descending-20261009.witness.json": "2f23f22075c8b3b82b691ef5494525b1b8f5709f4a39d8206b6a28bd837428ff",
+    "sixth-tent33-ascending-route-20261009.json": "0c1c2372471d67c001fa05c22dde7b58a8a327b2cb4ccab64561bc43da32d131",
+    "sixth-license-family-weighted-jensen-analytic-20261009.json": "319494b69973ad098dc318611ca41da6c6e07bd4d939f1872762d779dcd23ab9"
+  }
+}

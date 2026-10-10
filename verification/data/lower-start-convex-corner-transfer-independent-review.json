@@ -1,0 +1,467 @@
+{
+  "status": "PASS_SELECTED_COMBINATION_WITH_INDEPENDENT_NEW_FOURTH_AND_PREVIOUS_FIFTH",
+  "selected_result": {
+    "raw_c_lower": "40613724390471895956475042577202573/20769187434139310514121985316880384",
+    "safe_c": "9777/5000",
+    "safe_K": "67619/10000",
+    "b": "7489/10000",
+    "count": "1/10000",
+    "margin_lower": "1027353240038089007695267270269/5192296858534827628530496329220096",
+    "finite_approximation_loss_budget_in_c_units": "1034551097430110725570305359168829/51922968585348276285304963292200960000",
+    "compiler_loss_budget_in_c_units": "1034551097430110725570305359168829/51922968585348276285304963292200960000",
+    "I4_exact_smaller_value": "128316253568355627096375316135309/5192296858534827628530496329220096",
+    "I5_previous_certificate_value": "449494709921299034161/604462909807314587353088",
+    "I3_a": "131161537132735981727/1208925819614629174706176",
+    "I3_h": "8106523187487853867465/75557863725914323419136"
+  },
+  "selected": {
+    "label": "independent_new_fourth_hybrid_both_starts_old_fifth",
+    "baseline248": "9381104017625682562629125/4835703278458516698824704",
+    "delta3_at_a": "131161537132735981727/1208925819614629174706176",
+    "delta3_at_h": "8106523187487853867465/75557863725914323419136",
+    "delta4": "128316253568355627096375316135309/5192296858534827628530496329220096",
+    "delta5": "449494709921299034161/604462909807314587353088",
+    "raw_ideal_c_lower": "40613724390471895956475042577202573/20769187434139310514121985316880384",
+    "independent_ordinary_and_H_assembly_lower": "40613724392113547261242825918472693/20769187434139310514121985316880384",
+    "safe_finite_c": "9777/5000",
+    "safe_K": "67619/10000",
+    "b": "7489/10000",
+    "count": "1/10000",
+    "independent_margin_lower": "1027353240038089007695267270269/5192296858534827628530496329220096",
+    "finite_approximation_loss_budget_in_c_units": "1034551097430110725570305359168829/51922968585348276285304963292200960000",
+    "compiler_loss_budget_in_c_units": "1034551097430110725570305359168829/51922968585348276285304963292200960000",
+    "display_only": {
+      "raw_c": 1.9554796989175016,
+      "c": 1.9554,
+      "b": 0.7489,
+      "margin": 0.00019786103684526034
+    },
+    "scope": "Uses min(author I4, independent I4), which is the latter here; retains the previous I5 certificate, not the new fifth corner total. Numerical ordinary backend sharing and all analytic premises remain explicit."
+  },
+  "original_author_rows_arithmetic_given_components": [
+    {
+      "label": "reviewed248_and_switch",
+      "arithmetic_given_components_verified": true,
+      "raw_record": "9450091219411467626869105/4835703278458516698824704",
+      "independent_margin_lower": "2085854224035746541062353953003/2596148429267413814265248164610048",
+      "scope": "Arithmetic only given each named component; the new fifth corner total has not been fully replayed by this audit."
+    },
+    {
+      "label": "hybrid_third_both_starts",
+      "arithmetic_given_components_verified": true,
+      "raw_record": "9452116175528028534581253/4835703278458516698824704",
+      "independent_margin_lower": "1561384393291287719764432880279/5192296858534827628530496329220096",
+      "scope": "Arithmetic only given each named component; the new fifth corner total has not been fully replayed by this audit."
+    },
+    {
+      "label": "hybrid_third_and_convex_corners",
+      "arithmetic_given_components_verified": true,
+      "raw_record": "9457065913253676580318485/4835703278458516698824704",
+      "independent_margin_lower": "2065812611745054533401366536113/5192296858534827628530496329220096",
+      "scope": "Arithmetic only given each named component; the new fifth corner total has not been fully replayed by this audit."
+    }
+  ],
+  "independent_ordinary_interval": [
+    "-141178561378510030798830300751831/2596148429267413814265248164610048",
+    "-282357122752239731986794235182415/5192296858534827628530496329220096"
+  ],
+  "independent_removed_H248_interval": [
+    "86396860061827164681956662444209/5192296858534827628530496329220096",
+    "43198430030913582340978331223541/2596148429267413814265248164610048"
+  ],
+  "removed_H248_pieces": [
+    [
+      89,
+      "5/33",
+      "19/125",
+      "15092632414667983124207"
+    ],
+    [
+      90,
+      "25/166",
+      "5/33",
+      "12139720831670263839706"
+    ],
+    [
+      91,
+      "25/167",
+      "25/166",
+      "12139720831670263839706"
+    ],
+    [
+      92,
+      "25/168",
+      "25/167",
+      "12139720831670263839706"
+    ],
+    [
+      93,
+      "25/169",
+      "25/168",
+      "12139720831670263839706"
+    ],
+    [
+      94,
+      "5/34",
+      "25/169",
+      "12139720831670263839706"
+    ],
+    [
+      95,
+      "25/171",
+      "5/34",
+      "11707530690634435213465"
+    ],
+    [
+      96,
+      "25/172",
+      "25/171",
+      "11707530690634435213465"
+    ],
+    [
+      97,
+      "25/173",
+      "25/172",
+      "11707530690634435213465"
+    ],
+    [
+      98,
+      "25/174",
+      "25/173",
+      "11707530690634435213465"
+    ],
+    [
+      99,
+      "1/7",
+      "25/174",
+      "11707530690634435213465"
+    ],
+    [
+      100,
+      "25/176",
+      "1/7",
+      "11336032513100348508513"
+    ],
+    [
+      101,
+      "25/177",
+      "25/176",
+      "10975282824217466498546"
+    ],
+    [
+      102,
+      "25/178",
+      "25/177",
+      "10624938186381492828769"
+    ],
+    [
+      103,
+      "25/179",
+      "25/178",
+      "10284670067463396451008"
+    ],
+    [
+      104,
+      "5/36",
+      "25/179",
+      "9954164000320450822109"
+    ],
+    [
+      105,
+      "25/181",
+      "5/36",
+      "9633118801414669264929"
+    ],
+    [
+      106,
+      "25/182",
+      "25/181",
+      "9321245843518736437131"
+    ],
+    [
+      107,
+      "25/183",
+      "25/182",
+      "9018268377991142852039"
+    ],
+    [
+      108,
+      "25/184",
+      "25/183",
+      "8723920902546132170756"
+    ],
+    [
+      109,
+      "5/37",
+      "25/184",
+      "8437948570837773326071"
+    ],
+    [
+      110,
+      "25/186",
+      "5/37",
+      "8160106640527389054497"
+    ],
+    [
+      111,
+      "25/187",
+      "25/186",
+      "7890159956815213305548"
+    ],
+    [
+      112,
+      "25/188",
+      "25/187",
+      "7627882468695245961500"
+    ],
+    [
+      113,
+      "25/189",
+      "25/188",
+      "7373056775440906108621"
+    ],
+    [
+      114,
+      "5/38",
+      "25/189",
+      "7125473701051783334790"
+    ],
+    [
+      115,
+      "25/191",
+      "5/38",
+      "6884931894591608044155"
+    ],
+    [
+      116,
+      "25/192",
+      "25/191",
+      "6651237454527162789358"
+    ],
+    [
+      117,
+      "25/193",
+      "25/192",
+      "6424203575339549741990"
+    ],
+    [
+      118,
+      "25/194",
+      "25/193",
+      "6203650214825032584385"
+    ],
+    [
+      119,
+      "5/39",
+      "25/194",
+      "5989403780634348887652"
+    ],
+    [
+      120,
+      "25/196",
+      "5/39",
+      "5781296834718487679436"
+    ],
+    [
+      121,
+      "25/197",
+      "25/196",
+      "5579167814456804040476"
+    ],
+    [
+      122,
+      "25/198",
+      "25/197",
+      "5382860769341192572631"
+    ],
+    [
+      123,
+      "25/199",
+      "25/198",
+      "5192225112178917174868"
+    ],
+    [
+      124,
+      "1/8",
+      "25/199",
+      "5007115383857525321012"
+    ],
+    [
+      125,
+      "25/201",
+      "1/8",
+      "4827391030788883243848"
+    ],
+    [
+      126,
+      "25/202",
+      "25/201",
+      "4652916194216482738252"
+    ],
+    [
+      127,
+      "25/203",
+      "25/202",
+      "4483559510631437445712"
+    ],
+    [
+      128,
+      "25/204",
+      "25/203",
+      "4319193922598581458510"
+    ],
+    [
+      129,
+      "5/41",
+      "25/204",
+      "4159696499345317879532"
+    ],
+    [
+      130,
+      "25/206",
+      "5/41",
+      "4004948266512796200686"
+    ],
+    [
+      131,
+      "25/207",
+      "25/206",
+      "3854834044512032839549"
+    ],
+    [
+      132,
+      "25/208",
+      "25/207",
+      "3709242294967093675432"
+    ],
+    [
+      133,
+      "25/209",
+      "25/208",
+      "3568064974763757687965"
+    ],
+    [
+      134,
+      "5/42",
+      "25/209",
+      "3431197397255469888877"
+    ],
+    [
+      135,
+      "25/211",
+      "5/42",
+      "3298538100209132868502"
+    ],
+    [
+      136,
+      "25/212",
+      "25/211",
+      "3169988720101616171104"
+    ],
+    [
+      137,
+      "25/213",
+      "25/212",
+      "3045453872403994525367"
+    ],
+    [
+      138,
+      "25/214",
+      "25/213",
+      "2924841037514651869055"
+    ],
+    [
+      139,
+      "5/43",
+      "25/214",
+      "2808060452024681597011"
+    ],
+    [
+      140,
+      "25/216",
+      "5/43",
+      "2695025005019631308143"
+    ],
+    [
+      141,
+      "25/217",
+      "25/216",
+      "2585650139140724380353"
+    ],
+    [
+      142,
+      "25/218",
+      "25/217",
+      "2479853756146369450561"
+    ],
+    [
+      143,
+      "25/219",
+      "25/218",
+      "2377556126731158831696"
+    ],
+    [
+      144,
+      "5/44",
+      "25/219",
+      "2278679804374763824534"
+    ],
+    [
+      145,
+      "25/221",
+      "5/44",
+      "2183149543007254889029"
+    ],
+    [
+      146,
+      "25/222",
+      "25/221",
+      "2090892218290495151885"
+    ],
+    [
+      147,
+      "25/223",
+      "25/222",
+      "2001836752327456348714"
+    ],
+    [
+      148,
+      "25/224",
+      "25/223",
+      "1915914041622659583802"
+    ]
+  ],
+  "fourth_author_minus_independent": "600983/2596148429267413814265248164610048",
+  "scope": [
+    "Original L1 and L2 occurrences retain weights3/4 and1/4; they need not have disjoint tuple domains.",
+    "Whole248 saved H is removed once on [25/224,19/125]; no184 H substituted and no L1 H removed.",
+    "One ideal C3/C4/C5 policy; each new integral replaces its previous estimate, not its tree.",
+    "Full functional approximation and compiler budgets allocated after the original multiplicities.",
+    "The original third row using the new fifth corner bound remains component-conditional; the selected row does not use it.",
+    "Finite-policy, ordinary shape, density and distribution conclusions remain separately reviewed analytic inputs. No literature-priority or effective-threshold conclusion."
+  ],
+  "all_direct_bindings_checked": true,
+  "bindings_sha256": {
+    "lower-start-convex-corner-transfer-independent-review.py": "bde06ee86b23b00dc754167f4ebe4ec33fe2a9dee13c03a723be496d1e1d89f7",
+    "lower-start-convex-corner-transfer-independent-review.tex": "52b989a9c73cc91485a9447b5e9aa6ac9e5abfdb42c660a662aa6eb71161769b",
+    "lower-start-convex-corner-transfer.json": "44a3d70b300a101c590d19920d48afc96ed569bdd70a53424e5f0e52e4d255dd",
+    "lower-start-convex-corner-transfer.tex": "e1bc66e5780027d3409c8ab0950ff1e3d954f1a926ac9e860693ed0bfdaa8dc6",
+    "certify_lower_start_convex_corner_transfer.py": "072daf8268128fa7c00e2628e70f4b8337c536942255176365840a0a0b423dcc",
+    "expanded248-numeric-closure-independent.json": "bfb8d463a78afe0dfe961a2cb09b0ca4e9e2bf0dd62c76478aa7041aca59b4d4",
+    "expanded248-remaining-integrals-independent.py": "cbdf5307d5d59331615ad643fa7fe46e3b15bfdae72e2c50a6a747167d19e206",
+    "lower-start-global-transfer-independent-review.json": "136862a18c84136e79733b3e0b6fc99cd735f17159c6e68008d6e604d206d138",
+    "expanded-w2-midpoint-table248-v1.json": "a91c371b8c69398619ebee8b17598c163fbf8b6267fa0470ed6930e2097a98ed",
+    "lower-start-fourth-chord-independent-replay.py": "e16365d5f649e23e36bc1b972ff66945d083665acfb59756ccefac70bf395870",
+    "lower-start-fourth-chord-independent-replay.json": "4fc6d2961cd8181a536f64278251a435459856e826e4a1eecdb750618264de5e",
+    "lower-start-fourth-chord-independent-review.tex": "6f61cb026977f98b6a7b0c4f27ee760fca82ff209fa8f413a3c3adf94bd5d9f3",
+    "lower-start-third-hybrid-independent-review.json": "f334ae8237f7225150e175794e90c279ded0b4591652e1bded66e24f8224fd13",
+    "lower-start-third-hybrid-independent-417-5000-m800.json": "409d3b946430d533cbde9b612977648aa1a145b4f0e8d410c4becd5bad7af585",
+    "lower-start-third-hybrid-independent-19-125-m800.json": "52c3838f31d42a0b7e2660c8661cf2eaf283f1b4a09777b33f14132583f71d1d",
+    "sharp-joint-ideal-transfer.json": "1b3c6340b41e0b6df2490b57bbf8f1ec372b8733af5bfaf77f5a2496e4354bde",
+    "lower-start-fifth-ideal-slices-400.json": "8ae55998d69d70db9b41aafbc6b246b967b79044ab0827413e045860332cd4b8",
+    "lower-start-fifth-ideal-slices-independent-review.json": "9681b34a435571532ebc477e6ead88c628222820dd9b2d19fdfac40c9155b007",
+    "lower-start-L1-L2-joint-policy.tex": "87f448ea278fce1c9647593d3d47455b5ba00e9b7691aca72b856f6b58923e49",
+    "lower-start-joint-finite-approximation.tex": "f8e8ca23de3578876d4332d1f25074663d567aaa056714aece2a869c50b09976",
+    "lower-start-joint-finite-approximation-independent-review.json": "e8cd57918bbc41acc940eb670a5ef3bca29bbc73d8f57265e1169ab1a366909c"
+  }
+}

@@ -1,0 +1,295 @@
+Completion of the actual finite coefficient interface
+10 October 2026. A coefficient theorem, with an explicit analytic premise.
+
+1. The result being proved
+
+Let T tend to infinity through even integers. Assume the restricted local
+prime-product proposition of restricted-moving-target-distribution-20261010.txt:
+it is uniform for its three separated one-bounded modulus sequences, exact
+coprime mean, individual rough HB slot, four size inequalities and complete
+moving-residue range. Its analytic proof is NOT a premise inferred from this
+note. Classical below-half BV and its stated fixed-family convolution version
+are also analytic premises here.
+
+Then every actual signed coefficient required by the following CURRENT finite
+construction belongs to that proposition's class, after an arbitrarily small
+fixed finite-policy/compiler approximation and a fixed power-small analytic
+collision removal:
+
+ (U) the extended third upper tree, its adopted fourth/fifth/sixth changes,
+     the above-mu second/third fallbacks, and the 87 eighth domains;
+ (L) the ordinary lower starts at a=417/5000 and h=19/125, their causal
+     third/fourth/fifth changes and the adopted fourth own-cube restorations;
+ (H) the ordinary marked queries in the finite 248/430 H/h constructions,
+     including all their admitted ordinary descendants;
+ (P) the positive switched leaves in those constructions and the current
+     paired-cropped U11 family, using (U)'s coefficient on each smooth family.
+
+The resulting error is O_A(T/log(T)^A) for the SAME signed coefficient in
+the count and exact mean. There is no additional factorization assumption on
+an individual integer modulus, no changing of the density cap, and no claim
+for arbitrary arithmetic filters. The conclusion is conditional only on the
+stated analytic proposition and the explicit finite-policy constructions,
+whose coefficient/gate closure is established below. It does not assert the
+numeric integral inequalities, the pointwise Chen weight, or the global theorem.
+
+The current 17772-cell deletion only restricts the fixed geometric L6/U11
+queries. It creates no new arithmetic coefficient class: lower queries are
+omitted on selected pair boxes and upper positive queries use their complement.
+Nor do later Jensen/log/transverse integral refinements create new sieve
+policies. Only actual cap changes enter (U).
+
+2. Finite realization precedes the distribution argument
+
+Use rho=19/96, mu=25/128, Lambda=153/256, Theta=299/500 and
+v(t)=min((1+t)/2,57/64-3t/2). The complete carrier is Theta, not Lambda.
+The latter bounds licensed high-rank caps. For any requested positive
+approximation error, upper-finite-compact-margin-audit supplies a finite
+causal upper realization with actual frozen caps lambda and a positive
+external licence reserve. Its uniform third-envelope estimate is
+  0 <= L_endpoint-lambda <= 4e+6chi.
+The noncompact third tail is O(h0*(1+log^2(rho/h0))) as h0 tends to zero;
+the higher adopted actions have positive last-prime cutoffs. Proper affine
+walls can be trimmed, while identical inherit labels must be retained.
+The 87 eighth domains have t8>53/13824 and bounded kernels. Ancestor caps
+are frozen on their own prefixes before refining children.
+
+For lower starts the corresponding third/fourth/fifth tails are
+O(epsilon*(1+log^(r-1)(h/epsilon))), r=3,4,5. Lower own-cube restoration
+has separate strict history and full/selected gates; it restores an old
+fourth first exit with a legal residual lower support. It is not obtained
+by deleting a boundary node from an ordinary lower tree. These constructions
+are set out in lower-joint-typed-density-bridge and the lower compiler.
+
+This finite approximation produces actual coefficients; it is not a claim
+that all ideal closed domains have a positive margin. Weak residual squares
+are allowed and are handled by endpoint inflation below. The same frozen
+coarse history is used in the full tree, rough tree and fine compiler.
+
+3. The physical cap and the analytic covering cap are different data
+
+The density, ancestor history and residual Q/B always use Q=T^lambda.
+To prove a factorization one may use a larger auxiliary covering level
+T^ell_aux. Only support and full/selected squares are enlarged to that
+cover; the integer coefficient is unchanged. This is correction (C0) of
+upper-finite-compact-margin-audit and is essential at a W gate.
+
+Here is the concrete base W resolution. Write A(t)=(1+t)/2 and
+W(z)=Lambda-3z/8. A coarse winning rescue entry has
+inf_box max(A,W)=Gamma and lambda=Gamma-2e, with chi<e/10.
+If inf A>=lambda+e/2, use the largest-singleton licence and
+ell_aux=lambda+e/4. Otherwise sup A<lambda+11e/20, hence W>=Gamma
+throughout the box. Set ell_aux=lambda+e. This has at least 9e/20
+above the W gate and e below W. The other initialization square has
+reserve 1-Lambda-2mu=3/256, and the other third-slot bound at W has
+reserve 525/8704+49z/272. Both are positive. Thus a W gate above
+lambda does not require changing lambda or assuming an illegal raw tree.
+
+For a winning ordinary tent use ell_aux=lambda+e/4. A needed nonleading
+pair has uniform remaining-square gate surplus 3/256; a dominated pair
+can use the baseline label. The actual adopted higher actions are kept
+on compact positive-gate pieces, so their own buffered covers are legal.
+On every fine box permit O((J+2)tau) endpoint inflation within this
+external reserve, where J is the later fixed rough-rank bound.
+
+4. Full and selected squares close under every actual descendant
+
+Use decreasing exponents t_i and S_j=sum_(i<=j)t_i. A full square is
+S_(j-1)+2t_j<=ell_aux. An admitted cube at j gives its own square and
+the next square, since S_j+2t_(j+1)<=S_(j-1)+3t_j. Upper trees have
+odd first exits; ordinary lower trees have even first exits and a legal
+initial square. These parities supply all ordinary tail squares.
+
+For a fixed selected subset I among the marked slots, retain ALL tests
+ b_I+sum_(i<j,i notin I)t_i+2t_j<=ell_aux, j notin I,
+where b_I=sum_(i in I)t_i. Once j is later than every selected slot,
+the left side is exactly S_(j-1)+2t_j. Hence every subsequent residual
+full-square test is also the needed selected test. The selected set itself
+does not change as smaller primes are appended. For a W licence the first
+three slots and its ceiling remain unchanged. Merely checking b_I would
+not prove this closure.
+
+The initial current upper gates are explicit. Below mu the robust third
+envelope gives the selected or W alternative from section 3. Above mu,
+v(x)>3x for x<rho. The second fallback selecting y<x has 2x+y<3x;
+the third fallback selects y+z<x and has 2x+y+z<3x. Their initial full
+squares and preceding cube are likewise below 3x. At higher adopted nodes
+all initial full/selected tests are retained. For example mask138 selects
+{2,4,8} and has complement indices {1,3,5,6,7}; mask129 selects {1,8}
+and has {2,3,4,5,6,7}. No complement test disappears at descendants.
+
+Untouched lower starts have largest t1<=h<mu and endpoint licence
+max((1+t1)/2,Lambda-3t1/8)>=249/448. A root buffer below 249/448 gives
+a strict covering interval. Their restored fourth nodes check the new
+own cube and full/selected gates before attaching any residual. Thus the
+same closure works despite their different first-exit parity.
+
+In the typed graph write S=log_T B, L=lambda-S, alpha_state=(1-S)/L>=2.
+New primes are below the old ceiling. A singleton Lu has new residual
+L(1-u); a pair Lu,Lv has L(1-u-v). In either case alpha_state increases.
+The singleton square is 2u<1; the pair tests are 2v<1 and v+2u<1.
+Those are exactly the new complete full squares after multiplying by B.
+The actual Buchstab, W1 and W2 domains satisfy these inequalities, or
+approach their allowed structural boundary by smaller-cutoff comparison.
+Their selected tests then follow from the displayed identity, not from
+the state ratio alone. The W ceiling is always retained.
+
+There are at most 440 elementary transitions after unrolling the actual
+finite seed and 430 rounds. If L_root>=ell>0, the action-bank inequalities
+give L>=ell*101^(-440) and every appended prime exponent>=L_min/6.
+Thus all marked cutoffs and switched-product cutoffs have a common fixed
+positive lower bound before T grows. Finite compact refinement of each
+query is still necessary; depth alone does not discretize its parameters.
+
+5. Endpoint factorization is a uniform coefficient representation
+
+Use local scale x, qscale=log_x T, theta=7/32 and source residue parameter
+alpha_src>=qscale. This alpha_src is not alpha_state above. Put
+vartheta=qscale*ell_aux+2zeta and D=x^(vartheta-2zeta).
+For a medium length U let A=U*x^(-zeta). Set
+ v0=2vartheta-1,
+ u0=min((2-(2+2theta)vartheta)/(3-4theta),
+        (2-2vartheta-alpha_src*theta)/3).
+The local three-line tent licence says v0<=b_I<=u0; its middle line
+must be retained after local rescaling even though it is dominated at
+alpha_src=1. Full and selected tests are applied to ORDERED UPPER endpoints.
+
+If C=D/(A*x^b_I)>=1, fix all selected slots in group 2. Greedily assign
+each remaining slot to capacities A,C. Its selected square says its
+square is at most the product of the remaining capacities; therefore
+at least one accepts it. The resulting fixed group endpoints B1,B2,B3
+satisfy B1<=A, B2=x^b_I, B3<=C and
+ A^2 B2 B3^2 <= x^(1-4zeta),
+ T^theta A B1 B2^5 B3^2 <= x^(2-4zeta),
+ A^(1+2theta) B1 B2^(5-2theta) B3^(2+2theta)
+                         <= x^(2-(4+4theta)zeta).
+If C<1, reassign ALL slots into A,D/A using the full squares. Here
+1<D/A<x^b_I. With B3=1 the last two inequalities follow by replacing
+x^b_I by D/A; the first follows from A^2 B2<=AD<=x^(23/24-5zeta/2).
+No putative integer factor of length below one is introduced.
+
+For W initialize capacities A,x^v0,D/(A*x^v0) using only the first two
+slots. One fits x^v0; the other fits one of the remaining capacities
+because its square is at most their product x^(1-vartheta-2zeta).
+All capacities are at least one. Continue inserting whole slots. At the
+first slot p that fits none, append it to group 2. Its new product B is
+in (x^v0,x^u0], since p<=p3<=x^(u0-v0). Failure of the first capacity
+and the full square imply A*B*c<D. Thus the two residual capacities are
+valid; the full-square greedy argument finishes. If no failure occurs,
+the capacity product bounds directly give the same three monomials.
+
+These algorithms run on endpoint data once per atom and HB length U,
+not on individual primes or observed progression errors. Coordinatewise
+reduction preserves the bounds. Their strict licences survive qscale,
+alpha_src close to one and the fine inflation in section 3.
+
+6. The exact tensor coefficient, including marked colours and beta
+
+Refine every finite interval label to a common disjoint half-open alphabet.
+For a slot list with m_I copies of label I let M=prod_I m_I!. Its raw
+prime convolution T_J(n) is exactly M/prod_p nu_p(n)! on its support.
+Hence the sorted rough coefficient is 1_squarefree*T_J/M.
+For any fixed three-group partition let M_j=prod_I m_(I,j)! and
+gamma_j=(convolution of group j)/M_j. Then 0<=gamma_j<=1 on ALL
+integers, and the exact unrestricted identity is
+ T_J/M = (prod_j M_j/M)*(gamma_1*gamma_2*gamma_3).
+The restoring scalar is fixed and <=1. Empty groups are delta_1.
+
+A raw MARKED convolution sigma is different: its multiplicity was already
+present in the state. Only ordered RESIDUAL slots receive the denominator
+M_res. The combined atom is epsilon*1_squarefree*T_all/M_res, with its
+original sign epsilon. Regrouping gives restoring scalar
+epsilon*prod_j M_j/M_res, bounded by |epsilon|*M_mark for disjoint
+marked/residual supports. Normalizing marked sigma additionally is valid
+only if both Phi(sigma) and Theta_Q(sigma) are scaled identically. No
+one-sided extra factorial is admitted.
+
+Choose w=T^omega below every marked exponent. For p<w, p divides BT iff
+p divides T. The small-prime local factors and excluded primes are
+therefore identical for every marked prefix B. Choose ONE beta_T+/- pair
+with support below the smallest residual reserve. The same pair works
+throughout the fixed finite query graph; it is not a coupled beta(B,d).
+The sign/upper-lower rule determines which fixed beta is attached on an
+atom. Since small and rough prime universes are disjoint, the factorization
+n=n_small*n_rough is unique and |(gamma_3*beta)(n)|<=1.
+
+The original global squarefree restriction remains in the actual count
+and density. Remove it only in the analytic tensor expansion. If support
+D_*<=T^theta_* with theta_*<1, the discrepancy difference is bounded by
+ T^o(1) sum_(l<=D_*, exists p>=w:p^2|l)(T/l+1+T/phi(l))
+                   << (T+D_*)T^(-omega+o(1)).
+The fixed outer tuple multiplicity is absorbed in T^o(1). The +1 includes
+the complete product T; tau(0) is never used. This does not replace the
+original coefficient by an unrestricted pointwise sieve weight.
+
+7. Low ranks, small losses and parameter order
+
+Before beta/endpoints/local conversion, rough ranks at most two have
+the following complete support exponents and positive half-level gaps:
+ upper:       19/48,       gap 5/48;
+ lower start: 38/125,      gap 49/250;
+ marked:      1527/3584,   gap 265/3584.
+For marked rank two the largest x<57/224 and full square x+2y<=Lambda
+give x+y<=(Lambda+57/224)/2=1527/3584. Descendants append smaller
+primes, so this remains valid. Classical states have their own buffered
+complete level below one half. The coefficients are bounded by a FIXED
+scalar mass, not necessarily one in marked states. The absolute BV
+premise handles them directly. High rank is not licensed by BV.
+
+Choose in this order:
+ (i) finite geometric query graph, proper-wall/tail tolerances, coarse
+     causal cap policy, analytic covering licences and positive reserves;
+ (ii) fixed zeta below those reserves and a_star/100, and sigma=zeta/2000;
+ (iii) common beta support ell_beta=nu0*eta, omega=nu0*eta^2, with eta
+       small enough for support, beta-density and third-tail allowances;
+ (iv) fixed J>theta_*/omega+2, fine tau with (J+2)tau below every reserve,
+      and the actual finite divisor/moment orders;
+ (v) kappa<=min(sigma/200,1/(2*K_mom)), where
+     K_mom=max 2^(2*max(R,S,1)) over the actual shifted-moment orders,
+     including the twice-squared tau^(4J) boundary requirement;
+     then kappa0<kappa/[4(1+kappa)], also below the support reserves.
+Selectable epsilons and logarithmic accuracies come afterwards, then T.
+Making kappa smaller leaves the already fixed coefficient and mesh intact.
+
+Take total beta/fine support inflation below 1/1000, so theta_*=599/1000
+is a safe complete carrier ceiling. Choose kappa0 so
+theta_*/(1-kappa0)<3/5 and all three low-rank supports remain below half.
+At the medium slot, replacing A by U leaves savings zeta,2zeta,9zeta/16.
+After two reserves zeta/16, the minimum is 7zeta/16>15sigma. Consequently
+ Q1<U*x^(-sigma), U^2 Q2 Q3^2<x^(1-8sigma),
+ T^theta U Q1 Q2^5 Q3^2<x^(2-15sigma),
+ U^(1+2theta)Q1 Q2^(5-2theta)Q3^(2+2theta)<x^(2-15sigma).
+Beta enlarges only group 3, with costs 2ell_beta,2ell_beta,
+(2+2theta)ell_beta, already reserved. The complete support also satisfies
+the stated one/two-long alternatives. At retained complete scales
+c*T^(1-kappa0)<=x<=C*T, the required residue range is c0*x<=T<=x^(1+kappa).
+
+There are finitely many atoms and their total absolute restoring scalar
+is fixed before T. The partition may vary with atom, T and HB length,
+because every such representation is the exact same coefficient and the
+local proposition is uniform over all its one-bounded sequence class.
+It may not vary with the arithmetic tuple or discrepancy sign. Fixed
+polylog chart counts and Fourier norms are paid by a stronger requested
+log exponent. The collision and complete-product trimming terms have
+fixed power savings. This proves the claimed insertion with absolute
+O_A(T/log(T)^A) error for each actual finite family.
+
+8. Exact scope of this completion
+
+The theorem removes the conditional phrase 'if the actual coefficients
+have a fixed separated representation' for these finite policies: the
+representation, coloured scalar, uniform beta, endpoint partition,
+descendant closure and admissible hierarchy have been constructed above.
+Its inputs still include the restricted analytic proposition itself and
+the independent pointwise/density/integral results when one passes from
+this distribution statement to K, c and b. A certificate hash is provenance,
+not a proof of any of those inputs. No numeric K/c/b is changed here.
+
+The three important exclusions are substantive: an arbitrary high-rank
+weight below T^.598, an arbitrary prefix-dependent small-prime beta, and
+a per-integer factorization do not meet this theorem. The actual common
+label construction needs none of them. Historical assertions equating
+ell_aux and lambda, dividing every marked factorial, or fixing kappa
+before the actual moment orders must be read with the corrections above.
+No new hole in the coefficient interface was identified. The main TeX,
+earlier artifacts, research-state, formalization and GitHub are unchanged.

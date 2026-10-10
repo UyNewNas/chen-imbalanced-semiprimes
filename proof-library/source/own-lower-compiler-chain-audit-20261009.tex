@@ -1,0 +1,484 @@
+% Independent analytic audit, 2026-10-09. No numerical certificate is rerun.
+% Fragment only; all pre-existing manuscripts and certificates are unchanged.
+\subsection{A noncircular compiler for the causal ordinary lower start}
+\label{sec:own-lower-compiler-chain-audit-20261009}
+
+This audit concerns the ordinary starting terms of the project's own
+Chen lower bound. It does not certify the double-sieve action bank, the
+eleven-term pointwise inequality, or a new numerical constant. In
+particular it does not obtain a lower bound from the positive-product
+upper constant \(K\). The original sequence here is
+\[
+ {\cal A}_N=\{N-p:p<N,\ p\ {\rm prime}\},\qquad N\ {\rm even}.
+\]
+We use
+\[
+ a=\frac{417}{5000},\quad h=\frac{19}{125},\quad
+ \nu=\frac{249}{448},\quad \Lambda=\frac{153}{256},\quad
+ \mu=\frac{25}{128},\quad \sigma=\frac7{32}.
+\]
+The conclusions below apply separately to \(w=a\) and \(w=h\), and
+indeed to every fixed \(0<w\le h\). They apply to the finite causal
+policies in \texttt{lower-start-joint-finite-approximation.tex}, with
+their complete branch labels and margins, not to arbitrary bounded
+arithmetic restrictions or arbitrary five-dimensional choices of caps.
+
+\paragraph{1. What needed to be supplied.}
+The approximation lemma explicitly assumes a finite-policy signed
+compiler. The starting-lower note describes the sign reversal, whereas
+\texttt{actual-k-compilation-joint-audit.tex} proves the upper version.
+Also the older end of \texttt{prefix-sieve-interface.tex} states its
+ordinary density discussion only on compact \(s\ge2\). That sentence
+alone is insufficient at the negative fifth node, whose upper residual
+parameter can lie in \(1<s<2\).
+
+There are genuine proofs, rather than numerical PASS records, behind
+these steps: \texttt{retained-base-upper.tex} proves the lower residual
+equality; \texttt{fourth-prefix-K-refinement-route.tex} supplies the
+upper counterpart; the two actual-\(K\) joint audits prove atom
+compilation and distribution separately. We give the lower compilation
+and the actual sequence mapping below. We also strengthen the density
+argument by an exact prime-deletion comparison. This closes the above
+range and assembly omissions without assuming a two-sided dimension
+hypothesis uniform in the target \(N\).
+
+\paragraph{2. The actual finite lower tree.}
+Fix first all finite policy data and a small root buffer
+\(\rho>0\); put \(\nu_\rho=\nu-\rho\), with \(2h<\nu_\rho\).
+On decreasing primes \(p_i=N^{t_i}\), start with the ordinary lower
+support at level \(N^{\nu_\rho}\). Its initial test is \(p_1^2<N^{\nu_\rho}\),
+which never fails below \(N^w\); its other tests are
+\(S_{j-1}+3t_j<\nu_\rho\) at even \(j\).
+The finite state records all ancestor decisions, the selected branch,
+and its actual frozen cap.
+
+An admitted third prefix obeys \(t_1+3t_2<\nu_\rho\).
+Freeze \(\lambda_3\ge\nu_\rho\) there, changing subsequent even tests.
+The fourth prefix is admitted only if
+\[
+ S_3+3t_4<\lambda_3.                                      \tag{A}
+\]
+Only after this test may it freeze \(\lambda_4\ge\lambda_3\).
+Every \(0<t_5<t_4\) is then admitted, and a fifth state may freeze
+\(\lambda_5\ge\lambda_4\). Subsequent even tests use \(\lambda_5\).
+An inherited label means literal equality of caps and no new test.
+Restoring the inherited rule on an unused or boundary cell is allowed;
+deleting that node is not an equivalent operation.
+
+Thus every first exclusion has even full rank. For any finite prime
+set \(Q\) and any \(0\le q(p)\le1\), the exact first-exit identity is
+\begin{equation}\label{eq:own-lower-even-exit}
+ \sum_{d\mid Q}\mu(d){\bf1}_{d\in{\cal T}}q(d)
+ =\prod_{p\mid Q}(1-q(p))
+ -\sum_{P=p_1\cdots p_j\ {\rm first\ exit}}
+       q(P)\prod_{\substack{p\mid Q\\p<p_j}}(1-q(p)).
+\end{equation}
+Partition the excluded divisors by their unique first excluded prefix;
+its sign is \(+1\), and subtract its complete continuation. This proves
+the identity, also for inherited history-dependent levels.
+With \(q(p)={\bf1}_{p\mid n}\), it proves a pointwise lower weight.
+For comparison, retaining \(1\) but excluding a single prime gives
+the value \(1>0\) at that prime: an extra odd first exclusion would
+invalidate this argument. The present construction makes none.
+
+\paragraph{3. Full and selected support, including inherited states.}
+Every complete descendant is in the full square support at its
+current cap. Initially
+\[
+ 2t_1<\nu_\rho,\qquad t_1+2t_2<t_1+3t_2<\nu_\rho,\qquad
+ S_2+2t_3<t_1+3t_2<\nu_\rho.
+\]
+At rank four its own square follows from (A), and at rank five
+\begin{equation}\label{eq:own-lower-fifth-square}
+ S_4+2t_5<S_3+3t_4<\lambda_3\le\lambda_4\le\lambda_5.
+\end{equation}
+Thereafter an even cube implies its own square and the following odd
+square, using
+\(S_{j-1}+2t_j\le S_{j-2}+3t_{j-1}\).
+All products have exponent below \(\Lambda+o(1)<3/5\).
+
+For a selected nonempty subset \(I\subset\{1,\ldots,r\}\) put
+\[
+ b_I=\sum_{i\in I}t_i,\qquad
+ G_I=\max_{\substack{j\le r\\j\notin I}}
+ \left(b_I+\sum_{\substack{i<j\\i\notin I}}t_i+2t_j\right).
+\]
+An active selected branch must freeze its cap with strict slack above
+the parent, every full square and \(G_I\), and strictly below
+\[
+ v_\alpha(b_I)=
+ \min\left\{\frac{1+b_I}{2},
+ \frac{1-(3/2-2\sigma)b_I}{1+\sigma},
+ \frac{2-\alpha\sigma-3b_I}{2}\right\}.
+\]
+These are whole-box tests, not just a test on \(b_I\).
+For every later slot the selected-remaining square is exactly the full
+square \(S_{j-1}+2t_j\), because every selected slot has already occurred.
+An inherited branch therefore continues to license every descendant.
+At rank three a \(W\) branch keeps its first-three-slot ordering and
+all its original gates; later primes are smaller. The two-capacity
+and \(W\)-branch repairs in the actual compilation audit apply to
+square-supported slot vectors, independently of the sign of their
+coefficients. In particular its \(C<1\) reassignment of all slots is
+needed; mere existence of a selected product is not sufficient.
+
+The untouched ordinary tree is covered too. For \(t_1<h<\mu\),
+the repaired full envelope satisfies
+\[
+ \Phi(t_1,t_2,t_3)\ge
+ \max\left\{\frac{1+t_1}{2},\Lambda-\frac{3t_1}{8}\right\}
+ \ge\nu.
+\]
+The affine expressions intersect at \(25/224\). If a raw \(W\) gate
+is inactive, its single-variable rescue is retained in this maximum.
+A source factorization parameter strictly between \(\nu_\rho\) and
+\(\nu\) supplies the ordinary branch margin.
+
+In all branches factorize the upper endpoint vector of each sufficiently
+fine labelled box at each Type II scale. Keep that partition of the
+slots fixed on the whole box; normalize each group's convolution by
+its number-of-slots factorial. Coordinatewise reduction preserves
+the required monomials (notably \(5-2\sigma>0\)). This is the
+coefficient-level factorization required by dispersion. It is stronger
+than factoring each individual integer by a different rule.
+
+\paragraph{4. The lower compiler, with both inequalities displayed.}
+Write \(g_N(p)={\bf1}_{p>2,\ p\nmid N}/(p-1)\) and
+\(V_N(z)=\prod_{p<z}(1-g_N(p))\). Choose a presieve threshold
+\(z_0=N^\omega\) below every active prefix cutoff. Let
+\(R_{\cal T}\) be the raw lower density restricted to rough divisors
+with primes in \([z_0,N^w)\), and \(V_{\cal T}\) its full raw density.
+Equation \eqref{eq:own-lower-even-exit} gives
+\begin{equation}\label{eq:own-lower-rough-projection}
+ V_N(z_0)R_{\cal T}-V_{\cal T}
+ =\sum_{\substack{P\ {\rm full\ first\ exit}\\p_{\rm last}<z_0}}
+       g_N(P)V_N(p_{\rm last})\ge0.
+\end{equation}
+Every rough first exit is the same full first exit with its last prime
+at least \(z_0\); all its preceding primes are then rough as well.
+
+Refine fixed coarse labels into disjoint half-open prime intervals.
+Use inner tests for positive even-rank coefficients and outer tests
+for negative odd-rank coefficients, retaining every ancestor test.
+The resulting rough coefficients satisfy \(c(d)\le\lambda_{\cal T}(d)\).
+Fine-box discrepancies occupy finitely many cube/gate strips; at
+fixed \(\omega\) their weighted mass tends to zero with the fine mesh.
+The tagged-prime estimate of the compilation audit is unchanged in
+absolute value:
+\[
+ V_N(z_0)\sum_d|c(d)-\lambda_{\cal T}(d)|g_N(d)
+ \ll V_N(N^w)C_{\cal T}\tau\omega^{-5}+o_N(V_N(N^w)).
+\]
+Coarse discontinuities are first buffered with the inherited rule.
+This is not interpolation across a cap jump.
+
+Let \(B^-\le I_0\le B^+\) be the small-prime beta polynomials, where
+\(I_0(n)={\bf1}_{(n,P_N(z_0))=1}\).
+Attach \(B^-\) when \(c(d)>0\) and \(B^+\) when \(c(d)<0\).
+For each divisor separately its contribution is at most \(c(d)I_0(n)\).
+Consequently the compiled coefficient \(\rho_N\) satisfies
+\begin{equation}\label{eq:own-lower-compiled-pointwise}
+ \sum_{q\mid n}\rho_N(q)
+ \le I_0(n)\sum_{\substack{d\mid n\\d\ {\rm rough}}}c(d)
+ \le{\bf1}_{(n,P_N(N^w))=1}.
+\end{equation}
+No nonnegativity of \(B^-\) is assumed. The unique small/rough
+factorization gives \(|\rho_N(q)|\le1\). The beta density error is at
+most \(O(\varepsilon_\beta\omega^{-2}V_N(N^w))\). Combining this with
+\eqref{eq:own-lower-rough-projection}, rather than reversing it, gives
+\[
+ \sum_q\rho_N(q)g_N(q)\ge
+ V_{\cal T}-O((C_{\cal T}\tau\omega^{-5}
+              +\varepsilon_\beta\omega^{-2}+o_N(1))V_N(N^w)).
+\]
+
+For a retained rough label vector \(J\), with repeated-label
+multiplicities \(m_I\), its exact atom is
+\[
+ \frac{(-1)^{|J|}}{\prod_I m_I!}\,
+ {\bf1}_{\rm squarefree}
+   (\chi_{J_1}*\cdots*\chi_{J_{|J|}})*\beta_J.
+\]
+The squarefree indicator applies to the rough product before beta.
+The scalar is retained once. Partitioning its slots into three groups
+and dividing by the three group factorials gives one-bounded group
+coefficients; multiplying those factorials into the scalar restores
+the same atom. Attach beta only to the third group. Its small primes
+cannot collide with rough primes. For fixed policy, cutoff and mesh
+the atom count and total absolute scalar mass are finite independently
+of \(N\). The standard beta fundamental lemma is the external
+construction input here; the sign assembly above is a project proof.
+
+\paragraph{5. Mapping these atoms to the original prime sequence.}
+This is the \(k=1\) case of the signed distribution derivation in
+\texttt{actual-k-distribution-joint-audit.tex}, not an application
+of its positive \(K\) conclusion. On a local prime scale
+\(x\ge N^{1-\kappa}/O(1)\), the residue is exactly \(N\).
+Choose all local losses smaller than the fixed branch margin and
+\(\kappa<\epsilon/(2(1+\epsilon))\), so \(N<x^{1+\epsilon}\)
+eventually. One may use the buffered residue exponent
+\(\alpha=1+3\kappa\) in the factorization gates.
+
+The primary inputs, read in the saved L23 v1 text, are Definition 2.1,
+Proposition 5.2, Proposition 3.2 and Lemma 3.4; Proposition 6.1 supplies
+the original branch factorization. They are statements in
+\href{https://arxiv.org/abs/2309.08522v1}{Lichtman's 2023 preprint}.
+Their spectral/dispersive proofs are external inputs, not numerical
+facts and not relabelled here as a checked journal publication.
+Proposition 5.2 allows signed complex one-bounded coefficients and
+a supremum over \(0<|a|<x^{1+\epsilon}\).
+
+For completeness the actual matching inequalities are as follows.
+The order-three Heath--Brown expansion of the one original prime
+variable has at most six slots. A slot with length
+\(x^{2\zeta}\le U\le x^{1/3+\zeta/2}\) is used as the SW side.
+Put \(A_0=Ux^{-\zeta}\). The fixed slot factorization gives
+\[
+ B_1\le A_0,\quad A_0^2B_2B_3^2\le x^{1-3\zeta},\quad
+ N^\sigma A_0B_1B_2^5B_3^2\le x^{2-3\zeta},\quad
+ A_0^{1+2\sigma}B_1B_2^{5-2\sigma}B_3^{2+2\sigma}
+       \le x^{2-2\zeta}.
+\]
+Replacing \(A_0\) by \(U\) leaves savings respectively
+\(\zeta,2\zeta,(1-2\sigma)\zeta=9\zeta/16\).
+After the still smaller beta and box losses, these imply exactly
+\[
+ Q_1<Ux^{-\epsilon},\quad U^2Q_2Q_3^2<x^{1-8\epsilon},\quad
+ N^\sigma UQ_1Q_2^5Q_3^2<x^{2-15\epsilon},\quad
+ U^{1+2\sigma}Q_1Q_2^{5-2\sigma}Q_3^{2+2\sigma}<x^{2-15\epsilon}.
+\]
+The individual rough \(1\) or rough \(\mu\) slot has the auxiliary
+coprimality SW property, including interval restrictions and the
+smooth twists, by the project's explicit rough-SW proof. The
+HB rough threshold \(x^{1/(\log\log x)^3}\) here is distinct from
+the modulus presieve threshold \(z_0=N^\omega\).
+The
+divisor-bounded complementary coefficient is truncated and normalized
+as in the distribution audit; its discarded part is controlled by
+shifted-divisor moments. An arbitrary arithmetic restriction on the
+SW slot would not be allowed.
+
+If no medium slot exists, preservation of the original group scale
+forces at least one long slot; there are at most two. A long slot
+cannot be a truncated Mobius slot and hence has coefficient \(1\)
+before partial summation. One long slot is covered by Lemma 3.4:
+its length is at least \(x^{1-10\zeta}\), exceeding the whole modulus
+times \(x^\epsilon\). Two long slots are covered by Proposition 3.2:
+the short product is at most \(x^{20\zeta}\), so the modulus exponent
+\(<3/5\) is below \((1-20\zeta)(2/3-3\epsilon)\).
+The extension to separate arbitrary long-slot intervals is explicitly
+in the proof of Proposition 5.2 and Lemma 7.1 of
+\href{https://arxiv.org/abs/2006.07088v1}{Maynard II v1};
+it retains the supremum over primitive residues.
+
+Rough ranks at most two here have total support
+\(N^{2h+O(\ell+\tau)}\), with \(2h=38/125<1/2\); classical
+Bombieri--Vinogradov handles them after choosing \(\kappa,\ell,\tau\)
+small. This assertion is specific to the present ordinary-start
+atoms; it is not the low-rank check for a larger marked-prime
+double-sieve family.
+
+Removing rough-square collisions costs
+\((N+N^{\theta_*})N^{-\omega+o(1)}\), \(\theta_*<3/5\).
+This is applied to the actual coefficients, or with the fixed divisor
+bound after HB; an unweighted \(N/d+1\) bound is not used alone on
+unbounded HB coefficients. The short-prime tail
+\(p<2N^{1-\kappa}\) costs \(N^{1-\kappa+o(1)}\) before distribution,
+since the divisor sum is bounded by \(\tau(N-p)\). Its exact-coprime
+mean has only a logarithmic additional factor. Thus a near-\(N\)
+local-scale theorem really covers the complete prime sequence.
+Dyadic decompositions and Mellin tails cost fixed logarithmic powers.
+
+It follows, for this same fixed \(\rho_N\), that
+\begin{equation}\label{eq:own-lower-signed-prime-remainder}
+ \sum_{\substack{q\\(q,N)=1}}\rho_N(q)
+ \left(\pi(N;q,N)-\frac{\pi(N)}{\varphi(q)}\right)
+ =O_A(N\log^{-A}N).
+\end{equation}
+The source's exact coprime mean differs from \(\pi(N)/\varphi(q)\)
+by at most \(\omega(q)/\varphi(q)\) for a prime sequence; summed over
+\(q\le N^{\theta_*}\) this is \(O(\log^2N)\).
+Every modulus prime is restricted to be coprime to \(N\).
+All constants may depend on the fixed finite policy. No assertion
+of distribution for a policy or a positive cutoff varying with \(N\)
+is required.
+
+\paragraph{6. Exact ordinary residual densities, uniformly in \(N\).}
+Define ordinary upper support by the cube tests at odd ranks, and
+ordinary lower support by \(q_1^2<R\) and the cube tests at even
+ranks. Write their actual multiplicative density sums as \(V_N^\pm(R,y)\).
+For the lower support assume \(y\le\sqrt R\), so its first square
+does not create an odd exit. We prove, on compact positive parameter
+sets \(R=N^\beta,y=N^t\),
+\begin{equation}\label{eq:own-lower-ordinary-equalities}
+ \frac{V_N^+(N^\beta,N^t)}{V_N(N^t)}=F(\beta/t)+o(1)
+       \quad(\beta/t>1),\qquad
+ \frac{V_N^-(N^\beta,N^t)}{V_N(N^t)}=f(\beta/t)+o(1)
+       \quad(\beta/t\ge2).
+\end{equation}
+Here \(F,f\) are the ordinary linear-sieve functions, not the modified
+upper function \(F^*\), and no distribution theorem is used in this
+density calculation.
+
+The precise classical input is the cubic Rosser positive-exit
+calculation at dimension one and parameter \(2\): its compactly
+convergent odd and even exit series give \(F-1\) on \(s>1\) and
+\(1-f\) on \(s\ge2\), respectively. The recurrence is
+\[
+ a_1(s)=(3-s)_+/s,\qquad
+ a_j(s)=s^{-1}\int_{\max(s,\,2+\epsilon_j)}^{2+j}a_{j-1}(u-1)\,du,
+ \quad \epsilon_j={\bf1}_{j\ {\rm odd}},
+\]
+where an empty integral is zero.
+Exact source locations are
+\href{https://www.suzuyu1729.com/notes/NagoyaSeminar2022/RosserIwaniec.pdf}
+{Suzuki, Sections 6--9, (9.1)--(9.2), Propositions 9.4 and 11.8,
+and Lemma 14.7}; the latter is the one-sided estimate for the
+actual raw Rosser density, not a different existential sieve weight.
+For the normalization and fixed-density convergence one can also use
+\href{https://mathweb.tifr.res.in/Documents/Publications/Lectures/tifr72.pdf}
+{Motohashi, TIFR 72, (3.2.10) and Section 3.3}.
+These standard results are external mathematical inputs. Neither
+finite-depth convergence alone nor a numerical DDE table substitutes
+for their convergence assertion.
+
+Here is a direct reduction from those fixed local factors to the
+target-dependent factors, strengthening the earlier project proof.
+Let \(g_0(p)={\bf1}_{p>2}/(p-1)\), and normalize each rank-\(j\)
+positive exit sum by \(V_N(y)\):
+\[
+ T_{j,N}(R,y)=\sum_{\substack{P=q_1\cdots q_j\ {\rm first\ exit}\\q_1<y}}
+ g_N(P)\frac{V_N(q_j)}{V_N(y)}.
+\]
+For an exit containing no prime dividing \(N\), its summand equals
+\begin{equation}\label{eq:own-lower-exit-deletion}
+ g_0(P)\frac{V_0(q_j)}{V_0(y)}
+ \prod_{\substack{q_j\le p<y\\p\mid N}}(1-g_0(p)).
+\end{equation}
+The interval is \([q_j,y)\), consistent with the strict cutoff in
+\(V_N\); the factor at \(q_j\) is absent because \(q_j\nmid N\).
+Other exits disappear. Every surviving multiplier lies in \([0,1]\),
+and hence \(0\le T_{j,N}\le T_{j,0}\) exactly, at every rank.
+The full exit identities therefore give
+\[
+ V_N^+/V_N\le V_0^+/V_0,\qquad V_N^-/V_N\ge V_0^-/V_0.
+\]
+
+For each fixed rank the preceding squares imply, writing
+\(A_i=q_1\cdots q_i\), that \(A_i^2<RA_{i-1}\) and
+\(A_i<R^{1-2^{-i}}\). Failure of the next cube forces
+\(q_j^3\ge R/A_{j-1}>R^{2^{1-j}}\). Thus its prime variables all
+exceed \(N^{c_j}\) uniformly on a compact parameter set.
+Removing primes dividing \(N\) in this finite-dimensional integral
+costs \(O(N^{-c_j}\log N)\); the multiplier in
+\eqref{eq:own-lower-exit-deletion} is also \(1+o(1)\).
+Prime harmonic integration gives \(T_{j,N}=a_j(s)+o(1)\).
+For the upper density, retain finitely many positive exits for the
+lower limit and use \(V_N^+/V_N\le V_0^+/V_0\) for the upper limit.
+For the lower density reverse these two roles.
+The fixed-\(g_0\) raw bound plus compact convergence of the displayed
+classical series closes both limits, first \(N\to\infty\), then the
+fixed depth \(j\to\infty\). There is no uncontrolled infinite-rank
+limit uniform in \(N\).
+
+There is an especially explicit check for the missing low range.
+For \(1<s=\beta/t\le3\), the first upper cube forces every supported
+prime below \(R^{1/3}\), and hence
+\[
+ V_N^+(R,y)=V_N^+(R,R^{1/3})\quad\hbox{exactly},\qquad
+ \frac{V_N(R^{1/3})}{V_N(y)}=\frac3s+o(1).
+\]
+Using the equality at \(s=3\) gives
+\(V_N^+(R,y)/V_N(y)=(3/s)F(3)+o(1)=2e^\gamma/s+o(1)=F(s)+o(1)\).
+This uses the same raw coefficients, not a subtraction of upper
+estimates. It covers every negative fifth-node parameter \(1<s<2\).
+
+\paragraph{7. The signed subtree identities and the final implication.}
+For a fixed retained prefix \(P_r\), residual primes are strictly less
+than \(p_r\), whereas all prefix primes are at least \(p_r\).
+Thus \((P_r,d)=1\) for every residual divisor and
+\(g_N(P_rd)=g_N(P_r)g_N(d)\). Requiring \((P_r,N)=1\) is part of the
+prime labels. There are no additional deleted prefix factors in the
+residual local function.
+
+The three replacements have the following exact density differences:
+\begin{align}
+ \Delta V_3&=\sum_{P_3}g_N(P_3)
+  [V_N^+(N^{\nu_\rho}/P_3,p_3)-V_N^+(N^{\lambda_3}/P_3,p_3)],\nonumber\\
+ \Delta V_4&=\sum_{P_4}g_N(P_4)
+  [V_N^-(N^{\lambda_4}/P_4,p_4)-V_N^-(N^{\lambda_3}/P_4,p_4)],\label{eq:own-lower-subtree-telescope}\\
+ \Delta V_5&=\sum_{P_5}g_N(P_5)
+  [V_N^+(N^{\lambda_4}/P_5,p_5)-V_N^+(N^{\lambda_5}/P_5,p_5)].\nonumber
+\end{align}
+They compare successive stages of one tree, so a descendant is not
+counted twice. Negative ranks three and five have upper residual
+parity; positive rank four has lower residual parity. At rank three
+the old history implies \(\nu_\rho-S_3>t_3\); (A) implies
+\(\lambda_3-S_4>2t_4\), and
+\eqref{eq:own-lower-fifth-square} implies \(\lambda_4-S_5>t_5\).
+Consequently every use of \eqref{eq:own-lower-ordinary-equalities}
+is in its actual domain.
+
+The raw density of this tree is its ordinary lower start plus
+\eqref{eq:own-lower-subtree-telescope}. Ordinary density equality,
+prime harmonic integration, and
+\[
+ \pi(N)V_N(N^t)/{\cal H}_N=(2e^{-\gamma}/t)+o(1),\qquad
+ {\cal H}_N=C_NN/\log^2N
+\]
+give its coefficient \(4\bar f(\nu_\rho/w)/w+I_3(\Pi)+I_4(\Pi)+I_5(\Pi)\),
+with the three kernels and domains stated in the joint approximation
+lemma and with the actual finite caps \(\Pi\).
+The factor four is \(2e^{-\gamma}\cdot2e^\gamma\).
+Combining the pointwise lower weight, its density lower estimate and
+\eqref{eq:own-lower-signed-prime-remainder} proves, for every fixed
+legal buffered finite policy and every prescribed compiler error
+\(\eta>0\),
+\[
+ S({\cal A}_N;P(N),N^w)\ge
+ \left\{\frac4w\bar f(\nu_\rho/w)+I_3(\Pi)+I_4(\Pi)+I_5(\Pi)
+                 -\eta+o_N(1)\right\}{\cal H}_N.
+\]
+All finite choices precede \(N\). Afterwards the joint approximation
+lemma removes the fixed cap/mesh/cutoff errors using its convergent
+tails. Thus the exact dependency graph is classical density and
+dispersion theorems, then this finite compiler, then joint finite
+approximation, then the certified ideal integral. It has no arrow
+back from a numerical Chen constant or from the approximation lemma
+to the compiler. The two ordinary starts enter the eleven-term
+functional with weights \(3/4\) and \(1/4\); a change of the L2 start
+must still remove its old H integral over the changed interval.
+
+\paragraph{8. Cross-check and scope.}
+The newly supplied \texttt{own-route-uniform-singular-series-20261009.tex}
+has the correct exact Euler identity: the tail of the twin-prime
+constant is inverted, and the omitted large divisors of \(N\) appear
+with factors \(1-1/(p-1)\). Its logarithmic tail bound
+\((1+\log N/\log z)/(z-2)\) follows from the stated telescoping
+integer sum and the distinct-divisor bound. It gives the normalization
+above uniformly for every fixed positive exponent. It neither proves
+nor is needed to assume the residual density equalities; those are
+proved separately in paragraph 6.
+
+The static final implication in
+\texttt{own-route-final-transfer-20261009.tex} is consistent with this
+scope. Its definition excludes the unit \(N-p=1\), counts a repeated
+prime in \(\Omega\), and puts squares in the bad set before discarding
+their \(O(\sqrt N)\) count in an estimate. Thus its good-count identity
+is exact. Two losses of \((c_*-c)/4\) leave a strict liminf above \(c\).
+Subtracting the uniform bad-count limsup and then absorbing the
+remaining \(o(1)\) is valid. The ordered semiprime integral is
+\(\int_{b/(1+b)}^{1/2}dt/[t(1-t)]=\log(1/b)\), with no extra factor.
+This checks the logical transfer, not a fresh computation of its
+saved logarithm enclosures or the table-insertion interface.
+
+No counterexample was found for this precisely licensed finite-policy
+class. The significant gap repaired here is the formerly compressed
+lower compiler/density connection, particularly the actual \(s<2\)
+upper residual and the target-uniform passage from classical raw
+densities. This is a scoped analytic derivation using the stated
+external classical and dispersion theorems. It does not independently
+reprove L23's spectral estimates or the rough-SW lemma, validate all
+double-sieve descendants, replay any of the 1557 frozen numerical
+bindings, establish an effective threshold for \(N\), or assert that
+the whole research objective or a priority claim has been verified.

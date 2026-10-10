@@ -1,0 +1,45 @@
+% Sharper one-dimensional upper costs, same original functional.
+\subsection{Switched one-dimensional costs without delay interpolation}
+The three ordinary upper costs are $K$ times integrals of
+\[
+ \frac{\log((1-2t)/t)+A(1/t-1)-1}{t(1-t)},\quad
+ \frac{\log(2-3t)}{t(1-t)},\quad
+ \frac{\log((1-t-d)/d)}{t(1-t)},
+\]
+on $[d,1/3]$, $[a,1/3]$ and $[h,d]$, respectively.
+Here $A(s)=s\bar F(s)$ and $A=1$ up to three.
+For $d\le t\le1/4$, the only extra $A$ contribution equals
+\[
+ A(1/t-1)-1=\int_2^{1/t-2}\frac{\log(u-1)}u\,du.
+\]
+All arguments in this identity stay in the initial ordinary branches
+because $2<1/d-2<3$. The integrands are nonnegative, so Fubini gives
+the exact expression
+\[
+ \int_d^{1/4}\frac{A(1/t-1)-1}{t(1-t)}dt
+ =\int_2^{1/d-2}\frac{\log(u-1)}u
+     \log\frac{1-d}{d(u+1)}\,du.
+\]
+This removes delay-table interpolation from the numerical task.
+
+All four resulting one-dimensional integrands are smooth on their
+closed intervals. For each rational cell of width $\delta$, evaluate
+the midpoint and enclose the second derivative throughout the cell.
+The signed midpoint remainder is contained in
+$\delta^3[\inf g'',\sup g'']/24$. Explicit differentiation of the
+logarithms and $1/[t(1-t)]=1/t+1/(1-t)$ supplies those bounds;
+the implementation does not differentiate a numerical interpolant.
+The Fubini integrand uses the ordinary product second-derivative rule.
+Every logarithm, division and sum is rounded outward.
+
+Replacing the three old upper costs by these new upper bounds changes
+the complete coefficient by at least
+\[
+ \frac{2(U_7^{\rm old}-U_7^{\rm new})+
+ (U_8^{\rm old}-U_8^{\rm new})+(U_9^{\rm old}-U_9^{\rm new})}{4},
+\]
+where each old and new symbol is its certified upper estimate.
+This is replacement within the explicit complete functional, with
+all other terms fixed. It does not add two estimates of the same
+integral. The operation applies to both finite defect tables because
+these three costs depend only on the unchanged $a,h,d,K$.

@@ -1,0 +1,172 @@
+% New two-dimensional local improvement. Existing files remain unchanged.
+\subsection{A second-prefix upper-cap improvement in the fallback strip}
+\label{sec:second-prefix-upper-fallback-20261009}
+
+Set $\mu=25/128$, $\rho=19/96$, $\Lambda=153/256$ and
+$v(t)=\min((1+t)/2,57/64-3t/2)$. The extended reference tree has
+first stop $\rho$ and, for $\mu<x=t_1<\rho$, third endpoint exactly
+$v(x)$; see the definition of $A$ in \texttt{extended-prefix-upper.tex}
+and the common-reference paragraph of the joint density audit.
+It does not use $v(t_2)$ in this strip.
+
+Choose the witness-restricted realization of the already certified
+higher actions: keep their fourth, fifth and sixth upgrades only on
+their stated witness domains below $t_1=\mu$. Their certificates
+require no gain from a hypothetical full fifth strategy above $\mu$.
+This realization has the same certified density upper bound and the
+same sixth-history guarantees on its witnesses. It avoids counting
+any unmeasured higher-prefix gain twice. The following new action
+changes only $\mu<t_1<\rho$ and is also disjoint from the new mixed
+first-restoration strip $t_1>\rho$.
+
+\paragraph{The new action and the complete gates.}
+All rank-two nodes $p_1p_2$ under an admitted first prime already
+exist in the old upper tree. On
+\[
+ \mathcal R=\{\mu<x<\rho,\quad a(x)<y<x\},\qquad
+ a(x)=2v(x)-1=25/32-3x,
+\]
+replace their ordinary upper residual total level $v(x)$ by $v(y)$,
+or by fixed strictly smaller constants in the finite construction.
+This is precisely the region $v(y)>v(x)$: below $\mu$ the function
+$v(y)$ is increasing, and above $\mu$ it is decreasing.
+
+For $x\le\rho$ in this strip, $v(x)\ge3x$. Consequently on
+$\mathcal R$,
+\[
+ 2x< v(x),\qquad x+2y< v(x),\qquad
+ 2x+y< v(x)<v(y).
+\]
+The first two are the initial full-square conditions; the last is
+the additional remaining-square gate when the selected factor is
+$p_2$. Select $p_2$ and apply the selected-product factorization
+lemma, including its capacity-below-one repair. Every later selected
+remaining-square condition is exactly the corresponding full square.
+The new ordinary upper odd cubes imply these squares and their next
+ordered even squares. Thus this action requires neither a new
+distribution theorem nor the two-large-prime lemma of the other note.
+
+At rank two the node is retained, with coefficient $+1$. Its future
+ordinary upper residual has odd first exclusions, hence full odd
+first exclusions. The next rank-three cube may change, including
+restoration of formerly excluded third nodes. Keeping the old
+rank-three cube as an additional test would lose the claimed action.
+Since $v(y)\le\Lambda<\Theta=299/500$, the new cube is compatible
+with the original global upper support. Earlier admission decisions
+are unchanged. This is a pointwise causal tree statement, not a
+monotonicity assertion about finite signed density sums.
+
+\paragraph{Density identity and its finite-tree scope.}
+Write $\bar F=F/(2e^\gamma)$. The even-prefix identity gives the
+limiting density saving, in the same $C_N/\log N$ units as $K$,
+\begin{align*}
+ D_2&=4\int_{\mathcal R}
+ \frac{\bar F((v(x)-x-y)/y)-\bar F((v(y)-x-y)/y)}{xy^2}
+ \,dx\,dy\\
+ &=4\int_{\mathcal R}
+ \frac{v(y)-v(x)}{xy(v(x)-x-y)(v(y)-x-y)}\,dx\,dy.
+\end{align*}
+Indeed both arguments are strictly between one and three. The lower
+bound one follows from $v(x)>x+2y$; the upper follows already from
+$v(y)\le\Lambda$, $x\ge\mu$, $y\ge3/16$, giving an upper bound
+$55/48<3$. Hence the exact formula $\bar F(s)=1/s$ applies everywhere.
+There is no ordered-slot factorial to insert.
+
+The statement that the old rank-two residual is ordinary upper
+support at total level $v(x)$ refers to the endpoint tree. In the
+actual finite construction the third cap was disabled when the
+third prime lay below the rough cutoff $N^\omega$. It is therefore
+incorrect to claim the displayed identity for every arbitrary frozen
+finite coarse tree without an error. The established extended-prefix
+tail controls that difference by $O(\omega\log^2(1/\omega))$.
+Use a common finite approximation, preserving the old witness
+strategies below $\mu$, and let this error tend to zero in the stated
+fixed-parameters-before-$N$ order. The same density identity then
+holds in the endpoint limit. Every strictly smaller certified saving
+is realizable with finite strict buffers and finite compilation error.
+
+\paragraph{Two charts cover the whole improvement domain.}
+Put $h=\rho-\mu=1/384$. Apart from null boundaries, the two disjoint
+charts $k=-3$ and $k=1$ are
+\[
+ x=\mu+hu,\qquad y=\mu+khuv,\qquad 0<u,v<1.
+\]
+The negative chart covers $a(x)<y<\mu$ and the positive chart covers
+$\mu<y<x$. In either chart
+\[
+ v(x)=\Lambda-\tfrac32hu,\qquad
+ v(y)=\Lambda-\tfrac32huv,\qquad
+ |\partial(x,y)/\partial(u,v)|=|k|h^2u.
+\]
+Define
+\[
+ R_o=\frac{53}{256}-hu(5/2+kv),\qquad
+ R_n=\frac{53}{256}-hu(1+(k+3/2)v).
+\]
+Thus
+\begin{equation}\label{eq:second-prefix-chart-integral}
+ D_2=\sum_{k=-3,1}6|k|h^3
+ \int_0^1\int_0^1\frac{u^2(1-v)}{xyR_oR_n}\,dv\,du.
+\end{equation}
+All four denominator factors are positive and bilinear or affine
+on the closed square. There are no logarithms or uncomputed sieve
+function values in this integral.
+
+\paragraph{A closed rational certificate needing only two rectangles.}
+In the negative chart,
+$x\le\rho$, $y\le\mu$ and $R_o,R_n\le5/24$.
+In the positive chart,
+$x,y\le\rho$ and $R_o,R_n\le53/256$.
+Since $\int_0^1\int_0^1u^2(1-v)\,dv\,du=1/6$,
+\[
+ D_{2,-}\ge\frac{3h^3}{\rho\mu(5/24)^2}=\frac3{95000},
+ \qquad
+ D_{2,+}\ge\frac{h^3}{\rho^2(53/256)^2}=\frac{32}{3042147}.
+\]
+Therefore, independently of any fine-grid output,
+\begin{equation}\label{eq:second-prefix-coarse-positive}
+ \boxed{D_2\ge\frac{640339}{15210735000}>4.2\cdot10^{-5}.}
+\end{equation}
+
+\paragraph{A bounded finer certificate, not an additional gain.}
+The companion script subdivides each chart into $32^2$ rectangles.
+For a chart rectangle $B=[u_0,u_1]\times[v_0,v_1]$, compute the maximum
+of each denominator factor at its four corners. Bilinearity makes
+these exact separate upper bounds. Let their product be $D_B^+$.
+The exact positive numerator mass is
+\[
+ M_B=\frac{u_1^3-u_0^3}{3}
+       \left(v_1-v_0-\frac{v_1^2-v_0^2}{2}\right).
+\]
+Store
+\[
+ b_B=\left\lfloor 2^{96}\,
+                 \frac{6|k|h^3 M_B}{D_B^+}\right\rfloor.
+\]
+Then $2^{-96}\sum_B b_B$ is a rigorous lower bound for the same
+$D_2$. The 2048 rows record the chart and indices, rational upper
+denominator, exact numerator mass and integer floor. All arithmetic
+is rational and floors are downward. Coarse and fine certificates
+are alternative estimates of the same integral and must not be added.
+
+\paragraph{Finite constants, boundaries and quantifiers.}
+First trim the charts to $\delta\le u,v\le1-\delta$ with fixed
+$\delta>0$. All branch improvements, selected gates, inherited
+first-stop margins and residual arguments then have positive uniform
+slack. Refine in the actual $(x,y)$ coordinates and choose, on each
+retained small box, a constant below $\inf v(y)$ but above
+$\sup v(x)$ and every required gate. Rank-two nodes are never deleted:
+on unresolved boxes retain the old residual. The chart images can
+be approximated from within by disjoint such boxes; their boundaries
+are fixed affine curves. The positive rational kernel is bounded
+on both closed charts, so the trimmed and boundary losses vanish.
+The older finite first stop near $\rho$ and the transition near $\mu$
+are handled within these same margins. Only afterwards fix the rough
+cutoff and fine grid and take $N\to\infty$. The old tail, compiler and
+positive-counting arguments apply to these actual signed coefficients.
+
+Consequently the new endpoint upper bound is the previous certified
+endpoint bound minus any chosen lower bound for $D_2$, with the usual
+strict final allowance for one finite strategy. This note makes no
+new global rounded $K$, $c$ or $b$ claim. No earlier source, state,
+manuscript, formalization or publication artifact is modified.

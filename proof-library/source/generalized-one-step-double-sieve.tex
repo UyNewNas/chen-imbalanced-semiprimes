@@ -1,0 +1,363 @@
+% Derived integration fragment, 2026-10-08. No documentclass.
+% Numerical results in the companion JSON are floating diagnostics only.
+\subsection{A parameterized one-step double sieve at a fixed total level}
+\label{sec:generalized-one-step-double-sieve}
+
+This extends the directly proved one-step construction in
+\texttt{same-new-level-double-sieve-route.tex}; it does not transfer an
+old $H,h$ table. The published combinatorial input is
+\href{https://www.impan.pl/shop/en/publication/transaction/download/product/82961}
+{Wu 2004, Lemma 4.1, (4.1)--(4.5), and (5.1)--(5.10)}.
+The signed non-switched distribution input is the existing prefix
+interface, using
+\href{https://arxiv.org/html/2109.02851v2}{Lichtman 2021, (5.14)--(5.18)}
+and
+\href{https://arxiv.org/html/2309.08522v1}
+{Lichtman 2023, Propositions 5.2 and 6.1}, with the already proved
+selected-subproduct repair. The switched input is the separately
+derived positive-count theorem with $K=681/100$. None of these uses
+identifies that positive-count conclusion with the signed switched
+distribution hypothesis in L21 (5.22).
+
+Write $b=p_1\cdots p_r$, with decreasing specified exponents
+$t_1>\cdots>t_r>0$, and set
+\[
+ T=\sum t_i,\quad Q=N^\nu,\quad R=Q/b=N^{L+o(1)},\quad
+ L=\nu-T>0,\quad \alpha=\frac{1-T}{L},\qquad
+ A(s)=\frac{sF(s)}{2e^\gamma},\quad a(s)=\frac{sf(s)}{2e^\gamma}.
+\]
+Here $a(s)=0$ for $s\le2$. Every formula below is the limit of
+fixed positive exponent boxes, fixed level buffers, and the actual
+residual weights at that one total level $Q$.
+
+\paragraph{The precise non-switched family.}
+We use either of the following two verified interfaces. In the enhanced
+case $\nu>1/2$, require the original full-prefix square conditions
+\begin{equation}\label{eq:generalized-one-step-squares}
+ t_1+\cdots+t_{j-1}+2t_j<\nu\quad(1\le j\le r),
+\end{equation}
+and a factorization branch that remains valid after appending primes
+below the smallest specified prime. The branches used below are the
+largest-prime branch $v(t_1)$; a selected-subproduct branch involving
+only the original specified slots, with all its remaining-square
+gates; and a $W$ branch whose first three slots or upper bound on its
+third slot persist. All require strict cap and gate margins.
+The full level is below $153/256<3/5$.
+
+If the current physical cutoff is $z=N^{L/s}$, we require
+\begin{equation}\label{eq:generalized-one-step-cutoff}
+ s\ge2,\qquad L/s\le t_r.
+\end{equation}
+For the added prime $q=N^{Lu}$ in Wu's negative term,
+$1/s_0\le u\le1/s$, the new square condition is
+$T+2Lu\le T+L=\nu$. The previous square conditions are unchanged.
+Every subsequent residual rough square condition follows by
+multiplying the residual condition by $bq$; its cutoff is
+$y=R^{1/s_0}\le q$. Thus these are checks of the complete concatenated
+vector, not just its bare specified product. For a selected branch,
+the remaining-square tests for old unselected slots are unchanged;
+before any new slot all original slots have already occurred, so
+each new selected-branch test is the complete square test above.
+The original signed atom coefficients, factorials, and small-prime
+weight are retained by the box interface. This proves the signed
+upper estimate for $S(\mathcal A_{N,b},y)$ and signed lower estimate
+for $S(\mathcal A_{N,bq},y)$ at the same $Q$.
+Where its lower argument is at most two, count nonnegativity supplies
+the multiplier zero, without a distribution claim for that lower term.
+
+In the classical case take $\nu<1/2$ with fixed margin. The complete
+moduli of both residual sieve sums have support at most $N^\nu$.
+Every specified prime is at least a fixed positive power $N^\epsilon$.
+Consequently the number of ways any modulus can contain these fixed
+labelled prefix slots is bounded by a constant depending only on
+$r,\epsilon$. The residual modified weights have an absolute
+coefficient bound depending only on their fixed construction
+precision. Summing them at each complete modulus therefore leaves a
+bounded coefficient, and the absolute Bombieri--Vinogradov remainder
+applies, with residue $N$ on coprime moduli. The finitely many sieve
+atoms are counted with their original signs; their number depends on
+the fixed precision, not on $N$. This case does not require
+\eqref{eq:generalized-one-step-squares}. In particular it covers the
+classical part of $U_3$ even when $2t>1/2$.
+
+\begin{proposition}[Explicit one-step upper defect]
+\label{prop:generalized-one-step-defect}
+On a compact positive prefix box satisfying one of the preceding
+interfaces, suppose $2\le s<s_0\le5$, $\alpha\ge2$, and
+\eqref{eq:generalized-one-step-cutoff}. Define
+\begin{align}
+ I(s,s_0,\alpha)
+ &=\int_{1/s_0<u_1<u_2<u_3<1/s}
+ \omega\!\left(\frac{\alpha-u_1-u_2-u_3}{u_2}\right)
+                  \frac{du_1\,du_2\,du_3}{u_1u_2^2u_3},\label{eq:generalized-one-step-I}\\
+ J(s,s_0,\alpha)
+ &=A(s)-A(s_0)+\frac12\int_{1/s_0}^{1/s}
+       \frac{a(s_0(1-u))}{u(1-u)}\,du
+                   -\frac K8 I(s,s_0,\alpha).
+                   \label{eq:generalized-one-step-J}
+\end{align}
+The ordinary normalized upper multiplier $A(s)$ can be replaced by
+$A(s)-\max(0,J(s,s_0,\alpha))$. Any finite choice of $s_0$ on a common
+positive prefix partition can be optimized box by box. In the limit
+one can use the supremum over a fixed compact set of choices. This is
+an averaged prefix estimate, not a bound for an individual prefix.
+\end{proposition}
+
+\begin{proof}
+For a box indicator $\sigma(b)$, or a finite nonnegative constant
+combination of such labelled indicators, put
+\[
+ \Phi_s=\sum_b\sigma(b)S(\mathcal A_{N,b},R^{1/s}),\qquad
+ \Theta_Q=4\operatorname{li}(N)
+       \sum_b\frac{\sigma(b)\mathcal C(bN)}{\varphi(b)\log(Q/b)}.
+\]
+Wu's pointwise identity and its prime-square error give
+\[
+ 2\Phi_s\le2\sum_b\sigma(b)S(\mathcal A_{N,b},y)
+ -\sum_b\sigma(b)\sum_{y\le q<z}S(\mathcal A_{N,bq},y)
+ +\sum_b\sigma(b)\sum_{y\le q_1<q_2<q_3<z}
+            S(\mathcal A_{N,bq_1q_2q_3},q_2)+o(\Theta_Q).
+\]
+The two non-switched inputs just proved yield, after division by
+$\Theta_Q$, respectively $2A(s_0)$ and the negative of the integral
+in \eqref{eq:generalized-one-step-J}. The lower argument is precisely
+$s_0(1-u)$, not an argument computed at a different total level.
+
+The positive switched multiset has the exact labelled form
+\[
+ m=bq_1q_2q_3n\le N,\quad y\le q_1<q_2<q_3<z,\quad P^-(n)\ge q_2.
+\]
+Canonically order the prime factors of $n$, retain all prefix labels,
+and split into its finitely many possible factor counts. Every factor
+is at least $N^{\epsilon_1}$ for some fixed $\epsilon_1>0$: the old
+prefix is on a positive compact box, the new primes have exponent at
+least $L/s_0$, and the quotient primes have the still larger threshold
+$q_2$. All order, box, roughness, and total-product constraints are
+finite monomial inequalities. Repeated factors have a power-saving
+mass bound. The unit quotient has mass at most
+$N^{T+3L/s+o(1)}=o(N)$ by a fixed power, since
+$\alpha-3/s\ge1/2$. Thus it is not an omitted boundary atom.
+The ordinary rough-number mass calculation gives the actual integral
+\eqref{eq:generalized-one-step-I}, with the actual box value of
+$\alpha$, rather than a supremum over $\alpha$. Its smallest Buchstab
+argument is at least $\alpha s-3\ge1$. Any argument-one corner is
+removed by a thin strip before taking limits.
+
+For its exact unsifted mass $X$, the positive switching theorem gives
+$(K+o(1))\mathcal C(N)X/\log N$. The partial summation in Wu (5.8),
+with the same prefix measure, gives
+\[
+ X=(I(s,s_0,\alpha)+o(1))N
+              \sum_b\frac{\sigma(b)}{\varphi(b)\log(Q/b)}.
+\]
+Using $\mathcal C(N)\le\mathcal C(bN)$ shows that the switched count
+divided by $\Theta_Q$ is at most $KI/4+o(1)$. Dividing the weighted
+inequality by two proves \eqref{eq:generalized-one-step-J}; the cost
+is $KI/8$. No residual-level factor is inserted into $K$.
+The required extension of the original fixed-cutoff statement of the
+positive switching theorem is proved immediately below.
+\end{proof}
+
+\paragraph{Why the same $K$ permits every fixed positive factor cutoff.}
+Here the original cutoff $100/1149$ must be reduced; it cannot simply
+be reused. Fix any $\epsilon_1>0$ before $N\to\infty$. In the proof of
+\texttt{uniform-prime-products-upper.tex}, replace its $a$ by
+$\epsilon_1$ and its factor bound by $k_0=\lfloor1/\epsilon_1\rfloor$.
+The modulus weights and the density integral in
+\texttt{extended-prefix-upper.tex} are unchanged. The following checks
+give the needed extension of that proof.
+
+Apply the $k_{\rm HB}=3$ Heath--Brown identity to each original prime
+slot at its own scale. There are at most $6k_0$ variables. Choose
+$12\zeta<\epsilon_1/2$, in addition to all previous modulus margins,
+and then choose the smaller distribution and local-scale precisions.
+Before Mellin separation discard each dyadic rectangle incompatible
+with its original prime-slot scale. The product of each group's at
+most six lower endpoints is then at least $N^{\epsilon_1}/O(1)$,
+including on the separated rectangular extension. If no individual
+variable is in $[x^{2\zeta},x^{1/3+\zeta/2}]$, every original group
+must contain a long variable: otherwise its product is at most
+$x^{12\zeta+o(1)}$. There are at most two long variables globally.
+Thus the no-middle-variable case is impossible for three or more
+original groups. For one or two groups, the same one-long and
+two-long estimates apply; the small complementary products have
+the original bounds $x^{10\zeta+o(1)}$ and $x^{20\zeta+o(1)}$.
+In the middle-variable case the individual coefficient is $1$ or
+$\mu$, up to a logarithm and Mellin twist; its rough Siegel--Walfisz
+input and the divisor-bounded complement remain the original ones.
+Increasing the requested logarithmic saving absorbs the fixed larger
+factor count, number of rectangles, and Mellin losses.
+
+The exact coprime-mean replacement costs
+$O(X_{\rm out}N^{-\epsilon_1}\log^C N)$ by the same union bound over
+prime factors of a product. Repeated primes cost
+$N^{1-\epsilon_1+o(1)}$, and prime powers introduced by the identities
+cost $N^{1-\epsilon_1/2+o(1)}$; the divisor-moment treatment of the
+progression errors preserves these savings. Products below
+$N^{1-\kappa}$ are discarded as before. Smooth outer approximations
+retain the lower cutoff $N^{\epsilon_1}/2$, the labels, and the exact
+canonical quotient multiplicities. At fixed positive exponent boxes
+their excess mass tends to zero. This proves the same positive-count
+coefficient $K$ for the present finite product families. It asserts
+neither uniformity as $\epsilon_1\downarrow0$ nor distribution for an
+arbitrary arithmetic reweighting. In particular no shrinking Wu
+short-box class is being substituted for these fixed boxes.
+
+\paragraph{A single Buchstab transfer to the two-prime lower terms.}
+Define a nonnegative chosen correction $j(s,\alpha)$ from the
+proposition on $2\le s\le3$, and put it equal to zero outside that
+interval. On a stable prefix family with cutoff $N^a$ and residual
+argument $s=L/a$, use this transfer only for $2\le s<4$:
+\begin{equation}\label{eq:generalized-one-step-h}
+ h_1(s,\alpha)=\int_{\max(2,s-1)}^3
+ j\left(w,\alpha+\frac{\alpha-1}{w}\right)\frac{dw}{w}.
+\end{equation}
+The normalized lower multiplier $a(s)$ can be replaced by
+$a(s)+h_1(s,\alpha)$. To prove this, use the exact least-prime
+Buchstab identity from cutoff $R^{1/4}$ to $N^a=R^{1/s}$.
+The starting lower multiplier is $a(4)$. For a subtracted prime
+$q=N^{L/(w+1)}$, the child residual argument at cutoff $q$ is $w$,
+and its size ratio is
+\[
+ \alpha_{bq}=\frac{1-T-L/(w+1)}{L-L/(w+1)}
+            =\alpha+\frac{\alpha-1}{w}.
+\]
+The normalization changes by $dw/w$. The ordinary part is exactly
+$a(4)-\int_{s-1}^3 A(w)\,dw/w=a(s)$, with the usual lowered-cutoff
+upper convention $A(w)=1$ for $w<2$. The corrected child part is
+\eqref{eq:generalized-one-step-h}. Its primes satisfy
+$q\le N^a\le p_r$, and its square condition is $2\log_Nq\le L$.
+The second added prime used inside the child's one-step inequality
+is at most $q$, with its own residual square condition. Thus both
+generations retain the original stable cap. This is one finite tree;
+no abstract $h,H$ iteration is being assumed. We choose zero extra
+lower correction for $s<2$ and $s\ge4$.
+
+\paragraph{The actual eleven-term domains.}
+Take the open parameter range in \texttt{free-weight-thresholds.tex}:
+$1/12<a<h<d<e=57/224$, $w_*=25/224<h<\min(25/128,2a)$,
+$1/3<h+d<1/2$, and $4a+d,4h+d<1$.
+The following are additive gains in the complete Chen coefficient,
+already including its factor $1/4$.
+
+For $L_2$ use $T=t$, $\nu=v(t)=(1+t)/2$, and cutoff $p=N^t$.
+Here $2t<\nu$ and the largest-prime branch persists; $\alpha=2$.
+The gain is
+\[
+ \Delta c_{L_2}=\int_{w_*}^h
+ \frac{j((v(t)-t)/t,2)}{t(v(t)-t)}\,dt.
+\]
+Only $t\ge1/7$ contributes when $j$ is supported on $[2,3]$.
+
+For $U_3,U_4$ the cutoff is lowered, when necessary, to exponent
+$\min\{a,(\nu-t)/2\}$. Their $j$ argument is
+$\max\{2,(\nu-t)/a\}$ and their ratio is
+$(1-t)/(\nu-t)$. Use $\nu=v(t)$ for $a<t<e$, and for the
+$U_3$ tail $e<t<1/3$ use the classical endpoint $\nu=1/2$ approached
+from below. On the enhanced branch $2t<v(t)$; the physical cutoff
+does not exceed $a\le t$. The gain integrand in either case is
+\[
+ \frac{j(\max\{2,(\nu-t)/a\},(1-t)/(\nu-t))}{t(\nu-t)}.
+\]
+Integrate over $a<t<1/3$ for $U_3$ and $a<t<d$ for $U_4$.
+
+For $L_5,L_6$ use exactly the current two-prefix cap
+\[
+ \nu=V_{2,a}(t,u)=
+ \begin{cases}
+ \max\{v(t),v(t+u),153/256-3a/8\},&t\le25/128,\\
+ v(t),&t>25/128.
+ \end{cases}
+\]
+On the part $L=\nu-t-u\ge2a$, the first square test is
+$2t<v(t)\le\nu$ and the second follows from
+$L\ge2a>h\ge u$, namely $t+2u<\nu$. The cutoff in the
+starting lower term is $R^{1/4}\le N^a$, and every added prime in
+the exact Buchstab difference is also at most $N^a$. The original
+two slots therefore remain the largest. The $v(t+u)$ branch keeps
+its leading selected pair, and the $W$ branch keeps third exponent
+at most $a$. It still has the gate supplied by $v(t)$, exactly as
+in \texttt{double-prefix-level.tex}. Empty or short rough atoms use
+the same classical fallback as that proof. Thus the gain is
+\[
+ \Delta c_{L_i}=\iint_{\Omega_i}
+ \frac{h_1(L/a,(1-t-u)/L)}{tuL}\,du\,dt\quad(i=5,6),
+\]
+where $\Omega_5=\{a<u<t<h\}$ and
+$\Omega_6=\{a<u<h<t<d\}$; the integrand is chosen zero outside
+$2\le L/a<4$. Each cap is at most $(1+t+u)/2$, so $\alpha\ge2$.
+For its constant branch this follows from
+$153/256-3a/8\le1/2+a$, valid already for $a\ge25/352<1/12$.
+
+For the two four-prefix upper terms retain all eligibility gates and
+the cap $\nu=L_4(t)$ of \texttt{four-prefix-safe-minimum.tex}.
+Choose cutoff exponent $\min\{w,(\nu-T)/2\}$ for the new upper
+option. All four initial square tests hold by that construction;
+all original selected slots, selected-branch gates, and the first
+three slots for the $B(z)$ branch persist after either one-step
+extension. Here $T\ge4a>1/3$, so $\nu\le153/256<(1+T)/2$.
+Use the smaller corrected kernel inside the existing minimum:
+\[
+ \Delta c_{U_i}=\frac14\int_{\Omega_i}
+ \left[\min\!\left\{\frac Kz\omega\left(\frac{1-T}{z}\right),
+                         \frac4{\nu-T}\right\}
+ -\min\!\left\{\frac Kz\omega\left(\frac{1-T}{z}\right),
+ \frac{4(1-j(\max\{2,(\nu-T)/w\},(1-T)/(\nu-T)))}{\nu-T}\right\}
+ \right]d\mu(t),\quad i=10,11.
+\]
+The integrand is zero off the eligible set. The original ordinary
+normalized multiplier is one here because $a>1/12$, as already
+proved for that minimum. This replacement avoids adding overlapping
+gains from its switching and ordinary options.
+
+Every positive contribution just used has a uniform fixed minimum
+prime exponent on compact boxes. For the searched choices $s_0\le5$,
+the four-prefix residual satisfies $L>w\ge a$; the corrected
+two-prefix children have residual at least $4a/3$; and single-prefix
+residuals are at least $1/6$ in the classical tail. For the displayed
+numerical parameter tuple one can choose $\epsilon_1=a/6$ after
+sufficiently small buffers. This is below the old fixed cutoff but
+is exactly covered by the preceding Heath--Brown adaptation.
+
+All boundaries are first trimmed. Take $N\to\infty$ with boxes,
+branch choices, and buffers fixed; then remove the sieve and smooth
+approximation errors, shrink the boxes and level buffers within the
+strict domains, and finally exhaust those domains. A common finite
+positive partition licenses every minimum and every choice of
+$s_0$. The equality sets have zero integral mass. A numerical grid
+interpolation alone is not a lower certificate for these limiting
+integrals.
+
+\paragraph{Floating feasibility, not a new certified constant.}
+The companion \texttt{probe\_generalized\_one\_step.py} searches a finite
+$s_0$ grid in $[3,5]$, tabulates $2\le s\le3$, $2\le\alpha\le8$,
+and chooses zero correction outside that $s$ range. Its JSON records
+coarse and fine Gauss quadratures, interpolation meshes, and the
+separate gains. The baseline parameter tuple is
+\[
+ (a,h,d)=(.08455645453148589,.15049959287189102,
+                           .2352266768449549).
+\]
+The current ordinary plus four-prefix-minimum diagnostic is
+$c\approx1.87414321$. The coarse mesh gives an extra
+$\Delta c\approx .01598683$, and the fine mesh gives $.01600361$.
+In the fine calculation the contributions are
+\[
+\begin{array}{c|rrrrrrr}
+ &L_2&U_3&U_4&L_5&L_6&U_{10}&U_{11}\\\hline
+ \Delta c&.000136371&.013460255&0&.000094742&.002272783&
+ .000039405&.000000051
+\end{array}
+\]
+The resulting diagnostic is $1.89014682$, while $K\log(1/.749)$
+is $1.96820097$; the remaining gap is about $.07805415$.
+The zero-margin transfer diagnostic is $b\approx .75763420$.
+The floating evaluation clamps a roundoff value just below two back
+to the analytically proved bound $\alpha\ge2$, avoiding an erroneous
+out-of-grid zero at the exact $\alpha=2$ boundary.
+Thus this one-step family supplies genuine
+analytic options but the sampled gain alone is far too small for
+the requested frontier. The search is not an upper bound on all
+possible one-step choices or on further finite recursions. Neither
+the baseline nor these floating integrals certify a new rounded
+counting coefficient; the previous certified constants are unchanged.

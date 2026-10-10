@@ -1,0 +1,425 @@
+The current positive prime-product upper theorem: completion of (U)
+10 October 2026. New proof; no earlier file or research state is changed.
+
+1. The derived theorem and its exact inputs
+
+Put K=8452171/1250000=6.7617368 and H_T=C_T*T/log(T)^2, where
+C_T=C_2*prod_(p|T,p>2)(p-1)/(p-2) and
+C_2=prod_(p>2)(1-1/(p-1)^2). Let T tend to infinity through ALL even
+integers. Fix a>0, a finite maximum k of original prime slots, bounded
+nonnegative fixed label weights, and finitely many geometric families
+defined by ordering and monomial conditions, with product O(T) and
+every original prime >=T^a. There is no extra arithmetic filter.
+Let w_T(m) count the labelled tuples with their weights and suppose
+
+ limsup_(even T) (log T)/T * sum_m w_T(m) <= J < infinity.
+
+Then, on domains m<T,
+
+ limsup_(even T) H_T^(-1)*sum_(m<T,T-m prime)w_T(m) <= K*J.       (U*)
+
+The result also holds directly for each fixed nonnegative smooth tuple
+weight of product O(T), bounded size and normalized derivatives, and
+for finite positive sums. Repeated prime factors can be kept or omitted.
+The error is absolute o(H_T), including J=0. Constants and the eventual
+threshold depend on the fixed family. No target averaging is used.
+
+For each fixed finite set of smooth queries in this theorem, the actual
+construction below gives ONE coefficient rho_T satisfying all three
+parts (i)--(iii) of (U) in current-downstream-proof-spine-20261010.txt.
+In particular (U) is discharged by the present theorem; it is not an
+additional unproved distribution hypothesis at the end of this argument.
+
+Here are the proof inputs, distinguished by what they assert.
+ A. The derived restricted PP theorem: distribution-medium-completion,
+    distribution-prime-product-completion and distribution-coefficient-
+    completion, all dated 20261010, with the Gevrey dispersion majorant
+    and direct Brun long-branch replacements in the current assembly.
+    Its exact statement is (8) below. This is a local proved lemma with
+    the named classical input list in section 9, not unrestricted L23.
+ B. The classical ordinary cubic Rosser exit-series convergence and
+    raw one-sided bounds, PNT/Mertens and the dimension-one fundamental
+    lemma. Section 3 proves the target-uniform literal-density bridge.
+ C. The retained outward numerical lemmas: the reference upper functional,
+    the actual same-tree rank4/5/6 and fallback differences, the ten later
+    upper ledger differences on the 87-domain policy, and the replacement
+    of its single original third-tail allowance. Their precise endpoint
+    is E in (6). The certificate-coverage audit owns these enclosures;
+    they are mathematical inequalities, not inferred from PASS strings.
+
+Subject to these explicitly supplied proved lemmas and established
+classical results, no unmatched analytic or same-coefficient obligation
+remains in (U). This proof does not use any lower Chen count, H/h table,
+Li's 1.9728 claim, or the disputed unrestricted large-residue theorem.
+
+2. One causal upper tree, including every adopted change
+
+Use rho0=19/96, mu0=25/128, Theta=299/500 and Lambda=153/256.
+Write A(t)=(1+t)/2, D(t)=57/64-3t/2, v=min(A,D), S_j=sum_(i<=j)t_i.
+The reference first stop is rho0. Below t1=mu0 its third endpoint is
+
+ L3=max(v(t1),v(t1+t2),v(t1+t3),v(t2+t3),v(S3),Lambda-3t3/8);
+
+above mu0 it is v(t1). The ordered gated-envelope identity is used:
+the displayed nonleading pair terms are not ungated permissions.
+
+The rank4 action retains the fourth node and replaces its later odd
+tests. It completely replaces the old partial-fourth and fourth-tail
+bounds. The rank5 action replaces its own fifth cube and then freezes
+the increased cap, legitimately restoring formerly excluded fifth nodes.
+Its old-parent subdivisions are whole-parent maxima, and its new covers
+are disjoint from those parents; they are not added to an old bound on
+the same parent. Rank6 retains its node and changes later odd tests.
+Its old third/fifth histories are retained against L3 and its comparison
+R5 bounds the ACTUAL fifth cap after all rank5 changes. Thus the exact
+density telescope is V3-V6=(V3-V4)+(V4-V5)+(V5-V6).
+
+Above mu0, the second fallback has t2>=3/16 and the third fallback has
+t2<3/16, so they are disjoint. Their third-tail approximation is kept.
+All older higher-rank actions have t1<=mu0. Later rank6 changes either
+add disjoint regions, upgrade from the current cap, or improve a bound
+on the SAME difference. The lower-complement correction adds the missing
+intermediate difference, not a second full difference. The four later
+nonsingleton rank6 cells are counted only at the eighth-family stage.
+
+There are exactly 30+15+13+29=87 adopted eighth domains:
+ * 30 equal-parent domains with R6=L3=D(t2+t3), mask129={1,8};
+ * 15 unequal-parent domains: thirteen winner9 and two winner50 cells,
+   with masks138={2,4,8},184={4,5,6,8},134={2,3,8};
+ * 13 ascending-pair minorant cells, t2+t3<mu0, B3=A(t2+t3);
+ * 29 first-failure minorant cells, t2+t3>mu0, B3=A(t1), split as
+   12+7+10 according to the first failed OLD D(t2+t3) history at3,5,7.
+Failure of this sufficient minorant is not a first exit of the true tree.
+Every actual history is below its B3<=L3 and is retained.
+
+Their separations are structural. Unequal cells have L3<R6 and avoid the
+first 30. Different old-plane assignments require a subset sum s<=e
+versus s>=25/96-e/3, separated by 4(mu0-e)/3>0. Winner50 has a strict
+mask9 comparison below R6, unlike winner9. The ascending and descending
+pair groups have opposite sides of t2+t3=mu0. First-failure groups have
+opposite inequalities at their earliest different history and avoid all
+older domains requiring every D23 history. These proofs respectively
+give all 105,78,406 within-family pair separations and all new-old ones.
+The seed duplicated as family cell11 is excluded from the new12 sum.
+
+For each eighth cell the actual sixth cap satisfies
+lambda3<=lambda6_current<=R6, while retained H7=S6+3t7<lambda3 implies
+lambda6_current-S8>2t7-t8>t8. Saved M>R6 and M-S8<3t8 give
+
+ 1<(lambda6_current-S8)/t8<=(R6-S8)/t8<(M-S8)/t8<3.
+
+All eight full squares S_(j-1)+2t_j<M and ALL unselected complement
+squares s_I+sum_(i<j,i notin I)t_i+2t_j<M are retained. Later complement
+squares equal full squares. Hence M changes only later odd exits and
+the exact ordinary upper residual identity yields the saving density
+
+ 4(M-R6)/[(R6-S8)(M-S8)*prod_(i=1)^8 t_i].                 (1)
+
+Using R6 instead of the actual smaller parent reduces the saving.
+There is no Chen quarter or ordering factorial in (1). All 87 domains
+have t8>53/13824. Jensen, log moments, curvature and mixed-transverse
+improvements replace bounds on the same integrals, only by new minus
+old. They do not activate another cap or supply another copy of a gain.
+
+All these operations preserve prefix closure and ONLY ODD first exits.
+Higher-rank overlaps are handled by the exact successive-tree telescope;
+only domains acting at the same stage need disjoint interiors. An unused
+or boundary upgrade inherits the prior policy; no even node is deleted.
+
+3. Exact pointwise and literal raw-density identities
+
+For a finite allowed prime set Q and 0<=h(p)<=1, the actual raw upper
+coefficient lambda_T(d)=mu(d)*1_(d admitted) satisfies
+
+ sum_(d|Q)lambda_T(d)h(d)
+ =prod_(p|Q)(1-h(p))
+  +sum_(odd first exits P|Q) h(P)*prod_(p|Q,p<p_last)(1-h(p)).  (2)
+
+Partition all excluded divisors by their unique first excluded prefix;
+the remaining smaller primes sum to the displayed Euler product. The
+minus sign of each odd prefix gives (2). At h(p)=1 on primes dividing
+any integer n this gives the rough-indicator majorant, also at n=0.
+
+For ordinary residual trees put g_T(p)=1_(p>2,p not dividing T)/(p-1).
+The normalized odd/even exit sums E_(j,T) are nonnegative and satisfy
+0<=E_(j,T)<=E_(j,0): a surviving prefix has exactly the multiplier
+prod_(p_last<=p<y,p|T)(1-g_0(p))<=1, and other prefixes disappear.
+For fixed rank j on a positive compact exponent range R=T^beta,
+the preceding squares give A_i^2<R*A_(i-1), A_i<R^(1-2^(-i));
+failure of the j-th cube forces
+p_j>=T^[beta_min/(3*2^(j-1))]. Removing target primes at fixed rank
+therefore costs o(1) uniformly in T. PNT gives the usual finite-rank
+integrals a_j(s), with s=log R/log y.
+
+Use the compact convergence of the positive exit series (Suzuki
+Proposition 11.8, dimension1,beta2) and the opposite raw one-sided
+bounds for fixed g_0 (Suzuki Lemma 14.7). First fix a sufficiently large
+finite rank, then let T grow. The finite partial sums and E_(j,T)<=
+E_(j,0) squeeze the actual ordinary coefficients to
+
+ V_T^+(R,y)/V_T(y)=F(s)+o(1) (s>1),
+ V_T^-(R,y)/V_T(y)=f(s)+o(1) (s>=2),                     (3)
+
+uniformly on the needed positive compacta. This does not assume PP or
+a density for some other weight. For 1<s<=3, the exact upper first-cube
+identity V_T^+(R,y)=V_T^+(R,R^(1/3)), and the Euler ratio3/s, give
+F(s)=2exp(gamma)/s. This covers the entire range used in (1).
+
+Mertens and the exact target Euler-product ratio give
+V_T(T^u)=(2exp(-gamma)*C_T)/(u log T)*(1+o(1)), uniformly in even T.
+Thus Fbar=F/(2exp(gamma)), fbar=f/(2exp(gamma)) give density coefficients
+4Fbar(s)/u and 4fbar(s)/u. Exact signed subtree differences and (3),
+not subtraction of two one-sided count bounds, evaluate every raw gain.
+
+Finally for the SAME legal history projected to primes >=w=T^omega,
+(2) shows
+
+ V_T(w)*sum_(rough d)lambda_T(d)g_T(d)
+ <=sum_(full d)lambda_T(d)g_T(d).                         (4)
+
+Only positive exits whose last prime is >=w survive on the left.
+Equality of rough and full densities is neither true nor needed.
+
+4. Finite realization fits the EXISTING allowances
+
+The coarse third rule lambda_B=Gamma_B-2e on boxes of width chi<e/10
+satisfies 0<=L_endpoint-lambda_B<=4e+6chi uniformly, including ties.
+This follows from 9/2-Lipschitz branches and the nonleading-pair gate
+surplus 3/256. The physical caps remain lambda_B throughout this proof.
+
+Near a W gate, use ONLY an auxiliary support envelope: if inf_B A>=
+lambda_B+e/2, take ell_aux=lambda_B+e/4 and the singleton licence;
+otherwise sup_B A<lambda_B+11e/20, W>=Gamma_B, and take
+ell_aux=lambda_B+e. The latter lies >=9e/20 above the gate and e below
+W. The second initialization square has independent reserve3/256.
+No density cap, coefficient, old integral or history is changed by this
+factorization cover. Requiring ell_aux=lambda_B would be erroneous.
+
+With u=rho0/2, the omitted third-activation tail has the common bound
+
+ T3(h)<=18*h/(u-h)^2*[log(rho0/h)^2+2log(rho0/h)+2] ->0.   (5)
+
+Indeed Fbar-fbar<=9/s^2 for s>=3, lambda_B-t1-t2>=u, and the
+ordered reciprocal-prime triangle has mass log(rho0/t3)^2/2. This
+controls the noncompact finite-activation limit independently of the
+numerical split at t3=.01. All higher action cutoffs are positive and
+their kernels are bounded after proper-wall trimming. A proper affine
+wall has strip volume O(delta); genuine identities and inherit regions
+are kept. Freeze ancestors on their own prefix labels before children.
+Do not remove child-wall projections, which can have full parent measure.
+
+Given the positive density allowance u_d in (6), allocate strictly
+smaller fractions to the finitely many pieces. Choose h using (5), then
+coarse buffers and widths so compact errors fit their fractions; choose
+the finite higher caps in causal order. This gives an actual full raw
+density <=(E+u_d+o(1))*C_T/log T. The entire 87-domain union shares these
+ancestor choices. There is no minimum over an untrimmed equality wall.
+
+The physical compiler has its separate allowance u_c. At even rough
+rank take the outer endpoint tests, and at odd rank the inner tests,
+always retaining every coarse historical decision. Then c_T(d)>=
+lambda_T(d) coefficientwise. Attach a single small-prime beta+ to c>0
+and beta- to c<0, where B-<=I_w<=B+. For every integer n,
+c(d)B_sign(n)>=c(d)I_w(n). Thus the actual coefficient
+rho_T(bd)=c_T(d)*beta_sign(b), with unique small/rough decomposition,
+satisfies |rho_T|<=1, squarefree support, (bd,T)=1, and
+
+ R_T(n):=sum_(q|n)rho_T(q)>=1_((n,P_T(T^rho0))=1)>=0.    (P)
+
+The beta-density and tagged-cube boxing errors relative to V_T(T^rho0)
+are O(exp(-c/eta)*omega^(-2)+C_policy*tau*omega^(-5)). The constant
+C_policy depends on the frozen coarse policy, not the later atom count.
+Together with (4), this controls the density of THIS rho from above.
+
+Choose source zeta,sigma below the positive coarse reserves, then
+ell_beta=nu0*eta, omega=nu0*eta^2 small enough for support, (5) and
+beta error. Fix rough rank J0>theta_*/omega+2; then choose tau so its
+rank inflation and compiler error fit u_c. Only afterwards choose the
+actual fixed moment order K_mom, kappa<=min(sigma/200,1/(2K_mom)) and
+0<kappa0<kappa/[4(1+kappa)], also within all old reserves. Retaining
+the now unnecessary former long-branch tau^(4J0) order is harmless.
+With support inflation below1/1000, theta_*=599/1000 is available;
+shrink kappa0 so theta_*/(1-kappa0)<3/5. All choices precede T.
+
+5. The current exact numerical endpoint, once
+
+The old 87-domain endpoint was
+ E_old=304556385831317239055201815881516657410963/
+       45041307097235144895836810885600378880000.
+Its raw construction is precisely the policy in section2. The only
+subsequent upper improvement is the same original third-tail bound:
+ T_old=1028753216356588863/2^80,
+ T_new=319683857488126290909150567/2^111,
+ Delta=T_old-T_new=1889546852465054429442261657/2^111.
+It occurs with coefficient+1 in E_old. No compact leaf or action changes.
+The new bound follows by integrating the complete 0<t3<.01 tail using
+D(s)<=D(10)*(10/s)^2 and the saved outward D(10) enclosure. It is not
+a new removal of that domain or a change to the activation tail (5).
+
+Both old upper allowances are retained and each gains Delta/8. Thus
+
+ E=E_old-Delta
+  =9979702576710911234850619807816847864907359959/
+   1475913550962201227946780619099353215139840000,
+ u_d=u_c=145007961227048312210593427530128000784681/
+         11807308407697609823574244952794825721118720000,
+ E+u_d+u_c=39918955314804871987714689824694921587630224517/
+          5903654203848804911787122476397412860559360000,
+ K-E-u_d-u_c=71229286727542131248758574547050908572431/
+            737956775481100613973390309549676607569920000000>0. (6)
+
+The last surplus is 9.652230197507868...e-8. Exact fraction arithmetic
+recomputed all four identities from the current and old assemblies.
+These quantities are upper-density units; no Chen factor1/4 enters.
+The current paired Y6/Y11 deletion changes lower costs only and leaves
+every quantity in (6) unchanged. Section4 can fit STRICTLY inside each
+positive allowance. Therefore the very coefficient in (P) satisfies
+
+ S_T:=sum_q rho_T(q)/phi(q)
+ <=(E+u_d+u_c+o(1))*C_T/log T <=(K+o(1))*C_T/log T.       (7)
+
+The remaining strict surplus pays every final asymptotic density error.
+No numerical endpoint requires attainment by a zero-buffer finite tree.
+
+6. The derived restricted PP applies to this very coefficient
+
+The coefficient theorem constructs exact labelled tensor atoms of rho,
+with the original repeated-label factorial used once. Each is regrouped
+into three one-bounded convolutions using one endpoint slot partition
+valid throughout its box. Beta attaches through the unique small/rough
+decomposition. Squarefreeness remains in the physical rho and (7); its
+removal solely for the analytic tensor comparison costs
+O((T+T^theta_*)*T^(-omega+o(1))). The coefficient is not reselected after
+seeing a progression discrepancy or a Type-II arithmetic tuple.
+
+Rough ranks0,1,2 have raw support exponent19/48, gap5/48 below half;
+small losses preserve classical BV. Every rank>=3 has the genuinely
+active third cutoff p3>=T^omega, a selected or repaired W licence and
+all full/complement squares. Numerical t3=.01 is not an activation
+criterion. Above-mu fallbacks have v(t1)>3t1 and their extra initial
+squares <3t1. Every higher action retains the same descendant-square
+closure proved in section2. The auxiliary envelope in section4 licenses
+factorization without increasing lambda.
+
+After the smooth complete-product trim, charts have
+c*T^(1-kappa0)<=x<=C*T and c0*x<=T<=x^(1+kappa). The moving residue is
+the full T and x the complete product, never a residual quotient.
+All current four monomial inequalities have fixed positive reserves.
+The proved medium theorem with the fixed Gevrey majorant, actual rough
+SW, and direct Brun one/two-long alternatives therefore yield
+
+ sum_q rho_T(q){sum_(m=T mod q)W_T(m)-X_W^(q)/phi(q)}
+   =O_(A,W)(T/log(T)^A),                                 (8)
+
+for every fixed A and every required smooth positive tuple family,
+where X_W^(q)=sum_((m,q)=1)W_T(m) is the EXACT coprime mean. The finite
+atom scalar mass and polylog chart counts are paid by requesting a
+stronger logarithmic saving. There are only finitely many requested
+families; one fixed realization and one eventual threshold suffice.
+Equations (P),(7),(8) are precisely (U)(i),(ii),(iii).
+
+7. Positive counts, the coprime mean and uniform negligible terms
+
+For any prime p, squarefreeness and |rho|<=1 give
+sum_(q:p|q)|rho_T(q)|/phi(q)<=1/(p-1)*sum_(e<=T^theta_*/p)1/phi(e)
+<<log T/(p-1). Since W>=0 and there are at most k original prime slots,
+
+ |sum_q rho_T(q)(X_W^(q)-X_W)/phi(q)|
+ <=sum_tuples W(tuple)*sum_(p in tuple)O(log T/(p-1))
+ <<X_W*T^(-a)*log T=o(H_T).                              (9)
+
+There is no T^theta_* factor. Repeated primes merely repeat a harmless
+union-bound term. We need only C_T>=C_2>0, not an upper bound on C_T.
+
+For primes T-m>=T^rho0, (P) majorizes the prime indicator. Smaller prime
+remainders contribute T^(rho0+o(1)): each m has only fixed-order divisor
+tuple multiplicity. If complete-product scales are needed, tuples with
+m<2T^(1-kappa0) have total absolute progression contribution at most
+sum_m tau_k(m)tau(|T-m|)=T^(1-kappa0+o(1)), with m!=T, and their
+exact-coprime mean costs only another O(log T). Thus no tau(0) occurs.
+For large T all original primes in these families are odd, so product=T
+is impossible for even T; (P) also covers zero without needing that fact.
+
+Positive majorization BEFORE distribution, followed by (8),(9),(7), gives
+
+ sum_(m<T,T-m prime) W_T(m)
+ <=sum_m W_T(m)R_T(T-m)+o(H_T)
+ <=X_W*S_T+o(H_T).                                      (10)
+
+Outward weights may include m>=T; this is harmless because R_T is
+nonnegative for every integer, including negative ones. For A>2,
+T/log^A T=o(H_T). Multiply (7) by the nonnegative X_W and take limsup
+in (10): if limsup X_W*log T/T<=J, the result is <=KJ. Errors remain
+absolute when J=0; no division by a family mass is used.
+
+8. Sharp geometric restrictions and the required downstream families
+
+On positive exponent compacta use t_i=log_T p_i (i<k),
+t_k^*=1-sum_(i<k)t_i and y=product p_i/T. PNT in the last prime,
+followed by reciprocal-prime summation, gives limiting unsifted measure
+
+ dmu_k=dt_1...dt_(k-1)dy/[t_1...t_(k-1)t_k^*].           (11)
+
+First restrict y>=eta; the remaining mass is O_a(eta*T/log T) by the
+prime upper bound. Proper monomial walls are affine null walls in t;
+pure complete-product walls must instead be treated in y. Identities
+are kept. For fixed epsilon choose a smooth positive OUTER majorant
+with excess limiting mass <=epsilon and all primes still >=T^a/2.
+One global partition of unity repeats no mass. Apply (10), let T grow,
+then eta and epsilon decrease. This proves (U*) on the sharp family.
+One need not keep rho identical for different smoothing precisions:
+at EACH fixed precision the SAME rho occurs in (P),(7),(8),(10).
+No signed sharp-domain distribution statement is being inferred.
+
+For ordered bad semiprimes r<=q, rq<T, r>q^b, fixed1/2<b<1, the trimmed
+domain has positive prime cutoff. With beta=b/(1+b), (11) gives
+J_b=int_0^1 dy*int_beta^(1/2)dt/[t(1-t)]=log(1/b). Therefore
+
+ limsup_(even T) B_b(T)/H_T<=K*log(1/b).                 (12)
+
+There is no second ordering factor or singular-series factor in J_b.
+The equal-prime diagonal is O(sqrt T); it may be retained or restored.
+All fixed positive switched leaves in the finite248/430 graph are also
+covered: their positive cutoff and finite prime-slot bound are supplied
+by the typed coefficient theorem. Their reciprocal normalizations do
+not multiply (U*) by another factorial. The current U11 complement has
+at most eleven original primes since12a=1.0008>1, a=417/5000. Its17772
+mask cells give only finitely many proper geometric walls. Hence it is
+also an instance of (U*), with its later parent-majorant allocation a
+separate lower-count calculation. No H/h gain is needed to prove K.
+
+9. Completion boundary and classical input inventory
+
+The established classical library needed here is finite:
+PNT and Mertens; the dimension-one fundamental lemma for the physical
+beta compiler; ordinary cubic Rosser positive-exit convergence and raw
+one-sided density bounds (Suzuki Prop.11.8 and Lemma14.7, with the
+normalization in (3)); and the classical input library of restricted PP:
+prime/Mobius SW, below-half BV and its fixed-family convolution form,
+primitive multiplicative large sieve, standard divisor means, Shiu for
+the preliminary nontrivial progressions, Fourier/Poisson, complete
+Kloosterman Weil, Maynard I Lemma13.2, the stated normalized Kuznetsov
+and regular spectral sieve, ABL3.1/3.2 in the coprime arithmetic-argument
+case with continuous/oldform normalization, Kim--Sarnak theta=7/32,
+and Pascadi A/J in their matching common-interval/common-phase form.
+The q=1 shifted moments, W initialization, tensor identity and direct
+Brun long alternatives are project derivations, not added conjectures.
+
+The numerical input is the finite chain identified in sections2 and5,
+not any adaptive or infinite optimization, and not an assumption about
+the true prime count. Its complete certificate coverage is separately
+audited. This report rechecked the source equations, actual causal tree,
+same-rho signs, literal-density reduction, finite parameter order, PP
+class matching, positive approximation, and all current scalar budget
+identities; it did not rerun the large multidimensional quadratures.
+
+Conclusion: the upper hypothesis (U) of the current downstream theorem
+is a derived result at K=6.7617368 from the established analytic and
+numerical lemmas just listed. There is no residual unspecified upper
+distribution, same-weight, support-cover, density, smoothing or uniformity
+assumption. Completion of the separate lower Chen theorem (C), the full
+certificate coverage and the final combined theorem are the parallel
+audit tasks. Nothing here restores unrestricted Lichtman or external
+Li1.9728, proves an effective threshold, or asserts publication priority.
+The open manuscript, earlier artifacts, state, formalization, GitHub and
+external communications remain unchanged.

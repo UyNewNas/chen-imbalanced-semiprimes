@@ -1,0 +1,154 @@
+A below-half convolution BV lemma for the actual low-rough-rank branch
+2026-10-10. Completed local derivation; the earlier -draft.txt remains a historical incomplete draft.
+
+Scope and authorship
+
+This note supplies a local generalized Bombieri--Vinogradov implication from a precise auxiliary Siegel--Walfisz hypothesis and the classical multiplicative large sieve. I authored the earlier draft; this is its completion, not a second-person audit of that draft. The current root and another agent will review it independently. It does not reprove the large sieve, Siegel--Walfisz, ordinary single-prime BV, the full PP assembly, or any K,c,b theorem. It uses no disputed large-residue Lichtman estimate. All sequences below are fixed for a given target and separated geometric/Mellin block before progression errors are inspected.
+
+1. Precise local statement
+
+Fix eta>0, c>=1, C>=0, C0>=0 and a norm constant C1. Put L=log x, x=MN, and assume x^eta<=M,N<=x^(1-eta), for x sufficiently large. Let complex sequences alpha,beta be supported respectively in [M,cM] and [N,cN], with
+  sum_m |alpha(m)|^2 <= C1 M L^C,
+  sum_n |beta(n)|^2 <= C1 N L^C.                         (1)
+The data may vary with a target T, subinterval endpoints and auxiliary analytic parameters, but these bounds and all SW constants below must be uniform in those parameters. The sequences must not vary separately with the summation modulus q or the residue selected in its maximum.
+
+For every fixed A1,B>0, assume, uniformly for every integer k>=1, every integer 1<=r<=L^B, and (b,r)=1,
+ | sum_{m=b (mod r), (m,k)=1} alpha(m)
+     - (1/phi(r)) sum_{(m,rk)=1} alpha(m) |
+       <= C_(A1,B) tau(k)^C0 M L^(-A1).                 (ASW)
+Here the same fixed C0 works for all A1 and B. Only small r is required. A factor tau(r)^O(1) with fixed order could also be absorbed by increasing A1 once B is fixed, but is not needed in the prime application below.
+
+For every A>0 there is D>0, depending only on A and the fixed data, such that, for Q<=sqrt(x)L^(-D),
+ sum_{q<=Q} max_{(a,q)=1} |Delta_q(a)| << x L^(-A),      (2)
+where
+ Delta_q(a) = sum_{mn=a (mod q)} alpha(m)beta(n)
+             - (1/phi(q)) sum_{(mn,q)=1} alpha(m)beta(n).
+The implicit constant is uniform in the same target/block parameters. In particular every fixed power range Q<=x^(1/2-epsilon) is allowed, for any fixed epsilon>0. A moving primitive residue, a=a_q or T mod q, is covered by the maximum in (2).
+
+A fixed divisor bound, with fixed logarithmic factors, implies (1): for an integer J one has tau(n)^J<=d_(2^J)(n), and sum_{n<=Y}d_j(n)<=Y(1+log Y)^(j-1). Complex signs cause no change. No SW hypothesis is imposed on beta.
+
+2. Explicit external inputs and primary-source check
+
+(LS) The classical primitive multiplicative large sieve, for any complex sequence z supported in an interval of at most H consecutive integers, is
+ sum_{r<=R} (r/phi(r)) sum_{chi (mod r)}^*
+        |sum_n z(n)chi(n)|^2
+       <= (H-1+R^2) sum_n |z(n)|^2.                    (3)
+The star means primitive characters. I read K. S. Kedlaya, Analytic Number Theory, Chapter 18, Theorem 18.2 (Bombieri--Davenport), equation (18.2.1), and its Gauss-sum proof. The weight is r/phi(r), not 1/phi(r); the latter will cost 1/R on a dyadic conductor interval below. Primary URL:
+https://kskedlaya.org/ant/chapter-18.html
+The downloaded HTML is external-source-audit-20261010/kedlaya18-lowrank-bv-20261010.html. Independently, the same input follows from the duality principle and additive large sieve in Y. Motohashi, Lectures on Sieve Methods and Prime Number Theory (TIFR, 1983), Lemma 1 on printed p.6 (PDF 18), and Lemma 2 on printed p.14 (PDF 26): primitive Gauss sums and character orthogonality reduce (3) to the reduced Farey fractions, whose spacing is >=R^(-2). This is a standard external theorem, not a numerical certificate.
+
+(PSW) The prime application uses the classical, possibly ineffective, Siegel--Walfisz theorem in logarithmic modulus ranges, uniformly over primitive residues. A primary statement read for the exact range is T. Tao, 254A Notes 2, Exercise 64, equation (57): for q<=log^B X the von Mangoldt progression error is O_B(X exp(-c_B sqrt(log X))), with c_B possibly ineffective. Removing proper prime powers and partial summation give the usual prime-counting version, with any fixed requested logarithmic saving. Primary URL:
+https://terrytao.wordpress.com/2014/12/09/254a-notes-2-complex-analytic-multiplicative-number-theory/
+The web tool read this source; a direct local HTML fetch was blocked by the site's browser check, so no downloaded Tao HTML is represented as a source archive. The precise restricted input used here is stated above. No effective threshold for all sufficiently large x is claimed.
+
+For comparison only, the existing local Polymath source, Claim 2.6 (lines1081--1124) and Theorem 2.8 (lines1255--1273), states an auxiliary-coprimality generalized BV conclusion below half. The proof below does not invoke that generalized BV statement; it explains the exact implication needed here using (3) and (ASW).
+
+3. Exact induction from primitive characters
+
+Character orthogonality removes the principal character exactly:
+ Delta_q(a) = (1/phi(q)) sum_{chi mod q, chi!=chi0}
+                  conjugate(chi(a)) A_q(chi)B_q(chi),
+ A_q(chi)=sum_m alpha(m)chi(m), B_q(chi)=sum_n beta(n)chi(n).
+Consequently the maximum over a is bounded by the sum of |A_q B_q|/phi(q); it introduces no number-of-residues factor.
+
+Every nonprincipal chi mod q is induced by a unique primitive nonprincipal chi* of conductor r>1, with r|q. Write q=rk. For every integer m, including nonunits,
+  chi(m)=chi*(m) 1_{(m,k)=1}.                           (4)
+The primitive character already vanishes when (m,r)>1. Thus (4) remains correct when r and k have common prime factors. Define
+  alpha_k(m)=alpha(m)1_{(m,k)=1},
+  beta_k(n)=beta(n)1_{(n,k)=1}.
+Both restrictions are necessary. In particular, it would be invalid to discard the beta restriction or to treat the induced character as chi* on all integers. For each fixed k these two sequences are independent of r; their L2 norms are at most the original ones.
+
+The exact totient relation is
+ phi(rk)=phi(r)phi(k) gcd(r,k)/phi(gcd(r,k))
+          >=phi(r)phi(k).
+It follows that the left side of (2) is at most
+ sum_{k<=Q} 1/phi(k) sum_{1<r<=Q/k} 1/phi(r)
+                    sum_{chi mod r}^* |A_k(chi)B_k(chi)|.       (5)
+Terms r=1 are absent: there is only the principal character of conductor 1, already removed. There is no assumption (r,k)=1 and no arithmetic sparsity filter hidden in (5).
+
+4. Large conductors, including the complete k and dyadic sums
+
+Let R0=L^B, where B is fixed later. For fixed k and a dyadic interval R<r<=2R, R>=R0 (with the last interval truncated at Q/k), Cauchy--Schwarz and (3), applied to alpha_k and beta_k separately, give
+ sum_{R<r<=min(2R,Q/k)} 1/phi(r) sum_chi^* |A_k B_k|
+ << (L^C sqrt(x)/R) sqrt((M+4R^2)(N+4R^2))
+ << L^C [x/R + sqrt(x)(sqrt(M)+sqrt(N)) + R sqrt(x)].   (6)
+The endpoints/zero extension fit intervals of lengths O_c(M), O_c(N). This is why the factor 1/R is legitimate, and why a modulus-dependent sequence would not be allowed.
+
+Summing dyadic R for this k gives
+ << L^C [x/R0 + L sqrt(x)(sqrt(M)+sqrt(N))
+                       + (Q/k)sqrt(x)],                (7)
+and only k<=Q/R0 contribute. Empty ranges contribute zero.
+
+For completeness the elementary k bounds are
+ sum_{k<=Y}1/phi(k) << 1+log Y,
+ sum_{k>=1}1/(k phi(k)) < infinity.                     (8)
+Indeed n/phi(n)=sum_{d|n} mu(d)^2/phi(d), so the first sum is at most
+ (1+log Y) sum_{d>=1}mu(d)^2/(d phi(d)).
+The latter converges, since 1/(d phi(d))<=tau(d)/d^2 and sum tau(d)/d^2=zeta(2)^2. This also proves the second bound in (8). In particular the final term of (7) is summed with 1/(k phi(k)), not with 1/phi(k) and certainly not by counting O(Q) values of k.
+
+Hence the whole large-conductor part is
+ << L^C [x L/R0 + L^2 sqrt(x)(sqrt(M)+sqrt(N))
+                                  + Q sqrt(x)].        (9)
+From the fixed power lengths, sqrt(x)(sqrt(M)+sqrt(N))<=2x^(1-eta/2). For example B=D=A+C+4 makes the first and last terms O(x L^(-A-3)); the middle term is O(x L^(-A)) for sufficiently large x depending only on eta,A,C. Ceilings in R0 and Q only alter fixed constants.
+
+5. Small conductors and the fixed divisor order
+
+For a primitive nonprincipal chi mod r<=R0, sum (ASW) against chi(b) over the phi(r) units b. The mean cancels because sum_b chi(b)=0, giving
+ |A_k(chi)| << phi(r) tau(k)^C0 M L^(-A1).              (10)
+By (1), sum_n|beta_k(n)| << N L^(C/2), uniformly in k. The number of primitive characters mod r is at most phi(r). Substitution in (5) thus bounds the small-conductor contribution by
+ << x L^(C/2-A1) (sum_{r<=R0}phi(r))
+                     (sum_{k<=Q}tau(k)^C0/phi(k)).       (11)
+The canceled 1/phi(r) in (5) has not been reused to discard the separate number-of-characters factor; sum_{r<=R0}phi(r)<=R0^2 is retained.
+
+Choose an integer J>=C0+1 and write d0=2^J. Since n/phi(n)<=tau(n),
+  tau(n)^C0/phi(n)<=tau(n)^J/n<=d_d0(n)/n,
+so
+  sum_{n<=Y}tau(n)^C0/phi(n)<=(1+log Y)^d0.              (12)
+The inequality tau(p^e)^J=(e+1)^J<=binomial(e+2^J-1,2^J-1) can be seen by recording, for each of e ordered positions, the subset of J thresholds that reach that position. The subset-count histogram is a weak composition of e into 2^J parts and determines the original J thresholds. Multiplicativity then gives tau(n)^J<=d_(2^J)(n). The reciprocal d_d0 sum in (12) is bounded by the product of d0 harmonic sums. Thus d0 is fixed; it does not grow with A1.
+
+After fixing B as above, take
+  A1=A+C/2+2B+d0+3.
+Then (11) is O(x L^(-A-3)). This proves (2). The constants in (ASW) may depend on the now fixed A1 and B. A hypothesis whose divisor-loss exponent grows uncontrollably with A1 would not be justified by this argument; the prime application has C0=1 and avoids that issue entirely.
+
+6. The actual original-prime factor supplies (ASW), uniformly
+
+Let I be any subinterval of [M,cM], and
+ alpha(m)=1_{m prime}1_I(m) w_T(m),
+where sup|w_T|+Var_[M,cM](w_T)<=L^J0 for a fixed J0. The endpoints and w may depend on T and on the retained Mellin parameters, but the stated bound is uniform. The length of I need not have a lower bound: the error below is measured at scale M, not at |I|.
+
+First set k=1. For r<=L^B, (PSW) at the two interval endpoints, then summation by parts, gives (ASW) with any prescribed saving. Because log M>=eta log x, a fixed logarithmic modulus range in x lies in a slightly larger fixed logarithmic range in M. For large x every such r is <M, so no prime in I divides r. The total-prime exact mean may be substituted for the logarithmic-integral mean using the same estimate. This is uniform for all subinterval endpoints.
+
+For arbitrary k, the exact change in the discrepancy upon imposing (m,k)=1 deletes only primes dividing k. Its absolute value is at most
+  (1+1/phi(r)) sup|w_T| #{p in I:p|k}
+       <= 2 L^J0 omega(k) <= 2 L^J0 tau(k).             (13)
+This is a sum over prime divisors, not over all divisors, and remains valid for arbitrarily large k. For every fixed A1, M>=x^eta implies L^J0<=M L^(-A1) eventually. Combining (13) with the k=1 bound proves (ASW) with the single fixed exponent C0=1, independent of A1,B. If desired, the stronger all-modulus estimate with tau(rk) follows by the trivial interval progression bound for r larger than a sufficiently high fixed power of L. Only (ASW) is used in Sections3--5.
+
+Normalized factors such as log m/log T have bounded size and variation on these charts. For a Mellin factor (m/M)^(it), the supremum is 1 and total variation is at most |t| log c. Thus fixed |t|<=L^J2, fixed products of these factors and fixed smooth amplitudes satisfy a bound of the indicated form; choose the SW exponent after J0,J2 are fixed. This is ordinary one-variable summation by parts, not a new uniform high-frequency prime theorem. A normalized inverse logarithm is likewise harmless when used, because log M/log T is bounded below on the actual fixed-positive-cutoff charts.
+
+There is no hidden tau(T) multiplier. The original prime SW estimate does not depend on the moving residue T. If a particular chart removes primes dividing T, with T<=x^C2 for fixed C2, then at most log T/log M<=C2/eta such primes lie in I. They can be deleted directly in (13), retaining C0=1 and uniform constants; one must not instead multiply a merely logarithmic remainder by tau(T)^O(1).
+
+7. Application to the bounded low-rank PP coefficient
+
+For two or more original primes, choose one entire original prime interval as alpha before any HB expansion. Put the other original factors, with their separated interval/Mellin weights, into beta. Unique factorization bounds the latter by a fixed divisor order, and the fixed positive outer prime cutoff makes both M and N positive powers of the complete local scale x. Multiplicities are retained as the actual convolution coefficients; this argument neither assumes a sorted indicator nor divides by an additional repeated-label factorial. Those finite scalar conventions belong to the compiler and do not affect the norm/SW assertion when retained exactly.
+
+The local x here is the complete product scale MN. It is not the residual quotient obtained by dividing out a sieve prefix. On the near-target charts x is between fixed multiples of T^(1-kappa0) and T. The previously reserved strict low-rank level gaps, after all beta/fine-box/coordinate losses, ensure Q<=x^(1/2-epsilon0) for fixed epsilon0>0. The raw pre-loss gaps recorded in the PP insertion are 5/48, 49/250 and 265/3584 for its respective finite classes; this lemma requires the actual post-loss positive gap and does not itself certify those support calculations.
+
+More explicitly, if the raw modulus exponent in base T is ell and all endpoint/beta losses sum to e_loss, the sufficient comparison is
+  (ell+e_loss)/(1-kappa0) < 1/2.
+Fixed multiplicative chart constants can be absorbed by a further strictly smaller gap for large T. At zero loss the three raw exponents ell=19/48,38/125,1527/3584 require respectively kappa0<5/24,49/125,265/1792. The finite construction must reserve room for e_loss as well; merely ell<1/2 in the T coordinate would not suffice without this conversion. Choosing kappa0 and these losses below the corresponding strict thresholds is done before T grows and is compatible with the previously fixed much smaller local-scale parameter.
+
+For an actual signed modulus coefficient with |rho_T(q)|<=C_rho fixed, supported on (q,T)=1,
+ |sum_q rho_T(q) Delta_q(T)|
+ <= C_rho sum_{q<=Q}max_{(a,q)=1}|Delta_q(a)|
+ << x L^(-A).                                          (14)
+Arbitrary q-dependence of this bounded scalar rho_T is allowed, since the maximum and absolute sum are already present. q-dependence of alpha or beta is a different matter and is not allowed by the proof. Nor does (14) permit an arbitrary divisor-bounded rho_T by multiplying by x^o(1). No such step is used for the current actual bounded low-rank class.
+
+For a single original prime, the complement is the unit sequence and violates the two-positive-length premise. Use ordinary classical single-prime BV separately, in its maximum-over-primitive-residues form. This note does not manufacture a positive-length complement or pretend that the convolution lemma proves that singleton case without its usual additional prime decomposition. The fixed-polylogarithmic smooth weights there follow from the usual maximal-endpoint/partial-summation version of classical BV.
+
+Finally, a finite or fixed-polylogarithmic number of separated charts/Mellin integrals is permissible if their coefficient total variation has a fixed logarithmic bound. Choose the requested local A after these losses; (2) is uniform in each parameter, so integrating and applying the triangle inequality does not introduce a target-dependent constant. Hard coupled geometric restrictions must have already undergone the approved separation/truncation. This lemma does not assert that an arbitrary two-variable cutoff or a modulus-dependent selection is separated. The complete-product tail and Mellin-tail errors remain the separate reductions specified in the PP assembly.
+
+8. Result and limits
+
+The questioned generalized-BV black box at low rough rank is replaced, for the stated product blocks, by the explicit conductor argument above. The auxiliary restrictions on BOTH factors, common fixed-k sequence condition, convergent final k sum, small-conductor count and fixed divisor order are all retained. No additional local obstruction was found under these hypotheses. Uniformity includes every permitted target and primitive residue, not just almost all targets, though the sufficiently-large threshold may be ineffective because of prime SW.
+
+This supplies one local input to the existing PP assembly. The support margins, boundedness of the actual compiled rho, allowed finite geometric separation, singleton prime BV, and all other distribution/density/weight hypotheses remain named obligations of that assembly. No global constant or frozen manuscript/state file is changed. The formal result is separate from the historical paused draft.

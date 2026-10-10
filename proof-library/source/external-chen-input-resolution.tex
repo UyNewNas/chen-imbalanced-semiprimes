@@ -1,0 +1,216 @@
+% Source-audit fragment, 2026-10-07. No documentclass; not inserted in main.
+% This identifies missing interfaces and gives valid replacement formulas.
+% It neither refutes Li's theorem nor certifies its numerical constant.
+
+\subsection{What the cited double-sieve bounds actually transfer}
+\label{sec:external-chen-input-resolution}
+
+Let $d=N^{T+o(1)}$ be a specified ordered prime prefix and let
+$z=N^u$. Write
+\[
+ s_0=\frac{1/2-T}{u},\qquad s_1=\frac{\nu-T}{u},
+ \qquad \nu>1/2.
+\]
+All statements below concern an averaged positive prefix box,
+with the common main factor denoted by $M>0$. They do not assert
+an estimate for each individual prefix prime.
+The improved linear estimate at level $N^\nu$ must itself be
+justified on that box.
+
+In Wu's \href{https://arxiv.org/pdf/0709.3764}{2008 author version},
+Section 3, the total level is $Q=N^{1/2-\delta}$, the residual
+level is $Q/d$, and $A(s)=sF(s)/(2e^\gamma)$,
+$a(s)=sf(s)/(2e^\gamma)$.
+The functions $H,h$ are defined through the defect from these
+same-level normalized functions in (3.4)--(3.7).
+Their prefix class satisfies
+$p_1\cdots p_{j-1}p_j^2\le Q$.
+This is also the normalization underlying Section 3 and Lemmas
+5.1--5.2 of
+\href{https://www.impan.pl/shop/en/publication/transaction/download/product/82961}
+{Wu's 2004 paper}; the latter's functional inequalities iterate
+the same total level, rather than adding an independent saving
+to a different linear-sieve baseline.
+
+Thus, after removing fixed margins, the two separately established
+upper estimates have the form
+\[
+ S/M\le F(s_1)+o(1),\qquad
+ S/M\le F(s_0)-D_H+o(1),\qquad
+ D_H=\frac{2e^\gamma}{s_0}H(s_0).
+\]
+The analogous two lower estimates use $f(s_1)$ and
+$f(s_0)+D_h$, where $D_h=2e^\gamma h(s_0)/s_0$.
+Whenever both inputs are valid on the same positive box, their
+rigorous combination is
+\begin{align}
+ U_{\rm safe}
+ &=\min\{F(s_1),F(s_0)-D_H\}\notag\\
+ &=F(s_1)-[D_H-\{F(s_0)-F(s_1)\}]_+,
+ \label{eq:external-safe-upper}\\
+ L_{\rm safe}
+ &=\max\{f(s_1),f(s_0)+D_h\}\notag\\
+ &=f(s_1)+[D_h-\{f(s_1)-f(s_0)\}]_+.
+ \label{eq:external-safe-lower}
+\end{align}
+Here $[a]_+=\max(a,0)$. One can use certified lower bounds for
+$H,h$ in these formulas. A finite common partition permits the
+choice of the better bound on each box before taking the
+large-$N$ limit. On boxes outside Wu's prefix class, omit the
+classical double-sieve option.
+
+These formulas follow by taking a minimum or maximum of bounds
+for the same quantity. They do not require a new double-sieve
+theorem. Relative to the mixed expressions
+$U_{\rm mix}=F(s_1)-D_H$ and $L_{\rm mix}=f(s_1)+D_h$, the exact
+local corrections needed are
+\begin{align*}
+ U_{\rm safe}-U_{\rm mix}
+   &=\min\{D_H,F(s_0)-F(s_1)\},\\
+ L_{\rm mix}-L_{\rm safe}
+   &=\min\{D_h,f(s_1)-f(s_0)\}.
+\end{align*}
+They quantify the loss that a corrected integral calculation
+must include. Merely imposing the two separate bounds cannot
+remove that loss: for example, when
+$F(s_1)\le F(s_0)-D_H$ and $D_H>0$, the hypothetical value
+$S/M=F(s_1)$ satisfies both bounds but violates $U_{\rm mix}$.
+This is a logical non-implication, not a counterexample to a
+prime-counting theorem.
+
+\paragraph{The additional statement needed for the full mixed saving.}
+Lichtman,
+\href{https://arxiv.org/html/2109.02851v2}{arXiv:2109.02851v2},
+Lemma 6.4 and (6.23), give the upper correction
+\[
+ F(s_1)-\frac{2e^\gamma}{s_1}H_\nu(s_1),
+ \qquad s_1\in[2,3],
+\]
+subject to distribution at the same level for every extended
+prime vector and the corresponding switched sets.
+The largest specified prime is preserved during the iteration
+in the application following that lemma. The stated monotonicity
+is $H_\nu(s)\ge H_{1/2}(s)$ at a fixed argument $s$.
+To deduce the full old-argument saving used in Li's formulas
+from this statement one would additionally need
+\begin{equation}\label{eq:external-missing-cross-level}
+ H_\nu(s_1)\ge\frac{s_1}{s_0}H_{1/2}(s_0),
+ \qquad
+ h_\nu(s_1)\ge\frac{s_1}{s_0}h_{1/2}(s_0),
+\end{equation}
+or a direct joint sieve construction proving the desired mixed
+bounds. Fixed-argument monotonicity does not imply these
+inequalities; $H_{1/2}$ decreases as its argument increases.
+For the lower correction, the final paragraph of Lichtman's
+Section 6.3 explicitly leaves the analogous formula derivations
+to the reader. Extension of its stated $H$ lemma beyond $[2,3]$
+also requires an argument at the new level.
+
+The checked passages in
+\href{https://imar.ro/journals/Mathematical_Reports/Pdfs/2026/1_2/3.pdf}
+{Li II}, (16), (19), (21), and (23)--(25), use the old arguments
+$(1/2-T)/u$ in $H,h$ alongside improved linear terms. The
+paragraph following (16) cites fixed-argument monotonicity.
+The earlier \href{https://arxiv.org/html/2405.05727v3}{2024 v3}
+already has the same combination and does not supply a further
+cross-level lemma. Consequently the checked citations do not
+close \eqref{eq:external-missing-cross-level}. This audit has
+not proved those inequalities false.
+
+\paragraph{The classical prefix domains are consistent.}
+Put $a=100/1149$, $h=50/309$, $\mu=25/128$, and
+$d_*=1/2-3a$. The old double-sieve domains in Li (23)--(25)
+are compatible with the old support class. For (23),
+$t_1+2t_2\le3h<1/2$. In (24), the split at $1/2-2h$
+and the later bound $t_2\le39/256=(1/2-\mu)/2$ ensure
+$t_1+2t_2\le1/2$. In the correction of (25),
+$t_1\le d_*$ and $t_2\le3a/2$ give the same inequality.
+Also $2t_1<1/2$ throughout these regions.
+Thus the old-level terms are usable as separate bounds;
+the issue is their addition to the new baseline.
+Where only tabulated values for $s\ge2$ are supplied, using
+$h(s)\ge0$ for smaller $s$ is a valid conservative choice.
+
+\subsection{The largest-prime restriction is active}
+\label{sec:external-largest-prime-resolution}
+
+Let $\Phi$ denote the raw eight-branch maximum of L23 (6.4),
+and let $v(t)$ be its single-variable level. Li's Section 2
+refers to these functions and states the three-variable
+improvement only when the largest prime exponent is at most
+$\mu$. No piecewise extension of the three-variable function
+was located in the checked Li II text or its cited 2024 v3.
+In contrast, L23 itself uses the three-variable expression in
+(7.5) only for $c\le\mu$ and explicitly returns to $v(t)$
+in (7.6) for $c>\mu$.
+
+A conservative level supported by the stated distribution
+theorems, with their usual strict margins, is therefore
+\[
+ \Phi_{\rm safe}(x,y,z)=
+ \begin{cases}
+  \Phi(x,y,z),&x\le\mu,\\
+  v(x),&x>\mu,
+ \end{cases}
+ \qquad x\ge y\ge z.
+\]
+The full prefix interface is still required wherever the first
+case is invoked; this notation does not bypass its hypotheses.
+For (34), membership in $D^{\rm well}$ must also be recomputed
+at the selected safe level; when it fails, retain only the
+switched estimate.
+
+This restriction is not rendered moot by vanishing integrands.
+In (25), take
+\[
+ (t_1,t_2,u)=(11/50,3/20,100/1149).
+\]
+This lies strictly inside its two-dimensional integration
+domain. Here
+\[
+ \Phi=\frac{23}{40},\quad v(t_1)=\frac{897}{1600},\quad
+ s_{\rm raw}=\frac{47109}{20000}>2,\quad
+ s_{\rm safe}=\frac{70089}{32000}>2.
+\]
+Since both arguments lie between 2 and 4, the lower-sieve
+function is strictly increasing there. Hence the raw and safe
+lower terms differ on an open neighborhood.
+
+For (34), take the ascending tuple
+\[
+ (t_1,t_2,t_3,t_4)=(11/125,9/100,23/250,101/500).
+\]
+It is strictly inside the displayed integration domain, with
+$t_4>\mu$. The full four-prime square-prefix exponents are
+\[
+ 101/250,\quad193/500,\quad237/500,\quad14/25.
+\]
+They are all less than both
+\[
+ \Phi(t_4,t_3,t_2)=\frac{591}{1000},\qquad
+ v(t_4)=\frac{4701}{8000}.
+\]
+The raw maximizing pair branch has gate surplus $1/200$.
+Writing $S=59/125$, the two upper-sieve arguments are
+$119/88$ and $925/704$, respectively. Both exceed 1, so neither
+the support indicator nor a zero-density convention removes
+this example. With the published switched coefficient cap
+$G_1=6.06932$, the linear option is also smaller than the
+switched option here: their ratio is
+\[
+ \frac{F((\nu-S)/t_1)t_2}
+ {G_1\omega((1-S)/t_2)t_1}
+ =\frac{2e^\gamma t_2}{G_1\omega((1-S)/t_2)(\nu-S)}<1
+\]
+for either displayed $\nu$, using
+$\omega(u)\ge1/2$ for $u\ge2$, $e^\gamma<1.782$, and
+$\nu-S\ge37/320$. Thus the minimum need not hide the issue.
+
+The domain restriction has a concrete repair and explicit
+nonzero affected regions. The surviving task is to recompute
+the affected functionals, with
+\eqref{eq:external-safe-upper}--\eqref{eq:external-safe-lower}
+or a proved stronger joint construction. No new numerical
+Chen coefficient is certified in this fragment. In particular,
+these findings neither independently establish nor disprove
+the published value $1.9728$.

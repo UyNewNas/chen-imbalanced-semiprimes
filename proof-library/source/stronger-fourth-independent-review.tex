@@ -1,0 +1,119 @@
+% Independent pure-mathematics review, 2026-10-08. No main/state or Lean edits.
+\subsection{Independent review of the replacement fourth-prefix certificate}
+\label{sec:stronger-fourth-independent-review}
+
+The scope of this review is the local functional in
+\texttt{fourth-prefix-stronger-refinement.tex}, the frozen finite rectangle
+witness, and its exact lower bound. The previously derived distribution,
+factorization, and ordinary density identities remain inherited hypotheses.
+This review does not certify the complete representation theorem.
+
+\paragraph{Correlated bounds and the averaged gap.}
+Write $L_j=\min_{b\in\mathcal B_j}b$, $L=\max_jL_j$, and
+$M=\min_{a\in\mathcal A}a$. Pointwise,
+\[
+ M-L=\min_{j,a}\max_{b\in\mathcal B_j}(a-b).
+\]
+For each fixed $j,a$, every affine difference is at least its box infimum.
+Taking its maximum over $b$, then the minimum over $j,a$, proves the
+claimed constant gap lower bound. No interchange of an infimum and a
+maximum as an equality is used.
+
+Choose one affine upper piece $b_j$ of each old component and put
+$U=\max_jb_j$. Then $U\ge L$, and $G=M-U$ is concave. At any point of a
+rectangle, its multilinear corner weights are nonnegative, sum to one,
+and express that point as a convex combination of the sixteen vertices.
+Consequently $G(t)\ge\sum_v\lambda_v(t)G(v)$. Since
+$\int_B\lambda_v=|B|/16$, it follows that
+\[
+ \int_B(M-L)\ge\int_BG\ge\frac{|B|}{16}\sum_vG(v).
+\]
+The maximum of this average bound and the constant bound is a valid
+integral lower bound. A strictly positive constant gap is checked
+separately; the average is never used to license a pointwise failed gate.
+The implementation's rounded integer center merely chooses the pieces
+$b_j$; it is not needed to be the geometric center for this argument.
+
+\paragraph{Derivative envelope.}
+The stated ordinary sieve equations give
+\[
+ \mathcal N(s)=A(s)-\frac{s}{s-1}\log(s-2),\qquad
+ \mathcal N'(s)=\frac{s}{(s-1)^2}
+ \left(\log(s-2)-\frac{s-1}{s-2}\right).
+\]
+The factor $s/(s-1)$ is present. For $1\le u\le3$,
+$1+1/u-\log u$ is decreasing and positive at three. The latter follows
+from $\log3<10/9<4/3$, for example by the positive atanh series with
+$z=1/2$. Thus $\mathcal N$ decreases on $[3,5]$; it equals one on
+$(1,3]$. The logarithmic integrand for $A$ is increasing, so left
+Darboux sums are lower bounds. Upper rounding of the subtracted logarithm
+term is also in the required direction.
+
+The independent replay uses forty-eight logarithmic terms and a
+$2^{112}$ scale. Its bounds, rounded down to the $2^{80}$ scale,
+dominate every one of the author's $8193$ stored lower entries, which
+were obtained with twenty-four terms. All stored entries are positive.
+This independently validates the entire table, including the endpoint
+at five. Upward rounding of a real argument to the next grid point is
+valid by the proved monotonicity of $\mathcal N$, even if the stored
+rounded entries themselves are not assumed monotone.
+
+\paragraph{Residual and integration directions.}
+For each component and each point,
+$\min_b(b-S)\le\min_b\sup_B(b-S)$. Taking a maximum over components
+proves the proposed $R_0$ upper bound. The analogous bound for $M-S$,
+enlarged by $R_0$, gives $R_1\ge R_0$. At every point,
+\[
+ 0<r_\theta=(1-\theta)(L-S)+\theta(M-S)
+ \le R_\theta=(1-\theta)R_0+\theta R_1.
+\]
+The old third cube ensures $r_0/w>1$, and the checked bound
+$R_1/\ell_w<5$ keeps all arguments in the positive table range.
+On the $j$th quarter interval, monotonicity and positivity give
+\[
+ \frac{\mathcal N(r_\theta/w)}{r_\theta^2}
+ \ge\frac{c_j}{R_\theta^2},\qquad
+ \int_{(j-1)/4}^{j/4}\frac{d\theta}{R_\theta^2}
+ =\frac1{4R_{(j-1)/4}R_{j/4}}.
+\]
+The identity also holds when $R_0=R_1$. The substitution from sieve
+argument to residual level contributes one factor $w$, canceling one
+of the two fourth-coordinate factors in the original kernel. With
+$r=DR_0$, $q=DR_1$, and $d=D\widehat d_B$, this gives precisely the
+integer contribution coefficient $16D d$ stated in the certificate.
+All extracted factors are uniform lower bounds multiplying a positive
+pointwise gap, so use of the averaged gap is justified.
+
+\paragraph{Geometry, replacement, and frozen caps.}
+The replay uses explicit evaluation at all sixteen vertices to compute
+affine extrema, rather than the author's coefficient-sign implementation.
+It checks the original third cube, all four complete square gates,
+every selected-remaining gate, strict cap improvement, ordered boxes,
+and the upper argument bound. Subsets not containing the fourth slot
+are already old branches or dominated singleton branches on the stated
+$x<39/200<25/128$ domain.
+
+Dyadic rectangles are checked inside their individual $1/200$ root
+cubes, then separated recursively along independently chosen midpoint
+cuts. Boundaries may meet, but interiors cannot overlap. The integrals
+are summed only over those interiors. This is a complete replacement
+of both old fourth-prefix contributions; neither old gain is added.
+
+The original numerical rectangle need not satisfy
+$\inf_B M>\sup_B L$. Hence it cannot automatically receive a single
+constant level. The final source correctly requires further finite
+common refinement of the old third labels and new fourth labels.
+Uniform continuity and the checked pointwise positive margins permit
+legal frozen levels on the refined labels, with an arbitrarily small
+loss in the total integral. The strict gap above the rounded final
+gain absorbs that loss and the boundary trimming. A later fifth-prefix
+certificate whose old cap bound covers every eligible four-slot cap
+continues to cover this replacement tree.
+
+\paragraph{Audit status.}
+No counterexample or new local analytic gap was found in these steps.
+The exact replay result, source bindings, and any numerical comparison
+are recorded separately in
+\texttt{stronger-fourth-independent-replay.json}. The inherited analytic
+interfaces and the full asymptotic number-theoretic conclusion are not
+re-proved by this finite audit.

@@ -1,0 +1,184 @@
+Direct Brun treatment of one/two long variables: independent root derivation
+10 October 2026. New local proof; numerical and physical sieve policies unchanged.
+
+Purpose and scope
+
+The prime-product insertion agent proposed replacing the two-long roughness
+removal by explicit Brun polynomials. I independently derive the replacement
+below, including negative lower weights, exact coprime means, interval edges,
+and the one-long extension. The Poisson identity is also given, so the remaining
+non-elementary input at this step is the classical complete Kloosterman Weil
+bound (plus the elementary prime reciprocal bound). No shifted divisor moment,
+fundamental-lemma error estimate, or small-divisor freezing is used here.
+This is only the no-medium branch of PP, not its medium spectral theorem or
+the separate physical small-prime compiler.
+
+1. Explicit polynomials and uniform density gaps
+
+Put L=log log x and fix the common chart threshold z with
+ log z <= 2 log x/L^3, z->infinity.
+Let h=2 floor(L^2), r=h+1, y=z^r=x^o(1), and P=prod_(p<=z)p.
+For squarefree divisors d of P define
+ beta+(d)=mu(d)1_(omega(d)<=h), beta-(d)=mu(d)1_(omega(d)<=r),
+and zero otherwise. Both supports lie in [1,y], with |beta|<=1.
+For a positive integer n define U(n)=sum_(d|n)beta+(d),
+Lw(n)=sum_(d|n)beta-(d), I(n)=1_((n,P)=1), G(n)=U(n)-Lw(n).
+
+If k=omega(gcd(n,P)), the alternating binomial partial sums give
+ Lw(n)<=I(n)<=U(n), U(n)>=0, G(n)=binom(k,r)>=0.            (1)
+At k=0 both polynomials equal1; for k>0 the partial sum through j is
+(-1)^j binom(k-1,j), interpreted as zero when j>=k. This proves (1),
+including the fact that Lw is allowed to be negative.
+
+For any q, put V_q=prod_(p<=z,p does not divide q)(1-1/p) and
+B_q^+=sum_((d,q)=1)beta+(d)/d, B_q^-=sum_((d,q)=1)beta-(d)/d.
+Apply (1) to independent Bernoulli variables of means 1/p. It yields
+ 0<=B_q^+-V_q<=B_q^+-B_q^- = e_r({1/p:p<=z,p not dividing q})
+                    <=H(z)^r/r! =:epsilon_x,              (2)
+where H(z)=sum_(p<=z)1/p. In particular B_q^+<=1+epsilon_x and the gap
+is nonnegative, uniformly in every deletion set of q-primes. No theorem
+with constants depending on the number or sizes of those primes is used.
+The prime harmonic estimate gives H(z)<=2L eventually. Since r~2L^2,
+r!>=(r/e)^r shows epsilon_x <=exp(-c L^2 log L) for a fixed c>0,
+eventually. It is smaller than log(x)^(-A) for every fixed A.
+
+2. Smooth progression and exact coprime means
+
+Let f be a compactly supported smooth profile on a fixed positive interval,
+with N1(f)=||f||_1+||f'||_1 and N2(f)=||f||_1+||f''||_1.
+One-dimensional summation in a residue class and Mobius inversion give
+ sum_(n=b mod q)f(n/U)=(U/q) int f+O(N1(f)),
+ sum_((n,q)=1)f(n/U)=U*(phi(q)/q) int f+O(tau(q)N1(f)).      (3)
+The constants are independent of the primitive class b and all positive U.
+The first estimate needs no coprimality; that condition is used in solving
+the actual congruence after a sieve divisor is inserted.
+
+For B=U or G, expand its at most y divisor coefficients. Terms with
+(d,q)>1 vanish from the coprime sum. Equation (3) then gives
+ S_B(f):=sum_((n,q)=1)f(n/U)B(n)
+ =U*(phi(q)/q)*b_q int f+O(y*tau(q)*N1(f)),                 (4)
+where b_q=B_q^+ for U, and b_q=B_q^+-B_q^- for G. For nonnegative f,
+these sums are nonnegative. Thus (2) bounds their main terms by respectively
+(1+epsilon_x)U phi(q)/q int f and epsilon_x U phi(q)/q int f.
+Equation (4) is about the exact coprime sum, not an assumed density for a
+different coefficient. Every finite expansion is legal although h grows.
+
+3. One long variable
+
+Let a be any integer, (q,a)=1. A short coefficient alpha_m has
+sum_m |alpha_m|<=Z log^C x, on a fixed-multiple interval at scale Z;
+put x=ZU up to fixed constants. For smooth f consider the discrepancy
+ E_q(I)=sum_(m,n)alpha_m f(n/U)I(n)
+             [1_(mn=a mod q)-1_((mn,q)=1)/phi(q)].
+If (m,q)>1 both indicators vanish. Otherwise every inserted (d,q)=1
+leaves one primitive class for n/d. Equation (3) cancels the two main
+terms exactly, with error O((1+tau(q)/phi(q))*N1(f)) per d and m.
+Consequently expansion of U or G costs
+ O(Z*y*log^C x*(1+tau(q)/phi(q))*N1(f)).                    (5)
+
+For a complex f choose a nonnegative smooth majorant F>=|f| of fixed support
+and polylogarithmic N1 norm. The difference between I and U has magnitude
+at most G. Its congruence sum is at most its exact coprime mean plus the
+absolute discrepancy of G with |alpha|,F. Formula (4) bounds that mean;
+use (5) for the discrepancy. Thus, for |rho(q)|<=tau(q)^J log^C x,
+ sum_(q<=D,(q,a)=1)|rho(q)E_q(I)|
+ << epsilon_x*x*log^C1 x + Z*y*D*log^C1 x.                (6)
+Ordinary divisor/totient MEANS absorb all fixed powers; epsilon_x is not
+multiplied by a pointwise x^o(1). Here and below C1 can increase by a fixed
+amount for derivative norms or short coefficient bounds.
+For Z<=x^(20*zeta), D<=x^Theta, Theta<3/5, (6) has arbitrary logarithmic
+saving, since 20*zeta+Theta<1 with the actual zeta<=10^-6.
+
+4. Two long variables: the smooth core
+
+Put x=ZUV up to fixed constants. For any fixed m coprime to q let b=a/m mod q.
+Double periodization gives the exact smooth discrepancy
+ UV/q^2 sum_(j,k in Z) fhat(jU/q)ghat(kV/q)
+       [S(bj,k;q)-c_q(j)c_q(k)/phi(q)].                    (7)
+This includes the Fourier expansion of the exact coprime mean. All terms
+with j=0 OR k=0 vanish because b is a unit. For q=1 the discrepancy is zero.
+For q>=2 use complete Weil,
+ |S(bj,k;q)|<=tau(q)*sqrt(q)*gcd(j,k,q)^(1/2),
+and |c_q(j)|<=gcd(j,q). Integration by parts twice gives
+ |fhat(t)|<<N2(f)(1+|t|)^(-2).
+For every H>0 and d>=1,
+ sum_(j!=0,d|j)(1+|j|/H)^(-2)<=2H/d.
+The common-divisor sums are bounded by sum_(d|q)d^(-3/2)<=zeta(3/2)
+and sum_(d|q)phi(d)/d<=tau(q), respectively. Therefore (7) is
+ <<N2(f)N2(g)[sqrt(q)tau(q)+tau(q)^2/phi(q)].              (8)
+This is uniform in ALL positive scales U,V and primitive residues a.
+There is no frequency cutoff, discarded real phase or exact-product exception.
+
+On inserting d1|u,d2|v, use scales U/d1,V/d2 in (8) and replace m by md1d2.
+If that replacement is not coprime to q both indicators vanish; otherwise
+(8) applies unchanged. No freezing of d1,d2 is required. Sum the at most y^2
+pairs absolutely and then use divisor means in q. Each expanded pair of
+Brun polynomials has total discrepancy
+ << Z*y^2*D^(3/2)*log^C2 x.                               (9)
+The x^o(1) factor y^2 multiplies only this fixed-power-saving term.
+
+5. Two rough indicators, including a possibly negative lower polynomial
+
+By (1), for I_i=I(n_i), U_i=U(n_i), G_i=G(n_i),
+ P^+=U_1 U_2 >= I_1 I_2 >= P^-=U_1 U_2-G_1 U_2-U_1 G_2. (10)
+For example U_1U_2-I_1I_2=(U_1-I_1)U_2+I_1(U_2-I_2), which lies between
+zero and G_1U_2+U_1G_2. This proves (10) without assuming Lw_i>=0.
+For complex f,g and alpha, use nonnegative smooth majorants F>=|f|,Gf>=|g|
+and |alpha| to control the gap. Its exact coprime mean is bounded by
+ [S_G(F)S_U(Gf)+S_U(F)S_G(Gf)]/phi(q),
+times the short absolute mass. From (2),(4), summing |rho(q)| gives
+ O(epsilon_x*x*log^C3 x
+   +Z*(U+V)*y*log^C3 x+Z*y^2*log^C3 x).                  (11)
+In deriving this, the main product has phi(q)/q^2<=1/q; cross terms use
+tau(q)/q and the final error product uses tau(q)^2/phi(q). Their sums cost
+only fixed logarithms. The congruence gap is its exact mean plus the
+expanded discrepancy, bounded by (9). Triangle inequalities now yield
+ sum_(q<=D,(q,a)=1)|rho(q)E_q(I_1 I_2)|
+ << epsilon_x*x*log^C4 x
+    +[Z*y^2*D^(3/2)+Z*(U+V)*y+Z*y^2]*log^C4 x.            (12)
+There is no unlicensed estimate for a signed rough function. Positivity is
+used only for the explicit gap majorants, before their finite expansion.
+
+For actual no-medium HB blocks, Z<=x^(40*zeta), min(U,V)>=x^nu for a fixed
+nu>0, and D<=x^Theta, Theta<3/5. The leading power exponent is at most
+40*zeta+3Theta/2+o(1)<0.90004+o(1); the two cross terms are
+x/min(U,V)*x^o(1) and Z*x^o(1). All are fixed power savings. Thus (12)
+has arbitrary logarithmic saving. This holds even if a equals an intermediate
+product: no divisor of zero was introduced. No assumption on the size of a
+is needed in this branch beyond primitive coprimality for the summed modulus.
+
+6. Sharp individual intervals and what is actually replaced
+
+For an interval within a fixed positive scale, replace its indicator by a
+smooth cutoff differing only on two normalized strips of width
+delta=log(x)^(-B). Choose positive smooth outer strip envelopes with
+integral O(delta), N1=O(1), N2=O(delta^(-1)), and fixed higher derivatives
+bounded by powers of delta^(-1). Twists/log factors multiply these by fixed
+logarithmic norms. Positive U or U_1U_2 bounds the rough strip count.
+Equations (3)--(4) and (8)--(9) give its exact mean/main mass
+O(delta*x*log^C x), with the same fixed-power errors times logarithms.
+The exponent C in this boundary MAIN term is independent of B: it uses
+envelope amplitudes/integrals, short mass and divisor means. B-dependent
+derivative norms occur only in the fixed-power errors. Choose B after the
+requested error exponent and those fixed main-term orders.
+This proves the interval extension by positive boundary estimates. It does
+not approximate an arbitrary sharp COUPLED domain by separated smooth weights.
+
+Consequently the actual one/two-long branch needs neither the old fundamental-
+lemma roughness removal nor small-divisor freezing, shifted-moment boundary
+Cauchy, or separate removal of intermediate product=a. Its internal rank h
+grows slowly only in auxiliary Brun weights; this is not a growing physical
+modulus tree or a new numerical density policy. All its coefficients are
+handled explicitly by support size y=x^o(1) and uniform gap (2).
+The q=1 elementary moments remain needed for other steps, notably medium
+beta truncation and global Mellin tails. Keep the previously certified common
+kappa/kappa0 cap, including its former boundary moment order; a redundant
+stricter bound is harmless. No relaxation of K, c, b or a physical cap follows.
+
+The full HB classification, chart projector window, local medium theorem,
+actual coefficient licensing, physical density, lower induction and numerical
+inequalities are separate. Sources consulted: lichtman-two-long-exact-axes-
+20261010.txt; lichtman-hb-long-branches-20261009.txt; restricted-moving-target-
+distribution-20261010.txt; q1-elementary-shifted-moments-20261010.txt.
+No old artifact, main document, state, formalization or external service was
+changed by this proof. The accompanying assembly records adoption and hashes.

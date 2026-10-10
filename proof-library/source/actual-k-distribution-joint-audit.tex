@@ -1,0 +1,322 @@
+% Independent distribution audit, 2026-10-08. No frozen source changed.
+\subsection{Actual finite atoms: distribution with a moving target}
+\label{sec:actual-k-distribution-joint-audit}
+
+This is a fresh hypothesis audit of the distribution step, for the
+current intended coefficient $K=67619/10000$. It does not reprove the
+external dispersion theorem, the finite-tree density, or the endpoint
+factorization lemma. The conclusion below is an implication from
+explicit finite-atom data, rather than from a saved numerical status.
+We found no counterexample to that implication. We supply the missing
+divisor-weighted justification of square-collision removal explicitly.
+
+\paragraph{Primary statements checked anew.}
+On 8 October 2026 the primary arXiv record for
+\href{https://arxiv.org/abs/2309.08522}{Lichtman 2309.08522}
+still exposes only v1. We read its Definition 2.1, Proposition 5.2,
+Proposition 3.2, and Lemma 3.4, including their proofs where needed.
+Fresh HTML and plain-text copies are saved as
+\texttt{external-source-audit/l23-v1-joint-current.*}.
+The relevant text starts at extracted lines 1239, 2411, 1316, and 1370.
+We separately read
+\href{https://arxiv.org/html/2006.07088v1}{Maynard II v1},
+Lemma 7.1 and the proof of Proposition 5.2; the saved text is
+\texttt{maynard-II-v1-joint-current.txt}, lines 1283 and 1386--1467.
+In particular, lines 1414--1423 explicitly permit arbitrary intervals
+in both long variables. Its underlying Lemma 7.1 takes a supremum over
+all primitive residues, so this extension does not import the
+fixed-residue restriction of other Maynard theorems.
+
+For low-rank atoms we also checked the generalized BV statement in
+\href{https://arxiv.org/html/1407.4897v4}{Polymath 1407.4897v4},
+Claim 2.6 and Theorem 2.8 (saved text lines 1081 and 1265).
+These correspond to Claim 12 and Theorem 14 in the journal numbering.
+Only its unconditional range below $1/2$ is used. L23's arXiv theorem
+is an external analytic input; this audit does not relabel it as a
+verified journal publication or independently verify its spectral proof.
+
+\paragraph{The precise atom input.}
+Fix a positive outer cutoff $a$, a maximum number $k_*$ of original
+prime slots, and one finite buffered modulus strategy. Write $w=N^\omega$
+with fixed $\omega>0$. An atom has the form
+\begin{equation}\label{eq:actual-k-atom-input}
+ c_J\,\mathbf1_{\rm squarefree}
+       (\chi_{J_1}*\cdots*\chi_{J_r})*\beta_J,
+ \qquad r\le M_*,\quad |\beta_J|\le1,
+\end{equation}
+with prime intervals above $w$, small-prime support for $\beta_J$, and
+the appropriate fixed parity choice of the latter. The finite sum of
+$|c_J|$ is independent of $N$. All prime divisors of every modulus
+are coprime to $N$. The repeated-label factorial is already included
+in $c_J$, once. The complete support is at most $N^{\theta_*}$ for
+some fixed $\theta_*<3/5$; atoms of rough rank at most two have support
+at most $N^{2(19/96)+o(1)}<N^{1/2-c}$.
+After the finite strategy is fixed, choose $\kappa$ also so small that
+$\theta_* /(1-\kappa)<3/5$ and that the complete low-rank exponent
+divided by $1-\kappa$ is below $1/2$. Thus the asserted modulus-level
+bounds remain valid in the local $x$ coordinate, not only in base $N$.
+
+For every local product scale $x\asymp\prod p_i\ge N^{1-\kappa}/O(1)$
+and every medium length $U$, the finite-tree/factorization step must
+supply a partition of the \emph{labelled slots}, fixed on the entire
+box. Let $B_1,B_2,B_3$ be upper bounds for the three resulting rough
+products, and put $A_0=Ux^{-\zeta}$. Before fine-box and beta losses,
+the required output is
+\begin{align}\label{eq:actual-k-factorization-input}
+ B_1&\le A_0,&
+ A_0^2B_2B_3^2&\le x^{1-3\zeta},\nonumber\\
+ N^\sigma A_0B_1B_2^5B_3^2&\le x^{2-3\zeta},&
+ A_0^{1+2\sigma}B_1B_2^{5-2\sigma}B_3^{2+2\sigma}
+ &\le x^{2-2\zeta},\quad \sigma=7/32.
+\end{align}
+These statements are stronger and more specific than pointwise
+membership of each modulus in a well-factorable support set. Their
+derivation for the actual fourth/fifth/sixth strategy is the separate
+tree/factorization audit; no arbitrary restriction of a factorable
+sequence is presumed factorable here.
+
+For a group with $r_i$ prime slots, divide its unrestricted convolution
+by $r_i!$. Each resulting coefficient is one-bounded, since an integer
+has at most $r_i!$ ordered representations in those slots, including
+when primes repeat. Multiply the atom scalar by $r_1!r_2!r_3!$.
+This restores exactly the original atom; it does not insert a second
+repeated-label factorial. Append $\beta_J$ to the third group. The
+small/rough factorization of each integer is unique, so this group
+remains one-bounded. Empty groups have coefficient supported at $1$.
+Usual dyadic decompositions retain that singleton explicitly; there
+is no use of a Siegel--Walfisz claim for a unit slot.
+
+\paragraph{A repair that is valid after Heath--Brown expansion.}
+The elementary count $N/d+1$ in the older collision display is a
+bound for unweighted integers. It is not literally a bound for an
+HB convolution carrying a divisor weight. The following argument
+supplies exactly the required stronger justification without a new
+distribution theorem. Let $D\le N^{\theta_*}$, and let
+\[
+ \mathcal C=\{d\le D:p^2\mid d\text{ for some prime }p>w\}.
+\]
+For any fixed divisor order, both the total HB coefficient at an
+integer $m\ll N$ and the absolute modulus coefficient are $N^{o(1)}$.
+The same is true of $d/\varphi(d)$. Moreover
+\[
+ \sum_{d\in\mathcal C}\frac1d\ll\frac{\log N}{w},
+ \qquad \#\mathcal C\ll\frac D w,
+\]
+by summing over $d=p^2e$ and allowing multiple counting. Thus the
+\emph{whole} progression and exact-coprime mean errors from these
+collisions satisfy
+\begin{equation}\label{eq:actual-k-hb-collision-repair}
+ E_{\rm coll}\ll N^{o(1)}
+      \sum_{d\in\mathcal C}\left(\frac Nd+1+\frac N{\varphi(d)}\right)
+ \ll\frac{(N+D)N^{o(1)}}w
+ \ll N^{1-\omega/2}.
+\end{equation}
+The last inequality holds for all sufficiently large $N$ because
+$\omega$ and the divisor orders are fixed. This is more than enough
+for every inverse logarithmic saving. It also covers $m=N$; for that
+integer the congruence holds for every modulus, and the $+1$ term
+was retained. No claim of uniformity as $\omega\downarrow0$ is made.
+The repair loses no limiting sieve constant.
+
+\paragraph{Heath--Brown retains the original groups.}
+Work first with a smooth outer prime-product weight, of fixed
+polylogarithmic normalized derivative bounds. Apply the order-three
+HB identity separately at the original prime scale $R_i$.
+Discard a dyadic HB rectangle unless its original group meets that
+prime interval. Its at most six dyadic lower endpoints then have
+product at least $R_i/2^6\gg N^a$. This persists after Mellin
+separation, even outside the original curved support.
+
+Keep the original prime roughness condition
+$P^-(\prod p_i)>z_0=x^{1/(\log\log x)^3}$ before expansion. It is
+automatic for the primes being counted, and makes every nonunit
+HB factor $z_0$-rough. Every Mobius slot has scale
+$\ll R_i^{1/3}\ll x^{1/3}$, with fixed multiplicative constants.
+Consequently the following dichotomy is exhaustive for large $N$:
+\begin{enumerate}
+\item An individual HB slot lies in
+$[x^{2\zeta},x^{1/3+\zeta/2}]$. Its coefficient is rough $1$ or
+rough $\mu$, with an interval, a normalized logarithm, and a Mellin
+twist. It has the full auxiliary-coprimality SW property proved in
+\texttt{focused-rough-sw-product-interface-audit.tex}. No grouped
+convolution is substituted for this individual SW slot.
+\item Every slot is short, below $x^{2\zeta}$, or long, above
+$x^{1/3+\zeta/2}$. Each original group has a long slot: otherwise
+its product is at most $x^{12\zeta+o(1)}<N^a/O(1)$ when
+$12\zeta<a/2$. Three long slots would have product exceeding
+$x^{1+3\zeta/2}$, whereas the whole dyadic product is $O_{k_*}(x)$.
+There are therefore at most two original prime groups.
+\end{enumerate}
+This rules out a hidden residual product $x^{O(k_*\zeta)}$ in the
+exceptional case: that case itself forces $k\le2$.
+
+\paragraph{Every Proposition 5.2 hypothesis.}
+Group the other HB factors into $\beta_m$. Its coefficient has fixed
+divisor order. Truncate only this complementary coefficient at a
+sufficiently large logarithmic threshold, then normalize it; the
+selected SW coefficient need not be truncated. The discarded actual
+progression contribution is bounded, with arbitrary logarithmic
+saving, by
+\[
+ (\log N)^{-B}\sum_{v\ll N,\ v\ne N}
+       \tau_C(v)\tau_C(|N-v|)\ll N(\log N)^{C'-B}.
+\]
+Cauchy--Schwarz and fixed divisor moments prove the last estimate.
+Here $v$ is the full HB product, not the complementary factor $m$.
+The isolated $v=N$ contribution is $N^{\theta_*+o(1)}$; the mean
+uses $\sum_{d\le D}\tau_C(d)/\varphi(d)\ll\log^{O_C(1)}N$.
+
+Normalize the selected logarithm if present. The resulting
+$\alpha_n,\beta_m$ are one-bounded, $UV\asymp x$, and the individual
+$\alpha_n$ has precisely L23 Definition 2.1, including arbitrary
+auxiliary coprimality and subintervals. The three modulus coefficients
+are one-bounded by the preceding atom argument and supported on
+$(q_i,N)=1$. They may depend on $N$: the theorem is uniform for
+these coefficient classes, with the SW constants just verified
+uniformly.
+
+Substituting $U=A_0x^\zeta$ into
+\eqref{eq:actual-k-factorization-input} leaves savings
+$\zeta$, $2\zeta$, and $(1-2\sigma)\zeta=9\zeta/16$.
+After the fixed fine-box, small-factor and local-scale losses choose
+$\epsilon_{\rm disp}$ much smaller than these savings. The four
+conditions in the \emph{actual} source become
+\begin{align*}
+ Q_1&<Ux^{-\epsilon_{\rm disp}},&
+ U^2Q_2Q_3^2&<x^{1-8\epsilon_{\rm disp}},\\
+ N^\sigma UQ_1Q_2^5Q_3^2&<x^{2-15\epsilon_{\rm disp}},&
+ U^{1+2\sigma}Q_1Q_2^{5-2\sigma}Q_3^{2+2\sigma}
+ &<x^{2-15\epsilon_{\rm disp}}.
+\end{align*}
+All factor powers in the final expression are positive; in particular
+$5-2\sigma=73/16>0$. Passing from support endpoints to any dyadic
+subbox therefore preserves the inequalities. Also
+$A_0\in[x^\zeta,x^{1/3-\zeta/2}]$, exactly the factorization range.
+For $\kappa<\epsilon_{\rm disp}/(2(1+\epsilon_{\rm disp}))$ one has
+$N<x^{1+\epsilon_{\rm disp}}$ on every retained local scale, eventually.
+The explicit residue supremum in L23 Proposition 5.2 thus contains
+the actual target $N$. There is no exceptional set of even targets.
+
+\paragraph{One long slot.}
+There is only one original group. The other at most five factors have
+product $M\le x^{10\zeta+o(1)}$, so the long scale is
+$T\gg x^{1-10\zeta-o(1)}$. Choose the parameters so that
+$1-10\zeta>3/5+2\epsilon_{\rm disp}$. For each remaining product
+$m$, terms with $(m,d)>1$ vanish in both the progression and its
+primitive mean, since $(N,d)=1$. Otherwise use residue
+$Nm^{-1}\pmod d$. The inequality $T\ge d x^{\epsilon_{\rm disp}}$
+allows Lemma 3.4 at both endpoints of any subinterval of $[T,2T]$.
+
+Its displayed unrestricted rough mean can be replaced by the exact
+coprime mean: the difference is at most
+\[
+ \frac1{\varphi(d)}\sum_{p\mid d,\ p>z_0}(2T/p+1)
+ \ll_A \frac{T}{d\log^A x}.
+\]
+Indeed $d/\varphi(d)\ll\log\log(3d)$, $\omega(d)\ll\log x$,
+$z_0$ exceeds every fixed logarithmic power, and $d/T\le x^{-\epsilon}$.
+Summing this error with the fixed-order residual coefficients and
+the modulus coefficients loses only logarithmic powers. A smooth
+logarithm or twist is handled by partial summation. Modulus $1$ has
+zero discrepancy separately.
+
+\paragraph{Two long slots and arbitrary subintervals.}
+Their lengths $T_1,T_2$ exceed $x^{1/3+\zeta/2}$. If there are two
+original groups, the at most ten residual variables have product
+$M\le x^{20\zeta+o(1)}$; for one original group the stronger
+$M\le x^{8\zeta+o(1)}$ holds. Take parameters so small that
+\[
+ 3/5<(1-20\zeta)(2/3-3\epsilon_{\rm disp}),
+ \qquad 1/3+\zeta/2>3\epsilon_{\rm disp}.
+\]
+Then L23 Proposition 3.2 applies to the entire modulus range and has
+uniformity over every nonzero target residue. Its absolute modulus
+sum permits the original $|\rho_N(d)|\le1$ without an atom
+factorization; alternatively each fixed atom has bounded total
+coefficient and may be treated separately. The residual $m$ coefficient
+is divisor-bounded, as required. The two long factors are rough
+integers with coefficient $1$, before smooth partial summation.
+
+The needed interval extension is explicit in Maynard's proof quoted
+above. Consequently two partial summations allow separate Mellin
+twists and logarithms on both long slots, at a cost bounded by the
+product of their total variations, hence a fixed logarithmic power.
+This is \emph{not} a claim that arbitrary arithmetic coefficients on
+the two long slots are allowed. The source proof uses smooth functions
+with polylogarithmic derivative bounds and a pointwise primitive-
+residue estimate; it therefore preserves the required uniformity.
+
+\paragraph{Low ranks, tails, and prime powers.}
+For rank at most two, generalized BV applies below $x^{1/2-c'}$.
+For $k=1$ use classical BV. For $k\ge2$ select one original prime
+slot and combine the rest. Both lengths are between fixed positive
+powers of $x$ and their complementary powers. The prime slot,
+restricted to any interval and with a smooth twist, satisfies the
+auxiliary SW condition by ordinary prime SW and deletion of primes
+dividing the auxiliary integer. The other coefficient is
+divisor-bounded. Complex weights follow by four real/imaginary
+applications of the real-valued statement. There is no use of GEH
+beyond $1/2$.
+
+The finite number of atom labels and HB patterns, and the
+polylogarithmic number of dyadic rectangles, are absorbed by starting
+with a larger logarithmic saving. Smooth Mellin tails are bounded
+after the modulus sum by the same shifted-divisor moment above.
+Proper prime powers in an original slot contribute
+$N^{1-a/2+o(1)}$ before and after the divisor bound for $m\ne N$;
+the isolated equality $m=N$ costs only $N^{\theta_*+o(1)}$.
+Thus removal of prime powers does not multiply their total mass by
+the modulus level. Partial summation removes the prime logarithms.
+
+\paragraph{The closed distribution implication.}
+For the \emph{same} compiled coefficients and every permitted smooth
+outer weight, the preceding argument proves
+\begin{equation}\label{eq:actual-k-joint-signed-distribution}
+ \sum_d\rho_N(d)\left\{
+  \sum_{\prod p_i\equiv N\ (d)}W_N(\boldsymbol p)
+  -\frac1{\varphi(d)}\sum_{(\prod p_i,d)=1}W_N(\boldsymbol p)
+ \right\}\ll_A N\log^{-A}N.
+\end{equation}
+All constants may depend on the fixed cutoff, finite strategy,
+smoothing precision and number of slots; they do not depend on
+the even target. The proof does not impose a new numerical loss in
+$K$. An atom assignment may be chosen separately for a Type II scale,
+but only as an exact representation of the already fixed weight.
+It may not be selected from the observed signs of progression errors.
+
+\paragraph{Cross-check of the positive assembly.}
+We additionally read \texttt{actual-k-positive-assembly.tex}. Its
+coprime-mass union bound, lines 46--68, correctly uses
+$\sum_{d:p\mid d}|\rho_N(d)|/\varphi(d)\ll\log N/(p-1)$,
+with no factor $N^{\theta_*}$. Its pointwise upper sum is used before
+distribution, including at $N-rq=0$; this avoids a signed-boundary
+argument. The omitted primes $N-rq<N^\rho$ contribute $O(N^\rho)$
+for ordered prime pairs. The added low-product paragraph, lines
+84--101, also correctly covers the part of the global radial majorant
+with $m<2N^{1-\kappa}$: its absolute progression sum is at most
+$\sum_{m<2N^{1-\kappa}}O_W(\tau_C(m)\tau(N-m))
+ =N^{1-\kappa+o(1)}$, since $m=N$ cannot occur there eventually.
+The exact-coprime mean loses at most another logarithmic factor.
+A smooth cutoff $\chi(m/N^{1-\kappa})$ has bounded multiplicative
+derivatives on every dyadic chart, so this removal does not require
+distribution below the proved local-scale range. For its bad domain, putting
+$\beta=b/(1+b)$ gives $r>(rq)^\beta$ and $q\ge\sqrt{rq}$,
+so the fixed cutoff is available. The radial limiting density is
+$dt\,dy/[t(1-t)]$ for $y=rq/N$, and the $y<\eta$ tail is
+$O_a(\eta N/\log N)$. Hence its integral is $\log(1/b)$.
+These steps correctly yield the bad-count implication once the
+same-tree majorant and density inputs are supplied.
+
+\paragraph{Scope of the result.}
+The audit closes the HB, moving-residue, long-variable, subinterval,
+and divisor-weighted collision interfaces of the finite-atom
+distribution argument. It does not certify the numerical value of
+$K_{\rm end}$, nor independently prove that the actual prefix tree
+supplies \eqref{eq:actual-k-atom-input} and
+\eqref{eq:actual-k-factorization-input}; those are explicitly separate
+joint-audit tasks. No new distribution hypothesis is required after
+those data are supplied. Arbitrary arithmetic outer restrictions,
+cutoffs tending to zero with $N$, or a number of slots growing with
+$N$ are outside the proved implication. In particular, selecting only
+one primitive residue class modulo $3$ in an outer prime slot would
+destroy its SW property and is not licensed by bounded multiplicity.

@@ -1,0 +1,281 @@
+High-rank HB/Mellin separation: an adversarial audit and explicit usable lemma
+2026-10-10. New proof only; all old files, selected constants and state unchanged.
+
+Conclusion and boundary
+
+The high-rank smooth-weight step can be made explicit without choosing any
+coefficient from progression-error signs. The lemma below supplies a uniform
+projective integral norm and a pointwise Mellin-tail bound, with a concrete
+order for all logarithmic precisions. It matches the medium HB block actually
+used by the restricted retained-phase Proposition 5.2. No new obstruction was
+found for that fixed smooth class or for the stated positive radial smoothing
+used to pass to sharp positive families.
+
+There is a genuine limitation: the same pointwise polylogarithmic separation
+argument does NOT cover an arbitrary sharp coupled cutoff. A step across a
+product wall is not uniformly approximable by continuous bandlimited functions
+with error below 1/2 on the continuous rectangle. Current positive families
+instead use fixed-tolerance outward smoothing, followed by T->infinity and
+then tolerance->0. This does not assert arbitrary-log signed discrepancy for
+every sharp coupled domain. No numerical or global improvement is claimed.
+
+This report does not re-prove the spectral theorem, the full retained-phase
+dispersion calculation, low-rank BV, group-factorial normalization, or the
+ordinary/finite-table numerical inputs. Their scoped inputs remain explicit.
+
+1. What was read and what needed a fuller derivation
+
+All paths below are relative to goldbach-research; line numbers refer to the
+bound versions.
+
+* lichtman-hb-product-reduction-20261009.txt: lines 51--107 (groupwise HB and
+  common chart projector), 108--155 (medium choice), 177--209 (the short
+  Mellin/tail argument), 245 onward (smooth-only conclusion).
+* lichtman-prime-product-insertion-assembly-20261009.txt: lines 15--46
+  (fixed signed coefficient and smooth family), 68--78 (whole-box partition),
+  82--145 (parameters and actual medium block), 181--205 (recombination).
+* lichtman-hb-modulus-insertion-20261009.tex: lines 30--66 (exact atom,
+  fixed assignment), 179--241 (original-chart scale and four inequalities).
+* lichtman-hb-rough-sw-insertion-20261009.tex: lines 174--197 (interval/twist
+  partial summation), paragraphs 6--7 (unchanged rough projector and scope).
+* lichtman-prop52-retained-phase-bridge-20261009.tex: B1--B5 and paragraphs
+  4--6 (the internal five-variable phase, no arbitrary q weight, two-sided
+  coefficient expansion and the d-sum). The final restricted subclass is
+  the applicable one, with theta=7/32 and c0*x<=T<=x^(1+kappa).
+* lichtman-lemma51-large-residue-audit-20261009.tex: lines 13--39 (natural
+  bound and its explicit power reserve).
+* lichtman-divisor-coefficient-extension-20261009.txt: sections 1--3
+  (divisor truncation independent of frequency and zero-product treatment).
+* lichtman-zero-product-dispersion-repair-20261009.txt: lines 20--65 (Z1/Z2),
+  87--147 (zero deletion/reinsertion inside dispersion).
+* lichtman-current-upper-density-assembly-20261009.txt: lines 104--254
+  (actual common tree and 87 density domains), 396--459 (positive mean and
+  radial smoothing). The older numerical K printed in that file is not a
+  new value here; the current tail-adopted tuple remains unchanged.
+* lichtman-current-lower-density-assembly-20261009.txt: lines 499--531
+  (fix finite families before PP and use the positive product theorem).
+
+The earlier HB independent review had already checked the qualitative Fourier
+argument. The additional evidence here is its full norm estimate, the actual
+individual-alpha/complement-beta construction, separation of the TWO different
+variation losses, and the explicit no-circularity logarithmic budget below.
+
+2. Fix the objects before any errors are observed
+
+Fix T, one original geometric chart, an HB pattern and a retained individual
+rectangle n_j in I_j subset [U_j,2U_j], j=1,...,m, m<=6*k_star. Units may be
+removed from the continuous variables and retained as fixed factors. The
+original chart roughness projector Zchart and all truncated-mu intervals are
+already fixed. Retain a rectangle only if it meets each original group and
+the original geometric support. This is a geometric zero-term test, unrelated
+to congruence errors. In each retained group prod U_j>=R_i/64.
+
+Select an individual medium slot using the original X chart, not a value of
+the tuple or its residue. Regroup the other slots and then restrict their
+product to a dyadic interval [V,2V]. Thus x=U*V is fixed on a source block and
+comparable to X. The fixed projector satisfies the complete source roughness
+window. The modulus-slot partition is chosen from the WHOLE upper-endpoint
+vector for this source length and is frozen on the entire modulus box. It is
+an identity for the same rho_T, not a newly optimized rho_T for each error.
+
+The 87 eighth domains are ancestor/activation labels used in choosing the
+finite modulus policy; they are not 87 independently chosen signs of analytic
+remainders. Fine boxing makes their coupled history/gate tests constant on
+each atom. This audit does not Fourier-transform a partially licensed modulus
+support and then apply a theorem outside its whole-box license.
+
+The intermediate separated HB summands can be nonzero where the original
+geometric weight was zero. This is harmless ONLY because every retained
+rectangle still satisfies the group scale bounds, common projector, and
+whole-box modulus inequalities throughout. The groupwise HB identity need
+only hold on the original group's supported range; after multiplication by
+the original weight it is an exact identity. Individual separated summands
+are treated as HB coefficients, not asserted to be prime indicators outside
+that original range.
+
+3. Explicit finite-dimensional separation lemma
+
+Put z_j=log(n_j/U_j). Leave the hard individual intervals I_j in the arithmetic
+coefficients. Let w_T(z) be the smooth geometric factor, including a fixed
+compact cutoff equal to one on [0,log2]^m. All its supports lie in a fixed
+compact rectangle. Define the finite mixed-derivative norm
+
+ D_T = sum_{S subset {1,...,m}} || (prod_{j in S} partial_j^2) w_T ||_L1.
+
+Assume D_T<=C*(log T)^E for fixed C,E. No derivative order beyond two in
+each coordinate is needed here. Set G=prod_j(1-partial_j^2)w_T and use the
+Fourier convention hat(w)(xi)=int w(z) exp(-i*xi.z) dz. Integration by parts
+on the compact support gives
+
+ |hat(w)(xi)| <= D_T * prod_j(1+xi_j^2)^(-1).               (M1)
+
+Fourier inversion therefore gives the absolutely integrable separation
+
+ w_T(z) = int hat(w)(xi) prod_j exp(i*xi_j*z_j) dxi/(2*pi)^m,
+ int |hat(w)(xi)| dxi/(2*pi)^m <= D_T/2^m.                 (M2)
+
+For H>=1 let w_H keep only |xi|_infinity<=H. Since
+int_R (1+t^2)^(-1)dt=pi and int_|t|>H (1+t^2)^(-1)dt<=2/H,
+the union bound on the m coordinates yields
+
+ sup_z |w_T(z)-w_H(z)|
+ <= m*D_T/(2^(m-1)*pi*H) <= m*D_T/H.                     (M3)
+
+These are bounds on an integral superposition, not on a finite quadrature
+whose discretization error would still need proof. The theorem can be applied
+under this integral: at each fixed T all arithmetic sums are finite and the
+Fourier measure has finite absolute mass, so Fubini is justified. The bounded
+frequency box does NOT require paying H^m instead of the integral norm (M2).
+No selection of Fourier coefficients based on arithmetic-error signs occurs.
+
+4. Coefficients actually presented to the repaired theorem
+
+For a retained frequency xi, the selected individual coefficient is precisely
+
+ alpha_n = b(n)*1_{n in I}*1_{Pminus(n)>Zchart}*(n/U)^(i*xi_j),
+
+where b is 1 or mu, with its fixed HB cutoff and possibly a normalized
+logarithm. It remains one-bounded. Its multiplicative twist on a dyadic interval
+has sup norm 1 and total variation at most |xi_j|*log2. A normalized logarithm
+has bounded sup norm and variation. The full auxiliary, subinterval-uniform
+rough-SW proof can consequently be partially summed with an additional factor
+O(1+H); it requires correspondingly greater logarithmic precision, not a new
+arithmetic hypothesis. An arbitrary arithmetic residue filter is not introduced.
+
+The complementary coefficient is
+
+ beta_m = 1_{m in [V,2V]} * sum_{prod_{i!=j}n_i=m} prod_{i!=j}
+   [b_i(n_i)*1_{n_i in I_i}*1_{Pminus(n_i)>Zchart}*(n_i/U_i)^(i*xi_i)].
+
+After normalizing the finitely many logarithms, |beta_m| is bounded by a fixed
+divisor function uniformly in xi. It is not required to be SW. The existing
+divisor-coefficient extension truncates by tau(m), independently of xi and
+independently of progression errors. Its deletion uses the ORIGINAL fixed
+divisor moment, whose exponent does not grow with the chosen cutoff precision.
+All outer logarithmic normalizations are restored as explicit fixed log powers.
+
+The three modulus factors and their support partition are unchanged by xi.
+Their one-bounded coefficient class and all four size inequalities therefore
+remain valid. The representation may differ between Type II LENGTH blocks,
+as allowed by the exact modulus identity; it need not differ with frequencies.
+It never depends on n, m, a chosen progression class, or observed error signs.
+
+5. Do not confuse geometric Mellin variation with the retained arithmetic phase
+
+The geometric norm (M2) is polylogarithmic. The reciprocal arithmetic phase
+inside dispersion is a different object. For fixed d~D it is
+ exp(2*pi*i*T*h/(q*d*r1*r2*n1)), with normalized size
+ lambda=(T/x)*(D/d)*log^5 x.
+When T/x may be x^kappa, its five-coordinate variation costs
+x^(5*kappa+o(1)), not merely a polylogarithm. That power is already paid once
+INSIDE the restricted P5.2 proof; it must not be dropped or counted again as
+the geometric Fourier norm. The large-residue spectral calculation reserves
+7*sigma/2-21*kappa/4-sigma/4>3*sigma for kappa<=sigma/100, and the subsequent
+dispersion bridge deliberately uses weaker power savings.
+
+For the outer Fourier modes alpha,beta above, the internal phase proof keeps
+their twists as bounded coefficient sequences. It does not differentiate
+those sequences along with the retained phase. The n1 cutoff/polarization is
+after the dispersion use of SW. In particular (M2) does not authorize a new
+arbitrary weight on Lemma5.1's outer q variable. P5.2 is invoked in its final
+factorized-coefficient form, where this issue has already been handled.
+
+6. Tail after the modulus sum, with v=T explicitly isolated
+
+Let epsilon_H=m*D_T/H. After collapsing the fixed number of HB variables to
+their complete integer v, their absolute coefficient is <=tau(v)^C times a
+fixed logarithmic factor. Also |rho_T(l)|<=tau(l)^J and l<=T^theta_star,
+theta_star<1 (the actual families have theta_star<3/5). For v!=T,
+
+ sum_{l|v-T}|rho_T(l)| <= tau(|v-T|)^(J+1) up to a fixed divisor-order change.
+
+Apply the independently supplied NONZERO shifted-moment estimate Z2. On one
+retained source block x~U*V it gives x*log^C0 x, uniformly for T of the stated
+polynomial size. C0 depends on fixed divisor orders and fixed scale parameters,
+not on the requested Mellin-tail accuracy. Thus the nonzero counting tail is
+O(epsilon_H*x*log^C0 x), before the known logarithmic chart counts.
+
+At v=T, do not use any tau(0) bound and do not sum moduli separately with an
+O(x) error. There are at most tau(T)^C contributing HB factorizations and the
+modulus-weight sum is <=T^(theta_star+o(1)); hence the exceptional tail is
+O(epsilon_H*T^(theta_star+o(1))). This is a first-moment bound with a fixed
+power gap. The actual common rough projector>2 makes each HB product odd
+when T is even, so this point is in fact absent, but that fact is not needed.
+
+For the exact-coprime mean, drop its coprime indicator in absolute value and
+use sum_{l<=T^theta_star}|rho_T(l)|/phi(l)<=log^C1 T. One may bound l/phi(l)
+by O(loglog T) and use the Euler product for sum tau(l)^J/l. This gives an
+O(epsilon_H*x*log^C2 x) mean tail, with no factor T^theta_star. At v=T the
+mean has the same harmless divisor multiplicity, not a tau(0) term.
+
+The logical order is: form the exact HB identity and the fixed Fourier
+representation; bound the discarded integral absolutely after the modulus
+sum, separating v=T BEFORE invoking Z2; apply restricted P5.2 to the retained
+frequencies; recombine. One must NOT delete v=T from alpha or beta beforehand:
+that is a coupled n*m=T filter and need not preserve the source coefficient
+class. The existing dispersion repair treats that exceptional product in its
+own proof. None of the Fourier interchange arguments alters that treatment.
+
+7. A non-circular logarithmic budget
+
+Fix the policy, number of slots, exponent margins, smoothing tolerance, chart
+projector, and derivative norm exponent E first. Let J0 bound all known HB,
+dyadic, atom-count and scalar-log losses, and C0 bound the tail moments above.
+These are fixed independently of the final requested precision A.
+
+Choose B>A+J0+C0+3 and H=(log T)^(B+E+2). Then (M3) is
+O(log^(-B-2)T), and all nonzero/mean tails are O(T log^(-A-2)T).
+The exact-product tail has a fixed power saving. The retained frequencies
+are now a FIXED logarithmic range. Ask for rough-SW with enough additional
+saving to pay their O(1+H) variation, and ask for the repaired source
+discrepancy with exponent A+J0+E+3. Integrating that error against (M2) and
+summing the fixed/logarithmic pieces leaves O(T log^(-A)T).
+
+The divisor order of beta and the shifted-moment exponent were fixed before
+B was selected. No maximum tau(n)^C=x^o(1) is multiplied into a merely
+logarithmic remainder. The x^(5*kappa) phase loss belongs to the separate
+spectral power margin in section 5, independent of A. Since x is within fixed
+powers of T, log T and log x are comparable throughout this argument.
+
+8. Which coupled geometries actually meet the lemma
+
+On an HB chart, original group logarithms are constants plus sums of z_j.
+For fixed epsilon>0 a smoothed exponent wall is a fixed smooth function of
+((sum c_i log p_i/log T)-b)/epsilon. A smoothed radial/product wall is a
+fixed smooth function of ((prod p_i/T)-y0)/epsilon. On retained rectangles
+the product is O_k(T), including the part on which the original weight was
+zero; repeated z derivatives therefore have fixed bounds. Fixed compact
+cutoffs and the finite product of these smooth factors satisfy D_T=O_epsilon(1),
+or the stated polylog bound when explicitly normalized logarithms occur.
+Reciprocal original prime logarithms also have bounded normalized derivatives,
+because EACH original group remains >=R_i/64>>T^a_star on a retained rectangle.
+
+The discontinuous individual HB intervals, mu truncations and roughness
+indicators stay in alpha/beta. They are never called smooth. They lie in the
+explicit interval/rough coefficient hypotheses already supplied to SW/P.
+The discontinuous modulus history choices have already been frozen on full
+licensed atoms before this argument; no modulus-dependent hard cutoff is
+hidden inside w_T.
+
+For a raw coupled indicator 1_{z1+z2<=c}, any continuous approximation with
+the claimed uniform error would have to approach both 0 and 1 at the wall.
+Its uniform error on the continuous rectangle is at least 1/2. Thus smooth
+Fourier truncation alone cannot prove the arbitrary-sharp extension. This
+does not rule out separate Perron/boundary arguments in other problems.
+
+In the current upper application, lines 432--459 of the bound upper assembly
+use one global nonnegative radial majorant at FIXED epsilon, excess limiting
+mass tending to zero, then T->infinity, then epsilon->0. The excess is charged
+once to positive mass, not once per HB rectangle. No arbitrary-log bound is
+claimed for the sharp boundary error. The lower finite table uses this
+positive-family theorem for its fixed switches; ordinary-prime remainders
+use fixed compiled coefficients and smooth/univariate interval weights. The
+lower assembly fixes that finite union before PP (lines 503--531).
+
+Consequently the present step closes at the actual smooth medium blocks and
+the explicitly one-sided positive sharp-family transfer. It does not certify
+arbitrary coupled arithmetic filters, T-adaptive policy/precision, unbounded
+slot count, or general sharp signed PP by reinterpretation of the old text.
+The unresolved scopes remain the accuracy of the explicitly named analytic
+inputs and their separate reviews, not a newly supplied blanket distribution
+theorem. No integral or selected K/c/b is recomputed by this report.

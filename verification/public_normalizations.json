@@ -1,0 +1,303 @@
+{
+  "scope": "Explicit provenance-path and nonmathematical privacy normalizations. No numerical arrays, rational endpoints, formulae, or executable calculation logic are changed.",
+  "files": [
+    {
+      "file": "probe_fourth_prefix_stronger.json",
+      "original_sha256": "bc25099eb4c1abc5d13048c4cda5cf950f7375da86c93aca3cf8ff472c8c18b9",
+      "public_sha256": "d157560523ab730a1461b2907b3ad0467350f2b22e6fc3d73d6d962b777c3e4b",
+      "only_declared_json_change_verified": true,
+      "change": "replace one JSON string value",
+      "json_pointer": "/output",
+      "replacement": "fourth-prefix-stronger-boxes.npz"
+    },
+    {
+      "file": "wu-y6-numeric-impact-20261010.json",
+      "original_sha256": "9178f14fa01ad4cf185332de0ded05c8a32012be5f942cafd53439a5013a8e80",
+      "public_sha256": "940556361ed4137a1207d99fc1c2cae98eee4fa5b7cbc03de4fc4615e2150d73",
+      "only_declared_json_change_verified": true,
+      "change": "rename one JSON object member; its hash value is unchanged",
+      "container_json_pointer": "/bindings_sha256",
+      "original_member": "[private absolute path]",
+      "public_json_pointer": "/bindings_sha256/0.899.pdf",
+      "replacement": "0.899.pdf"
+    },
+    {
+      "file": "lichtman-prime-product-assembly-independent-20261009.json",
+      "original_sha256": "b954fe70e449361dea2a008803a940b46cb9a9b08752ef3c06ad3e9effbb4845",
+      "public_sha256": "ef2c5aec455003f75db401293b84f659cb8625350945d3c3d40154509f500199",
+      "change": "replace one descriptive JSON value",
+      "json_pointer": "/remaining_global_obligations/3",
+      "purpose": "Remove private-communication attribution while retaining mathematical scope.",
+      "only_declared_json_change_verified": true
+    },
+    {
+      "file": "lichtman-restricted-prop52-composite-independent-20261009.json",
+      "original_sha256": "0823e6de620de463f431ffbe02a45a62bbe40440ef2812b44f662d4aa2ec7197",
+      "public_sha256": "a6fc2d19f15a92de0016930581d68292f5fca1c86dd202f34ec58d8a7d85a89c",
+      "change": "replace one descriptive JSON value",
+      "json_pointer": "/not_established/6",
+      "purpose": "Remove private-communication attribution while retaining mathematical scope.",
+      "only_declared_json_change_verified": true
+    },
+    {
+      "file": "positive-pair-deletion-final-adversarial-20261010.json",
+      "original_sha256": "421288eabf6a2748d89f7bc05d0e3e7269f8591a645c13e464b9b4abfd57f82d",
+      "public_sha256": "b29865d8ae16777ab69dbc2364adee37b2081acf27c2e124f8e1a49fcec08205",
+      "change": "replace one descriptive JSON value",
+      "json_pointer": "/runbo_connection",
+      "purpose": "Remove private-communication attribution while retaining mathematical scope.",
+      "only_declared_json_change_verified": true
+    },
+    {
+      "file": "wu-y6-current-research-impact-20261010.json",
+      "original_sha256": "0dc0dcdc2570929980c8860fe913c8111e39eeade4cc168f409f95ba65d8a387",
+      "public_sha256": "5ec6c17abfabbd104c0379e63139419dc45bd139883fc8eeb337deaa6f7763a7",
+      "change": "replace one descriptive JSON value",
+      "json_pointer": "/source",
+      "purpose": "Remove private-communication attribution while retaining mathematical scope.",
+      "only_declared_json_change_verified": true
+    },
+    {
+      "file": "finalize_paired_y6_y11_improvement_20261010.py",
+      "original_sha256": "3f37f002cfe2951b5a0eb9b07515c2339897228bd2b4fa255bdb86f8b9928028",
+      "public_sha256": "3170d36ba0b5faff6568e9a422cc3f0ed050300cbdbce2f98e7915847d25a956",
+      "change": "replace a phrase in one workflow-description string",
+      "source_line_start": 167,
+      "source_line_end": 167,
+      "purpose": "Remove private-communication attribution.",
+      "AST_identical_after_masking_string_constants": true
+    },
+    {
+      "file": "paired-y6-y11-improvement-20261010.txt",
+      "original_sha256": "c9466b032f7cc5f016272724304f1411f1538640a3012840ec41acffbadc8264",
+      "public_sha256": "6ce76d9bdaecd757e8f01087c9472ff221666f9d04750f9641a412c9d69b39b0",
+      "change": "minimal text privacy normalization",
+      "purpose": "Remove private attribution or personal expectation without changing mathematical content.",
+      "transformations": [
+        {
+          "kind": "neutralize_private_communication_provenance",
+          "description": "Remove private correspondence attribution or a personal expectation; retain the mathematical issue and limitations.",
+          "original_byte_start": 171,
+          "original_byte_length": 137,
+          "original_line": 6,
+          "removed_span_sha256": "d00e0a2717a64b5e760cbaf195cfe6b8c720f6872311eae454246a4828f91184",
+          "replacement_utf8": "The full-Y11 form suggests a useful modification without using the\nprinted contracted-Y11 inequality."
+        }
+      ],
+      "only_declared_spans_changed_verified": true
+    },
+    {
+      "file": "positive-pair-deletion-improvement-20261010.txt",
+      "original_sha256": "10182dae3bb7466ab93a991d7e355fd1c572b98461e79007868428c48b87d0c7",
+      "public_sha256": "0e0916f6d564604dc3ee7ce81728f5597c3e91c6188bc4c0650e77efe0379f04",
+      "change": "minimal text privacy normalization",
+      "purpose": "Remove private attribution or personal expectation without changing mathematical content.",
+      "transformations": [
+        {
+          "kind": "neutralize_private_communication_provenance",
+          "description": "Remove private correspondence attribution or a personal expectation; retain the mathematical issue and limitations.",
+          "original_byte_start": 728,
+          "original_byte_length": 41,
+          "original_line": 15,
+          "removed_span_sha256": "d0b25950a713745d6ef5e873ab8d2539c69a856b6997064a14da07781f35f9d8",
+          "replacement_utf8": "Two separate issues have distinct roles."
+        },
+        {
+          "kind": "neutralize_private_communication_provenance",
+          "description": "Remove private correspondence attribution or a personal expectation; retain the mathematical issue and limitations.",
+          "original_byte_start": 9337,
+          "original_byte_length": 75,
+          "original_line": 187,
+          "removed_span_sha256": "e3ca1ca7cd14ddd885117d9b9802af73773ae064dd9fc898bdba99b9bd455b27",
+          "replacement_utf8": "No replacement value such as1.97\nis adopted as a theorem here."
+        }
+      ],
+      "only_declared_spans_changed_verified": true
+    },
+    {
+      "file": "lichtman-current-lower-density-assembly-20261009.txt",
+      "original_sha256": "2b320f37baad0abadafab53afabcebf43592a0d4e30bc4f1f5d9756ec3f586ea",
+      "public_sha256": "b3b47dc316fee5d03fc0d45e5962eb804b7d85ff6e3bd2636e9de1b17c85ef02",
+      "change": "minimal text privacy normalization",
+      "purpose": "Remove private attribution or personal expectation without changing mathematical content.",
+      "transformations": [
+        {
+          "kind": "neutralize_private_communication_provenance",
+          "description": "Remove private correspondence attribution or a personal expectation; retain the mathematical issue and limitations.",
+          "original_byte_start": 4576,
+          "original_byte_length": 71,
+          "original_line": 91,
+          "removed_span_sha256": "cc5456ca47dbc709d856bbb27c6cca25d0987884a768dd3a203e989433fa9355",
+          "replacement_utf8": "The Wu-2008 weight-domain correction is not identified"
+        },
+        {
+          "kind": "neutralize_private_communication_provenance",
+          "description": "Remove private correspondence attribution or a personal expectation; retain the mathematical issue and limitations.",
+          "original_byte_start": 28385,
+          "original_byte_length": 53,
+          "original_line": 554,
+          "removed_span_sha256": "3566bd20c021539f8986bb29dd842c0abfa9553647aa2e04d8aa92715eeccf44",
+          "replacement_utf8": "The unspecified Wu weight-domain correction remains unidentified."
+        }
+      ],
+      "only_declared_spans_changed_verified": true
+    },
+    {
+      "file": "lichtman-current-upper-density-assembly-20261009.txt",
+      "original_sha256": "6a272a3d80d6765575cb795508b2f9aa3f654f1bc5cfcc081c518df63f77f861",
+      "public_sha256": "2a2c30d89acc685e10698a30731db6ea0cb3d98fcf0c9e0cbe3817b841ef7a68",
+      "change": "minimal text privacy normalization",
+      "purpose": "Remove private attribution or personal expectation without changing mathematical content.",
+      "transformations": [
+        {
+          "kind": "neutralize_private_communication_provenance",
+          "description": "Remove private correspondence attribution or a personal expectation; retain the mathematical issue and limitations.",
+          "original_byte_start": 27114,
+          "original_byte_length": 31,
+          "original_line": 476,
+          "removed_span_sha256": "1c2a3d6ade74a6c934a0094f63a9fb3cab65162e4012c82ca8f3b840f5dca160",
+          "replacement_utf8": "The unspecified Wu weight-domain\ncorrection"
+        }
+      ],
+      "only_declared_spans_changed_verified": true
+    },
+    {
+      "file": "lichtman-prime-product-insertion-assembly-20261009.txt",
+      "original_sha256": "30371e480ad6a259ed8a9aa8b47a88304b4e8889adc79936b9ae3f0a36a72661",
+      "public_sha256": "afadd004c927e36613f992c97e6976fd9b152ef31db329f7da3d6039a018b194",
+      "change": "minimal text privacy normalization",
+      "purpose": "Remove private attribution or personal expectation without changing mathematical content.",
+      "transformations": [
+        {
+          "kind": "neutralize_private_communication_provenance",
+          "description": "Remove private correspondence attribution or a personal expectation; retain the mathematical issue and limitations.",
+          "original_byte_start": 12404,
+          "original_byte_length": 37,
+          "original_line": 222,
+          "removed_span_sha256": "ebfb479f67d9e8633c669b527e5aff100fb8b80cf1a3bef47cd377dfc33951af",
+          "replacement_utf8": "The unspecified Wu weight-domain correction"
+        }
+      ],
+      "only_declared_spans_changed_verified": true
+    },
+    {
+      "file": "numerical-primitive-root-review-20261010.txt",
+      "original_sha256": "c004306319bcd2b549fa7f85544b0a082ec59cf8dfe689df5526b66e6c34e4bd",
+      "public_sha256": "b80894a0dd3617b62362797d5e8d974ca143f406c90da9dad16573a1c03ce67d",
+      "change": "minimal text privacy normalization",
+      "purpose": "Remove private attribution or personal expectation without changing mathematical content.",
+      "transformations": [
+        {
+          "kind": "neutralize_private_communication_provenance",
+          "description": "Remove private correspondence attribution or a personal expectation; retain the mathematical issue and limitations.",
+          "original_byte_start": 5846,
+          "original_byte_length": 30,
+          "original_line": 109,
+          "removed_span_sha256": "8257200c83c09937af0d044f04f13ae7fe7b26490bffb301a2caaf5fbf17894b",
+          "replacement_utf8": "identifies the Wu weight-domain correction"
+        }
+      ],
+      "only_declared_spans_changed_verified": true
+    },
+    {
+      "file": "positive-pair-deletion-final-adversarial-20261010.txt",
+      "original_sha256": "2c6d12331bb6c18b6a03060f088c0b7156e5bd0a31fbc05a733807424b5f052d",
+      "public_sha256": "d295835189c3690334636704413806d8650b477f2edd406b9c559e07e25cd4ee",
+      "change": "minimal text privacy normalization",
+      "purpose": "Remove private attribution or personal expectation without changing mathematical content.",
+      "transformations": [
+        {
+          "kind": "neutralize_private_communication_provenance",
+          "description": "Remove private correspondence attribution or a personal expectation; retain the mathematical issue and limitations.",
+          "original_byte_start": 4517,
+          "original_byte_length": 38,
+          "original_line": 31,
+          "removed_span_sha256": "d3187f2c12dde1a341a09b47ae80219621cd6f775beb358dd80f8838aa579456",
+          "replacement_utf8": "How this relates to the weight-domain correction"
+        },
+        {
+          "kind": "neutralize_private_communication_provenance",
+          "description": "Remove private correspondence attribution or a personal expectation; retain the mathematical issue and limitations.",
+          "original_byte_start": 4557,
+          "original_byte_length": 114,
+          "original_line": 32,
+          "removed_span_sha256": "85e471868aa7ed470c05c5fb3127b15ad2e7ac46493bb817ad1c2948c4f5a3c3",
+          "replacement_utf8": "The Y6 range correction motivates examining positive Y6 cells whose saved contribution is small or zero."
+        },
+        {
+          "kind": "neutralize_private_communication_provenance",
+          "description": "Remove private correspondence attribution or a personal expectation; retain the mathematical issue and limitations.",
+          "original_byte_start": 4971,
+          "original_byte_length": 73,
+          "original_line": 32,
+          "removed_span_sha256": "22de9a996a3ce1ddc25604e97a3867a385d07b231619b768e188a51850e9dbdd",
+          "replacement_utf8": "it does not assert that this correction disproves the published0.899 count"
+        }
+      ],
+      "only_declared_spans_changed_verified": true
+    },
+    {
+      "file": "corpus-renewal-certificate-methods-20261010.txt",
+      "original_sha256": "35520b5151bafdd0b895ebdea5e4f520416c506c9739fbc13510ef809064b6a4",
+      "public_sha256": "194fbd5c1b2352c3b7c908d1f311720a46aa011ac7139da0272760b9066b1ced",
+      "change": "minimal nonmathematical privacy normalization",
+      "transformations": [
+        {
+          "kind": "neutralize_local_machine_path",
+          "description": "Replace the local absolute workspace path with a neutral workspace reference.",
+          "original_byte_start": 1056,
+          "original_byte_length": 56,
+          "original_line": 19,
+          "removed_span_sha256": "43fb10c4a605c52f4157dcbc0881c3129deaba05c0cc275f40dd0c889e5cd2c5",
+          "replacement_utf8": "项目根目录以本研究工作区为准；本地绝对路径不在公开副本中列出。"
+        }
+      ],
+      "only_declared_spans_changed_verified": true
+    },
+    {
+      "file": "wu-y6-weight-impact-20261010.txt",
+      "original_sha256": "fc05a78a14153a145ae3eee913ebf0316f6a85f30b3140cda8a66b652e2cff6f",
+      "public_sha256": "85fc1ebc10626f69ba1b7f823159be62393f0d04f9fb9fc38d5860b8cea391e1",
+      "change": "minimal nonmathematical privacy normalization",
+      "transformations": [
+        {
+          "kind": "neutralize_private_communication_provenance",
+          "description": "State the mathematical issue without attributing it to private communication.",
+          "original_byte_start": 188,
+          "original_byte_length": 75,
+          "original_line": 6,
+          "removed_span_sha256": "38e23628e7151af5665684e3550e5a5332292c5b1983cf0aeeca2dc79a90fb75",
+          "replacement_utf8": "The weight-domain issue concerns the conjunction of RECTANGULAR Y6 and CONTRACTED Y11"
+        },
+        {
+          "kind": "neutralize_private_communication_provenance",
+          "description": "Retain the public bibliographic source without private delivery provenance.",
+          "original_byte_start": 1957,
+          "original_byte_length": 34,
+          "original_line": 36,
+          "removed_span_sha256": "87323904069d206bbd32e3df8d6e0f29ac553c50d92e456d0dcac7048fa2f21d",
+          "replacement_utf8": "Source: J. Wu,"
+        },
+        {
+          "kind": "neutralize_private_communication_provenance",
+          "description": "Remove a private evidence-archive reference; retain the published source and mathematical discussion.",
+          "original_byte_start": 2281,
+          "original_byte_length": 112,
+          "original_line": 41,
+          "removed_span_sha256": "0a42e756198ca5793c383a4e89ab69061a095105f2bdc3f75951b5f20727bfda",
+          "replacement_utf8": "The public bibliographic source and the displayed mathematical definitions\nare the evidence used in this note."
+        },
+        {
+          "kind": "neutralize_private_communication_provenance",
+          "description": "Retain the limitation without private communication attribution.",
+          "original_byte_start": 8803,
+          "original_byte_length": 143,
+          "original_line": 155,
+          "removed_span_sha256": "925293714fbffdb60be6c7c456bf566c16326db0480d835498e131dc71bea030",
+          "replacement_utf8": "No search for a possible extension is undertaken here. No corrected\n1.9728 constant is supplied or inferred in this review."
+        }
+      ],
+      "only_declared_spans_changed_verified": true
+    }
+  ]
+}

@@ -1,0 +1,194 @@
+Final classical-input correspondence: the coprime medium spectral route
+10 October 2026. Independent narrow source audit; new report only.
+
+1. Finding and scope
+
+For the actual coefficient class in distribution-medium-completion-20261010.txt
+lines 349--380 and 463--483, the named classical spectral statements exist
+with the required quantifiers. I found no missing spectral inequality in
+that interface. This finding is more precise than a blanket completion:
+it applies to trivial character, level z, cusps infinity and 1, (a,z)=1,
+arbitrary complex n coefficients independent of spectral height, and ONE
+common m interval and additive phase across levels. It does not verify
+every preliminary dispersion estimate, every compiled atom, or the final
+prime-count conclusion. It does not restore an unrestricted L23 theorem.
+
+The Lemma 4.6 replacement in the current medium note is an actual retained-
+phase derivation for |a|<=x^(1+kappa), kappa<=sigma/100. It does not simply
+insert the restricted moving-residue theorem as a new black-box assumption.
+Its phase and final saving calculation are checked explicitly in section 5.
+
+2. Exact normalization and the moving integer a
+
+The relevant ABL source is Assing--Blomer--Li, Uniform Titchmarsh divisor
+problems, arXiv:2005.13915v1, (3.1)--(3.8), Lemmas 3.1 and 3.2, PDF pp.7--11.
+https://arxiv.org/pdf/2005.13915v1
+Saved primary extraction:
+external-source-audit-20261009/assing-blomer-li-2005.13915v1-large-a-20261009.txt
+especially lines 575--1010. The paper's variables correspond to
+ q_ABL=1, r_ABL=z, s_ABL=1, Q_ABL=z, Q_bad=z, Q_good=1, conductor=1.
+The dispersion factor d in E2=sum_d E3(d)/d is NOT q_ABL or a level.
+
+Use R(n)=sqrt(|n|)*rho_ABL(n), the DI normalization. At level z the scaling
+matrices are sigma_infinity=Id and sigma_1=[[sqrt(z),0],[sqrt(z),1/sqrt(z)]].
+Drappeau Lemma 4.3 (PDF p.11) gives the Kloosterman cusp conversion; in this
+case its phase is e(ay/z). Reversing that conversion gives e(-ay/z) on the
+n coefficient of the ordinary Kloosterman sum in the medium argument.
+https://drappeau.perso.math.cnrs.fr/documents/divtm-siegel.pdf
+
+Write y=nu*n, nu|a^infinity, (n,a)=1. In ABL Lemma 3.1 the exceptional
+integer K is 1 for EVERY oldform dilation because (a,z)=1. Thus
+ R_v(a*nu*n)=lambda_v(a*nu)*e(n*(a*nu-1)/z)*R_v(n).
+Multiplication by the retained cusp phase e(-a*nu*n/z) leaves EXACTLY
+e(-n/z). Therefore the transformed functional is
+ beta_nu(n,z)=1_((n,a)=1)*beta(nu*n,z)*e(-n/z),
+common to all dilations, and independent of height and future m,c variables.
+The negative sign version is its corresponding signed identity. This is
+an algebraic identity, with no small-a expansion and no frozen-a constant.
+
+One must not pretend lambda_v is common to an oldform packet. ABL (3.3)
+instead writes the orthonormal packet using coefficients xi_g(v). Its
+Frobenius norm is z^epsilon after divisor losses. Each normalized dilation
+has norm one, so Cauchy bounds evaluation on it by the norm of the same
+linear functional. Bounding lambda_v then costs (|a|*nu)^(7/64+epsilon).
+In squared norms this is (|a|*nu)^theta, theta=7/32. The unchanged m
+functional can now use the level average. This is the packet reasoning in
+fixed-d-abl-packet-input-audit-20261010.txt lines 117--157, and agrees with
+the printed ABL Lemma 3.2 rather than assuming a general n-removal theorem.
+
+ABL Lemma 3.2 explicitly includes the holomorphic and continuous quadratic
+forms, without the a and nu powers in those two cases. Its continuous
+proof invokes the character-pair oldclasses with theta=0. Thus the actual
+cumulative cusp-summed continuous form has the SAME t-independent beta_nu
+and NO additional power of the height. This is not a claim that individual
+Eisenstein series are square-integrable cusp forms. Young's formal
+Plancherel basis identity (Prop.8.2, arXiv:1710.03624v2) matches this use.
+https://arxiv.org/pdf/1710.03624v2
+
+Although ABL initially writes a length >=1, its algebra is valid also for
+the endpoint block 1/2<=Y<1. Every nonempty transformed interval has actual
+length Y/nu>=1/2; the regular theorem below expressly allows that length.
+The possible integer n=1 must stay in its actual interval, not be moved
+to (1,2]. No source claim for an empty sub-unit integer interval is needed.
+
+3. Exceptional norms, complex weights and intervals
+
+Pascadi, arXiv:2404.04239v3, gives the needed classical formulations:
+https://arxiv.org/html/2404.04239v3
+Saved primary TeX-preserving extraction:
+external-source-audit-20261009/pascadi-2404.04239v3-classical-spectral-inputs-20261009.txt
+Theorem A: lines 512--556; Theorem J: lines 2886--2943.
+
+Let tau_j=2*sqrt(1/4-lambda_j), so tau_j<=theta=7/32. Theorem A at level z
+and cusp 1, whose mu is 1/z, allows ANY complex n sequence and any scaling
+matrix. With L=Y/nu and X0=1+Z/L, z~Z, its allowed X range includes X0:
+ sum_exc X0^tau_j*|sum_(n~L)b_n R_j,1(n)|^2
+       <<(zL)^epsilon*(1+L/z)*sum_n|b_n|^2.
+Hence b may depend on z. No level-averaged arbitrary-coefficient version
+is being inferred here. The stronger z^2/L^3 range in the source is unused.
+
+Theorem J, with sigma_infinity=Id, states the level average for e(m*omega),
+uniformly in ONE common omega, for X<<max(M,Z^2/M). Its proof explicitly
+records the extension from DI's phase-zero printed statement. Consequently
+the correct citation is this explicit uniform-phase theorem, not the claim
+that DI's original printed special case itself contained all quantifiers.
+
+Here is the additional partial-interval derivation, rather than an assumed
+arbitrary-weight extension. For I contained in (M,2M], choose integer
+P>4M. On residues modulo P write the exact finite expansion
+ 1_I(m)=sum_(0<=k<P)c_k*e(k*m/P),
+where sum_k|c_k|=O(log(2+M)). Minkowski in the Hilbert norm indexed by
+(z,j), followed by Theorem J at each omega+k/P, gives
+ sum_(z~Z,exc) X^tau_j*|sum_(m in I)e(m*omega)R_j,infty(m)|^2
+       <<(ZM)^epsilon*(Z+M)*M.
+The extra logarithmic square is absorbed by a selectable epsilon. The same
+I must be used for all z; this proof does not interchange a level-dependent
+maximum with a spectral sum. A common I of bounded size is immediate.
+
+For larger X, tau_j<=theta gives the continuation factor
+ 1+(M*X/(M+Z)^2)^theta.
+Using X=(1+X_kernel/sqrt(X0))^2 and the n-side X0 split gives the exceptional
+term in medium equation (24). The positive imaginary cosh weights are
+bounded above and below in this exceptional range, so their omission only
+changes constants. No arbitrary level-dependent m coefficients are used.
+
+4. Regular spectrum and the summation over height
+
+Drappeau Proposition 4.7, PDF pp.15--16, explicitly states the three
+holomorphic/Maass/continuous cumulative inequalities for T>=1, N>=1/2
+and arbitrary complex coefficients in the sqrt(n)*rho normalization.
+The continuous measure is dt/cosh(pi*t), with a cusp sum; the bound is
+ (T^2+q0^(1/2)*mu(cusp)*N^(1+epsilon))*||b||_2^2.
+Here q0=1 and mu(cusp)=1/z. This matches ABL (3.2),(3.8), including its
+continuous convention. Pascadi Lemma H is the DI-normalized formulation.
+
+Pascadi Lemma D (saved lines 2400--2426) supplies both transform bounds
+ |H(t)| << (1+|log Y|)/(1+Y),
+ |H(t)| << |t|^(-5/2)+Y*|t|^(-3) for |t|>=1.
+The local regular proof first uses cumulative norms up to max(1,2Y), then
+dyadic shells. The two norm factors together grow by at most 2^(2j),
+while these two transform terms leave 2^(-j/2) and 2^(-j). Thus the shell
+sum converges, with no extra hidden power of a or the spectral height.
+At t=0 use the limiting transform; for holomorphic forms use height k-1.
+
+At each level both cusp densities are 1/z. Cauchy in z costs sqrt(Z),
+not Z. Carrying these factors through gives the first term of medium
+(24); combining section 3 gives its second term. The needed arithmetic
+singleton is s=1, not a claim for general r,s,q in a larger theorem.
+The explicit polynomial calculation is in
+spectral-regular-polynomial-derivation-20261010.txt lines 55--155.
+
+5. Lemma 4.6: why this replacement actually pays for the large phase
+
+The original problematic L23 source is retained at
+external-source-audit/l23-v1-joint-current.txt lines 1697--1795.
+Its proof replaces a reciprocity factor by 1 plus an error of size
+(|a|/x)*log(x)^O(1). Such an error cannot be discarded uniformly when
+a is of order x. The current argument uses the exact factor instead.
+
+In medium lines 299--310 the actual normalization is
+ E2=sum_(d~D)E3(d)/d,
+and exact reciprocity leaves e(a*h/(q*d*w1*w2*n1)). With
+ H=Q*D*Rcal^2*log(x)^5/M, x=N*M,
+its dimensionless amplitude on q~q0~Q is
+ (a/x)*(Q/q0)*(D/d)*log(x)^5.
+After normalizing q,w1,w2,n1,h to bounded intervals, any mixed derivative
+using each of those five coordinates at most once is bounded by
+O((1+|a|/x*log(x)^5)^5). Iterated partial summation therefore costs at
+most x^(5*kappa+o(1)). This is an explicit fixed power, not an arbitrarily
+small epsilon or a Taylor remainder. Endpoint rectangles are fixed before
+the later spectral sums; the resulting h coefficient is independent of
+their other variables. There is no arbitrary q coefficient left over.
+
+The current note also keeps the |a|/x from the returned spectral polynomial:
+ |W_bare| << N^2/Q*x^epsilon
+      *{D0^(1/2)+[(1+|a|/x)*D1+D2]^(1/4)},
+where D0<=x^(-8*sigma), D1,D2<=x^(-15*sigma). Thus the full exponents are
+ -4*sigma+5*kappa+epsilon,
+ -15*sigma/4+21*kappa/4+epsilon.
+At kappa<=sigma/100, allowing sigma/10 for every other selectable loss
+including ONE normalizing D factor, the respective savings are at least
+ (77/20)*sigma=3.85*sigma and (1439/400)*sigma=3.5975*sigma.
+Both exceed sigma/2. The harmonic sum sum_(d~D)1/d=O(1) introduces no
+second D factor; the phase is not paid a second time. This checks the
+claimed narrow rescue, including its actual a dependence, directly.
+
+6. Necessary boundaries and meaning of this finding
+
+The source correspondence would fail as written if (a,z)=1 were removed:
+the ABL integer K can then depend on the dilation, destroying the simple
+common beta_nu used above. It also does not justify coefficients depending
+arbitrarily on spectral height, a level-dependent choice of m interval,
+or an arbitrary q-dependent Lambda before the bare-sum reduction.
+
+The current medium note explicitly retains these restrictions and charges
+the phase as above. Within that class I found a precise correspondence
+to established primary spectral results, rather than a circular invocation
+of the desired moving-residue estimate. This audit has not re-opened the
+separately replaced long-variable cleanup and has not independently rerun
+the numerical certificates or verified the entire global distribution
+assembly. It changes no theorem constants or main-manuscript claims.
+
+The companion JSON records the exact source hashes and this report hash.
+No old file, state, main TeX, formalization, GitHub object or external
+communication was changed.

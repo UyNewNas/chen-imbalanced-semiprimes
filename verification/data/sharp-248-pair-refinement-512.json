@@ -1,0 +1,37 @@
+{
+  "status": "EXACT_SAME248_L5_L6_COMPLETE_TERM_REPLACEMENT",
+  "pairs": 512,
+  "ordinary_mesh": 16384,
+  "Q": "1208925819614629174706176",
+  "cell_counts": {
+    "L5": 131328,
+    "L6": 524288
+  },
+  "recomputed_lower_numerators": {
+    "L5": "2870595040977434131076026",
+    "L6": "3650774173156900914101685"
+  },
+  "chosen_lower_numerators": {
+    "L5": "2870595040977434131076026",
+    "L6": "3650774173156900914101685"
+  },
+  "old_lower_numerators": {
+    "L5": "2870544600938633333581144",
+    "L6": "3650239277142433961092442"
+  },
+  "coefficient_gain_lower": "585336053267750504125/4835703278458516698824704",
+  "display_only_gain": 0.00012104465877284738,
+  "scope": "Replace only old numeric L5/L6 constants. Same table and original terms; do not replace lower-start or U10/U11 estimates.",
+  "bindings_sha256": {
+    "certify_sharp_248_pair_refinement.py": "508a864aef36136c91e249cfe11166afd01c198ecdd19cd4d319c9cac97bca2e",
+    "certify_sharp_184_baseline.py": "a4ebffaf2b13123cf8d7510fed18482f85ec1a79f1bcddb220bd3d3ec8197639",
+    "certify_conservative_chen.py": "67b9429667e18786058e0fe58676fbe09d556868468f1281166cac2b55f8604e",
+    "certify_extended_prefix.py": "1b77aa5deb90e0f39e06c776847a7e9fff27e23d584036955741b015ca05ad29",
+    "certify_combined_chen_functional.py": "2d33559abaeb08d076a0185952ef7a1697ed1ca0b5beade129aa443a9ac4876b",
+    "expanded-w2-midpoint-table248-v1.json": "a91c371b8c69398619ebee8b17598c163fbf8b6267fa0470ed6930e2097a98ed",
+    "sharp-248-baseline-128.json": "eb33c788676f1fef56c984006d5e130169be0ad67d6b0bd2f2dd1ea55740040c",
+    "sharp-eleven-term-baseline-proof.tex": "b05e8ca64c6128353b33e137dc0ba99199427ccc0c4a0c361eed7d8afefe69ce",
+    "sharp-248-baseline-insertion.tex": "58f961188dac2838ade358498127cf8ae92d55af7f80f07a9da4d2e7d0bba546"
+  },
+  "seconds": 240.97516499995254
+}

@@ -1,0 +1,362 @@
+% Derived analytic integration fragment, 2026-10-08.
+% No numerical integration or new global Chen constant is certified here.
+% Uses the existing prefix interface and the selected-subproduct repair.
+
+\subsection{A safe ordinary upper option for four specified primes}
+\label{sec:four-prefix-safe-minimum}
+
+Fix $0<a<h<d<1/3$.  Write the four specified prime exponents in
+decreasing order as $t=(x,y,z,w)$ and put
+\[
+ S=x+y+z+w,\quad
+ W(t)=\max\{2x,x+2y,x+y+2z,x+y+z+2w\},
+ \qquad d\mu(t)=\frac{dx\,dy\,dz\,dw}{xyzw}.
+\]
+The two tuple domains, with the full fourth-prime range, are
+\[
+ \Omega_{10}=\{a<w<z<y<x<h\},\qquad
+ \Omega_{11}=\{a<w<z<y<h<x<d\}.
+\]
+The quotient in each original count is sifted at the second smallest
+specified prime, whose exponent is $z$.  The four specified primes
+need not be the four largest prime factors of that quotient count.
+They will, however, be the four largest primes in every modulus atom
+of the ordinary upper sieve constructed below.  These are different
+statements, and only the latter is used in factorization.
+
+Put
+\[
+ \mu=\frac{25}{128},\quad \Lambda=\frac{153}{256},\quad
+ v(s)=\min\left\{\frac{1+s}{2},\frac{57}{64}-\frac32s\right\},
+ \qquad B(z)=\Lambda-\frac38z.
+\]
+For each nonempty $I\subseteq\{1,2,3,4\}$ define
+\begin{align*}
+ s_I(t)&=\sum_{i\in I}t_i,\\
+ G_I(t)&=\max_{j\notin I}
+       \left(s_I(t)+\sum_{\substack{k<j\\k\notin I}}t_k+2t_j\right),
+       \qquad \max\varnothing=0.
+\end{align*}
+Include the endpoint $v(s_I(t))$ in the finite set $\mathcal C(t)$
+if and only if
+\begin{equation}\label{eq:four-prefix-subset-gate}
+ v(s_I(t))>\max\{1/2,W(t),G_I(t)\}.
+\end{equation}
+Also include $B(z)$ if
+\begin{equation}\label{eq:four-prefix-W-gate}
+ x<\mu,\qquad B(z)>\max\{1/2,W(t),v(x)\}.
+\end{equation}
+Define $\mathcal E=\{t:\mathcal C(t)\ne\varnothing\}$ and
+$L_4(t)=\max\mathcal C(t)$ on $\mathcal E$.  This is a finite
+piecewise affine prescription, with strict eligibility gates.  All
+its endpoints are at most $\Lambda<3/5$.
+
+Each actual sieve level $\nu$ used for a selected endpoint must
+satisfy
+\[
+ \max\{1/2,W(t),G_I(t)\}<\nu<v(s_I(t)),
+\]
+or the analogous interval between the two sides of
+\eqref{eq:four-prefix-W-gate}.  An endpoint cap does not authorize
+levels below its gate.  On a compact subregion of these strict
+inequalities there is a fixed positive margin on every side.
+Above $x=\mu$ only the explicitly tested selected-subproduct branches
+are used.  In particular the full raw eight-branch envelope is not
+extended beyond its proved largest-prime range.
+
+\begin{lemma}[Averaged ordinary upper sieve with four prime slots]
+\label{lem:four-prefix-upper-interface}
+On any compact positive prefix box contained in a strict branch of
+$\mathcal E$, choose $\nu$ between its gate and cap, with fixed
+margins.  The ordinary residual upper-sieve weights of level
+$N^{\nu-S+o(1)}$, sifted below the smallest specified prime, have
+the averaged distribution remainder of
+Lemma~\ref{lem:prefix-interface}, now with four specified primes.
+Consequently their limiting upper coefficient at the prefix point
+$t$ is
+\begin{equation}\label{eq:four-prefix-ordinary-kernel}
+ \mathcal O_\nu(t)
+ =\frac4{\nu-S}\,
+       \mathcal A\left(\frac{\nu-S}{w}\right),
+ \qquad
+ \mathcal A(s)=\frac{sF(s)}{2e^\gamma}\quad(s\ge2),
+ \quad \mathcal A(s)=1\quad(0<s<2).
+\end{equation}
+The coefficient is in units of $\HN$ and is integrated against
+$d\mu(t)$.  The assertion is averaged over the prefix box and does
+not assert an estimate for each particular quadruple of primes.
+\end{lemma}
+
+\begin{proof}
+The required change to Lemma~\ref{lem:prefix-interface} is at the
+modulus atom, including its factorization; it is not a substitution
+of $r=4$ in a theorem stated only for $r=1,2$.
+Choose four disjoint ordered intervals
+$I_i=(N^{\ell_i},N^{u_i}]$, a fixed level $\nu$, and
+$T_+=\sum_i u_i$.  Make the intervals short enough that the upper
+endpoint vectors satisfy every required square test with margin
+$20\delta$, and that the entire chosen cap exceeds $\nu$ with
+margin $20\delta$.  Set
+\[
+ R=N^{\nu-T_+-20\delta},\qquad
+ Z=N^{u_*},\qquad
+ u_* =\min\left\{\ell_4-\xi,
+                 \frac{\nu-T_+-20\delta}{2+\rho}\right\}>0,
+\]
+where $\xi,\rho>0$ are fixed and sufficiently small.  Thus $Z$ is
+below every specified prime and below the original quotient cutoff.
+Lowering the cutoff gives a pointwise upper bound for the original
+positive quotient count.  Also $\log R/\log Z\ge2+\rho$; no
+linear-sieve formula with an inadmissible small parameter is invoked.
+
+Construct the ordinary modified residual upper weights $\rho_R^+$
+independently of the particular primes inside the four intervals.
+Use the atoms of
+\href{https://arxiv.org/html/2109.02851v2}{Lichtman 2021,
+(5.14)--(5.18) and Theorem 2.10}, at residual level $R$.
+Convolve each residual atom with
+$\chi_{I_1}*\chi_{I_2}*\chi_{I_3}*\chi_{I_4}$.
+Choose the construction precision $\eta$ small enough that its
+presieving threshold $z_0=N^{c(\eta)}$ is below $Z$ and every
+specified interval.  Every residual rough prime is below $Z$.
+The specified slots are therefore exactly the largest four slots
+in the concatenated rough vector.  There is no residual-prime
+interleaving to be justified.
+
+The four initial $\mathcal D^{\rm well}$ inequalities hold because
+$W(t)<\nu$ with the prescribed margin.  For every later rough prime
+$q_j$, residual well support gives
+\[
+ (p_1p_2p_3p_4)q_1\cdots q_{j-1}q_j^2
+ \le N^{T_+}R^{1+O(\eta)}\le N^{\nu-19\delta}
+\]
+after decreasing $\eta$.  Thus the complete rough modulus is in
+the required buffered $\mathcal D^{\rm well}$ support.  This check
+also covers the residual atom with no rough slots: that atom still
+has four specified rough slots, and is not reclassified as a
+rank-zero modulus of level below $1/2$.
+
+For a selected branch put $b_0=\prod_{i\in I}p_i$.
+The inverse critical-interval identity in
+Lemma~\ref{lem:selected-subproduct-factorization} applies because
+$\nu<v(s_I)$ with a margin.  For each unselected specified slot its
+remaining-square inequality is exactly the corresponding term in
+$G_I<\nu$.  Before any subsequent residual prime all selected and
+unselected specified slots have occurred, so its remaining-square
+inequality is exactly the complete-vector inequality just checked.
+The selected-subproduct lemma supplies a factorization for every
+allowed Type II parameter $A$, including its $C<1$ case by
+Lemma~\ref{lem:two-factor-greedy-repair}.  For the extra $B(z)$
+branch use the repaired $W$ construction: on $x<\mu$ the inner
+$W(x,y,z)$ cap is $B(z)$ and its gate is $v(x)$, as verified in
+Lemma~\ref{lem:variable-envelope-simplification}.  Its hypotheses
+and the complete well support have fixed margins as well.
+
+Here are the coefficient details needed for this transfer.  The
+factorization is performed on the upper endpoint vector, which
+gives a fixed partition of its prime slots valid for every tuple
+in the rough box.  The selected lemma explicitly supplies this
+uniform partition on both sides of $C=1$.  Retain each original
+scalar coefficient of the residual sieve atom, its signs, and its
+reciprocal factorials for repeated residual interval labels.
+No label crosses from a specified slot to a residual slot, because
+$Z<\inf I_4$.  If a factor group contains $m_i$ rough slots,
+divide its tuple convolution by $m_i!$.  The resulting coefficient
+is $1$-bounded, even before removing nonsquarefree products; multiply
+the original scalar by the product of these group factorials.
+This is an exact convolution identity, and does not introduce a
+second copy of the original repeated-label normalization.
+The finite number of atoms and the sum of the absolute values of
+their new scalars depend only on the fixed construction precision.
+
+Combine the original signed small-prime weight $\beta$ with the
+third factor.  Its support is $e\le N^{O(\eta)}$ on primes below
+$z_0$, whereas that factor's rough primes exceed $z_0$.
+Unique small/rough factorization proves that its coefficient stays
+$1$-bounded.  Attaching $e$ to the third factor multiplies the three
+factorization monomials by $e^2,e^2,e^{2+2\sigma}$, respectively;
+the fixed slack pays these losses when $\eta\ll\delta$.
+As in the existing prefix interface, allowing unrestricted prime
+convolutions and then removing rough prime-square collisions costs
+\[
+ \ll (N+N^{\nu+O(\eta)})z_0^{-1}(\log N)^{C}
+   =O_A(N(\log N)^{-A}).
+\]
+Thus neither squarefreeness nor signed atoms are replaced by an
+unproved positivity assertion.
+
+The distribution step is now precisely the existing atom argument.
+The three factorization inequalities feed
+\href{https://arxiv.org/html/2309.08522v1}{Lichtman 2023,
+Proposition 5.2}, with $A_0=UX^{-\zeta}$ in the Type II range
+on a local prime scale $X$.
+The smallest saving after replacing $A_0$ by $U$ is
+$(1-2\sigma)\zeta=9\zeta/16$.
+The rough Siegel--Walfisz and bounded-complement steps, and the
+one-long and two-long cases, are exactly those of the existing
+prefix interface, with the corrected exact coprime mean of
+Section~\ref{sec:one-long-coprime-mean}.
+They only require a fixed number of normalized bounded atom factors
+and total support below $X^{3/5}$, both just checked; they do not
+require the number of specified slots to be at most two.
+
+For clarity the moving residue is handled on the actual prime
+scale.  Discard primes $P\le N^{1-\kappa}$, at cost
+$N^{1-\kappa+o(1)}$ with the fixed divisor weights, and use dyadic
+$P\asymp X$.  Then $\alpha=\log N/\log X=1+O(\kappa)$.
+The strict cap and gate margins absorb this change and the
+simultaneous rescaling of all exponent coordinates.  For the
+selected branches this is the verified
+$V_{\alpha,7/32}$ interval, not an unperturbed largest-prime
+envelope.  The $W$ branch also retains $x<\mu$ with a fixed
+margin before this change of scale.  Choose $\kappa$ small enough
+that $N<X^{1+\epsilon}$; Proposition 5.2 explicitly permits this
+moving residue.  This proves the uniform averaged remainder
+\[
+ \sum_{\substack{p_i\in I_i\\(p_1p_2p_3p_4,N)=1}}
+ \sum_{\substack{q\mid P(Z)\\(q,N)=1}}
+ \rho_R^+(q)E_N(p_1p_2p_3p_4q)
+ =O_A(N(\log N)^{-A}).
+\]
+
+For the main term keep the full presieve factor $V_N(z_0)$, as in
+the final part of Lemma~\ref{lem:prefix-interface}.  The one-sided
+dimension-one estimate below $z_0$ is uniform in even $N$; above
+$z_0$ the omitted primes dividing $N$ have total reciprocal weight
+$o(1)$.  Consequently the main term is
+\[
+ \pi(N)V_N(Z)\bigl(F(\log R/\log Z)+o_\eta(1)\bigr)
+ \sum_{\substack{p_i\in I_i\\(p_1p_2p_3p_4,N)=1}}
+       \frac1{\varphi(p_1p_2p_3p_4)}.
+\]
+Here $V_N(Z)=(2e^{-\gamma}+o(1))C(N)/(u_*\log N)$ uniformly,
+and the reciprocal prime sums tend to the product measure $d\mu$.
+First let $N\to\infty$ at fixed margins and precision, then refine
+the boxes and precision within those margins, and finally send
+$\delta,\xi,\rho$ to zero.  The limiting cutoff exponent is
+$\min\{w,(\nu-S)/2\}$.  If $(\nu-S)/w\ge2$, this gives
+$2e^{-\gamma}F((\nu-S)/w)/w$; otherwise lowering gives exactly
+$4/(\nu-S)$.  These are \eqref{eq:four-prefix-ordinary-kernel}.
+\end{proof}
+
+Define $\mathcal O(t)=\mathcal O_{L_4(t)}(t)$ on $\mathcal E$,
+and $\mathcal O(t)=+\infty$ elsewhere.  The endpoint here is a limit
+from strictly admissible levels.  Since $F$ is nonincreasing and
+$4/(\nu-S)$ decreases in $\nu$, the largest eligible endpoint
+gives the smallest ordinary option.  Moreover $W\ge S+w$, so
+$L_4-S>w>a$ on $\mathcal E$; no singularity from zero residual
+level occurs at its boundary.
+
+\begin{proposition}[Four-prefix safe minimum]
+\label{prop:four-prefix-safe-minimum}
+Assume the existing local switching upper bound with coefficient
+$K$ on positive prefix boxes of $\Omega_j$, for $j=10,11$.
+Assume also $d+4h<1$, so the following Buchstab arguments exceed
+one throughout the two domains.  Then a valid upper constant is
+\begin{equation}\label{eq:four-prefix-safe-minimum}
+ U_j^{\rm safe}
+ =\int_{\Omega_j}
+   \min\left\{\frac Kz\omega\left(\frac{1-S}{z}\right),
+                   \mathcal O(t)\right\}\,d\mu(t),
+ \qquad \Upsilon_j\le (U_j^{\rm safe}+o(1))\HN.
+\end{equation}
+Here $\Upsilon_{11}$ means its full fourth-prime range.  If
+$a>1/12$, the ordinary option has the simpler exact form
+\begin{equation}\label{eq:four-prefix-rational-kernel}
+ \mathcal O(t)=\frac4{L_4(t)-S}\quad(t\in\mathcal E).
+\end{equation}
+This proposition supplies an analytic integral to be bounded; it
+does not certify a numerical value of that integral.
+\end{proposition}
+
+\begin{proof}
+Take a common finite positive partition for both upper bounds.
+Inside a box separated from the strict cap, gate, and ordering
+boundaries, select a branch and an admissible level with fixed
+margins.  Both estimates bound the same averaged original
+quotient count.  Select the smaller of the two box-level upper
+bounds, then sum.  This does not take the minimum of unproved
+estimates for individual prime quadruples.
+Use switching alone on the remaining boxes, including those
+meeting a boundary.  The finite gates and endpoint comparisons
+are piecewise affine; their nontrivial equality sets have measure
+zero.  Remove thin strips about these sets before refining the
+partition.  On these bounded domains $t_i\ge a>0$ and
+$(1-S)/z>1$, so the switching kernel and its measure are bounded.
+The strips therefore contribute $o(1)$ as their widths tend to
+zero, by the existing local switched estimate.  Refine within the
+fixed margins, approach each eligible endpoint, and then remove
+the margins.  This proves \eqref{eq:four-prefix-safe-minimum}.
+The parameter inequality displayed in the proposition is a simple
+sufficient condition for this kernel domain: $S+z<d+4h<1$.
+Other constraints needed for an entire eleven-term Chen weight
+remain separate and are not inferred from this local proposition.
+
+To prove the simplification, let $k=|I|$ and use
+$S\ge s_I+(4-k)a$ and $w\ge a$.  Whenever the selected endpoint
+is eligible its residual exponent is positive, so
+\[
+ \frac{v(s_I)-S}{w}\le
+ \begin{cases}
+  1/(2a)-7/2,&k=1,\\
+  1/(2a)-3,&k=2,\\
+  57/(64a)-17/2,&k=3,\\
+  57/(64a)-10,&k=4.
+ \end{cases}
+\]
+The first two inequalities use $v(s)\le(1+s)/2$ and
+$s_I\ge ka$; the last two use $v(s)\le57/64-3s/2$.
+For the $B$ endpoint,
+\[
+ \frac{B(z)-S}{w}\le\frac\Lambda a-\frac{35}{8}.
+\]
+If $a>1/12$, all five upper bounds are strictly below $3$.
+At $a=1/12$ their values are $5/2,3,35/16,11/16,179/64$,
+respectively.  The normalized function $\mathcal A(s)$ is exactly
+$1$ for $0<s\le3$, including the cutoff-lowering convention.
+This proves \eqref{eq:four-prefix-rational-kernel}.  For smaller
+$a$ the general $F$ kernel remains the justified formula; no
+extrapolation of $\mathcal A=1$ is made.
+\end{proof}
+
+\paragraph{Why the domain is filtered.}
+The four square tests cannot be dropped even below $x=\mu$.
+For the original parameters $a=100/1149$, $h=50/309$,
+$d=1/2-3a$, the interior point
+$(x,y,z,w)=(.155,.150,.145,.140)\in\Omega_{10}$ has
+$W=.730>\Lambda$.
+The point $(.200,.140,.130,.120)\in\Omega_{11}$ has
+$W=.710>\Lambda$.  Neither admits an endpoint of this construction.
+They are handled by switching in \eqref{eq:four-prefix-safe-minimum}.
+Conversely $(.170,.110,.100,.090)\in\Omega_{11}$ admits the
+subset $I=\{3,4\}$: $s_I=.190$, $v(s_I)=.595$,
+$G_I=.580$, and $W=.560$.  This demonstrates why all fifteen
+subsets can be useful, even though only three specified slots
+appeared in the earlier envelope.  Above the largest-prime cutoff,
+$(.202,.092,.090,.088)\in\Omega_{11}$ admits $I=\{2,3\}$:
+its cap is $.591$, its selected gate is $.586$, and $W=.560$.
+All these terminating decimals are exact rational numbers.
+
+\paragraph{Accounting for the earlier classical double-sieve option.}
+Bounds from different methods may be retained as a third entry in
+the same pointwise minimum when their common positive prefix class
+has been proved.  Improvements from overlapping regions may not
+be added.  In fact the previous small region
+$100/1149<w<z<y<x<12/125$ is already improved by the ordinary
+option here beyond its stated classical $H(2)$ option.  On it
+$W<5(12/125)<1/2<v(x)$, $x<\mu$, and
+$v(x)-1/2>a/2>H_0\Lambda$, where $H_0=223939/10^7$.
+Since $v(x)-S\le\Lambda$ and $1/2-S>0$, this proves
+\[
+ \frac4{v(x)-S}
+ <\frac{4(1-H_0)}{1/2-S}.
+\]
+Thus the previously certified gain exceeding $1/720000$ is
+subsumed on its region and must not be added to a computation of
+\eqref{eq:four-prefix-safe-minimum}.
+
+The distribution and switching inputs used here are the established
+derived interfaces and their cited published theorems.  The saved
+JSON records the exact numerical domain and dependencies.  A
+floating quadrature of this integral is a diagnostic only; a new
+rounded Chen coefficient requires its own outward certificate.

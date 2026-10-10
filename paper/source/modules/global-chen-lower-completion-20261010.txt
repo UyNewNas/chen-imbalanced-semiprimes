@@ -1,0 +1,398 @@
+The current own Chen lower theorem: a completed modular derivation
+10 October 2026. New proof only; the main manuscript and old artifacts are unchanged.
+
+THEOREM AND THE PRECISE INPUTS
+
+For an even integer T, let
+ C_T=prod_{p>2}(1-1/(p-1)^2) prod_{p|T,p>2}(p-1)/(p-2),
+ H_T=C_T T/log(T)^2,
+ D12(T)=#{P<T: P prime, T-P>1, Omega(T-P)<=2}.
+Omega counts prime factors with multiplicity. Then the current construction gives
+
+ liminf_{T->infinity, T even} D12(T)/H_T
+ >= 5379795769801923015478496034985375629943467961 /
+    2742952509978644604793778369418231808000000000
+ > 12258223/6250000 = 1.96131568.                         (C)
+
+Here are the separately established lemmas used in this proof; none is (C):
+
+ P: the restricted signed prime-product distribution theorem, inserted for
+    the ACTUAL finite coefficients by distribution-coefficient-completion-
+    20261010.txt. Its analytic proof uses the current Gevrey and direct-Brun
+    updates. In the lower proof its k=1 case acts on the original prime P;
+    it does not turn an upper product estimate into a prime lower estimate.
+ U: the positive product upper theorem with K=8452171/1250000, for every
+    fixed finite nonnegative labelled geometric family with fixed positive
+    prime exponents and bounded rank. Its normalized upper cost is K times
+    the unsifted mass. U is proved before any H/h feedback or Chen lower c.
+ D: literal ordinary raw Rosser density equalities for g_T(p)=
+    1_{p>2,p does not divide T}/(p-1), on fixed positive compact parameter
+    sets: V_T^+(T^beta,T^t)/V_T(T^t)=F(beta/t)+o(1) for beta/t>1,
+    and V_T^-/V_T=f(beta/t)+o(1) for beta/t>=2. See section 2 below.
+ N: the certified integral/finite-table lemma for the specifically selected
+    functional in section 6, with its exact rational endpoint. This is an
+    explicit collection of integral inequalities, not a numerical PASS
+    used to infer an analytic statement. Its primitive/cover validation
+    has the scope recorded in current-numerical-proof-obligations-20261010.
+
+This note proves the implication from those lemmas to (C), including the
+pointwise inequality, the actual lower coefficients, the finite feedback,
+the current deletion and the common all-even quantifiers. P and U are
+independent modules being audited separately; this is not a new verification
+of their spectral proofs or of every quadrature. In particular no external
+Li 1.9728 or unrestricted Lichtman moving-residue statement is a premise.
+
+1. THE POINTWISE COUNT AND THE CURRENT PAIRED MASK
+
+Put a=417/5000, h=19/125, d=59/250 and mu=25/128. For positive n<=T write
+ Q_b(y;n)=1_{b|n} 1_{P^-(n/b)>=y}, with P^-(1)=infinity. Distinct prefix
+primes have the following ranges; all the Q below have argument n:
+
+ Y1=Q_1(T^a), Y2=Q_1(T^h);
+ Y3=sum_{T^a<=p<T^(1/3)} Q_p(T^a),
+ Y4=sum_{T^a<=p<T^d} Q_p(T^a);
+ Y5=sum_{T^a<=p1<p2<T^h} Q_(p1p2)(T^a),
+ Y6=sum_{T^a<=p1<T^h<=p2<T^d} Q_(p1p2)(T^a);
+ Y7=sum_{T^d<=p1<p2<(T/p1)^(1/2)} Q_(p1p2)(p2),
+ Y8=sum_{T^a<=p1<T^(1/3)<=p2<(T/p1)^(1/2)} Q_(p1p2)(p2),
+ Y9=sum_{T^h<=p1<T^d<=p2<(T/p1)^(1/2)}
+       Q_(p1p2)((T/(p1p2))^(1/2));
+ Y10=sum_{T^a<=p1<p2<p3<p4<T^h} Q_(p1p2p3p4)(p2),
+ Y11=sum_{T^a<=p1<p2<p3<T^h<=p4<T^d} Q_(p1p2p3p4)(p2).
+
+The FULL last range is essential. Define
+ W=3Y1+Y2-Y3-Y4+Y5+Y6-2Y7-Y8-Y9-Y10-Y11.
+For a squarefree T^a-rough n, let r,s,t be the numbers of its prime
+factors below T^h,T^d,T^(1/3). The first six counts are
+ (1,1_{r=0},t,s,binom(r,2),r(s-r)).
+When r>=2, the first two selected factors in Y10 or Y11 must be the two
+least factors of n, since the quotient is sifted at the second selected
+factor. Thus Y10=binom(r-2,2), Y11=(r-2)(s-r), and the first six weighted
+terms minus these two terms equal s-t<=0. All remaining subtractions help.
+
+For k=Omega(n)>=3, the two least factors satisfy q1*q2^2<n<=T. Consequently
+Y7=1_{s=0}, Y8=1_{t=1}, and t>=1. For r<=1 the remaining upper bounds are
+  r=1: 2-t-1_{t=1};
+  r=0,s>=2: 4-s-t;
+  r=s=0: 2-t-1_{t=1};
+  r=0,s=1,t>=3: 3-t;
+  r=0,s=1,t<=2: 3-t-1-1_{t=1}.
+In the last line k>=4 would give n>=T^(h+d+2/3)>T; hence k=3 and
+q1*q2*q3^2>=T^(h+d+2/3)>T, so the pair(q1,q2) contributes to Y9.
+Every displayed bound is <=0. For k<=2 direct substitution gives W<=4;
+the unit has W=4. Thus W<=4*1_{Omega(n)<=2} for squarefree n. If n is
+not T^a-rough every Yj vanishes; for Y9 its quotient threshold exceeds
+T^((1-d)/4)>T^a, which checks the only nonimmediate case.
+
+Let E0 be the adopted 6091 whole-zero pair512 rectangles, and E1 the
+disjoint selected 11481 rectangles in positive-pair-deletion-certificate-
+20261010.json. This is a fixed set E=E0 union E1, in coordinates
+(t,u)=(log_T p2,log_T p1), a<=u<h<=t<d. Write Y6(E) for its pair terms
+and Y11(E) for the four-prefix terms whose LAST TWO selected primes
+(p3,p4) have (log_T p4,log_T p3) in E. Define
+ W_E=W-Y6(E)+Y11(E).
+For squarefree n, a contributing Y11 tuple has forced first primes q1,q2;
+sending it to (p3,p4) is injective into Y6(E). Its residual remains
+T^a-rough. Therefore Y11(E)<=Y6(E) and W_E<=W<=4*1_{Omega(n)<=2}.
+
+The prime-factor bound floor(1/a)=11 gives |W_E|<=1016 on rough n. There
+are at most 2T^(1-a) integers with a repeated prime >=T^a. Summing over
+P<T, prime and coprime to T, and excluding the unit loses at most
+2032T^(1-a)+4=o(H_T). Restricting to these P only decreases D12. It follows
+that 4D12 is at least the sum of W_E(T-P), up to this uniform error. This
+also proves that the modified weight has the same eleven signs, with
+Y6 and Y11 replaced by their complements. It does not assume Wu's
+printed contracted-Y11 inequality.
+
+2. WHY THE ORDINARY LOWER START IS A PRIME COUNT LOWER BOUND
+
+Start at w=a or h with the ordinary lower tree of cap nu=249/448, using
+a small root buffer. Causal third, fourth and fifth cap decisions depend
+only on their own prefix and keep all ancestor decisions. A usual fourth
+node must pass its cube at its ACTUAL third cap before its cap is changed.
+Every first exclusion has even rank. For any finite prime universe and
+0<=q(p)<=1 the exact first-exit identity is
+ sum_d mu(d)1_{d retained}q(d)
+ =prod_p(1-q(p))-sum_{even first exits e}q(e)prod_{p<p_last(e)}(1-q(p)). (2.1)
+It proves a pointwise lower weight by q(p)=1_{p|n}; it also evaluates its
+raw density by q=g_T. No pointwise monotonicity of cap changes is needed.
+
+The restored fourth own-cube actions also satisfy(2.1): on an old first
+exit select a new cap before that fourth cube, check every new support
+gate, and require S3+3t4<lambda4. The attached ordinary lower residual has
+R>p4^2, so its first square never excludes an odd full rank. Its exact
+raw gain is g_T(P4)V_T^-(T^lambda4/P4,p4), old contribution zero. Current
+restored slabs lie outside old E4 and the projection of E5 and receive no
+new fifth gain. Alternative full covers are maximized/replaced, not added.
+
+For a presieve z0=T^omega, let R_raw be this same tree restricted to
+rough divisor primes. The positive even exits in(2.1) give exactly
+ V_T(z0)R_raw - V_full
+ =sum_{full even exits with last prime<z0}g_T(e)V_T(p_last(e))>=0.     (2.2)
+Round positive even coefficients inward and negative odd coefficients
+outward on one fine partition, retaining ancestry, to obtain
+c(d)<=lambda_raw(d). Attach the lower beta polynomial B- to c(d)>0
+and the upper polynomial B+ to c(d)<0. With B-<=I0<=B+ and I0>=0,
+ sum_{q|n}rho_T(q)<=I0(n)sum_{rough d|n}c(d)
+                    <=1_{(n,P_T(T^w))=1}.                        (2.3)
+This does not require B- to be nonnegative. Unique small/rough division
+keeps |rho_T|<=1. Equation(2.2), rather than c<=lambda alone, gives
+ sum_q rho_T(q)g_T(q)>=V_full-small compiler density error.         (2.4)
+The beta/fine-box errors tend to zero in the fixed-policy parameter order.
+
+P is applied to this SAME rho_T, including the original marked/residual
+factorials, fixed common beta and endpoint slot partition. It gives
+ sum_{(q,T)=1}rho_T(q)[pi(T;q,T)-pi(T)/phi(q)]
+ =O_A(T/log(T)^A).                                                 (2.5)
+The exact-coprime mean differs here by only O(log(T)^2); all moduli are
+coprime to T. The short-prime and square-collision terms have fixed power
+savings. Thus(2.3)--(2.5) turn the raw density into the required lower
+estimate for the original prime sequence. Historical invocations of a
+supremum in unrestricted L23 are replaced by P, not retained as inputs.
+
+D itself is genuinely a literal-density lemma. At any fixed rank, the
+normalized positive exit for g_T is the corresponding g_0=1_{p>2}/(p-1)
+exit times prod_{p_last<=p<y,p|T}(1-g_0(p)), or is deleted. It lies between
+zero and the g_0 exit. Previous squares force a rank-j exit's last prime
+>=T^(beta_min/(3*2^(j-1))). Thus its difference from the fixed g_0 integral
+is uniformly o(1). Suzuki's beta=2 positive-exit convergence and one-sided
+bound for the SAME raw weight give the opposite full-rank bounds and a
+two-sided sandwich, first fixed rank then T. The upper range 1<s<=3 also
+follows from the exact support identity at y=R^(1/3). This proves D,
+including lower s=2, without subtracting two unrelated one-sided sieves.
+The primary hypotheses and normalization are in rosser-raw-density-uniform-
+audit-20261010.txt; its classical inputs are stated there explicitly.
+
+At a retained prefix all residual primes are smaller than its least
+prime; g_T(Pd)=g_T(P)g_T(d). Using D, its exact third/fourth/fifth raw
+subtree differences are respectively upper-old minus upper-new,
+lower-new minus lower-old, and upper-old minus upper-new. They yield the
+saved I3/I4/I5 integrals of ONE causal tree. Prime harmonic summation and
+V_T(T^t)~2e^(-gamma)C_T/(t log T) give precisely the factor 4 used below.
+
+3. FINITE H/h CONSTRUCTION ON ACTUAL MARKED FAMILIES
+
+Put A(s)=sF(s)/(2e^gamma), a_bar(s)=sf(s)/(2e^gamma). A=1 on[1,3],
+a_bar=0 for s<=2. On a nonnegative finite marked prime-box family sigma(B)
+use one total Q=T^lambda, residual L=lambda-log_T B>0, and
+ Theta_Q=4 li(T) sum_B sigma(B) C(BT)/[phi(B)log(Q/B)].
+An H(s) lower defect means Phi_s<=(A(s)-H(s)+o(1))Theta_Q; h(s)
+means Phi_s>=(a_bar(s)+h(s)+o(1))Theta_Q. These are averaged estimates,
+not estimates for each B and not assertions for a signed outer sigma.
+The signed ordinary modulus atoms used to prove them are separate.
+
+Enhanced states preserve every full square, every selected-remaining
+square, their W branch and physical ceiling chi; L/s<=chi. Classical
+states use a complete level below half. The physical cap lambda used
+in density is never replaced by its possibly larger analytic support
+cover ell_aux. The coefficient theorem P proves the representation on
+that cover for the same rho, including all ordinary descendants.
+
+Every ordinary child keeps Q fixed. For a singleton Lu,
+L'=L(1-u), alpha'=1+(alpha-1)/(1-u); for a pair Lu,Lv,
+L'=L(1-u-v), alpha'=1+(alpha-1)/(1-u-v), with alpha=(1-log_T B)/L>=2.
+New full-square tests are 2u<1, or 2v<1 and v+2u<1. Once every selected
+old slot has occurred, each new selected-remaining test equals its full
+square. New primes remain below the old ceiling. In particular alpha
+increases; it is never reset to 2 in a switched mass calculation.
+
+The actual four-round seed gives H>=2327/100000 on[1,11/5]. Cutoff
+monotonicity proves its upper extension below 2. The finite transitions are:
+ BH: H_new(s)=integral_{max(2,s-1)}^5 h(w)dw/w,
+     h_new(s)=integral_{s-1}^5 H(w)dw/w, s>=2;
+ W1: the ordinary one-step base plus H(s0) and one half of its singleton
+     lower-child defect integral; the positive switched cost is K I/8;
+ W2: the repaired ordinary/switching base plus
+   [4H(s0)+H(phi1)+sum_{three singleton domains} integral h(rho)du/[u(1-u)]
+    +sum_{four good pair domains} integral H(rho)du dv/[uv(1-u-v)]]/5.
+
+For W2 use a_i=1/phi_i, a0=1/s0. The pair domains/cutoffs are
+ D5+: a0<u<v<a2, v+2u<1, cutoff La0;
+ D6: (a0,a1)x(a2,a3), cutoff La0;
+ D7: a0<u<v<a1, cutoff Lu;
+ D8: (a0,a1)x(a1,a2), cutoff Lu.
+Their arguments are s0(1-u-v) for 5,6 and (1-u-v)/u for 7,8. The
+actual bank gates 2v<1, v+2u<1 make 1<rho<=s0-2<=3. Below 2 use
+proved smaller-cutoff upper comparison. The excluded part of D5 receives
+only a positive product cost, no ordinary H feedback. W2 terms 9--21 are
+positive labelled families bounded by U; unit surfaces in 20,21 remain
+in their masses. The valid uniform envelope is
+omega(x)<=max(1/x,70893/125000) for x>=1, with the conservative extension
+below 1. Thus the bases are valid for every actual alpha>=2.
+
+These formulas follow by inserting the bounds, with their signs, into
+the one-step or 21-term pointwise inequality at the SAME Q; child/parent
+normalization yields exactly the displayed positive measures. All child
+estimates on a right side come from a preceding finite generation. Take
+a finite maximum of alternative defects, never their sum; use closed-cell
+minima on crossing boxes. This is an induction on real positive counts.
+
+There are 70 W1 and 36 W2 actions. The construction reaches 248 and then
+430 total rounds after the seed; generation labels are not summed.
+Their old K anchors are all >= the current K, so U licenses every retained
+base. The 430 recost uses its proved net slopes, with old variable-kernel
+savings already deducted. It is used ONLY in U3/U4. No infinite fixed
+point is invoked: after at most 440 elementary transitions residuals are
+>=ell*101^(-440), and every new prime exponent is >=this number/6. All
+positive leaves therefore have a fixed cutoff in U's quantified class.
+
+4. THE ELEVEN ROOT OCCURRENCES AND CAUSAL FINITE REALIZATION
+
+Let v(t)=min((1+t)/2,57/64-3t/2), e=57/224, Lambda=153/256. The normalized
+root lower functional is
+ [3L1+L2+L5+L6-U3-U4-2U7-U8-U9-U10-U11]/4.                (4.1)
+
+L1 is the ordinary causal lower start at a, without an empty-prefix h
+insertion. L2 is now the causal start at h. In making that change the
+entire former H248 least-prime integral was removed. More explicitly the
+change from w*=25/224 to w has Chen increment
+ [B(w)-B(w*)+I(w)]/4-integral_{w*}^w 2H248((1-t)/(2t))dt/[t(1-t)],
+ B(w)=4a_bar((249/448)/w)/(249/448)-8a_bar((1+w)/(2w)).
+This follows from the exact least-prime identity and a_bar'(q)=A(q-1)/(q-1);
+at w=h there is no surviving old H term to add again.
+
+U3/U4 use H430 at s=max(2,L/a), L=v(t)-t on t<e, and the U3 tail
+uses the limit of level 1/2 from below. The upper physical cutoff is
+min(a,L/2), so its clamp s=2 is a real positive-measure state and is kept.
+L5/L6 use h248 on their admitted pair domains, decreasing t>u, at
+ L=V-t-u, V=max(v(t),v(t+u),Lambda-3a/8) for t<mu, and V=v(t) otherwise.
+Only L/a>=2 contributes. All their squares, stable ceilings and alpha>=2
+are checked by 2a>h and V<=(1+t+u)/2. Below 2 the lower option is zero.
+U7/U8/U9 retain their exact positive labelled product masses and use U.
+U9 multiplicities are not replaced by an indicator. Their unit products
+have fixed exponent below 1 and hence negligible mass.
+
+U10/U11 use on one common positive four-prefix partition the minimum of
+the switched kernel K omega((1-S4)/z)/z and the eligible ordinary upper
+kernel 4(1-H248(max(2,L/w)))/L, decreasing x>y>z>w. Every ordinary option
+passes ALL full and selected squares and retains ceiling w; its argument
+is <3. Saved parent refinements replace their old parents; overlapping
+options are not added. The U11 family is subsequently restricted in section 5.
+
+All ideal ordinary starts are realizable simultaneously. With
+d0=249/448-3h>0, the third/fourth/fifth small-last-prime tails are
+O(epsilon*(1+log^(r-1)(h/epsilon))). Ordinary Fbar/fbar differences cancel
+the last-coordinate inverse-square singularity. On the remaining compact
+domain freeze each cap at its own prefix, retest child history at that
+actual cap, and preserve every inherit label. Proper affine walls have
+vanishing mass; open equality/inherit regions are not discarded. Literal
+raw subtree differences converge together by bounded convergence. Current
+restoration slabs are separately licensed old first exits as in section 2.
+
+The same nested finite refinement realizes the table graph. All kernels
+have fixed positive denominators. One may bound each transition's positive
+operator mass by 12 and the root coefficient norm by 7/2. Thus a local
+oriented error delta propagates at most delta*(12^441-1)/11 before the
+root normalization. Choose delta first within the final prescribed budget;
+there are then finitely many queries. Zero-mass pieces are controlled by
+absolute errors, not division by Theta. This proves common finite
+realization; finite depth alone would not discretize continuous children.
+
+5. THE DELETION IMPROVES THE SAVED FUNCTIONAL IN THE RIGHT DIRECTION
+
+On the nonenhanced pair512 rectangle t in[mu,d], u in[a,h], put
+R=57/64-(5/2)t-u. On each B=[tl,tr]x[ul,ur] let Rmax=R(tl,ul),
+smax=Rmax/a and M_B=log(tr/tl)log(ur/ul). E0 has smax<2 throughout,
+so its saved L6 lower floors are zero. The EXACT selected E1 has 227
+crossing cells with zero saved floors by the source guards, and 11254
+wholly positive cells with 2<=smin<=smax<=9/4.
+
+On[2,9/4], F_lower(s)=log(s-1)/s is increasing. The saved ordinary
+cell floor, including its alternative concave chords, is no greater than
+(4/a)F_lower(smax)M_B. If H_B is the minimum h248 over the exact closed
+argument support, the saved defect floor is <=4H_B M_B/Rmax: its directed
+support contains the exact support and its denominator is Rmax. Hence the
+discarded SAVED lower bound, in Chen-quarter units, is at most
+ sum_{E1 positive B} M_B[log(smax-1)+H_B]/Rmax <= .002372094.       (5.1)
+This is deliberately not an upper bound for the actual removed Y6 count.
+
+The same selected parents are all switched in the CURRENT n48 U11 cover;
+none meets the priority40000 replacement. For E1 there are 61956 such
+parents, and E0's corresponding 34405 parent check is also retained.
+For a touched parent B let Z_B=int_B dmu4/z, K_anchor=6.7619 and g_B its
+saved saving. Its source proof gives
+A_B=K_anchor C_omega Z_B-g_B>=K_anchor omega_B Z_B. The frozen K feedback
+has 0<=s_B<=A_B/K_anchor, so at current K,
+A'_B=A_B-(K_anchor-K)s_B>=(K/K_anchor)A_B.
+Thus the EXPLICIT density A'_B/(Z_B z) majorizes K omega(actual)/z on B,
+preserving its old saving. All current omitted pairs satisfy a full-square
+obstruction to every ordinary cap<=Lambda; the independent exact witness
+intersection additionally verifies that no actual competing parent is used.
+
+Throughout the U11 domain (1-S4)/z>=77/38>2 and omega>=1/2. Apply U to
+the complementary positive family on a common refinement. Restricting this
+majorant removes at least K I_E/8 in Chen units, where
+ I_E=int_{(t,u) in E} int_{a<w<z<u}dt du dz dw/(t u z^2 w).
+This subtracts majorant MASS, not an upper bound for an actual count.
+For a rectangle B its inner integration is exactly
+ log(tr/tl)*[log(ur/ul)/a+(log(ur/a)+2)/ur-(log(ul/a)+2)/ul].
+N proves the safe E0 gross .002095161 (already adopted) and E1 gross
+.003799514. Subtracting(5.1), the additional E1 raw improvement is
+ G1=.001427420=71371/50000000. The two sets are disjoint. The retained
+L6 is its old sum of author512 cell floors minus 4*.002372094; the
+enhanced half is unchanged. No global maximum is given an unjustified
+cell decomposition. Future K slopes remove GROSS/K, not net/K; the
+present theorem keeps K fixed and needs no future optimization.
+
+The mask introduces only finitely many proper exponent walls. Positive
+smoothing, fixed refinement and U on the complement make their error
+arbitrarily small. All prime exponents remain bounded below by a here.
+
+6. THE EXACT NUMERICAL LEMMA, ALLOWANCES AND ALL-EVEN LIMIT
+
+N concerns (4.1) with precisely the choices in sections 2--5: the current
+causal starts and restored cover; H430 only in U3/U4; h248/ordinary H248
+elsewhere; the retained five positive-cost K feedback; current n48/priority
+minimum cover; and the paired E0 union E1 crop. Its certified RAW lower
+endpoint is
+ R=1345575129530003739571681432301188857312754737 /
+   685738127494661151198444592354557952000000000.                  (6.1)
+Its provenance is positive-pair-deletion-improvement-assembly-20261010.json.
+It equals the preceding zero-mask raw endpoint plus G1, with no old table,
+restoration, tail or E0 gain added a second time. N's requirements are the
+one-sided integral inequalities, legal domains and finite recurrence
+arrays; a digest or a successful process exit alone would not prove it.
+
+The retained total lower density/finite-approximation allowance and lower
+compiler/smoothing allowance are EACH
+ B=2504748318091942808229694219379799307550987 /
+   5485905019957289209587556738836463616000000000.                 (6.2)
+This is the old allowance plus G1/8, separately for each role. They include
+the previous costs; they are not to be added to the old allowances again.
+Sections 2--5 realize one finite lower proof within these strictly positive
+allowances. The prime asymptotic errors are o(H_T) after every fixed choice.
+Equations(2.3), (2.5), the finite table inequalities, (4.1) and section 1
+therefore give
+ D12(T)/H_T >= R-2B+o(1)                                        (6.3)
+for every sufficiently large even T. Exact rational subtraction yields
+ R-2B=5379795769801923015478496034985375629943467961 /
+       2742952509978644604793778369418231808000000000,
+ R-2B-12258223/6250000
+      =2485450886949055352600565107038318521 /
+       2742952509978644604793778369418231808000000000 >0.         (6.4)
+This proves(C), and also the eventual inequality D12(T)>=1.96131568 H_T.
+
+The quantifier order is essential but now explicit. Choose the finite
+query graph, compact/tail accuracy, causal caps and support reserves;
+then common beta/rough and fine-label parameters; then actual finite
+divisor orders, the current permitted kappa (or a smaller one), and the
+analytic logarithmic accuracy. Only then let T increase through ALL even
+integers. Each distribution remainder is absolute, not an average in T;
+all finite constants and thresholds can be maximized. C_T>=C_2>0 makes
+fixed power savings and O(T/log(T)^A), A>2, negligible relative to H_T.
+No effective threshold, almost-all substitute, or policy depending on T
+is used. The strict number in(6.4) absorbs the remaining o(1).
+
+CONCLUSION AND AUDIT BOUNDARY
+
+The own lower theorem (C) is discharged by this modular proof once P, U,
+D and the explicit certified functional N are inserted. It is not left
+as an assumed Chen lower estimate. D, the pointwise weight, lower compiler,
+finite typed induction, actual root insertion, paired restriction and
+finite all-even realization have concrete derivations above. No additional
+lower-side inequality was found missing or invalid on this selected scope.
+Verification of P/U's own complete proofs and N's complete numerical lemma
+belongs to their separate modules; this report does not silently label
+that separate work as done. Neither formalization nor outside endorsement
+is an extra mathematical hypothesis. This file does not settle frontier
+priority, change the selected b, alter the main TeX, or authorize publication.

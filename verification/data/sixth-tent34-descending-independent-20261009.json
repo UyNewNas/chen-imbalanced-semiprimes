@@ -1,0 +1,325 @@
+{
+  "status": "PASS_INDEPENDENT_ALL34_PATTERNS_672_BASES_558_SIMPLEX_DESCENDING34_UPGRADE",
+  "variable_masks": [
+    6,
+    10,
+    12,
+    14,
+    18,
+    20,
+    22,
+    24,
+    26,
+    28,
+    30
+  ],
+  "finite_old_universe": 2048,
+  "logical_exclusions": 2031,
+  "chart_pattern_cases": 34,
+  "classification": [
+    {
+      "chart": "R0",
+      "pattern": 0,
+      "status": "EXACT_DUAL_PASS",
+      "constant": "-548129/28000000",
+      "closed_empty": true
+    },
+    {
+      "chart": "R0",
+      "pattern": 1024,
+      "status": "EXACT_DUAL_PASS",
+      "constant": "-508129/35000000",
+      "closed_empty": true
+    },
+    {
+      "chart": "R0",
+      "pattern": 1032,
+      "status": "EXACT_DUAL_PASS",
+      "constant": "-548129/42000000",
+      "closed_empty": true
+    },
+    {
+      "chart": "R0",
+      "pattern": 1096,
+      "status": "EXACT_DUAL_PASS",
+      "constant": "-156043/14000000",
+      "closed_empty": true
+    },
+    {
+      "chart": "R0",
+      "pattern": 1097,
+      "status": "EXACT_DUAL_PASS",
+      "constant": "-368131/46000000",
+      "closed_empty": true
+    },
+    {
+      "chart": "R0",
+      "pattern": 1352,
+      "status": "EXACT_DUAL_PASS",
+      "constant": "-55447/8000000",
+      "closed_empty": true
+    },
+    {
+      "chart": "R0",
+      "pattern": 1353,
+      "status": "EXACT_DUAL_PASS",
+      "constant": "-248131/67000000",
+      "closed_empty": true
+    },
+    {
+      "chart": "R0",
+      "pattern": 1355,
+      "status": "EXACT_DUAL_PASS",
+      "constant": "-1/3000000",
+      "closed_empty": true
+    },
+    {
+      "chart": "R0",
+      "pattern": 1371,
+      "status": "STRICT_RATIONAL_CENTER_PASS",
+      "minimum_slack": "1947450876370798892573/700164331025233331508160"
+    },
+    {
+      "chart": "R0",
+      "pattern": 1864,
+      "status": "EXACT_DUAL_PASS",
+      "constant": "-357/24320",
+      "closed_empty": true
+    },
+    {
+      "chart": "R0",
+      "pattern": 1865,
+      "status": "EXACT_DUAL_PASS",
+      "constant": "-3217/256000",
+      "closed_empty": true
+    },
+    {
+      "chart": "R0",
+      "pattern": 1867,
+      "status": "EXACT_DUAL_PASS",
+      "constant": "-11489531/1271000000",
+      "closed_empty": true
+    },
+    {
+      "chart": "R0",
+      "pattern": 1871,
+      "status": "EXACT_DUAL_PASS",
+      "constant": "-27797127/1307000000",
+      "closed_empty": true
+    },
+    {
+      "chart": "R0",
+      "pattern": 1883,
+      "status": "EXACT_DUAL_PASS",
+      "constant": "-1046887/115000000",
+      "closed_empty": true
+    },
+    {
+      "chart": "R0",
+      "pattern": 1887,
+      "status": "EXACT_DUAL_PASS",
+      "constant": "-9359459/415000000",
+      "closed_empty": true
+    },
+    {
+      "chart": "R0",
+      "pattern": 1919,
+      "status": "EXACT_DUAL_PASS",
+      "constant": "-91/2048",
+      "closed_empty": true
+    },
+    {
+      "chart": "R0",
+      "pattern": 2047,
+      "status": "EXACT_DUAL_PASS",
+      "constant": "-47/768",
+      "closed_empty": true
+    },
+    {
+      "chart": "D33",
+      "pattern": 0,
+      "status": "EXACT_DUAL_PASS",
+      "constant": "-638129/20500000",
+      "closed_empty": true
+    },
+    {
+      "chart": "D33",
+      "pattern": 1024,
+      "status": "EXACT_DUAL_PASS",
+      "constant": "-624793/24500000",
+      "closed_empty": true
+    },
+    {
+      "chart": "D33",
+      "pattern": 1032,
+      "status": "EXACT_DUAL_PASS",
+      "constant": "-691457/28500000",
+      "closed_empty": true
+    },
+    {
+      "chart": "D33",
+      "pattern": 1096,
+      "status": "EXACT_DUAL_PASS",
+      "constant": "-203819/9500000",
+      "closed_empty": true
+    },
+    {
+      "chart": "D33",
+      "pattern": 1097,
+      "status": "EXACT_DUAL_PASS",
+      "constant": "-2154357/155500000",
+      "closed_empty": true
+    },
+    {
+      "chart": "D33",
+      "pattern": 1352,
+      "status": "EXACT_DUAL_PASS",
+      "constant": "-588121/37000000",
+      "closed_empty": true
+    },
+    {
+      "chart": "D33",
+      "pattern": 1353,
+      "status": "EXACT_DUAL_PASS",
+      "constant": "-444787/47500000",
+      "closed_empty": true
+    },
+    {
+      "chart": "D33",
+      "pattern": 1355,
+      "status": "EXACT_DUAL_PASS",
+      "constant": "-828143/189000000",
+      "closed_empty": true
+    },
+    {
+      "chart": "D33",
+      "pattern": 1371,
+      "status": "STRICT_RATIONAL_CENTER_PASS",
+      "minimum_slack": "6489969396039907/2920486228218000000"
+    },
+    {
+      "chart": "D33",
+      "pattern": 1864,
+      "status": "EXACT_DUAL_PASS",
+      "constant": "-2217/85600",
+      "closed_empty": true
+    },
+    {
+      "chart": "D33",
+      "pattern": 1865,
+      "status": "EXACT_DUAL_PASS",
+      "constant": "-3841/204000",
+      "closed_empty": true
+    },
+    {
+      "chart": "D33",
+      "pattern": 1867,
+      "status": "EXACT_DUAL_PASS",
+      "constant": "-271253/27125000",
+      "closed_empty": true
+    },
+    {
+      "chart": "D33",
+      "pattern": 1871,
+      "status": "EXACT_DUAL_PASS",
+      "constant": "-27797127/1307000000",
+      "closed_empty": true
+    },
+    {
+      "chart": "D33",
+      "pattern": 1883,
+      "status": "EXACT_DUAL_PASS",
+      "constant": "-1046887/115000000",
+      "closed_empty": true
+    },
+    {
+      "chart": "D33",
+      "pattern": 1887,
+      "status": "EXACT_DUAL_PASS",
+      "constant": "-22672079/1019000000",
+      "closed_empty": true
+    },
+    {
+      "chart": "D33",
+      "pattern": 1919,
+      "status": "EXACT_DUAL_PASS",
+      "constant": "-513/11200",
+      "closed_empty": true
+    },
+    {
+      "chart": "D33",
+      "pattern": 2047,
+      "status": "EXACT_DUAL_PASS",
+      "constant": "-219/3392",
+      "closed_empty": true
+    }
+  ],
+  "cells": [
+    {
+      "cell_id": "tent34-descending-R0-1371",
+      "pattern": 1371,
+      "chart": "R0",
+      "active6_sets": 210,
+      "active6_counts": {
+        "SINGULAR": 29,
+        "INFEASIBLE": 145,
+        "FEASIBLE": 36
+      },
+      "facets": 10,
+      "vertices": 36,
+      "simplices": 180,
+      "physical_volume": "163810337387168631003709810004249382807932245189097/4673707250909781407533056000000000000000000000000000000000000000",
+      "integral_gap": "96347187622355438676097401569257849290975488259506713107253831/1166141089459315414188095883632640000000000000000000000000000000000000000000000",
+      "max_floor_sum_Q96": "68791817941930747262348",
+      "jensen_floor_sum_Q96": "146729738467843175424843"
+    },
+    {
+      "cell_id": "tent34-descending-D33-1371",
+      "pattern": 1371,
+      "chart": "D33",
+      "active6_sets": 462,
+      "active6_counts": {
+        "SINGULAR": 60,
+        "INFEASIBLE": 354,
+        "FEASIBLE": 48
+      },
+      "facets": 11,
+      "vertices": 48,
+      "simplices": 378,
+      "physical_volume": "4988603690746888804646402259255000374084012894408555694601/469069785930144879047074537046016000000000000000000000000000000000000000",
+      "integral_gap": "1129717474186619258832225390247841243631974570703410536298240703662759711/44608214184623138178581136352156374686760960000000000000000000000000000000000000000000000",
+      "max_floor_sum_Q96": "18983921041010324344656",
+      "jensen_floor_sum_Q96": "40548005472344351298176"
+    }
+  ],
+  "total_active6_systems": 672,
+  "total_simplices": 558,
+  "Q": "79228162514264337593543950336",
+  "gain_floor_sum_Q96": "187277743940187526723019",
+  "gain_lower": "187277743940187526723019/79228162514264337593543950336",
+  "gain_display_only": 2.363777449798483e-06,
+  "all_simplex_factor_moment_floor_stream_sha256": "4fb896c51059bd6c140238b83afbc4d54a30ea564a532c7b9e2626634ab692b8",
+  "independent_scope": "No new author modules or its geometry backend imported. Physical semantics/rows reconstructed, reviewer prior exact linear solver plus Bareiss, own face recursion and49-term double barycentric moments used.",
+  "policy_scope": "R5=L3=R0, C>A33, newmask34 capD34-eta withD34<A34, two affine comparison charts max(R0,D33). Completeness is only this canonical finite branch policy.",
+  "combination_scope": "The D33 chart is a same-node upgrade over the existing descending33 cap and usesM-D33, never a second fullM-R0 saving. Ascending34 is separated by opposite unbuffered tent inequalities. No globalK promotion.",
+  "numerical_scope": "All 34 exact center/dual cases, boundedness, exhaustive bases, original-row redundancy, complete face recursion, all558 determinants, factors, weighted means and Q96 floors checked. Shared external licensing/density theorem inputs not reproved.",
+  "bindings_sha256": {
+    "sixth-tent34-descending-independent-20261009.py": "35453e30c1e05e30e67a5253de87b67bb8cc8772306288b38bff267193898862",
+    "sixth-tent34-descending-independent-20261009.txt": "0ac9ea8c048a72fa39cbf755e5a1efbe9fafb942aa67db5855a8c2a75436d60a",
+    "sixth-tent34-descending-upgrade-20261009-navigation.json": "e3aa53157374c28ff326a4a030d1bfcce4f1ffded97ff225ca320deb9355659a",
+    "sixth-license-cell-exact-20261009.py": "eae48ac7015023987ae32724b52316ff18894b5a7d183d52c504d8d6f6d17006",
+    "sixth-license-cell-reverse-crosscheck-20261009.py": "a8350599499d3eb9b5486b303a3161cca7f59fd45b95c27392cd785a957026df",
+    "sixth-license-family-independent-20261009.py": "dfca3fb86ff3d4702b052f1f7754a94ea94f494b8611530a71e3ea4f3e829166",
+    "sixth-tent34-descending-upgrade-20261009.py": "07cb90b9f0dcd969a6432ec11014948210cebc413b8aaaea2360227f2ccac7cd",
+    "sixth-tent34-descending-upgrade-20261009-exact.py": "7287c079cc5cb9ed9b6f19878a66f3cd9d209233c03e30b3c1481127cdde6c14",
+    "sixth-tent34-descending-upgrade-20261009.json": "06e14f223978de72d8122fb3c873d34713b8b79d936221e32beb6517ec2749f0",
+    "sixth-tent34-descending-upgrade-20261009.witness.json": "c4a72fbd12656c34790c441ddb8632ebfb787cb3aadef13231b66551790bb828",
+    "sixth-tent34-descending-upgrade-20261009-final.json": "eeed0111c254779a7b4f17a6d0e5848ec65145e78f9ae7a22a51b65db39777b2",
+    "sixth-tent34-descending-upgrade-20261009.tex": "6f449a0f047928f647507ed4c2c47fd06d8f4d4a13333cff91bacd50f44ea48c",
+    "sixth-tent34-upgrade-analytic-20261009.json": "eb02995adac00362bed8cc10731779d81a5eaa6bb7e84202c562dd4ca775b4d8",
+    "sixth-license-family-weighted-jensen-analytic-20261009.json": "319494b69973ad098dc318611ca41da6c6e07bd4d939f1872762d779dcd23ab9",
+    "sixth-tent33-descending-20261009.tex": "cd98de762a53f30ab89c7062354938b431d795ac58cb641edf41cd6c37e416cb",
+    "sixth-tent33-ascending-route-20261009.tex": "3b9a9b9f8bb2375b592781754912ebf92f61fd8c6476f88786edf536e0f7d6cd"
+  },
+  "seconds_display_only": 1.8859982000431046
+}

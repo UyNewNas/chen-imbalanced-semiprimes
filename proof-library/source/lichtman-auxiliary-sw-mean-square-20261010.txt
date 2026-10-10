@@ -1,0 +1,326 @@
+Full auxiliary SW to the exact mean square required by preliminary dispersion
+2026-10-10. A local derivation; no old file, numerical constant or state changed.
+
+Result and scope
+
+The needed Barban--Davenport--Halberstam type estimate follows directly
+from character orthogonality, the classical primitive-character large
+sieve, and the supplied full auxiliary SW estimates. It need not be
+imported through BFI Theorem0(a) or taken on faith from Maynard I
+Lemma13.8. The derivation below also handles an additional, arbitrarily
+large fixed coprimality filter d0, with an explicit tau(d0)^(2C0) cost.
+The constants and modulus threshold are uniform in d0. That cost must
+subsequently be paid; it is not a free filter-stability assertion.
+
+For the actual normalized medium rough mu/1 factor C0=1 and its squared
+norm is at most a fixed multiple of N. Thus the local mean-square input
+has all the strength required at Qmean<=8 QD with QD<=N*x^(-delta),
+provided N is a fixed positive power of x. The target T affects only a
+uniform coefficient family and optional outer restrictions. It does not
+become a large residue in this mean-square theorem, which sums over ALL
+primitive residue classes.
+
+This is not a reproof of preliminary dispersion's main-term/Gram
+reduction, its zero-product corrections, the spectral estimate or all PP.
+Their use of the local lemma must retain the exact mean and the stated
+filter factors. The root/GB main-term repair is a separate component.
+This reviewer authored the previous rough-SW and dispersion-bottom audit;
+the present work supplies the previously external mean-square step, not
+a claimed independent second review of those earlier proofs.
+
+1. A precise local lemma
+
+Put L=1+log(2N). The complex sequence a_n is supported in a fixed real
+interval of length at most N, contained in [N,2N]. Allow a subinterval
+by extending its coefficient by zero. Assume, with constants uniform in
+the coefficient family,
+
+  sum_n |a_n|^2 <= C_norm N L^D,                            (H1)
+
+for fixed D>=0, and, for each B>0, every integer k>=1, q>=1 and
+primitive b modulo q,
+
+ |sum_{n=b mod q,(n,k)=1}a_n
+   -phi(q)^(-1)sum_{(n,kq)=1}a_n|
+       <= C_B N tau(k)^C0 L^(-B).                         (H2)
+
+Here C0>=0 is a FIXED exponent, independent of B. Only logarithmically
+bounded q are needed in the proof, but the actual input supplies all q.
+Constants C_B may depend on B and the fixed family parameters, including
+its allowed Mellin frequency exponent. They may not depend on the
+particular target, interval endpoints, k or q within that family.
+
+For any d0>=1 define a_n[d0]=a_n*1_{(n,d0)=1} and
+
+ D_d0(q,b)=sum_{n=b mod q}a_n[d0]
+          -phi(q)^(-1)sum_{(n,q)=1}a_n[d0].
+
+Then for every fixed A>0 and w>=0 there is a fixed C such that
+
+  sum_{q<=Q} tau(q)^w sum_{b mod q,(b,q)=1}|D_d0(q,b)|^2
+       << tau(d0)^(2C0) N^2 L^(-A),                       (BDH)
+
+whenever Q<=N L^(-C). Both C and the implied constant are independent
+of d0, and the statement is uniform in the whole coefficient family.
+A sufficient, deliberately generous choice is
+
+  d_w=2^ceil(2w),     C=2A+2D+d_w+4.
+
+Increasing C to an integer is harmless. No factor growing as N^o(1)
+is multiplied into the logarithmic remainder.
+
+2. Remove the auxiliary-filter issue by an exact normalization
+
+Set a_tilde_n=a_n[d0]/tau(d0)^C0. Since
+tau(k*d0)<=tau(k)tau(d0), applying (H2) with auxiliary integer k*d0
+shows that a_tilde satisfies the SAME (H2) constants C_B and exponent
+C0. Its squared norm is no larger than (H1). This uses the exact
+equivalence of the two coprimality conditions to (n,k*d0)=1; no
+coprimality between k and d0 is assumed. Thus it suffices to prove
+(BDH) for d0=1, with uniform constants, and multiply back by
+tau(d0)^(2C0). This proves uniformity even when d0 depends on T or N.
+
+3. Exact characters, including induced characters
+
+For d0=1 put A_b=sum_{n=b mod q}a_n over primitive b. Its average is
+exactly phi(q)^(-1)sum_{(n,q)=1}a_n. Orthogonality gives
+
+  V(q):=sum_b^* |D_1(q,b)|^2
+       =1/phi(q) sum_{chi mod q,chi!=chi0}|sum_n a_n chi(n)|^2.
+                                                               (P1)
+
+Every nonprincipal chi has a unique primitive inducing character
+chi_star of conductor f>1, with q=f*k. Even when (f,k)>1,
+
+  chi(n)=chi_star(n)*1_{(n,k)=1}.                           (P2)
+
+For q=1 the variance is exactly zero. There is no missing coprimality
+in (P2): chi_star already vanishes
+when (n,f)>1, and the extra restriction supplies exactly the additional
+prime divisors of q. The conductor1 case is precisely the principal
+character already removed in (P1). Also
+
+  phi(f*k)>=phi(f)phi(k),
+
+as is checked prime by prime, including shared prime powers. These
+facts allow an upper bound obtained by summing f,k independently with
+f*k<=Q. They do not replace the coefficient by a k-free sequence.
+
+4. Large conductors from the classical large sieve
+
+The only large-sieve input is the primitive-character inequality
+
+ sum_{f<=F} (f/phi(f)) sum_{chi_star mod f}^*
+     |sum_{n in J} c_n chi_star(n)|^2
+       <=(F^2+length(J)+O(1)) sum_{n in J}|c_n|^2.          (LS)
+
+This is the Bombieri--Davenport form recorded and proved as Theorem18.2,
+equation(18.2.1), in Kedlaya's author course notes. Its adjacent text
+specifies primitive characters. The classical large sieve remains an
+external standard theorem; (BDH) is derived from it here.
+
+Choose R0 between L^b0 and 2L^b0 at a dyadic value. For fixed k and
+a dyadic conductor block R<f<=2R, R>=R0, apply (LS) to the SINGLE
+sequence c_n=a_n*1_{(n,k)=1}. It is independent of f throughout that
+application and has squared norm at most C_norm N L^D. Equations
+(P1)--(P2), phi(fk)>=phi(f)phi(k), and 1/f<=1/R give
+
+ contribution(k,R)
+   << (N L^D/phi(k)) * (N/R+R).                            (P3)
+
+The restriction f<=Q/k can be discarded inside its last dyadic block.
+The geometric sums satisfy sum_R 1/R<=2/R0 and sum_R R<=2Q/k. Summing
+over k<=Q/R0 yields
+
+ V_large << N L^D [ (N/R0) sum_{k<=Q}1/phi(k)
+                         +Q sum_{k>=1}1/(k phi(k)) ]
+         << N^2 L^(D+2)/R0 + NQ L^D.                      (P4)
+
+For completeness, k/phi(k)<=tau(k) gives
+sum_{k<=Q}1/phi(k)<=sum tau(k)/k<=(1+log Q)^2, while
+sum_{k>=1}1/(k phi(k))<=sum tau(k)/k^2=zeta(2)^2<infinity.
+These are fixed logarithmic or absolute factors. Applying the large
+sieve to all imprimitive characters as though they were primitive
+would not justify (P4); the fixed-k restriction is essential.
+
+5. Small conductors from FULL auxiliary SW
+
+Fix 1<f<=R0 and a primitive nonprincipal chi_star. Partition its
+twisted sum with auxiliary k into primitive classes modulo f.
+Their common mean cancels because sum_b^* chi_star(b)=0. By (H2),
+
+ |sum_n a_n*1_{(n,k)=1} chi_star(n)|
+       <= phi(f) C_B N tau(k)^C0 L^(-B).                  (P5)
+
+There are at most phi(f) primitive characters. Dividing by phi(fk)
+and using the preceding totient inequality gives
+
+ V_small << N^2 L^(-2B)
+       sum_{f<=R0}phi(f)^2 sum_{k<=Q/f}tau(k)^(2C0)/phi(k).
+
+Let j_aux=ceil(2C0+1), d_aux=2^j_aux. The elementary inequalities
+tau(k)^j_aux<=d_{2^j_aux}(k) and k/phi(k)<=tau(k) imply
+
+ sum_{k<=Y}tau(k)^(2C0)/phi(k)
+       <=(1+log Y)^d_aux.
+
+Since sum_{f<=R0}phi(f)^2<<R0^3, the usable bound is
+
+  V_small << N^2 L^(3b0+d_aux-2B).                        (P6)
+
+The power R0^3 is explicitly retained. The k exponent is fixed before
+the requested SW exponent B is selected. An auxiliary exponent that
+grew uncontrolled with B would not be covered by this parameter choice.
+For the actual rough mu/1 sequence C0=1, so d_aux=8 works.
+
+To obtain sum_{q<=Q}V(q)<<N^2 L^(-H), choose
+
+  b0=H+D+3,  Q<=N L^(-H-D-2),
+  B >= (H+3b0+d_aux+4)/2.
+
+Then (P4) and (P6) give the asserted estimate, with spare log powers.
+All choices are fixed constants. There is no circular choice between
+the auxiliary divisor exponent and the desired SW saving.
+
+6. The divisor weight in the MODULUS needs no shifted Shiu theorem
+
+For each q<=N, the exact primitive-class variance satisfies
+
+ V(q)=sum_b^*|A_b|^2-|sum_b^*A_b|^2/phi(q)
+      <=sum_b^*|A_b|^2
+      <=(N/q+1) sum_n |a_n|^2
+      <<N^2 L^D/q.                                      (P7)
+
+The second inequality is Cauchy within each class, whose number of
+integers is at most N/q+1. This does not require a pointwise divisor
+bound or an average theorem in a progression. It follows that
+
+ sum_{q<=Q}tau(q)^(2w)V(q)
+       <<N^2 L^(D+d_w),  d_w=2^ceil(2w).
+
+Cauchy across q gives
+
+ sum_{q<=Q}tau(q)^w V(q)
+  <= (sum V(q))^(1/2) (sum tau(q)^(2w)V(q))^(1/2).
+
+Use section5 with H=2A+D+d_w+2. Its sufficient modulus threshold is
+Q<=N L^(-2A-2D-d_w-4), and the result is even O(N^2 L^(-A-1)).
+Weakening proves (BDH). This supplies the weighted version that Maynard
+deduces from his unweighted citation, with all costs visible. In the
+actual one-bounded case D=0. More generally any fixed divisor bound on
+a_n supplies (H1) by elementary divisor moments, if that case is needed.
+
+7. A printed mean in Lemma13.8 must NOT be used literally
+
+The statement of Maynard I Lemma13.8 and its first variance formulas
+retain 1_{(n,q)=1}/phi(q), correctly. In the last displayed definition
+of S2 in its proof (local extraction around lines4209--4215), the
+coprime indicator is absent. That literal alternative has no arbitrary-
+log saving, even for a_n=1 on N<n<=2N with N even: at q=2 the sole
+primitive class has N/2 terms but the written unfiltered mean is N,
+giving variance N^2/4. The sequence1 satisfies the source's SW condition.
+
+This is a local formula discrepancy, not a counterexample to the actual
+Lemma13.8 statement. The direct proof (P1)--(P7) uses its correct
+coprime mean throughout and does not rely on the defective display.
+Neither BFI Theorem0 nor that S2 display is an input to this derivation.
+
+8. Exact interface for the current preliminary D application
+
+The normalized individual medium coefficient is rough1 or rough mu,
+with its arbitrary individual interval, fixed normalized logarithms
+and retained polylog Mellin twist. The separate explicit rough-SW
+proof supplies (H2) with C0=1 uniformly over that family, and its
+one-bound gives (H1) with D=0. Its source interval scale is N=U;
+the complete source x=UV satisfies N>=x^xi for fixed xi>0. Therefore
+log N and log x are comparable with fixed constants. The common
+chart roughness window and target dependence change none of these
+constants. They do not introduce an arithmetic class filter in a_n.
+
+D requires a modulus range Qmean<=8QD, with QD<=N*x^(-delta), for
+fixed delta>0. Consequently 8QD<=N/(1+log(2N))^C eventually for
+EVERY fixed C used above. No new numerical or sieve-level margin is
+required. The factor8 and fixed smooth endpoint constants are harmless
+because a positive power gap was already reserved.
+
+The source's final displayed (14.6)--(14.7) uses a weight tau(s)^(3B0)
+and the exact original-alpha variance with s=qde; at E=1, s=qd. The
+local theorem applies with any fixed w, including 3B0. If the repaired
+main-term calculation instead keeps
+
+  a_n[r]=a_n*1_{(n,r)=1},
+
+apply the AUXILIARY version directly. With C0=1 its price is tau(r)^2;
+with a common source notation C0<=B0 it is at most tau(r)^(2B0).
+This is uniform for all r, not merely for small r. Do not replace this
+by a claim that every filtered sequence has the same unnormalized SW
+constants for free.
+
+For example, if the separately proved Gram/Cauchy reduction gives
+
+  E <= M log(x)^C1/(QD R)
+       *sum_{r~R}tau(r)^(2B0)
+          *sum_{s<=8QD}tau(s)^(2B0+1)
+             *sum_b^*|D_r(s,b)|^2,                       (P8)
+
+then (BDH) with C0<=B0 bounds the r-sum by
+
+  N^2 log(N)^(-A) sum_{r~R}tau(r)^(4B0)
+       << R N^2 log(x)^(-A+C2).
+
+Thus E<<MN^2/(QD)*log(x)^(-A+C1+C2). Increase A first to pay the
+fixed C1,C2 and the outer dispersion Cauchy cost. No sum over R
+individual logarithmic errors is replaced by a maximum x^o(1);
+the displayed 1/R and the divisor MEAN are essential.
+
+Equation(P8) is an INTERFACE example, not an assertion proved by this
+mean-square note. The new exact Gram/main-term component must establish
+its normalization and coefficient weights separately. This report
+neither assumes it to prove (BDH), nor infers a complete D theorem from
+(BDH). This keeps the two components non-circular. Primitive residue
+restrictions involving T may be dropped from the nonnegative mean-
+square bound; T itself is not a character conductor.
+
+9. Endpoints and uniformity boundaries
+
+Any one subinterval I is included in a_n and the bound is in the
+ambient scale N, not in |I|. It is uniform over all such I when (H2)
+is. One may also index the entire family by T, the original chart,
+Mellin frequency, or an auxiliary filter d0, with the common constants
+already specified. The theorem does NOT place sup_I inside the sum
+over moduli for an independently chosen endpoint at each modulus.
+That would require a separate maximal/variation argument. The actual
+Fourier coefficient is fixed while moduli are summed; in D, partial
+summation endpoints are frozen before subsequent uses that need this
+property. Polylogarithmically many separate applications can be paid
+by a stronger requested logarithmic saving.
+
+Other exclusions: arbitrary arithmetic weights on a_n, uncontrolled
+growth of the number of HB slots or of C0, a modulus-dependent choice
+of a_n, and a Q range without the stated logarithmic or actual power
+gap are not proved. Classical large sieve and classical unrough
+Mobius SW remain explicit external inputs. No beyond-half prime
+distribution, spectral conclusion, low-rank convolution BV, numerical
+integral, or global K/c/b claim is obtained by this note alone.
+
+Sources actually read, with locations
+
+* external-source-audit-20261009/maynard-I-v2-phase-candidate-20261009.txt:
+  lines1252--1281, Definition1/(6.1); lines4158--4221, Lemma13.8,
+  its weighted reduction and missing-indicator display; lines4750--4903,
+  the final CRT/main-term (14.4)--(14.7) including the tau(s)^(3B0) use.
+  The bibliography identifies [3] as Bombieri--Friedlander--Iwaniec,
+  Acta Math.156(1986),203--251. Its Theorem0 was not needed or claimed
+  independently read here after the direct derivation was obtained.
+* external-source-audit-20261010/kedlaya18-lowrank-bv-20261010.html:
+  section18.2, Theorem18.2/(18.2.1), HTML lines493--548, including
+  the primitive convention and proof. Source URL:
+  https://kskedlaya.org/ant/chapter-18.html . Only (LS) is imported.
+* lichtman-medium-rough-sw-explicit-20261010.txt: sections2--4,
+  the actual full auxiliary estimate with fixed C0=1 and family constants.
+* lichtman-dispersion-bottom-audit-20261009.txt: section5, which left
+  Lemma13.8 as an external input; the present note supplies that local
+  step and explicitly permits the paid filtered alternative.
+* lichtman-hb-smooth-dyadic-addendum-20261010.txt and its independent
+  scale audit: the original chart's smooth replacement and fixed
+  roughness window, without changing the medium exponent gap.

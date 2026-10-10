@@ -1,0 +1,168 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[a4paper,margin=24mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,booktabs,longtable,array}
+\usepackage{xcolor,fvextra,fancyhdr}
+\usepackage{xurl}
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue]{hyperref}
+\usepackage{bookmark}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\CN}{\mathcal C_N}
+\newcommand{\HN}{\mathcal H_N}
+\newcommand{\PP}{\mathbb P}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\one}{\mathbf 1}
+\DeclareMathOperator{\supp}{supp}
+\setlength{\emergencystretch}{3em}
+\setcounter{tocdepth}{1}
+\allowdisplaybreaks[1]
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small Imbalanced semiprime representations}
+\fancyhead[R]{\small 10 October 2026}
+\fancyfoot[C]{\thepage}
+\setlength{\headheight}{14pt}
+\hypersetup{pdftitle={Imbalanced semiprime representations of even integers: revised modular proof},pdfauthor={Slava Chan}}
+\title{Imbalanced semiprime representations of even integers\\[3pt]
+\large A revised modular proof with paired sieve weights and finite certificates}
+\author{Slava Chan\\\small Independent Researcher\\\small\href{mailto:ch4nslava@gmail.com}{ch4nslava@gmail.com}}
+\date{10 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We study representations of sufficiently large even integers in the form
+$N=p+rq$, where $p,q$ are primes and $r$ is either $1$ or a prime, with a
+restriction on the relative sizes of $r$ and $q$.  Write
+$H_N=C_NN/\log^2N$ with the Chen singular factor $C_N$ defined below.
+The construction developed here gives, for each fixed $1/2<b<1$,
+\[
+ \liminf_{\substack{N\to\infty\\2\mid N}}
+ \frac{D_b(N)}{H_N}
+ \ge 1.96176252-6.7617368\log(1/b),
+\]
+where $D_b$ counts distinct prime summands with $r\le q^b$.
+In particular the resulting eventual lower bounds are $H_N/100000$ at
+$b=0.74816964$ and $H_N/1000000$ at $b=0.74816865$.
+The proof combines a positive upper sieve for the excluded ordered
+semiprimes, a full eleven-term Chen weight with a paired geometric
+deletion, and explicitly selected finite numerical inequalities.  A
+further estimate on the same deleted cells uses the elementary bound
+$\omega(s)\ge11/20$ for $s\ge7/3$ and a sharper payment for the
+discarded saved lower estimators.  A
+restricted moving-residue distribution argument retains the oscillatory
+phase and is matched to the actual compiled coefficients.  We state its
+classical inputs and its scope, and include the complete analytic modules
+and a finite-certificate specification.  The present version replaces the
+earlier distribution interface; it does not invoke the previously used
+external coefficient $1.9728$.  The proof is a research manuscript with
+computational certificates, not a formally verified theorem or a report
+of external mathematical acceptance.
+\end{abstract}
+\clearpage
+\tableofcontents
+\clearpage
+\input{manuscript-body}
+\clearpage
+\input{references}
+\clearpage
+\appendix
+\section*{Reading the complete proof modules}
+\addcontentsline{toc}{section}{Reading the complete proof modules}
+The following twelve appendices reproduce the frozen consolidation modules in
+their original ASCII mathematical notation. Their internal equation numbers
+are local to each module. Fixed-width notation such as \texttt{sum},
+\texttt{prod}, \texttt{<=} and \texttt{1\_condition} denotes sums, products,
+inequalities and indicator functions, respectively. These are complete source
+texts, rather than abbreviated extracts. Further cited derivations and finite
+records are indexed in the accompanying \path{proof-library/} and verification
+packages. Publication copies of those libraries explicitly record any redaction
+of private provenance; mathematical text is not silently rewritten.
+
+Statements in the frozen modules about the main manuscript, internal review,
+or publication status describe the state when that module was written. They do
+not supersede the current scope and reproduction statement in the main text.
+Appendices A--J provide the baseline analytic construction and numerical
+assembly. The adopted same-mask refinement in Appendices K--L replaces the
+baseline lower coefficient and its derived exponents. The old values printed
+in the baseline source texts are preserved as provenance, not as the current
+selected result. The main text states and proves the combined conclusion.
+Likewise, an internal ``completed'' or ``PASS'' label is not external validation.
+
+The references to Suzuki in Appendices~\ref{app:upper}--\ref{app:lower}
+mean \cite[Propositions~9.4(i) and 11.8, and Lemma~14.7]{Suzuki}; the bibliography
+identifies the dated notes and page locations.
+
+\paragraph{Editorial correction.}
+The count ``17772'' in the coefficient and upper modules is an arithmetic
+typographical error: the two disjoint families have $6091+11481=17572$ cells.
+The selected masks and numerical certificate have not changed. The same
+typographical error occurs in the supporting positive-pair improvement note;
+the source library records all identified locations.
+\clearpage
+\section{The restricted medium-variable distribution estimate}\label{app:medium}
+\noindent Source: \path{distribution-medium-completion-20261010.txt}.
+\medskip
+\VerbatimInput[fontsize=\footnotesize,baselinestretch=1.02,breaklines=true,breakanywhere=true,tabsize=4]{modules/distribution-medium-completion-20261010.txt}
+\clearpage
+\section{The actual finite coefficient families}\label{app:coefficients}
+\noindent Source: \path{distribution-coefficient-completion-20261010.txt}.
+\medskip
+\VerbatimInput[fontsize=\footnotesize,baselinestretch=1.02,breaklines=true,breakanywhere=true,tabsize=4]{modules/distribution-coefficient-completion-20261010.txt}
+\clearpage
+\section{The prime-product distribution theorem}\label{app:prime-products}
+\noindent Source: \path{distribution-prime-product-completion-20261010.txt}.
+\medskip
+\VerbatimInput[fontsize=\footnotesize,baselinestretch=1.02,breaklines=true,breakanywhere=true,tabsize=4]{modules/distribution-prime-product-completion-20261010.txt}
+\clearpage
+\section{The direct Brun treatment of long variables}\label{app:brun}
+\noindent Source: \path{direct-brun-long-branches-root-20261010.txt}.
+\medskip
+\VerbatimInput[fontsize=\footnotesize,baselinestretch=1.02,breaklines=true,breakanywhere=true,tabsize=4]{modules/direct-brun-long-branches-root-20261010.txt}
+\clearpage
+\section{Correspondence with the classical spectral inputs}\label{app:classical}
+\noindent Source: \path{final-classical-input-correspondence-20261010.txt}.
+\medskip
+\VerbatimInput[fontsize=\footnotesize,baselinestretch=1.02,breaklines=true,breakanywhere=true,tabsize=4]{modules/final-classical-input-correspondence-20261010.txt}
+\clearpage
+\section{The positive upper sieve and its density}\label{app:upper}
+\noindent Source: \path{global-positive-upper-completion-20261010.txt}.
+\medskip
+\VerbatimInput[fontsize=\footnotesize,baselinestretch=1.02,breaklines=true,breakanywhere=true,tabsize=4]{modules/global-positive-upper-completion-20261010.txt}
+\clearpage
+\section{The Chen lower construction with paired deletion}\label{app:lower}
+\noindent Source: \path{global-chen-lower-completion-20261010.txt}.
+\medskip
+\VerbatimInput[fontsize=\footnotesize,baselinestretch=1.02,breaklines=true,breakanywhere=true,tabsize=4]{modules/global-chen-lower-completion-20261010.txt}
+\clearpage
+\section{The sharp-prime endpoint and lower interfaces}\label{app:cross-review}
+\noindent Source: \path{final-lower-cross-review-20261010.txt}.
+\medskip
+\VerbatimInput[fontsize=\footnotesize,baselinestretch=1.0,breaklines=true,breakanywhere=true,tabsize=4]{modules/final-lower-cross-review-20261010.txt}
+\clearpage
+\section{The selected finite numerical inequalities}\label{app:numeric}
+\noindent Source: \path{global-selected-numeric-completion-20261010.txt}.
+\medskip
+\VerbatimInput[fontsize=\footnotesize,baselinestretch=1.02,breaklines=true,breakanywhere=true,tabsize=4]{modules/global-selected-numeric-completion-20261010.txt}
+\clearpage
+\section{The ordered bad-semiprime mass and final transfer}\label{app:downstream}
+\noindent Source: \path{current-downstream-proof-spine-20261010.txt}.
+\medskip
+\VerbatimInput[fontsize=\footnotesize,baselinestretch=1.02,breaklines=true,breakanywhere=true,tabsize=4]{modules/current-downstream-proof-spine-20261010.txt}
+\clearpage
+\section{The adopted same-mask refinement at threshold 7/3}\label{app:refinement}
+\noindent Source: \path{corpus-renewal-paired-certificate-v2-20261010.txt}.
+\medskip
+\VerbatimInput[fontsize=\footnotesize,baselinestretch=1.02,breaklines=true,breakanywhere=true,tabsize=4]{modules/corpus-renewal-paired-certificate-v2-20261010.txt}
+\clearpage
+\section{The final cross-check of the same-mask refinement}\label{app:refinement-review}
+\noindent Source: \path{corpus-renewal-paired-final-review-20261010.txt}.
+\medskip
+\VerbatimInput[fontsize=\footnotesize,baselinestretch=1.02,breaklines=true,breakanywhere=true,tabsize=4]{modules/corpus-renewal-paired-final-review-20261010.txt}
+\end{document}

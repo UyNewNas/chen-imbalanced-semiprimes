@@ -1,0 +1,76 @@
+% Independent scope review: unequal endpoint rectangles and repeated bins.
+\paragraph{What is new and disjoint.}
+The endpoint slab has $t_1\in[3/20,19/125]$ and three strictly
+separated mesh-$400$ bins.  Every old original, refined or newly added
+coarse parent has $t_1\le3/20$.  The repeated-bin cover has
+$t_1\le3/20$ and at least one equal outer mesh index.  Every old parent
+has four distinct indices, and each of its mesh-$800$ children remains
+inside that parent.  Thus the old cover, new slab and new repeated-bin
+cover are pairwise disjoint modulo null bin-boundary faces.  Within
+each new cover the independent replay checks unique grid keys and
+their stated rational endpoint forms.  It adds no pilot or overlapping
+mask bound.
+
+\paragraph{Permutation history is checked before using symmetry.}
+For every tied box, the replay generates the complete product of
+permutation groups inside its equal-bin blocks.  For each ordering it
+maps the original eight third-prefix branches and their gates to the
+actual labeled coordinates.  It then independently checks both
+$t_1+3t_2<\nu$ and the fourth cube against the resulting valid
+$C_3$ lower bound.  The prior full-square inequalities are checked
+as well.  The branch upper majorant retains the union of all these
+mapped third branches and all mapped fourth selected branches.  An
+upper branch is excluded only by a whole-box necessary gate test.
+Each retained branch is proved to be below the final affine majorant
+using exact affine extrema, not by testing a chosen center alone.
+This treats ties crossing slots three and four correctly.
+
+For the newly selected fixed labeled mask, the replay generates the
+actual remaining-slot gate sequence for \emph{every} ordering.  It
+checks the asserted equality of gate-extremum lists and also enforces
+the union of all these gates in the final fifth-variable interval.
+The candidate argument exceeds one throughout that interval and the
+outer box.  If its cap exceeds inherited $C_4$, all earlier full-square
+gates hold by inheritance; if it does not, $C_5\ge C_4$ already
+dominates that candidate.  This is why its ordinary upper density is
+still a valid lower-gain comparison in either case.
+
+\paragraph{Why the factorial is legitimate.}
+Extend the actual target density by sorting the four outer variables
+first.  This target, including causal $C_3,C_4,C_5$ and history, is
+invariant under within-bin permutations.  The affine majorant above
+is valid on the whole box for this sorted target.  Convex Jensen gives
+the old-term lower integral, and the convex candidate density has its
+sixteen-corner multilinear upper integral with positive logarithmic
+basis moments.  Hence the resulting signed full-box difference bounds
+the full-box target integral.  Its nonnegative part remains valid
+because the actual gain is nonnegative.  Only then is the resulting
+integer floor divided by $\prod_j m_j!$, rounded downward.  Neither
+the selected mask nor the affine majorant is claimed symmetric.
+
+\paragraph{Unequal widths and numerical scope.}
+For arbitrary $0<l<u$, the mean and the two unnormalized basis moments
+used by the independent implementation are
+\[
+ \frac{u-l}{\log(u/l)},\qquad
+ \frac{u\log(u/l)-(u-l)}{u-l},\qquad
+ \frac{(u-l)-l\log(u/l)}{u-l}.
+\]
+Thus the endpoint slab needs no fictitious equal-width replacement.
+Logs and means are outward rational bounds.  The ordinary primitive
+is reconstructed at mesh $131072$, with maximum argument twelve,
+112-bit arithmetic and checked exact arguments.  The same independently
+reviewed delay-equation backend and the new independent fifth integral
+core are explicitly shared.  No author geometry, moment or integral
+function is imported.  Every saved mask's actual cost is recomputed;
+if its floor is not covered, the smaller independent floor is used.
+
+The companion review records all $4977+18685=23662$ numerical cells,
+all actual ordering counts, complete geometry and ledger checks, and
+the exact added integral.  Its optional new $I_5(h)$ total uses only
+the previously reconstructed new Jensen/child floors, omitting all
+inherited pre-Jensen floors.  This avoids any upgrade of the old
+floor-review scope.  The fixed joint finite approximation, ordinary
+density and convexity identities, and signed distribution remain
+separate mathematical inputs.  This component audit does not assert
+a global $c,b$, effective threshold, or literature priority.

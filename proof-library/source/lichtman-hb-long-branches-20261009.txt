@@ -1,0 +1,338 @@
+HB one-long and two-long branches at the moving target
+2026-10-09. New analytic reconstruction; no change to frozen sources or constants.
+
+Conclusion
+
+For the actual complete-integer scales and fixed finite families, both long
+branches can be justified without the disputed L23 Lemma4.6 phase deletion
+or its medium-slot spectral estimate. The smoothed two-long core in Maynard
+II Lemma7.1 is genuinely uniform in every primitive residue. Its passage
+to rough, interval-restricted variables needs a separate moving-shift check:
+the old smoothing proof uses divisors of a product minus a and cannot be
+quoted literally at product=a. The nonzero shifted-moment estimate and an
+isolated first-moment correction give that check below.
+
+I use a slightly stronger, explicitly sufficient modulus inequality than
+the printed two-long proposition, so that its proof and frequency losses
+are fully covered. This costs no actual project density: the present level
+is strictly below3/5, whereas this branch has a2/3 threshold. This note is
+not a reproof of the medium-slot theorem, of the whole compiler, or of the
+current global K,c,b claims.
+
+1. Sources actually checked
+
+* actual-k-distribution-joint-audit.tex: original-group HB dichotomy and
+  one/two-long paragraphs; one-long-coprime-mean.tex.
+* own-lower-compiler-chain-audit-20261009.tex, section5.
+* L23v1, Lemma3.4 and Proposition3.2, saved in
+  external-source-audit/l23-v1-joint-current.txt, lines1316--1415.
+* Maynard II v1, Lemmas6.1--6.4 and6.11, Lemma7.1 and the proof of
+  Proposition5.2, saved in external-source-audit/maynard-II-v1-joint-current.txt.
+  The relevant second-Poisson/Kloosterman calculation is in lines1283--1385;
+  the arbitrary interval and two roughness reductions follow it.
+* The full proof behind its smoothing lemma: Maynard I v2 Lemma19.2
+  (renumbered from Lemma18.2 in the version cited by Maynard II), saved in
+  external-source-audit-20261009/maynard-I-v2-phase-candidate-20261009.txt,
+  lines8070--8212. I checked its fundamental-lemma gap, boundary strips,
+  and freezing of the small sieve divisor, not merely its statement.
+* The newly established nonzero shifted-divisor Z2 estimate and its
+  independent review; these are used where the old fixed-shift proof
+  referred to the earlier divisor-moment lemma.
+
+The external analytic inputs retained here are the classical fundamental
+lemma of the dimension-one sieve, Poisson summation, the complete Weil
+bound for Kloosterman sums, ordinary divisor estimates, and classical Shiu
+as used in Z2. No Deshouillers--Iwaniec spectral inequality is used in these
+two branches. In particular Maynard II section8 and L23 Lemma4.6 are not
+part of this derivation.
+
+2. Actual variables and the exhaustive HB alternative
+
+Write T for the even target, x for the complete distributed integer scale,
+and a=T. For an ordinary prime family the distributed integer is the whole
+prime P; a marked prefix belongs to its modulus. For a switched family it
+is the whole product of original prime factors. A quotient after removing
+a marked factor is not the x used here. The retained power trim makes
+|a|<=x^K for a fixed K; these long branches need no sharper a/x bound.
+
+First fix an ORIGINAL prime chart p_i in[R_i,2R_i], put X=product R_i,
+Xplus=2^k X and C_k=2^(6*k_star+2), and fix
+Zchart=f(C_k*Xplus), f(u)=u^(1/(log log u)^3). This choice is made BEFORE
+HB and is not changed separately in different HB terms.
+Apply order-three HB separately in each original prime group. Retain only
+dyadic rectangles meeting that group's original interval. A group's at most
+six endpoint scales have product at least its original scale divided by64.
+The raw HB scale x_HB=product U_j lies in[X/64^k,Xplus]. The later source
+scale x=U*V, after a complementary dyadic convolution subdivision, can
+differ by another fixed factor; it remains comparable to X and at most
+C_k*Xplus. Thus the larger chart buffer covers these later source scales
+too. For each fixed k_star and sufficiently large x,
+
+                 f(x)<=Zchart<=x^(2/(log log x)^3).           (L0)
+
+Every original prime is at least T^a_star for fixed a_star>0, so the original
+roughness condition at Zchart is automatic and may be retained before
+expansion. Every nonunit HB factor has this SAME roughness; units are
+separate singleton factors. The Mobius factors are bounded by a fixed
+multiple of X^(1/3), so they cannot be long in the alternative below.
+
+Choose zeta>0 sufficiently small compared with a_star. Classify medium
+slots on the original chart using the narrower window
+[X^(3zeta),X^(1/3+zeta/4)]. On any constant-comparable local x this is inside
+[x^(2zeta),x^(1/3+zeta/2)] eventually. If no original-chart medium slot
+exists, every slot is short, below X^(3zeta), or long, above
+X^(1/3+zeta/4). A group with only short slots has product at most
+X^(18zeta+o(1)), incompatible with its retained original scale if
+18zeta<a_star/2. Thus every group has a long slot. Three long slots would
+have product>X^(1+3zeta/4), incompatible with the complete dyadic product
+O(X). There are at most two groups. Every long scale is at least
+x^(1/3+zeta/8) eventually, with a reserved constant-scale buffer.
+
+With one long slot, the short product is at most X^(15zeta+o(1)) and hence
+at most x^(16zeta). With two long slots there are at most ten short slots,
+so the corresponding bound is x^(32zeta). Below I use the looser bounds
+M1<=x^(20zeta), M2<=x^(40zeta). Equivalently the old one/two-long formulas
+with parameter zeta_L apply with zeta_L=2zeta; the independent lower bound
+on each long scale is the one just displayed. Long slots have coefficient1,
+apart from the retained logarithm and separable smooth weights. They are
+not arbitrary arithmetic sequences. This argument is independent of the
+number of groups in other HB branches.
+
+3. One long slot: a primitive progression sieve with the exact mean
+
+Let the long scale be V, and assume V>=q*x^gamma for some fixed gamma>0.
+For a fixed short product m, if (m,q)>1, both terms of the desired
+discrepancy vanish because (a,q)=1. Otherwise replace the residue by
+b=a*m^(-1) modulo q. Only its primitive residue class is used; the absolute
+size of a or b does not enter the following sieve.
+
+Here is a direct uniform justification of L23 Lemma3.4 in the needed range.
+Sieve the progression n=b mod q, n<=t with t comparable to V, by primes
+below z=Zchart not dividing q, using sieve-divisor level Y=x^(gamma/4). The local
+density is1/p for p not dividing q and0 otherwise. The dimension-one
+fundamental lemma is uniform for this deletion of primes. Its parameter
+log Y/log z>=(gamma/8)(log log x)^3 tends to infinity sufficiently fast to
+give every logarithmic saving. Since each sieving congruence has remainder
+O(1), the remainder from one-bounded sieve weights supported below Y is
+O(Y), smaller than (t/q)*x^(-gamma/2) for large x. Thus the progression has
+main density
+
+ (t/q) V(z)*product_{p|q,p<z}(1-1/p)^(-1),
+ V(z)=product_{p<z}(1-1/p),
+
+with O_A(t/(q log^A x)) error. This differs from t*V(z)/phi(q) only through
+primes p|q with p>=z. The difference is bounded by
+(t/q)*log^O(1)x/z and hence is smaller than any target logarithmic error.
+The analogous unsifted-in-q rough count has main term t*V(z) with the same
+quality of error. This proves the source's unrestricted rough mean formula
+in the required range, uniformly in the primitive residue.
+
+The desired mean is instead the exact coprime sum. Its difference from
+the printed mean is at most
+
+ (1/phi(q))*sum_{p|q,p>=z}(t/p+1)
+   << (t/q)*log^O(1)x/z + log^O(1)x/q
+   <<_A t/(q log^A x).
+
+The second inequality uses t>=q*x^gamma, and q/phi(q) and the number of
+prime divisors are logarithmically bounded. The convention p>=z or p>z
+is kept consistent with the chosen rough cutoff; an equality prime belongs
+in the displayed deletion set. Modulus1 has zero discrepancy separately.
+
+Apply the estimate at both endpoints of any subinterval of[V,2V]. No
+minimum length of that subinterval is assumed: the error is in terms of V,
+not its possibly small interval length. Partial summation multiplies the
+error by the bounded variation of the normalized logarithm or Mellin twist.
+For frequency |t_mellin|<=log^C x this is a fixed logarithmic power.
+
+Finally sum over the short products and moduli. Fixed divisor bounds give
+sum_{m~M}|beta_m|<<M log^O(1)x and sum_{q<=Q}|rho_q|/q<<log^O(1)x.
+Since MV is comparable to x, the total error remains x/log^A x after
+increasing the initial exponent. This reasoning does not multiply a
+logarithmic estimate by a pointwise x^o(1) coefficient bound.
+
+4. Two smooth long slots: the exact place where residue uniformity holds
+
+Let U<=V be their scales, and Z the complementary scale, so ZUV is
+comparable to x. For each primitive residue a mod q and each m with(m,q)=1,
+the first Poisson step gives phases e(a*h1*(m*n2)^(-1)/q). Complete the
+n2 sum in residue classes and apply Poisson a second time. The complete
+nonzero-frequency sum is
+
+ S(a*h1*m^(-1), h2; q),
+
+an ordinary Kloosterman sum. Its common divisor factor is exactly
+gcd(h1,h2,q), because both a and m are units modulo q. The h2=0 term
+is a Ramanujan sum bounded by gcd(h1,q). There is no approximation of
+a real phase, no Bezout remainder discarded, and no factor depending on
+|a|. Maynard II Lemma7.1 explicitly takes the supremum over all primitive
+residues and moduli in the dyadic block; the above calculation explains
+why its general fixed-a convention causes no problem in this lemma.
+
+To retain every power loss explicitly, select a small fixed eta>0 and
+truncate at H1=q*x^eta/U, H2=q*x^eta/V. The smooth derivative bounds allow
+a negligible Poisson tail, by choosing sufficiently many derivatives.
+If a cutoff is below1 the corresponding nonzero sum is empty. The estimates
+
+ sum_{0<|h|<=H}gcd(h,q) <= O(H*tau(q)),
+ sum_{0<|h1|<=H1,0<|h2|<=H2}gcd(h1,h2,q)
+       <= O(H1*H2*tau(q))
+
+follow by summing over divisors of q. The complete Weil bound is even
+slightly better than the latter use. The exact coprime main terms are
+expanded with their Fourier masses retained, and cancel. The resulting
+bound, for a one-bounded complementary coefficient, is
+
+ E(q) << x^(1+eta+o(1))/(q*U) + x^(2eta+o(1))*Z*q^(1/2).       (L1)
+
+Consequently, if U>=x^nu and
+q<=(x/Z)^(2/3)*x^(-omega) with fixed nu,omega>0, choosing
+eta<min(nu/4,omega/4) gives a fixed power saving relative to x/q.
+The o(1) includes ordinary divisor factors and fixed logarithmic smoothness
+costs. This is a POWER-saving core, so later fixed divisor-bounded grouped
+coefficients and a fixed divisor-bounded rho_q can be bounded by x^o(1)
+here. After summing q, a positive power reserve remains.
+
+There is a minor parameter discrepancy worth keeping explicit. The printed
+Maynard II Proposition5.2 assumes Q<=(x/M)^(2/3-3epsilon). Its final proof
+line instead uses Q<=x^(2/3-3epsilon)/M^(2/3), which is stronger when M>1.
+Also the displayed final bound in Lemma7.1 suppresses the x^epsilon factors
+from its chosen frequency cutoffs. Formula(L1) records these factors
+explicitly. Neither issue is an obstacle for this application: below I use
+the stronger sufficient modulus bound with an independent, smaller eta,
+rather than rely on either suppressed factor.
+
+5. Roughness and intervals: the missing moving-shift details
+
+The proof of Maynard II Proposition5.2 invokes its Lemma6.11 twice, which
+in turn cites the full smoothing proof in Maynard I. Its printed cutoff
+condition is z<=f(x). The original-chart cutoff in(L0) can be larger, so I
+use the following proof-level extension rather than invoke that condition
+literally. The proof uses upper and lower one-bounded fundamental-lemma
+weights lambda_d^+/- supported on d<=y=x^(1/log log x). Uniformly in(L0),
+log y/log Zchart>=(1/2)(log log x)^2. Thus the fundamental-lemma density
+error is still smaller than every fixed inverse power of log x. The same
+weights and smoothing proof apply, uniformly in this fixed-chart window.
+For each variable its difference-of-means error is
+
+ O_A(x/log^A x) + (x/U)*x^o(1),
+
+where U is that long variable's scale. This follows directly from its
+fundamental-lemma density gap and the coprime progression remainder
+O(tau(q)); sum the fixed divisor-bounded complementary coefficients by
+ordinary divisor moments, and sum rho_q/phi(q) logarithmically. No estimate
+depending on a is needed for this mean error. Complex test coefficients
+are split into finitely many nonnegative real components when using the
+pointwise upper/lower sieve inequalities. This does not assume an order
+on complex coefficients.
+
+The source next smooths an arbitrary interval and freezes d in narrow
+multiplicative ranges. Here its proof bounds divisors of mn'd-a. At
+mn'd=a its displayed divisor bound is not available. The following
+independent bounds supply the required moving-a extension.
+
+First remove each exact complete-product equality b=a. At every one of
+these stages the tuple multiplicity and coefficient mass at b are bounded
+by a fixed power of tau(b), even after both auxiliary divisors are inserted.
+The complete modulus support has Q<=x^(1-delta) for fixed delta>0. The
+counting contribution at b=a is therefore Q*x^o(1), while its mean is
+x^o(1)*sum_{q<=Q}|rho_q|/phi(q). Both are negligible. This argument applies
+to the intermediate unrestricted variables; it does NOT use the oddness
+of the final rough product to discard these intermediate terms.
+
+For b!=a, the total absolute modulus contribution is bounded by
+tau(|b-a|)^J+log^O(1)x for fixed J. Boundary intervals of relative width
+log^(-B)x have elementary tuple count
+
+ #E << x*log^(1-B)x + (x/U)*y^O(1).
+
+For example, with one auxiliary divisor this is
+sum_{d<=y} M*(U/(d log^B x)+O(1)); two auxiliary divisors only change the
+fixed logarithmic powers and the y^O(1) term. Cauchy--Schwarz gives
+
+ sum_{tuple in E, b!=a} |weight(tuple)|*tau(|b-a|)^J
+ <= (#E)^(1/2)
+    *(sum_all_tuples |weight(tuple)|^2*tau(|b-a|)^(2J))^(1/2).
+
+Collapsing the second sum to the COMPLETE b inserts only a fixed divisor
+power. The reviewed Z2(q=1) bounds it by x*log^C x, uniformly for polynomial
+|a|. Thus the strip error is
+
+ << x*log^((C+1-B)/2)x + x^(1-nu/2+o(1)),
+
+where U>=x^nu. This gives every logarithmic saving by choosing B large.
+The exact coprime mean obeys the same bound by the reciprocal-totient sum.
+This proof does not incorrectly discard the boundary restriction and then
+claim that its small measure alone bounds a signed discrepancy.
+
+Freezing d inside a multiplicative interval of relative width log^(-B1)x
+changes a smooth factor by O(log^(C1-B1)x). The full nonzero absolute
+discrepancy is x*log^C2 x by Z2 and fixed tuple multiplicity. Choose
+B1>C1+C2+A and the error is acceptable; treat b=a as above. There are
+only fixed logarithmic powers of resulting pieces. Choosing those powers
+before taking x to infinity introduces no circular parameter dependence.
+
+After two roughness removals, write n_i=d_i*n_i', with d_i<=y. Group
+m,d1,d2 into a new complementary variable with scale Z=M*D1*D2=M*x^o(1).
+Its coefficient is fixed-divisor-bounded, not necessarily one-bounded.
+Its pointwise x^o(1) bound is applied only to the POWER-saving estimate(L1).
+It is never multiplied into a remainder known only to be logarithmically
+small. The long scales are N_i'=N_i*x^(-o(1)), so their positive exponent
+and the modulus gap survive. This finishes the actual rough interval
+extension, including both signs and all intermediate exact products.
+
+6. Parameters sufficient for the project and weight uniformity
+
+Let the complete local modulus ceiling be x^theta with fixed theta<3/5,
+after the already reserved local-scale/compiler losses. Choose zeta>0
+as in section2, and then a fixed epsilon>0 so small that
+
+  theta < (2/3)*(1-40zeta)-4epsilon,
+  3epsilon < 1/3+zeta/8,
+  1-20zeta > theta+epsilon.
+
+These choices are possible with a strict margin. For sufficiently large x,
+the dyadic constants and x^o(1) factors fit inside smaller reserved margins.
+The one-long condition then holds with some fixed gamma>0. In the two-long
+case the stronger proof-compatible bound
+
+  Q <= x^(2/3-3epsilon)/M^(2/3)
+
+holds, and after d1,d2 grouping a fixed modulus power gap remains. Choose
+eta much smaller than both the remaining long-scale exponent and that gap
+in(L1). Every fixed logarithmic piece count and divisor normalization is
+absorbed by its surviving power saving.
+
+The rough interval result is uniform at both endpoints independently in
+each long slot. Two partial summations therefore permit separate weights
+with fixed polylogarithmic total variations. These include the HB logarithms
+and retained Mellin frequencies. A finite smooth multivariate weight can
+be treated by the existing separated Mellin representation with its fixed
+derivative bounds. Its discarded Mellin tail is controlled by the same
+nonzero Z2 absolute bound, with b=a isolated; it does not require a new
+uniform SW statement. The short coefficient can retain its own interval
+restriction, since no SW assumption is made on that coefficient.
+
+This does not license an arbitrary arithmetic coefficient on either long
+slot, an arbitrary unbounded-frequency twist, or a sharp coupled inequality
+whose approximation error has not been controlled. For the actual smooth
+outer weights and their separate long-slot intervals, the construction
+above supplies the needed uniformity. Long variables themselves require
+no SW input. All choices are fixed before the target grows.
+
+7. Final scoped assessment
+
+The one-long branch is a primitive progression sieve and exact-mean
+comparison, uniformly in a. The two-long smooth branch is complete
+Poisson/Weil, uniformly in a. Their rough/interval extension is uniform for
+the required polynomial moving target after the nonzero-moment and
+first-moment exact-product corrections just proved. The actual short-product
+thresholds permit the stronger modulus inequalities, and no questioned
+L23 phase deletion occurs in these branches.
+
+What this leaves unresolved is the medium-slot distribution branch and
+the independent verification that all actual signed atoms meet their stated
+factorization/SW inputs, together with other separately identified global
+issues. No global status, coefficient, exponent, or manuscript is changed
+by this report. The quoted existing project closure labels are not used
+as evidence for the new uniformity conclusion.

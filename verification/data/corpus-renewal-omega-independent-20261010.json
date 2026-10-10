@@ -1,0 +1,60 @@
+{
+  "status": "INDEPENDENT_FIXED_MASK_INNER_FIBRE_GROSS_PROVED_AND_ENCLOSED",
+  "date": "2026-10-10",
+  "source_method_note": "corpus-renewal-certificate-methods-20261010.txt",
+  "ordinary_buchstab_global_lower": "1/2 on [2,infinity)",
+  "proved_stronger_lower": "11/20 on [7/3,infinity)",
+  "requested_lower_for_s_ge_5_over_2": true,
+  "pilot_lower_for_s_ge_12_over_5": true,
+  "proof_type": "analytic delay induction with exact rational endpoint certificates",
+  "arithmetic": "base10 integer intervals;256 positive Mercator terms;precision10^72;explicit uniform tail",
+  "project_backend_imported": false,
+  "pilot_code_imported": false,
+  "groups": {
+    "E0": {
+      "cells": 6091,
+      "minimum_Z": "171579/1280000",
+      "additional_gross": {
+        "lower": "46561887025940855961053217015080546897827503191561483010459159022289/250000000000000000000000000000000000000000000000000000000000000000000000",
+        "upper": "46561887025940855961053217015080546897827503191561483010459159024127/250000000000000000000000000000000000000000000000000000000000000000000000",
+        "display_lower": 0.00018624754810376342,
+        "display_upper": 0.00018624754810376342
+      }
+    },
+    "E1": {
+      "cells": 11481,
+      "minimum_Z": "323607/2560000",
+      "additional_gross": {
+        "lower": "357253058802888743973866190400643535791500626664828393806453390438327/1000000000000000000000000000000000000000000000000000000000000000000000000",
+        "upper": "2232831617518054649836663690004022098696878916655177461290333690327/6250000000000000000000000000000000000000000000000000000000000000000000",
+        "display_lower": 0.00035725305880288875,
+        "display_upper": 0.00035725305880288875
+      }
+    }
+  },
+  "total_additional_gross": {
+    "lower": "543500606906652167818079058460965723382810639431074325848290026527483/1000000000000000000000000000000000000000000000000000000000000000000000000",
+    "upper": "135875151726663041954519764615241430845702659857768581462072506637207/250000000000000000000000000000000000000000000000000000000000000000000000",
+    "display_lower": 0.0005435006069066521,
+    "display_upper": 0.0005435006069066521
+  },
+  "pilot_group_intervals_contain_independent_intervals": {
+    "E0": true,
+    "E1": true
+  },
+  "all_11481_E1_per_cell_pilot_intervals_contain_independent_intervals": true,
+  "fixed_masks_disjoint": true,
+  "all_17772_fibres_nonempty_and_in_s_ge_12_over_5": true,
+  "saved_L6_floor_replay_performed": false,
+  "new_c_or_b_assembled": false,
+  "state_or_manuscript_changed": false,
+  "bindings_sha256": {
+    "paired-y6-y11-zero-strip-certificate-20261010.json": "1dc70cf76c35c41161fb5236c608c7da8c0ee4dbeeae9153f0ce30cd63e007ab",
+    "positive-pair-deletion-certificate-20261010.json": "c6adf210c69f1eccb5921622762249d1fcf714abb62c42a493dcac23a609d8c7",
+    "corpus-renewal-paired-pilot-20261010.json": "792e7f11c13c24d46c51bcf663873ef0be045f0202647407fa4b21eee089b64f",
+    "paired-y6-y11-improvement-20261010.txt": "c9466b032f7cc5f016272724304f1411f1538640a3012840ec41acffbadc8264",
+    "positive-pair-deletion-improvement-20261010.txt": "10182dae3bb7466ab93a991d7e355fd1c572b98461e79007868428c48b87d0c7",
+    "corpus-renewal-omega-independent-20261010.txt": "76f74437696d832f66c0d6fff252be6f466a75aca2598a3348c79c435eab3ecd",
+    "corpus-renewal-omega-independent-20261010.py": "582a93b1a0f149121d7816eac87ccfaea8eab1a2a97027dc651b2d6b9d726d7b"
+  }
+}

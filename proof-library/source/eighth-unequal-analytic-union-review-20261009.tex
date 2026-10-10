@@ -1,0 +1,198 @@
+% New analytic union review; no frozen source is changed.
+\subsection{Fifteen unequal-parent eighth cells on one current tree}
+\label{sec:eighth-unequal-union-review-20261009}
+
+This review checks the analytic union, physical affine hypotheses and
+accounting of the thirteen winner9 cells and the two winner50 cells.
+It does not re-enumerate vertices or replay their numerical integrals.
+The reviewer authored the two winner50 certificates; this note is not
+described as a second-person replay of those certificates. Their full
+independent numerical checks are separate bound inputs.
+
+Write $\mu=25/128$, $\Lambda=153/256$, $\eta=10^{-6}$,
+$A(s)=(1+s)/2$, $D(s)=57/64-3s/2$, $v=\min(A,D)$,
+$S_j=\sum_{i\le j}t_i$, and $H_j=S_{j-1}+3t_j$.
+All domains use physical ordered coordinates
+$0<r=t_8<t_7<\cdots<t_1<\mu$, $t_3>1/100$ and
+$r>53/13824$. The actual raw third and sixth envelopes are
+\[
+ L_3=\max\{v(t_1),v(t_1+t_2),v(t_1+t_3),v(t_2+t_3),
+                 v(S_3),\Lambda-3t_3/8\},\qquad
+ R_6=\max\{\Lambda-3t_3/8,v(s_J):\varnothing\ne J\subseteq[6]\}.
+\]
+The gated ordered-envelope identity and its robust finite approximation
+are the already established inputs identified in the frozen
+\texttt{eighth-unequal-parent-interface-20261009} interface. The new
+domains and comparisons are exactly
+\[
+\begin{array}{c|c|c|c|c}
+\text{class}&\text{number}&R=R_6&B_3&M\ \text{and selected mask}\\ \hline
+9A&13&A(t_1+t_4)&D(t_2+t_3)&A(t_2+t_4+r)-\eta,\ 138\\
+50A&1&A(t_2+t_5+t_6)&A(t_2+t_3)&A(t_4+t_5+t_6+r)-\eta,\ 184\\
+50D&1&D(t_2+t_5+t_6)&A(t_1)&D(t_2+t_3+r)-\eta,\ 134
+\end{array}
+\]
+Every asserted tent half has its proper affine active-side constraint.
+Each domain includes $3t_1,H_3,H_5,H_7<B_3$, $M>R$,
+$M-S_8<3r$, all eight initial full squares, and every remaining-selected
+initial square. The independent companion checker reconstructs these
+conditions from the displayed physical definitions, without importing
+any author module, and checks the complete affine-row multisets and
+strict rational centers of all fifteen domains.
+
+\paragraph{The baseline minorant in 50D: an explicit extension.}
+The frozen interface's displayed (U1) literally specifies
+$B_3=v(t_2+t_3)$. It must not be cited as a literal statement about
+$A(t_1)$. Here is the required specialization of its proof.
+On $t_1<\mu$ we have $A(t_1)=v(t_1)$, one of the actual $L_3$
+entries; hence $B_3=A(t_1)\le L_3$. On a compact subset of the
+union of the fifteen strict domains let
+\[
+ \delta=\min\{B_3(t)-H_j(t):j=3,5,7\}>0,
+\]
+where each component uses its own displayed minorant. On the finite
+union of first-three-coordinate projections, approximate the same
+true $L_3$ from below with a common causal coarse rule
+$L_3-\delta/3<\lambda_3\le L_3$. This is permitted by the existing
+uniform compact approximation. Then all three histories are below
+$\lambda_3$ in every component. The choice depends only on the
+first-three labels, never separately on an eighth child. This argument
+uses only $B_3\le L_3$ and the strict histories, so it applies also to
+the two pair minorants already stated in the frozen interface.
+
+Thus no new third distribution level, pair license at $A(t_1)$, or
+assertion $\lambda_3=B_3$ is needed. The other third branches may be
+larger than $B_3$. This new paragraph proves the baseline instance
+explicitly while leaving the older, more narrowly worded interface
+unchanged. It is a common sufficiently fine finite realization, not
+a claim that every earlier coarse realization already has these paths.
+
+\paragraph{All selected gates and the actual parent.}
+For a selected mask $I$, let $b=s_I$ and enumerate its complement
+in increasing slot order as $q_1,\ldots,q_m$. Besides
+$S_{j-1}+2t_j<M$ for every $1\le j\le8$, the necessary initial tests are
+\[
+ b+\sum_{a<k}t_{q_a}+2t_{q_k}<M\quad(1\le k\le m).
+\]
+The complement lists checked by the companion are respectively
+$(1,3,5,6,7)$ for138, $(1,2,3,7)$ for184, and $(1,4,5,6,7)$
+for134. In particular a stale ``selected184'' name in the descending
+source labels does not alter its coefficients: they are exactly the
+five mask134 tests. The active cap identity and the other tent-half
+inequality imply $M=v(b)-\eta$ throughout each component.
+Once the eighth slot has appeared, every later selected remaining
+test is the full square test. Ordinary upper residual odd cubes
+give the subsequent full square support. These are precisely the
+established selected-product factorization hypotheses, including
+the capacity-below-one repair and the signed fixed-label compilation;
+no atom is replaced by an unjustified positive arithmetic weight.
+
+Keep every already adopted fourth-, fifth- and sixth-level action on
+the common refinement. Their actual cap satisfies
+\[
+ \lambda_3\le\lambda_6^{\rm current}\le R_6=R.
+\]
+The upper inequality follows because every sixth increase is below
+a first-six selected tent, and inherited caps are below the same
+all-subset envelope. A comparison-envelope or moment improvement
+does not change a cap. In particular the four adopted nonsingleton
+sixth cells must not be discarded merely because they can overlap
+the present cells. Their labels and gains remain in the current tree.
+
+The seventh history is retained since $H_7<\lambda_3$. More strongly,
+\[
+ \lambda_6^{\rm current}-S_8>H_7-S_8=2t_7-r>r,
+\]
+so
+\[
+ 1<\frac{\lambda_6^{\rm current}-S_8}{r}
+ \le\frac{R-S_8}{r}<\frac{M-S_8}{r}<3.
+\]
+This proves the ordinary reciprocal range for the actual old residual,
+not only for its upper comparison. At an even eighth node the upper
+residual's odd first exits have odd full rank. Prefix closure and upper
+majorization survive. Its exact raw density difference is the old
+ordinary residual density minus the new one. Because
+$\bar F(s)=1/s$ in this range, it is bounded below at the endpoint by
+\[
+ \frac{4(M-R)}{(R-S_8)(M-S_8)\prod_{i=1}^8t_i}.
+ \tag{J}
+\]
+Increasing the old comparison cap to $R$ decreases this difference.
+There is no assumption $\lambda_6^{\rm current}=R$, and no monotonicity
+claim about individual finite signed coefficients. Nor is a Chen
+quarter or an ordering factorial applied to this physical upper-$K$
+density. On an eight-simplex, the affine gap mean is the sum of its
+nine vertex gaps divided by9, and each gap-weighted affine factor
+mean has denominator10; this is the same bound interface as before.
+
+\paragraph{The complete disjointness argument.}
+All 63 old chosen planes are at most $R$, and the asserted winning
+tent actually equals $R$. Every first-three candidate's chosen plane
+and $W=\Lambda-3t_3/8$ is a proper, nonconstant constrained affine
+function strictly below $R$ in the interior. Therefore the true
+envelope, not merely its minorant, obeys
+$L_3<R_6$ on all fifteen interiors. All thirty earlier adopted eighth
+domains obey $R_6=L_3$, so none acts on these new interiors.
+
+For the thirteen9A components put $e=t_1+t_4<\mu$.
+For any first-six subset sum the two allowed old-plane conditions are
+$s\le e$ and $s\ge T=25/96-e/3$, with
+$T-e=4(\mu-e)/3>0$. Any two different saved complete patterns differ
+on a subset, so their interiors cannot meet. All 78 such pairs are
+checked. Family cell11 has exactly the seed's affine-row multiset;
+it is excluded from the twelve-new-cell sum and the seed is counted
+once. The two rejected floating navigation nodes are not used as
+infeasibility proofs: no exhaustive unequal-parent classification
+is asserted here.
+
+In either50 component the mask9 chosen-plane bound is proper and
+strict, so $v(t_1+t_4)<R_6$. In any9A component that same tent equals
+$R_6$. This separates all26 cross pairs without relying on the names
+of the winners. Finally the50A half has $t_2+t_5+t_6<\mu$ while50D
+has that sum $>\mu$. Together these give all105 interior pair
+separations. Proper equality walls are removed in a compact exhaustion
+or assigned deterministically; none receives two positive-volume
+integrals. The winning and active-cap identities are retained, not
+trimmed as if they were proper walls.
+
+Possible overlap with sixth-level domains is instead handled by
+\[
+ V_{\rm base}-V_{\rm next}
+ =(V_{\rm base}-V_{\rm current})
+  +(V_{\rm current}-V_{\rm next}).
+\]
+Formula (J) bounds only the second, eighth-level difference. It does
+not add another comparison from the obsolete fifth cap or re-add a
+sixth gain. The old seventh decision and all earlier histories remain
+attached to the original parent labels.
+
+\paragraph{Finite construction, accounting and audit scope.}
+All denominators are positive on the closed cells: order and the
+uniform positive $r$ cutoff bound the coordinate factors, while
+the history gives $R-S_8\ge r$ and $M-S_8\ge r$. Thus proper boundary
+strips have vanishing integral. Trim a finite union of such strips,
+freeze the common actual third cap first, refine and retain current
+ancestor labels, then freeze new eighth caps below their licenses
+and above all tests and inherited caps. Revert to the inherited rule
+on unused labels; do not introduce even first exits. All buffers and
+partitions are fixed before taking $N\to\infty$. Constants may depend
+on this fixed construction. Existing approximation/compiler budgets
+must be retained and new losses paid separately.
+
+The author ledger to be used once, subject to separate numerical
+verification, is
+\[
+ \Delta_{15}=\Delta_{9,\rm seed}+\Delta_{9,\rm new12}
+                 +\Delta_{50A}+\Delta_{50D}.
+\]
+No narrow seed model or repeated family cell11 is included. The
+companion exact checker reconstructs the physical rows, strict centers,
+seed identity and separation ledger and checks the rational addition;
+it does not enumerate any bases, triangulations or Jensen floors.
+The frozen independent50 numerical reports are recorded separately.
+This review supplies the local analytic union and the baseline-minorant
+extension only. It finds no missing ancestry or disjointness condition
+within the stated fifteen-cell class. It does not reprove external
+distribution theorems, claim all eighth strategies are covered, or
+select a new global $K,c,b$.

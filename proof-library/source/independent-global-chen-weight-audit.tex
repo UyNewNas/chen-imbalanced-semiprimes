@@ -1,0 +1,357 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=25mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,longtable}
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\ind}{\mathbf 1}
+\newcommand{\PP}{\mathbb P}
+\newcommand{\Om}{\Omega}
+\title{Independent audit of the full eleven-term quotient Chen weight}
+\author{Independent mathematical audit}
+\date{8 October 2026}
+\begin{document}
+\maketitle
+
+This note proves the entire combinatorial interface from the actual
+eleven quotient sums to the summed $D_{1,2}$ inequality. It does not
+verify the subsequent prime-distribution, switching, or numerical
+main-term estimates. No formal-kernel verification is claimed.
+The manuscript inspected is \texttt{imbalanced-chen-transfer.tex},
+SHA256
+\begin{center}\small\ttfamily
+3eabb2089dcdf3efcc030385f01a49630c36f4ea592bf763e3d86e08cc2c611e.
+\end{center}
+Its quotient definitions and direct weight proof occur at source lines
+465--605. The proof below is independent of all old numerical PASS files.
+
+\section{Definitions and exact parameter guards}
+Let $N>1$ be real, and suppose
+\begin{equation}\label{eq:guards}
+ 0<a<h<d<\frac13,\qquad h+d>\frac13,\qquad 4a+d<1.
+\end{equation}
+The manuscript has
+\[
+ a=\frac{100}{1149},\qquad h=\frac{50}{309},\qquad
+ d=\frac{183}{766}=\frac12-3a.
+\]
+For this tuple the positive guard margins are
+\[
+ h-a=\frac{2950}{39449},\quad
+ d-h=\frac{18247}{236694},\quad
+ \frac13-d=\frac{217}{2298},\quad
+ h+d-\frac13=\frac{15949}{236694},\quad
+ 1-4a-d=\frac{949}{2298}.
+\]
+The special identity $d=1/2-3a$ is not used below.
+
+For a positive integer $n$ set $P^-(1)=+\infty$ and
+\[
+ Q_b(y;n)=\ind_{b\mid n}\ind_{P^-(n/b)\ge y}.
+\]
+The second factor is evaluated only when $b\mid n$.
+All prefix letters in the following sums are distinct primes.
+The lower endpoints are inclusive and upper endpoints are strict:
+\begin{align*}
+Y_1&=Q_1(N^a;n),&Y_2&=Q_1(N^h;n),\\
+Y_3&=\sum_{N^a\le p<N^{1/3}}Q_p(N^a;n),&
+Y_4&=\sum_{N^a\le p<N^d}Q_p(N^a;n),\\
+Y_5&=\sum_{N^a\le p_1<p_2<N^h}Q_{p_1p_2}(N^a;n),&
+Y_6&=\sum_{N^a\le p_1<N^h\le p_2<N^d}Q_{p_1p_2}(N^a;n),\\
+Y_7&=\sum_{N^d\le p_1<p_2<(N/p_1)^{1/2}}Q_{p_1p_2}(p_2;n),\\
+Y_8&=\sum_{N^a\le p_1<N^{1/3}\le p_2<(N/p_1)^{1/2}}
+ Q_{p_1p_2}(p_2;n),\\
+Y_9&=\sum_{N^h\le p_1<N^d\le p_2<(N/p_1)^{1/2}}
+ Q_{p_1p_2}\bigl((N/(p_1p_2))^{1/2};n\bigr),\\
+Y_{10}&=\sum_{N^a\le p_1<p_2<p_3<p_4<N^h}
+ Q_{p_1p_2p_3p_4}(p_2;n),\\
+Y_{11}&=\sum_{N^a\le p_1<p_2<p_3<N^h\le p_4<N^d}
+ Q_{p_1p_2p_3p_4}(p_2;n).
+\end{align*}
+Thus $Y_{11}$ always denotes the full fourth-prime range. Put
+\begin{equation}\label{eq:weight}
+ W=3Y_1+Y_2-Y_3-Y_4+Y_5+Y_6-2Y_7-Y_8-Y_9-Y_{10}-Y_{11}.
+\end{equation}
+Throughout, $\Om$ counts prime factors with multiplicity and $\Om(1)=0$.
+
+\begin{theorem}\label{thm:pointwise}
+Under \eqref{eq:guards}, every squarefree integer $1\le n\le N$ satisfies
+\[
+                  W(n)\le4\ind_{\Om(n)\le2}.
+\]
+Neither $n\ge N^{1-a}$ nor $(n,N)=1$ is required.
+\end{theorem}
+
+\section{Quotient support and exact tuple identities}
+\begin{lemma}\label{lem:rough}
+If $n$ is not $N^a$-rough, all eleven terms vanish. On their nonzero
+support, even without squarefreeness, $\Om(n)\le M:=\lfloor1/a\rfloor$.
+\end{lemma}
+\begin{proof}
+In every term other than $Y_9$, all selected prefix primes and all
+remaining factors are at least $N^a$, immediately from the displayed
+ranges and quotient cutoff. For $Y_9$,
+\[
+ p_1p_2<(Np_1)^{1/2}<N^{(1+d)/2},\qquad
+ (N/(p_1p_2))^{1/2}>N^{(1-d)/4}>N^a.
+\]
+Its selected primes are also larger than $N^a$; a unit quotient causes
+no exception. Thus any nonzero term implies roughness. If $n$ is rough,
+$N^{a\Om(n)}\le n\le N$, which gives the claimed factor bound.
+\end{proof}
+
+Assume now that $n$ is squarefree and rough. Write its prime factors
+$q_1<\cdots<q_k$, and put
+\[
+ r=\#\{i:q_i<N^h\},\quad s=\#\{i:q_i<N^d\},\quad
+ t=\#\{i:q_i<N^{1/3}\}.
+\]
+Then $0\le r\le s\le t\le k\le M$.
+
+\begin{lemma}\label{lem:identities}
+The first six terms are exactly
+\[
+ (Y_1,Y_2,Y_3,Y_4,Y_5,Y_6)
+   =\left(1,\ind_{r=0},t,s,\binom r2,r(s-r)\right).
+\]
+For $r\ge2$,
+\begin{equation}\label{eq:fourth}
+ Y_{10}=\binom{r-2}{2},\qquad Y_{11}=(r-2)(s-r),
+\end{equation}
+where $\binom j2=0$ for $j=0,1$. For $k\ge3$,
+\begin{equation}\label{eq:pair}
+ t\ge1,\qquad Y_7=\ind_{s=0},\qquad Y_8=\ind_{t=1}.
+\end{equation}
+\end{lemma}
+\begin{proof}
+After removing any selected distinct factors, the remaining quotient
+is still $N^a$-rough. This proves the first-six identities by counting
+single factors and pairs in the indicated disjoint intervals.
+
+Consider a tuple tested at its second selected factor $p_2$. All factors
+of $n$ below $p_2$ must be removed. There is only one selected factor
+below $p_2$, namely $p_1$. Hence any admissible such tuple has
+$p_1=q_1,p_2=q_2$. Conversely, removing $q_1,q_2$ and any additionally
+selected factors leaves either a unit or factors larger than $q_2$.
+For $Y_{10}$ this leaves two arbitrary factors among the remaining
+$r-2$ low factors. For $Y_{11}$ it leaves one such low factor and one
+of the $s-r$ factors in $[N^h,N^d)$. This proves \eqref{eq:fourth},
+including the zero cases; it uses the full upper endpoint $N^d$.
+
+For $k\ge3$, squarefreeness gives
+\[
+                 q_1q_2^2<q_1q_2q_3\le n\le N.
+\]
+Consequently the pair $(q_1,q_2)$ always satisfies the strict switching
+upper endpoint. The same preceding argument makes it the only possible
+pair in $Y_7$ or $Y_8$. Their range conditions are respectively
+$q_1\ge N^d$ and $q_1<N^{1/3}\le q_2$, giving the two indicators.
+If $t=0$, the first three distinct factors are all at least $N^{1/3}$,
+and their product is strictly greater than $N$. Thus $t\ge1$.
+\end{proof}
+
+The argument forcing the first two factors does \emph{not} apply to
+$Y_9$, whose quotient cutoff is different. No uniqueness assertion for
+$Y_9$ is used anywhere in this proof.
+
+\begin{lemma}\label{lem:critical}
+If $k\ge3$, $r=0$, $s=1$, and $t\le2$, then $k=3$ and $Y_9\ge1$.
+\end{lemma}
+\begin{proof}
+The count conditions give
+\[
+ q_1\ge N^h,\quad q_1<N^d\le q_2,\quad q_3\ge N^{1/3}.
+\]
+If $k\ge4$, also $q_4\ge N^{1/3}$, and
+$n\ge q_1q_2q_3q_4\ge N^{h+d+2/3}>N$, a contradiction.
+Therefore $k=3$. The pair $(q_1,q_2)$ satisfies its strict upper endpoint
+by Lemma~\ref{lem:identities}. Its quotient is $q_3$, and
+\begin{equation}\label{eq:critical-cutoff}
+ q_1q_2q_3^2\ge N^{h+d+2/3}>N.
+\end{equation}
+Thus $q_3>(N/(q_1q_2))^{1/2}$, so this pair is counted in $Y_9$.
+No lower bound on $n$ was used.
+\end{proof}
+
+\section{Exhaustive analytic case proof}
+\begin{proof}[Proof of Theorem~\ref{thm:pointwise}]
+Nonrough $n$ are settled by Lemma~\ref{lem:rough}. If $n=1$, then
+$Y_1=Y_2=1$, all other terms vanish, and $W=4$.
+For rough squarefree $n>1$ use the preceding notation.
+
+First suppose $r\ge2$. Dropping only nonpositive switching terms and
+using \eqref{eq:fourth} yields
+\begin{align*}
+ W&\le3-t-s+\binom r2+r(s-r)
+              -\binom{r-2}{2}-(r-2)(s-r)\\
+  &=s-t\le0.
+\end{align*}
+The binomial identity is valid also at $r=2,3$ under the stated convention.
+
+If $k\le2$, the first-six upper bound suffices. If $Y_5+Y_6=0$, then
+$W\le3Y_1+Y_2\le4$. Otherwise there are exactly two factors,
+$Y_5+Y_6=1$, $Y_2=0$, and $Y_3=Y_4=2$, so $W\le0$.
+This also settles any overlap with the preceding $r\ge2$ case.
+
+It remains that $k\ge3$ and $r\le1$, with $t\ge1$.
+All possible count cases are the following:
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+Count case & Justified upper bound for $W$ & Reason it is nonpositive\\
+\midrule
+$r=1$ & $2-t-\ind_{t=1}$ & $t\ge1$\\
+$r=0,\ s\ge2$ & $4-s-t$ & $t\ge s\ge2$\\
+$r=s=0$ & $2-t-\ind_{t=1}$ & $Y_7=1$, $t\ge1$\\
+$r=0,\ s=1,\ t\ge3$ & $3-t$ & $t\ge3$\\
+$r=0,\ s=1,\ t\le2$ & $3-t-1-\ind_{t=1}$ & $t=1$ or $2$\\
+\bottomrule
+\end{tabular}
+\end{center}
+The bounds use the first-six identities, $Y_7,Y_8$ from
+\eqref{eq:pair}, and $Y_9\ge1$ only in the final row, where
+Lemma~\ref{lem:critical} supplies it. All other omitted terms are
+nonpositive. The rows exhaust $r\in\{0,1\}$ and $s\ge r$.
+This proves the theorem for every integer $k$ permitted by roughness.
+\end{proof}
+
+There is no unexamined continuous-exponent branch. Indeed, putting
+$x_i=\log(q_i)/\log N$ maps any actual factorization into
+\[
+ a\le x_1<\cdots<x_k,\qquad \sum_i x_i\le1.
+\]
+The half-open categories $[a,h)$, $[h,d)$, $[d,1/3)$, $[1/3,\infty)$
+have sizes $r,s-r,t-s,k-t$. Every point in each such region is covered
+by the corresponding row above, since the proof uses only its category
+inequalities, strict ordering, and the sum constraint. In the critical
+row the exact linear bounds are
+\[
+ x_1+x_2+x_3+x_4\ge h+d+\tfrac23>1\quad(k\ge4),\qquad
+ x_1+x_2+2x_3\ge h+d+\tfrac23>1\quad(k=3).
+\]
+These establish infeasibility and the $Y_9$ cutoff, respectively.
+No rounding, mesh density, or conjectured continuity is involved.
+
+For the fixed tuple $M=11$, there are
+$\sum_{k=0}^{11}\binom{k+3}{3}=\binom{15}{4}=1365$ count modes.
+The companion certificate lists them all. It discards $t=0,k\ge3$
+by strict ordering, or a mode with category lower sum
+\[
+ L=r a+(s-r)h+(t-s)d+(k-t)/3>1
+\]
+by the sum constraint, and certifies the displayed upper bound on every
+remaining mode. This finite arithmetic check corroborates the analytic
+proof; the analytic lemmas, not sampled exponents, justify its rules.
+Modes with $L\le1$ need not actually be realizable: retaining extra modes
+is harmless because the same upper bound holds on the larger class.
+
+\section{Square factors, endpoints, and the summed inequality}
+Squarefreeness cannot be dropped from the pointwise statement. For
+$N=128$, $n=125=5^3$, and the fixed tuple, the eleven values are
+\[
+ (Y_1,\ldots,Y_{11})=(1,1,1,0,0,0,0,0,0,0,0).
+\]
+Thus $W=3$ although $\Om(n)=3$. This is also an actual shifted-prime
+example $N-n=3$, with $(n,N)=1$, in the manuscript's original bulk range.
+It is exactly a large-prime-square exception, not a failure of the
+squarefree theorem.
+
+On rough support all tuple counts are bounded even with multiplicity.
+A convenient absolute bound is
+\begin{equation}\label{eq:uniform-weight}
+ |W|\le C_M:=4+2M+6\binom M2+2\binom M4.
+\end{equation}
+There are at most $M$ distinct factors, and a selected prefix contains
+distinct primes, so the right side bounds each family by all possible
+subsets and adds its coefficient magnitude. For $M=11$, $C_M=1016$.
+
+Let $\mathcal E_N$ be the rough squareful positive integers at most $N$.
+Writing $z=N^a>1$, the elementary union bound gives
+\begin{equation}\label{eq:square-error}
+ |\mathcal E_N|\le\sum_{q\ge z,\ q\in\PP}\left\lfloor\frac N{q^2}\right\rfloor
+ \le N\sum_{m\ge\lceil z\rceil}\frac1{m^2}
+ \le\frac N{\lceil z\rceil-1}
+ \le2N^{1-a}\quad(z\ge2).
+\end{equation}
+The integral bound in the penultimate step is valid since
+$\lceil z\rceil\ge2$. Nonrough squareful integers have all terms zero.
+Consequently, for every positive $n\le N$,
+\[
+ W(n)\le4\ind_{\Om(n)\le2}+C_M\ind_{n\in\mathcal E_N}.
+\]
+
+\begin{corollary}\label{cor:summed}
+For even integers $N\ge4$, let
+\[
+ D_{1,2}(N)=\#\{P<N:P\in\PP,\ \Om(N-P)\le2\},\qquad
+ \Upsilon_i=\sum_{\substack{P<N,\ P\in\PP\\(P,N)=1}}Y_i(N-P).
+\]
+Then, for the fixed tuple and $N^a\ge2$,
+\begin{align*}
+ 4D_{1,2}(N)\ge{}&3\Upsilon_1+\Upsilon_2-\Upsilon_3-\Upsilon_4
+                  +\Upsilon_5+\Upsilon_6\\
+ &-2\Upsilon_7-\Upsilon_8-\Upsilon_9-\Upsilon_{10}-\Upsilon_{11}
+                  -2032N^{1-a}.
+\end{align*}
+In particular the manuscript's $O(N^{1-a})$ version follows.
+\end{corollary}
+\begin{proof}
+Sum the preceding pointwise bound over the restricted prime set. The
+map $P\mapsto N-P$ is injective, so the exceptional contribution is at
+most $C_M|\mathcal E_N|$. The restricted almost-prime count is at most
+$D_{1,2}(N)$. Apply \eqref{eq:square-error}. For even $N\ge4$, $N$ is
+not prime, so the manuscript's $P\le N$ convention gives the identical
+index set. No term has $n=0$.
+\end{proof}
+
+The coprimality restriction is useful for later analytic interfaces but
+unnecessary for this combinatorial argument. Keeping it as in the
+manuscript causes no extra error here. The unit $n=1$ is included
+correctly with weight $4$ and $\Om(1)=0$; the later transfer to prime
+or prime-times-prime representations must remove at most this one
+unit. The manuscript explicitly does so in its $D_b\ge D_{1,2}-B_b-1$
+comparison. Prime squares have $\Om=2$ but are harmlessly included in
+the squareful exceptional upper bound.
+
+All equalities at $N^a,N^h,N^d,N^{1/3}$ are handled by the half-open
+categories. The switching upper endpoint is strict because $q_2<q_3$.
+The quotient cutoff is inclusive; the critical case actually clears it
+strictly by \eqref{eq:critical-cutoff}. Thus there is no endpoint term
+missing from this pointwise proof.
+
+\section{Negative controls and exact scope of the audit}
+The full $Y_{11}$ range is essential to the cancellation proved here.
+For the exponent pattern $(.09,.10,.15,.23,.42)$ at the fixed tuple,
+the full term gives $W=0$, whereas imposing the additional restriction
+$p_3p_4<N^{1/2-2a}$ gives $W=1$. There is an actual integer realization:
+\[
+\begin{split}
+(q_1,q_2,q_3,q_4,q_5)&=(521,1031,32771,8388617,4398046511119),\\
+n&=649435861824529986468405575083,\\
+N=n+3&=649435861824529986468405575086.
+\end{split}
+\]
+Trial division verifies all five primes. Exact integer-power comparisons
+verify the prescribed ranges, $(n,N)=1$, and $n\ge N^{1-a}$.
+The full vector is $(1,0,4,4,3,3,0,0,0,0,1)$; truncation changes only
+its last entry to zero. This refutes that deletion for the present
+quotient weight. It does not refute Wu's original aggregate theorem
+with its original sieve objects and correction argument.
+
+Similarly the exact exponent pattern $(1/5,39/100,79/200)$ has $Y_9=2$.
+Its full vector is $(1,1,1,1,0,0,0,1,2,0,0)$ and $W=-1$.
+This prevents mistakenly replacing the actual $Y_9$ by a unique tuple;
+the proof only uses nonnegativity or the required lower bound $1$.
+
+The independent certificate is
+\texttt{independent-global-chen-weight-audit.json}, generated by
+\texttt{independent-global-chen-weight-audit.py}. It binds the source
+hashes and enumerates all integer count modes with exact rational
+guards. Earlier finite boundary samples are diagnostics only.
+The present result closes the stated combinatorial and elementary
+exception-counting interface. It supplies no estimate for the
+$\Upsilon_i$ in primes, no distribution theorem for a moving residue,
+no proof of the claimed global Chen coefficient, and no formalization
+of the whole manuscript.
+\end{document}

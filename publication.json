@@ -1,0 +1,41 @@
+{
+  "edition": "2026-10-10, adopted same-mask v2 refinement",
+  "author": "Slava Chan",
+  "adopted_assembly": {
+    "file": "corpus-renewal-improvement-assembly-20261010.json",
+    "sha256": "9254e419145a0a48954c3ca9af1d76a4312dd280dcdbac5bfd216d8b2f49e27c"
+  },
+  "baseline_assembly": {
+    "file": "global-theorem-completion-assembly-20261010.json",
+    "sha256": "4f4c33d91e414118a5ec3b391ed37c4652b0e035fbf0e502502a6c8a753aaf11"
+  },
+  "K": "8452171/1250000",
+  "c": "49044063/25000000",
+  "primary": {
+    "b": "18704241/25000000",
+    "decimal_b": "0.74816964",
+    "count": "1/100000"
+  },
+  "secondary": {
+    "b": "14963373/20000000",
+    "decimal_b": "0.74816865",
+    "count": "1/1000000"
+  },
+  "manuscript_pages": 82,
+  "reading_guide_pages": 1,
+  "proof_source_texts": 151,
+  "computational_record": "verification/verification-results.json",
+  "review_status": "Research manuscript for review; no independent human peer review or complete machine formalization claimed.",
+  "computational_scope": "Fresh baseline ledger/430 recurrence, adopted refinement interval replays, scalar margins and binding audit; not a regeneration of every historical quadrature or verification of the complete analytic proof.",
+  "editorial_revision": {
+    "date": "2026-10-10",
+    "changes": [
+      "Suzuki notes and appendix citation added",
+      "Repository and release links added to reproduction section"
+    ],
+    "mathematical_statements_changed": false,
+    "frozen_modules_changed": false,
+    "bibliography_entries": 10,
+    "clean_latex_source_archive": "paper/SlavaChan-arxiv-source-20261010.zip"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "status": "INDEPENDENT_LOCAL_FUNCTIONAL_REPLAY_PASS",
+  "scope": "Pure mathematics and exact local integral bound only. No Lean work or publication action.",
+  "boxes": 3699127,
+  "branch_counts": {
+    "9": 1235537,
+    "10": 1931050,
+    "11": 36,
+    "12": 430050,
+    "13": 152,
+    "14": 102302,
+    "15": 0
+  },
+  "gain_lower": "10601625247768616959055/302231454903657293676544",
+  "gain_above_7_200": "588108153515292009399/7555786372591432341913600",
+  "same_author_gain": true,
+  "selected_stream_sha256": "6b068f041379c73d01624e0014980ca71bfef6baa0c178398b0298c847b4b936",
+  "minimum_strict_affine_slack": 128,
+  "table_check": {
+    "precision_bits": 112,
+    "positive_series_terms": 48,
+    "validated_entries": 8193,
+    "minimum_own_minus_stored_units": 0,
+    "own_endpoint_lower": "2477749626655337158567/75557863725914323419136",
+    "stored_endpoint_lower": "19821997013242695217835/604462909807314587353088",
+    "method": "Independent finer log enclosures and left Darboux sums dominate every stored derivative lower bound."
+  },
+  "disjointness": {
+    "root_cubes": 9963,
+    "separation_nodes": 7574739,
+    "proof": "Independent largest-span-first midpoint partition with exact containment and non-overlap checks."
+  },
+  "elapsed_seconds": 172.13196559995413,
+  "bindings_sha256": {
+    "stronger-fourth-independent-replay.py": "6cc598e567d9cf21beb9842f0dd2eaae72dac124c9d21d9863b7a20a1dd8c2e1",
+    "fourth-prefix-stronger-certified-boxes.npz": "dc004c1bc500101ed2d38c71f186cd6b9e1d4d90824e85cc1dddb7e843c3eb2b",
+    "fourth-prefix-stronger-derivative-table.json": "b9fb8fdd3cdcb8ae89d00e561cb9a8ddcc5683365de773df7c36bbf31c406d36",
+    "certify_fourth_prefix_stronger.json": "a8ddd29369e6193017790c8479ea68826b17680975f2e8abfdd75a08bc8fbfa7",
+    "fourth-prefix-stronger-refinement.tex": "cf87c684a5847d289dd748d74705c6e3977bb20b5ed8c1d0d0cadf04ee3565bf"
+  },
+  "limitations": [
+    "Inherited distribution, factorization and density interfaces are assumed as in the previous local refinement.",
+    "This full fourth-prefix gain replaces the old fourth plus tail gains; they must not be added.",
+    "A further finite common refinement is required to freeze legal constant caps; strict final slack absorbs the approximation.",
+    "No full Goldbach theorem or literature priority is proved by this replay."
+  ]
+}

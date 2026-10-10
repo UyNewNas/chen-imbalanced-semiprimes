@@ -1,0 +1,54 @@
+Current supplement: selected same-mask v2 refinement, 10 October 2026
+
+Selection authority: corpus-renewal-improvement-assembly-20261010.json,
+with corpus-renewal-improvement-checkpoint-20261010.json as the frozen
+binding snapshot. The assembly is supplied by the numerical bundle.
+
+Read these source texts in order:
+1. corpus-renewal-progress-20261010.txt - adoption and scope (Chinese).
+2. corpus-renewal-paired-certificate-v2-20261010.txt - elementary 7/3 bound,
+   exact inner-fibre mass, literal floor replay and allowance rule.
+3. corpus-renewal-paired-independent-20261010.txt - independently derived
+   saved-floor upper proxy and the selected v2 comparison.
+4. corpus-renewal-paired-final-review-20261010.txt - consolidated analytic
+   review, masks, floor interfaces, budgets and strict transfer checks.
+
+No new cell is introduced: E0 has 6091 and E1 has 11481 disjoint rectangles,
+for exactly 17572. Keep the baseline gross. Add only 0.000558583 additional
+gross; replace saved positive loss 0.002372094 by 0.002334885. Thus
+
+ raw increment = 0.000558583 + 0.000037209 = 0.000595792.
+
+Each of the two lower error allowances increases by 0.000595792/8;
+the net gain is 0.000446844. The safe selected coefficient is rounded
+down to c=1.96176252; K=6.7617368 is unchanged. For fixed 1/2<b<1,
+the manuscript claims liminf D_b(N)/H_N >= c-K log(1/b) over even N.
+The chosen primary b=0.74816964 supplies 1/100000; the secondary
+b=0.74816865 supplies 1/1000000. Their strict rational-log margins are
+separate. Do not associate the primary count with the secondary exponent.
+
+The method uses omega(s)>=11/20 for s>=7/3, restricting the inherited
+positive majorant to Z=min(u_left,3(1-t_right-u_right)/13). It does not
+reverse an upper estimate of the true arithmetic count. The recovered
+loss bounds discarded saved lower-estimator floors, not true Y6 counts.
+The lower table, coefficient families, parent masks and distribution
+inputs remain those of the retained baseline proof. Future K feedback
+deducts only additional gross/K, not the net gain/K.
+
+The v1 12/5 and v2 7/3 refinements are alternatives, never cumulative.
+corpus-renewal-paired-certificate-20261010.txt, the numerical part of
+corpus-renewal-omega-independent-20261010.txt, and
+corpus-renewal-omega-count-and-formal-crosscheck-20261010.txt are retained
+as supporting/historical comparisons. The last document corrects the
+former note's two stale 17772 counts; all masks contain 17572 cells.
+
+corpus-renewal-analytic-20261010.txt and
+corpus-renewal-certificate-methods-20261010.txt are project method notes,
+not external distribution theorems. Their early prospective conclusions
+are superseded by the selected assembly. wu-y6-weight-impact-20261010.txt
+is an additional full-Y11 weight audit; it supplies no replacement for
+the excluded external Li coefficient 1.9728.
+
+No formal kernel verification, independent human peer review, acceptance
+of all analytic steps, or verification of the external 722-paper corpus
+is asserted. The numerical checks have their stated finite scope.

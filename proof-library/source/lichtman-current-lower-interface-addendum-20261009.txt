@@ -1,0 +1,118 @@
+Two precise interface qualifications to the current lower assembly
+2026-10-09. Supplement to the frozen lower-density assembly; no old file changed.
+
+This note supersedes only the unnecessarily strong relative-error wording
+of section 0 and the extracted W1 integral notation of section 4 in
+lichtman-current-lower-density-assembly-20261009.txt. Its scalar ledger,
+table occurrences, conditional scope and numerical verification scope are
+unchanged. The two qualifications require no new integral or positive gain.
+
+1. The positive upper input has an absolute error
+
+The sufficient Kpos statement is, for each required fixed nonnegative
+geometric family of unsifted mass X_N=O(N/log N),
+
+  count_N <= K C_N X_N/log N + o(H_N),
+  H_N=C_N N/log^2 N.
+
+Equivalently, X_N=(J+o(1))N/log N gives count_N<=(KJ+o(1))H_N;
+a finite limsup upper mass bound is sufficient. No relative o(X_N)
+error is asserted for zero-main-mass or very small families. This is
+the positive-product implication proved with the same rho in sections
+1--2 of lichtman-current-common-interface-review-20261009.txt.
+
+The actual table induction uses nonnegative finite combinations of
+fixed, positive-width, compact marked prime boxes. For every retained
+nonzero such state, prime harmonic integration gives
+
+  Theta_Q/H_N -> theta=4 integral sigma(t) dmu(t)/L(t) >0.
+
+Its theta may be extremely small, but is a fixed positive number before
+N grows. Consequently o(H_N)/Theta_Q=o(1). This is all that the relative
+notation (A-H+o(1))*Theta_Q and (a+h+o(1))*Theta_Q requires on the
+retained states. There is no uniformity as the box mass tends to zero,
+no shrinking box chosen with N, and no per-individual-prefix claim.
+There are finitely many states after the finite compact approximation,
+so their errors can be summed and their thresholds maximized.
+
+Empty marked families contribute zero. Genuine boundary families and
+zero-normalized-mass pieces are treated with the applicable absolute
+o(H_N) bound or the reserved fixed positive approximation error; no
+relative table conclusion is obtained by dividing by a vanishing Theta.
+A zero-main-mass SWITCH inside a nonzero marked state is also harmless:
+its absolute o(H_N) bound is o(Theta_Q). Power-small exceptional masses
+are negligible by their elementary fixed-power estimates and C_N>=C_2.
+
+In particular W1's unit quotient is power-small because
+alpha-3/s>=1/2 on the fixed positive residual range. This does NOT
+delete the unit surfaces in W2 Gamma20/21: their normalized mass can
+be positive and they remain explicit positive families in Kpos.
+
+All five outer K feedback costs only need absolute o(H_N) remainders.
+Their finite union and the fixed action bank therefore use precisely
+this weaker sufficient Kpos statement. The original section 0 should
+not be read as requesting a relative-error theorem on arbitrary
+zero-main-mass families.
+
+2. W1 must retain its prefix-weighted integral until a uniform bound
+
+Write w_b=sigma(b)/(phi(b) log(Q/b))>=0 and let
+I_b=I(s,s0,alpha_b) be the actual switched integral at that prefix.
+The finite-family mass formula, before any uniform comparison, is
+
+  X_N=N sum_b w_b I_b + o(N/log N).
+
+One must not replace I_b by an arbitrary representative value of the
+marked exponent or set alpha_b to two. The finite W1 bank instead has
+the uniform nonnegative envelope
+
+  I_b <= I_hat(s,s0)
+       = integral_{1/s0<u1<u2<u3<1/s}
+          Omega((2-u1-u2-u3)/u2)/(u1*u2^2*u3) du1 du2 du3,
+
+where Omega(v)=max(C,1/v) for v>=1, C=70893/125000. For these actions
+s>=2.4, so the displayed base argument is at least 2s-3>1. On actual
+nonunit support alpha_b>=2 and omega(actual argument)<=Omega(base
+argument). The uniform bound follows from a nonincreasing upper
+envelope, not monotonicity of omega or equality at alpha=2. Ordinary
+compact approximation controls the harmless within-box variation of
+levels and endpoint labels before the arithmetic limit.
+
+Nonnegativity of w_b now permits
+X_N <= N I_hat sum_b w_b + o(N/log N). The normalization is
+
+  Theta_Q=4 li(N) sum_b C(bN) w_b,
+  C_N<=C(bN).
+
+Combining the absolute positive upper theorem in part 1 with
+Theta_Q/H_N->theta>0 yields
+
+  count_N/Theta_Q
+   <= (K/4) [N/(li(N) log N)]
+      [C_N sum_b w_b I_b / sum_b C(bN) w_b] + o(1)
+   <= K I_hat/4 + o(1).
+
+If no uniform bound has yet been chosen, the first line with the
+nonnegative weighted integral is the correct version. One may also
+retain its normalized weighted average; pulling out a varying I_b
+without justification is invalid. The W1 twofold pointwise inequality
+then divides the switched cost by two and gives K I_hat/8. The finite
+action source uses this uniform mass bound (or its outward enclosure),
+so its numerical baseline is unaffected by the notation correction.
+
+The same principle applies to the W2 positive costs: keep all actual
+nonunit and unit masses, take their proved uniform envelopes over
+actual alpha>=2, and divide once by the W2 coefficient five. It does
+not add any new K term or re-add a kernel saving.
+
+3. Scope
+
+The downstream implication for c=1.95867358 needs only the absolute
+Kpos theorem above, the new licensed PP statement, the ordinary sieve
+inputs and the already specified finite outward inequalities. Neither
+qualification consumes a positive part of the numerical margin: the
+extra terms are asymptotic o(H_N) at fixed finite choices and may be
+absorbed below the existing strict slack. They do not establish Kpos,
+repeat the large integral checks, identify the unspecified Wu typo,
+or restore a global claim. No main source, state, prior binding,
+formalization or GitHub object is changed.

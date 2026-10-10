@@ -1,0 +1,253 @@
+Independent upper-author cross-review of the current Chen lower completion
+10 October 2026. New proof addendum and source review; earlier files unchanged.
+
+Result
+
+I found one omitted justification in global-chen-lower-completion-20261010.txt:
+equation(2.5) uses a SHARP original prime endpoint, whereas the current PP
+theorem starts with a smooth original weight. Its permitted sharp individual
+HB intervals do not themselves prove that original-prime assertion. Section1
+below repairs the step explicitly, with arbitrary logarithmic saving and no
+change of coefficient, K, c, density allowance or numerical query.
+
+The exact-coprime O(log^2 T) correction, the finite W1/W2 transition norm12,
+the simultaneous continuous-child approximation, the lower projection signs,
+the complete displaced L2 correction and the saved-floor paired loss all
+check out with the qualifications/proofs below. After the endpoint lemma is
+inserted, no unmatched obligation remains among these audited lower interfaces.
+This review uses the separately proved PP and U and the explicit selected
+numerical inequality lemmas; it does not redo their spectral or quadrature
+proofs. It is independent of the author of the lower-completion report.
+
+1. The missing sharp-singleton lemma, now proved
+
+Let the ACTUAL coefficient rho_T have |rho_T(q)|<=C, squarefree support
+q<=T^theta, theta<1, (q,T)=1, with C fixed before T. Suppose the current
+smooth-singleton PP holds, with arbitrary O_A(T/log^A T) error for its
+allowed polylogarithmic Euler-derivative norms. For even T>2 it implies
+
+ sum_q rho_T(q){pi(T;q,T)-pi(T)/phi(q)}=O_A(T/log^A T).      (S1)
+
+Here pi(T) may count p<T or p<=T, which coincide for these T. This is
+exactly(2.5), and it also applies to the bounded marked scalar classes.
+
+Fix desired A. Put delta=log^(-B)T, with fixed B>A+3. Smooth the original
+prime endpoint in [T-delta*T,T+delta*T], using a fixed smooth transition
+rescaled by delta. Its derivative of order j in p/T is O_j(delta^(-j)),
+a FIXED logarithmic power. Multiply by the already allowed smooth lower
+trim eta(p/T^(1-kappa0)), which equals0 below T^(1-kappa0) and1 above
+2T^(1-kappa0). The resulting W_T is supported on primes of a fixed positive
+power, product O(T), and has the precise polylog derivative norms allowed
+by distribution-prime-product-completion section1, lines25--32. Smooth
+PP therefore applies to W_T with this same rho. Choose its local log/SW
+accuracy after B and the fixed derivative orders, as in that proof's
+sections3 and10. No parameter of the physical finite sieve changes.
+
+The upper boundary error can be bounded AFTER summing all moduli, without
+postulating a signed sharp-domain PP theorem:
+
+ sum_(prime p,0<|p-T|<=delta*T) sum_(q|T-p)|rho_T(q)|
+ <=C sum_(prime p,0<|p-T|<=delta*T)tau(|T-p|)
+ <=2C sum_(1<=n<=ceil(delta*T))tau(n)
+ <<delta*T*log T+log T.                                 (S2)
+
+The elementary last estimate follows from sum_(n<=X)tau(n)=
+sum_(d<=X)floor(X/d)<=X(1+log X). The excluded n=0 means p=T; it never
+occurs because T>2 is even. Thus no tau(0), extra T^theta or signed
+boundary-positivity argument is hidden in(S2).
+
+The exact-coprime mean boundary is at most
+ C*# {integers p in the strip}*sum_(q<=T^theta)1/phi(q)
+ <<delta*T*log T+log T.                                 (S3)
+One can ignore primality for this bound. The elementary reciprocal-phi
+sum is O(log T), obtained by n/phi(n)=sum_(d|n)mu(d)^2/phi(d) and the
+convergent sum of mu(d)^2/[d phi(d)]. With B>A+3, (S2),(S3) are
+O_A(T/log^A T).
+
+The small-prime trim costs at most
+ C sum_(p<2T^(1-kappa0))tau(T-p)=T^(1-kappa0+o(1)),
+and its exact mean at most O(T^(1-kappa0)log T). Here T-p is nonzero
+and <=T, so the usual pointwise divisor bound suffices. These fixed
+power savings are smaller than every prescribed logarithmic error.
+Removing both smoothing changes thus gives the sharp discrepancy with
+mean pi(T)-omega(q): all q<T, so every prime divisor of q lies below T.
+
+Finally squarefreeness and |rho|<=C give
+
+ |sum_q rho_T(q)*omega(q)/phi(q)|
+ <=C sum_(prime l<=T^theta) 1/(l-1)
+           *sum_(e<=T^theta/l)1/phi(e)
+ <<log T*sum_(l<=T^theta)1/(l-1)<<log^2 T.                (S4)
+
+For the last crude bound, summing over all integers rather than primes
+already suffices. Equations(S2)--(S4) prove(S1). Thus the O(log^2 T)
+statement in C is correct, but the passage to its sharp pi needed this
+separate endpoint argument. A positive fixed-tolerance smoothing alone
+would not have justified it for a signed lower weight.
+
+The lower pointwise count sometimes restricts original p to (p,T)=1.
+There are O(log T) omitted primes dividing T, and their total compiled
+divisor contribution is T^o(1), since p<T and |rho|<=C. This harmless
+power-small adjustment does not change (S1) or its normalization.
+
+2. Lower projection and beta signs: checked as actual inequalities
+
+own-lower-compiler-chain-audit-20261009.tex, section4, lines146--193, proves
+ V_T(z0)R_rough-V_full
+ =sum_(full EVEN exits,last prime<z0)g_T(P)V_T(p_last)>=0.   (L1)
+The finite tree's first exits are even. Restricting it to rough primes
+removes negative exit contributions, so the direction is indeed >=.
+It is different from the upper projection direction used in my U proof.
+
+Positive even rough coefficients are rounded inward, negative odd ones
+outward, yielding c<=lambda coefficientwise. With B-<=I0<=B+, attaching
+B- to c>0 and B+ to c<0 gives, term by term,
+ c(d)B_sign(n)<=c(d)I0(n).
+Since I0>=0, summing produces the actual rough-indicator minorant. The
+beta-minus polynomial need not be nonnegative. Unique small/rough division
+keeps the physical coefficient bounded; later atom decompositions do not
+replace it. Tagged-prime boxing bounds the ABSOLUTE density discrepancy,
+so (L1) gives sum rho/phi>=V_full-small error, as required. Coefficient
+order alone would not prove that density direction, but C includes (L1).
+
+Combining this pointwise minorant with (S1) yields the original-prime lower
+count. PNT, literal raw density and V_T(T^t)~2exp(-gamma)C_T/(t log T)
+give the factor4 on Fbar/fbar exactly once. This is not an application
+of the positive-product upper K to obtain a lower prime count.
+
+3. Positive transition norm and continuous children
+
+I checked the actual positive measures and rational bank gates in
+own-chen-table-insertion-chain-20261009.tex, lines227--353, against
+lower-joint-typed-density-bridge-20261010.txt, sections2--4.
+The child/parent normalization is du/[u(1-u)] for one new prime and
+du dv/[uv(1-u-v)] for two; its derivation keeps Q fixed. Alpha becomes
+1+(alpha-1)/(1-u) or1+(alpha-1)/(1-u-v), so it never resets to2.
+
+The following uniform operator masses are valid:
+ BH <=integral_1^5 dw/w=log5<2;
+ W1 <=1+(1/2)integral_(1/5)^(1/2)du/[u(1-u)]=1+log4/2<2;
+ W2 <=1+(3/5)log4+(4/5)*125*(3/10)^2
+     <1+6/5+9=56/5<12.                                 (T1)
+For every good W2 pair domain, the bank gates give1/5<=u,v<=1/2 and
+1-u-v>=u>=1/5, so its kernel<=125. The whole containing square has
+area(3/10)^2; there are four domains. Singleton intervals are inside
+[1/5,1/2]. Unchanged-prefix weights(4+1)/5 sum to1. The bad part of
+Gamma5 and Gamma9--21 are fixed positive COST bases, not extra feedback
+edges. The existing variable-kernel saving is already in that base.
+Hence the norm12 does not omit a feedback term or divide by5 twice.
+
+Finite maxima/minima of oriented bounds are1-Lipschitz. If each primitive
+query and each local geometric approximation has error<=delta in its
+parent normalization, e_(j+1)<=delta+12e_j, e0<=delta, yields
+e_j<=delta*(12^(j+1)-1)/11. The eleven outer absolute coefficients sum
+to14 before the sole Chen quarter, giving root norm7/2. This proves the
+coarse amplification asserted in C, without numerical stability claims.
+
+There is also a genuine finite approximation argument, beyond finite
+depth alone. The 36 bank tuples have min s=101/50 and s0<5; BH retains
+L/2, W1 retains >=7L/12 and each W2 child >=L/101. With depth<=440,
+L_min=ell*101^(-440)>0; appended prime exponents are >=L_min/6.
+Thus denominators and all switched positive cutoffs are fixed positive.
+
+Refine physical appended exponents recursively. On each already chosen
+positive parent, choose child approximation error within delta times
+that parent's fixed normalized mass. Finite piecewise-rational cap and
+table-knot equations have null proper walls on each nonidentical branch;
+identical branches are retained. Structural clamps s=2 and an unchanged
+inherit cap may have positive measure and are kept with the conservative
+closed-cell value. Ancestor caps remain functions only of their own prefix.
+Only the child's walls are trimmed, not their possibly full parent
+projections. Ordinary compact integrands have bounded denominators;
+positive switched leaves use the proved positive outer approximation.
+By finite depth this gives a finite set of geometric queries, with total
+error controlled by(T1). For its finitely many positive-mass vertices,
+Theta_v/H_T tends to a positive constant; absolute o(H_T) PP/U errors
+therefore become o(Theta_v) after T grows. Zero-mass pieces stay absolute.
+This order avoids assuming a uniform error over an undiscretized continuum
+or dividing by a normalization which tends to zero.
+
+4. The entire old L2 H248 term is removed
+
+The exact least-prime identity, not a difference of unrelated bounds, is
+S(A,T^h)=S(A,T^w)-sum_(T^w<=p<T^h)S(A_p,p). The derivative identity
+ d/dt a_bar((1+t)/(2t))=-A((1-t)/(2t))/[t(1-t)]
+in own-chen-table-insertion-chain lines459--500 gives
+
+ L2_new(w)=B(w)+8a_bar((1+h)/(2h))+I(w)
+       +8 integral_w^h H248((1-t)/(2t))dt/[t(1-t)].       (Q1)
+
+After the Chen quarter, the change from w*=25/224 is
+[B(w)-B(w*)+I(w)]/4
+ -2 integral_(w*)^w H248((1-t)/(2t))dt/[t(1-t)].          (Q2)
+At w=h the residual positive integral in(Q1) is empty. It is the ENTIRE
+248 correction of the old saved L2, not a184/seed part. I checked the
+actual code: certify_sharp_184_baseline.py lines131--137 includes
+df.l2_correction(), while its Defects(bank) loads the chosen bank's
+H array. certify_combined_chen_functional.py lines90--97 computes that
+correction with weight8 times the exact logit mass on [w*,h]. Dividing
+once by4 gives precisely the weight2 in(Q2). The use of table430 only
+at U3/U4 does not put any old L2 correction back.
+
+5. The paired loss and retained negative majorant
+
+The selected author512 L6 estimate is a sum of its pair_cell floors:
+I checked sharp-248-pair-refinement-512.json and found chosen L6 equals
+its recomputed512 total, not the alternative128 total. On the nonenhanced
+half its sole residual is R=57/64-(5/2)t-u. In certify_sharp_184_baseline.py
+lines50--96, the ordinary floor is the maximum of its constant and
+eligible concave-chord lower floors; every chord requires pl>=2a.
+The defect is floor(4*hlookup*mass/Rmax). SavedDefects.lookup returns0
+when the outward lower argument is below2 and otherwise takes the
+minimum over ALL closed cells meeting the directed interval.
+
+Consequently crossing cells smin<2 have exactly zero saved floor: the
+constant is0, the sole affine chord is ineligible, and hlookup is0.
+I separately solved the rational grid equation s=2 and found no grid
+endpoint equal to2. On positive selected cells 2<smin<=smax<=9/4,
+fbar(s)=log(s-1)/s is increasing, so each legal ordinary floor is at
+most(4/a)*fbar(smax)*M_B. The directed argument interval contains the
+exact one; its h minimum is <=the exact closed-support minimum H_B.
+Thus saved_floor/4<=M_B[log(smax-1)+H_B]/Rmax, exactly(5.1).
+This bounds the discarded SAVED lower proof; it is not an upper bound
+for the actual Y6 count. It applies to a max of cell estimates because
+each candidate individually has that upper bound.
+
+For the negative side, certify_sharp_248_four_min.py lines137--154 gives
+g_B=max(0,floor(K0*C*Z_B)-ceil(K0*omega_B*Z_B)) at method0.
+When g_B>0, A_B=K0*C*Z_B-g_B>=K0*omega_B*Z_B, a density-majorant
+statement. I read the actual 1,190,700-row witness: among the34405 E0
+intersecting parents, EVERY floor is positive (minimum integer floor
+184409917917). E1's61956 positive-floor parent check is separately bound
+in the current foundation report. Thus the stronger omega_B form used
+by C has no zero-floor exception on either selected mask. In general
+g_B=0 would instead require the baseline bound C>=omega(actual).
+
+The fixed feedback proves0<=s_B<=A_B/K0, so
+A'_B=A_B-(K0-K)s_B>=(K/K0)A_B. Therefore A'_B/(Z_B z)>=
+K*omega(actual)/z. Apply U on the COMPLEMENT and restrict this actual
+parent majorant. Since omega>=1/2 at the actual arguments>=77/38,
+the removable Chen-quarter mass is at least K*I_E/8. No upper count is
+subtracted as a lower count. The disjoint E0/E1 sets, unchanged priority
+parents and proper positive smoothing are the required geometry inputs.
+Gross removal, saved-floor loss and future slope remain distinct.
+
+6. Exact checks, interpretation and conclusion
+
+Using the current selected rational fields, I recomputed
+R-B_density-B_compiler and its difference from c=12258223/6250000:
+2485450886949055352600565107038318521/
+2742952509978644604793778369418231808000000000>0.
+No budget is subtracted twice by the endpoint lemma: its error is an
+arbitrary logarithmic o(H_T), and all physical finite coefficients stay
+unchanged. All moment/profile choices remain fixed before taking every
+sufficiently large EVEN T; shrinking logarithmic smoothing is part of
+the permitted analytic profile, not a T-adaptive sieve policy.
+
+With section1 appended, C's use of sharp original-prime PP is justified.
+The five other requested interfaces are verified by their actual equations
+and code, as above. There is no remaining gap on this cross-review's
+scope. This is not an independent new computation of numerical lemma N
+or of PP's spectral input; their separate completion records remain the
+proper proofs of those modules. No main manuscript, old report, research
+state, formalization, GitHub object or external message is changed.

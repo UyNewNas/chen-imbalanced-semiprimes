@@ -1,0 +1,130 @@
+Independent mathematical/code review of the new W2 affine-series primitive
+10 October 2026. Frozen producer files are read only.
+
+Conclusion: no defect found in the centered-series enclosure, its signed
+arithmetic, or its attachment to the ACTUAL36 ordinary action anchors.
+This is a scoped mathematical/code review with independent exact controls,
+not a second complete integration of all216 ordinary components. The root
+author's all36 containment computation supplies that complete numerical
+coverage. I authored the older expanded33 producer, not the new centered-
+series implementation; that provenance is retained explicitly.
+
+1. Product-tail inequality, including signs and degrees
+
+On u=m+h*z, write the true signed log sum L(z), its true degree32
+polynomial P(z), and the geometric reciprocal polynomial Q(z). The code's
+directed intervals enclose their coefficients. If r_i=B_i*h/(A_i+B_i*m),
+endpoint positivity implies |r_i|<1, including negative B_i. Absolute
+series summation gives
+ E_L=sum |c_i|*|r_i|^33/[33(1-|r_i|)].
+Also ||P||<=sum |c_i|*(|log(v_i)|+|r_i|/(1-|r_i|))=:M_L.
+The saved interval upper absolute value of log(v_i) safely replaces the
+unknown exact absolute value. There is no need to bound the norm of an
+arbitrarily rounded representative polynomial: the interval evaluation
+encloses the true polynomial integral itself.
+
+For s=D*h/(C+D*m),
+ L/(1+s*z)-P*Q=(L-P)/(1+s*z)+P*(1/(1+s*z)-Q).
+Taking absolute values gives exactly
+ E_L/(1-|s|)+M_L*|s|^33/(1-|s|).
+Multiplication by2h/(C+D*m) bounds the full panel integral error. It is
+added outwards to BOTH endpoints. Using signed c_i without absolute values
+in E_L would be invalid, but the implementation correctly uses abs(c_i).
+The independent uniform remainder does not rely on alternating signs.
+
+The nested loops retain every i,j between0 and32 with i+j even and multiply
+by2/(i+j+1). Thus they integrate the FULL degree64 product, rather than
+silently dropping terms above degree32. Odd moments are exactly zero. The
+two denominator terms 1/u and1/(1-u) are integrated and bounded separately.
+Their addition is exact partial fractions, not an estimated decomposition.
+
+2. Outward arithmetic and logarithm
+
+I checked every arithmetic method in V. Four-endpoint multiplication with
+floor(min/P),ceil(max/P) is valid across zero and for negative products.
+Division by a positive rational preserves those directions; division by
+a negative rational negates the result. Reciprocal interval construction
+is used only when its entire denominator is positive. Powers are repeated
+interval products and may be broad, but are enclosures. radius_add uses
+the upward integer rounding of the analytic error. It never removes a
+negative error or rounds to nearest.
+
+unit_log sums z^k/k, k=1..256, with z=1-1/x in[0,1/2]. After the loop
+the variable power encloses z^257. Dividing its upper endpoint by
+257*(1-z_upper) is the correct remaining tail. Lower powers and summands
+are rounded down. Dyadic scaling and negative-log inversion swap the
+correct endpoints. No precision assumption is inferred from floats.
+
+The small new checker uses a DIFFERENT logarithm:80 exact rational atanh
+terms after dyadic reduction, with a rational tail. It exercises114
+closed-form controls against the reviewed function, including all36
+actions' actual endpoints, positive/negative affine slopes, negative
+multiplicities and exact cancellations. The comparison uses
+ int log(v)/v du = [log(v)^2]/(2v') and
+ int log(v) du = [v log(v)-v]/v'.
+All114 tight antiderivative intervals are contained in the code's panel
+enclosure. This does not claim to independently integrate every actual
+non-proportional log/denominator pair. Those pairs are covered by the
+general inequality in section1 and the root's complete numerical run.
+
+3. Formula attachment and finite scope
+
+I compared the explicit triangle, rectangle and bad-Gamma5 formula signs
+with certify_finite_w2_action_bank.py and the expanded producer. The bad
+region is removed once and its positive K replacement is subtracted once.
+The bad positive mass uses1/u, whereas its ordinary counterpart uses
+1/[u(1-u)]. Baseline4*corr(s0)+corr(phi1), the three negative ordinary
+integrals, four pairs and final division by5 agree. Terms20/21 retain
+their separate unit contributions. The reciprocal omega envelope has the
+max(1,arg) guard, so arguments below one are not falsely assigned zero.
+
+Every actual action satisfies2<s<3. The standalone new ordinary() assertion
+does not explicitly require s<3, so it must not be advertised as a generic
+routine for all2<s<phi3<...<=5: A(s)=1 would fail beyond three. There is no
+such out-of-scope input in these36 records, as the new checker confirms.
+The enhanced state/gate proofs and the multivariable derivation of closed
+mass formulas are inherited inputs, not established merely by evaluating
+those same formulas accurately.
+
+4. Original-three versus expanded-thirty-three anchors
+
+The original three coarse ordinary intervals were computed at K0=6.81.
+They are STILL numerical inputs to the actual current table chain. They
+are not the final bases used unmodified. In
+certify_variable_kernel_finite_table.py each is changed by
+ floor_Q[(K0-K2)*P0_lower/(5K0)] + saved_kernel_gain,
+where K2=6.7619 and P0_lower is the sum of the original bad5 replacement
+and switched-cost LOWER endpoints at K0. New series containment of both
+these endpoints therefore validates exactly the recost inputs needed.
+
+The expanded33 coarse intervals are already at K2. Their final saved
+base is coarse_lower+variable_kernel_seed_floor. The new series report
+compares to coarse_base_lower/upper, deliberately not to the improved
+one-sided base. Its13 switched masses are the COARSE envelope masses;
+the variable-kernel saving is not secretly inserted into those expressions.
+
+The actual positive conservative slopes, reconstructed in the new checker,
+are
+ original3: P0_lower/(5K0) - saved_kernel_gain/K2;
+ expanded33: (P2_lower/5 - saved_kernel_gain)/K2.
+All36 are positive. The negative saving derivative is necessary: the saved
+kernel improvement itself scales with K. The formula is valid using the
+saved LOWER gain, since at a new K>0 its retained gain is (K/K2) times
+that saved lower value. It does not require a lower value to become an
+upper bound for the true derivative of the best possible action.
+
+The checker independently reconstructs all36 next base integers at
+K312=6.7618 and at the actual430 anchor K430=6.761767, including every
+downward floor. Original3's6.81-to6.7619 recost is applied once, and the
+subsequent6.7619-to6.7618-to6.761767 recost uses only each latest difference.
+All records agree exactly. No old coarse interval is compared to a
+different-anchor improved interval, and no kernel gain is counted twice.
+
+5. Boundary of this review
+
+The root result verifies36 bases,216 components and468 closed-form mass
+intervals by the new method. This review checks its proof, implementation
+and actual-use boundary, plus114 exact-antiderivative controls and all36
+anchor chains. It does not redo variable-kernel boxes, pair feedback
+weights,430 iterations, W2 analytic admissibility, PP or the Chen weight.
+No new lower gain, K,c,b, table array, main file or state is changed.

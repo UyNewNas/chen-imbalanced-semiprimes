@@ -1,0 +1,285 @@
+% Integration fragment, 2026-10-08.  Does not modify the locked second seed.
+\subsection{The second seed on stable specified-prefix families}
+\label{sec:second-seed-stable-prefix}
+
+The numerical seed used here is exactly the proved $J_*=9/500$ of
+Proposition~\ref{prop:replacement-second-seed}, with
+\[
+ s_*=11/5,\quad s_0=227/50,\quad
+ (\phi_1,\phi_2,\phi_3)=(353/100,29/10,61/25).
+\]
+Its proof is now extended to the stable factorization branches used
+in Section~\ref{sec:generalized-one-step-double-sieve}.  No old
+correction table is used and no new numerical integration is needed.
+The extension keeps the repaired $\Gamma_5$ kernel, all other
+ordinary kernels, and the separate unit masses in $\Gamma_{20},
+\Gamma_{21}$ without change.
+
+Write the specified squarefree prefix as $B=p_1\cdots p_r$, with
+decreasing exponents $t_1>\cdots>t_r>0$, and put
+\[
+ T=\sum_i t_i,\qquad Q=N^\nu,\quad R=Q/B=N^{L+o(1)},\quad
+ L=\nu-T>0,\qquad \alpha=(1-T)/L\ge2.
+\]
+All prefix coefficients are finite nonnegative constant combinations
+of marked prime-box indicators.  The prime exponents and $L$ have
+fixed positive lower bounds on every box.  As usual all box,
+factorization, and level inequalities have strict margins before
+taking their endpoint limits.
+
+\paragraph{Precisely which factorization data are retained.}
+In the enhanced case $1/2<\nu<153/256$, require the full specified
+square conditions
+\[
+ t_1+\cdots+t_{j-1}+2t_j<\nu\qquad(1\le j\le r).
+\]
+Choose one of the already proved cap branches, below its cap and
+above every gate: the largest-prime branch; a selected-subproduct
+branch using specified slots and their remaining-square gates; or
+the repaired $W$ branch with its first three slots or a retained
+bound on its third slot.  The chosen branch must persist on adding
+primes of exponent below a specified ceiling $\chi\le t_r$.
+For branches determined by existing slots one can take $\chi=t_r$.
+If there are fewer than three specified slots and the $W$ branch
+uses only the assertion that a future third exponent is at most
+$c$, one must also impose $\chi\le c$.  The condition
+$\chi\le t_r$ alone does not preserve such a third-slot bound.
+
+In the classical case $\nu<1/2$ with a fixed margin, use the absolute
+Bombieri--Vinogradov remainder for complete moduli.  There is no
+full-well or ordering requirement on the specified prefix in that
+case.  Each complete modulus has only boundedly many ways to contain
+the finitely many labelled prime slots, because every prime slot
+exceeds a fixed positive power of $N$.  The residual construction
+has bounded coefficients for each fixed precision, so the complete
+coefficient remains bounded.  This is the classical interface of
+Section~\ref{sec:generalized-one-step-double-sieve}, including its
+coprimality and collision treatment.
+
+\begin{proposition}[Second seed with stable prefix data]
+\label{prop:second-seed-stable-prefix}
+Under the named moving-residue and positive $K=681/100$ inputs of
+the preceding seed, suppose $\alpha\ge2$ and one of these interfaces
+holds.  In the enhanced case assume additionally
+\begin{equation}\label{eq:second-seed-comparison-cutoff}
+ L/s_*<\chi.
+\end{equation}
+Then, with the same normalization $\Theta_Q$, one has
+\[
+ \Phi_{s_*}\le(1-J_*+o(1))\Theta_Q.
+\]
+For any $0<w\le s_*$, positivity and cutoff monotonicity imply the
+same upper bound for $\Phi_w$.  In particular the normalized ordinary
+upper multiplier $A(w)=1$ for $1\le w\le s_*$ may be replaced by
+$1-J_*$.
+\end{proposition}
+
+\begin{proof}
+All specified primes added by the 21-term inequality are below
+$R^{1/s_*}$.  For every non-switched term the subsequently sieved
+prime slots are smaller still.  Under
+\eqref{eq:second-seed-comparison-cutoff} all these slots are below
+the old specified prefix and below its stable ceiling $\chi$.
+Thus the original largest prime, original selected subset, its old
+remaining-square gates, and the applicable $W$ data remain unchanged.
+
+The residual singleton in each negative term satisfies $2u<1$,
+where $u\le1/s_*<1/2$ is relative to $R$.  The residual pair in
+$\Gamma_6,\Gamma_7,\Gamma_8$ satisfies both $2v<1$ and $v+2u<1$.
+These same tests hold on the good portion of $\Gamma_5$.
+The exact merge lemma proved with the seed combines each such
+residual vector with the old full-well prefix.  It then combines
+their ordinary residual sieve atoms at the correct residual level.
+Equivalently, since all old slots precede all new slots, the old
+complete and selected-remaining tests are unchanged, and each new
+test is the corresponding residual square test multiplied by $B$.
+This explicitly checks the complete atom, not just its bare prefix.
+
+Every factorization is performed on buffered endpoint vectors.
+Keep all marked slots, the original scalar signs, and the original
+residual factorials; use the existing bounded-group normalization
+and moving-residue argument.  The small-prime weight and the
+exclusion of primes dividing the specified prefix are treated by
+the same signed interface.  Thus all non-switched ordinary terms
+retain exactly their previous main kernels.
+
+On the bad portion of $\Gamma_5$ no signed distribution statement
+is used.  The positive product estimate gives the existing
+replacement $3Ks_0/20$.  The proof of every positive switched mass
+uses only $\alpha\ge2$, a fixed positive exponent cutoff, and the
+retained labelled domains.  It is independent of the former anchor
+interval and of the largest exponent of $B$.  In particular the
+uniform $M_{20},M_{21}$ still include their separate unit surfaces;
+one does not reuse their special $\alpha=2$ simplifications.
+
+In the classical case, all complete ordinary moduli have support
+at most $Q$, including on the bad portion of $\Gamma_5$.  Absolute
+Bombieri--Vinogradov therefore licenses even that ordinary kernel.
+For a common conservative formula we may instead keep the positive
+replacement there; either choice is a valid upper bound.  No
+selected-subproduct or full-well assertion is needed for this case.
+
+All main kernels in the certified functional are consequently
+unchanged.  Its already saved outward rational certificate gives
+$J_2>9/500$.  Finally, if $w\le s_*$, then
+$R^{1/w}\ge R^{1/s_*}$ and
+$S(\mathcal A_{N,B},R^{1/w})\le
+S(\mathcal A_{N,B},R^{1/s_*})$ pointwise.  The comparison cutoff
+is lowered; the normalization uses the same total level $Q$.
+\end{proof}
+
+\paragraph{The correction to use and the exact lower transfer.}
+Write
+\[
+ j_2(w)=J_*\mathbf1_{1\le w\le s_*}.
+\]
+At an upper node with $1\le w\le s_*$ and physical cutoff
+$R^{1/w}\le N^\chi$, condition
+\eqref{eq:second-seed-comparison-cutoff} follows automatically,
+after the usual trimming of equality sets.  More generally it is
+enough to check the comparison cutoff directly.  If $j_1$ is any
+proved first-seed correction on the same physical prefix box, use
+$\max\{j_1,j_2\}$ there.  Their defects are alternative upper
+bounds for the same count and are not added.
+
+For a stable lower prefix with cutoff $N^a\le N^\chi$, write
+$s=L/a\ge2$.  Buchstab from $R^{1/4}$ to $R^{1/s}$, when $s<4$,
+gives children indexed by $w\in[s-1,3]$.  The appended prime and
+the child ratio are
+\[
+ q=N^{L/(w+1)},\quad L'=\frac{Lw}{w+1},\qquad
+ \alpha'=\alpha+\frac{\alpha-1}{w}\ge2.
+\]
+Every child used by the second seed has $1\le w\le s_*$.
+Its new square condition follows from $w\ge1$, namely
+$2\log_Nq\le L$.  Also $q\le N^a\le N^\chi$, so the original
+branch persists, and its seed comparison cutoff satisfies
+\begin{equation}\label{eq:second-seed-child-cutoff}
+ \frac{L'}{s_*}=\frac{L}{w+1}\frac{w}{s_*}
+ \le\log_Nq.
+\end{equation}
+In particular the seed's new prime slots are below this child's
+new smallest specified prime.  This remains true for $1\le w<2$.
+It would lose a valid part of the estimate to truncate the integral
+at $w=2$.
+
+The ordinary identity
+$a(4)-\int_{s-1}^3 A(w)\,dw/w=a(s)$ holds for $2\le s<4$,
+including $A(w)=1$ on $1\le w<2$.  After inserting the uniform seed
+defect and retaining its exact prefix measure $dw/w$, the new lower
+correction is
+\begin{equation}\label{eq:second-seed-stable-lower}
+ h_2(s)=
+ \begin{cases}
+ \displaystyle\frac9{500}\log\frac{11/5}{s-1},&2\le s<16/5,\\
+ 0,&s\ge16/5.
+ \end{cases}
+\end{equation}
+Thus the normalized lower multiplier is at least $a(s)+h_2(s)$.
+This is a lower bound from one finite tree; it is not an abstract
+old $h$ value.  At $s=2$, its limiting value is
+$(9/500)\log(11/5)$, approximately $0.01419$.
+When combining seeds, integrate their pointwise maximum on the
+child boxes; do not add $h_2$ to a first-seed correction that already
+uses any of the same children.
+
+\paragraph{Actual domains in the complete eleven-term count.}
+Use the parameters and level prescriptions of
+Section~\ref{sec:generalized-one-step-double-sieve}.  All the
+following assertions concern the limiting cap approached from
+strictly admissible levels.
+\begin{itemize}
+\item For $L_2$, the largest-prime branch has
+$\nu=(1+t)/2$ and target $w=(1-t)/(2t)$, on the relevant
+$t<h<25/128$ range.  The direct second seed applies exactly when
+$5/27\le t<h$.  This interval is empty for the current sampled
+$h\simeq0.1505$; the separately proved finite $H(3)$ propagation
+on $0.145<t<0.15$ is a different available option.
+\item For $U_3,U_4$, set $L=\nu-t$ and use the current physical
+upper argument $w=\max\{2,L/a\}$.  The direct seed is applicable
+on $0<L\le(11/5)a$, since its comparison cutoff is at most $a<t$.
+Here $\nu=v(t)$ on the enhanced part.  On the classical $U_3$
+tail $57/224<t<1/3$, it applies on
+$t\ge1/2-(11/5)a$.  Keep the corrected coefficient
+$4(1-\max\{j_1,j_2\})/L$ in place of the ordinary option.
+\item For $L_5,L_6$, retain their existing level $V_{2,a}(t,u)$
+and all its gates.  Use \eqref{eq:second-seed-stable-lower} where
+$2\le(\nu-t-u)/a<16/5$.  In this application the first appended
+prime $q$ is at most $N^a$, so the two original primes remain the
+largest.  If the chosen $W$ cap used a third-slot bound $a$, this
+child now has an actual third slot $q\le N^a$.  Every seed prime
+is below $q$ by \eqref{eq:second-seed-child-cutoff}, and the bound
+is therefore preserved.  The selected leading pair is preserved
+in the same way.  The gain integrand is
+$h_2((\nu-t-u)/a)/(tu(\nu-t-u))$ before combining with any
+overlapping first-seed correction.
+\item For $U_{10},U_{11}$, retain the full eligibility set and
+all branch gates of the four-prefix safe minimum.  Put
+$T=x+y+z+w_0$, $L=\nu-T$ and let $w_0$ be the smallest specified
+exponent.  The physical upper argument is
+$\max\{2,L/w_0\}$.  The direct second seed applies when
+$L\le(11/5)w_0$, and its comparison cutoff is then below the
+smallest old slot.  All original selected slots and the first
+three $W$ slots persist.  Replace the ordinary option inside the
+existing switching/ordinary minimum by
+$4(1-\max\{j_1,j_2\})/L$; do not add this saving to an already
+overlapping switched improvement.
+\end{itemize}
+For a common finite positive partition these are genuine averaged
+prefix bounds.  The endpoint comparisons and cutoff equality sets
+are approached through buffered boxes.  There is no assertion for
+an individual fixed tuple of primes.
+
+\paragraph{Finite recursive closure, not a restored old table.}
+The state conditions also permit further finite Buchstab trees.
+At an upper or lower parent with physical argument $s\ge2$ and
+cutoff below its stable ceiling, an appended prime indexed by
+$w\ge s-1\ge1$ has square at most the current residual level and
+is below that ceiling.  Retaining the original branch data and
+using this new prime as the child's cutoff preserves the same
+typed family.  Its actual ratio changes to
+$\alpha+(\alpha-1)/w$; it is not reset to two.
+
+For example, if uniform defect bounds $H,h$ have already been proved
+on all nodes of a finite such tree, and $S_{\max}+1\ge s$, ordinary
+Buchstab cancellation gives the further valid choices
+\[
+ h_{\rm new}(s)=\int_{s-1}^{S_{\max}}H(w)\frac{dw}{w},\qquad
+ H_{\rm new}(s)=\int_{s-1}^{S_{\max}}h(w)\frac{dw}{w},
+ \quad s\ge2,
+\]
+where unproved corrections are set to zero; in particular $h(w)=0$
+for $w<2$, whereas the proved seed gives $H(w)=J_*$ for
+$1\le w\le s_*$.  These are alternative lower bounds for the
+defect, so one may take their maximum with a previous bound rather
+than adding overlapping estimates.  Every generation is finite,
+and its positive prime cutoff remains fixed before $N\to\infty$.
+The first- and second-seed identities can similarly use previously
+proved child defects at their actual states, with their original
+coefficients.  This paragraph licenses an explicitly checked finite
+construction; it does not supply an unevaluated numerical matrix
+or an infinite-iteration convergence claim.
+
+One explicit consequence needs no new integration certificate.
+If the upper comparison cutoff $R^{1/3}$ is below the stable ceiling,
+the same two Buchstab steps used for
+\eqref{eq:replacement-second-seed-h3}, now in this enlarged family,
+give
+\begin{equation}\label{eq:second-seed-stable-h3}
+ H(3)\ge J_*\log(5/4)\log(22/15)>7/4625.
+\end{equation}
+The first new prime is at most $R^{1/3}$; the second is at most
+the first, and the final seed comparison cutoff is at most the
+second.  Thus every old branch datum persists.  The proof uses
+only the uniform $\alpha\ge2$ seed, so this consequence has no
+restriction to the original anchor interval.  By count monotonicity
+it also bounds upper nodes with physical argument $1\le w\le3$,
+provided the comparison cutoff $R^{1/3}$ is licensed.  It is another
+option to maximize with the direct seed and other proved defects.
+
+The saved companion JSON binds the already certified scalar seed
+and records these analytic domains.  No new total counting
+coefficient, transfer exponent, global optimality claim, or
+resolution of the requested frontier follows from this extension
+alone.  Any numerical improvement after taking the common-box
+maxima requires its own outward integral certificate.

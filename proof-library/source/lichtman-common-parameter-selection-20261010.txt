@@ -1,0 +1,398 @@
+Common parameters for the actual finite prime-product queries
+2026-10-10. Scoped existence lemma; no change of K, c, tables or numerical data.
+
+0. Result, scope and author's role
+
+For the fixed finite policy/query family specified below, the current local
+lemmas admit ONE order of parameter choices, followed by ONE sufficiently
+large target threshold. I find no incompatible positive-power requirement.
+This is not a numerical enumeration of a final sieve mesh, nor a new proof
+of every distribution input. In particular it is not unrestricted L23 or
+an assertion for arbitrary target-dependent coefficients.
+
+I previously authored the rough-SW, auxiliary-SW mean-square, and fixed-d
+E2 interface reports. Those inputs are disclosed, not counted here as
+fresh independent proofs. The new work is the common parameter construction,
+including the distinction between a genuine strict licence margin and a
+structural weak inequality, and its application to the latest Gram/E1/E2
+estimates. All named inputs and the state snapshot are hash-bound separately.
+
+The state snapshot selects K=8452171/1250000, c=48966843/25000000 and
+the two existing b/count pairs. Its actual lower ledger uses the fixed430
+table only at U3/U4 and the retained248 instances elsewhere. It has87
+adopted eighth domains. No further candidate, arbitrary smaller K, infinite
+iteration, or new domain is inserted in this lemma.
+
+The conclusion is conditional on the stated finite-policy compiler/density
+and typed-table constructions and the classical inputs of the current
+restricted convolution proof. It removes a parameter-compatibility concern;
+it does not replace those proofs or validate every stored numerical floor.
+
+1. What is fixed, and where the strict margin comes from
+
+Fix a requested analytic error exponent A and the finite query graph:
+the upper product policy, lower ordinary-start policies, all finitely many
+marked-state queries used in the retained table generations, and the
+positive-family instances used in the five selected costs. Fix k_star and
+a_star>0 such that each original distributed prime is at least a fixed
+constant times T^a_star and the number of these primes is at most k_star.
+Minima are over THIS finite list; an arbitrary family whose cutoff tends
+to zero with T is not covered. The choice of query graph precedes T.
+
+Use the existing common finite-approximation lemmas to trim proper gate,
+order and policy-switch walls and freeze coarse cap labels, within strictly
+less than the allotted density error. Retain identity strata, inherited-cap
+ties, and lower-dimensional unit pieces under their specified rules. They
+cannot all be discarded as null sets. Choose outer smooth approximations
+and a fixed positive radial smoothing tolerance at this stage too. Their
+error allowances are measured in the original positive mass/normalization,
+not relative to an arbitrarily small HB intersection.
+
+Let mu>0 be a rational number below the minimum of the resulting finite
+STRICT prefix-licence, W-initialization, active-history and physical-ceiling
+reserves. A convenient definition is half the minimum of the infima of
+these continuous gap functions on their retained compact pieces. Choose
+coarse caps with their prescribed negative buffers before taking this
+minimum. When a marked or classical state has a level1/2 endpoint, this is
+an endpoint density limit; its finite implementation has a smaller level
+and a positive reserve. The same applies at x=rho to v(x)=3x.
+
+There is no assertion that the minimum over the raw CLOSED87 cells is
+positive. Such a minimum is often zero. Nor is mu a number presently
+stored for a completely materialized common global sieve mesh. Its positive
+existence is supplied by the finite-policy approximation and robust coarse
+licensing constructions, not by a PASS label on numerical data.
+
+Ordinary residual-tail square inequalities are different. They follow from
+the well support and the odd/even first-exit identity and may be weak.
+They are not added to the strict-minimum list. At ordered upper endpoints
+they cost O((J+2)tau) for rough rank at most J. Inflating the rough support
+level by that amount restores them; the strict external licence absorbs
+this inflation. Requiring a new positive margin for every residual square
+would incorrectly create a circle between rough cutoff, rank and zeta.
+
+The noncompact base third branch does not invalidate this construction.
+extended-prefix-upper.tex, 'Margins at the larger first stop', fixes e,
+chi and the finite cap list lambda_B=min(Theta-2e,Gamma_B-2e) BEFORE the
+small-prime precision. It keeps t1<=rho-4e, giving a fixed first-cube
+reserve. The robust envelope is used wholly below mu0-4e; the transition
+uses the singleton fallback. Here mu0=25/128, rho=19/96; mu above denotes
+the new licence reserve, not mu0. The tail bound in that source is uniform
+in a sufficiently small range of these buffers. Thus decreasing the later
+rough cutoff does not force the frozen coarse licence reserve to zero.
+
+2. Explicit exponent choices
+
+Write theta=7/32 and Theta=299/500. The unactivated carrier has exponent
+Theta=.598; one must not bound the WHOLE weight by Lambda=153/256.
+Reserve total beta and fine-endpoint support inflation less than1/1000,
+and use the safe complete-support ceiling theta_star=599/1000<3/5.
+
+Let L_star>=100 be a fixed sensitivity bound for the finitely many prefix
+licence formulas on a fixed neighbourhood of q=alpha=1. It can be chosen
+as one plus the maximum sum of absolute coefficients/partial derivatives
+of the displayed affine and rational tent/W/selected formulas, including
+their positive fixed denominators. Include a fixed bound for endpoint
+coefficient errors per slot; keep the factor J+2 outside L_star. There is
+no dependence of L_star on T or on the later number of rough slots.
+
+Let g_BV>0 be the smaller of the fixed classical-state half-level reserves
+and 5/48,49/250,265/3584 (omit the first entry if there is no such state).
+For low rough ranks those last three numbers are exactly the gaps for
+19/48,38/125,1527/3584 before small-factor and endpoint losses.
+Take any positive rational zeta strictly smaller than
+
+ min(10^(-6), a_star/100, mu/(1000 L_star),
+     g_BV/(1000 L_star), (3/5-theta_star)/(1000 L_star)).       (P1)
+
+Set sigma=zeta/2000, kappa=sigma/200, and delta_D=sigma/3.
+Choose a positive rational kappa0 strictly smaller than
+
+ min(kappa/[4(1+kappa)], zeta/(1000 L_star), mu/(1000 L_star),
+     g_BV/1000, [1-(5/3)theta_star]/4,
+     (5/24)/4, (49/125)/4, (265/1792)/4).                    (P2)
+
+Every upper bound is positive. Choices (P1)--(P2) may be decreased to
+meet a further fixed physical-ceiling reserve; there is no lower bound
+on any of these small parameters. The ratios sigma=zeta/2000 and
+kappa=sigma/200 are then held fixed. In particular
+ kappa0/(1-kappa0)<kappa/4<kappa,
+ theta_star/(1-kappa0)<3/5,
+ 7zeta/16>15sigma.
+
+The uninflated exact low-rank rescaling limits are respectively
+kappa0<1-2ell=5/24,49/125,265/1792. Merely ell<1/2 in T coordinates
+would not suffice. Conditions (P1)--(P2), followed by the small support
+choice below, leave a strict part of each gap after division by
+1-kappa0. The finitely many separately buffered classical states are
+handled by their g_BV reserve in the same way.
+
+3. Small-prime precision and finite compilation, AFTER (P1)--(P2)
+
+Fix a positive rational nu0 bounded by the coarse support and licence
+reserves. Put beta support ell_beta=nu0 eta and rough exponent
+omega=nu0 eta^2, and let eta>0 be a sufficiently small fixed rational.
+The three quantities
+
+ ell_beta, exp(-c/eta) omega^(-2),
+ omega(1+log(1/omega))^2                                  (P3)
+
+all tend to zero, the last two being the beta and original third-tail
+errors. Choose eta so these errors fit allocated fractions of the EXISTING
+density/compiler allowances, and so
+ (2+2theta)ell_beta<zeta/64,
+ ell_beta<min(1/4000,g_BV/100,mu/(100 L_star)).
+Also take omega below a_star and every positive adopted marked cutoff.
+For the eighth improvements the known common last-prime lower bound is
+53/13824; omega may be made smaller than this and than1/100.
+
+The integer base third cap is activated at p3>=T^omega. The numerical
+split t3=1/100 is NOT that activation rule. Below the rough cutoff an
+uncapped modulus has at most two rough prime slots, hence goes to the
+classical low-rank alternative. An atom with at least three rough slots
+has the actual third cap and its assigned licence. This rank split,
+not Theta<.6 alone, licenses the high-rank part.
+
+Now fix J>theta_star/omega+2. Finally choose the common fine width tau
+small enough that, with the fixed endpoint constant included in L_star,
+
+ L_star(J+2)tau < min(zeta/64,mu/100,g_BV/100,1/4000),
+ C_policy tau omega^(-5) < its allocated compiler error.       (P4)
+
+Here C_policy is the constant for the frozen finite coarse cap list.
+If a finite state needs a further refinement, use the common refinement
+with its inherited ancestor decision, not a new independent parent cap.
+There are then finitely many signed atoms and fixed factorial/scalar
+coefficients. Their total absolute norm may be large but is fixed.
+The fine grid does not change the whole-box assignment convention.
+
+The order is therefore coarse caps/reserves, then zeta/sigma/kappa/kappa0,
+then eta/omega, then J/tau. No step asks zeta to be smaller than a new
+minimum of J ordinary-tail square gaps. This is the essential noncircular
+point. Such a new minimum would not be justified by the source proofs.
+
+4. Exact charts and the actual source scale
+
+Insert the exact smooth original-prime dyadic partition with
+psi(t)=chi(t)-chi(2t), support[1/2,2], before HB. The identity is pointwise
+and uses no density allowance. Do not leave the old sharp GROUP product
+indicator in addition to psi. Individual HB intervals remain sharp.
+The order-three HB identity on a group centered at R_i is truncated at
+(2R_i)^(1/3); it is exact wherever that group's smooth factor is nonzero.
+
+For X=prod R_i, Xplus=2^k X and k<=k_star, the source rectangle satisfies
+
+ 2^(-7k-1)X <= x <= 2^(6k-1)Xplus.                         (P5)
+
+The group lower product is R_i/128, not R_i/64. Fix on the ORIGINAL chart
+ Zchart=f(2^(6k_star+2)Xplus), f(v)=v^(1/(loglog v)^3).
+It is the same projector in every term of its HB identity. Since the
+argument of f divided by x is between1 and2^(14k_star+3), eventually
+
+ f(x)<=Zchart<=x^(2/(loglog x)^3).                          (P6)
+
+The rough-SW lemma has precisely this uniform fixed-constant window.
+Inside P5.2 one may use its smaller source splitting threshold f(x) for
+q2,q3: alpha remains rough at Zchart>=f(x). This does not change the HB
+projector. The small factors d<=x^(2/loglog x) are subpower, uniformly.
+
+After deleting products below the fixed power T^(1-kappa0), (P5) gives
+ c1 T^(1-kappa0)<=x<=C1 T,                                 (P7)
+with fixed positive c1,C1 depending on k_star and the outer support.
+Thus c0 x<=T<=x^(1+kappa) for all sufficiently large T, where c0=1/C1.
+The first inequality is needed in the actual E1 proof. It is not enough
+to check only an upper range for the residue. With q=log_x T,
+ q<=1/(1-kappa0)+O(1/log T); if q<1 its deficit is O(1/log T).
+One can use alpha=1+kappa in the local licence, and q<=alpha eventually.
+
+For the rough endpoint level T^ell use vartheta=q ell+2zeta, so the
+factorization support is x^(vartheta-2zeta)=T^ell. The beta factor is
+attached afterwards to group three and paid once. The cap buffer in
+section1 absorbs 2zeta, the q/alpha change, and rough endpoint inflation.
+For example, tent-coordinate losses are (q-1)/2,(q-1)/(1+theta),(q-1),
+plus theta(alpha-q)/2 in the descending line. W's two third-slot losses
+include 33(q-1)/17 and5(q-1)/3; its other initial-prime square has a
+separate reserve. They are bounded by L_star and (P1)--(P4). Full-square
+inequalities scale homogeneously before the endpoint inflation.
+
+5. Medium slot and the restricted four monomials
+
+The medium choice is made from ORIGINAL length charts:
+ X^(3zeta)<=U<=X^(1/3+zeta/4).
+The fixed constants in (P5) are absorbed by its strict power buffers,
+giving x^(2zeta)<=U<=x^(1/3+zeta/2). This slot is rough1 or rough mu,
+with an individual interval, normalized logarithm and separated smooth
+twist. It already is one-bounded; the arbitrary complement needs no SW.
+The choice never depends on the arithmetic tuple, error signs or Fourier
+frequency.
+
+Set the factorization parameter A_fac=U x^(-zeta). The fixed upper-endpoint
+slot assignment and its full/selected or W licence give, after replacing
+A_fac by U, the three savings zeta,2zeta,9zeta/16. Reserve zeta/16 for
+coordinate effects and zeta/16 for beta/fine endpoints. The least remaining
+saving is7zeta/16>15sigma. Consequently the actual complete blocks obey
+
+ Q1<U x^(-sigma), U^2 Q2 Q3^2<x^(1-8sigma),
+ T^(7/32)U Q1 Q2^5 Q3^2<x^(2-15sigma),
+ U^(23/16)Q1 Q2^(73/16)Q3^(39/16)<x^(2-15sigma).             (P8)
+
+The Q1 inequality has the original zeta saving. Fixed dyadic constants
+can use a still smaller positive part of the unused gap. The actual T
+factor is retained. A complete modulus merely below x^.6 would not imply
+these inequalities. Separated three-factor coefficients and (q_i,T)=1
+are still mandatory; no arbitrary weights on q1 are licensed.
+
+If no medium exists, the repaired chart argument gives at most two long
+slots, and every original prime group has a long slot. Truncated mu cannot
+be long. The actual remaining integer products are bounded by x^(16zeta)
+or x^(32zeta), safely x^(20zeta) or x^(40zeta), including factors2^5,2^10.
+For the two-long exact-axis estimate, 40zeta+(3/2)(3/5)<1 and in fact the
+remaining gap exceeds1/20 under (P1). Its rough cleanup uses small divisor
+levels x^(1/loglog x) and the same window (P6). The one-long fundamental-
+lemma ranges also have positive fixed power margins. Their Poisson/rough
+proofs remain inputs; this paragraph checks their simultaneous sizes.
+
+6. Latest Gram, E1 and E2 margins, including selectable epsilons
+
+Call the medium length N=U, its complement M, and the small-factor dyadic
+length D. Since D=x^o(1), (P8) gives Q1 D<=N x^(-sigma/2) eventually.
+Also N>=x^(2zeta), M>=x^(2/3-zeta/2); thus both exceed x^delta_D.
+The P5.2 monomial consequence gives total Q1Q2Q3<=x^(7/10-13sigma/2)
+up to fixed constants; a weaker x^(4/5) ceiling suffices. It implies
+Q1 D R<=x^(1-delta_D) after inserting the smaller rough R and small D.
+Thus delta_D=sigma/3 fits the filtered Gram/BDH lemma. Its normalized
+alpha^(r) is fixed before ell, and its tau(r) price is averaged, costing
+fixed logarithms. A arbitrary strong log exponent is available; no
+x^o(1) is multiplied into a merely log-saving BDH remainder.
+
+The earlier exact-product/preliminary restoration can be as weak as
+x^(1-delta_D/2+o(1)). It still gives arbitrary fixed log saving. It is NOT
+promoted to the stronger E1/E2 power or silently omitted from the total.
+
+E1 uses theta=7/32 and the lower residue bound T>=c0x. The strongest
+completed size exponent is at most1021/512-147sigma/8+O(1/log x), below2;
+the other two needed exponents are below1-9sigma and17/10-29sigma/2.
+It yields the stated N^2/(DQ1) x^(-sigma/2) bound after fixed/subpower
+normalizations. No claim for arbitrarily small residues is obtained.
+
+E2 subdivides the q interval into a constant number of dyadic scales and
+uses sigma_S=3sigma/4. This change does not entitle one to invoke a narrower
+corollary with kappa<=sigma_S/100. Instead its natural spectral formula
+gives a saving at least
+ (7/2)sigma_S-(21/4)kappa-sigma_S/4
+ = (13/4)sigma_S-(21/4)kappa >2sigma                       (P9)
+under our kappa=sigma/200. The retained phase costs5kappa ONCE; the other
+kappa/4 is the large-a spectral polynomial. Alternatively start with the
+actual stronger15sigma/4 ratios; these are not two gains to add.
+The weak bare sigma_S estimate, one phase charge and a total external
+power allowance sigma/10 leave
+ sigma_S-5kappa-sigma/10=5sigma/8>3sigma/5.                 (P10)
+This supports E2<<N^2/(DQ1)x^(-sigma/2), and its outer use at
+x^(1-sigma/4) after logarithms. The harmonic sum_d1/d is bounded; the
+conversion to the D-normalized notation pays D once, already inside the
+subpower allowance. Rectangular endpoints and three polarizations cost
+fixed factors, not further powers or new q weights.
+
+Here is a literal order for the spectral small constants hidden in these
+phrases. Fix the finite separation derivative order first. Next choose
+the completion cutoff exponent epsilon_comp>0 so that its power cost,
+including that finite derivative order, is at most sigma/40. Choose the
+finitely many selectable classical spectral epsilons so their combined
+power cost is at most sigma/40. These choices precede x. Only afterwards
+choose a sufficiently high Schwartz-tail derivative order. Its constant
+is fixed; it does not force enlargement of the already fixed retained-
+kernel derivative order. Together these selectable powers cost at most
+sigma/20. Take x sufficiently large that all genuine subpower factors
+(small d, divisors, coprime partitions, logs and fixed norm constants)
+cost at most another sigma/20. If a source-internal cost was already
+absorbed into the bare sigma_S bound, do not charge it a second time.
+This is a sufficient total sigma/10 allowance, not a free o(1) convention.
+
+Other selectable divisor/collision/exceptional epsilon exponents can be
+chosen below min(sigma,delta_D,kappa0,omega,a_star,1-theta_star)/(100 C_pow),
+where C_pow is any fixed upper bound on their finitely many accumulated
+coefficients in the proof. Genuine o(1) terms are bounded by the same
+positive reserve only after this choice. All these error terms already
+have power saving; the separate logarithmic argument is next.
+
+7. Smooth norms, beta truncation and arbitrary log precision
+
+After sections1--4, the logarithmic-coordinate smooth functions satisfy
+ D_T=sum_S ||partial_(2S) w_T||_1 <= C_rad (log T)^E,
+with fixed E and C_rad. Original psi factors have uniform Euler derivative
+bounds. The fixed radial/geometry smoothing tolerance affects C_rad and
+the eventual threshold, not any exponent condition. It is not sent to
+zero as a function of T. The number of length charts and HB terms is at
+most (log T)^J0 times a fixed finite-policy coefficient norm.
+
+Fix a desired recombined log exponent A_big, larger than A by all fixed
+logarithmic costs of the finitely many queries. The divisor orders and
+absolute tail moment exponent C_tail are fixed before any truncation.
+Choose Fourier tail precision B>A_big+J0+C_tail+3, and truncate frequencies
+at (log T)^(B+E+2). The Fourier L1 norm, not the number of individual
+frequencies, is used for the retained separated integral. Request the
+restricted convolution bound with extra exponent for this norm and for
+chart recombination. Polynomial-log frequency variation in rough SW is
+paid by a still stronger requested SW exponent.
+
+For a complement bounded by tau(m)^B_beta, truncate only beta at
+tau(m)<=(log x)^C. The deleted nonzero products have size
+x(log x)^(E_tail-C), with E_tail independent of C, and the deleted exact
+product T costs x^(4/5+o(1)) before any parity improvement. Choose C above
+the required log exponent plus all fixed losses and E_tail+3. Normalize
+the retained beta by (log x)^(B_beta C), and request P5.2 with an additional
+B_beta C logarithmic precision. Alpha remains the original one-bounded
+rough slot; no SW theorem for divisor-truncated alpha is required.
+
+The auxiliary SW exponent on tau(d0) is fixed (one suffices here) and
+does not grow with the requested log precision. Induced characters and
+the Gram filter pay divisor moments of fixed order. The SW log exponent
+may be increased last. Thus Fourier precision, beta threshold, source
+precision and SW precision form a directed order, not an implicit fixed
+point. Source polynomial-log norms and fixed constants are uniform in
+the allowed target, original chart, chosen medium slot and endpoints.
+
+8. Common threshold, errors, budgets and precise limitation
+
+Once the preceding constants are fixed, choose T0 to satisfy ALL uniform
+eventual inequalities, including the fixed chart comparisons, subpower
+losses and classical input thresholds. The growing number of HB charts
+does not permit taking a maximum of nonuniform thresholds per chart;
+uniform norm/class bounds in sections4--7 are essential. Endpoints may
+depend on T within this class, but coefficient templates, projector rule,
+precision orders, cap policy and error allowances may not be chosen after
+looking at progression errors.
+
+Deleted low products contribute T^(1-kappa0+o(1)); rough collisions
+contribute (T+T^theta_star)T^(-omega+o(1)); prime powers have the fixed
+a_star saving; any exact complete product T is isolated, bounded by
+T^(theta_star+o(1)). All are o(T/log^A T). Never evaluate tau(0).
+No zero/parity shortcut is required for this parameter conclusion.
+
+The present selected record has strictly positive upper/lower density and
+compiler allowances, and strictly positive remaining upper/lower slacks.
+Finite approximations in sections1 and3 may use fixed smaller fractions
+of those allowances; asymptotic errors are then made smaller than the
+remaining slack. The binding JSON checks positivity with exact Fractions.
+This does not spend an existing allowance twice or change its value.
+The positive singular series has a uniform positive lower bound, so an
+absolute o(T/log^2 T) error is o(H_T). An arbitrary tiny HB mass is never
+used as a denominator. Only already fixed marked families of positive
+limiting mass are divided by that fixed mass in typed insertion.
+
+Choose/prove the upper finite policy and its K theorem first. Lower queries
+can then use that independent K in their finite positive-product costs.
+Taking a common refinement for their finitely many queries does not use
+the resulting c to prove K, and table iteration stays a finite induction.
+There is therefore no feedback circle introduced by common parameters.
+
+The weakest unresolved-by-this-document item is not a conflicting small
+parameter inequality: it is the substantive finite-policy licensing and
+density-approximation input which supplies the first compact realization
+and mu. Its source constructions are identified above; it cannot be
+replaced by a statement that all raw closed-cell inequalities are strict.
+No new positive minimum for all untrimmed raw domains has been established
+or claimed. Outside the fixed family, with shrinking cutoff or uncontrolled
+smooth norms, this selection lemma gives no uniform theorem. Classical
+spectral/packet, HB, sieve and number-theoretic estimates remain explicit
+inputs. This report does not by itself certify the entire K,c,b theorem.

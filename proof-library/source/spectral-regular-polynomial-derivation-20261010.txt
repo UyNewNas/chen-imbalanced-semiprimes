@@ -1,0 +1,177 @@
+An explicit regular-spectrum summation and the actual S=1 polynomial
+10 October 2026. New local derivation; existing proofs and constants unchanged.
+
+Purpose and exact boundary
+
+The prior packet review displayed polynomial (K), but treated the regular,
+holomorphic and continuous pieces through a brief reference to spectral
+large sieve and Bessel decay. Here that summation is written explicitly,
+then combined with the already stated exceptional F/J norms to derive (K).
+The result is for the actual coprime q0=1, S=1 class only. It is not a new
+proof of the classical trace formula, oldform or continuous-fiber input,
+the full moving-residue dispersion argument, or a global prime theorem.
+
+Primary sources read: Pascadi arXiv:2404.04239v3, Proposition E, Lemmas D
+and H, Theorems A and J; and the retained primary L23 text, Theorem8.2,
+Lemma8.3, equations(10.7)--(10.14). The newer Pascadi statements provide
+the classical regular input independently of any disputed moving-a step.
+https://arxiv.org/html/2404.04239v3
+No claim is made to have independently proved DI's original spectral theory.
+
+1. Data and precise already available packet input
+
+Let a be a nonzero integer, r~R with (a,r)=1, and use the cusps infinity
+and 1 of level r. Thus mu=1/r at both cusps. The m-side is a common
+interval I contained in (M,2M], optionally with a common additive phase;
+its squared coefficient norm is <=O(M). The n-side b(n,r) is arbitrary
+complex and supported on n~N. All nonempty dyadic scales are >=1/2.
+
+For h|a^infinity, h<=2N, put L=N/h, and let b_h be the restricted,
+phase-modified coefficient on n~L from the coprime packet argument.
+Write B_h^2=sum_(r,n)|b_h(n,r)|^2 and B^2=sum_(r,n)|b(n,r)|^2.
+In particular B_h<=B. These coefficients do not depend on the individual
+eigenvector inside a packet. The already proved packet operation costs
+(|a|h)^(Theta/2), with Theta=7/32, up to independently selectable
+subpower/divisor factors, and leaves the m functional unchanged.
+
+The finite oldform norm identity is the one in
+lichtman-spectral-packet-adversarial-20261009.txt. For the continuous
+spectrum its corresponding character-pair fiber identity with Plancherel
+measure is an explicit external ABL input. Eisenstein functions are not
+being treated as L2 cusp-form vectors. Holomorphic normalization includes
+the standard weight factors, as in Pascadi Lemma H. This note does not
+remove or independently prove those packet/fiber inputs.
+
+It is enough to treat an elementary separated smooth Bessel amplitude.
+Put
+  X=C sqrt(R)/(4*pi*sqrt(|a|MN)), Y=1/X,
+and let its test function phi have support y~Y and normalized derivative
+bounds |phi^(j)(y)|<=C_j Y^(-j). Overall fixed amplitude seminorms multiply
+the resulting bound. The full smooth-amplitude separation and its frequency
+seminorm summability are a separate interface, not inferred here.
+
+2. An explicit abstract spectral-shell estimate
+
+For a regular spectrum, including its appropriate positive measure, let
+A and B be two coefficient functionals with cumulative squared norms
+bounded at height K>=1 by
+  C(K^2+u) A0^2,  C(K^2+v) B0^2.
+The standard logarithmic/subpower factors can be kept outside this lemma.
+Suppose the transform has the following two absolute bounds:
+  |H(t)| << (1+|log Y|)/(1+Y),
+  |H(t)| << |t|^(-5/2)+Y|t|^(-3), for |t|>=max(2Y,1).
+These weaker forms suffice; they are covered by the cited Bessel bounds.
+At t=0 use continuity of the integral transform, not a division by t.
+
+Then
+  integral |H(t) A(t) B(t)| dmu(t)
+  << (1+|log Y|)/(1+Y)
+       sqrt((1+Y^2+u)(1+Y^2+v)) A0 B0.                 (R1)
+
+Proof. Set K0=max(1,2Y). On |t|<=K0 use the uniform transform bound
+and Cauchy--Schwarz with the two cumulative norms. On the j-th higher
+shell, whose upper height is comparable to 2^j K0, the square root of
+the two norm factors is at most
+  O(2^(2j)) sqrt((K0^2+u)(K0^2+v)).
+The transform supremum therefore produces the summable geometric series
+  sum_(j>=0) [K0^(-5/2) 2^(-j/2)+Y K0^(-3) 2^(-j)]
+  << K0^(-5/2)+Y K0^(-3) << 1/(1+Y).
+Since K0^2 is comparable to 1+Y^2, this proves (R1). The argument uses
+positive cumulative norms, not a pointwise eigenfunction bound, and works
+for discrete sums, the continuous Plancherel integral, and the holomorphic
+weight sum with its stated normalization. For holomorphic weight k use
+height k-1; k and 1+|k-1| are comparable, affecting only absolute constants.
+
+This calculation displays the complete high-frequency summation. It does
+not multiply a divergent absolute sum of spectral coefficients by a
+uniform transform bound, nor introduce a hidden power of |a| or X.
+
+3. Regular contribution at the actual arithmetic scales
+
+At fixed r~R, apply Pascadi Lemma H at both cusps. For the h term take
+u=M/R and v=L/R. Its two coefficient norms are O(sqrt(M)) and
+(sum_n |b_h(n,r)|^2)^(1/2). Formula(R1), then Cauchy in the r sum,
+gives, after restoring the outside Kuznetsov factor C sqrt(R),
+  |L_reg,h|
+  << x^epsilon (|a|h)^(Theta/2)
+       C sqrt(M)/(1+Y)
+       sqrt((R+M+RY^2)(R+L+RY^2)) B_h.                (R2)
+The log in(R1) is absorbed only because all scales, including |a| and
+their nonzero inverses, are bounded by fixed powers of the ambient x.
+
+The r sum is responsible for exactly sqrt(R), not R: sum_r B_h(r)
+<=O(sqrt(R)) B_h. Combined with the two factors 1/sqrt(R) in the
+large-sieve expressions and the outside C sqrt(R), this yields (R2).
+In particular the finite number of r=1 or other bounded levels causes
+no singularity; the same positive-norm estimates cover them.
+
+Up to absolute constants RY^2=|a|MN/C^2. Put T0=|a|MN/C^2. Also
+  C^2 M/(1+Y)^2 << M C^4 R/(|a|MN+C^2 R)=:P0.
+Squaring the h sum costs at most x^epsilon, because the number of
+h<=2N with h|a^infinity is x^epsilon for every prescribed epsilon,
+uniformly when |a|,N<=x^B0 with fixed B0. This is the previously explicit
+Rankin bound, with its epsilon chosen before x. Consequently
+  |L_reg|^2
+  << x^epsilon P0 sum_h (|a|h)^Theta
+       (L+R+T0)(M+R+T0) B_h^2.                         (R3)
+The same expression bounds the normalized holomorphic and continuous
+contributions under the explicit packet/fiber inputs in section1.
+No assertion about their individual basis vectors is used.
+
+4. Exceptional contribution, keeping the packet power visible
+
+Use tau_j=2*sqrt(1/4-lambda_j), so 0<tau_j<=Theta. This is twice the
+Ramanujan exponent used in some primary-source conventions. The positive
+cosh factor stays bounded and may be absorbed in constants.
+Set X0=1+R/L. The valid elementary split is
+  1+X^tau <= 2(1+X/sqrt(X0))^tau (1+X0)^(tau/2).
+It retains an absolute constant omitted in a literal source line.
+
+The already derived exceptional norms F1/J2 are
+  S_n << x^epsilon (1+L/R) B_h^2,
+  S_m << x^epsilon M(M+R)
+       [1+{M(1+X/sqrt(X0))^2/(M+R)^2}^Theta].
+F1 is applied separately to arbitrary level-dependent n coefficients;
+J2 is applied to the unchanged common interval/phase on m. Its use would
+fail for arbitrary level-dependent m intervals. Here they are excluded.
+
+Since all nonempty scales are at least1/2, the bracket in S_m is bounded
+by a constant times
+  1+[C^2 R/(|a|h (L+R)(M+R)^2)]^Theta.
+Multiply by the squared packet cost (|a|h)^Theta, by S_n and by the
+squared outside factor C^2 R/(1+Y)^2. The resulting two terms are
+  P0 (|a|h)^Theta (L+R)(M+R) B_h^2,
+  P0 (C^2 R)^Theta (L+R)^(1-Theta)(M+R)^(1-2Theta) B_h^2.
+Thus the cancellation of |a|h in the improved exceptional term happens
+only after both positive norm bounds and the packet cost are present.
+It is not a small-a assumption or a deletion of a cusp phase.
+
+Sum h with a separately selected subpower loss, and use L<=N, B_h<=B,
+1-Theta>0. The first term is absorbed in(R3). The result is
+  |L_total|^2 << x^epsilon P0 * {
+     sum_h (|a|h)^Theta (N/h+R+T0)(M+R+T0) B_h^2
+     +(C^2 R)^Theta (N+R)^(1-Theta)(M+R)^(1-2Theta) B^2 }.
+                                                               (K*)
+This is the actual S=1 polynomial(K), now with its regular spectral-shell
+summation and exceptional multiplication exposed separately. Harmless
+absolute constants from 4*pi and dyadic supports are included in <<.
+
+5. Consequences and boundaries
+
+No step above sets |a|/x to zero or assumes |a|<=x^epsilon. Subsequent
+Poisson completion and the actual coefficient norm create the retained
+(1+|a|/x)D1 contribution in Lemma5.1; this note neither removes that term
+nor reruns the later dispersion algebra. The original arbitrary-q0,
+noncoprime-residue or arbitrary-level-interval versions are not proved.
+
+This is a local expansion of a previously abbreviated argument, not a
+new numerical improvement or independent proof of the oldform, continuous
+fiber, classical Kuznetsov, Bessel-transform and spectral-sieve theorems.
+It makes the exact regular input and its summation usable without invoking
+the entire printed L23 Theorem10.2 as a black box. Scope outside(K*) remains
+explicit: smooth separation, elementary completion, arithmetic coefficient
+norms, retained-phase variation, preliminary dispersion, finite sieve
+weights and all numerical certificates.
+
+No main manuscript, frozen old file, selected constant, formalization,
+GitHub state or external message is changed by this note.

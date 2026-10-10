@@ -1,0 +1,178 @@
+% New method for one ideal fourth integral; no frozen-tree update.
+\subsection{Affine parent bounds and a concave-corner fourth integral}
+
+Fix the same causal ideal policy $C_3=\Phi_3$ and the maximum $C_4$
+over all licensed fourth selected-subproduct caps and its inherited
+parent, at $w=19/125$. We bound
+\[
+ I_4=4\int_{E_4}
+ \frac{\bar f((C_4-S_3-r)/r)-\bar f((C_3-S_3-r)/r)}
+ {t_1t_2t_3r^2}\,d\boldsymbol t\,dr.
+\]
+All omitted contributions are nonnegative. Bounds in this note are
+alternative lower estimates of $I_4$, not additions to previous
+fourth totals.
+
+\paragraph{A symmetric representation of the parent policy.}
+On the ordered retained domain, $t_j\le w<25/128$ and
+$t_1+3t_2<\nu$. The reduced eight-branch equivalence gives
+\[
+ C_3=\max\left\{\nu,
+    \max_{\varnothing\ne I\subset\{1,2,3\}}v\Bigl(\sum_{i\in I}t_i\Bigr),
+    \max_{1\le j\le3}\left(\Lambda-\frac38t_j\right)\right\}.
+\]
+The additional singleton $v(t_3)$ is dominated by $v(t_1)$;
+the extra $W$ terms are dominated by the one for the smallest
+coordinate. Thus this exactly represents the ordered cap and
+extends it symmetrically to unordered boxes by sorting.
+For every nonnegative argument the middle affine formula in $v$
+is redundant, so
+$v(s)=\min\{(1+s)/2,57/64-3s/2\}$.
+Indeed the two outer lines cross at $s=25/128$, where the middle
+line is strictly higher; comparing their slopes on the two sides
+proves the assertion on the entire nonnegative half-line.
+
+\paragraph{A genuine affine majorant of the old cap.}
+Write each parent branch as $B_k(t)=\min_{q\in\mathcal L_k}q(t)$,
+where singleton lists include the constant and $W$ branches.
+Choose an affine plane $P$ from a branch active at an approximate
+logarithmic mean. Put
+\[
+ \delta=\max\left\{0,
+     \max_k\min_{q\in\mathcal L_k}\max_{t\in B}(q(t)-P(t))\right\},
+ \qquad U(t)=P(t)+\delta.
+\]
+For every $k$ and every $t\in B$, the minimum defining $B_k(t)$
+is at most each $q(t)$, so $B_k(t)\le U(t)$. Hence $C_3\le U$
+throughout the whole box. Every displayed extremum is affine and
+is evaluated at its exact signed endpoint. A constant parent upper
+bound may be used instead if it gives a smaller value at the chosen
+mean. The approximate mean affects this choice only, not validity.
+A zero shift alone is not claimed to imply equality $U=C_3$ across
+a parent branch wall.
+
+The historical cube always uses a separate lower bound $L_3\le C_3$:
+\[
+ t_{1,+}+3t_{2,+}<\nu,\qquad
+ 0<r<\min\{t_{3,-},(L_3-\textstyle\sum t_{j,+})/3\}.
+\]
+The majorant $U$ is solely an integration device for the subtracted
+old density. It is not substituted for the actual parent's cap in
+the historical gate or the causal tree.
+
+\paragraph{Whole-box licensed new endpoints.}
+The estimator considers masks $9,10,14$, all including the last
+variable $r$. For a fixed physical subset of the old coordinates,
+the candidate is $V(t,r)=v(r+\sum_{j\in I}t_j)$.
+Both affine pieces are tested against every selected-remaining
+square gate throughout the entire outer box and retained $r$ interval.
+Where outer bins coincide, every possible order of the unselected
+old coordinates is tested. Thus each candidate is a valid lower
+bound for the same full ideal $C_4$, even when sorting changes its
+numerical mask label.
+
+Also require, using exact affine extrema,
+$V(t,r)-\sum t_j>3r$ throughout. This keeps the new ordinary argument
+strictly above two, the range needed for concavity. It is harmless
+to omit points failing this additional numerical-estimator restriction.
+There is no requirement that $V>U$: the resulting lower gap is
+allowed to be signed. The actual ideal fourth gap remains nonnegative.
+
+\paragraph{Jensen for the old term and corners for the new term.}
+On the outer box $B=\prod[a_j,b_j]$, use the independent logarithmic
+probability measures $dt_j/(t_j\log(b_j/a_j))$ and let $m_j=Et_j$.
+Since $\bar f$ is increasing and concave on $[2,\infty)$,
+\[
+ t\longmapsto -\bar f((U(t)-\sum t_j-r)/r)
+\]
+is convex. Jensen therefore bounds its expectation below by its
+value at the true logarithmic mean.
+
+The function $V(t,r)-\sum t_j$ is concave in the three old variables.
+Composition with the increasing concave $\bar f$ gives a concave
+new-density function on the whole retained box. Consequently its
+multilinear corner interpolant is a pointwise lower bound. Taking
+expectations yields
+\[
+ E\bar f((V-S_3-r)/r)
+ \ge\sum_{\epsilon\in\{0,1\}^3}
+ p_\epsilon\,
+ \bar f((V(t^\epsilon,r)-\sum t_j^\epsilon-r)/r),
+\]
+where
+\[
+ p_\epsilon=\prod_{j=1}^3
+ \begin{cases}
+ (b_j-m_j)/(b_j-a_j),&\epsilon_j=0,\\
+ (m_j-a_j)/(b_j-a_j),&\epsilon_j=1.
+ \end{cases}
+\]
+All eight weights are nonnegative. This lower bound crosses the
+tent-shaped $v$ kink without any derivative or curvature assumption.
+
+Mean intervals and corner weights are enclosed outward. In the old
+term use an upper endpoint for
+$E(U-S_3)=U(m)-\sum m_j$; monotonicity of $\bar f$ gives the correct
+direction for the subtracted integral. In the new term use lower
+weights and lower nonnegative integrals. Selection among candidate
+masks can use approximate mean values, since any selected licensed
+candidate provides a valid lower bound. Interval partitions and
+chosen candidates are fixed before integrating.
+
+\paragraph{Exact last-variable integration and fallback.}
+Put $H(u)=u\bar F(u)$, so $H'(u)=\bar f(u-1)$ for $u\ge3$.
+At each corner the candidate $v$ has only its two affine pieces;
+split at their exact crossing. For an affine last cap $A+Br$,
+\[
+ \int_\alpha^\beta \bar f((A+Br-S-r)/r)\frac{dr}{r^2}
+ =\frac{H((A-S)/\alpha+B)-H((A-S)/\beta+B)}{A-S}.
+\]
+The old mean cap is handled with $B=0$. The positive logarithmic
+outer mass is $4\prod_j\log(b_j/a_j)$. Table-range cutoffs are
+exact, and small omitted $r$ tails are not assigned any gain.
+
+Subtract the old upper integral from the weighted corner lower
+integrals on each disjoint last-variable piece, and clip the result
+at zero using nonnegativity of the true ideal gap. Independently
+compute the previously licensed constant-corner estimate on the
+same outer parent. Take the maximum of the two complete parent
+lower bounds, never their sum. This preserves the earlier estimate
+when the affine or corner enclosure is less effective.
+
+\paragraph{Outer ordering, old history and the last ordering strip.}
+If an outer interval occurs with multiplicity $m$, sorting divides
+its full product box into $m!$ equal-measure sectors for the symmetric
+actual ideal integrand. Divide the full-box lower integral by the
+product of these factorials. The selected numerical bound need not
+itself be symmetric. Gate checks for every possible remaining-slot
+ordering ensure it is still a lower bound on every sector.
+
+Old-history boundary cells are bisected only to a fixed finite depth.
+Bisecting a group of $m$ equal intervals gives the $m+1$ ordered
+choices of high/low multiplicities. Their factorial weights give
+exactly the disjoint sector partition. Only cells whose whole old
+history is valid are retained; unresolved leaves are omitted.
+
+When the lowest outer interval $[a,b]$ is unique, restore part of
+$a<r<t_3<b$. Write
+$u=\min\{b,(L_3-\sum t_{j,+})/3\}$ and require $u>a$.
+Its exact $(t_3,r)$ kernel mass is
+\[
+ \int_a^u\frac{dr}{r^2}\int_r^b\frac{dt_3}{t_3}
+ =\frac{\log(b/a)}a-\frac{\log(b/u)}u-\frac1a+\frac1u.
+\]
+A whole-box constant new lower cap exceeding the old upper cap,
+all selected gates and the ordinary argument constraints gives a
+common-corner gap at $(t_{1,-},t_{2,-},a,a)$. Multiply it by this
+mass and the other two logarithmic widths. This strip is disjoint
+from the analytic slices $r<a$. Repeated-lowest-bin last strips and
+the remaining variable-history boundary region are omitted.
+
+\paragraph{Scope.}
+The resulting total is a strict lower estimate for the same ideal
+fourth integral, using finite rational partitions and the existing
+outward ordinary table. It changes neither $C_3$ nor the all-mask
+$C_4$ policy used in the fifth integral. A full arithmetic consequence
+still requires one common finite causal approximation and the
+previous compiler/distribution inputs. Numerical output and a
+separate independent replay must be reported with their actual scope.

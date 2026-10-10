@@ -1,0 +1,88 @@
+Second implementation of the actual M1600 third-layer lower integrals
+10 October 2026. All previous evidence and selected constants are unchanged.
+
+Scope. The target is the two actually selected ideal I3 integrals at
+h=19/125 and a=417/5000. The old M1600 records were new computations by
+the already reviewed M800 engine, not a second-engine verification at
+M1600. This program reconstructs their history cells and outer integral
+without importing that engine or any of its geometry/numerical helpers.
+It reuses only the independently reviewed160-bit interval/logarithm and
+128-bit numerator-chord ordinary-sieve stream from the preceding round.
+
+Geometry. Generate bins from1/M to each exact cutoff, including its last
+partial bin. Start from all ordered bin pairs. A breadth-first history
+partition retains a box only when x_upper+3y_upper<nu; it discards wholly
+excluded boxes and unresolved depth-eight cells. An ordinary rectangle
+is bisected in its longest coordinate. An equal-bin triangle is split
+into two smaller triangles and their intervening rectangle. These child
+regions are disjoint up to measure-zero faces. The complete retained cell
+set is compared exactly with every row of the frozen witness, not just
+its count. All unretained ideal contributions are nonnegative omissions.
+
+The last variable r lies in(0,y_lower) on each core rectangle. Candidate
+selected sums use masks1,2,3,7,5,6, together with the W minorant
+153/256-3r/8. The middle plane(32-34s)/39 never controls the original
+three-plane minimum: the other two intersect at s=25/128; below this
+point (1+s)/2 is at most the middle plane, and above it57/64-3s/2 is at
+most that plane. This is an exact global comparison, not a sampled one.
+
+The new affine selector constructs a full rational wall arrangement.
+For every plane and all four outer corners, it includes every zero of
+the positivity condition V-nu and of the comparisons with its sibling
+plane. It also includes every possible tie between center values. All
+tests are affine in r, so their signs and the maximizing eligible plane
+are constant on each open interval. A midpoint only selects the sign
+on an already complete partition. Adjacent equal choices are merged.
+This differs from the old per-plane feasible-interval construction.
+
+The constant selector independently forms all corner-minimum affine
+lines, enumerates every crossing and positivity root, takes each
+candidate's minimum and then the maximum over candidates. Its active
+pieces are merged. Both selectors are then intersected on a common
+partition. Each piece receives the maximum of two valid lower bounds
+for that same ideal integral; their sum is never used. Table-limit
+omissions may differ between the two bounds and remain nonnegative.
+
+Arithmetic and integration. The independent chord stream is stored so
+the complete node arrays can be queried. Rational interpolation uses
+the proved concavity/convexity direction and the h^2/8 error allowance.
+All initial branches, delay indices and maximum argument32 remain
+explicit. The reused stream is the independent oracle, not the previous
+Q112 table being verified. The outer arithmetic and logarithms use160
+bits with outward rounding. No floating-point number makes a decision.
+
+For L(s)=s*fbar(s), the last-variable primitive is
+ integral_left^right Fbar(d/r+b-1) dr/r^2
+ = [L(d/left+b)-L(d/right+b)]/d.
+Logarithmic product measures give exact mean and variance formulas.
+The affine lower gap uses the same proved semiconvex Jensen inequality,
+with an independently reconstructed curvature majorant. The only jump
+of Fbar'' relevant to its monotone pieces is at3. Splitting at
+d_min/(4-b),d_max/(4-b) avoids claiming global monotonicity; the
+straddling band uses2 and the other bands use the explicit derivative
+primitive. Mean rounding incurs its explicit integrated Lipschitz cost.
+The constant method evaluates the common sum-corner gap and integrates
+it with the same primitive. These mathematical inequalities are shared
+stated inputs; a second program does not independently prove them.
+
+Boundary pieces. An off-diagonal box also contributes its disjoint
+r-in[y_lower,y] strip. A valid fixed cap is the minimum over all corners
+for each candidate, then the maximum of these minima. Its conservative
+gap at x_lower,y_lower,r=y_lower is multiplied by the exact strip mass
+ 4 log(x_upper/x_lower) [log(y_upper/y_lower)/y_lower
+                         -1/y_lower+1/y_upper].
+The old-minus-new ordinary gap decreases with its old argument because
+Fbar is convex and decreasing. The common-sum and r endpoints used
+here give the required lower bound. An equal-bin outer triangle uses
+half of the full symmetric ideal core integral; the new numeric bound
+is divided down by two. Its ordering strip remains omitted. Neither
+strip nor diagonal totals may be added again after the final sum.
+
+Certification boundary. A complete result evaluates every retained box
+at both cutoffs and compares the full new rigorous lower sums with the
+actually selected old lower sums. Individual new and old per-box floors
+need not coincide. A pilot or a complete lower sum below the target is
+labelled accordingly and cannot certify the old selection. The weighted
+sum is I3(h)/4+3I3(a)/4, from two distinct terms of the original Chen
+weight, and replaces the previous pair once. No new tightness is adopted
+as gain and no K,c,b, manuscript or state is changed by this program.

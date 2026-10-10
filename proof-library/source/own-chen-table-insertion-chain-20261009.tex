@@ -1,0 +1,533 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=23mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,longtable}
+\usepackage[colorlinks=true]{hyperref}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newcommand{\ind}{\mathbf1}
+\newcommand{\HH}{\mathcal H}
+\newcommand{\hh}{\mathcal h}
+\newcommand{\aa}{\mathfrak a}
+\newcommand{\CN}{\mathcal C(N)}
+\title{The own Chen weight and the actual 248-generation table}
+\author{Independent insertion-chain audit}
+\date{9 October 2026}
+\begin{document}
+\maketitle
+
+This note directly checks the quotient weight, extends the old 24-generation
+insertion proof to the actual 248-generation table, and derives the exact
+term displaced when the lower starting cutoff moves. It does not infer
+analytic admission from a numerical PASS. In particular,
+\texttt{global-chen-weight-audit-stage.json} is an incomplete older audit;
+it is not used as a proof. The later complete case proof in
+\texttt{independent-global-chen-weight-audit.tex} was compared directly
+with the present main-file definitions. We give its necessary argument
+below. All old files, including the main manuscript, are unchanged.
+
+The external standard linear-sieve, Bombieri--Vinogradov and dispersion
+theorems are accepted as stated. Their finite-atom reductions, moving
+residue argument and the positive product theorem are specified below.
+We found two documentation gaps rather than a counterexample: the old
+insertion theorem expressly stopped at 24 generations; and the low-rank
+cutoff in the actual-$K$ audit is too restrictive to quote verbatim for
+some one-prefix terms. Both gaps are repaired here. The ordinary causal
+starting-tree compiler is a separate argument; this note neither assumes
+that a numerical density is automatically such a tree nor reaudits that
+compiler. Its newly completed, separately bound statement is
+\texttt{own-lower-compiler-chain-audit-20261009.tex}; it supplies the
+ordinary causal start at $w=a,h$, not a replacement for the table-child
+gate checks proved here.
+
+\section*{1. The actual pointwise inequality}
+Fix
+\[
+ a=417/5000,\quad h=19/125,\quad d=59/250,
+ \quad 0<a<h<d<1/3,\quad h+d>1/3,\quad4a+d<1.
+\]
+For $1\le n\le N$ put
+$Q_b(y;n)=\ind_{b\mid n}\ind_{P^-(n/b)\ge y}$, with $P^-(1)=\infty$.
+Prefix primes in every sum are distinct. The eleven functions are
+\begin{align*}
+Y_1&=Q_1(N^a),&Y_2&=Q_1(N^h),\\
+Y_3&=\sum_{N^a\le p<N^{1/3}}Q_p(N^a),&
+Y_4&=\sum_{N^a\le p<N^d}Q_p(N^a),\\
+Y_5&=\sum_{N^a\le p_1<p_2<N^h}Q_{p_1p_2}(N^a),&
+Y_6&=\sum_{N^a\le p_1<N^h\le p_2<N^d}Q_{p_1p_2}(N^a),\\
+Y_7&=\sum_{N^d\le p_1<p_2<(N/p_1)^{1/2}}Q_{p_1p_2}(p_2),\\
+Y_8&=\sum_{N^a\le p_1<N^{1/3}\le p_2<(N/p_1)^{1/2}}Q_{p_1p_2}(p_2),\\
+Y_9&=\sum_{N^h\le p_1<N^d\le p_2<(N/p_1)^{1/2}}
+ Q_{p_1p_2}((N/p_1p_2)^{1/2}),\\
+Y_{10}&=\sum_{N^a\le p_1<p_2<p_3<p_4<N^h}Q_{p_1p_2p_3p_4}(p_2),\\
+Y_{11}&=\sum_{N^a\le p_1<p_2<p_3<N^h\le p_4<N^d}Q_{p_1p_2p_3p_4}(p_2).
+\end{align*}
+There is no extra restriction on $p_3p_4$ in $Y_{11}$.
+Let $W=3Y_1+Y_2-Y_3-Y_4+Y_5+Y_6-2Y_7-Y_8-Y_9-Y_{10}-Y_{11}$.
+
+If $n$ is not $N^a$-rough all terms vanish. For $Y_9$ this follows from
+$p_1p_2<N^{(1+d)/2}$ and its quotient cutoff
+$>N^{(1-d)/4}>N^a$; for every other term it is immediate.
+For squarefree rough $n$ write $q_1<\cdots<q_k$ and let $r,s,t$ count
+the factors below $N^h,N^d,N^{1/3}$, respectively. Then
+\[
+(Y_1,\ldots,Y_6)=(1,\ind_{r=0},t,s,{r\choose2},r(s-r)).
+\]
+A quotient tested at its second selected factor forces the first two
+selected factors to be $q_1,q_2$. Thus, for $r\ge2$,
+$Y_{10}={r-2\choose2}$ and $Y_{11}=(r-2)(s-r)$, and consequently
+$W\le s-t\le0$. The convention ${0\choose2}={1\choose2}=0$ includes
+$r=2,3$. For $k\ge3$, $q_1q_2^2<q_1q_2q_3\le N$; hence
+$Y_7=\ind_{s=0}$, $Y_8=\ind_{t=1}$, and $t\ge1$.
+The remaining cases give the following upper bounds:
+\[
+\begin{array}{c|c}
+r=1&2-t-\ind_{t=1}\\
+r=0,\ s\ge2&4-s-t\\
+r=s=0&2-t-\ind_{t=1}\\
+r=0,\ s=1,\ t\ge3&3-t\\
+r=0,\ s=1,\ t\le2&3-t-1-\ind_{t=1}.
+\end{array}
+\]
+The last row uses $Y_9\ge1$, not $Y_9=1$: if $k\ge4$, then
+$n\ge N^{h+d+2/3}>N$, so $k=3$, and
+$q_1q_2q_3^2\ge N^{h+d+2/3}>N$ proves that $(q_1,q_2)$ is one
+admissible $Y_9$ pair. Every displayed bound is nonpositive.
+If $k\le2$, either $Y_5+Y_6=0$ and $W\le4$, or this sum is one,
+$Y_2=0$, $Y_3=Y_4=2$, and $W\le0$. The unit has $W=4$.
+This is an exhaustive analytic proof of
+\[
+                  W(n)\le4\ind_{\Omega(n)\le2}
+                  \quad(n\text{ squarefree},\ 1\le n\le N).
+\]
+No assumption $n\ge N^{1-a}$ was used. Actual $Y_9$ multiplicities
+are retained in its subsequent upper estimate.
+
+All nonzero terms have at most $M=\lfloor1/a\rfloor=11$ prime factors.
+For rough nonsquarefree integers the elementary bound
+\[
+ |W|\le4+2M+6{M\choose2}+2{M\choose4}=1016
+\]
+suffices. The number of integers $n\le N$ divisible by $p^2$ for
+some $p\ge N^a$ is at most $2N^{1-a}$ for sufficiently large $N$.
+Consequently, on summing over primes $P<N$ with $(P,N)=1$,
+\begin{equation}\label{eq:eleven}
+4D_{1,2}(N)\ge3\Upsilon_1+\Upsilon_2+\Upsilon_5+\Upsilon_6
+ -\Upsilon_3-\Upsilon_4-2\Upsilon_7-\Upsilon_8-\Upsilon_9
+ -\Upsilon_{10}-\Upsilon_{11}-2032N^{1-a}.
+\end{equation}
+Here $\Upsilon_j=\sum_PY_j(N-P)$, and this exact inequality uses
+$\Omega(1)=0$, as in the main manuscript. If $D_{1,2}$ is instead
+defined with $N-P>1$, subtract a further $4$ on the right of
+\eqref{eq:eleven}; there is at most one excluded prime $P=N-1$.
+This is $O(1)$ and does not change any normalized conclusion.
+The error is
+$o(\CN N/\log^2N)$ uniformly in even $N$; $\CN$ is bounded below
+by the fixed positive twin-prime product. Since sufficiently large even
+$N$ is not prime, $N-P=0$ never occurs. Restricting to $(P,N)=1$
+only reduces the left-hand representation count.
+
+\section*{2. What a table estimate means on a real prime family}
+Put
+\[
+ A(s)=sF(s)/(2e^\gamma),\qquad \aa(s)=sf(s)/(2e^\gamma),\qquad
+ A=1\ (1\le s\le3),\quad\aa=0\ (s\le2).
+\]
+Fix a nonnegative finite marked prime-box weight $\sigma(b)$, with
+$b=N^{T+o(1)}$, one total level $Q=N^\nu$ and residual exponent
+$L=\nu-T>0$. The same-level normalization is
+\[
+ \Theta_Q=4\operatorname{li}(N)
+       \sum_b{\sigma(b)\mathcal C(bN)\over\varphi(b)\log(Q/b)}.
+\]
+An upper defect $H(s)$ means an upper count $(A(s)-H(s)+o(1))\Theta_Q$;
+a lower defect $h(s)$ means $(\aa(s)+h(s)+o(1))\Theta_Q$.
+These are estimates averaged over the indicated prime boxes, not
+estimates for each fixed integer $b$.
+
+At every enhanced state retain the marked slots, a branch, its strict
+cap margin, all full square tests
+\[
+ \sum_{i<j}t_i+2t_j<\nu,
+\]
+all selected-remaining tests, and a physical ceiling $\chi\le\min t_i$.
+A future-third-slot bound $c$ also requires $\chi\le c$. The actual
+comparison cutoff must be at most $N^\chi$, and
+$\alpha=(1-T)/L\ge2$. In a classical state choose $\nu<1/2$ with
+margin and use the absolute complete-modulus BV bound instead.
+
+The ordinary residual modified weights are constructed at $Q/b$;
+they are not restrictions of a global weight at $Q$. Their finite
+rough-box expansion retains its signed scalar, small-prime weight
+$\beta$ and original repeated-label factorial. Appending the prefix
+concatenates its actual full-square tests with the residual well
+support. For a selected subset retain its original slots; the additional
+tests, after the old slots have occurred, are the same full tests.
+The selected-subproduct factorization lemma is applied only with both
+sets of tests, not just the size of the selected product.
+
+For each buffered atom, the endpoint version of L23 Proposition 6.1
+and its proved selected-product extension supply a fixed partition of
+the labelled rough slots. Dividing each group convolution by its
+group factorial makes it one-bounded; multiplying the original scalar
+by those same factorials is an exact identity. The original
+repeated-label factorial is not inserted twice. Appending $\beta$
+preserves the bound by uniqueness of the small/rough decomposition.
+L23 Proposition 5.2 then applies to each fixed atom with either sign.
+This is why signed feedback is licensed; arbitrary functions supported
+on well moduli are not being called well-factorable.
+
+\begin{lemma}[Low ranks for the actual table families]\label{lem:lowrank}
+All enhanced table families in Section 4, and their finite descendants,
+have largest actual rough-prime exponent $x<e=57/224$ and total level
+$\nu\le\Lambda=153/256$. An atom with at most two rough primes,
+including its small factor, has support below $N^{1/2-c}$ for fixed
+positive $c$ after choosing the construction precision sufficiently
+small on a fixed buffered box.
+\end{lemma}
+\begin{proof}
+For rank two write $x\ge y$. Full well support gives $x+2y\le\nu$
+up to a precision loss; therefore
+\[
+ x+y\le(\nu+x)/2\le(\Lambda+e)/2
+ =1527/3584<1/2,\qquad
+ 1/2-1527/3584=265/3584.
+\]
+Ranks zero and one are easier. The $N^{O(\eta)}$ small factor and
+interval enlargement are absorbed in this fixed gap. All descendants
+append primes below the previous smallest slot, so the largest slot
+never increases. Classical states already have complete support below
+half level. Boundedly many labelled prefix representations and the
+fixed construction coefficients give a bounded complete-modulus
+coefficient, to which absolute BV applies.
+\end{proof}
+The $19/96$ low-rank cutoff printed in the actual-$K$ distribution
+audit is specific to that strategy. It is not needed, and is not
+silently assumed, in this lemma. For rank at least three the retained
+largest, selected-product or $W$ branch supplies the factorization.
+
+The moving residue is $a_{\rm res}=N$. On prime-variable scales
+$x\ge N^{1-\kappa}/O(1)$, take $\kappa$ after the fixed factorization
+margin so that $N<x^{1+\epsilon}$, as required by L23 Proposition 5.2.
+The remaining scale perturbations are $O(\kappa)$. The omitted small
+prime-variable tail is at most $N^{1-\kappa+o(1)}$ by the divisor
+bound. For a rough collision $p^2\mid d$, $p>N^\omega$, the full
+HB-weighted progression and exact-coprime mean error is
+$\ll(N+N^{\theta_*})N^{o(1)-\omega}$, $\theta_*<3/5$.
+Thus no unweighted collision estimate is used after HB expansion.
+These are the explicit signed-atom and moving-residue reductions in
+the main prefix interface and the later joint distribution repair.
+The presieve retains the full $N$-dependent local product, including
+the omitted primes dividing $N$.
+
+Uniformly on fixed positive boxes,
+$\mathcal C(bN)/\mathcal C(N)=1+o(1)$ and
+$\varphi(b)/b=1+o(1)$, and deletion of prefix primes dividing $N$
+has $o(1)$ reciprocal mass. Hence dividing by
+$\mathcal H_N=\CN N/\log^2N$ converts $\Theta_Q$ into
+\begin{equation}\label{eq:norm}
+             4\int {d\mu(\boldsymbol t)\over L},
+ \qquad d\mu=\prod_i{dt_i\over t_i}.
+\end{equation}
+This fixes every factor four below. Appending $N^{Lu}$ gives the
+normalized child mass $du/[u(1-u)]$; appending $N^{Lu},N^{Lv}$ gives
+$du\,dv/[uv(1-u-v)]$. With $w=(1-u)/u$, the first becomes $-dw/w$.
+
+\section*{3. Finite inheritance through the actual 248 generations}
+The lineage is $24\to56\to120\to184\to248$, respectively adding
+$32,64,64,64$ finite rounds. Every table has 200 closed cells
+$[1+i/50,1+(i+1)/50]$, denominator $2^{80}$. Values are step lower
+bounds, not interpolants. A fixed point can use either containing
+closed cell; a whole box uses a bound valid over its entire argument
+range, or zero outside support. Endpoint comparisons are obtained by
+buffering the level and then taking its limit. At a clamped argument
+two the cutoff is structurally $L/2$ and is handled as such, not
+discarded as a zero-measure set.
+
+The initial seed is a proved finite four-round W2 construction with
+$K=6.81$, uniform for $\alpha\ge2$ on the admitted states. It gives
+$H=2327/100000$ on $[1,11/5]$ by positive-count cutoff comparison.
+Below two this does not require a new ordinary theorem: comparison
+to argument $11/5$ lowers the physical cutoff. The same device, with
+the full $A(s)-A(v)$ term where needed, licenses later upper comparison.
+
+\paragraph{Buchstab.}
+For $s\ge2$ the finite actions use
+\[
+ H_{\rm B}(s)=\int_{\max(2,s-1)}^5h(w){dw\over w},\qquad
+ h_{\rm B}(s)=\int_{s-1}^5H(w){dw\over w}.
+\]
+They start with the ordinary baseline at argument six. The child prime
+has exponent $x=L/(w+1)$, residual $Lw/(w+1)$ and
+$\alpha'=\alpha+(\alpha-1)/w\ge2$. Since $w\ge1$, $2x\le L$;
+the equality boundary is approached from strict interiors. Also
+$x\le L/s\le\chi$ and the new ceiling is $x$. In the lower formula
+the range $1<w<2$ is retained: its upper estimate uses smaller-cutoff
+comparison and $A(w)=1$. Truncating that integral at two would lose a
+valid positive contribution. Closed target cells use their right endpoint
+in the lower integration limit, giving a uniform, conservative bound.
+
+\paragraph{The 70 W1 actions.}
+They have target $12/5\le s\le3$ and $16/5\le s_0\le5$.
+Their $H(s_0)$ term retains the prefix. The lower child has
+$u\in[1/s_0,1/s]$, residual $L(1-u)$, physical cutoff $L/s_0$,
+argument $s_0(1-u)$, and
+$\alpha'=(\alpha-u)/(1-u)\ge2$. The new prime $Lu$ is below
+$L/s\le\chi$, satisfies $2u<1$, and exceeds the physical child
+cutoff. Arguments below two contribute only nonnegativity. The switched
+triple is handled by the separate positive product theorem, with the
+uniform rough-mass bound and coefficient $K/8$; it is not a signed
+ordinary child. The final bank retains $K=6.7633$ for W1.
+
+\paragraph{All 36 W2 actions, including the 33 additions.}
+Write their exact parameters as $(s,s_0,\phi_1,\phi_2,\phi_3)$ and
+$a_0=1/s_0$, $a_i=1/\phi_i$, $b=1/s$. The companion check independently
+checks every rational tuple, without importing the author validator:
+\[
+2<s<3,\quad s<\phi_3<\phi_2<\phi_1<s_0\le5,
+\quad a_3+2a_1<1,\quad3a_1<1,\quad a_2+2a_1<1,
+\]
+\[
+a_0<(1-a_2)/2<1/3<a_2<1/2,
+\quad s_0(1-b)>2,\quad s_0-1\le4,
+\quad s_0(2-2a_2)>2.
+\]
+The unchanged-prefix terms are $4H(s_0)+H(\phi_1)$. The three
+negative singleton terms have $u\in(a_0,b),(a_0,a_2),(a_0,a_3)$,
+child argument $s_0(1-u)\in(2,4]$, physical cutoff $La_0$, and the
+same singleton square and ratio calculation as W1.
+
+For two new primes $Lu<Lv$ the domains and actual cutoffs are
+\[
+\begin{array}{c|c|c}
+\Gamma_5^+&a_0<u<v<a_2,\ v+2u<1&La_0\\
+\Gamma_6&(a_0,a_1)\times(a_2,a_3)&La_0\\
+\Gamma_7&a_0<u<v<a_1&Lu\\
+\Gamma_8&(a_0,a_1)\times(a_1,a_2)&Lu.
+\end{array}
+\]
+Both new full-square tests are $2v<1$ and $v+2u<1$.
+The displayed parameter tests prove these on all four retained domains.
+Old selected-remaining tests are unchanged; the new ones are exactly
+these full tests after multiplying by the old prefix. The actual child
+ratio is $(\alpha-u-v)/(1-u-v)\ge2$. The arguments are
+$s_0(1-u-v)$ for terms 5,6 and $(1-u-v)/u$ for terms 7,8.
+They lie in $(1,s_0-2]\subset(1,3]$. This follows from
+$1-u-v>u\ge a_0$; their maxima occur at the lower endpoints.
+For arguments below two, comparison lowers the child cutoff; it never
+raises it above $Lu$, the child's smallest specified prime.
+
+The bad part of $\Gamma_5$ has no ordinary $H$ feedback. Its old
+ordinary mass is removed once and replaced by a positive product upper
+bound. Terms $\Gamma_9$--$\Gamma_{21}$ likewise use positive product
+estimates, with the uniform envelope $\omega(x)\le\max(1/x,0.567144)$
+for $x\ge1$, and its conservative extension equal to one below one.
+Neither the nonunit domains nor the unit surfaces in terms 20,21 are
+dropped by setting the parent ratio equal to two. The current W2 cost
+uses $K=6.7619$. Its rigorous variable-kernel saving subtracts a smaller
+upper cost from that same cost; it is not extra child feedback.
+
+Thus each W2 candidate is exactly a certified ordinary/switching base
+plus
+\[
+ {1\over5}\left\{4H(s_0)+H(\phi_1)
+ +\sum_{\Gamma_2,\Gamma_3,\Gamma_4}\int h(s_0(1-u)){du\over u(1-u)}
+ +\sum_{i=5^+,6,7,8}\iint H(\rho_i){du\,dv\over uv(1-u-v)}\right\}.
+\]
+The division by five occurs once. All feedback measures are positive.
+The $A(s)=1$ baseline is valid because all action targets have $s<3$.
+An action transfers only to closed cells with right endpoint at most
+its target $s$; positive-count comparison then lowers the cutoff.
+
+\paragraph{Why this is an induction on real families.}
+At every ordinary child all new primes are below the old ceiling,
+the full and selected square tests just proved hold, and any retained
+future-third ceiling persists. The total level stays $Q$; the actual
+$\alpha$ increases and is never reset to two. Therefore Section 2
+applies to that child. At switched children only the positive product
+theorem is invoked. That theorem allows every fixed positive factor
+cutoff, by choosing its HB precision after the finite family is fixed.
+The minimum of $1-2/s$ over the 36 actions is positive, and BH leaves
+at least half the residual exponent. Each appended prime has exponent
+at least $L/6$ relative to its parent. Any fixed finite recursion tree
+therefore has a positive minimum exponent. There is no assertion
+uniform in recursion depth or in a cutoff tending to zero.
+
+Every round uses only the preceding round's bounds. Taking a finite
+maximum of valid estimates at the same state, rounding positive weights
+down, and taking minima on cell-crossing boxes preserve validity.
+This proves the 248-generation inheritance. The numerical integrations,
+all 33 new ordinary collections, all 5224 pair weights and all 64 new
+400-integer arrays are separately covered by
+\texttt{expanded248-numeric-closure-independent.json}; those numerical
+facts are used only after the foregoing actual-state proof.
+
+\section*{4. The eleven occurrences and their coefficients}
+Use $\mu=25/128$, $e=57/224$, $\Lambda=153/256$,
+$\nu_*=249/448$, $w_*=25/224$ and
+$v(t)=\min((1+t)/2,57/64-3t/2)$. Let $\HH,\hh$ be exactly the
+248-generation step table. The original coefficients of
+$(L_1,L_2,L_5,L_6,U_3,U_4,U_7,U_8,U_9,U_{10},U_{11})$
+are $(3,1,1,1,-1,-1,-2,-1,-1,-1,-1)/4$.
+
+\paragraph{$L_1$.}
+Its ordinary value is $4\aa(\nu_*/a)/\nu_*$. There is no direct
+$\hh$ insertion into this empty-prefix state: $1/\nu_*<2$.
+Any new ordinary causal starting-tree improvement has coefficient
+$3/4$ and is separately compiled. Nothing from the 248 table is
+subtracted when that start is improved.
+
+\paragraph{$L_2$.}
+In the subtracted one-prefix family $w_*<t<h$, use
+$\nu=(1+t)/2$, $L=(1-t)/2$, $\chi=t$ and
+$s=(1-t)/(2t)\in[53/19,199/50]$. Then $2t<\nu$, $\alpha=2$
+and the physical cutoff is exactly $t$. Later sieve primes are strictly
+smaller; a structural equality is allowed. The $H$ term in the
+unquartered $L_2$ is $4\int_{w_*}^h\HH(s)\,dt/(tL)$.
+It contributes positively to the Chen coefficient.
+
+\paragraph{$U_3,U_4$.}
+Their domains are $(a,1/3)$ and $(a,d)$. Use $\nu=v(t)$ for
+$t<e$; the $U_3$ tail uses the limit $\nu\uparrow1/2$ from below.
+Put $L=\nu-t$ and compare the original cutoff $a$ down to
+$\min(a,L/2)$, giving $s=\max(2,L/a)$. The enhanced branch has
+$2t<v(t)$, $\alpha\ge2$ and ceiling $t$. The classical tail needs
+no enhanced square condition. Thus the normalized upper bound is
+$4\int(A(s)-\HH(s))dt/(tL)$; $\HH=0$ outside $[1,5]$.
+Both occurrences have coefficient $-1/4$, so both defects improve
+the final lower bound. The clamp does not change the ordinary
+multiplier because $A=1$ below three.
+
+\paragraph{$L_5,L_6$.}
+Use decreasing slots $t>u$, domains $a<u<t<h$ and $a<u<h<t<d$,
+and
+\[
+ V=\begin{cases}\max(v(t),v(t+u),\Lambda-3a/8),&t<\mu,\\
+ v(t),&t\ge\mu,\end{cases}\qquad L=V-t-u,\quad s=L/a.
+\]
+On $s\ge2$, $2t<v(t)\le V$ and $t+2u<V$ since $2a>h\ge u$.
+The largest and leading-pair branches retain ceiling $u$; the constant
+$W$ branch retains ceiling $a$ and its future-third bound $a$.
+It is used above its $v(t)$ gate only if it improves that branch.
+The ratio is at least two: $2v(t+u)\le1+t+u$, and for the $W$
+branch $a\ge25/352$ gives $\Lambda-3a/8\le1/2+a\le(1+t+u)/2$.
+The argument is at most $1/(2a)-1=2083/417<5$.
+The bound is
+$4\iint(\aa(s)+\hh(s))\,dt\,du/(tuL)$ on the admitted region;
+below two use zero. Each occurrence has coefficient $+1/4$.
+
+\paragraph{$U_7,U_8,U_9$.}
+No table defect occurs here. Their exact marked positive-product sums
+are bounded with $K=6.7619$. The moving square-root cutoff and every
+$Y_9$ label remain present. In particular replacing $Y_9$ by an indicator
+would not justify the original negative term. Their coefficients are
+$-1/2,-1/4,-1/4$, respectively. These are separate from positive
+product costs already used to prove the table; reusing a valid theorem
+in two estimates does not spend its constant twice.
+
+\paragraph{$U_{10},U_{11}$.}
+Use decreasing slots $x>y>z>w$ with domains
+$a<w<z<y<x<h$ and $a<w<z<y<h<x<d$. The actual quotient cutoff
+is $z$. The ordinary competing estimate compares down to
+$\min(w,L/2)$, with $L=\nu-x-y-z-w$.
+Set $W_4=\max(2x,x+2y,x+y+2z,x+y+z+2w)$.
+For a selected subset $I$ require
+\[
+ v(\sum_{i\in I}t_i)>\max(1/2,W_4,G_I),\quad
+ G_I=\max_{j\notin I}\left(\sum_{i\in I}t_i+
+                  \sum_{k<j,\,k\notin I}t_k+2t_j\right).
+\]
+The extra $W$ cap $\Lambda-3z/8$ requires $x<\mu$ and that it
+exceed $1/2,W_4,v(x)$. Freeze one licensed branch and a strictly lower
+level; retain ceiling $w$. Its first three slots cannot change.
+Also $\alpha\ge2$ because $x+y+z+w>4a>2\Lambda-1$.
+For a selected subset of size one or two, $v(S_I)\le(1+S_I)/2$
+gives $L/w\le1/(2a)-7/2$ or $1/(2a)-3$. For size three or four,
+$S_I\ge3a>\mu$ puts it on the descending branch and gives
+$L/w\le57/(64a)-17/2$ or $57/(64a)-10$. The $W$ cap gives
+$L/w\le\Lambda/a-35/8$. The maximum of these five bounds is
+$1249/417<3$, so $s=\max(2,L/w)<3$.
+For each common positive box the upper option is
+\[
+ \min\left\{K{\omega((1-x-y-z-w)/z)\over z},
+                  {4(1-\HH(s))\over L}\right\}d\mu_4.
+\]
+Both occurrences have coefficient $-1/4$. The two options are a
+minimum on the same positive family, never additive savings on
+overlapping covers. Repeated-bin factorials belong to the original
+ordered-domain measure and are retained once.
+
+\section*{5. Replacing the L2 start removes exactly the same table term}
+For any fixed $w\in[w_*,h]$, the least-prime identity is
+\[
+ S(\mathcal A,N^h)=S(\mathcal A,N^w)
+                  -\sum_{N^w\le p<N^h}S(\mathcal A_p,p).
+\]
+It is an identity of positive integer counts, not an identity obtained
+by subtracting sieve asymptotics with unrelated levels. Let $I(w)$ be
+the separately proved extra normalized density of the ordinary
+starting lower tree at cutoff $w$ and the original level $\nu_*$.
+Define
+\[
+ B(w)={4\over\nu_*}\aa(\nu_*/w)
+          -8\aa((1+w)/(2w)).
+\]
+The ordinary upper kernel is $8A((1-t)/(2t))/[t(1-t)]$.
+The delay identity $\aa'(q)=A(q-1)/(q-1)$ gives
+\[
+ {d\over dt}\aa((1+t)/(2t))
+       =-{A((1-t)/(2t))\over t(1-t)}.
+\]
+It follows without replacing $F,f$ by truncated explicit formulas that
+the new normalized $L_2$ is
+\[
+ B(w)+8\aa((1+h)/(2h))+I(w)
+        +4\int_w^h {\HH((1-t)/(2t))\over t(1-t)/2}\,dt.
+\]
+At $w_*$, $\nu_*=(1+w_*)/2$, giving precisely the old ordinary
+$8\aa((1+h)/(2h))-4\aa(249/50)/(249/50)$ term. Therefore the
+replacement increment in the \emph{complete Chen coefficient} is
+\begin{equation}\label{eq:move}
+ {B(w)-B(w_*)+I(w)\over4}
+       -\int_{w_*}^w {2\HH((1-t)/(2t))\over t(1-t)}\,dt.
+\end{equation}
+At $w=h$ the entire one-prefix $H$ integral disappears. It must be
+the 248 table's integral, with its same cell convention and same
+normalization. It is neither the 184 integral nor the initial seed
+integral. Adding $I(w)/4$ alone would be incorrect. Other table
+occurrences remain unchanged. An $L_1$ starting-tree improvement has
+coefficient $3/4$ and has no displaced $H$ term.
+
+The saved baseline248 is a lower bound for the explicit eleven-term
+functional with these term choices, rather than a black-box count
+constant unrelated to them. Hence an independently bounded difference
+of these explicit terms can be added to its saved lower bound.
+Using an upper bound on the removed positive $H$ integral is the
+conservative direction. This justifies the substitution mechanism;
+the actual density of the new causal starting tree is established
+separately, not by this algebra.
+
+\section*{6. Quantifiers and audit boundary}
+First fix the finite depth, positive exponent cutoffs, branch choices,
+closed-cell prescriptions and desired error. Choose a common finite
+marked partition and strict factorization buffers, then a sufficiently
+fine residual sieve construction, and finally let $N\to\infty$.
+Only after this take endpoint/exhaustion limits. Signed scalar sums
+and group factorials are finite and independent of $N$; the external
+remainder theorem is uniform in the moving residue. Boundaries can be
+trimmed using positive majorants on fixed compact domains. Structural
+cutoff equalities are handled by lower cutoff comparison and continuous
+level limits, not discarded. No individual-prime distribution assertion,
+infinite fixed point, uniform-in-depth error, or interpolation is used.
+
+The local checks accompanying this note concern exact parameter gates,
+lineage, point targets, normalization identities and bindings. They do
+not rerun old large integrations. Existing full independent numerical
+records are bound separately. No unresolved table-admission condition
+was found for these actual parameters and actions. This conclusion
+accepts L21's ordinary sieve construction, L23's stated distribution
+and factorization theorems, the explicitly supplied selected-product
+repair, and the established positive-product $K$ theorem. It is not a
+new verification of their underlying spectral proofs, nor a claim about
+the separate literature-priority objective or an effective threshold
+for $N$.
+\end{document}

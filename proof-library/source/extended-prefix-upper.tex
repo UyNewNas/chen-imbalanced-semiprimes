@@ -1,0 +1,222 @@
+% Research extension fragment. Numerical certification and independent review
+% are separate; do not infer a new theorem constant from floating probes.
+\section{Extending the first-prime stop with a single-variable fallback}
+\label{sec:extended-prefix-upper}
+
+Set
+\[
+ \rho=\frac{19}{96},\qquad \mu=\frac{25}{128},\qquad
+ \Theta=\frac{299}{500}.
+\]
+Retain the normalization $\bar f=f/(2e^\gamma)$ and extend
+$\bar f(s)=0$ for $s\le2$. On ordered triples define
+\[
+ A(x,y,z)=
+ \begin{cases}
+ \Phi(x,y,z),&0<z\le y\le x\le\mu,\\
+ v(x),&0<z\le y\le x,\quad\mu<x\le\rho,
+ \end{cases}
+ \qquad L=\min\{\Theta,A\},\quad S=x+y+z.
+\]
+Here the full envelope is used only within its largest-prime
+range. The fallback uses the first assertion of L23,
+Proposition~6.1, which requires the level to be below $v(x)$
+and does not impose $x\le\mu$. All factorization calls retain
+the repairs in Section~\ref{sec:two-factor-greedy-repair}.
+
+Put
+\[
+ \mathcal E_\rho=\{0<z\le y\le x\le\rho:\ x+y+3z\le\Theta\}.
+\]
+The first raw cube $3x\le\Theta$ is automatic because
+$3\rho=19/32<\Theta$. Define
+\begin{align}
+ K_{\rm ext}={}&\frac4\Theta+
+ 4\int_\rho^{\Theta/3}
+          \frac{\bar f((\Theta-t)/t)}{t^2}\,dt\notag\\
+ &+4\int_{\mathcal E_\rho}
+ \frac{\bar f((\Theta-S)/z)-\bar f((L-S)/z)}{xyz^2}
+                  \,dx\,dy\,dz.
+ \label{eq:extended-prefix-functional}
+\end{align}
+The first correction is equivalently
+\[
+ \frac4\Theta\int_2^{4801/2375}\frac{\log(s-1)}s\,ds.
+\]
+Unlike the preceding compact construction, this third correction
+can extend to arbitrarily small $z$. The tail estimate below is
+therefore part of both the analytic proof and any numerical certificate.
+
+\begin{proposition}[Extended first-stop upper sieve]
+\label{prop:extended-prefix-upper}
+For any $K_*>K_{\rm ext}$ and any admissible labelled prime-product
+multiset of Lemma~\ref{lem:primeproducts55}, of mass
+$X_N=(J+o(1))N/\log N$, one has
+\[
+ \sum_{\substack{m<N\\N-m\in\PP}}w(m)
+              \le(K_*J+o(1))\HN.
+\]
+The five switched multisets therefore have their original upper
+constants multiplied by $K_*/8$, and
+\[
+ B_b(N)\le\{K_*\log(1/b)+o(1)\}\HN\qquad(1/2<b<1).
+\]
+The proposition asserts no particular numerical value for $K_*$.
+\end{proposition}
+
+\begin{proof}
+We use the actual upper support and the two-grid construction of
+Proposition~\ref{prop:variable-prefix-upper}. The required changes
+are given explicitly below; the outer-product families, their
+labels and their mass normalization are unchanged.
+
+\paragraph{Margins at the larger first stop.}
+For $0\le t\le\rho$, one has $v(t)\ge3t$. Indeed,
+on $[0,\mu]$,
+\[
+ v(t)-3t=\frac12-\frac52t\ge\frac3{256},
+\]
+and on $[\mu,\rho]$,
+\[
+ v(t)-3t=\frac{57}{64}-\frac92t
+                   =\frac92(\rho-t).
+\]
+Fix a small rational $e>0$, put $\nu=\Theta-2e$, and keep
+first coarse labels only when their closed upper endpoint is
+at most $\rho-4e$. On these labels the latter margin is at least
+$18e$. Also
+\[
+ \nu-3(\rho-4e)=\frac{17}{4000}+10e>0.
+\]
+Freeze a coarse exponent grid of width $\chi\ll e$. For a
+third coarse box wholly below $x=\mu-4e$, use the robust full
+envelope $\Gamma_B$ from
+\eqref{eq:variable-prefix-coarse-cap}. For every other third box
+use $\Gamma_B=\inf_B v(x)$. Define
+\[
+ \lambda_B=\min\{\nu,\Gamma_B-2e\}.
+\]
+By the preceding margins and the bounded slopes, after decreasing
+$\chi/e$ every retained first box has
+$\lambda_B>3x$ throughout its closed ordered portion.
+The finite cap list is fixed before choosing the small-prime
+precision and the refining fine grid.
+
+\paragraph{Integer support, weights, and distribution.}
+Inside $\mathcal D^+(N^\nu)$ retain the common first-label rule;
+at ranks at least three whose third prime exceeds the rough
+cutoff $w=N^\omega$, impose the ordinary upper support at
+level $N^{\lambda_B}$. Impose no additional third cap below $w$.
+The cap is fixed by the first three coarse labels and its first
+cube cannot fail. Thus the support is prefix closed and all
+first exclusions are odd, including the first-prime stop.
+
+Apply the same fine-label parity rounding and parity-dependent
+small beta weights as in the preceding proposition. In particular
+the exact rough/full one-sided density comparison, the complete
+pointwise majorant, and the bound on the coefficient norm remain
+valid. If $C_\chi$ is one plus the number of frozen caps, the
+normalized error remains
+\[
+ O(C_\chi\tau\omega^{-5}
+                 +e^{-c/\eta}\omega^{-2}+o_N(1)).
+\]
+The fine width $\tau$ is selected after the coarse grid and
+$\eta$; no uniformity in the number of coarse caps is asserted.
+
+For actual atoms from the lower first-prime region, the buffered
+full-envelope construction is unchanged. In the other region the
+single-variable $v$ branch has a fixed surplus above the actual
+cap. On a local scale $N^{1-\kappa}/O(1)\le x_0\ll N$, take
+$\alpha=1+3\kappa$. The coordinate and branch perturbations are
+$O(\kappa)$ and are absorbed by choosing $\kappa\ll e$.
+Only boxes wholly below $\mu-4e$ use the full three-prime
+formula, so the perturbed largest-prime restriction is respected.
+The transition strip uses the single-variable assertion throughout.
+
+Keep the same hierarchy of Type II savings, small beta support
+and fine-box losses. The complete moduli have support below
+$N^{3/5-c}$ for a fixed $c>0$, since $\Theta=0.598<3/5$.
+Ranks at most two instead have support below
+$N^{2\rho+o(1)}$, and $2\rho=19/48<1/2$.
+The existing one- and two-long-variable alternatives, rough
+Siegel--Walfisz estimates and residue-uniform Type II estimate
+therefore apply. The label factorials, unique small/rough
+decomposition, exact coprime-mass correction and single positive
+outer approximation are the same as before. These operations
+preserve the original five switched masses and the bad-semiprime
+mass, including the full range of $Y_{11}^{\rm full}$.
+
+\paragraph{Density at fixed cutoff.}
+The exact density identity
+\eqref{eq:variable-prefix-upper-exact-density} holds with the
+new first labels and caps: first stopped trees and third capped
+trees are disjoint, and their odd parity produces residual lower
+densities with the same signs. At each fixed $\omega>0$ their
+arguments range over compact sets. The uniform residual-density
+lemma therefore evaluates them after taking $N\to\infty$.
+The absence of a capped third prefix is encoded by $f(s)=0$
+when its third cube fails. No uniform asymptotic statement for
+unbounded sieve arguments is used at this stage.
+
+\paragraph{Uniform integrability as the rough cutoff decreases.}
+On the full ordered domain $x\le\rho$ one has
+\begin{equation}\label{eq:extended-prefix-residual-margin}
+ L-x-y\ge\rho.
+\end{equation}
+Indeed $\Theta-x-y\ge\Theta-2\rho\ge\rho$. For the other
+branch, $A\ge v(x)$, and each piece of $v(x)-2x$ is at least
+$\rho$: on $[0,\mu]$ its minimum is $53/256>\rho$, while on
+$[\mu,\rho]$ it is decreasing to
+$v(\rho)-2\rho=\rho$.
+The buffered cap obeys the same inequality with an
+$O(e+\chi)$ loss. Once these parameters are small enough,
+$\lambda_B-x-y\ge\rho/2$ uniformly in all boxes and in
+the rough cutoff.
+
+Let $D_0(s)=\bar F(s)-\bar f(s)$. Standard monotonicity and
+the delay equations give
+\[
+ (sD_0(s))'=-D_0(s-1),\qquad
+ D_0(s)\le D_0(s_0)(s_0/s)^2\quad(s\ge s_0\ge3).
+\]
+For ordered levels the difference of the two lower sieve values
+is nonnegative and at most $D_0((L-S)/z)$, because their common
+limit lies between $\bar f$ and $\bar F$.
+If $d_0\ge D_0(s_0)$ and $0<h\le\rho/(s_0+1)$, the whole
+limiting contribution with $z<h$ is at most
+\begin{equation}\label{eq:extended-prefix-tail-bound}
+ \frac{2d_0s_0^2}{(\rho-h)^2}\,h
+ \left\{\log^2(\rho/h)+2\log(\rho/h)+2\right\}.
+\end{equation}
+To verify it, use $(L-S)/z\ge(\rho-z)/z$ and integrate
+\[
+ \int_{z\le y\le x\le\rho}\frac{dx\,dy}{xy}
+                       =\tfrac12\log^2(\rho/z).
+\]
+The remaining integral is
+$\int_0^h\log^2(\rho/z)\,dz
+=h\{\log^2(\rho/h)+2\log(\rho/h)+2\}$.
+For buffered caps the same argument with $\rho/2$ in the
+residual bound supplies a common integrable majorant. The upper
+limit $\rho$ in the logarithm is unchanged. Thus the contribution
+from $z<\omega$ tends to zero uniformly in the sufficiently small
+buffers, even though it is not identically zero.
+
+First take $N\to\infty$ at fixed parameters. Then let the beta
+and fine-grid errors tend to zero with the coarse caps fixed;
+the tail bound just proved controls the accompanying decrease
+of $\omega$. Finally refine the coarse grid and send $e$ to zero.
+The limiting fallback is $v(x)$ above $\mu$, and the full envelope
+is recovered below it. The strip at $\mu$ has vanishing integral
+by the same domination. In fact the two definitions agree
+continuously there, since $\Phi(\mu,y,z)=v(\mu)=153/256$.
+All gate and level boundary sets have measure zero.
+
+The ordinary upper density contributes $4/\Theta$, since
+$5\nu<3$. The two density corrections converge to those in
+\eqref{eq:extended-prefix-functional}. Strict slack
+$K_*>K_{\rm ext}$ permits all construction parameters to be
+fixed before the final sufficiently-large-$N$ statement. Applying
+this bound to the unchanged masses proves the proposition.
+\end{proof}

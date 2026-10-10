@@ -1,0 +1,209 @@
+The actual positive multiplicity in Lemma 5.1: short frequencies and auxiliary divisors
+10 October 2026. Independent reconstruction of the counting input only.
+
+Conclusion
+
+The required bound survives with no lower dyadic restriction on k:
+  ||b_tilde(nu)||_2^2 << x^o(1) (HS)^2 F/nu,
+uniformly for every positive integer nu on the actual polynomially bounded
+support. In particular it holds for all nu|a^infinity. There is no omitted
+large-nu '+1' or a small-|a| assumption in this counting step. Its essential
+features are: k is NONZERO; h is NONZERO; signed nonzero frequency differences
+are counted from zero, not in an unjustified dyadic shell; and the actual
+source has H/S<1. A zero difference multiplier belongs to the separate equal
+case. The divisor of nu below is b=gcd(d,nu/c), not the difference multiplier g.
+
+This report reconstructs that argument, including constants before x^o(1),
+and supplies bounded exact integer controls. It does not audit the spectral
+theorem, the preceding Cauchy reduction, all dispersion errors or the global
+K/c. No old file, main manuscript, state or numerical constant is changed.
+
+1. Exact source and definition
+
+Read directly: external-source-audit/l23-v1-joint-current.txt, lines
+1911--1949 (source scales and h range), 2031--2094 (Cauchy and expansion),
+2104--2150 (k=0 and the positive multiplicity), 2203--2358 (norm argument),
+and 2360--2387 (the subsequent nu sum). Also read
+lichtman-lemma51-large-residue-audit-20261009.tex, the paragraph headed
+'The actual coprimality, fixed d, and counting input' and the following
+scale calculation, particularly lines 139--159 and 185--190.
+
+For definiteness write s_i in [S,2S), f in [F,2F),
+  1<=|h_i|<=H,  k=h_1 s_1-h_2 s_2 !=0,
+  z=s_1 s_2,    y=f k.
+Let b(z,y) count these tuples. Either sign of y is allowed in this enlarged
+positive envelope. Fixed signs of f are treated separately if needed; its
+negative part gives the same estimate after f->-f. Endpoint conventions,
+one-sided h restrictions, (s_1 s_2,a)=1 and dyadic y/z restrictions can only
+reduce the envelope. The same proof covers the crossed expression from
+expanding inverses after interchanging the h or s labels.
+
+Assume F,H,S>=1; if a source interval is empty its contribution is zero,
+and nonempty integer dyadic intervals admit this convention after a harmless
+fixed-factor enlargement. All scales are bounded by fixed powers of x.
+Define
+  N_nu = sum_z sum_{u!=0} b(z,nu*u)^2.
+The actual dyadic ||b_tilde(nu)||_2^2 is at most N_nu. We do not replace its
+small Y by a larger Y inside an identity: we only enlarge a positive sum.
+
+We always have 0<|k|<4HS and 0<|y|<8FHS. Hence N_nu=0 if nu>=8FHS;
+in particular no estimate of order one is needed beyond the frequency
+support. Set
+  X_* = ceil(max(4S^2,8FHS)), D_*=max_{1<=n<=X_*} tau(n).
+This finite maximum is only used at a power-saving counting stage.
+For polynomial scales D_*=x^o(1), uniformly in all indices under discussion.
+
+2. The first Cauchy step does not cost F twice
+
+At fixed (z,y), the number of decompositions (s_1,s_2,f,k) is at most
+tau(z) tau(|y|)<=D_*^2: choose s_1|z and f||y|, then s_2,k are determined.
+Let R(s_1,s_2;k) count its allowed h pairs. Cauchy gives
+
+ N_nu <= D_*^2 sum_{s_1,s_2} sum_{k!=0} R(s_1,s_2;k)^2
+                         * #{f in [F,2F): nu|fk}.          (1)
+
+Thus the h collisions share the same s_1,s_2,k and f on the right, but this
+is obtained by Cauchy, not by pretending the original two f values agree.
+This explains why the final estimate has F, not F^2.
+The printed (5.10) also displays (s_1,s_2)=1 without deriving it from the
+previous unrestricted positive multiplicity. I do not use that restriction:
+all s pairs remain here and their ACTUAL gcd is factored in section 4.
+This supplies the general counting argument used by the later source lines.
+
+For each k let c=nu/gcd(nu,k). Then c|nu, nu/c divides k, and
+  #{f in [F,2F): c|f} <= 2F/c.
+If c>=2F there is no such f for the half-open convention. We may sum over
+all divisors c<=2F and impose only nu/c|k, discarding the additional gcd
+condition. This overcounts positively.
+
+The general counting fact used repeatedly is
+  #{j in Z: 0<|j|<=L, m|j} = 2 floor(L/m) <= 2L/m.        (2)
+This has no '+1'. If L<m the left side is exactly zero. Likewise the
+number of positive multiples <=2F is at most 2F/c. These facts avoid the
+source's unnecessary k asymp HS claim (lines 2227, 2237, 2242 and later).
+
+3. Equal h pairs: m_1=m_2=0
+
+For a collision put m_i=h_i-h_i'. Equality of k gives
+  m_1 s_1=m_2 s_2.
+If one m_i=0 both vanish. For fixed nonzero k, there are at most 4HS
+choices of (h_1,s_1), and then h_2 s_2=h_1 s_1-k is a NONZERO integer of
+size at most 2HS on actual solutions. Its signed factorization has at most
+D_* choices. The potential value zero is excluded by h_2!=0; tau(0) is
+neither used nor assigned a bound.
+
+There are at most 8HS*c/nu nonzero k with |k|<4HS and nu/c|k. Consequently
+the equal collision sum on the right of (1), before the D_*^2 factor, is
+at most
+  sum_{c|nu,c<=2F} (2F/c)(8HS*c/nu)(4HS D_*)
+  <=64 D_* tau(nu) H^2 S^2 F/nu.                         (3)
+This bound also covers nu larger than HS: only sufficiently large c can
+make the multiple range nonempty, and (2) already records that fact.
+
+4. Unequal h pairs: reduce the actual gcd before counting
+
+Write d=gcd(s_1,s_2), s_1=d u, s_2=d v, gcd(u,v)=1. Then
+S/d<=u,v<2S/d and d<2S. For unequal pairs the equation m_1u=m_2v gives
+  m_1=g v, m_2=g u, with a SIGNED NONZERO integer g.
+Since |m_i|<=2H,
+  0<|g|<=2Hd/S.
+There are at most 4Hd/S choices for g, again by (2). If this range has no
+integer it is empty, not O(1). The source's H/g asymp S/d can therefore
+be replaced by the one-sided inequality actually justified. It is not
+necessary to assume H/g is bounded below by a comparable scale.
+
+Put k_0=k/d=h_1u-h_2v!=0. For a given divisor c of nu let
+  b=gcd(d,nu/c).
+Then, EXACTLY,
+  nu/c | d k_0  iff  nu/(c b) | k_0.                      (4)
+Here b divides nu; g need not divide nu and is never summed as its divisor.
+Also b<=gcd(d,nu). Count k_0 by (2): at most
+  8HS*c*b/(d*nu)
+nonzero values of size below 4HS/d. For fixed (d,g,k_0), choose (h_1,u)
+in at most 8HS/d ways. The nonzero integer h_1u-k_0=h_2v has at most D_*
+signed factorizations. Once h_1,h_2,u,v,g are chosen the primed h values
+are determined. Ignoring their size restrictions only enlarges this count.
+
+Multiplying the four bounds (g, k_0, h/s, f) and summing c,d yields an
+unequal collision sum, before the D_*^2 in (1), at most
+  512 D_* tau(nu) H^3 S F/nu
+                 *sum_{d<=2S} gcd(d,nu)/d.               (5)
+The remaining sum obeys the elementary exact bound
+  sum_{d<=2S} gcd(d,nu)/d
+   <=sum_{e|nu} sum_{j<=2S/e} 1/j
+   <=tau(nu) H_floor(2S),                                (6)
+where H_m=sum_{j<=m}1/j. This uses gcd(d,nu)<=sum_{e|gcd(d,nu)}e.
+The original coprimality (z,a)=1 would give gcd(d,nu)=1 when nu|a^infinity,
+but that extra simplification is not needed; dropping it causes no gap.
+
+Combining (1), (3), (5), (6), and tau(nu)<=D_* on nonempty support gives
+the deliberately generous fully explicit bound
+
+ N_nu <=576 D_*^5 H_floor(2S) (1+H/S) (HS)^2 F/nu.         (7)
+
+This bound is valid without H<S. In the actual source put
+D_0=N^2R^2S/x, NM comparable to x. The first size condition and Q<Nx^-sigma
+give
+  H/S <=x^o(1) QR^2S/M
+       <<x^o(1)(Q/N)D_0 <=x^(-8sigma+o(1))<1.
+Therefore (7) supplies precisely x^o(1)(HS)^2F/nu. No additive H-independent
+term is generated when Hd/S<1; that part of the unequal count is empty.
+
+5. Complex h weights and the subsequent a-smooth sum
+
+For fixed separated parameters allow |omega_h|<=1 and the actual bounded
+s coefficients. After expanding the square, a tuple has the weight
+lambda'_(s_1) conj(lambda'_(s_2)) omega_(h_1) conj(omega_(h_2)), of modulus
+at most one. Its aggregated coefficient B(z,y) satisfies |B(z,y)|<=b(z,y).
+This remains true with endpoint restrictions and either h sign. Taking
+absolute values at this point and aligning the INNER exponential sum by
+one unit phase for each (z,y) preserves both the norm bound and the
+restriction (z,a)=1. Reindexing n->nu*n and multiplying by further unit
+phases or coprimality indicators also cannot increase this positive envelope.
+One must not assume B is itself positive, or cancel its terms to establish
+the positive counting bound.
+
+This statement concerns the actual scalar h weights after separation:
+they are fixed while the inner b,c exponential sum is taken. An arbitrary
+weight still depending jointly on b,c,h could not be extracted by this
+argument; no such extension is asserted. The counting estimate by itself
+does not prove the preceding separation or a spectral theorem.
+
+Finally for any fixed 0<theta<1 and |a|<=x^A,
+  sum_{nu|a^infinity} nu^(theta-1)
+   =prod_{p|a}(1-p^(-(1-theta)))^-1 = x^o(1).              (8)
+For example split primes at log x. The small-prime part of the logarithm
+is O_theta((log x)^theta), and the large-prime part is at most
+O_{A,theta}((log x)^theta/log log x); both are o(log x). This is uniform
+over the stated a range. Thus inserting (7) into the weighted spectral
+nu sum does not lose another polynomial factor. There is no per-nu '+1'
+whose sum would replace (8). If a truncated COUNT of a-smooth nu is used
+elsewhere, for each requested delta>0 choose a fixed small Rankin exponent
+epsilon first; Y<=x^C gives count<=x^(C epsilon+o(1)), hence x^o(1).
+That separate count is not needed to replace the decaying series (8).
+
+The k=0 piece is separate throughout: fixed nonzero h_1s_1 has only a
+divisor-bounded number of equal-product partners, giving x^o(1)HS choices,
+then the source's BFC factor. It is not reinserted into b(z,y) at y=0.
+
+6. Exact bounded implementation controls and audit boundary
+
+The accompanying self-contained Python implementation uses no project
+module. It enumerates every tuple for S=1..5,H=1..4,F=1..3, every nonzero
+signed h, and all nu from 1 through 8FHS+2. It directly constructs b(z,y),
+the shared-decomposition h collision sum, and its equal/unequal parts.
+It checks (1), (3), (5), (6), (7), the exact reduced divisibility (4),
+the signed g reconstruction, and zero norm beyond actual y support.
+Gaussian integer omega_h=i^h controls also verify the complex envelope
+without floating arithmetic. Harmonic factors are exact Fractions.
+
+These finite controls include H/S<1, =1, >1, shortest nonzero frequencies,
+and auxiliary divisors beyond the entire support. They are implementation
+controls, not a proof by sampling: sections 2--5 prove the general bound.
+The proof corrects the source's overly strong dyadic statements while
+retaining the value of the required estimate. It agrees with the earlier
+large-residue audit's counting conclusion, but supplies the missing explicit
+nonzero-multiple and empty-range details rather than treating its status
+as evidence. No change to the frozen counting bound or numerical tuple is
+required by this local reconstruction; all other analytic inputs remain
+outside this audit.

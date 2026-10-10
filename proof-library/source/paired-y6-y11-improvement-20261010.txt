@@ -1,0 +1,188 @@
+Paired deletion of a zero-lower-bound Y6 strip and its Y11 cost
+10 October 2026. New outer Chen weight; the open manuscript is unchanged.
+
+Result and dependency boundary
+
+The full-Y11 form suggests a useful modification without using the
+printed contracted-Y11 inequality. Delete
+the SAME pair region from the positive Y6 and the last two slots of the
+negative Y11. Choosing that region inside cells whose adopted Y6 lower
+bound is zero preserves the entire old L6 lower value. It removes a
+strictly positive part of the explicit Y11 majorant cost.
+
+Under precisely the retained positive-product/distribution and finite-sieve
+inputs, this gives a new raw Chen-coefficient increment at least
+ G=2095161/1000000000=.002095161.
+The separate rational certificate gives a slightly larger lower bound;
+the difference is not used. K stays8452171/1250000=6.7617368. Retain all
+old error budgets and add G/8 to EACH lower density/compiler allowance.
+The resulting safe lower count coefficient is c=1.96024511, supporting
+ b=.74833756, count1e-5; and b=.74833656, count1e-6.
+The exact arithmetic and strict surplus checks belong to the accompanying
+assembly. This is an internal research derivation with the same named
+analytic inputs, not a new external validation or unrestricted L23 repair.
+
+1. A general paired-deletion weight
+
+Let a=417/5000,h=19/125,d=59/250 and retain the eleven actual quotient
+counts of own-chen-table-insertion-chain-20261009.tex section1. For any
+fixed subset E of pairs a<=u<h<=t<d, define R6(E) to be the Y6 terms
+with (log_N p2,log_N p1)=(t,u) in E. Define R11(E) to be the full Y11
+terms whose LAST TWO selected factors have exponent pair in E. Put
+ W_E=W_full-R6(E)+R11(E).
+
+For squarefree rough n, a contributing Y11 tuple must have its first
+two selected factors equal to the smallest two prime factors q1,q2 of n:
+otherwise a smaller unselected factor remains below the quotient cutoff.
+Sending that tuple to its last pair is an injection into the corresponding
+Y6 terms. Thus R11(E)<=R6(E), with no product-shape assumption on E,
+and W_E<=W_full<=4*1_{Omega(n)<=2}. This is a pointwise argument and
+does not use a lower bound on any negative count. Nonsquarefree rough
+integers retain the same triangle bound1016 and O(N^(1-a)) exception,
+since every new term is a subset of an old term with the same coefficient.
+Unit and prime-divisor exceptions retain their old negligible treatment.
+
+This changes only the OUTERMOST weight. The independently valid H248/H430
+table inequalities and their inner actions are used as before. They do
+not require this outer Y6 domain to remain a rectangle. The old full-Y11
+pointwise proof remains a premise for the displayed monotone modification.
+
+2. The exact adopted zero cells, not a continuous guessed boundary
+
+Use the actual nonenhanced half of the pair512 partition:
+ t_i=mu+i(d-mu)/512, mu=25/128,
+ u_j=a+j(h-a)/512, i,j=0,...,511.
+Here v(t)=57/64-3t/2 throughout. Let E be the union of whole rectangles
+ [t_i,t_(i+1)) x [u_j,u_(j+1))
+for which
+ 57/64-(5/2)t_i-u_j<=2a.
+This is exactly6091 disjoint cells, compressed into90 strips, i=422..511.
+Every nonempty row is an upper u suffix. The minimum excess below the
+s=2 threshold is19/5120000 in residual-exponent units. We do NOT delete
+the227 cells crossing s=2. The enhanced [h,mu] half is also unchanged.
+
+On every deleted cell the maximum of (v(t)-t-u)/a is below2. The actual
+ordinary lower function, the legal concave-chord guard, and h lookup all
+return zero there. The entire saved L6 lower numerator therefore survives
+on the complement, including all existing positive cells. This uses the
+literal cell lower proof; it does not claim the actual count R6(E) is zero.
+No new ordinary-table computation is required to establish an identically
+zero lower estimator.
+
+3. Restricting the CURRENT U11 bound, with saved gains kept
+
+Write the decreasing four prefix exponents t>u>z>w, a<w<z<u<h<t<d,
+and dmu4=dt du dz dw/(t u z w). The positive switched density is
+ K*omega((1-t-u-z-w)/z)/z.
+All ordinary-cap alternatives require the full square at the last slot.
+For the deleted region,
+ t+u+z+2w >= t+u+3a >= v(t)+a >=3579/160000+153/256.
+Hence no ordinary branch with cap<=153/256 can be licensed there.
+
+The independent actual-witness check follows the current n48 U11 parents
+and the later priority40000 replacement. Exactly34405 parents intersect
+E, across35 pairs of their first two bin labels; ALL have method0
+(switched), and NONE occurs in the priority set. Thus no child-max or
+ordinary-patch attribution crosses E. The older n32 patch was already
+replaced in the selected construction and is not another retained cost.
+
+Why an aggregate saved number can be restricted needs a proof. For an
+intersecting parent B, write Z_B=int_B dmu4/z, K0 for its original anchor,
+C for the old uniform Buchstab bound, and g_B for its saved improvement.
+The switched calculation gives g_B<=K0(C-omega_B)Z_B, with omega_B an
+upper bound for omega on the entire parent. Thus
+ A_B=K0 C Z_B-g_B >= K0 omega_B Z_B.
+The density F_B=A_B/(Z_B z) is a pointwise majorant for the switched
+kernel, with integral exactly the retained parent cost. This is stronger
+than an upper bound on the integral alone. If g_B=0, the same conclusion
+uses C>=omega on that parent.
+
+The later lower-K feedback removes (K0-K)s_B from A_B, where the stored
+slope satisfies 0<=s_B<=A_B/K0. Consequently
+ A'_B=A_B-(K0-K)s_B >= (K/K0)A_B,
+and F'_B=A'_B/(Z_B z)>=K*omega(actual)/z. All outward rounding slack
+in the global uniform integral may be retained; it cannot reverse this
+inequality. The independent source review checks the exact saved slopes
+and which parents are excluded from feedback. On E no excluded parent
+or refined replacement occurs, by the full witness intersection check.
+
+Apply the SAME positive upper theorem to the complementary family, on
+the common refinement with the90 E strips. Its cost is at most the old
+explicit majorant integral minus int_E F'. This is subtraction of a
+MAJORANT'S mass, not an inference of a lower bound for the actual count
+Y11(E) from an upper bound. No negative count or upper bound is re-signed.
+
+4. A simple rigorous positive mass for the deleted majorant
+
+On the entire original four-prefix domain,
+ (1-t-u-z-w)/z >=(1-d-3h)/h=77/38>2.
+For the Buchstab function omega, omega(s)=1/s on[1,2], so omega(2)=1/2.
+For2<=s<=3, s*omega(s)=1+log(s-1)>=s/2: the difference is zero at2
+and has derivative1/(s-1)-1/2>=0. On successive unit intervals,
+(s*omega(s))'=omega(s-1)>=1/2 propagates omega(s)>=1/2. Thus
+ int_E F' dmu4 >= (K/2) I_E,
+ I_E=int_{(t,u) in E} int_{a<w<z<u} dt du dz dw/(t u z^2 w).
+
+The ordered inner integral is exact:
+ int_a^u log(z/a) dz/z^2=1/a-(log(u/a)+1)/u.
+For a strip [l,r]x[q,h] this gives
+ log(r/l)*[log(h/q)/a+(log(h/a)+2)/h-(log(q/a)+2)/q].
+Summing90 strips and dividing the weight by4 yields the raw improvement
+ K*I_E/8. There is no factorial2 or extra interchange of the ordered w,z.
+
+Two different standalone rational logarithm calculations enclose
+ I_E=0.0024788436186402441736391672815843156623944381297...
+ K*I_E/8=0.0020951610147006131237351934161555786896536060521...
+The root code uses64 terms of the atanh expansion with Q160 intervals.
+The independent code uses192 terms in powers of1-1/r with decimal
+quantization and its own interval arithmetic. Both reconstruct the same
+6091 cells and90 strips without importing the old quadrature backend.
+The adopted rational G=.002095161 is strictly below both lower bounds.
+
+5. Finite realization, errors, and the new scalar assembly
+
+The E strips are a fixed finite union with cutoffs bounded below by a.
+Their complementary U11 families are nonnegative. Their new exponent
+walls are proper affine walls; shared parent equal-bin boundaries retain
+the old ordered measure convention. Fix inner/outer approximations and a
+common finite partition, apply the positive product theorem, then take N
+large. Shrinking the boundary width costs arbitrarily small positive mass.
+This is the established positive-family smoothing argument, not a claim
+of arbitrary-log signed distribution for a sharp coupled indicator.
+
+All table generations, original prime cutoffs, actual modulus support and
+the upper K theorem are unchanged. The former budgets stay available.
+Use G/8 additionally for lower density/finite approximation and G/8 for
+lower compiler/smoothing realization; any smaller fixed allocations to
+the new finite family fit these allowances. All asymptotic errors then
+fit the final strict positive scalar slacks. There is no circular use of
+the new c to prove K or the old H/h tables.
+
+Let c_raw,u_den,u_comp be the previous chosen lower raw endpoint and its
+two allowances. Set
+ c_raw,new=c_raw+G,
+ u_den,new=u_den+G/8, u_comp,new=u_comp+G/8.
+Thus the after-budget endpoint increases by3G/4 and exceeds1.96024511.
+K and every upper-side budget are unchanged. Rational logarithmic upper
+bounds certify c-K log(1/b)>count for the two displayed b values.
+
+Future K feedback must account for the altered outer weight. A fixed
+deletion coefficient R=G/K_current is no larger than I_E/8; the certified
+affine model has new slope A_old-R, not A_old. This turn keeps K fixed.
+The assembly records this update so a future K reduction cannot collect
+the old full-Y11 slope and the new deletion benefit twice.
+
+6. Scope and remaining work
+
+The new result strengthens the existing internal all-sufficiently-large-
+even consequence under the same explicit analytic/classical inputs and
+retained numerical inequalities. The parallel new finite-policy and
+continuous-spectrum derivations supply additional local evidence; neither
+is used as an unexplained blanket PASS for the whole chain. The modified
+outer weight is now paired-cropped Y6/Y11, derived from full-Y11; historical
+statements that the selected outer domain is still fully rectangular are
+superseded only by this addendum and its new assembly.
+
+The open manuscript is unchanged. Formalization and GitHub remain paused.
+No external message or publication is made. Whole-proof external validation
+and frontier priority are not asserted. The research goal remains active.

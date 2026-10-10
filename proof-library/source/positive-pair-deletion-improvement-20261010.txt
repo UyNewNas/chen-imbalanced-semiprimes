@@ -1,0 +1,193 @@
+Positive-net paired deletion following the Wu Y6 correction
+10 October 2026. Research addendum; the open manuscript is unchanged.
+
+Result and scope
+
+Relative to the explicit analytic/classical inputs and numerical inequalities
+retained in paired-y6-y11-improvement-assembly-20261010.json, the following
+additional outer-weight change gives K=6.7617368, c=1.96131568 and
+b=.74821909 with count coefficient 10^-5. The secondary b=.74821809 has
+count coefficient 10^-6. Counts mean distinct primes p<T with T=p+rq,
+q prime, r=1 or prime, r<=q^b, normalized by H_T=C_T*T/log(T)^2, for
+every sufficiently large even T. These are internally assembled research
+consequences, not a claim of external validation or a restored Li1.9728.
+
+Two separate issues have distinct roles. The first concerns uniformity
+in a large moving residue in the distribution theorem. This addendum
+does not repair that unrestricted theorem and inherits the separately
+stated restricted inputs. The second identifies a mismatch between the
+positive Y6 range and the contracted negative Y11 range in Wu's printed
+weight. Our base is instead the independently derived full-Y11 weight.
+The general paired-deletion inequality from that base motivates the
+present improvement. Correcting a weight and estimating its terms are
+separate obligations; a larger distribution level cannot by itself
+justify putting a deleted positive summand back into a corrected weight.
+
+1. The paired weight and its domains
+
+Write E0 for the already adopted6091 whole zero-floor pair512 cells.
+For any fixed pair set E, squarefree rough n has an injection from
+removed Y11 tuples to removed Y6 pairs: the first two factors of an
+admissible Y11 tuple must be the two smallest prime factors of n, by
+the quotient's second-factor roughness condition. Its last pair then
+determines the tuple. Consequently R11(E)<=R6(E), and
+
+ W_E = W_full - Y6(E) + Y11(last pair in E) <= W_full.
+
+The established prime-square exceptional estimate is unchanged.
+The new set E1 below is disjoint from E0. The current weight is
+W_(E0 union E1), with17772 deleted pair cells in total. No mass of E0
+is charged again. The old full-Y11 weight is the starting inequality,
+not a description of the final cropped outer domain.
+
+2. Upper-bounding the saved lower estimate being lost
+
+Use a=417/5000, h=19/125, mu=25/128, d=59/250 and C=57/64.
+Only the nonenhanced t in[mu,d], u in[a,h] grid is changed. Each
+coordinate has512 bins; the enhanced grid is untouched. On a cell
+B=[tl,tr]x[ul,ur], put
+ R(t,u)=C-(5/2)t-u, Rmax=R(tl,ul), Rmin=R(tr,ur),
+ smax=Rmax/a, smin=Rmin/a,
+ M_B=log(tr/tl)*log(ur/ul).
+
+Candidates satisfy2<smax<=9/4, giving22271 cells. The old6091
+cells with smax<=2 are excluded. There are227 crossing cells smin<2;
+their saved ordinary floor, legal chord floor and h248 lookup are all
+zero by the actual source guards. No candidate has smin=2 exactly.
+
+For smin>=2, fbar(s)=log(s-1)/s is increasing on[2,9/4], because
+its derivative has numerator s/(s-1)-log(s-1)>0. The original constant
+and valid concave-chord estimates are each below the true ordinary
+integral, hence each at most4*M_B*fbar(smax)/a. Their downward-rounded
+maximum is no larger. The selected original L6 value was the sum of
+these author512 cell floors; it was not an unrelated global fallback.
+
+Let H_B be the minimum of h248 numerators/Q80 over the closed table
+cells meeting the exact interval[smin,smax]. The actual saved lookup
+uses an outward interval containing this interval, and therefore takes
+a minimum over a superset. Its value is at most H_B. Include both
+adjacent cells at a table knot. The separately rounded defect floor
+is bounded above by4*H_B*M_B/Rmax. Thus the saved cell floor/4 is
+at most
+
+ L_B = M_B*(log(smax-1)+H_B)/Rmax.
+
+Take L_B=0 for crossing cells. This is an upper bound on a discarded
+LOWER ESTIMATOR. No upper bound on the actual positive Y6 count is
+being asserted. The new retained L6 lower value may safely be set to
+L6_old - 4*.002372094, without recomputing the old pair quadrature.
+
+3. Restricting the retained negative majorant
+
+Write the decreasing four prefix exponents t>u>z>w, with
+a<w<z<u<h<t<d, and dmu4=dt du dz dw/(t*u*z*w).
+For every candidate cell,
+ t+u+z+2w >= t+u+3a >= v(t)+(3-9/4)*a
+ >=23967/40000 > Lambda=153/256,
+with gap243/160000. Thus the full-square ordinary branch is not
+licensed. The actual current n48 saved U11 witness also confirms
+that all90165 parents meeting the entire candidate use switched
+method0, and none intersects the priority40000 replacements. The
+selected subset has a separate exact witness-coverage record.
+
+For an intersecting unrefined parent B, the retained previous proof
+constructs Z_B=int_B dmu4/z and
+ A_B=K_anchor*C_B*Z_B-g_B >= K_anchor*omega_B*Z_B.
+After the existing fixed K feedback,
+ A'_B=A_B-(K_anchor-K)*s_B >= (K/K_anchor)*A_B,
+because0<=s_B<=A_B/K_anchor. The density A'_B/(Z_B*z)
+therefore dominates K*omega(actual)/z on the entire parent.
+The old rounding surplus and all other saved gains can be retained.
+Apply the same positive-product theorem to the complementary family
+on a common finite refinement. The new cost is bounded by the old
+majorant integral minus that MAJORANT'S integral on E1. We do not
+reverse an upper bound for the actual removed Y11 count.
+
+Throughout this domain the Buchstab argument is at least77/38>2,
+and omega(s)>=1/2 for s>=2. For2<=s<=3 this follows from
+s*omega(s)=1+log(s-1)>=s/2; induction using
+(s*omega(s))'=omega(s-1) extends the inequality. Hence the saving
+in Chen coefficient units is at least K*I_E1/8, where
+
+ I_E1 = int_(t,u in E1) int_(a<w<z<u) dmu4/z.
+
+Integrating the ordered inner variables exactly, a rectangle contributes
+
+ log(tr/tl)*[log(ur/ul)/a+(log(ur/a)+2)/ur-(log(ul/a)+2)/ul].
+
+There is no extra permutation factor. Selected rectangles have
+disjoint interiors, as do their ordered inner fibres.
+
+4. Exact fixed selection and independent arithmetic
+
+For each candidate take an outward lower bound for K*I_B/8-L_B,
+and include the cell only if it is strictly positive. E1 consists of
+11481 cells in186 rows:227 zero-floor crossing cells and11254 cells
+with positive old floors. All10790 other candidates have strictly
+negative values for this conservative proxy. There are no unresolved
+signs. This only optimizes this fixed candidate grid and loss proxy;
+it does not establish global optimality of the weight.
+
+The root calculation uses rational atanh expansions with Q160 output;
+short logs use32 terms at Q224 with an explicit geometric tail. The
+independent calculation uses192-term Mercator expansions with decimal
+integer outward rounding and imports no project interval backend.
+They select the same mask and agree on rigorous enclosures of
+
+ gross saving: .0037995148961724900618129289298643983977...
+ loss proxy:   .0023720935558215453331772050239472731611...
+ net gain:     .0014274213403509447286357239059171252366...
+
+Adopt the separately rounded rational constants
+ Ggross=.003799514, Lsafe=.002372094, Gnet=.001427420.
+Ggross is below the gross lower bound; Lsafe exceeds the loss upper
+bound. The old6091 mask is explicitly excluded before selection.
+
+5. Error allowances, transfer and future K feedback
+
+The finite geometric mask is fixed independently of T. Its walls are
+proper affine walls. The prior positive-family approximation theorem
+applies after a common refinement with the saved parent grid; make
+boundary and smoothing costs arbitrarily small, then take T large.
+This does not require an arbitrary signed distribution theorem for a
+sharp coupled indicator. All positive cutoffs, table derivations and
+actual modulus support remain those of the retained input chain.
+
+Keep every existing upper/lower allowance. Increase the raw lower
+endpoint by Gnet, and each of the lower finite-density and compiler
+allowances by Gnet/8. The after-budget improvement is3*Gnet/4,
+giving endpoint1.9613156809061224639898727... . Round down to
+c=1.96131568; its remaining slack exceeds9.06e-10. The upper K
+and every upper budget are unchanged. Rational logarithms give
+
+ c-K*log(1/.74821909)-10^-5 >7.1260e-8,
+ c-K*log(1/.74821809)-10^-6 >3.4146e-8.
+
+The final bad-semiprime subtraction has the same normalization and
+unit/square handling as before, hence the stated all-even consequences.
+The independent scalar audit uses an80-term rational expansion while
+the final assembly uses64 terms and an explicit upper tail.
+
+For later changes of K the deleted cost is K*R-Lsafe with
+R=Ggross/K_current <= I_E1/8. Therefore the future raw slope is
+A_new=A_previous-R, approximately .39097759191183973. Subtracting
+Gnet/K_current instead would be wrong: it would fail to remove the
+K sensitivity of the lost negative cost. The present operation keeps
+K fixed and stores the corrected slope for subsequent work.
+
+6. Interpretation for the manuscript
+
+The correction identifies a useful structural optimization: discard
+positive cells only after paying their saved lower contribution, and
+discard their matched negative cells using a restrictable density
+majorant. This is more than replacing an integration limit. It gives
+a concrete method improvement on the current internal route, while
+retaining the distinction between numerical certificates and proof
+of the analytic inputs. Neither unrestricted Lichtman large-residue
+validity nor external Li1.9728 is restored. No replacement value such as1.97
+is adopted as a theorem here.
+
+Historical main-manuscript statements must be read with the subsequent
+input-status and Wu-impact addenda. This work adds new evidence and
+an assembly only; it does not update the open TeX. Formalization and
+GitHub remain user-paused, and no message or publication is made.

@@ -1,0 +1,245 @@
+\section*{The lower-$C$ complement and actual sixth-cap comparisons}
+\label{sec:sixth-lower-complement-independent}
+This is an independent analytic review relative to the policy recorded in
+\texttt{sixth-mask34-transfer-assembly-20261009.json}. It identifies actual
+activation predicates, distinguishes new regions from same-node differences,
+and gives a common finite realization. It does not select a new $K,c,b$ or
+repeat the geometry and quadrature certificates. The separate independently
+reconstructed 2108-case feasibility screen is also described below.
+
+\paragraph{Common hypotheses and notation.}
+Write $t=(x,y,z,w,p,r)$, $S_j=\sum_{i\le j}t_i$, and impose
+\[
+ 0<r<p<w<z<y<x<\mu=25/128,\qquad r<1/50,\qquad \eta=10^{-6}.
+\]
+Set $R_0=(1+x)/2$, $A(s)=(1+s)/2$, $D(s)=57/64-3s/2$,
+$v(s)=\min(A(s),D(s))$, and
+\[
+ C=S_5+4r-\eta,\quad H_3=x+y+3z,\quad H_5=S_4+3p.
+\]
+The retained raw envelopes are $L_3=R_5=R_0$: in particular all 31
+nonempty first-five subset tents and $W=153/256-3z/8$ are at most $R_0$.
+Require $H_3,H_5<R_0$. These raw inequalities must subsequently be
+preserved below the actual buffered third cap; they do not assert that the
+finite cap is exactly $R_0$. The inherited fifth cap obeys
+$H_5<\lambda_5\le R_0$ after that common realization.
+Abbreviate $A_{33}=A(x+r)$, $A_{34}=A(y+r)$,
+$A_{50}=A(y+p+r)$, and similarly $D_{33},D_{34},D_{50}$.
+This review's lower-$C$ region has $R_0<C<A_{33}$.
+
+The old subset condition has the exact alternative
+\begin{equation}\label{eq:lowercomp-old-dichotomy}
+ v(B)\le R_0\quad\Longleftrightarrow\quad
+ B\le x\ \hbox{or}\ B\ge b_0:=25/96-x/3.
+\end{equation}
+Here $b_0>\mu$ and $b_0-x=(4/3)(\mu-x)>0$.
+Consequently different admissible left/right assignments have disjoint
+interiors; these are inequalities on the entire cell, not names inferred
+from sample points. The eleven variable old subsets are encoded by
+$(6,10,12,14,18,20,22,24,26,28,30)$, with a set bit meaning right.
+Singletons are left and nonsingletons containing slot one are right.
+
+\paragraph{What the old clipped mask reduction actually proves.}
+The fixed old clipped strategy tests cap $C$, not an arbitrary smaller cap.
+Its necessary-domain reduction uses $C>R_0$, both histories, ordering,
+$W\le R_0$, a forced old containing-one subset, full and remaining-selected
+squares, and both new licenses. It contains no condition $C>A_{33}$.
+Its 28 exact negative duals therefore apply in the present region and
+leave only masks $33=\{1,6\}$, $34=\{2,6\}$, $50=\{2,5,6\}$.
+This reduction is not a classification of free new caps.
+
+For clarity, the compact cutoff used there follows here as well.
+From $H_5<R_0<C$ one has $p<2r-\eta/2$; from $H_3<R_0<C$ one obtains
+$2z<w+p+4r-\eta<z+6r$, hence $z,w<6r$. Thus
+$R_0<C<x+y+18r\le2\mu+18r$ and
+\begin{equation}\label{eq:lowercomp-cutoff}
+ r>(1-3\mu)/36=53/4608>1/100.
+\end{equation}
+Every full square at cap $C$ is automatic: the first two are below
+$3x<R_0$, the next two are below $H_3$, and the last two below $H_5$.
+
+Define the remaining-selected expressions
+\[
+ B_2=x+r+2y,\quad B_3=x+y+r+2z,\quad
+ G=x+y+z+r+2w,\quad B_5=S_5+p+r,\quad T_1=2x+y+r.
+\]
+Since $B_3=H_3-(z-r)$ and $B_5=H_5-(p-r)$, both are below $R_0$.
+Off proper equality boundaries the complete old activation predicates are
+\begin{align}
+ P_{33}&:\ C<D_{33},\ B_2<C,\ G<C,\label{eq:lowercomp-p33}\\
+ P_{34}&:\ C<A_{34},\ C<D_{34},\ T_1<C,\ G<C,\label{eq:lowercomp-p34}\\
+ P_{50}&:\ C<A_{50},\ C<D_{50},\ T_1+p<C,\ B_3+p<C,\ G+p<C.
+ \label{eq:lowercomp-p50}
+\end{align}
+The missing $A_{33}$ condition is automatic from $C<A_{33}$.
+All selected expressions follow directly from
+$\sum_{i\in I}t_i+\sum_{i<j,\ i\notin I}t_i+2t_j$.
+Thus the complete complement of the old fixed clipped action, within these
+common hypotheses, is $\neg P_{33}\wedge\neg P_{34}\wedge\neg P_{50}$.
+A finite affine disjoint refinement can select the first failed test in
+each ordered list. The license-only complement used in the new screen is
+only a subset of this Boolean complement. In particular $G>C$ makes all
+three fail, even without a failed license. On that subregion, however,
+a new mask33 or34 cap $M\le C$ cannot pass its own $G<M$ condition;
+new mask50 has the stronger $G+p<M$. This limits the naive gate-failure
+extension rather than establishing its positive mass.
+
+\paragraph{A useful exact simplification for new mask34.}
+Suppose a new licensed mask34 cap has $R_0<M\le C$ and passes its gates.
+Since $A_{34}>M>R_0$, one has $y+r>x$, hence $y+p>x$.
+By \eqref{eq:lowercomp-old-dichotomy}, $y+p$ is on the right and
+$D_{50}=D(y+p)-3r/2<R_0$. Old clipped50 is therefore impossible.
+The new selected gates imply both old33 and old34 selected gates at $C$,
+as $B_2\le T_1$ and the other tests coincide. Consequently
+\begin{equation}\label{eq:lowercomp-34-exact}
+ \hbox{old clipped inactive}\quad\Longleftrightarrow\quad
+ C>D_{33}\ \hbox{and}\ C>v(y+r)
+\end{equation}
+away from equality surfaces. In the ascending34 branch this is the
+adopted $C>D_{33},C>A_{34}$ window; $C>D_{50}$ is redundant.
+In the descending branch $D_{34}<A_{34}$, the single inequality
+$C>D_{34}$ also gives $C>D_{33}$ and $C>D_{50}$, because
+\[
+ D_{33}=D_{34}-3(x-y)/2,\qquad D_{50}=D_{34}-3p/2.
+\]
+This establishes completeness only for the stated new-mask34,
+$M\le C$, old-clipped-inactive subfamily. The old policy also contains
+nonclipped actions, and this is not a completeness theorem for all sixth
+improvements. A cap $M>C$ with new residual argument below three lies
+in $C<M<C+\eta$; a small cap width alone does not certify negligible mass.
+
+\paragraph{New descending34 window.}
+Take $M=D_{34}-\eta>R_0$, $D_{34}<A_{34}$, $C>D_{34}$,
+and require every full and remaining-selected34 square below $M$.
+The preceding lemma excludes all old clipped actions. The previously
+adopted clean tent33/34 actions require $C>A_{33}$; the saved-sixth cover
+requires $r\ge1/50$; the fallback actions require $x>\mu$; and the
+expanded-winner actions require $R_5>R_0$. They are all absent here.
+The adopted lower-$C$ ascending34 window is separated by the opposite
+strict tent branch. Thus the actual old sixth cap is $\lambda_5$.
+The new descending author certificate retains redundant license tests
+explicitly and is consistent with this derivation.
+
+\paragraph{New mask50 and selected mask33 cells.}
+For any new mask50 cap $M>R_0$, put $B=y+p$. The right alternative in
+\eqref{eq:lowercomp-old-dichotomy} would imply
+$v(B+r)<v(B)\le R_0$, a contradiction. Hence $B\le x$ and
+$y+r<y+p\le x$, so $A_{34}<R_0$. This excludes every adopted or new
+mask34 action requiring cap above $R_0$, without a reliance on a pattern
+sample. In the four proposed mask50 cells, $M=v(y+p+r)-\eta$ and
+$C>D_{33},C>A_{34},C>v(y+p+r)$ exclude all three old clipped masks.
+The two old assignments 1353/1355 and the two tent branches have disjoint
+interiors. All other old actions are excluded as in the preceding paragraph.
+
+For the two selected mask33 cells of pattern1867 set $M=D_{33}-\eta$.
+The conditions $C>D_{33}$ and $C<A_{33}$ imply $D_{33}<A_{33}$,
+so this really is the available tent branch. The recorded failed old
+licenses again exclude clipped33/34/50. Pattern1867 has old subset18
+($y+p$) on the left, hence $A_{34}<R_0$ and no mask34 action is present.
+Patterns1353/1355 instead put old subset28 ($z+w+p$) on the left,
+whereas1867 puts it on the right, proving disjointness from the selected
+mask50 cells. Only the two1867 cells are counted. The other computed
+mask33 cells in the author file are not automatically additional regions.
+
+\paragraph{One actual signed-density identity for these cases.}
+Let $L$ be the actual old sixth cap and let $R$ be a comparison bound
+with $H_5<L\le R<M$ (allow $L=\lambda_5>H_5$).
+Every new full and remaining-selected square and both licenses are required;
+they cannot be replaced by a test at $R$. The histories give
+$H_5-S_6=2p-r>r$. On the new regions above, $M<C-\eta$, and thus
+\[
+ 1<(L-S_6)/r\le(R-S_6)/r<(M-S_6)/r<3.
+\]
+Keeping the admitted even sixth node and replacing its residual ordinary
+upper subtree preserves odd first exits. The exact raw ordinary density
+$\overline F(s)=1/s$ gives an old-minus-new density saving bounded below by
+\begin{equation}\label{eq:lowercomp-kernel}
+ k(R,M;t)=\frac4{\prod_i t_i}
+ \left(\frac1{R-S_6}-\frac1{M-S_6}\right)
+ =\frac{4(M-R)}{(R-S_6)(M-S_6)\prod_i t_i}.
+\end{equation}
+This uses an equality for the same two signed subtrees, followed by
+monotonicity of the displayed rational function in $L$. It is not finite
+coefficientwise monotonicity, nor subtraction of two unrelated upper bounds.
+It has no additional Chen-functional factor $1/4$. The new regions so far
+use $R=R_0$ and the inherited old cap.
+
+\paragraph{Mask33 above an already adopted lower-$C$ mask34.}
+The new pattern1371 construction has chart34 ascending and chart50
+descending, $M=D_{33}-\eta$, and comparison
+$R=\max(R_0,A_{34})$. The old clipped exclusions are still imposed.
+The adopted lower-$C$ ascending34 rule, if active, uses cap at most
+$A_{34}-\eta$; otherwise the old cap inherits $\lambda_5\le R_0$.
+Thus the actual old sixth cap is at most this $R$.
+Use only \eqref{eq:lowercomp-kernel}, not the larger inherited-cap gain.
+In particular the retained $A_{34}$ chart adds only $M-A_{34}$.
+The opposite descending34 window is separated by the tent branch;
+the selected1867 and1353/1355 cells are separated by old subset18.
+The new cap is licensed because $C>D_{33}$ and $C<A_{33}$ imply
+$D_{33}<A_{33}$. No requirement $M>D_{34}$ is needed: indeed
+$D_{33}<D_{34}$. The author has an exact empty certificate for the
+$R_0$ comparison chart, but the analytic statement permits either chart.
+This is a genuine same-node telescoping upgrade and retains the previously
+certified lower-$C$ ascending34 gain.
+
+\paragraph{Recovering a discarded comparison gap on adopted clean34 cells.}
+This is a different operation, in $C>A_{33}$ rather than a new lower-$C$
+region. On the two adopted clean34 parent cells with comparison
+$D_{33}>R_0$, restrict to $G>D_{33}$. The older descending33 action
+requires $G<D_{33}-\eta$ and is therefore absent, even before a further
+finite downward freeze. Other old actions were excluded by these parent
+conditions. At the intermediate stage before mask34 the actual cap is
+$\lambda_5\le R_0$; the current final tree already uses its mask34 cap $M$.
+The exact identity
+\begin{equation}\label{eq:lowercomp-g-correction}
+ k(R_0,M;t)=k(D_{33},M;t)+
+ \frac{4(D_{33}-R_0)}{(R_0-S_6)(D_{33}-S_6)\prod_i t_i}
+\end{equation}
+permits adding only the second term on that subcell to the existing
+certificate for the first term. The two terms may have different
+triangulations; their pointwise identity is what justifies addition.
+$D_{33}$ is not a newly licensed cap here and actually fails the indicated
+gate. The two correction subcells have opposite34 tent branches. They
+are disjoint from every lower-$C$ region by $C>A_{33}$.
+This is a refinement of the bound for the same final tree, not a second
+physical upgrade and not a claim that the current cap is $R_0$.
+
+\paragraph{Finite implementation, limits, and arithmetic scope.}
+All statements concern the specified endpoint policy. First jointly refine
+the old and new finite affine selector partitions, including ancestor
+projections and old activation labels. Compactly trim proper ordering,
+history, branch, comparison and gate boundaries, retaining the old policy
+on the discarded strips. Constant identities such as the selected cap's
+defining affine formula are retained, not removed as boundaries. Choose
+the third cutoff below $53/4608$ (the existing $1/100$ suffices), then
+freeze the common actual third/fifth ancestors so both histories hold.
+Every new cap is frozen below its prescribed endpoint on the same labels;
+the retained $\eta$ and compact margins pay all licenses and tests.
+Previously inactive endpoint clipped actions are not newly activated
+by an independent change of labels during this process.
+
+The compact cutoff and $R_0-S_6>r$ bound every displayed density on
+the relevant closed cells. Proper affine walls have zero measure, so
+discarded density tends to zero. For any chosen positive loss allowance
+a single finite policy is fixed before $N\to\infty$. It preserves the
+old domains, budgets, and actual causal ancestors. The existing fixed-policy
+compiler, residual raw-density equality, factorization, moving-residue
+distribution, and positive prime-product interface then apply with their
+stated hypotheses; this review adds no external distribution premise and
+does not purport to reprove those inputs. Any global assembly must retain
+its cumulative old losses and budget the additional compact/compiled loss.
+Prove the new upper endpoint first, and only subsequently feed it to a
+lower-bound ledger, if desired.
+
+The independent physical seven-variable replay rebuilt every constraint
+in the license-only free-cap screen: 2108 cases, 2097 strictly negative
+rational duals with all seven variable coefficients eliminated, and eleven
+strict rational centers. It imported no author semantic or optimization
+code. It did not compute a mass. The new author geometry certificates and
+their separate independent replays are separately identified in the JSON;
+this analytic review does not relabel them as computations performed here.
+The mask33 file's1252 simplices include exploratory cells: only its
+selected pattern1867 pair (700 simplices) contributes to its stated total.
+Neither the screen nor this note claims optimality or a classification of
+all $C<A_{33}$ improvements. The explicit Boolean predicates above supply
+a finite, testable route to the omitted gate-failure classification.

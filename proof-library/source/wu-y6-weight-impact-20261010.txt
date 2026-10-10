@@ -1,0 +1,226 @@
+Wu's Y6 correction: pointwise weight, ordinary sieve, and current h insertion
+10 October 2026. New scoped mathematical audit. No frozen file was changed.
+
+1. Conclusions and independence
+
+The weight-domain issue concerns the conjunction of RECTANGULAR Y6 and CONTRACTED Y11
+printed in Wu 2008, Lemma 2.2. The current project instead proves a weight
+with rectangular Y6 and FULL Y11. These are different weights. The known
+correction therefore does not, by itself, invalidate either the historical
+manuscript's full-Y11 weight or the currently selected full-Y11 weight.
+
+There is a precise repair, stronger than just a numerical observation:
+if R6 denotes the positive pair terms removed by the product cut, and R11
+the negative four-prefix terms removed by contracting Y11, then R11<=R6
+pointwise off the already separated squareful exception. Consequently
+W_corrected = W_full - R6 + R11 <= W_full <= 4*1_{Omega(n)<=2}.
+The proof is given below and includes the product-cut boundary.
+
+The claim that ordinary f=0 alone resolves every possible numerical effect
+would be wrong. The true double-sieve lower correction h is not declared
+zero below two in Wu's definition. However, the current project CHOOSES
+zero for its lower h insertion below two and uses a separately licensed
+level V, not Wu's fixed level 1/2. A positive lower contribution in the
+classically deleted strip can therefore be legitimate for the current
+full-Y11 weight. We exhibit an exact point of this kind below.
+
+This review does not reprove prime distribution, the table actions, their
+recurrence, or the complete numerical integrations; it does not restore
+or change any global K,c,b. I participated in the project's earlier
+full-weight and typed-state reviews. This is a new primary-source reading
+and independently written exact diagnostic, not an independent authorship
+claim for those earlier proofs. The checker imports no project code.
+
+2. Primary source and term-by-term correspondence
+
+Source: J. Wu, Chen's double sieve, Goldbach's conjecture
+and the twin prime problem, 2, Acta Arithmetica 131.4 (2008), pp.367--387.
+The archived PDF has SHA256
+52b29a968f5498db76e5d58dfe321dd53126803c3ed394f4eb0f82c64287ed7c.
+The formula on printed p.371 was also checked visually from a rendered page.
+The public bibliographic source and the displayed mathematical definitions
+are the evidence used in this note.
+
+Write a=kappa1, h=kappa2, d=1/2-3a and B=1/2-2a for Wu's comparison.
+For a squarefree n coprime to N, his S(A_b;P(N),y) contributes exactly
+the project's Q_b(y;n)=1_{b|n}1_{P^-(n/b)>=y}, away from endpoint primes.
+The exclusions P(Np1) in Y7--Y9 also agree on this squarefree subset:
+the selected p1 cannot occur in the remaining quotient. Square powers
+and the finitely many P|N terms are separate negligible exceptions, not
+a license to ignore an open region of squarefree exponents.
+
+ term   Wu Lemma 2.2                         current direct weight
+ Y1,2   cutoffs N^a,N^h                      same
+ Y3     a<=log_N p<1/3                       same
+ Y4     a<=log_N p<d                         same, with independently chosen d
+ Y5     a<=p1 exponent<p2 exponent<h         same
+ Y6     a<=p1 exponent<h<=p2 exponent<d      same rectangle
+ Y7     d<=p1<p2<(N/p1)^(1/2); cutoff p2    same
+ Y8     a<=p1<1/3<=p2<(N/p1)^(1/2); p2     same
+ Y9     h<=p1<d<=p2<(N/p1)^(1/2); sqrtcut   same full tuple multiplicity
+ Y10    four increasing exponents in [a,h)  same; quotient cutoff p2
+ Y11    a<=p1<p2<p3<h<=p4, p3p4<N^B         current p4<N^d, without p3p4 cut
+
+Here the exponent notation in the middle rows is abbreviated; all actual
+definitions retain coprimality and the original quotient cutoff. Wu's
+contracted upper bound implies p4<N^d since p3>=N^a. It is genuinely a
+subdomain of the full fourth-slot range. The signs of both Y5 and Y6
+are POSITIVE, and Y10,Y11 are NEGATIVE. All weights are divided by four
+when transferred to the Chen counting constant.
+
+The project uses the full range explicitly in main lines 488--616 and
+own-chen-table-insertion-chain-20261009.tex lines 42--118. Its elementary
+case proof is not an invocation of the printed contraction in Wu.
+
+3. A general pointwise repair and an exact negative control
+
+Suppose n is squarefree and N^a-rough. Write its factors q1<q2<... .
+If an ordered tuple (p1,p2,p3,p4) contributes to full Y11, then p1=q1
+and p2=q2: otherwise a missing factor less than p2 survives in n/b,
+contradicting P^-(n/b)>=p2. Its last two slots satisfy
+N^a<=p3<N^h<=p4<N^d, so (p3,p4) contributes to the rectangular Y6.
+For a tuple removed by the contraction, p3p4>=N^B, and that pair is
+removed by the corrected Y6 domain. The map is injective because q1,q2
+are forced by n. All other factors remain N^a-rough. This proves R11<=R6.
+Equality at p3p4=N^B lies in BOTH removed sets (the retained condition
+is strict). For the unit or fewer than four factors R11=0. Squareful
+integers are handled by the existing O_a(N^(1-a)) exception separately.
+
+Deleting positive Y6 alone also preserves any already valid full-Y11
+inequality, but that elementary observation does not justify contracting
+a negative Y11. The injection above is exactly what is needed for the
+simultaneous change.
+
+At Wu's printed parameters a=100/1327, h=25/206, d=1/2-3a, use the
+strict exponent pattern (.08,.09,.12,.27,.40), total .96>1-a.
+The independently enumerated full vector is
+ (Y1,...,Y11)=(1,0,4,4,3,3,0,0,0,0,1).
+The full weight is 0. Since .12+.27=.39>B, the printed contraction
+deletes its sole Y11 and leaves weight 1 on Omega=5.
+The corrected Y6 deletes all three pairs (.08,.27), (.09,.27), (.12,.27),
+since even .35>B, leaving weight -2. All Y7,Y8,Y9 are zero after their ACTUAL residual cutoffs,
+not merely because of a count shortcut. The checker enumerates them.
+The pattern is above the customary n<N^(1-a) negligible range and
+does not use a square or any threshold equality.
+
+This is a failure of the pointwise extension of the printed weight,
+not a constructed asymptotic counterexample to the aggregate theorem
+over n=N-P. We have not proved primality of such a shifted P or a
+positive-density family of counterexamples. Wu's printed proof p.373
+shrinks a negative triple-sum range before concluding -Y10-Y11; that
+step needs the corresponding positive loss. The repaired inequality
+can instead be deduced from the full-range case proof and the injection.
+
+The checker also verifies the historical project tuple
+ (a,h,d)=(100/1149,50/309,1/2-3a)
+and the current tuple (417/5000,19/125,59/250), using
+(.09,.10,.15,.23,.42). Both full weights are 0 and the hypothetical
+contracted weight is 1. Thus the project's prior decision to retain
+full Y11 is material for both tuples. No new alteration is required
+to their positive rectangular Y6 just to repair Wu's contraction.
+
+4. Ordinary positivity and what it does NOT prove about h
+
+At the classical endpoint nu=1/2, s0=(1/2-t-u)/a. The corrected
+triangle t+u<B is exactly s0>2. The ordinary normalized numerator
+a_lin(s)=s*f(s)/(2e^gamma) is zero for s<=2, as explicitly printed
+on pp.374 and 384. Consequently integrating that ORDINARY function
+over the original rectangle or its corrected triangle gives the same
+ordinary contribution, up to a null boundary. No negative continuation
+of log(s-1) should be used as an identity for a_lin below two.
+
+The statement h(s)=0 below two does not follow. Wu defines h on [1,10],
+states h>=0 and increasing on [1,2] (p.375), and gives h(2)>0 in Table 2
+(p.376). The finite definitions and a(s)+h(s) require their own domains.
+Thus an arbitrary import of h to the discarded strip would need removal
+or a different correct pointwise weight. The upper correction H has the
+opposite sign and belongs to different count occurrences; it does not
+repair a mistaken positive Y6 contribution.
+
+For this specific printed 0.899 computation, p.386 bounds G6 by displayed
+integrals STARTING at sieve variable u=2. These displayed positive terms
+lie within the retained triangle. Hence the Y6 domain correction ALONE
+does not prove that Wu's displayed final numerical lower bound decreases.
+We have not revalidated those tables or integrations, or the complete
+published proof; this is a limited observation about the shown domains.
+
+There is a separate printed-use mismatch worth retaining: Proposition 4.3
+on p.378 requires phi4<1/4, whereas p.382 assigns both Y6(a) and (b)
+to that proposition with large-prime endpoints 1/2-2h and 1/2-3a,
+both greater than 1/4 at the printed parameters. The U_k definition's
+largest-slot square condition also requires that endpoint below 1/4
+at level 1/2. No missing extension is supplied in the passages read.
+This is an incompletely audited, separate applicability question, not
+part of the Y6 correction or a conclusion that the 0.899 result is false.
+No search for a possible extension is undertaken here. No corrected
+1.9728 constant is supplied or inferred in this review.
+
+5. Actual historical and current project integrals
+
+The historical main L6 (main lines 655--690) is
+ (2e^(-gamma)/a) int_{h<t<d} int_{a<u<h}
+ f((v(t)-t-u)/a) du dt/(tu),
+where t is the LARGER marked prime. It is not the classical 1/2 integral.
+certify_conservative_chen.py explicitly uses zero for the pair lower
+function at s<=2 and log(s-1)/s only above two. Its gate argument uses
+2t<v(t) on t<d<57/224 and, wherever s>2,
+v(t)-t-u>2a>h>u, implying t+2u<v(t).
+Therefore no enhanced analytic theorem is needed on the region assigned
+zero by nonnegativity. The historical manuscript uses full Y11 throughout
+this functional; it does not assume the printed contracted weight.
+
+The current lower-chain L6 retains h248 at
+ V=max(v(t),v(t+u),153/256-3a/8) for t<25/128, and V=v(t) otherwise.
+For the current tuple the extra options never win on L6:
+ h+a>25/128, v(h+a)<v(h), and 153/256-3a/8<v(h).
+Thus V=v(t) throughout D6. The current active boundary is
+ u < v(t)-t-2a, not u<1/2-t-2a.
+At s>=2 the full-square tests hold because 2a>h>=u;
+alpha=(1-t-u)/(V-t-u)>=2 follows from 2V<=1+t+u.
+The largest-slot branch keeps the smaller slot and its ceiling. These
+are the actual typed-family hypotheses, independent of the published
+classical U_k restriction. All claims still require the project's
+separately stated prime-product/distribution input.
+
+For an explicit current point take t=11/50, u=7/50. It lies in D6 and
+in the classically deleted strip. Yet v(t)=897/1600 and
+ s=(v(t)-t-u)/a=2675/1112>2.
+Both full-square margins and alpha-2 are strictly positive. The stored
+h248 cell 70 also has a positive value. Thus a blanket deletion by the
+old classical half-level condition would remove some currently licensed
+positive contribution unnecessarily; its legitimacy comes from full Y11
+AND the new level/gates, not merely from a numerical extrapolation.
+The same point has s>2 for the historical tuple as well.
+
+Conversely t=47/200,u=151/1000 is in the current D6 and has actual s<2.
+At such a point both CHOSEN lower contributions are zero:
+ - certify_extended_prefix.SieveTable.point returns (0,0) at s<=2;
+ - SavedDefects.lookup(...,lower=True) returns zero when its interval
+   begins below two;
+ - certify_sharp_184_baseline.pair_cell skips concave lower chords
+   unless their whole affine argument range starts at s>=2;
+ - the independent sharp-248 replay has its own identical domain guard.
+Boxes crossing s=2 get no h correction. A positive h(2) is permitted on
+the admitted side; the equality boundary is null and is trimmed before
+the endpoint limit. This is a support choice, not a theorem h=0 below two.
+
+The selected current occurrence still uses h248 in L5/L6. Later 312 and
+430 replacements apply to U3/U4, not L6. Starting-tree restorations are
+other occurrences. The inspected source therefore contains no route by
+which a below-two H430 entry silently enters this positive pair term.
+
+6. What has and has not been established
+
+Established here: exact map of the eleven terms; a general pointwise
+repair of the contracted version; exact negative controls and gate
+examples; static source verification of the ordinary/h support guards;
+the distinction between classical and current level boundaries; and
+the extra printed Proposition 4.3 application mismatch.
+
+Not established here: the original aggregate 0.899 theorem or a revised
+1.9728 constant; the external distribution repair; all table actions;
+new global constants; or a fresh numerical recomputation of L6.
+Existing current constants remain conditional on their separate complete
+analytic and numerical inputs. The specific Y6 typo supplies no new
+counterexample to the project's full-Y11 pointwise inequality or its
+explicit below-two guard. No main/state/old certificate was edited.

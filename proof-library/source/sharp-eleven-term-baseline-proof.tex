@@ -1,0 +1,175 @@
+% Independent numerical integration refinement; frozen old artifacts unchanged.
+\subsection{Whole-box integration of the existing eleven-term functional}
+\label{sec:sharp-eleven-term-baseline}
+This note changes neither the Chen weight nor the admissible distribution
+states.  It fixes
+\[
+ a=417/5000,\quad h=19/125,\quad d=59/250,\quad K=67619/10000,
+ \quad \nu_*=249/448,\quad w_*=25/224.
+\]
+The input step functions $H,h_0$ are the saved 184-generation table on the
+200 closed cells $[1+i/50,1+(i+1)/50]$.  At common endpoints their value is
+the smaller adjacent bound.  All its analytic state-admission hypotheses
+are those in \texttt{finite-table-chen-insertion.tex}; the more recent
+table changes its certified constants, not the insertion formulas.
+The present arithmetic is conditional on those primitive distribution,
+positive-product, finite-action and ordinary linear-sieve inputs.
+
+Write $\bar f=f/(2e^\gamma)$, $\bar F=F/(2e^\gamma)$,
+$b=s\bar f$, and $A=s\bar F$.  The ordinary delay equations imply
+\[
+ \bar f'={\bar F(s-1)-\bar f(s)\over s}\ge0,
+ \qquad \bar F'={\bar f(s-1)-\bar F(s)\over s}\le0.
+\]
+Consequently $\bar f''=(\bar F'(s-1)-2\bar f')/s\le0$ on $s>2$
+and $\bar F''=(\bar f'(s-1)-2\bar F')/s\ge0$ on $s>1$,
+piecewise with the usual continuous limiting interpretation.  The
+concavity assertion for $\bar f$ is not extended across its zero branch
+$s<2$.  The existing fixed-point ordinary delay enclosure uses
+trapezoids with explicit curvature errors and shape-correct interpolation;
+the new arithmetic reuses that backend, not floating ordinary functions.
+
+\paragraph{Two-prefix lower integrals.}
+For $R=V(t,u)-t-u$, cancel the dependent occurrence of $R$ before bounding:
+\begin{equation}\label{eq:sharp-pair-cancellation}
+ {4b(R/a)\over tuR}={4\over a tu}\bar f(R/a).
+\end{equation}
+Here $V$ is exactly the existing maximum of the admitted caps
+$v(t),v(t+u),153/256-3a/8$ on the enhanced part, and is $v(t)$
+on the old nonenhanced part.  On a rectangle choose one of these caps.
+A tent $\min(\ell_1,\ell_2)$ is replaced by $\ell_i$ only if the
+affine inequality $\ell_i\le\ell_{3-i}$ holds throughout the rectangle.
+Thus a retained affine residual $r=c+\beta t+\delta u$ satisfies
+$r\le R$ everywhere.  If $r_-\ge2a$, concavity and monotonicity give
+\begin{equation}\label{eq:sharp-pair-chord}
+ \int_B\bar f(R/a)d\mu_2\ge
+ { f_-\{r_+M-M_r\}+f_+\{M_r-r_-M\}\over r_+-r_-},
+ \quad d\mu_2={dt\,du\over tu},
+\end{equation}
+where $M=\int_Bd\mu_2$, $M_r=\int_Br,d\mu_2$, and $f_\pm$ are
+proved lower bounds for $\bar f(r_\pm/a)$.  The two coefficients are
+nonnegative.  Each admissible affine candidate and the constant bound
+$M\bar f(R_-/a)$ yields a lower bound; their maximum, not their sum,
+is used for the box.  If $r_-<2a$, that chord is not used.
+
+These moments require only logarithms.  For a rectangle $[t_0,t_1]
+\times[u_0,u_1]$, writing $L_t=\log(t_1/t_0)$ and
+$L_u=\log(u_1/u_0)$, one has
+\[
+ M=L_tL_u,\quad M_t=(t_1-t_0)L_u,\quad M_u=(u_1-u_0)L_t.
+\]
+On the diagonal triangle $l<u<t<v$, instead
+\[
+ M=\tfrac12\log^2(v/l),\quad
+ M_t=v\log(v/l)-(v-l),\quad M_u=(v-l)-l\log(v/l).
+\]
+Thus no unjustified half-rectangle average is used for a nonsymmetric
+affine integrand.  The table contribution is separately bounded below
+by $4h_BM/R_+$, where $h_B$ is the minimum of every closed cell meeting
+the whole actual interval $[R_-/a,R_+/a]$.  It is zero when that interval
+is not wholly in the certified lower-table domain.  The previously
+proved $a\ge25/352$ ensures the required residual $\alpha\ge2$ on the
+enhanced branches; the original full-square and ceiling gates remain.
+
+\paragraph{One-prefix upper integrals.}
+On $R=A_0-B_0t\le3a$, including the cutoff-clamped region, $A=1$.
+The ordinary cost is integrated exactly as
+\[
+ 4\int{dt\over tR}={4\over A_0}\log{t\over A_0-B_0t}.
+\]
+For $R>3a$ the integrand is $4\bar F(R/a)/(at)$.  A convex endpoint
+chord is an upper bound and is integrated using $\int dt/t$ and
+$\int (R/a)dt/t$.  The $H$ correction is split exactly at rational
+inverse images of the table knots, including the positive-measure
+clamped region.  The ordinary starting terms $L_1,L_2$ are evaluated
+by the ordinary delay enclosure.  The three older switching costs
+$U_7,U_8,U_9$ use $K=6.7619$ and rigorous one-dimensional enclosures.
+
+\paragraph{A complete ordered cover for the last two costs.}
+The domains remain
+\[
+ \Omega_{10}=\{a<w<z<y<x<h\},\qquad
+ \Omega_{11}=\{a<w<z<y<h<x<d\},\quad
+ d\mu_4={dx\,dy\,dz\,dw\over xyzw}.
+\]
+Uniform bins are assigned in weakly decreasing index order.  Equal
+indices specify the strictly ordered simplex inside that bin.  This
+partitions the full domain except null boundaries; they are neither
+discarded nor counted as whole rectangles.  A block of $m$ equal
+indices in $[l,u]$ has log mass $L^m/m!$, $L=\log(u/l)$.
+If the coordinate $z$ is the $(r+1)$st largest in that block, and $s$
+coordinates of the block follow it, its additional $1/z$ moment is
+\begin{equation}\label{eq:sharp-tied-bin-moment}
+ {1\over l r!s!}\int_0^L e^{-t}(L-t)^r t^s\,dt,
+ \qquad r+s=m-1.
+\end{equation}
+Expand only this polynomial; every moment is exact in terms of
+$J_j=j![1-(l/u)\sum_{k=0}^jL^k/k!]$.  Directed arithmetic accounts
+for its alternating expansion.  All other blocks contribute their
+ordinary log mass.
+
+The switching kernel is the actual positive-product kernel
+$K\omega((1-S)/z)/z$, $S=x+y+z+w$.  Its argument is at least
+$(1-d-3h)/h>2$ throughout these domains; $S\le d+3h<1$ excludes
+the unit residual on the main product scale.  No moving-$\alpha$
+argument is replaced by $2$ in this step.  For a rigorous upper
+enclosure of $\omega$, set $U(s)=s\omega(s)$, $U=1$ on $[1,2]$,
+$U'=\omega(s-1)$ above two.  Positivity and the delay equation give
+$0\le\omega\le1$, $|\omega'|\le1/s$ above two, and piecewise
+$|\omega''|\le2$ on $[1,\infty)$.  The numerical grid contains all
+integer breaks.  Trapezoids have integral error at most $\Delta^3/6$;
+inside a cell, $\omega$ is at most the larger upper endpoint bound
+plus $\Delta^2/4$.  Taking the maximum over all met cells, and the
+minimum with the already proved $C=70893/125000$, gives a uniform
+box upper bound $\omega_B$.
+
+The ordinary alternative uses one of the fifteen selected-subset
+branches or the existing $W$ branch, with every full-square, remaining-
+selected-square and $W$ gate checked as an exact affine whole-box
+inequality.  These are precisely the tests in
+\texttt{four-prefix-safe-minimum.tex}.  The parameter bounds give
+$s=\max(2,R/w)\le1249/417<3$ and $\alpha\ge2$, so its cost is
+$4(1-H(s))/R$.  On a strict rectangle, $1/R=\max_j1/r_j$ is
+separately convex; its multilinear vertex interpolation is integrated
+with the positive affine-basis moments against $d\mu_4$.  On a tied-bin
+simplex the deliberately coarser bound $4(1-H_B)/R_-$ times its exact
+log mass suffices.  Repeated exponent bins can be subdivided before
+constructing actual prime atoms; the equality faces have zero mass.
+Pointwise cap endpoints and table discontinuities are realized by a
+fixed finite refinement with margins before taking $N\to\infty$,
+as in the existing endpoint-integral interface.  No individual-prefix
+distribution estimate is inferred from its averaged version.
+
+For each ordered box let $B_B$ be the exact integral of $KC/z$,
+$O_B$ an ordinary upper bound when its gates pass, and
+$W_B=K\omega_B\int_Bd\mu_4/z$.  The saving is bounded below by
+\begin{equation}\label{eq:sharp-four-min-saving}
+ \max\{0,(B_B)_--(O_B)_+,(B_B)_--(W_B)_+\}.
+\end{equation}
+The two savings are not added.  Ineligible ordinary candidates leave
+the switched option available.  The whole uniform $KC/z$ integrals
+also have exact log-moment formulas, using \eqref{eq:sharp-tied-bin-moment}.
+
+\paragraph{Replacement arithmetic and scope.}
+The first new baseline keeps the old $U_{10},U_{11}$ reference
+$K=6.7672$ and its single old four-prefix patch.  The second certificate
+replaces that entire effective cost by the new uniform cost at $6.7619$
+minus the saving \eqref{eq:sharp-four-min-saving}.  It never adds a new
+patch to an old one.  With the frozen 184 table, $128$ pair divisions,
+$4096$ ordinary mesh and $32$ four-prime bins, the exact lower bound is
+\begin{equation}\label{eq:sharp-184-baseline-value}
+ c_{184}\ge
+ {9369578785614097433419615\over4835703278458516698824704}
+ >1.93758347.
+\end{equation}
+It replaces the old complete baseline $1.9304185967\ldots$.
+No third-, fourth- or fifth-prefix lower-start improvement is included.
+A separate new starting policy must still change the ordinary starting
+term and remove its corresponding $H$ range exactly once.  In particular
+an expanded $H$ bank requires its own range-removal integral; an old
+smaller removal cannot be reused without a proof of domination.
+The second implementation verifies every stored new four-prime floor
+using 112-bit arithmetic, rational logarithms and a finer independently
+built Buchstab table.  That is an alternate implementation, not an
+independent second-person proof of the analytic inputs or of the entire
+baseline.  The separate reviewer records its own scope.

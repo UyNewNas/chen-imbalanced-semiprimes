@@ -1,0 +1,236 @@
+% A new local action. Every preceding source and numerical artifact is unchanged.
+\subsection{Restoring a fourth node before its own even cube test}
+\label{sec:lower-fourth-own-cube-restoration}
+
+The previous fourth refinement first tested
+$S_3+3t_4<\lambda_3$, then changed the cap only at admitted nodes.
+That is a restriction of that particular action, not a prohibition
+imposed by the lower parity identity. There is a different legal
+action: at a selected fourth frontier prefix, choose its licensed
+cap before testing that fourth node's own cube. This note proves the
+action and one exact positive rational box. It does not recalculate
+the global functional or append a numerical gain to a frozen certificate.
+
+Write $\nu=249/448$, $h=19/125$, $\Lambda=153/256$ and
+$p_j=N^{t_j}$, $t_1>\cdots>t_4>0$. Keep the actual third ancestor,
+its branch and its frozen cap $\lambda_3$ unchanged. The earlier
+history, including $t_1+3t_2<\nu$ (or its buffered version), must
+still hold. Select finitely many fourth boxes that satisfy
+\[
+ S_3+3t_4\ge\lambda_3
+\]
+throughout, so these nodes are old first exits. Choose a fixed new
+level $\lambda_4$ on each selected box such that, with strict margins,
+\begin{equation}\label{eq:own-cube-new-tests}
+ \lambda_4>\lambda_3,\qquad S_3+3t_4<\lambda_4,
+ \qquad \max_{j\le4}(S_{j-1}+2t_j)<\lambda_4,
+ \qquad G_I<\lambda_4<v(b_I).
+\end{equation}
+Here $b_I=\sum_{i\in I}t_i$ and
+\[
+ G_I=\max_{j\notin I}\left(
+ b_I+\sum_{\substack{i<j\\i\notin I}}t_i+2t_j\right),
+ \qquad
+ v(b)=\min\{(1+b)/2,(32-34b)/39,57/64-3b/2\}.
+\]
+The inequalities are new whole-box support tests; one cannot claim
+them merely because the third ancestor was licensed at its old level.
+The new decision depends only on the first four primes and fixed
+policy data, not on a future prime or a progression error.
+
+\paragraph{Pointwise lower parity, not monotonicity of signed weights.}
+At a restored fourth prefix $P_4$ retain its coefficient $+1$ and
+attach the ordinary residual lower support
+\[
+ \mathcal D^-(R),\qquad R=N^{\lambda_4}/P_4,
+ \qquad \text{residual primes }q<p_4.
+\]
+The own-cube test gives $R>p_4^2$. Consequently the residual first
+square $q_1^2<R$ never fails. All later first exclusions have even
+residual rank, hence even full rank $6,8,\ldots$. At unselected
+fourth frontier nodes retain the old rule. The resulting tree is
+prefix closed and all its first exits still have even full rank.
+
+For any finite set of primes $Q$ and $0\le q(p)\le1$, partition
+excluded squarefree divisors by their unique first excluded prefix.
+Since each such prefix has even rank, the exact identity is
+\[
+ \sum_{d\mid Q}\mu(d){\bf1}_{d\in\mathcal T}q(d)
+ =\prod_{p\mid Q}(1-q(p))
+  -\sum_{e\text{ first exit}}q(e)
+                \prod_{p< p_{\rm last}(e),\ p\mid Q}(1-q(p)).
+\]
+Take $q(p)={\bf1}_{p\mid n}$. This proves a pointwise lower weight.
+It does not say that the newly added signed subtree is nonnegative
+at every integer, or that finite signed weights increase pointwise.
+The exact raw-density difference is instead
+\begin{equation}\label{eq:own-cube-exact-difference}
+ V^-_{\rm restored}-V^-_{\rm old}
+ =\sum_{P_4\text{ selected old first exit}}
+          g_N(P_4)V_N^-(N^{\lambda_4}/P_4,p_4).
+\end{equation}
+Old contribution at this prefix was exactly zero: there is no old
+residual lower density to subtract. Inserting a fictitious old
+subtree and subtracting two one-sided estimates is unnecessary.
+
+\paragraph{Actual support and the compiler.}
+The first four full squares are checked in
+\eqref{eq:own-cube-new-tests}. Residual lower well support gives
+every later full square at level $\lambda_4$. For the selected
+branch, old unselected slots are controlled by $G_I$. Every appended
+prime is smaller than $p_4$; after all selected old slots have
+occurred, a selected-remaining square is exactly its full square.
+Thus the entire newly retained descendant vector satisfies the same
+selected-product factorization gates, not merely the prefix product.
+
+The signed lower compiler extends to this finite policy by its
+existing proof, rather than by treating the old post-admission
+definition as a theorem about every possible tree. The rough-projection
+identity depends only on even first exits. The finite box rounding
+uses inner tests on positive even coefficients and outer tests on
+negative odd coefficients; these give coefficients below the raw
+lower coefficients. Small-prime beta choices are lower for positive
+and upper for negative coefficients. The added decision contributes
+only finitely many affine walls at a fixed positive cutoff.
+All restored atoms have at least four marked slots, so they use the
+full/selected-square distribution interface just checked, not a new
+unverified low-rank shortcut. The fixed-label group partitions,
+factorials and moving-residue estimate are unchanged.
+As usual choose the finite policy and all buffers first, then the
+small-prime and local-scale errors, then take $N\to\infty$.
+
+The ordinary residual density equality, uniformly on compact $s>2$,
+turns \eqref{eq:own-cube-exact-difference} into the lower-start gain
+\begin{equation}\label{eq:own-cube-gain}
+ \Delta_{4,\mathrm{restore}}=
+ 4\int_{\mathcal B}
+ \frac{\bar f((\lambda_4-S_4)/t_4)}
+ {t_1t_2t_3t_4^2}\,dt_1dt_2dt_3dt_4,
+ \qquad \bar f=f/(2e^\gamma).
+\end{equation}
+The factor four is the same normalization as in the old fourth
+increment. An $L_2$ starting improvement carries Chen weight $1/4$.
+The present box is above $a=.0834$ and is not an $L_1$ box.
+
+\paragraph{The whole restored domain stays below the first delay break.}
+There is a useful general simplification, not just for the box below.
+Suppose $t_1\le h$, $t_1+3t_2<\nu$, $t_3<t_2$, and
+$\nu\le C_3\le M\le\Lambda$. On the newly restored domain,
+\[
+ C_3\le S_3+3r<M,\qquad r=t_4,
+\]
+one has
+\[
+ S_3<\frac{2\nu+h}{3},\qquad
+ r>\frac{\nu-h}{9}=\frac{22613}{504000},
+\]
+and therefore
+\[
+ 0<s_{\rm new}-2
+ =\frac{M-S_3-3r}{r}
+ \le\frac{\Lambda-\nu}{r}
+ <\frac{9(\Lambda-\nu)}{\nu-h}
+ =\frac{84375}{90452}<1.
+\]
+Thus $2<s_{\rm new}<3$ throughout this domain: the exact elementary
+formula $\bar f(s)=\log(s-1)/s$ applies, with no delay-table backend.
+For a buffered baseline $\nu_\rho=\nu-\rho$, repeat the same proof
+with its actual earlier history and $C_3\ge\nu_\rho$.
+The strict comparison remains valid for
+\[
+ 0<\rho<\frac{10\nu-9\Lambda-h}{10}
+           =\frac{6077}{2240000},
+\]
+since $10\nu-9\Lambda-h=6077/224000>0$.
+
+\paragraph{One exact rational restored box.}
+Let $\mathcal B=\prod_{j=1}^4[l_j,u_j]$, with
+\[
+ (l_1,l_2,l_3,l_4)=\frac1{10000}(1399,1299,999,679),
+ \quad
+ (u_1,u_2,u_3,u_4)=\frac1{10000}(1401,1301,1001,681).
+\]
+It is strictly ordered and $u_1<h$. Its old second-cube margin is
+\[
+ \nu-u_1-3u_2=\frac{7113}{280000}>0.
+\]
+An upper bound for the actual third envelope is obtained by including
+all seven nonempty selected-$v$ expressions, the three $W$ upper
+planes $\Lambda-3t_j/8$, and inheritance $\nu$. Direct rational
+range calculation shows their maximum on this box is
+\[
+ C_{3,+}=\frac{1+u_1}{2}=\frac{11401}{20000}.
+\]
+The leading single branch attains $C_3=(1+t_1)/2$ here; the
+unconditional upper bound suffices for what follows. Every existing
+buffered third cap lies below $C_{3,+}$. Meanwhile
+\[
+ S_{3,-}+3l_4=\frac{2867}{5000},\qquad
+ S_{3,-}+3l_4-C_{3,+}=\frac{67}{20000}>0.
+\]
+Hence the entire box was rejected even by the ideal old $C_3$, and
+also by any of its actual buffered ancestors. Those ancestor caps
+are kept unchanged; there is no hidden cost of replacing them by a
+smaller fixed cap.
+
+Choose $I=\{2,4\}$ and $\lambda_4=593/1000$. On the whole box,
+\[
+ \inf v(t_2+t_4)=\frac{23733}{40000}>\lambda_4,
+ \quad \max G_I=\frac{1077}{2000}<\lambda_4,
+ \quad \max_{j\le4}(S_{j-1}+2t_j)=\frac{1013}{2000}<\lambda_4,
+\]
+and
+\[
+ \lambda_4-(S_{3,+}+3u_4)=\frac{23}{1250}>0.
+\]
+All branch, history and support inequalities have explicit fixed
+slack. Its residual argument lies in
+\[
+ \frac{1546}{681}\le s\le\frac{222}{97},
+\]
+which is a compact subinterval of $(2,3)$. For $q\ge1$,
+$\log q\ge2(q-1)/(q+1)$, because the derivative of the difference
+is $(q-1)^2/[q(q+1)^2]\ge0$. Consequently
+\[
+ \bar f(s)\ge\frac{184/773}{222/97}=\frac{8924}{85803}.
+\]
+Using the exact volume $(1/5000)^4$ and the upper denominator
+$u_1u_2u_3u_4^2$ in \eqref{eq:own-cube-gain} gives
+\[
+ \boxed{\displaystyle
+ \Delta_{4,\mathrm{restore}}\ge
+ \frac{5711360000}{72601602346142052183}
+ >7.86\cdot10^{-11}.}
+\]
+The corresponding local Chen coefficient is at least
+$1427840000/72601602346142052183$ before arbitrarily small finite
+compilation errors. A strictly smaller positive value survives
+those errors. This is a positivity witness, not a claim of a
+material global improvement.
+
+For comparison the originally proposed $I=\{1,4\}$ and
+$\lambda_4=289/500$ are also licensed and give
+$263840000/14807380504178267577$. These are alternatives on the
+same domain: choose the better one, never add them.
+
+\paragraph{Compatibility and present scope.}
+The new box is disjoint from old $E_4$ and hence from the projection
+of every previously counted old $E_5$ node. Preserve all old fourth
+and fifth decisions on their old retained domain; restore only this
+old-exit box and attach its ordinary lower residual, without a new
+fifth upgrade. The raw difference is then exactly
+\eqref{eq:own-cube-exact-difference}. There is no overlap with a
+previous fourth or fifth gain. Any future continuous all-restored
+policy needs the corresponding new admitted-domain approximation;
+the old approximation statement with its fixed $E_4$ must not be
+silently reinterpreted. This local finite box needs no new global
+domain convergence theorem.
+
+The companion standard-library-only Fraction script rechecks every
+rational bound and the entire-domain $s<3$ inequality. It also
+enumerates all $512$ divisibility patterns of a nine-symbol finite
+tree, checks even first exits and both lower pointwise inequalities,
+and exactly checks the raw-density difference. This finite toy is
+a check on, not a substitute for, the general parity proof above.
+No old file, numerical total, main source, research state,
+formalization or publication is changed.

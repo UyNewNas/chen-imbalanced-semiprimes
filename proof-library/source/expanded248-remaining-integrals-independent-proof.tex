@@ -1,0 +1,97 @@
+% Closes the numerical scope left open in expanded33-w2-midpoint-independent-review.
+\subsection{Independent dual-enclosure replay of all expanded W2 integrals}
+\label{sec:expanded248-independent-integral-replay}
+The previously completed independent audit covered all parameter gates,
+affine clipping pieces, positive switched-kernel witnesses and all 64
+simultaneous generations.  The present replay closes its explicitly
+outstanding numerical ordinary and feedback integral checks.  It does
+not re-prove the number-theoretic distribution or typed-state inputs.
+
+\paragraph{A distinct quadrature and derivative implementation.}
+No author interval, logarithm, automatic derivative, quadrature or
+clipping routine is imported.  Arithmetic uses directed integers with
+denominator $2^{112}$.  Logarithms are reduced to $2\operatorname{atanh}z$
+with $0\le z\le1/3$; 64 positive terms are evaluated with outward
+rounding and the exact geometric remainder
+\[
+ 0\le 2\operatorname{atanh}z-
+ 2\sum_{j=0}^{63}\frac{z^{2j+1}}{2j+1}
+ \le\frac{2z^{129}}{129(1-z^2)}.
+\]
+Powers of two are accounted for with the corresponding outward
+enclosure of $\log2$, including reversal of endpoints for a negative
+integer multiple.  All denominators and logarithm arguments are
+checked positive.
+
+Every smooth integrand needed here has the form $L(u)T(u)$, where
+\[
+ L(u)=\sum_i c_i\log(A_i+B_i u),\qquad c_i\in\mathbb Z,
+ \quad T(u)=\frac1u\quad\hbox{or}\quad
+ T(u)=\frac1{u(1-u)}=\frac1u+\frac1{1-u}.
+\]
+The intervals lie inside the positivity domain of every affine factor.
+For $1\le k\le4$ the independent implementation uses explicitly
+\[
+ L^{(k)}(u)=(-1)^{k-1}(k-1)!
+ \sum_i c_i\left(\frac{B_i}{A_i+B_i u}\right)^k,
+\]
+and
+\[
+ T^{(k)}(u)=\frac{(-1)^k k!}{u^{k+1}}
+ \quad\hbox{or}\quad
+ \frac{(-1)^k k!}{u^{k+1}}+\frac{k!}{(1-u)^{k+1}}.
+\]
+Leibniz's formula $ (LT)^{(4)}=\sum_{k=0}^4
+\binom4kL^{(k)}T^{(4-k)}$ supplies an interval enclosure on each
+whole panel.  This is not a reimplementation of the author's second-
+derivative jet arithmetic and does not differentiate an interpolant.
+
+For a panel $[x,y]$ of width $d$ the signed Simpson remainder is
+\begin{equation}\label{eq:expanded248-simpson-remainder}
+ \int_x^y f(u)\,du\in
+ \frac d6\{f(x)+4f((x+y)/2)+f(y)\}
+ -\frac{d^5}{2880}[\inf_{[x,y]}f^{(4)},\sup_{[x,y]}f^{(4)}].
+\end{equation}
+This follows from the constant-sign fourth-order Simpson error kernel;
+all functions in use are smooth on each closed clipped panel.  The
+minus sign and $2880$ correspond to a panel with two half-steps.
+Every arithmetic operation in \eqref{eq:expanded248-simpson-remainder}
+rounds outward.
+
+\paragraph{The quantities independently reconstructed.}
+For each of the 33 rational parameter tuples, the program reconstructs
+all six ordinary component intervals, all thirteen switched logarithmic
+mass formulas and the signed coarse action baseline, including its
+single division by five.  It separately reconstructs the exact
+singleton feedback logarithms.  For each pair feedback cell it rebuilds
+every affine crossing and uses the exact $v$-antiderivative
+\[
+ \frac1{u(1-u)}\log
+ \frac{v_1(u)(1-u-v_0(u))}{v_0(u)(1-u-v_1(u))}.
+\]
+Each of the four factors is affine in $u$.  The inverse images use
+$s_0(1-u-v)$ for terms 5 and 6 and $(1-u-v)/u$ for terms 7 and 8.
+Only after integrating a known nonnegative pair measure is a negative
+interval endpoint replaced by zero.  Shared cell boundaries have zero
+two-dimensional measure, as already established in the geometry audit.
+
+The audit requires both inequalities, for every component or weight:
+\[
+ \text{author lower}\le\text{independent lower}
+ \le\text{exact integral}\le\text{independent upper}
+ \le\text{author upper}.
+\]
+It does not merely compare final action sums, numerical midpoints, or
+rounded decimal values.  If a chosen panel count failed to establish
+this containment, the independent quadrature would refine that item.
+The saved witness records the panel count and both 112-bit endpoints
+for every successful value.  The author files remain unchanged.
+
+Combined with the existing independent kernel-witness and simultaneous-
+recurrence checks, this establishes the numerical validity of all saved
+expanded action lower baselines and nonnegative feedback lower weights.
+Its conclusion is a finite arithmetic audit of the 248 table.  Analytic
+state admission, stable-prefix distribution, moving residue, positive-
+product switching and the original finite W1/W2 identities remain the
+previously specified analytic premises, rather than consequences of
+this numerical replay.

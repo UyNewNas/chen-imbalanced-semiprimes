@@ -1,0 +1,36 @@
+{
+  "status": "PASS_COMPLETE_INDEPENDENT_ORDERED_SUBDIVISION_REPLAY_USE_CONSERVATIVE_GAIN",
+  "all_parents": 40000,
+  "all_children": 516779,
+  "improved_parents": 40000,
+  "independent_bits": 112,
+  "omega_mesh": 16384,
+  "author_numerical_imports": false,
+  "child_floor_shortfalls": 0,
+  "largest_shortfall_Q112": "0",
+  "all_partitions_and_whole_parent_maxima_checked": true,
+  "extra_saving_lower": "106520738437439293219/151115727451828646838272",
+  "coefficient_gain_lower": "106520738437439293219/604462909807314587353088",
+  "new_total_saving_lower": "10124501061931992870945/151115727451828646838272",
+  "author_coefficient_gain": "106520738437439293219/604462909807314587353088",
+  "display_only_c_gain": 0.00017622377934056375,
+  "scope": [
+    "Every retained child recomputed independently, including tied-bin ordered simplex moments and all affine gates.",
+    "Each full ordered parent is partitioned canonically; only its max replacement is used.",
+    "Every child is clipped to the smaller author/independent lower bound before recombination.",
+    "The prior independently covered n48 parent floors and original analytic inputs are retained.",
+    "This gain replaces the previous parent bounds, and is not added to a full n96 alternative or overlapping pilot."
+  ],
+  "bindings_sha256": {
+    "independent_four_min_subdivision_replay_20261009.py": "54400f309c01013fe6eda17f3e1cd7d3dc3d659e672acafe3cf0611bbca8128d",
+    "independent_sharp_248_four_min_replay.py": "fe4e8ef657759e295312ebaf57a5187bb56d420e8129a6aa69ff11a322dce660",
+    "four-min-priority40000-20261009.json": "4bf8ffbc5c9dad96e0c5ada265f8a2ad1275f8638e6fd09b668172ce3912f0db",
+    "four-min-priority40000-20261009.witness.json.gz": "feed08120834005b73501be9947de7fec63a1da9a7b34b2c75da703e09520530",
+    "sharp-248-four-min-48.json": "3ab15ce29c820a861269682f51a004c4d9464aa3a4c861d0db71e95aaf78a4ff",
+    "sharp-248-four-min-48.witness.json": "4a7e02a9179da1016a69472ee1f439dc3caf9d06bd45f9e4d1a7e22162c0900d",
+    "independent-sharp-248-four-min48-replay-20261008.json": "7b23f0f535f346024133c7e7010700e8096c4b7d40dc69549351b105f5b0f997",
+    "expanded-w2-midpoint-table248-v1.json": "a91c371b8c69398619ebee8b17598c163fbf8b6267fa0470ed6930e2097a98ed",
+    "four-min-priority-subdivision-proof-20261009.tex": "3355a60e4a5a4d391cfc48a70932767488c6a304b274daf0210e3b3b9c367d8c"
+  },
+  "seconds": 269.5788725001039
+}

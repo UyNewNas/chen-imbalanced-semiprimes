@@ -1,0 +1,141 @@
+% A new disjoint contribution to the selected M800 ideal fourth integral.
+\subsection{A finite certificate for the unused fourth-history edge}
+
+This computation implements the proved clipped historical-band method
+on the actual mesh-$800$ outer history leaves, at $w=19/125$. The
+chosen numerical fourth integral is the independently reconstructed
+mesh-$800$ value, not an overlapping mesh-$400$ value. The old ordinary
+compiler, ideal $C_3$, all-mask $C_4$, and common finite causal
+approximation remain unchanged.
+
+For each actual leaf $B=\prod_{j=1}^3[l_j,u_j]$, reconstruct exactly
+the same constant bounds $L_0\le C_3\le U$ used by the old fourth
+core and set $q_0=(L_0-\sum u_j)/3$. The old core has
+$r<\min(l_3,q_0)$; its unique-lowest-bin ordering strip has
+$r\le q_0$. In particular, when the new construction is nonempty,
+$q_0<l_3$ and that leaf's old ordering strip is empty. Every new
+interval starts at or above this actual $q_0$ and ends at or below
+$\min_j l_j$. It is therefore disjoint from both old contributions.
+No coarser ancestor's threshold is substituted.
+
+The first minorant is the constant $L_0$. For the second, select a
+branch $\min_j L_j(t)$ of the established symmetric third-cap
+representation by a rational centre value. Choose one of its affine
+planes $A$, and put
+\[
+ \kappa=\max\{0,\max_j\max_{t\in B}(A(t)-L_j(t))\},
+ \qquad P=A-\kappa.
+\]
+The code asserts $P\le L_j$ throughout the full unsorted box for
+every plane of that branch. Thus $P\le C_3$. Choosing the centre
+only chooses a candidate; validity comes from these whole-box
+inequalities. In particular, an active plane of a minimum is never
+used directly as a minorant without this check and shift.
+
+Let $\mathcal P$ be these one or two minorants and define
+\[
+ R=\min\left\{\min_j l_j,
+       \max_{P\in\mathcal P}\frac13\max_{t\in B}(P(t)-S(t))\right\}.
+\]
+If $R\le q_0$ the leaf contributes nothing. Otherwise divide
+$[q_0,R]$ into four equal rational intervals. On each one, denoted
+$[r_0,r_1]$, test every mask containing the fourth coordinate.
+For its selected old slots compute $b_-\le b(t)\le b_+$ and use
+the candidate constant
+\[
+ L=\min\{(1+b_-+r_0)/2,57/64-3(b_++r_1)/2\}-2^{-40}.
+\]
+Retain it only if $L>U$ and every selected-remaining gate on the
+entire unsorted box and entire interval is strictly below $L$.
+All possible orders of old unselected slots are included on repeated
+bins. Among eligible candidates retain one with largest $L$.
+The endpoint buffer ensures that $L$ is strictly below the candidate
+endpoint everywhere; other branch and history margins are treated
+by the existing finite approximation.
+
+For each $P\in\mathcal P$ the proved exact halfspace formula gives
+\[
+ V_P=\operatorname{Vol}\{(t,r)\in B\times[r_0,r_1]:
+                          P(t)-S(t)-3r>0\}.
+\]
+Choose the larger volume, together with its actual minorant. These
+alternative clipped sets can overlap and their volumes are not
+added. The constant candidate $L$ is valid on the whole box and
+interval independently of this choice, so the selected volume can
+be combined with its common gap bound.
+
+\paragraph{Outward gap calculation using the exact initial formula.}
+Put $S_-=\sum l_j$ and
+\[
+ s_U=(U-S_--r_0)/r_0,\qquad s_L=(L-S_--r_0)/r_0.
+\]
+A positive clipped volume implies $s_U>2$. The common-corner
+argument applies along the smaller rectangle leading from this
+corner to each point of the clipped set, on which the constant-$U$
+argument stays above two. Thus the actual fourth gap is at least
+$\bar f(s_L)-\bar f(s_U)$ on that set, without requiring the
+entire uncut band to have old argument above two.
+
+Every actual leaf has total width at most $3/800$ and
+$S_+\le3w$. Since $r_0\ge q_0\ge(\nu-S_+)/3$ and $L\le\Lambda$,
+\[
+ 2<s_U<s_L\le
+ \frac{3(\Lambda-3w+3/800)}{\nu-3w}-1
+ =\frac{2791}{828}<4,
+ \qquad \Lambda=153/256,\quad\nu=249/448.
+\]
+The inequality follows by maximizing
+$3(\Lambda-S_++d)/(\nu-S_+)-1$ over $d\le3/800$ and
+$S_+\le3w$; it is increasing in both variables. The exact initial
+formula $\bar f(s)=\log(s-1)/s$ therefore applies to every counted
+argument. Positive range-reduced atanh sums with their rational
+tail bounds and outward integer divisions enclose both logarithms.
+The counted gap floor is
+$g=\lfloor Q(\bar f_{\rm lower}(s_L)-\bar f_{\rm upper}(s_U))\rfloor_+$,
+with $Q=2^{112}$. In implementation both function bounds are already
+in integer $Q$ units before this subtraction.
+
+If $m_B$ is the product of factorials of repeated outer-bin
+multiplicities, the recorded integer contribution is
+\[
+ \left\lfloor
+ \frac{4gV_P}{m_B\,u_1u_2u_3r_1^2}
+ \right\rfloor.
+\]
+Its value divided by $Q$ is a lower bound. The denominator uses
+whole-band upper coordinates; the clipped volume is ordinary
+Cartesian volume, not a product of logarithmic masses. Factorial
+division is valid by the full-box minorant and gate checks and the
+symmetry of the actual residual target. It is not an assertion that
+the nonsymmetric clipped set has equal volume in all sorting sectors.
+
+\paragraph{Cover, reproducibility, and addition rules.}
+The pilot visits every $128$th previously positive parent and is an
+overlapping diagnostic. The full run independently enumerates all
+$294115$ actual history leaves of the chosen mesh and depth. It may
+count a historical-edge band even where the earlier core happened
+to have zero recorded lower gain. All old support is still excluded
+by that leaf's $q_0$. An optional floating prefilter only omits leaves;
+all counted minorants, levels, gates, volumes, logarithms and floors
+are exact or outward-rounded.
+
+Each positive witness row records its actual parent index and box,
+band index, actual $q_0$, rational endpoints, mask and constant level,
+minorant branch, shift and coefficients, exact clipped volume,
+gap floor and final floor. Different bands within a leaf have
+disjoint last-coordinate interiors; different leaves are disjoint
+ordered sectors of the original history partition. Only one
+minorant and one mask are counted per band. The full total may be
+added to the selected mesh-$800$ fourth lower bound, while the pilot
+must not also be added. The resulting new fourth total contributes
+one quarter to its original $L_2$ occurrence.
+
+The output is an author numerical certificate until separately
+reconstructed. It proves an integral improvement under the existing
+analytic inputs; it does not independently prove a distribution
+theorem. Before applying the common finite approximation, trim the
+clipped history wall and other equality boundaries by positive
+margins and approximate the remaining compact sets by finitely
+many disjoint boxes. The displayed strict buffers and any strict
+global transfer margin absorb an arbitrarily small loss. All such
+choices are made before $N$ tends to infinity.

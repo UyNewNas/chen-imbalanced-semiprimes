@@ -1,0 +1,182 @@
+Classical spectral inputs sufficient for the restricted packet argument
+9 October 2026. New substitution note; older files are unchanged.
+
+Purpose and input boundary
+
+The restricted Lemma5.1 argument currently names L23 Theorems9.1 and9.5
+as external a-free inputs. Neither of those two full statements is needed
+as a separate input: the actual fixed-level weight and the interval-side
+average follow from the two classical Deshouillers--Iwaniec bounds below.
+The oldform packet, Kuznetsov/completion, and regular-spectrum arguments
+remain separate. This note does not reprove classical spectral theory or
+claim a new exponent, an unrestricted large-residue result, or a prime count.
+
+Primary source used to identify the precise classical statements:
+Alexandru Pascadi, arXiv:2404.04239v3, Theorem A (1.4)--(1.5), Theorem J
+(3.34)--(3.35), and their attribution to Deshouillers--Iwaniec.
+https://arxiv.org/html/2404.04239v3
+The paper's publication is Forum of Mathematics, Pi14 (2026), e8,
+https://doi.org/10.1017/fmp.2026.10025 .
+The saved v3 HTML and TeX-preserving text are the primary text actually read.
+This is a direct application of the stated classical estimates as inputs;
+it is not an independent proof of those estimates from DI's original paper.
+
+Use DI-normalized Fourier coefficients throughout. Put
+  tau_j=2 sqrt(1/4-lambda_j)=2i kappa_j,
+  0<tau_j<=Theta=7/32
+on the exceptional spectrum. Pascadi calls tau_j/2 theta_j, so his weight
+X^(2 theta_j) is exactly X^tau_j here. The letter Theta below is unrelated
+to the sieve carrier level. This factor-of-two convention is essential.
+The Kuznetsov factor 1/cosh(pi*kappa_j)=1/cos(pi*tau_j/2) is positive
+and bounded above and below by absolute constants for tau_j<=7/32.
+It can therefore be inserted or removed in these positive exceptional
+norms without changing any exponent or parameter dependence.
+
+Classical inputs, stated only to the strength used
+
+F. At a cusp a of level q with mu(a)=1/q, arbitrary complex coefficients
+b_n on n~L satisfy
+  sum_exc X^tau_j |sum_(n~L) b_n rho_(j,a)(n)|^2
+    <<_epsilon (qL)^epsilon (1+L/q) sum |b_n|^2
+whenever L>=1/2 and X << max(1,q/L).
+This is a restricted consequence of Pascadi's Theorem A, whose admissible
+range also contains a third term q^2/L^3. That extra term is unused here.
+
+J. At the infinity cusps, using the identity scaling matrices, uniformly
+in omega modulo1,
+  sum_(q~Q) sum_exc X^tau_j |sum_(m~M) e(m omega)rho_(j,infinity)(m)|^2
+    <<_epsilon (QM)^epsilon (Q+M)M
+for M,Q>=1/2 and X << max(M,Q^2/M).
+This is Pascadi's Theorem J. The uniform additive phase is part of the
+stated input; we do not infer it by multiplying an arbitrary coefficient
+into a theorem for the constant sequence. Level multiplicities arising
+from q=rs are paid separately by the elementary divisor bound.
+
+1. The fixed-level substitution at exactly the weight we use
+
+In the packet calculation fix n'' dividing a^infinity and put L=N/n''.
+Only nonempty positive-integer ranges occur, so L>=1/2. At level q=rs,
+(r,s)=1, the cusp1/s has mu(1/s)=1/(rs). Since r~R and s~S, q is between
+RS and4RS. The weight in L23 (10.9) is
+  X_f=1+X0=2+RS/L,  where X0=1+RS/L.
+It satisfies
+  X_f <=3 max(1,q/L).
+Thus input F gives, separately at each level,
+  sum_exc (1+X0)^tau_j |sum_(n~L) b*_(n,r,s)rho_(j,1/s)(n)|^2
+     <<_epsilon (qL)^epsilon (1+L/q) ||b*_(r,s)||_2^2.       (F1)
+The constant3 is harmless in a <<-range; equivalently first apply F at
+max(1,q/L), then use tau_j<=Theta to multiply by at most3^Theta.
+
+The packet coefficient b* includes its retained unit phase and coprime
+restriction. F permits arbitrary complex coefficients, so this changes
+no applicability condition and does not increase its l2 norm. Summing
+(F1) over the existing r,s family gives the n-side factor already used in
+the packet proof, namely x^eta(1+N/(n''RS)) times its summed squared norm,
+for every prescribed eta>0 when the scales are polynomially bounded in x.
+This use is uniform for each fixed such parameter family. No general
+large-X version of L23 Theorem9.1 is assumed in this substitution.
+
+2. Completing a partial interval without changing the level dependence
+
+Let I be any interval of integers contained in (M,2M]. It is fixed across
+levels q. Set P=ceil(4M)+1. Distinct integers in (M,2M] remain distinct
+modulo P. The exact finite Fourier identity is
+  1_I(m)=sum_(k=0..P-1) c_k e(km/P),
+  c_k=P^(-1)sum_(v in I) e(-kv/P),
+for every integer m in (M,2M]. A geometric sum gives
+  |c_0|<=1,
+  |c_k|<=min(|I|/P, 1/(2P ||k/P||))  (k!=0).
+Pairing k and P-k therefore yields
+  sum |c_k| <= 2+log P.                                  (C1)
+The bound is uniform in both endpoints of I, including empty/singleton
+intervals and non-integral M. Changing the harmless absolute constant in
+(C1) covers the bounded M range as well.
+
+For fixed X define the Hilbert norm on the direct sum of the exceptional
+spaces of all q~Q, with coordinate weights X^tau_j. Apply the triangle
+inequality IN THAT NORM to the exact Fourier identity, then input J at
+each omega=k/P. This proves, for every epsilon>0,
+  sum_(q~Q)sum_exc X^tau_j |sum_(m in I)rho_(j,infinity)(m)|^2
+    <<_epsilon (QM)^epsilon (Q+M)M                       (J1)
+at X << X_*=max(M,Q^2/M). Use a smaller epsilon in J to absorb
+(2+log P)^2. Neither the Fourier coefficients nor the interval depends
+on q or on an eigenvector. This is why the norm argument is applicable;
+an arbitrary level-dependent selection of endpoints has not been admitted.
+A common pre-existing additive phase e(mt) is also allowed: apply input J
+at omega=t+k/P. Its uniformity in omega is essential for this assertion.
+
+For an additional scalar bounded-variation weight w(m) on I, partial
+summation in the same Hilbert space multiplies the norm by at most
+||w||_infinity+Var_I(w). In particular Mellin weights m^(it) cost
+O(1+|t|) in norm on (M,2M]. Existing smooth Mellin decay can pay for this
+cost. No pointwise supremum is interchanged with the spectral sum.
+
+3. Recovering the interval-side exceptional factor for arbitrary X
+
+The classical threshold is comparable to the symmetric expression:
+  X_* <= (Q+M)^2/M <=4 X_* .                             (C2)
+For any Y>0, positivity and 0<tau_j<=Theta give
+  Y^tau_j <= max(1,(Y/X_*)^Theta) X_*^tau_j.
+Insert (J1), use (C2), and absorb the fixed factor4^Theta. Thus
+  sum_(q~Q)sum_exc Y^tau_j |sum_(m in I)rho_(j,infinity)(m)|^2
+    <<_epsilon (QM)^epsilon
+       [1+(MY/(Q+M)^2)^Theta](Q+M)M.                     (J2)
+
+L23 Theorem9.5 writes Y=X^2. Formula(J2) consequently gives its required
+interval-side shape without invoking that theorem's recursive proof.
+In the actual packet pairing take Q comparable to RS and
+Y=(1+X/sqrt(X0))^2. The number of representations of a level as rs is at
+most tau(q), so its total extra cost is x^eta, not an extra power of Q.
+All spectral spaces remain positive Hilbert sums; weights depend only on
+the spectral parameter. The oldform packet operations preserve the
+interval vector on this side, as required by the separate packet argument.
+
+The selectable epsilon/divisor/log losses in(F1) and(J2) occupy the
+existing selectable subpower allowance of the restricted Lemma5.1 proof.
+There is no new fixed monomial power and no loss in K, c or the numerical b.
+In particular D0, D1, D2 and the retained (1+|a|/x) term are unchanged.
+
+4. Two literal problems in the printed fixed-level proof, and their scope
+
+This substitution also avoids two lines in L23's proof of Theorem9.1 that
+should not be copied literally. The saved primary text and current HTML
+both contain them; these are observations about the displayed proof,
+not counterexamples to the theorem or to any actual Maass spectrum.
+
+(i) The text takes Y=4pi*mu(a)*N, with a test supported on [Y,2Y], then
+declares the Kloosterman side empty. But m,n~N have sqrt(mn) up to2N;
+the argument can reach2Y when 1/c=mu(a). For example at the infinity cusp,
+c=q, m=n=3N/2 (N even), the argument is3Y/2, inside that support.
+Moving the entire support to [16pi*mu(a)*N,32pi*mu(a)*N] restores a
+strictly empty geometric side. This is a constant-scale issue.
+
+(ii) For 0<Y<1 and tau_j<=Theta_q, the comparison of powers is
+Y^(-tau_j)<=Y^(-Theta_q), whereas the final comparison in its(9.5)
+uses the other direction as a lower bound. A bound for the actual
+transform must retain tau_j. For example
+  X^tau_j <= [1+(XY)^Theta_q]Y^(-tau_j)
+is the correct elementary comparison, proved by distinguishing XY<=1
+and XY>=1. We need not assert a uniform lower bound by Y^(-Theta_q).
+Our use of F requires neither printed step.
+
+This note does not diagnose every normalization or proof line of the
+original paper. It does not rederive the classical Bessel transform,
+Kuznetsov, or level-averaged DI estimates. In particular it does not
+infer failure of their theorems from the two elementary slips above.
+
+5. Resulting dependency substitution
+
+For the actual coprime packet subclass only, replace the two a-free
+L239.1/9.5 invocations by F1/J2. The remaining restricted-packet proof
+still requires: the same packet norm identity with its correct oldform
+normalization; classical regular spectral estimates and completion;
+and the already explicit combinatorial multiplicity/scale analysis.
+The large-residue retained phase and moving-residue dispersion issues
+are separate and are not resolved merely by this substitution.
+
+This reduces the set of newer spectral statements taken as inputs while
+preserving exactly the estimates used downstream. It provides a local
+mathematical derivation relative to the two stated classical inputs,
+with separate scoped independent reviews recorded alongside this note.
+No old source or result,
+main manuscript, formalization project, or GitHub content is modified.

@@ -1,0 +1,303 @@
+% Independent analytic insertion, 2026-10-08. No old source modified.
+\subsection{A compiled finite prefix tree works for every fixed prime cutoff}
+\label{sec:lower-k-uniform-product-interface-review}
+
+The cutoff of the primes in the \emph{outer product sequence} is unrelated
+to the first-prime cutoff in the \emph{modulus tree}. In particular the
+outer cutoff need not exceed $1/12$, $1/50$, or the modulus presieve
+exponent. We supply the finite-compilation argument needed to use the
+new fifth/sixth density in the positive product theorem. This is a
+local derivation from the named distribution theorems, not a numerical
+replay or an independent proof of those external theorems.
+
+\paragraph{The assertion with its quantifiers.}
+Fix $a>0$ and a finite collection of labelled prime-product families,
+with fixed bounded nonnegative label coefficients, at most a fixed
+$k_*$ prime slots, every prime at least $N^a$, total product at most $N$,
+and finitely many fixed monomial and ordering constraints. Let $w_N(m)$
+be the resulting multiplicity and $X_N=\sum_m w_N(m)$. Suppose
+$X_N=(J+o(1))N/\log N$. Let $K_{\rm end}$ be the limiting modulus-density
+coefficient of the legal fourth/fifth/sixth tree, including its stated
+order of replacements. For every \emph{strictly larger} $K>K_{\rm end}$,
+\begin{equation}\label{eq:lower-k-uniform-product-conclusion}
+ \sum_{\substack{m<N\\N-m\ {\rm prime}}}w_N(m)
+ \le (KJ+o(1))\frac{C_NN}{\log^2N}.
+\end{equation}
+The error is uniform in the even integer $N$; its constants may depend
+on $a$, the finite domains, and the chosen finite tree. The conclusion
+also holds for a finite positive sum of such families. It does not
+permit arbitrary bounded arithmetic reweightings, a cutoff tending to
+zero with $N$, or an infinite adaptive tree. The assertion for $a\ge1$
+is trivial here, so in the proof we take $0<a<1$.
+
+\paragraph{Compile the new support before treating any outer primes.}
+Choose a finite buffered version of the endpoint fourth/fifth/sixth
+strategy whose limiting density coefficient is less than $K$ by a fixed
+amount. This is possible because the numerical coefficient is used
+with strict rounding slack, and the endpoint construction is a limit
+of finite buffered trees. Keep all inherited coarse labels, the chosen
+subset, every earlier membership decision, and the frozen level as
+state. All these choices are independent of the actual outer primes
+and of their progression errors. On a new selected branch at rank
+$r=5$ or $6$, require, with a fixed positive margin,
+\[
+ \max\{1/2,W_r,G_I\}<\lambda<\vartheta<v(s_I),
+ \qquad \vartheta<3/5.
+\]
+Here $\lambda$ is the level used in the odd cube tests and
+$\vartheta$ is the slightly larger factorization parameter. The old
+branches keep their own proved buffered factorization data.
+
+At rank five the new test is imposed at that odd rank; the former
+fifth test is replaced. At rank six membership is preserved, and only
+later odd tests change. Thus every first exit remains odd. Write
+$\lambda_{\mathcal T}(d)=\mu(d)\mathbf1_{d\in\mathcal T}$ for the
+full raw support. The odd-first-exit identity gives a pointwise upper
+sieve. This is not a claim that finite signed weights are monotone
+under arbitrary support enlargement.
+
+For a descendant $j>r$, all selected slots are among the first $r$,
+so its remaining-selected square expression is exactly
+$S_{j-1}+2t_j$. At an odd admitted rank the own cube implies this
+square; at an even rank it follows from
+\[
+ S_{j-1}+2t_j\le S_{j-2}+3t_{j-1}.
+\]
+The first $r$ full and selected squares were checked in the displayed
+initial gate. In the rank-six case the old fifth cube also proves that
+the rank-six node was already present. Hence the complete descendant
+has both full well support and every selected-remaining square gate
+at the frozen level. This verifies the actual hypotheses of the
+selected-subproduct factorization lemma; a bound on $s_I$ alone
+would not do so. Subsequent primes are smaller than the prefix's last
+prime, so the old first-three-slot data do not change.
+
+Choose a presieve exponent $\omega>0$ below all active prefix cutoffs,
+and put $w=N^\omega$. Rough support has bounded rank $M=O(1/\omega)$.
+Refine the fixed coarse labels into fine prime intervals. At even
+rough rank retain an outer box test on all required odd cubes; at odd
+rough rank retain an inner box test. All coarse decisions are retained
+exactly. The resulting coefficient $c(d)$ obeys
+$c(d)\ge\lambda_{\mathcal T}(d)$ on squarefree rough $d$.
+Discrepancies occur only near the finitely many frozen cube surfaces.
+The tagged-prime estimate from the variable-prefix construction gives,
+with fine width $\tau$,
+\[
+ V_N(w)\sum_d(c(d)-\lambda_{\mathcal T}(d))g_N(d)
+ \ll V_N(z)C_{\mathcal T}\tau\omega^{-5}+o_N(V_N(z)).
+\]
+Changing at rank five or six only enlarges the finite list of frozen
+levels in this argument. First deactivate upgrades on narrow coarse decision strips, reverting
+there to the inherited legal rule; do not delete arbitrary moduli at an
+even rank. Then apply this estimate within the fixed labels. No
+discontinuous cap is interpolated across a strip.
+
+Attach the small-prime fundamental-lemma weight $\beta^+$ to positive
+rough coefficients and $\beta^-$ to negative ones. The signed
+termwise inequalities for the two beta polynomials prove
+\begin{equation}\label{eq:lower-k-compiled-majorant}
+ \sum_{d\mid n}\rho_N(d)\ge\mathbf1_{(n,P_N(z))=1},
+ \qquad |\rho_N(d)|\le1.
+\end{equation}
+The latter bound follows from the unique small/rough decomposition.
+Their density error is $O(e^{-c/\eta}\omega^{-2})$ relative to $V_N(z)$.
+The positive first-exit formula makes the rough density no larger
+than the full raw density. Choosing the finite tree, beta precision,
+and then fine width sufficiently carefully gives
+\begin{equation}\label{eq:lower-k-compiled-density}
+ \sum_d\rho_N(d)g_N(d)\le(K+o(1))\frac{C_N}{\log N}.
+\end{equation}
+This density computation contains no outer-product cutoff $a$.
+
+\paragraph{Exact atoms, rather than factorability of an arbitrary weight.}
+For each ordered vector of fine labels $J_1,\ldots,J_m$, the coefficient
+is a fixed signed scalar times
+\[
+ \mathbf1_{\rm squarefree}
+ (\chi_{J_1}*\cdots*\chi_{J_m})*\beta^\pm.
+\]
+The scalar contains the reciprocal repeated-label factorial exactly
+once. There are finitely many atoms at fixed precision, and their
+absolute scalar sum is bounded independently of $N$. The parity of
+$\beta$ is fixed by the rough rank. This decomposition follows directly
+from the boxed coefficient just constructed; it is not inferred from
+pointwise membership of moduli in a well-factorable set.
+
+For each required Type II scale, factor the upper endpoint vector of
+one such box. The full and selected gates just proved give a fixed
+partition of its prime slots into three groups. If group $i$ has $m_i$
+slots, divide its prime convolution by $m_i!$; its coefficient is then
+bounded by one, since there are at most $m_i!$ representations of an
+integer. Restore the product of these group factorials in the atom's
+scalar, without removing or reinserting the original repeated-label
+factorial. Attaching $\beta^\pm$ to one rough group preserves the
+one-bound by uniqueness of the small/rough factorization.
+
+The factorization assignment may depend on the dyadic Type II scale,
+but is fixed for every prime tuple in this box. This causes at most
+logarithmically many distribution applications; it does not change
+$\rho_N$. Removing rough square collisions costs
+$(N+N^{\theta_*})N^{-\omega}(\log N)^C$ with a fixed $\theta_*<3/5$.
+All complete moduli are below $N^{\theta_*}$. At rough rank at most
+two their support is below $N^{2\rho+o(1)}$, where
+$\rho=19/96$ and $2\rho<1/2$; classical/generalized BV suffices there.
+
+\paragraph{Parameters can be chosen for arbitrarily small fixed $a$.}
+After fixing the buffered tree with gate margin $e>0$, choose
+\[
+ 0<\zeta\ll\min(e,a),\quad 12\zeta<a/2,\qquad
+ \epsilon_{\rm disp}\ll\zeta,\quad \kappa\ll\epsilon_{\rm disp}.
+\]
+Next choose the beta level exponent $\ell$ so small that
+$\ell\ll\epsilon_{\rm disp}$ and its density error is within the
+rounding budget. With its resulting $\omega$ and $M$, choose $\tau$
+so that $M\tau\ll\epsilon_{\rm disp}$ and the density-box error is
+within that budget. Also require
+$\ell+O(M\tau)\ll3/5-153/256$. Every choice is fixed before
+$N\to\infty$. Shrinking $a$ changes these auxiliary choices and the
+fixed number of prime slots, but changes neither the raw endpoint
+tree nor its coefficient $K_{\rm end}$.
+
+\paragraph{Distribution of the outer product: the individual rough slot.}
+Take one positive smooth outer weight $W$ with every prime at least
+$N^a/2$, and retain its exact coprime mass $X_W^{(d)}$.
+Discard products below $N^{1-\kappa}$, with a power-saving error, and
+use local product scales $N^{1-\kappa}/O(1)\le x\ll N$.
+Apply the three-term Heath--Brown identity separately at each original
+prime scale $R_i$. Discard every dyadic HB box which fails to meet
+its original group interval before separating variables. The product
+of its at most six dyadic lower endpoints is then
+$\gg R_i/2^6\gg N^a$. This remains true on the separated rectangle.
+
+Restrict the expanded variables to primes exceeding
+$z_0=x^{1/(\log\log x)^3}$. This restriction is exact for the outer
+prime slots once $N$ is large. Every nonunit HB variable is therefore
+$z_0$-rough. If an individual variable lies in
+$[x^{2\zeta},x^{1/3+\zeta/2}]$, its coefficient is rough $1$ or
+rough $\mu$, possibly with one logarithm, not a grouped convolution.
+The rough-SW lemma supplies its auxiliary-coprimality condition:
+\[
+ \left|\sum_{\substack{n\equiv r\ (q)\\(n,D)=1}}\alpha(n)
+ -\frac1{\varphi(q)}\sum_{(n,Dq)=1}\alpha(n)\right|
+ \ll_{A,a,\zeta}\frac{U\tau(D)}{\log^A x}.
+\]
+Its proof first sandwiches the rough indicator by fundamental-lemma
+weights; the absolute difference controls the signed $\mu$ case.
+For arbitrary auxiliary $D$, removing rough primes dividing $D$ costs
+at most $(U/z_0+1)\omega(D)$, which is smaller than the displayed
+bound for every fixed $A$. No part of this argument refers to the
+modulus tree's fifth or sixth support.
+
+The complementary HB factor has fixed divisor order depending on
+$k_*$. Its large-coefficient tail is bounded after the modulus sum by
+\[
+ (\log N)^{-B}\sum_{m\ll N,\ m\ne N}
+       \tau_C(m)\tau_C(|N-m|)
+ \ll N(\log N)^{C'-B}.
+\]
+This uses Cauchy--Schwarz and divisor second moments. The isolated
+$m=N$ term is $N^{\theta_*+o(1)}$; the mean tail uses ordinary divisor
+moments and $\sum_{d\le N^{\theta_*}}\tau_C(d)/\varphi(d)
+\ll\log^{C''}N$. Thus normalization reduces to bounded coefficients
+without requiring rough SW for a new convolution.
+
+\paragraph{Moving residue and the exceptional long cases.}
+In L23 Proposition 5.2 use $a_{\rm res}=N$ and $A_0=Ux^{-\zeta}$.
+The factorization starts with savings $3\zeta,3\zeta,2\zeta$;
+replacing $A_0$ by $U$ costs $2\zeta,\zeta,(1+2\sigma)\zeta$.
+For $\sigma=7/32$ the smallest surviving saving is $9\zeta/16$.
+The small factor, fine endpoints and local coordinate change fit
+within this slack. In the last target monomial the exponent of the
+second modulus length is $5-2\sigma>0$, so dyadic subdivision does
+not reverse an endpoint inequality. On each local scale
+$\log N/\log x=1+O(\kappa)$ and $N<x^{1+\epsilon_{\rm disp}}$.
+The source proposition has exactly this moving-residue supremum.
+
+If there is no medium individual slot, all HB Mobius slots are short.
+Every original group must contain a long slot; otherwise its product
+is at most $x^{12\zeta+o(1)}<N^a/O(1)$. At most two long slots can
+occur globally. Hence there are at most two original prime groups.
+For two groups, there is one long slot in each and the remaining
+product is at most $x^{20\zeta+o(1)}$. L23 Proposition 3.2 applies,
+since $N_1,N_2>x^{3\epsilon_{\rm disp}}$ and
+\[
+ x^{3/5}<(x/x^{20\zeta+o(1)})^{2/3-3\epsilon_{\rm disp}}.
+\]
+For one group, its one-long and two-long alternatives use respectively
+L23 Lemma 3.4 and Proposition 3.2. The one-long unrestricted mean is
+replaced by the exact coprime mean using the bound
+$\varphi(q)^{-1}\sum_{p\mid q,p>z_0}(t/p+1)
+\ll_A t/(q\log^A x)$, already explicitly proved in the main text.
+The residual exponent $20\zeta$ in this exceptional alternative is
+independent of $k_*$ because the alternative itself forces $k\le2$
+for that term; divisor orders and harmless constants elsewhere may
+depend on the fixed total number of groups.
+
+Mellin separation of $W$ gives only polylogarithmic twists of each
+individual slot. Partial summation applies the interval-uniform rough
+SW bound. In the two-long case use the arbitrary-subinterval version
+in Maynard's proof of Proposition 5.2, not an arbitrary-coefficient
+extension of that result. Mellin tails and prime powers use the same
+divisor sum above. The finitely many atoms, prime patterns and
+polylogarithmically many dyadic boxes are absorbed by increasing $A$.
+We obtain the substantive bridge
+\begin{equation}\label{eq:lower-k-smooth-exact-coprime}
+ \sum_{(d,N)=1}\rho_N(d)
+ \left\{\sum_{\prod p_i\equiv N\ (d)}W(\boldsymbol p)
+           -\frac{X_W^{(d)}}{\varphi(d)}\right\}
+ \ll_{A,a,W,\mathcal T}N(\log N)^{-A}.
+\end{equation}
+
+\paragraph{Mass, positivity and the same coefficient.}
+Since $|\rho_N|\le1$ and the moduli are squarefree,
+\[
+ \sum_{d:p\mid d}\frac{|\rho_N(d)|}{\varphi(d)}
+ \ll\frac{\log N}{p-1}.
+\]
+Consequently replacing $X_W^{(d)}$ by $X_W$ in
+\eqref{eq:lower-k-smooth-exact-coprime} costs
+$O_{a,k_*}(X_WN^{-a}\log N)$, with no modulus-level factor.
+Apply \eqref{eq:lower-k-compiled-majorant} and then
+\eqref{eq:lower-k-compiled-density}; the coefficient multiplying the
+outer mass is precisely $K C_N/\log N$, not a rescaling by the
+residual level of a switched node.
+
+For sharp domains first use one nonnegative outer majorant in simplex
+coordinates and $y=m/N$. Nonconstant monomial walls are simplex-null;
+critical pure-product walls must instead be smoothed in $y$.
+The radial mass lemma gives excess $\tau N/\log N$ and uniformly
+bounded smooth seminorms at each fixed $\tau$. Apply the preceding
+positive count theorem to this whole majorant before discarding its
+excess mass. Small excess mass alone is not a bound for a signed
+progression discrepancy. Let $N\to\infty$ first, and only afterwards
+remove smoothing, the finite-tree approximation and its margins.
+This proves \eqref{eq:lower-k-uniform-product-conclusion}.
+
+\paragraph{A concrete boundary of the assertion.}
+It would be false to replace the domain hypothesis by arbitrary bounded
+outer arithmetic weights in the discrepancy statement. For example,
+with $3\nmid N$ and one prime slot, retain only $p\equiv N\pmod3$.
+At modulus $3$ its exact-coprime discrepancy equals $X/2$, where
+$X\asymp N/(2\log N)$ on a fixed macroscopic interval. It has no
+arbitrary logarithmic saving. This family fails the required tuple-domain
+and SW hypotheses. The present fifth/sixth changes occur on the modulus
+side and never make this prohibited change on the outer prime side.
+
+\paragraph{Audit conclusion and its limits.}
+The extension from the old modulus tree to the new finite fifth/sixth
+rules is closed by the explicit compilation, descendant-square check
+and parameter order above. In particular there is no additional rough
+SW assumption and no use of a fixed-residue theorem at a growing
+residue. The fixed-cutoff theorem follows from the same external
+L23/Maynard distribution inputs and ordinary sieve/PNT inputs already
+named in the manuscript. Their spectral proofs are not reproved here.
+The finite-tree density certificates and ordinary density equality
+are separately required and were not numerically replayed here.
+
+The inspected recalibration fragment writes $K_1=1691/250=6.764$;
+the current intended application uses $67633/10000=6.7633$.
+Both are covered by the preceding argument if they exceed the
+separately certified endpoint density. Their recalibration arithmetic
+must use their own difference from $6.81$; the older $23/500$ must not
+be silently reused for the newer value. This observation does not
+alter either old source or the newer numerical work.

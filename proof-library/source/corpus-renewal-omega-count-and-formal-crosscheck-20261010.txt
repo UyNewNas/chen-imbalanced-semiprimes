@@ -1,0 +1,31 @@
+Count correction and complete formal-row cross-check
+10 October 2026. Addendum to corpus-renewal-omega-independent-20261010.
+
+The correct total number of fixed pair cells is6091+11481=17572.
+The preceding independent TXT's two mentions of17772 and the JSON/Python
+key all_17772_fibres_nonempty_and_in_s_ge_12_over_5 are transcription
+errors in descriptions. The actual independent program asserts the two
+correct set sizes, checks disjointness, and loops over their union.
+No arithmetic loop, missing cell, mask, formula or integral is changed.
+Read that legacy descriptive key as all_17572_fibres_nonempty_and_in_s_ge_12_over_5.
+The original files are preserved; this addendum records the correction.
+
+After the formal certificate became available, the companion cross-check
+reconstructed both adopted masks again and independently recomputed every
+one of its17572 rows with the decimal-integer positive-Mercator backend.
+It checks exact(group,t_index,u_index), the exact rationalZ, and interval
+containment of each newly computed gross integral in the formalQ160 row.
+Every adopted cell must appear exactly once. It also independently checks
+the two group sums, the total, the safe gross delta .000543500, and the
+gross-only future-slope deduction5435/67617368.
+
+This follow-up imports only the preceding independently written numerical
+backend, not the formal/pilot implementations. It does not certify the
+discarded-floor column; that column's independent review remains separate.
+It confirms that the formal and independently derived gross calculations
+refer to the same exact17572 cells, not merely equal-looking totals.
+
+The analytic omega>=11/20 result was independently proved for s>=7/3,
+which implies the formal threshold12/5. The actual integrated subfibres
+are exactlyZ=min(ul,5*(1-tr-ur)/22), with coefficientK/80. The stronger
+7/3 range is not used to enlarge them or claim an additional uncomputed gain.

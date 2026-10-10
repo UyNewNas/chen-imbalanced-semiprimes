@@ -1,0 +1,156 @@
+% Joint assembly of separately audited interfaces, 2026-10-08.
+% Research theorem fragment; external input and numerical-review scope explicit.
+\subsection{The common-weight upper theorem and its two Chen corollaries}
+\label{sec:actual-k-joint-theorem}
+
+Write
+\[
+ C_N=\prod_{p>2}\left(1-\frac1{(p-1)^2}\right)
+          \prod_{p\mid N,\ p>2}\frac{p-1}{p-2},\qquad
+ \mathcal H_N=C_N\frac{N}{\log^2N}.
+\]
+The analytic inputs in this section are the versioned L23
+(arXiv:2309.08522v1) Propositions 5.2 and 3.2 and Lemma 3.4,
+the arbitrary-subinterval form in Maynard II
+(arXiv:2006.07088v1), classical/generalized Bombieri--Vinogradov
+strictly below $1/2$, ordinary Siegel--Walfisz, the fundamental
+lemma and ordinary upper/lower linear-sieve density equalities,
+PNT and the unconditional spectral bound $\sigma\le7/32$.
+Their exact uses and primary-source versions are specified in the
+joint distribution audit. No Elliott--Halberstam or Selberg
+eigenvalue conjecture is imposed. These external theorems are used
+as mathematical inputs; their full proofs are not reproduced here.
+
+\paragraph{Derived upper theorem.}
+For every fixed $1/2<b<1$, define
+\[
+ B_b(N)=\#\{p<N:p\text{ prime},\ N-p=rq,\quad
+                    q^b<r\le q,\ r,q\text{ prime}\}.
+\]
+The fourth/fifth/sixth finite-tree construction, with its bound
+certificates and the interface proofs listed below, gives
+\begin{equation}\label{eq:actual-k-joint-upper-theorem}
+ \limsup_{\substack{N\to\infty\\2\mid N}}
+       \frac{B_b(N)}{\mathcal H_N}
+ \le\frac{67619}{10000}\log(1/b).
+\end{equation}
+The error is uniform along even $N$. The factor cutoff and every
+strategy and approximation parameter are fixed before this limit.
+
+\paragraph{Proof by a common finite object.}
+The numerical upper bound for the endpoint density is
+\[
+ E=\frac{2444205458396424207668787105}
+         {361468820064774123237146624}
+ < K:=\frac{67619}{10000}.
+\]
+Fix $E<K_0<K$; for example $K_0=(E+K)/2$.
+The proof in \texttt{actual-k-density-joint-audit.tex} starts from
+one extended third-prefix tree and successively makes the fourth,
+fifth and sixth modifications. Its identities telescope between
+these same successive trees. The old fourth and sixth witnesses
+are replaced; only the fifth coverage outside the old fifth
+parents is added. The exact rational upper bound is
+\[
+ U_0-D_4-D_{5,O}-D_{5,\mathrm{new}}-D_6=E.
+\]
+The strict difference $K_0-E$ pays for all endpoint, buffer,
+coarse-history, fine-box and small-prime errors. The density proof
+therefore supplies one legal finite buffered strategy, with fixed
+history and positive margins, whose compiled density is below
+$K_0 C_N/\log N$ asymptotically. It does not require a finite
+strategy to attain $E$ exactly.
+
+Apply \texttt{actual-k-compilation-joint-audit.tex} to that strategy.
+Odd first exits give the pointwise upper property. Coefficientwise
+even-outer/odd-inner boxing, followed by sign-sensitive attachment
+of $\beta^\pm$, produces a single coefficient sequence $\rho_N$,
+$|\rho_N(d)|\le1$, with this same density bound. The exact labelled
+convolution identity retains each repeated-label factorial once.
+All selected full and remaining-square gates propagate to every
+descendant. Endpoint greedy factorization supplies a fixed slot
+partition on each box for every required Type II scale, including
+the two-capacity case requiring full reassignment. The linked
+parameter order $\eta\mapsto(\ell,\omega)\mapsto M\mapsto\tau$
+provides the small-factor and fine-box losses without a circular
+choice. Thus this very $\rho_N$, rather than an arbitrary weight
+on its support, has the exact atom data required next.
+
+Use \texttt{actual-k-distribution-joint-audit.tex} with those data.
+The individual rough HB slot satisfies full auxiliary SW by
+\texttt{focused-rough-sw-product-interface-audit.tex}.
+The other HB alternatives have at most two original groups and
+are covered by the explicitly checked one/two-long estimates.
+The factorization margins imply all four L23 size inequalities;
+the moving residue $N$ is in the source supremum on the retained
+local scales. Low ranks stay strictly below $1/2$. Divisor-weighted
+square collisions cost $(N+D)N^{o(1)}/N^\omega$, which is a power
+saving at these fixed parameters. These steps prove signed
+distribution with the exact coprime mass for the same $\rho_N$.
+They make no alteration to its density constant.
+
+Finally \texttt{actual-k-positive-assembly.tex} removes the exact
+coprime mass after summing the moduli, with error
+$O(X_WN^{-a}\log N)$. It applies the pointwise sieve majorant to
+a nonnegative smooth outer approximation before using signed
+distribution. Low products, small prime values of $N-rq$, squares
+and the value $rq=N$ are all treated explicitly. In exponent/radial
+coordinates $(t,y)$, the bad-family mass is
+\[
+ \int_0^1dy\int_{b/(1+b)}^{1/2}\frac{dt}{t(1-t)}=\log(1/b).
+\]
+Take $N\to\infty$ for each fixed approximation and then remove
+the outer smoothing. This gives the stronger intermediate upper
+bound $K_0\log(1/b)$, hence
+\eqref{eq:actual-k-joint-upper-theorem}. No factor of two is
+introduced, because $r\le q$ counts each composite once.
+
+\paragraph{The lower-count input remains logically separate.}
+Let $D_b(N)$ count the desired representations with $r=1$ or prime
+and $r\le q^b$. For any established bound
+$D_{1,2}(N)\ge(c-o(1))\mathcal H_N$, subtracting the bad set gives
+\[
+ \liminf_{\substack{N\to\infty\\2\mid N}}
+ \frac{D_b(N)}{\mathcal H_N}\ge c-K\log(1/b).
+\]
+Using Wu's 2008 theorem ($c=899/1000$) yields
+$D_{2189/2500}(N)\ge\mathcal H_N/2000$ eventually.
+Using Li's published 2026 Theorem 1.1 ($c=1233/625$) yields
+$D_{747/1000}(N)\ge\mathcal H_N/2500$ eventually.
+Both normalizations, unit conventions and strict rational margins
+are checked in the separate source/transfer fragments and
+\texttt{certify\_actual\_k\_assembly.json}.
+No $H/h$ table improvement is added to either published constant.
+
+The latter is an unconditional corollary \emph{when the cited
+unconditional Li theorem is taken as an external input}. This
+does not claim that the present work has independently repaired
+the two proof-interface questions recorded for Li's derivation.
+The Wu corollary avoids that input but is not a substitute for
+the stronger target: $0.8756$ exceeds the separate recorded
+published-method benchmark $0.749$. By contrast $0.7470$ is below
+both that benchmark and the direct Li--Liu $0.9/0.894$ statements.
+
+\paragraph{Verification and completion boundary.}
+The joint audits derive the same-weight implication from explicit
+data; their independent local checks support particular identities
+and numerical enclosures, not the spectral proofs of the external
+inputs. The base enclosure and the refinement certificates retain
+their stated code-review/replay scope. This theorem fragment does
+not silently upgrade a reused arithmetic primitive into an
+independent reimplementation. The complete $2{,}000{,}000$-step base
+subdivision has now been replayed by an independent heap and
+aggregation driver with exact rational width comparisons. Both
+rational endpoints agree exactly with the original certificate.
+The initial cells, sieve table and enclosure primitives were reused
+after source review; this is not an independent implementation of
+those primitives or a further analytic theorem verification. The
+terminal record is \texttt{extended-prefix-full-driver-replay.json}.
+
+This closes the previously separate local obligations for the
+project's actual upper theorem relative to the stated analytic
+and certified-density inputs. It does not establish global
+literature priority, eliminate the recorded older-full-text
+coverage gaps, or independently close Li's stronger Chen proof.
+Those distinctions remain part of any final claim about the
+full research objective.

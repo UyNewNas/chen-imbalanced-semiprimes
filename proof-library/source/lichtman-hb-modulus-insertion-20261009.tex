@@ -1,0 +1,395 @@
+% New insertion audit. All prior sources, main text and state remain unchanged.
+\subsection{Inserting the restricted convolution estimate into the actual finite atoms}
+\label{sec:lichtman-hb-modulus-insertion-20261009}
+
+\paragraph{Precise conclusion.}
+Write $T$ for the even target, $x$ for the scale of the complete integer
+being distributed, $U$ for one individual Heath--Brown variable, and
+$\theta=7/32$. The new convolution margin is denoted by $\sigma$.
+The conclusion here is the signed distribution estimate for the finite
+atom classes specified below, using the restricted Proposition~5.2
+derived in \texttt{lichtman-prop52-retained-phase-bridge-20261009.tex}.
+It is not an estimate for an arbitrary coefficient supported on integers
+that happen to admit factorizations. The classical BV, rough SW,
+one/two-long-variable and standard HB inputs are identified explicitly.
+No density integral, Chen weight, or numerical $K,c,b$ is recertified.
+
+Fix a finite buffered policy, all its ancestor labels, a positive minimum
+outer prime exponent $a_*>0$, and a fixed maximum number of original
+prime variables. At each enhanced rough atom require either the full
+and selected-square licence below, or the strict $W$ licence below.
+The current positive product upper tree, ordinary lower-start trees,
+and admitted typed table descendants satisfy these particular interfaces;
+the numerical table alone is not their licence. Low ranks and classical
+states have the separate complete-modulus bound of paragraph~6.
+All finite meshes and buffers are fixed before $T$ tends to infinity.
+
+\paragraph{1. The coefficient identity, before distribution.}
+A labelled rough box has atom
+\[
+ c_J\,\mathbf1_{\rm squarefree}
+  (\chi_{J_1}*\cdots*\chi_{J_r})*\beta_J,
+ \qquad |\beta_J|\le1,
+\]
+where squarefreeness concerns the rough product, and beta has only small
+prime factors. The scalar contains the original repeated-label factorial
+once. For each Type II scale, partition the labelled slots into groups
+of cardinalities $r_1,r_2,r_3$. Divide each group convolution by $r_i!$
+and replace the scalar by $c_J\prod r_i!$. This is an exact convolution
+identity. Unique prime factorization bounds each normalized group by one,
+including repeated interval labels. Attach beta to group three; uniqueness
+of the small/rough split preserves this bound. Unit groups are point
+masses at one, not proposed SW variables.
+
+First remove rough square collisions in the analytic remainder. If the
+rough threshold is $T^\omega$ and total support is $D_*\le T^{\vartheta_*}$,
+then, with fixed divisor orders after HB,
+\[
+ E_{\rm coll}\ll T^{o(1)}
+ \sum_{\substack{d\le D_*\\p^2\mid d\text{ for some }p>T^\omega}}
+ \left(T/d+1+T/\varphi(d)\right)
+ \ll (T+D_*)T^{-\omega+o(1)}.
+\]
+Thus the three independent group sequences can be used without an
+unlicensed cross-group squarefree restriction. The $+1$ also handles
+the exact complete product $T$. Every modulus prime remains coprime to
+$T$. Signs and complex atom scalars are left unchanged; the absolute
+convolution remainder accepts them. There are finitely many scalars with
+bounded total absolute mass, independently of $T$.
+
+An assignment is constructed at the ordered upper endpoints and frozen
+on the entire box. It may depend on the atom, $T$, and the HB length $U$,
+but not on the individual outer integer or progression errors. This
+distinguishes the construction from pointwise integer factorization.
+For example, arbitrary coupled coefficient matrices on two disjoint
+prime intervals can have unbounded rank; support membership alone
+provides no bounded finite sum of separated group coefficients.
+
+\paragraph{2. Actual selected gates and their factor inequalities.}
+Use local logarithms, a licence exponent $1/2\le\vartheta<5/8$,
+$D=x^{\vartheta-2\zeta}$, and
+$x^\zeta\le A\le x^{1/3-\zeta/2}$, with $0<\zeta<10^{-5}$.
+For an actual frozen total cap $T^\ell$, put $q=\log_xT$ and choose
+$\vartheta=q\ell+2\zeta$, so $D=T^\ell$. Any fixed endpoint inflation
+is included in $\ell$ first. The original branch slack, then sufficiently
+small $\zeta$, ensures that this auxiliary $\vartheta$ is still below
+its local licence. Thus no raw endpoint is silently equated with the
+source's smaller support exponent $\vartheta-2\zeta$.
+Let $\alpha\ge\log_x T$ and put
+\[
+ v=2\vartheta-1,\quad
+ u=\min\left\{\frac{2-(2+2\theta)\vartheta}{3-4\theta},
+                 \frac{2-2\vartheta-\alpha\theta}{3}\right\}.
+\]
+The complete endpoint vector must satisfy every full square. For a
+selected subset $I$ of its marked slots, also require, separately for
+every unselected slot $j$,
+\[
+ b_I+\sum_{i<j,\ i\notin I}t_i+2t_j\le\log_xD,
+ \qquad b_I=\sum_{i\in I}t_i,\qquad v\le b_I\le u.       \tag{H1}
+\]
+For slots after the marked prefix this is exactly the full square.
+The upper odd-cube history implies its own and the next even square;
+the lower even-cube history, after its initial square, implies its own
+and the next odd square. Marked initial squares must be checked in
+their actual order, or by the existing merge lemma; no sign argument
+supplies missing squares.
+
+Writing $b_0=x^{b_I}$, if $C=D/(Ab_0)\ge1$, greedily place the remaining
+whole slots in capacities $A,C$. At each step their square in (H1) is
+at most the product of the two remaining capacities, so at least one
+accepts the whole next slot. This gives $d=abc$, $a\le A$, $b=b_0$,
+$c\le D/(Ab_0)$, and directly
+\begin{align*}
+ A^2bc^2&\le D^2/b_0\le x^{1-4\zeta},\\
+ T^\theta Aab^5c^2&\le x^{\alpha\theta}D^2b_0^3
+                         \le x^{2-4\zeta},\\
+ A^{1+2\theta}ab^{5-2\theta}c^{2+2\theta}
+ &\le D^{2+2\theta}b_0^{3-4\theta}
+                         \le x^{2-(4+4\theta)\zeta}.       \tag{H2}
+\end{align*}
+If $C<1$, all slots are reassigned into $A,B=D/A$, not just the
+unselected ones. Full square support gives the same greedy proof.
+Here $1<B<b_0\le x^u$ and $c=1$. The first bound becomes
+\[
+ A^2b\le AD\le x^{23/24-5\zeta/2}\le x^{1-3\zeta},
+\]
+and the other two follow by replacing $b_0$ in (H2) by $B$.
+This is the required below-one-capacity repair, not a fictitious
+integer factor of size less than one.
+
+For a prime box perform these calculations on its ordered upper-endpoint
+vector, allowing real endpoint sizes in the same greedy inequalities.
+The resulting \emph{group upper bounds} are then fixed for all tuples
+in the box. In the selected case write $b_+$ for the endpoint product:
+the first bound is $A^2 B_2B_3^2\le D^2/b_+$, using
+$B_2\le b_+$ and $B_3\le D/(Ab_+)$. It is not necessary to
+reassign slots using an individual tuple or to divide this bound by
+that tuple's potentially smaller selected product. The compact gate
+trim and final endpoint widths supply all strict endpoint assumptions.
+
+The equivalent tent restriction is
+\[
+ \vartheta\le V_\alpha(b_I):=
+ \min\{(1+b_I)/2,\ [2-(3-4\theta)b_I]/(2+2\theta),
+                 1-(\alpha\theta+3b_I)/2\}.              \tag{H3}
+\]
+At $\alpha=1$ its middle line is dominated and gives the familiar
+two-line tent. It must be retained when making the local-scale check.
+Singleton-largest, leading-product, nonleading-pair and arbitrary
+retained mask branches all use (H1), with every complement slot included.
+For instance mask138 selects $\{2,4,8\}$ and has five complement tests
+at slots $1,3,5,6,7$; mask129 selects $\{1,8\}$ and has six tests.
+No arbitrary mask is licensed by its sum alone.
+
+\paragraph{3. The strict $W$ alternative and ordinary root.}
+Here one of $p_1,p_2$ has exponent at most $v$, the other has square
+at most $x^{1-\vartheta-2\zeta}$, and $p_3\le x^{u-v}$.
+Initialize the capacities $A,x^v,D/(Ax^v)$ with only $p_1,p_2$.
+All capacities are at least one. If no later slot fails, their product
+bounds give, respectively, exponents
+\[
+ 1-4\zeta,\quad \alpha\theta+8\vartheta-3-4\zeta,\quad
+ (8-6\theta)\vartheta+4\theta-3-(4+4\theta)\zeta.
+\]
+The last two are at most $2-4\zeta$ and $2-(4+4\theta)\zeta$
+because $u\ge v$. At the first failed slot $p_k$, append it to the
+second partial product. Its new value lies in $(x^v,x^u]$, while
+$Abc_0<D$ follows from the failed first capacity and the full square
+at $k$. Now the two remaining capacities are legitimate and (H2)
+completes the proof. This explicitly uses the repaired initialization.
+
+For the ordinary lower starts, $t_1\le h=19/125<\mu=25/128$.
+The largest-singleton line and the strict $W$ rescue give
+\[
+ \Phi\ge\max\{(1+t_1)/2,\Lambda-3t_1/8\}\ge249/448,
+ \qquad\Lambda=153/256.
+\]
+The two lines intersect at $25/224$. For the rescue the other initial
+prime has square exponent at most $2\mu<1-\Lambda$; if its first
+$W$ gate fails, the singleton already dominates. Thus a slightly
+buffered ordinary root is licensed, including its untouched descendants.
+For the other $u-v$ branch the slack at $W(t)=\Lambda-3t/8$ is explicitly
+$33/17-(107/34)W(t)-t=525/8704+(49/272)t>0$; hence both third-slot
+conditions have been checked, with compact trimming where a boundary
+condition is approached.
+This calculation does not grant a blanket level to larger marked primes;
+those keep their own selected/$W$ label and physical ceiling.
+
+\paragraph{4. From the medium HB slot to the four repaired inequalities.}
+The groups in this paragraph are the original \emph{distributed prime}
+groups; they are not the three groups of modulus slots in paragraph~1.
+Fix the original chart, of product scale $X=\prod_i R_i$, before
+Mellin separation and HB. Write $X_+$ for its upper complete-product
+endpoint. With $f(t)=t^{1/(\log\log t)^3}$ choose once
+$Z=f(C_kX_+)$, where the fixed $C_k$ bounds the enlargement after all
+at most $6k$ HB slots and regrouping/dyadic division of the complement.
+Thus every later source scale $x=UV$ is within fixed multiplicative
+constants of $X$ and is at most $C_kX_+$. The roughness condition is
+automatic on the original primes. It is imposed before HB and never
+changed on a later rectangle. The uniform rough-SW window
+$x^{c_1/(\log\log x)^3}\le Z\le x^{c_2/(\log\log x)^3}$,
+with fixed positive $c_1,c_2$, supplies this fixed $Z$.
+In particular choose $C_k\ge2^{6k_*+2}$; then one may take
+$(c_1,c_2)=(1,2)$ eventually. The full proof, including arbitrary
+auxiliary integers, is
+\texttt{lichtman-hb-rough-sw-insertion-20261009.tex}, paragraphs~2--6.
+
+Apply order-three HB separately at each original prime scale.
+A retained group has at most six slots and lower-endpoint product
+at least its original prime scale/64. Select the medium class using
+the \emph{original} chart:
+\[
+ X^{3\zeta}\le U\le X^{1/3+\zeta/4}.
+\]
+The two power gaps absorb all the preceding fixed constants. On every
+eventual source rectangle this guarantees, for sufficiently large $T$,
+\[
+ x^{2\zeta}\le U\le x^{1/3+\zeta/2},\qquad A=Ux^{-\zeta}.
+\]
+Its coefficient is rough $1$ or rough $\mu$, times an interval,
+normalized logarithm and bounded-variation smooth twist. The explicit
+rough-SW proof supplies the complete auxiliary coprimality hypothesis;
+an arbitrary grouped coefficient is not substituted for this slot.
+Use the endpoint construction above with $\delta=\zeta$.
+The weaker common savings before replacing $A$ by $U$ are
+$3\zeta,3\zeta,2\zeta$. The replacement costs
+$2\zeta,\zeta,(1+2\theta)\zeta$, leaving
+\[
+ \zeta,\quad2\zeta,\quad9\zeta/16.                       \tag{H4}
+\]
+Reserve $\zeta/16$ for local-coordinate effects and another
+$\zeta/16$ for beta and fine endpoints. Take $0<\sigma\le\zeta/1000$.
+The least remaining saving $7\zeta/16$ exceeds $15\sigma$, so
+\begin{align*}
+ Q_1&<Ux^{-\sigma},& U^2Q_2Q_3^2&<x^{1-8\sigma},\\
+ T^\theta UQ_1Q_2^5Q_3^2&<x^{2-15\sigma},&
+ U^{1+2\theta}Q_1Q_2^{5-2\theta}Q_3^{2+2\theta}
+   &<x^{2-15\sigma}.                                   \tag{H5}
+\end{align*}
+Beta enlarges only group three: its costs are $2\ell,2\ell,
+(2+2\theta)\ell$, which fit the separate reserve. Smaller dyadic
+factor lengths preserve all four bounds since $5-2\theta=73/16>0$.
+The complement of the medium slot is divisor-bounded. Truncate by
+a divisor-function logarithmic threshold and normalize, using the new
+divisor-coefficient repair. The discarded progression tail uses the
+nonzero moment of $\tau_C(n)\tau_C(|T-n|)$ and treats $n=T$ separately
+by $T^{\vartheta_*+o(1)}$; the coprime mean has only logarithmic loss.
+The selected slot already is one-bounded after logarithm normalization.
+The roughness threshold, original group constraints and SW constants
+are uniform over all these rectangles. A bound valid only for a
+newly chosen threshold on each rectangle would not suffice here.
+
+\paragraph{5. Moving target, with the new smaller residue range.}
+For ordinary marked counts, $x$ is the scale of the original prime,
+not $T/b$ or the residual sieve level. For switched counts it is the
+scale of the complete product, not a selected quotient. The retained
+scales satisfy $T^{1-\kappa_0}/C_0\le x\le C_1T$, with fixed constants.
+Consequently $T\ge x/C_1$, supplying the previously missing lower
+residue bound in the repaired proposition.
+
+Choose $\kappa=\sigma/200$ and, for example,
+$0<\kappa_0<\sigma/(1000+\sigma)$. Then
+$\kappa_0/(1-\kappa_0)<\sigma/1000<\kappa$ and eventually
+$T<x^{1+\kappa}$, with $\kappa\le\sigma/100$.
+These choices replace the weaker old condition involving one common
+epsilon. Shrink them further if required by a fixed support margin.
+In particular, with $q=\log_xT$, selected tent gaps under rescaling
+are $q$ times their old gaps minus, respectively,
+\[
+ (q-1)/2,\quad(q-1)/(1+\theta),\quad(q-1)
+\]
+when $\alpha=q$. Using a common larger $\alpha$ costs an additional
+$\theta(\alpha-q)/2$ in the last line. Full and complement-square
+gaps scale homogeneously. For the two $W$ third-slot constraints the
+corresponding subtractive constants are $33(q-1)/17$ and
+$5(q-1)/3$, plus the small $\alpha-q$ term. The designated-prime
+gate $t_i\le2\vartheta-1$ improves by $q-1$ when $q\ge1$.
+The \emph{other} initial-prime square gap instead becomes
+$q(1-\vartheta-2t_j)-(q-1)$ before the support buffer; it needs its
+own positive reserve. If $q<1$ because $x>T$, then $1-q=O(1/\log T)$
+and the same fixed reserves absorb that case.
+Thus the same finite positive margin survives, rather than silently
+using the $\alpha=1$ endpoint on smaller scales.
+
+All these choices are after the common compact trim and before $T$.
+The beta length, rough cutoff, bounded rank and final fine width are
+then chosen in that order as in the existing compiler. The signed tail
+below $2T^{1-\kappa_0}$ costs $T^{1-\kappa_0+o(1)}$ after divisor
+summation; it imposes no positive lower bound on $\kappa_0$.
+No error of size $x^{o(1)}$ is multiplied into a merely logarithmic
+remainder; fixed logarithmic losses are paid by requesting a stronger
+logarithmic exponent from the repaired proposition.
+
+\paragraph{6. The low-rank alternative really is classical.}
+Before beta, endpoint and local-coordinate losses, the available gaps are:
+\[
+ \begin{array}{c|c|c}
+ \text{family}&\text{rough support exponent}&1/2-\text{exponent}\\\hline
+ \text{upper product tree}&2(19/96)=19/48&5/48\\
+ \text{ordinary lower starts}&2h=38/125&49/250\\
+ \text{enhanced marked/table families}&(\Lambda+57/224)/2=1527/3584
+                                      &265/3584
+ \end{array}
+\]
+Choose the total losses smaller than, for example, half the minimum
+of these raw gaps. The resulting complete supports still have fixed
+positive gaps below $1/2$; the displayed exact gaps are not claimed
+unchanged after those losses.
+The last row uses the actual full square $t_1+2t_2\le\Lambda$ and
+$t_1<57/224$, so $t_1+t_2\le(\Lambda+t_1)/2$. It does not use the
+smaller upper-tree first cutoff on those marked states. Descendants
+append smaller primes. Classical states already fix total level below
+$1/2$. The sufficiently small local-scale change preserves each gap.
+
+For one original prime, classical BV bounds the absolute modulus sum
+with a maximum over all primitive residue classes. For several original
+prime factors, select one prime interval as the SW factor and combine
+the rest into a divisor-bounded factor, both at fixed positive power
+scales. Motohashi's generalized BV below $1/2$ has that same maximum;
+the precise statement is Polymath v4, Claim2.6 and Theorem2.8. Complex
+coefficients follow by linear decomposition. Thus $T\bmod d$ is included
+for every $(T,d)=1$, even when $T$ varies. Bounded compiled coefficients
+multiply this absolute estimate harmlessly. No enhanced L23 theorem,
+fixed-residue assumption, or conjectural GEH beyond $1/2$ enters here.
+
+\paragraph{7. No-medium alternatives and the exact scope of insertion.}
+If no medium slot exists in the buffered original chart, every slot
+is below $X^{3\zeta}$ or above $X^{1/3+\zeta/4}$. Every original group
+has a long slot; otherwise its product is at most
+$X^{18\zeta+o(1)}$, contradicting its retained original scale when
+$18\zeta<a_*/2$. Three long slots have product exceeding
+$X^{1+3\zeta/4}$, impossible since the retained full dyadic product
+is $O_k(X)$. There are at most two long slots and at most two original
+groups. Neither long slot is a truncated Mobius slot.
+For a uniform conservative parameter write $\zeta_L=2\zeta$.
+The short product is at most $x^{10\zeta_L+o(1)}$ in the one-long
+case (at most five shorts, giving $15\zeta+o(1)$), and
+$x^{20\zeta_L+o(1)}$ in the two-long case (at most ten shorts,
+giving $30\zeta+o(1)$). One long slot therefore has length at least
+$x^{1-10\zeta_L-o(1)}$ and is treated by the elementary rough progression
+count (L23 Lemma3.4), including its exact coprime-mean correction.
+With two, use the same fixed $Z$ and choose
+\[
+\vartheta_* /(1-\kappa_0)<3/5
+ <\tfrac23(1-20\zeta_L)-4\sigma,\qquad
+ 1-10\zeta_L>3/5+2\sigma.
+\]
+The rough divisor-function estimate follows from Maynard II v1
+Lemma7.1 and its Proposition5.2 proof: the former is pointwise in every
+primitive residue, and the latter explicitly allows individual interval
+endpoints. Here the stronger sufficient modulus bound is intentional:
+the printed proposition and its last proof line do not have identical
+dependence on the short factor. The explicit reconstruction in
+\texttt{lichtman-hb-long-branches-20261009.txt}, paragraphs~3--6,
+retains the frequency-cutoff losses, extends the roughness proof to
+this chart-fixed $Z$, and controls interval boundaries by the nonzero
+shifted moment with the complete product $T$ isolated. Thus it does
+not import the old fixed-shift smoothing argument unchanged.
+The underlying two-Poisson/Weil bound has a power saving, so small divisor
+convolutions from the fundamental lemma cost only $x^{o(1)}$ there.
+Partial summation allows the required smooth twists, not arbitrary
+arithmetic weights on the long variables.
+
+These alternatives and (H5) give, for the same signed finite coefficient,
+\[
+ \sum_d\rho_T(d)\left\{
+ \sum_{p_1\cdots p_k\equiv T\ (d)}W_T
+ -\frac1{\varphi(d)}\sum_{(p_1\cdots p_k,d)=1}W_T\right\}
+ =O_A(T\log^{-A}T).
+\]
+The constants depend on the fixed policy, cutoff and finite smooth
+family, not the even target. This is an absolute signed-error assertion;
+a positive product upper bound still needs its separate positive
+majorant and actual density proof. No arbitrary signed atom has been
+reclassified as a positive counting object.
+
+The explicit scope consists of licensed selected/full-square and strict
+$W$ atoms, their finite typed descendants, and the classical low-rank
+alternatives above. The extra two-large-marked-prime candidate has a
+separate three-case partition with six strict monomial margins (minimum
+$117/31250$); it also fits after taking smaller parameters, but is not
+silently inserted into the current ledger. No claim is made for a
+high-rank atom with only carrier level $\Theta<3/5$, an arbitrary outer
+residue filter, a vanishing cutoff, or a mesh growing with $T$.
+Within the specified classes no new incompatible hypothesis of the
+restricted proposition remains. End-to-end numerical/density/pointwise
+assembly and the reported Wu issue are outside this insertion audit.
+
+\paragraph{Source ledger and the meaning of the checks.}
+The complete atom identity and collision calculation were compared with
+\texttt{actual-k-distribution-joint-audit.tex}; the parity/full-square
+translation with \texttt{own-lower-compiler-chain-audit-20261009.tex};
+the marked/table low-rank bound with
+\texttt{own-chen-table-insertion-chain-20261009.tex}; and the actual
+eighth masks and carrier/cutoff distinction with
+\texttt{current-eighth-distribution-interface-audit-20261009.tex}.
+These files supply the displayed structural hypotheses, not a substitute
+for the repaired large-residue estimate. The selected and $W$
+calculations above rederive the requisite arithmetic rather than
+quote their old analytic status. Primary text anchors are L23 v1
+Definition~2.1, Proposition~5.2 and Lemmas~6.3--6.4; Maynard II v1
+Lemma~7.1 and Proposition~5.2; and Polymath v4 Claim~2.6/Theorem~2.8.
+Their precise extracted-line ranges are recorded in the companion JSON.
+The rational checker verifies exponent identities, margins and parameter
+compatibility; it is not a numerical replay of the analytic theorems.

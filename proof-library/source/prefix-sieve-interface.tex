@@ -1,0 +1,399 @@
+% Integration fragment: no documentclass and no bibliography environment.
+% Requires amsmath, amssymb, amsthm, hyperref, and a lemma environment.
+% Source numbering below refers to arXiv:2109.02851v2 and
+% arXiv:2309.08522v1. This is a derived interface, not a verbatim theorem.
+
+\subsection{The interface for a fixed prime prefix}
+\label{sec:prefix-interface}
+
+There are two different weights in this argument. The weight used to
+sieve $\mathcal A_b$ is a weight on the remaining divisor $q$, of level
+approximately $D/b$. It is not identified with the restriction to
+$d=bq$ of a single global weight $\widetilde\lambda_D^{\pm}(d)$.
+In particular, the signs and the prefix conditions in the ordinary
+Rosser weights change when a prime is removed. For example, for
+$q\mid P(z)$ and $z<p$, the relation
+$-\lambda_D^-(pq)=\lambda_{D/p}^+(q)$ requires $p^2<D$;
+the opposite-sign relation involves $p^3<D$.
+For two prefix primes a corresponding lower-weight restriction
+can require $p_1p_2^3<D$, which is stronger than
+$p_1p_2^2<D$. Thus the assertion below is derived at the level of
+the individual box atoms in the sieve construction.
+
+For precise references write $L_{21}$ for
+\href{https://arxiv.org/pdf/2109.02851v2}{Lichtman,
+\emph{A modification of the linear sieve, and the count of twin primes}},
+and $L_{23}$ for
+\href{https://arxiv.org/pdf/2309.08522v1}{Lichtman,
+\emph{Primes in arithmetic progressions to large moduli, and Goldbach
+beyond the square-root barrier}}.
+The assertion below is a consequence of their proofs, with the
+additional convolution argument supplied here; it is not the literal
+statement of $L_{23}$, Proposition~6.6.
+
+Put $\sigma=7/32$ and
+\begin{equation}\label{eq:prefix-v}
+ v(t)=\min\left\{\frac{1+t}{2},
+       \frac{1-(3/2-2\sigma)t}{1+\sigma},
+       1-\frac{\sigma+3t}{2}\right\}.
+\end{equation}
+For $N\in\mathbb N$ let
+\[
+ E_N(d)=\pi(N;d,N)-\frac{\pi(N)}{\varphi(d)}
+ \qquad ((d,N)=1).
+\]
+
+\begin{lemma}[Derived prime-prefix sieve interface]
+\label{lem:prefix-interface}
+Fix $r\in\{1,2\}$ and positive constants $\delta,h,u,t_1,\ldots,t_r$,
+and let
+\[
+ I_i=(N^{t_i},N^{t_i+h}],\qquad
+ T_+=\sum_{i=1}^r(t_i+h),\qquad z=N^u.
+\]
+Assume that the intervals are ordered and disjoint, with every member
+of $I_i$ larger than every member of $I_{i+1}$, and $u<t_r$.
+Let $\nu$ satisfy
+\begin{align}
+ \nu+20\delta&\le\inf_{t\in[t_1,t_1+h]}v(t),
+       \label{eq:prefix-level-margin}\\
+ \sum_{i<j}(t_i+h)+2(t_j+h)&\le\nu-20\delta
+       \quad(1\le j\le r),
+       \label{eq:prefix-vector-margin}\\
+ \nu-T_+-20\delta&>0.
+       \label{eq:prefix-residual-positive}
+\end{align}
+Set $R=N^{\nu-T_+-20\delta}$. Choose the standard modified
+linear-sieve weights $\rho_R^{\pm}$ on the remaining divisor $q$,
+with sieve precision sufficiently small in terms of the fixed margins.
+Use weights independent of the particular primes inside each box.
+Then, for every $A>0$,
+\begin{equation}\label{eq:prefix-remainder}
+ \left|\sum_{\substack{p_i\in I_i\ (1\le i\le r)\\
+                         b=p_1\cdots p_r, (b,N)=1}}
+       \sum_{\substack{q\mid P(z)\\(q,N)=1}}
+       \rho_R^{\pm}(q)E_N(bq)\right|
+ \ll_{A,\delta,h,u,\boldsymbol t}N(\log N)^{-A}.
+\end{equation}
+The constant is independent of the even integer $N$.
+The weights can be chosen with the usual linear-sieve main terms
+$F(\log R/\log z)$ and $f(\log R/\log z)$, up to the error tending
+to zero with the sieve precision. Here it suffices to use the lemma
+when $\log R/\log z\ge2$; a zero lower bound requires no distribution
+estimate.
+\end{lemma}
+
+\begin{proof}
+We keep $\delta,h,u,\boldsymbol t$ fixed while $N$ tends to infinity.
+Choose the construction precision $\eta>0$ and the associated exponent
+mesh sufficiently small compared with $\delta$ and $u$.
+All losses below are fixed powers $N^{O(\eta)}$, not factors that are
+silently absorbed into an asymptotic error with $\eta$ fixed.
+They are paid for by the explicit margins in
+\eqref{eq:prefix-level-margin}--\eqref{eq:prefix-residual-positive}.
+
+We use the construction in $L_{21}$, equations~(5.14)--(5.17),
+with residual level $R$, rather than imposing a restriction on a
+global weight of level $N^\nu$. Its remainder is a finite linear
+combination of atoms of the form
+\begin{equation}\label{eq:prefix-atom}
+ \chi_{J_1}*\cdots*\chi_{J_m}*\beta,
+\end{equation}
+where $\chi_J$ denotes the prime indicator of a construction interval,
+all the displayed primes exceed a cutoff $w$, the small-prime weight
+$\beta$ is supported on $k\mid P(w)$ and $k\le R^{O(\eta)}$, and
+$|\beta(k)|\le1$. The cutoff is a fixed positive power of $N$,
+depending on $\eta$. The number of atoms and the sum of the absolute
+values of their scalar coefficients are bounded in terms of $\eta$.
+The construction may shrink the rough-part level before adding the
+small-prime weight; this changes the residual exponent by $O(\eta)$.
+The vectors of rough-prime intervals belong to
+$D^{\mathrm{well}}(R^{1+O(\eta)})$. These assertions follow from
+the ordinary modified linear sieve, not from its further modification
+using $F^*$ in $L_{21}$.
+
+Convolve each atom with $\chi_{I_1}*\cdots*\chi_{I_r}$.
+Because $z<\inf I_r$, the prefix remains the largest $r$ primes.
+The first $r$ conditions defining $D^{\mathrm{well}}$ hold by
+\eqref{eq:prefix-vector-margin}. For a later rough prime $q_j$,
+the corresponding condition follows from
+\[
+ (p_1\cdots p_r)(q_1\cdots q_{j-1}q_j^2)
+ \le N^{T_+}R^{1+O(\eta)}
+ \le N^{\nu-19\delta}
+\]
+after making $\eta$ small enough. Refining or rounding all intervals
+to the common exponent mesh costs another $N^{O(\eta)}$.
+Consequently every concatenated rough vector is in
+$D^{\mathrm{well}}(N^{\nu-c\delta})$ for an absolute $c>0$.
+Its largest prime has exponent in $[t_1,t_1+h+O(\eta)]$.
+
+Apply $L_{23}$, Proposition~6.1, to a representative of each such
+rough box. The partition of the prime indices furnished by that
+proposition is kept fixed throughout that box. The exponent mesh
+then enlarges each of the three factor supports by only
+$N^{O(\eta)}$; it does not require choosing a partition separately
+for every integer in the box. This is the step implemented in
+$L_{21}$, Lemma~5.3. Its proof uses the factorization of a rough
+box and the size of the small-prime weight, not membership of the
+concatenated vector in a global $D^+$ or $D^-$.
+
+For completeness, the treatment of signs, repeated intervals, and
+coefficients can be made explicit. Write an ordered-tuple rough atom
+as $T_J=\chi_{J_1}*\cdots*\chi_{J_m}$, with the squarefree restriction
+on the rough product understood. Retain exactly its scalar
+coefficient from the sieve construction, including the original
+factorials for repeated interval labels in $L_{21}$, (5.10).
+For an explicit convention, let $m_I$ be the multiplicity of each
+interval label and put $M_J=\prod_I m_I!$. If $A_J$ is the indicator
+of the corresponding sorted squarefree prime-box product, then
+\begin{equation}\label{eq:box-symmetry-normalization}
+ \mathbf1_{\rm squarefree}T_J=M_J A_J.
+\end{equation}
+Indeed each squarefree product has exactly $m_I!$ assignments to
+the slots carrying label $I$. With the tuple-convolution convention
+of $L_{21}$, (5.10), the scalar already includes
+$(-1)^m/M_J$, in addition to any other original scalar factors.
+Keep this reciprocal factorial exactly once; it is not inserted a
+second time during the three-group normalization below.
+If $\mathcal I_1,\mathcal I_2,\mathcal I_3$ is the fixed partition
+of its prime slots (including the prefix), put
+\[
+ K_i=|\mathcal I_i|!,\qquad
+ \gamma_i=K_i^{-1}\mathop{*}_{j\in\mathcal I_i}\chi_{J_j}.
+\]
+The empty convolution is the point mass at $1$. Unique prime
+factorization bounds the number of ordered representations by
+$K_i$, even on products containing repeated primes, so
+$|\gamma_i(n)|\le1$ for every integer $n$. The unrestricted
+convolution identity is exactly
+\[
+ T_J=(K_1K_2K_3)\,\gamma_1*\gamma_2*\gamma_3.
+\]
+Absorb the displayed, fixed factorial product into the original
+scalar coefficient. The extra nonsquarefree rough products will
+be removed by the error estimate below; no claim of a unique
+ordered prime-slot representation is needed.
+The small-prime factor is combined with the third rough factor.
+The factorization of an integer into its primes
+at most $w$ and its primes greater than $w$ is unique. Hence, if
+$\gamma_3$ is the normalized third rough factor,
+\[
+ |(\gamma_3*\beta)(n)|
+ =|\gamma_3(n_{>w})\beta(n_{\le w})|\le1.
+\]
+This argument allows either sign of $\beta$ and does not assume
+positivity. Its support is enlarged by at most $R^{O(\eta)}$;
+the degree of every factor-size inequality in Proposition~6.1 is
+bounded, so that the resulting loss is again $N^{O(\eta)}$.
+
+One can also implement the interval normalization using unrestricted
+prime convolutions and remove collisions afterwards. This gives
+exact convolution identities away from integers divisible by
+$p^2$ for a rough prime $p>w$. The omitted discrepancy is at most
+\[
+ \sum_{\substack{d\le N^{\nu+O(\eta)}\\
+                  p^2\mid d\ \mathrm{for\ some}\ p>w}}
+   \tau_C(d)\left(\frac{N}{d}+1+\frac{N}{\varphi(d)}\right)
+ \ll_C (N+N^{\nu+O(\eta)})w^{-1}(\log N)^{C'},
+\]
+where $C,C'$ are fixed with the precision. Since $w$ is a fixed
+positive power of $N$ and $\nu<1$, this is
+$O_A(N(\log N)^{-A})$ for every fixed $A$. Thus the squarefree
+convention in the sieve causes no unaccounted convolution error.
+
+We spell out the source of uniformity in the residue, since the
+displayed constant in $L_{23}$, Proposition~6.6, is written with
+a subscript $a$. The input used for a box atom is $L_{23}$,
+Proposition~5.2, not an inference from that subscript. Proposition~5.2
+has the explicit supremum $0<|a|<x^{1+\epsilon}$ and permits arbitrary
+complex, $1$-bounded coefficients on its three modulus factors.
+With its Type~II length denoted here by $U$, its size conditions are
+\begin{align*}
+ Q_1&<Ux^{-\epsilon},&
+ U^2Q_2Q_3^2&<x^{1-8\epsilon},\\
+ |a|^\sigma UQ_1Q_2^5Q_3^2&<x^{2-15\epsilon},&
+ (UQ_3/Q_2)^{2\sigma}UQ_1Q_2^5Q_3^2
+     &<x^{2-15\epsilon}.
+\end{align*}
+Here is a quantitative check of the parameters, including the
+endpoints of the Type~II range. Fix a factorization margin
+$0<\zeta<10^{-5}$, sufficiently small in terms of $\delta$, and take
+$\eta\ll\epsilon\ll\zeta$. For
+\[
+ x^{2\zeta}\le U\le x^{1/3+\zeta/2},\qquad A_0=Ux^{-\zeta},
+\]
+we have $x^\zeta\le A_0\le x^{1/3-\zeta/2}$, exactly the allowed
+range of the parameter $A$ in Proposition~6.1. Denote its three
+factors by $a_0,b_0,c_0$. Apart from $x^{O(\eta)}$ box enlargements,
+put $Q_1=a_0$, $Q_2=b_0$, and $Q_3=c_0$ and then split into dyadic
+intervals. In particular $Q_1\le A_0<Ux^{-\epsilon}$.
+Replacing $A_0$ by $U$ in the three monomials in (6.3) costs,
+respectively,
+\[
+ x^{2\zeta},\qquad x^\zeta,\qquad
+ x^{(1+2\sigma)\zeta}.
+\]
+Their original savings are $3\zeta,3\zeta,2\zeta$.
+Thus the smallest remaining saving is
+$(1-2\sigma)\zeta=9\zeta/16>0$.
+Choosing, for example, $\epsilon<\zeta/1000$ and then the construction
+mesh sufficiently small makes all four displayed conditions strict.
+If a dyadic value of $Q_2$ is smaller than its support endpoint,
+the last monomial is still bounded by its endpoint value: its power
+of $Q_2$ is $5-2\sigma>0$. This justifies the same conclusion on
+every dyadic subbox.
+
+There are two additional bookkeeping points in passing to primes.
+First, the primes in $\pi(N)$ cannot all be treated on the artificial
+scale $x=N$. Remove the initial range $p\le N^{1-\kappa}$, with a
+fixed $0<\kappa\ll\epsilon$. Its progression term is bounded by
+\[
+ \sum_{p\le N^{1-\kappa}}\tau_C(N-p)
+       \ll N^{1-\kappa+o(1)},
+\]
+and its mean term is $O(N^{1-\kappa}(\log N)^{C'})$.
+On the remaining dyadic intervals $[x,2x]$, use
+$\alpha=\log N/\log x=1+O(\kappa)$ in (6.3).
+The exponent coordinates, total level, and the function
+$v_\alpha(t)$ from (6.2) differ from their $N$-scale counterparts
+by $O(\kappa)$. These changes are paid for by the fixed margins.
+Also $N<x^{1+\epsilon}$ after making $\kappa$ small enough.
+Thus Proposition~5.2 applies with residue $a=N$ on every interval;
+it is not enough merely to set $\alpha=1$ on the first interval.
+If the full support is at most $N^{1/2-c\delta}$, ordinary
+Bombieri--Vinogradov suffices for each bounded atom. Only the
+remaining case needs Proposition~6.1, whose section assumes its
+level parameter is at least $1/2$.
+
+Second, apply the $k=3$ Heath--Brown identity of $L_{23}$,
+Lemma~3.3, as in the proof of Theorem~1.7, but with middle interval
+$[x^{2\zeta},x^{1/3+\zeta/2}]$. The six dyadic variables are
+$N_1,N_2,N_3,M_1,M_2,M_3$, with $M_i\le(2x)^{1/3}$.
+If a variable lies in that interval, take it as the Type~II variable
+$U$ and combine the other five. This uses exactly the coefficient
+sequences of the cited Heath--Brown argument, rather than a new
+Siegel--Walfisz assertion for an arbitrary convolution. The chosen
+sequence is $1$ or $\mu$, with the roughness cutoff
+$P^-(n)>x^{1/(\log\log x)^3}$ used there; the logarithm is handled
+by partial summation. Lemma~\ref{lem:rough-sw} verifies the full
+Siegel--Walfisz condition~(2.2), including its auxiliary coprimality
+and the rough cutoff. Divisor-bounded
+coefficients on the other factor are reduced to $1$-bounded ones
+by the truncation argument in the proof of Proposition~3.1, using
+Lemmas~4.1 and~4.3; the resulting powers of $\log x$ are absorbed
+by increasing the arbitrary exponent in the error estimate.
+
+If no variable lies in the middle interval, every $M_i$ is less
+than $x^{2\zeta}$, and at most two of the $N_i$ exceed
+$x^{1/3+\zeta/2}$. If just one does, the product of the other five
+is at most $x^{10\zeta}$, so the long variable is at least
+$x^{1-10\zeta+o(1)}$ and Lemma~3.4 applies. If two do, the
+product of the remaining four is at most $x^{8\zeta}$; apply
+Proposition~3.2, which has an explicit supremum over all $a\ne0$.
+The total modulus support is at most $x^{3/5}$, after making the
+fixed margins sufficiently small: indeed $\max_{t\ge0}v(t)
+=153/256<3/5$. For small $\zeta,\epsilon$ this is less than
+$(x/x^{8\zeta})^{2/3-3\epsilon}$, as required by that proposition,
+and less than the long variable times $x^{-\epsilon}$ as required
+by Lemma~3.4. Having no large variable is impossible because the
+product of all six variables is comparable with $x$.
+These arguments also allow the sharp product cutoff on a dyadic
+interval, by the same separation and partial summation used in
+the proof of Proposition~3.1. Restrictions $(d,N)=1$ split into
+$(q_i,N)=1$ on the modulus factors and preserve their bounds.
+No fixed-residue estimate from $L_{21}$, Theorem~2.5, is used here.
+
+We obtain a remainder $O_A(N(\log N)^{-A})$ for each atom, uniformly
+in $N$. Summing the fixed number of normalized atoms proves
+\eqref{eq:prefix-remainder}. Notice that the signs of the atoms were
+never used to deduce a distribution estimate. They only enter when
+reassembling the residual upper or lower sieve weights.
+
+Finally, the main term is evaluated before convolving in the prefix.
+For each $b=p_1\cdots p_r$ the residual density is
+$g_N(\ell)=1/(\ell-1)$ for $\ell\nmid N$ and $g_N(\ell)=0$
+for $\ell\mid N$, because $(b,q)=1$. Uniformity in $N$ here
+requires a minor precaution: the two-sided condition (2.3) of
+$L_{21}$ need not hold with an absolute constant all the way down
+to $2$, since $N$ can contain many small primes.
+Use the small-prime presieve already present in (5.15), with
+$w=R^{\eta^2}$ and small-factor level $R^{O(\eta)}$.
+Below $w$ the one-sided dimension-one estimate is uniform, since
+deleting prime factors from the usual product only decreases its
+ratio. The fundamental lemma therefore gives the full factor
+$V_N(w)$, with a relative error tending to zero with $\eta$.
+Above $w$ the two-sided estimate is uniform: for $w\le y<z$,
+\[
+ \sum_{\substack{\ell\mid N\\\ell\ge w}}
+       \frac1{\ell-1}
+ \ll\frac{\log N}{w\log w},\qquad
+ \frac{V_N(y)}{V_N(z)}
+ =\frac{\log z}{\log y}
+   \left(1+O\!\left(\frac1{\log y}
+                    +\frac{\log N}{w\log w}\right)\right).
+\]
+Consequently the usual rough-box evaluation in Theorem~2.10
+applies with constants independent of $N$. Reattaching the
+presieve gives the usual $F(s),f(s)$, with
+$s=\log R/\log z$, and an error tending to zero with the precision.
+The entire product $V_N(z)$ is retained; it is not replaced by a
+product with the prime divisors of $N$ restored. On summing over
+the prefix box the main factor is
+\[
+ \pi(N)V_N(z)
+ \sum_{\substack{p_i\in I_i\ (1\le i\le r)\\(p_1\cdots p_r,N)=1}}
+       \frac1{\varphi(p_1\cdots p_r)},
+ \qquad
+ V_N(z)=\prod_{\substack{\ell<z\\\ell\nmid N}}
+       \left(1-\frac1{\ell-1}\right).
+\]
+Its upper and lower multipliers are respectively
+$F(s)+O(\eta)$ and $f(s)+O(\eta)$, with the stated precision
+error interpreted on a fixed compact range of $s\ge2$.
+This evaluation uses weights constructed for the residual sequence;
+it does not replace their main term by a global-prefix weight sum.
+\end{proof}
+
+\paragraph{Order of limits and use in the integrals.}
+For each fixed positive level margin $\delta$, first choose a finite
+exponent partition and sieve precision so that all box enlargements
+are smaller than that margin, and then let $N\to\infty$.
+Next let the partition width and sieve precision tend to zero,
+still within the fixed margin, and finally let $\delta\downarrow0$.
+Continuity of $F,f$ on the relevant compact intervals gives the
+arguments $(v(t_1)-t_1)/u$ and
+$(v(t_1)-t_1-t_2)/u$. Prefix boxes meeting ordering boundaries
+can be discarded for lower bounds, and bounded with a classical
+sieve for upper bounds; their main contribution tends to zero with
+the partition width. A boundary on which the prefix
+$D^{\mathrm{well}}$ condition is an equality is treated by a thin
+strip before taking the limit, not by applying the lemma at equality.
+
+\paragraph{The middle branch in the level.}
+The two-branch form of $v$ used in the numerical calculation is exact.
+Put $A(t)=(1+t)/2$, $B(t)=(32-34t)/39$, and
+$C(t)=57/64-3t/2$. Then
+\[
+ B-A=\frac{25-107t}{78},\qquad
+ C-A=\frac{25}{64}-2t,\qquad
+ B-C=\frac{1568t-175}{2496}.
+\]
+For $t\le25/128$ the minimum is $A$, whereas for $t\ge25/128$
+the minimum is $C$ (the zero of $B-C$ is $25/224<25/128$).
+Thus for every $t\ge0$,
+\[
+ v(t)=\begin{cases}
+ (1+t)/2,&t\le25/128,\\
+ 57/64-3t/2,&t\ge25/128.
+ \end{cases}
+\]
+
+\paragraph{Audit status of this interface.}
+This fragment supplies an adaptation of the box-atom proof, rather
+than quoting a published prime-prefix theorem. Independent review
+should check its use of the modified-sieve atom decomposition and
+the transfer of the positive factorization margins through the
+Type~II argument. No numerical Chen constant is asserted here, and
+the distribution and linear-sieve theorems cited above are external
+inputs rather than independently reproved results.

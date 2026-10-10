@@ -1,0 +1,119 @@
+% New independent scoped review. No frozen author artifact is edited.
+\subsection{Independent review of the affine-parent fourth lower integral}
+\label{sec:independent-fourth-chord-review}
+
+The reviewed object is the ideal fourth integral $I_4$ for the same
+causal $C_3=\Phi_3$, followed by the all-licensed-mask maximum $C_4$.
+It is not an increment to a previous numerical estimate of $I_4$.
+The reviewed sources are \texttt{lower-start-fourth-affine-chord-proof.tex}
+and \texttt{certify\_lower\_start\_fourth\_chord.py}.
+
+\paragraph{Parent symmetry and history.}
+On the retained ordered domain $t_1<w=19/125<25/128$, the redundant
+singleton $v(t_3)$ is bounded by $v(t_1)$, since $v$ is increasing
+on this interval. The maximum of the three $W$ terms is precisely
+$\Lambda-3\min_jt_j/8$. Thus the seven-subset symmetric expression
+is the same function as the original ordered eight-branch policy.
+The middle affine formula for $v$ is redundant: at the crossing
+$25/128$ of the outer two formulas it lies strictly above them,
+and its slope lies between their slopes. This argument holds on
+both sides of that crossing. The symmetric extension does not
+assert that a gate invalid on the ordered domain becomes valid.
+Admission still uses the original old history.
+
+For each retained box let $L_3\le C_3\le U_3$ be the exact range
+bounds. The inequalities $t_{1,+}+3t_{2,+}<\nu$ and
+$r<(L_3-\sum t_{j,+})/3$ imply every needed old history,
+including old residual argument above two, for every ordering
+permitted by equal outer intervals. A separate affine majorant is
+used only to bound the subtracted density. Replacing $L_3$ in the
+history test by that majorant would be invalid; the code does not
+make this replacement.
+
+\paragraph{Branch majorant and all remaining orders.}
+For every min-of-affine parent branch the shift construction
+exhibits at least one affine member bounded above by the chosen
+majorant throughout the box. Taking the maximum over branches
+therefore preserves the inequality $C_3\le U$. The independent
+replay rechecks this branch by branch, rather than trusting a
+zero shift or the branch selected at the approximate mean.
+
+For a candidate fourth subset, each possible ordering of its
+remaining old slots is enumerated. Every required square gate is
+an affine expression consisting of the selected old sum, $r$,
+the previous remaining slots and twice the current remaining slot.
+Both affine pieces of $v$ dominate this expression on the retained
+whole box and last-variable interval. The further test
+$V-S_3\ge3r$ keeps the new residual argument in $[2,\infty)$.
+Equality at a last-variable endpoint has zero measure; it is
+handled by the existing buffered finite approximation, not claimed
+as a strict finite-$N$ admission. No gate is checked only at an
+approximate center.
+
+\paragraph{Shape, integration and signs.}
+Ordinary $\bar f$ is increasing and concave on $[2,\infty)$.
+Consequently $-\bar f((U-S_3-r)/r)$ is convex in the old
+coordinates, and Jensen gives a lower bound for the subtracted
+old contribution at its logarithmic mean. Since $V$ is a minimum
+of affine functions, $\bar f((V-S_3-r)/r)$ is concave on the
+entire retained box. Iterated one-coordinate chord inequalities
+give its eight-corner multilinear lower bound, including across
+the tent's kink. This uses neither an extrapolation below two
+nor a bound on higher derivatives.
+
+The primitive formula is
+\[
+ \int_l^u\bar f((D+Br-r)/r)\,\frac{dr}{r^2}
+ =\frac{H(D/l+B)-H(D/u+B)}D,
+ \qquad H'(s)=\bar f(s-1),\quad D>0.
+\]
+All primitive arguments are checked in $[3,32]$. The old mean
+uses an upper enclosure of $E(U-S_3)$ and hence an upper old
+integral; each positive new corner integral uses a lower
+nonnegative weight. Independent lower-minus-upper arithmetic
+then has the claimed direction. Taking a positive part is
+permitted only because the actual ideal fourth gap is
+nonnegative. It does not assert pointwise positivity of the
+signed estimator.
+
+\paragraph{Disjointness and multiplicities.}
+For repeated outer intervals the actual ideal integrand is
+symmetric. Its ordered-sector integral equals the full-box
+integral divided by the product of the repetition factorials.
+The numerical estimator may be asymmetric, provided it bounds
+the actual integrand throughout the full box; the all-order
+gate tests give precisely that property. Splitting a group of
+$m$ equal intervals into its $m+1$ possible ordered high/low
+multiplicities gives a disjoint sector partition. No binomial
+factor is to be added to the factorial sector weight.
+
+The independent replay reconstructs the complete finite history
+partition and checks uniqueness of every saved positive parent.
+The last-order strip has $r\ge a_3$, whereas the main slices
+have $r<a_3$. Its mass formula follows by integrating
+$\log(b_3/r)/r^2$. The common-corner gap is used there only
+with fixed old and new caps. The two main parent estimators
+are maximized, and the disjoint strip is then added once.
+No two candidate masks are summed over the same region.
+
+\paragraph{Numerical scope.}
+The new replay independently reconstructs all 37291 history
+leaves and all 10384 saved positive parent bounds. It imports
+neither the author's chord source nor its Jensen and slice
+helpers. It deliberately shares the previously independently
+audited ordinary mesh-65536, $112$-bit delay table. Its interval
+and logarithm implementation is separate. Thus it is an
+independent integration and geometry replay with an explicitly
+shared ordinary backend, not a second independent construction
+of that backend. Its JSON reports the exact total, any individual
+floor comparisons that are weaker because of outward rounding,
+and the actual comparison scope. A valid slightly smaller total
+can be used directly instead of treating the author's exact
+integer as independently covered.
+
+No analytic contradiction was found in the reviewed construction.
+The passage from this ideal integral to one common finite causal
+policy, and then to arithmetic counts for all sufficiently large
+even $N$, still uses the separately reviewed finite approximation
+and distribution statements. Those statements are not consequences
+of this numerical replay.

@@ -1,0 +1,66 @@
+{
+  "status": "PASS_INDEPENDENT_ALL_GRID400_EXPANDED_SIXTH_GEOMETRY_AND_RATIONAL_SUM",
+  "author_source_imported_or_executed": false,
+  "cells_verified": 632104,
+  "grid": 400,
+  "Q": "1208925819614629174706176",
+  "repeated_root_cells": 433214,
+  "cells_with_root_index19": 7193,
+  "gain_lower": "145496122603609407505/151115727451828646838272",
+  "gain_decimal_diagnostic": 0.0009628125745547524,
+  "sum_floor_numerator": "1163968980828875260040",
+  "independent_stream_sha256": "2d9d9ae3e00e81f240c4105360b03f121cf4b2cf3cace8c9fa4df8e373101df3",
+  "mask_counts": {
+    "34": 39890,
+    "33": 126002,
+    "50": 162296,
+    "42": 52383,
+    "44": 124758,
+    "49": 69,
+    "38": 8985,
+    "52": 91739,
+    "56": 25959,
+    "60": 23
+  },
+  "minimum_slacks": {
+    "old_third": 128,
+    "old_fifth": 64,
+    "full_selected": 64,
+    "positive_gap_sum": 128,
+    "old_residual": 5184,
+    "new_residual": 5248
+  },
+  "boxes_with_negative_gap_vertices": 444302,
+  "frozen_old_plane_choice_counts": [
+    7179451,
+    12415773,
+    0
+  ],
+  "disjointness": "All cells are distinct unit integer grid-400 cubes, with strict interior coordinate order; also checked membership in weakly ordered grid-100 parent cubes. Repeated root bins are permitted, but all accepted final cubes have strictly ordered interiors.",
+  "independent_geometry": "Old retention from concave component vertex minima; all full/remaining-selected gates from exact vertex minima; new-s upper from min of TWO affine maxima; old convex residual maximum at vertices.",
+  "normalization": "vol=n^-6, dmu lower=n^6/prod(hi); 4*D^2*(ds/(64D))/(Rn*Ro)=D*ds/(16RnRo).",
+  "analytic_conditions": [
+    "Actual inherited fourth/fifth cap is dominated by the raw31 selected-envelope plus W3.",
+    "The old third cap retains both old rank3 and rank5 throughout each box, so membership through rank6 is unchanged.",
+    "Only d=M-U5>0 is active; there actual old residual <= both recorded upper bounds.",
+    "Pull out the positive measure lower bound from d_+ first, then use integral d_+ >= integral d >= vertex mean.",
+    "Finite buffered subpartitions implement endpoint-dependent cap choices; no pointwise prime distribution assertion."
+  ],
+  "not_reproved": [
+    "Primitive signed distribution/positive product/ordinary density equality interfaces.",
+    "Construction and correctness of every inherited fourth/fifth tree outside the cited raw-envelope class.",
+    "No gain from grids100 or200 or the old strict-root sixth witness added to this replacement grid400 witness."
+  ],
+  "elapsed_seconds": 55.63365390000399,
+  "bindings_sha256": {
+    "sixth-prefix-expanded-independent-audit.py": "edb59e1825b920cbb6e5f91be2a2b9de1f665be416309cbdfbdf5659966342d0",
+    "sixth-prefix-expanded-cover-400.json": "999a2fde1ba05294ead1d14b612a6d921396c26d4f04fa06b01ed477f7ea772e",
+    "sixth-prefix-expanded-cover-400.npz": "6ff19eba0509943fe56b269cbf867681fdff34b150818267bcf8ab52227d134d",
+    "certify_sixth_prefix_expanded_cover.py": "9fdc69c715b59b05251ddb1b6ed39346627f24bb5d58c6b1fdb51f2465203702",
+    "certify_sixth_prefix_concave_boxes.py": "6fc187a09ebab3775d605da9a55a9fb2deb1e470304a8cd884e859a7f901d510",
+    "certify_sixth_prefix_inner_boxes.py": "619528ce3850e9da9bc07153f33b195b358bfee319f580af877cffde4c928699",
+    "higher-prefix-K-refinement.tex": "e865860809fbb6981a48c89bb87e3ee7a2360ff6882c5bdeb682d24f41d28a4a",
+    "fifth-prefix-adaptive-refinement.tex": "9ba13aa53b9f1bb6ef730bfbe32c515f507c20e42f67e2974037e3ee7666e8be",
+    "certify_taylor_fifth_seed_transfer.json": "c2bdd42389e93843904a6c45c8d7aeff32ae24077edbb429bfcd7f25c00ccf94"
+  }
+}

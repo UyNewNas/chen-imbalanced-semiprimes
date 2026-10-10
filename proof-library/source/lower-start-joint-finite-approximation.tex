@@ -1,0 +1,205 @@
+% New independent local approximation theorem; no numerical integral is certified here.
+\subsection{Joint finite approximation of a causal lower-tree policy}
+\label{sec:lower-start-joint-finite-approximation}
+
+This is an approximation result for the already specified signed
+lower-tree construction. Its arithmetic premise is the finite-policy
+compiler, with its fixed-cutoff, fixed-margin signed-atom distribution
+estimate and ordinary residual-density equalities. It is not a proof
+of a floating integral, and does not strengthen that arithmetic premise.
+
+Put $\nu=249/448$, $0<w\le h=19/125$, and $\Lambda=153/256$.
+An ideal policy consists of causal caps
+$C_r(t_1,\ldots,t_r)$, $r=3,4,5$, with
+\[
+ \nu\le C_3\le C_4\le C_5\le\Lambda.
+\]
+Each cap is either inherited from its parent or the endpoint of one
+of finitely many licensed branches. Branch endpoints and gates are
+piecewise affine on a finite polyhedral partition; the present
+$v$, $\Phi$ and selected-subproduct branches have this form.
+The ideal policy itself, including its branch labels, is required
+to be piecewise affine/constant on a finite polyhedral refinement,
+as for the finite maxima with deterministic tie rules considered
+here. Arbitrary measurable switching between candidate labels is
+outside this statement.
+An active new branch must have a nonempty strict interval between
+all its gates, including the parent cap, and its endpoint.
+The branch label and its proof of support are part of the state,
+not merely the scalar cap.
+
+The ideal admitted domains are
+\begin{align*}
+ E_3&=\{0<t_3<t_2<t_1<w:\ t_1+3t_2<\nu\},\\
+ E_4&=\{(t_1,\ldots,t_4):(t_1,t_2,t_3)\in E_3,
+       \ 0<t_4<t_3,\ S_3+3t_4<C_3\},\\
+ E_5&=\{(t_1,\ldots,t_5):(t_1,\ldots,t_4)\in E_4,
+                                      \ 0<t_5<t_4\}.
+\end{align*}
+Here $S_r=\sum_{j\le r}t_j$. The fifth square is automatic:
+$S_4+2t_5<S_3+3t_4<C_3\le C_4$. This also holds for a finite
+policy when its fourth historical cube is checked at its actual
+frozen parent cap.
+
+Write $d\omega_r=dt_1\cdots dt_r/(t_1\cdots t_{r-1}t_r^2)$.
+The ideal signed-density coefficient is its ordinary starting
+coefficient plus the three exact telescoping integrals
+\begin{align*}
+ I_3&=4\int_{E_3}
+  [\bar F((\nu-S_3)/t_3)-\bar F((C_3-S_3)/t_3)]\,d\omega_3,\\
+ I_4&=4\int_{E_4}
+  [\bar f((C_4-S_4)/t_4)-\bar f((C_3-S_4)/t_4)]\,d\omega_4,\\
+ I_5&=4\int_{E_5}
+  [\bar F((C_4-S_5)/t_5)-\bar F((C_5-S_5)/t_5)]\,d\omega_5.
+\end{align*}
+All three integrands are nonnegative. They belong to one causal
+policy; a fifth integral with ideal $C_4$ cannot instead be appended
+to an unrelated finite fourth certificate.
+
+\paragraph{Finite-approximation statement.}
+For every $\eta>0$ there is one finite nested prefix partition and
+one legal buffered policy $\Pi$, chosen independently of $N$, whose
+ordinary raw-density coefficient differs from the ideal coefficient
+by less than $\eta$. Consequently the finite-policy compiler gives
+a lower bound with coefficient at least the ideal coefficient minus
+$2\eta$, for every sufficiently large even $N$.
+The second $\eta$ is reserved for compilation and arithmetic errors.
+If the old endpoint $\nu$ itself needs distribution slack, use the
+ordinary baseline $\nu_\rho=\nu-\rho$ in the finite construction and
+let $\rho\downarrow0$ as part of this approximation. No exact endpoint
+distribution assertion is being silently added.
+
+\paragraph{Proof on a compact truncated domain.}
+First fix $t_r\ge\epsilon>0$ for every active rank. The ordinary
+functions are continuous and bounded on all attained argument
+intervals. Old admission gives the third and fifth upper arguments
+greater than one and the fourth lower arguments greater than two.
+Every argument is at most $\Lambda/\epsilon$. Thus each integrand
+is bounded on this compact domain and is uniformly continuous
+in the cap variables away from the finite policy walls.
+
+Refine all affine pieces and strict branch tests to a finite
+polyhedral arrangement. For two genuinely different affine expressions,
+their tie is a hyperplane and has measure zero. Identically equal
+expressions are merged or assigned a fixed label; they are not
+declared a boundary. In particular the positive-measure region
+$C_4=C_3$ is retained with an explicit \emph{inherit} label.
+It can support a positive fifth improvement and must not be discarded.
+The same convention applies when $C_3=\nu$ or $C_5=C_4$.
+
+Trim neighborhoods of the genuine walls, old cube boundaries,
+ordering boundaries and nonidentical gate equalities until their
+total weighted integral is small. A gate endpoint identical to its
+lower gate on an open chamber is not an available new action:
+there is no strictly buffered level between them. This is distinct
+from the legitimate parent-inheritance label.
+
+Now partition the first three coordinates into sufficiently small
+rational boxes. A finite third state must satisfy its whole-box old
+history $t_{1,+}+3t_{2,+}<\nu_\rho$ (and its first square), rather
+than retaining an unbuffered endpoint history. On a retained active
+chamber choose the licensed
+branch and freeze its whole-box infimum minus a small positive
+buffer. Keep $\nu_\rho$ on inherited or unused cells. For each such
+fixed parent, partition its product with the fourth-coordinate interval;
+never recompute its parent level using the fourth coordinate.
+Recheck $S_{3,+}+3t_{4,+}<\lambda_3$ with that actual parent value.
+On an inherited fourth chamber set $\lambda_4=\lambda_3$ exactly;
+on an active chamber use the selected branch infimum minus a buffer,
+and recheck every full and selected gate. Finally partition the fifth
+coordinate under each existing fourth state, including the states
+with no fourth improvement, and apply the same procedure there.
+Later refinements of a parent box retain its already frozen cap.
+
+This construction is causal and finite. It is not an arbitrary
+five-dimensional partition whose nominal third level can vary with
+$t_4$ or $t_5$. Nor does it delete the projection onto parent space
+of every child boundary; such a projection can have full measure.
+Child boundary cells are handled at their own rank, while their
+parents remain available with ordinary descendants.
+
+On the compact trimmed active chambers all relevant strict margins
+have a positive minimum. The affine endpoints are uniformly
+continuous. Hence sufficiently small boxes and buffers preserve
+every gate and make the frozen caps uniformly close to $C_r$.
+Equivalently, along a sequence of these constructions the caps
+converge almost everywhere and remain below the corresponding ideal
+caps. At an admissible fourth point the positive margin
+$C_3-S_3-3t_4$ ensures eventual admission under the approximating
+parent cap. Its zero set is a graph in $t_4$, since $C_3$ is independent
+of $t_4$, and therefore has measure zero. The fifth historical square
+follows from the preserved fourth history and the ordering.
+The domain indicators and all three kernels consequently converge
+almost everywhere. Bounded convergence proves convergence of their
+three compact integrals and of the ordinary baseline coefficient.
+
+It is neither necessary nor generally correct to claim that the
+individual fourth and fifth integral approximations are monotone:
+lowering a parent cap changes both a kernel and its admissible domain.
+The proof is convergence of exact telescoping differences, not
+pointwise monotonicity of signed divisor weights.
+
+\paragraph{Removing the positive cutoff.}
+Put $d_0=\nu-3h>0$. The ordinary estimates
+$\bar F(s)-e^{-\gamma}/2=O(s^{-2})$ and
+$e^{-\gamma}/2-\bar f(s)=O(s^{-2})$ suffice. At rank three,
+$\nu-S_3\ge d_0$. At rank four the historical cube gives
+\[
+ C_3-S_4>\tfrac23(C_3-S_3)\ge\tfrac23d_0.
+\]
+The same lower bound holds for $C_4-S_4$ before the fifth prime
+is removed. Thus, for sufficiently small last coordinate, each
+function difference cancels its $t_r^{-2}$ kernel singularity.
+Integration over the remaining ordered coordinates gives tails
+\[
+ I_r(t_r<\epsilon)
+   =O\bigl(\epsilon[1+\log^{r-1}(h/\epsilon)]\bigr),
+ \qquad r=3,4,5.
+\]
+The bounds are uniform for small baseline buffers, say
+$\rho<d_0/2$, after replacing $d_0$ by $d_0/2$.
+This proves absolute convergence and permits choosing the cutoff
+before the finite mesh. It is not an exchange of the arithmetic
+$N$ limit with an unbounded family of strategies.
+
+\paragraph{Arithmetic quantifiers and what remains to be certified.}
+The compiler premise needed here is precise: for each fixed finite
+buffered policy, each fixed positive rough cutoff and fixed choice
+of the auxiliary small-prime parameters, its signed convolution
+atoms satisfy the distribution estimate with constants allowed to
+depend on that policy, uniformly in the moving residue associated
+with every even $N$. The fixed-label factorization and beta/sign
+compilation are the ones in the existing joint audits, with the
+lower parity choices proved in the starting-lower note. There are
+finitely many atoms; their error constants can therefore be summed
+and their thresholds maximized. No bound uniform as the number of
+boxes tends to infinity is needed or asserted.
+
+The order is: choose an error budget, a positive cutoff, a finite
+partition and cap buffers, then the fine-box/beta/HB and local-scale
+parameters compatible with their smallest margin; only then take
+$N$ sufficiently large. For a sequence of policies $\Pi_m$, one
+must use $N\ge N_0(\Pi_m)$ for the chosen fixed $m$. An estimate
+with $\Pi=\Pi(N)$ has not been proved.
+
+Accordingly, a \emph{rigorous} lower bound $c_*$ for the complete
+ideal functional, strictly above a target, would suffice: choose
+$\eta$ below the gap, fix the resulting finite policy, and apply
+the preceding arithmetic quantifiers. It would not be logically
+necessary to store millions of explicit policy boxes. But the
+integral lower bound, the inherited distribution theorem and any
+other terms of that complete functional still need proofs.
+Sobol samples, floating tables and agreement of seeds do not supply
+that missing numerical integral certificate. This lemma alone
+therefore changes no presently certified global constant.
+
+\paragraph{Concrete failure avoided by the construction.}
+If a finite parent has $\lambda_3<C_3$, then, whenever it lies below
+$t_3$, the choice
+$t_4=(C_3+\lambda_3-2S_3)/6$ satisfies
+$S_3+3t_4=(C_3+\lambda_3)/2>\lambda_3$ while passing the ideal
+fourth history. Using it in that finite parent's fourth gain is
+invalid. The discrepancy is a thin region that vanishes in the
+joint approximation; it cannot be counted before the histories are
+retested. This is why separate ideal-layer integrals cannot be
+combined with an arbitrary already frozen ancestor certificate.

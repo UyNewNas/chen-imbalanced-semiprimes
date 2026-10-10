@@ -1,0 +1,565 @@
+Current own Chen lower coefficient: actual-state and density assembly
+2026-10-09. New independent mathematical audit; frozen sources are unchanged.
+
+0. Conclusion and boundary
+
+The selected coefficient is c=97933679/50000000=1.95867358, in
+eighth-mixed-moment-transfer-assembly-20261009.json. This note proves the
+downstream implication for that coefficient, with the following inputs
+kept explicit:
+
+ PP: the LICENSED finite signed prime-product discrepancy statement in
+ lichtman-prime-product-insertion-assembly-20261009.txt, with its actual
+ coefficient structure, fixed positive cutoffs, strict margins and named
+ classical/spectral inputs. It is not the original unrestricted L23
+ statement with its old large-residue argument.
+
+ Kpos: K=21130429/3125000=6.76173728 is a positive-count upper theorem
+ on every required FIXED finite geometric prime-product family, with
+ labels and multiplicities retained. In normalization used below, an
+ unsifted positive multiset of mass X has prime-complement count at most
+ (K+o(1))*C_N*X/log N. The complete product, not its residual quotient,
+ has moving residue N. The assertion includes the positive majorant,
+ its density and positive approximation, and every fixed positive
+ factor cutoff needed by the finite table. A bad-semiprime-only bound,
+ a scalar upper-density certificate, or PP alone is NOT this input.
+
+ NUM: the frozen finite outward integral/table inequalities entering the
+ selected lower ledger. Their mathematical meanings are specified here;
+ this audit does not reintegrate their many cells. The numerical review
+ statuses are provenance of these inequalities, not substitutes for the
+ analytic arguments below.
+
+Under these inputs and the explicit classical ordinary-density inputs
+in section 3, the actual lower construction has
+
+ liminf_(N even -> infinity) D_{1,2}(N)/H_N
+ >= 1.9586736040903524... > c,
+ H_N=C_N*N/log(N)^2.
+
+Here D_{1,2} counts prime P<N for which Omega(N-P)<=2, with multiplicity
+in Omega. Counting the possible unit remainder changes this by O(1).
+This is an implication for every sufficiently large even N, not an
+almost-all assertion. It is not an independent verification of Kpos,
+the external spectral inputs of PP, or all stored numerical integrals.
+It does not restore the global K,c,b status or the separate Li-1.9728
+branch. The current state snapshot was the 2877-binding state; no
+mutable research-state file is included as an immutable dependency.
+
+No further unmatched analytic state condition was found in this
+downstream chain. Kpos in its stated strength remains the important
+separate upper-side obligation. In particular a new proof merely of PP
+would leave that obligation open.
+
+1. Exact eleven-term weight, without the disputed contraction
+
+Use a=417/5000, h=19/125, d=59/250, and the Y_1,...,Y_11 definitions
+in own-chen-table-insertion-chain-20261009.tex, section 1. The last term
+has its FULL range
+
+ Na <= p1 < p2 < p3 < Nh <= p4 < Nd,
+ residual least-prime cutoff p2,
+
+where Na abbreviates N^a. No upper bound on p3*p4 is inserted.
+The coefficient vector is (3,1,-1,-1,1,1,-2,-1,-1,-1,-1), and its sum
+W satisfies W(n)<=4*1_{Omega(n)<=2} for squarefree n with all prime
+factors at least Na. This is a direct factor-count assertion.
+
+For clarity, the essential case proof does not import a published
+weighted-sieve conclusion. Let r,s,t count factors below Nh,Nd,N^(1/3).
+For r>=2, the full last ranges give
+Y10=binom(r-2,2), Y11=(r-2)*(s-r). Keeping the other negative counts
+gives W<=s-t<=0 when Omega>=3. If r=1, W<=2-t-1_{t=1}<=0. If r=s=0,
+the bound is again 2-t-1_{t=1}; here t>=1. If r=0,s>=2, the bound is
+4-s-t<=0. For r=0,s=1, t>=3 gives 3-t<=0. In the remaining t=1 or2
+case, h+d+2/3>1 forces exactly three factors; the appropriate Y9 tuple
+is present, giving 3-t-1-1_{t=1}<=0. The elementary fact used here is
+q1*q2^2<N for the two smallest factors of a squarefree product with at
+least three factors. For Omega<=2, direct inspection gives W<=4,
+including W(1)=4. Thus a restriction n>=N^(1-a) is unnecessary.
+
+Off the rough support all terms vanish, including Y9: its residual
+cutoff is >N^((1-d)/4)>Na. Prime factors repeated in a rough remainder
+are a power-saving exception: the file's uniform |W|<=1016 and the
+sum over p>=Na, p^2|n give an O(N^(1-a)) error. This is negligible
+relative to H_N because C_N>=C_2>0. Prime complements dividing N and
+the possible unit remainder also give negligible exceptional counts.
+After summing, the complete lower functional is exactly
+
+ (3 L1 + L2 + L5 + L6 - U3 - U4 - 2 U7 - U8 - U9 - U10 - U11_full)/4.
+
+The Wu-2008 weight-domain correction is not identified
+by this note. The reason it is not an input here is concrete: the
+contraction used in Wu-2008 Lemma 2.2 / Li-II Lemma 3.1 is absent,
+and the displayed full-range inequality is proved by these cases.
+No claim is made that every formula in either published paper is valid.
+
+2. Real marked states and insertion of the new PP
+
+A state is a nonnegative finite labelled prime-box family sigma(b),
+not a fixed integer prefix with a claimed individual distribution law.
+Write b=N^beta, Q=N^nu, R=Q/b=N^L, and retain
+
+ L=nu-beta>0, alpha=(1-beta)/L>=2,
+ the actual marked slots, selected subset or W label, full squares,
+ selected-remaining squares, strict cap margin, and physical ceiling chi.
+
+An enhanced state uses cutoff at most N^chi, where chi is below every
+old marked slot and any future-third-slot limit. A classical state
+instead keeps its absolute complete level strictly below one half.
+All upper/lower residual weights are constructed at Q/b. They are not
+obtained by restricting an unrelated global weight at Q.
+
+The signed finite compiler attaches the marked prefix to the residual
+well support. Old full/selected tests remain; new remaining-square
+tests become precisely full tests once the old selected slots have
+occurred. Its atoms retain their original sign, repeated-label
+factorial, group-factor normalization and small-prime beta factor.
+The whole-box endpoint partition supplies bounded group convolutions
+for each medium scale. This matches PP's coefficient hypothesis;
+mere membership in well-supported moduli would not suffice.
+
+The paragraph in table-chain section 2 invoking original L23 P5.2 is
+superseded as follows, rather than accepted unchanged. Apply new PP to
+the original prime sequence with complete residue N and to each actual
+compiled signed atom. For enhanced low ranks, largest slot<57/224 and
+nu<=153/256 imply, at rank two,
+
+ total rough support <=(nu+largest)/2 <=1527/3584,
+ 1/2-1527/3584=265/3584>0.
+
+The bounded actual coefficient permits absolute BV after paying small
+beta, fine-grid and local-scale losses. Ordinary starts have the
+separate raw gap 49/250; the positive upper strategy has its own gap.
+Classical states have their own fixed below-half margin. There is no
+arbitrary divisor-weighted BV inference here. At high ranks use the
+fixed endpoint partition from the new modulus insertion proof, not a
+partition changing with individual primes or progression errors.
+
+All these states have total level at most Lambda=153/256<3/5 and
+fixed positive geometric margins. PP's tail, square-collision,
+chart-fixed roughness, complete local scale and source residue N are
+therefore the needed ones. In particular neither Q/b nor N/b is the
+local complete-integer scale in the repaired large-residue estimate.
+
+The normalization of an averaged state is
+
+ Theta_Q = 4 li(N) sum_b sigma(b) C(bN)/(phi(b) log(Q/b)).
+
+An upper H bound is (A(s)-H(s)+o(1))*Theta_Q; a lower h bound is
+(a_lin(s)+h(s)+o(1))*Theta_Q, with
+A=sF/(2e^gamma), a_lin=sf/(2e^gamma).
+On fixed positive boxes C(bN)/C_N=1+o(1), phi(b)/b=1+o(1), and
+deleting prefix primes dividing N has o(1) harmonic mass. Hence
+Theta_Q/H_N=4 integral (product dt_i/t_i)/L+o(1).
+Adding one or two primes of exponents Lu,Lv gives the positive measures
+du/[u(1-u)] and du dv/[uv(1-u-v)], respectively. This establishes the
+factor four; it is not provided by a numerical table.
+
+3. Ordinary starts: an equality first, a telescope second
+
+The lower compiler is the one in own-lower-compiler-chain-audit,
+paragraphs 2--4. Start at nu_rho=249/448-rho and cutoff N^w, w<=h.
+The initial square always passes. First exits have even full rank.
+The exact finite first-exit identity therefore gives a pointwise lower
+weight. Rough projection is one-sided in the lower direction; positive
+even cells are rounded inward, negative odd cells outward. Small-prime
+beta-minus is attached to positive coefficients and beta-plus to
+negative coefficients. These sign choices give an actual minorant and
+arbitrarily small normalized density loss. Restored fourth nodes are
+permitted only by their separate before-own-cube parity proof.
+
+For ordinary residual supports write V_N^+(R,y), V_N^-(R,y). The
+essential input is equality, uniformly on compact positive exponents:
+
+ V_N^+(N^b,N^t)/V_N(N^t) -> F(b/t), b/t>1;
+ V_N^-(N^b,N^t)/V_N(N^t) -> f(b/t), b/t>=2.
+
+Here are the precise reasons this does not subtract two single-sided
+sieve bounds. The cubic Rosser raw supports have the exact positive
+exit identity V+/V=1+sum_odd T_j, V-/V=1-sum_even T_j. The classical
+exit integrals a_j have compactly convergent sums F-1 and 1-f at
+dimension one, beta=2. Suzuki (local primary text), (9.1)--(9.2),
+Propositions 9.4 and 11.8 supply the convergence; 9.4 alone is
+conditional, and 11.8 needs beta>rho_tilde. At kappa=1, q(s)=s-1 and
+D(2)=p(1)>0, which verifies the strict hypothesis, not just a weak
+endpoint inequality. Lemma 14.7 is a bound for the SAME raw support.
+
+For fixed j, preceding squares give A_i<R^(1-2^-i); a failing cube
+forces q_j>N^(c_j) for a fixed c_j>0. Prime harmonic integration then
+gives T_{j,0}->a_j for g0(p)=1_{p>2}/(p-1). A surviving normalized
+term after deleting p|N is multiplied by
+
+ product_{q_j<=p<y, p|N}(1-g0(p)) <=1,
+
+and this multiplier tends uniformly to 1 at each fixed depth. The
+removed prime harmonic mass is O(N^-c_j log N). Finite partial sums
+give one limit direction; the actual raw one-sided bound and compact
+series convergence give the other. First N tends to infinity, then
+the fixed depth tends to infinity. This proves the equalities for
+the moving even target; it does not assume infinite-depth uniformity.
+For 1<s<=3, upper support itself is unchanged by replacing y with
+R^(1/3); Mertens gives ratio 3/s. Equality at s=3 consequently extends
+the upper equality to 1<s<2, which is needed at negative fifth nodes.
+No lower equality below two is claimed.
+
+Motohashi (3.2.10) fixes the usual normalization. Its presieved K_nu
+must not by itself be equated with unpresieved raw weights; Suzuki
+and the preceding exit argument supply that identification. The
+uniform-singular-series note proves only
+
+ V_N(N^t)=(2 e^-gamma C_N)/(t log N)*(1+o(1)),
+
+using the exact Euler identity and a uniform large-divisor tail.
+Together with pi(N) this gives factor 4 on Fbar,fbar, where
+Fbar=F/(2e^gamma), fbar=f/(2e^gamma). It does not prove the residual
+equalities and is not used in place of them.
+
+Now the rank-three/four/five changes are exact differences of densities
+of successive stages of ONE causal tree, respectively
+
+ g(P3)[V+(old/P3,p3)-V+(new/P3,p3)],
+ g(P4)[V-(new/P4,p4)-V-(old/P4,p4)],
+ g(P5)[V+(old/P5,p5)-V+(new/P5,p5)].
+
+The actual histories ensure their old arguments are >1, >2, >1.
+Only after these identities are proved are the equalities above
+inserted. This gives I3,I4,I5 with their stated signs. The joint finite
+approximation preserves actual frozen ancestor caps, including inherit
+chambers; it never tests a child against a raw ideal parent while using
+a smaller actual parent. Its tail bounds follow from Fbar,fbar tending
+to e^-gamma/2 with O(s^-2) error and nu-3h>0. The cutoff is chosen
+first; finite partitions, buffers and compiler parameters follow.
+
+The current ordinary lower policy also contains fourth own-cube
+restoration. There the old prefix was an actual first exit, so the
+old contribution is zero. The exact difference is g(P4)*V-(new/P4,p4),
+not a fictitious difference of two bounds. Its earlier histories and
+all new full/remaining gates are retained. The selected slanted slabs
+lie outside the old retained fourth domain and fifth projection; each
+parent uses a maximum of complete alternative covers. Their current
+certificate replaces the preceding restoration total. It is not added
+to it. This addresses the actual restored policy beyond the original
+E4 version of the joint approximation lemma.
+
+4. Finite H/h induction and every switched input
+
+The finite seed and actions need only two elementary pointwise
+inequalities: the twofold W1 occupancy inequality and the four-band
+twenty-one-term W2 inequality. The project proves their factor-count
+forms in generalized-one-step-double-sieve and
+replacement-second-seed-route. W1 uses 2*1_{k=0}<=2-k+(k-2)_+;
+W2 has its explicit band-count polynomial cases. Their origin is
+Wu-2004 Lemmas 4.1/4.2, not the Wu-2008 contracted Chen weight or
+published shrinking-class correction tables. The initial .02 seed,
+then four finite rounds giving .02327, use these own actions and
+ordinary estimates. They do not import an old Wu H/h table.
+
+Buchstab uses an ordinary baseline at argument six and
+ H_B(s)=integral_max(2,s-1)^5 h(w)dw/w,
+ h_B(s)=integral_(s-1)^5 H(w)dw/w, s>=2.
+The new prime exponent is L/(w+1), the residual is Lw/(w+1), and
+alpha'=alpha+(alpha-1)/w>=2. Since w>=1, its square passes and its
+cutoff remains below the old ceiling. Upper children with 1<w<2
+are kept by smaller-cutoff comparison at a legal argument >=2;
+A(w)=1 supplies the zero normalization shift. Lower h below two is
+zero. It is incorrect to delete that upper-child interval entirely.
+
+All 70 W1 targets satisfy 2.4<=s<=3, 3.2<=s0<=5. A singleton child
+has u in [1/s0,1/s], residual L(1-u), cutoff L/s0<=Lu and
+alpha'=(alpha-u)/(1-u)>=2. Old full/selected/W data persist.
+Its positive switched triple has rough quotient cutoff at the
+SECOND prime. Canonical factorization of that quotient yields a
+finite collection of geometric prime-product families. Every factor
+has a fixed positive exponent. Its unit quotient is power-saving,
+since alpha-3/s>=1/2. Its actual mass is
+
+ X=(I+o(1))*N sum_b sigma(b)/(phi(b) log(Q/b)).
+
+Kpos and C_N<=C(bN) give KI/4 after division by Theta_Q, and the
+twofold inequality gives cost KI/8. No residual-level factor multiplies
+K. The envelope of omega is uniform for every actual alpha>=2;
+alpha itself is not reset to two.
+
+For the 36 W2 actions (three original, thirty-three additions), the
+saved rational tuples satisfy 2<s<3 and
+s<phi3<phi2<phi1<s0<=5. With ai=1/phii,a0=1/s0,b=1/s, the actual
+support tests include a3+2a1<1, a2+2a1<1, 3a1<1,
+a0<(1-a2)/2<1/3<a2<1/2, and s0(1-b)>2.
+These are checked afresh from their rational parameter lists in the
+companion record, independently of the author's validator.
+The ordinary pair domains are Gamma5-good: a0<u<v<a2,v+2u<1;
+Gamma6: (a0,a1)x(a2,a3); Gamma7: a0<u<v<a1;
+Gamma8: (a0,a1)x(a1,a2). Their full tests are 2v<1 and v+2u<1.
+The child cutoff is La0 in 5,6 and Lu in 7,8; its arguments lie
+in (1,s0-2] subset (1,3]. For arguments below two the upper comparison
+lowers the cutoff; it does not require that a parent itself admit s0.
+The actual ratio is (alpha-u-v)/(1-u-v)>=2.
+
+The bad part of Gamma5 has no ordinary H feedback: its old ordinary
+cost is removed ONCE and replaced by a positive Kpos bound. Gamma9--21
+are also positive switches. Their rough cutoff is next-to-last among
+specified primes: second for 9--15, third for 16--19, fourth for20,
+fifth for21. They preserve the labelled tuple ranges. For actual
+alpha, nonunit mass has kernel
+
+ 1_{sum u+z<=alpha}*omega((alpha-sum u)/z)/(z product u).
+
+It is bounded on the FULL tuple domain by
+ max(C/z,1/max(z,2-sum u))/(product u), C=70893/125000.
+This uses a nonincreasing upper envelope of omega; omega itself need
+not be monotone. It does not discard tuples merely because
+sum u+z>2. The latter truncation would fail for descendant alpha>2.
+
+Unit quotients are separate positive surfaces sum u=alpha. Eliminating
+one coordinate has derivative one; it adds neither alpha nor a
+Euclidean surface Jacobian. Units 9--19 are absent because sum u<2.
+Units20,21 remain with bounds phi2*log(phi3/s)^4/24 and
+phi3*log(phi3/s)^5/120. They are present in the saved costs at every
+recalibration. These are legal Kpos families after factorization, not
+ordinary signed-child estimates. The radial/last-variable positive
+outer approximation precedes arithmetic sieving; dropping a boundary
+by its unweighted exponent-space volume would not justify this step.
+
+The W2 switched factor is K/4 before division by five, hence K/20 in
+the action seed. Variable-kernel savings replace that same upper
+cost. They are not an extra child defect. The saved W2 net slope when
+changing K subtracts the proportional decrease in its already included
+kernel saving. The exact ordinary-plus-positive template, not merely
+an isolated old bound, justifies that recalibration.
+
+The numerical lineage is 24 ->56 ->120 ->184 ->248 ->312 ->430, on
+200 closed cells and 106 actions (70 W1,36 W2). Each update reads only
+the previous generation, takes positive integrals and finite maxima,
+and rounds lower endpoints downward. A closed target cell uses a
+bound valid on its entire argument interval. Before recalibration,
+W1 used 6.7633 and W2 used 6.7619, with original W2 coarse costs
+anchored at 6.81. The 312 table uses 6.7618; the last 118 finite
+steps use 6.761767. Current Kpos is smaller than every anchor, so all
+these older positive upper bounds follow by weakening. No infinite
+fixed-point assertion is needed, even though a stationary rounded
+array was detected.
+
+This is a genuine induction on the described states. The finite
+minimum of 1-2/s over the action bank is positive; Buchstab keeps at
+least half the residual exponent, and newly appended primes have
+exponent at least L/6. For example, after fixing a compact root state,
+one may take an extremely small positive lower bound proportional to
+min(1/2,min_actions(1-2/s))^434 times its root residual. Its usefulness
+is positivity, not size. Every exponent and every maximum factor count
+is fixed BEFORE N. The original prime-group HB precision may depend
+on this bound. There is no claim uniform in recursion depth or as
+the factor cutoff tends to zero with N.
+
+5. Which table is actually used in each current occurrence
+
+ L1: ordinary start at a with coefficient 3/4 and its causal I3/I4/I5
+     corrections. No empty-prefix H: its ratio is below two.
+ L2: ordinary start has moved all the way to h. Its earlier H248
+     one-prefix term has been removed in full, once. There is no
+     remaining H430 lookup in this occurrence.
+ U3,U4: H430 only. Use nu=v(t), t<57/224, and the classical endpoint
+     nu=1/2 approached below for the U3 tail. L=nu-t and
+     s=max(2,L/a); the physical cutoff is min(a,L/2).
+     Enhanced full-square/ceiling and alpha>=2 hold. The classical
+     tail does not falsely require an enhanced square at t>1/4.
+ L5,L6: the old h248 on the same two-prefix cap and same gated domains.
+     Full/selected tests and alpha>=2 are required before any lookup.
+ U7,U8,U9: no H/h lookup; their complete positive switched costs.
+ U10,U11_full: old H248 ordinary-versus-positive-switch minima,
+     together with their selected refinements and fixed-cell K feedback.
+     They are not silently reevaluated with H430.
+
+For L5/L6, the two-prefix enhanced cap is the old maximum of v(t),
+v(t+u),Lambda-3a/8 when t<mu; otherwise v(t). Its W option retains
+the future-third cutoff a. Since a>=25/352, this cap is at most
+(1+t+u)/2, proving alpha>=2 on the full pair domain. Since 2a>h,
+the required residual squares are also retained. Ordinary fallback
+is used wherever an extra defect is unavailable.
+
+For U10/U11, the full ordered prefix ranges have four primes >=Na.
+The positive switched kernel is K*omega((1-S)/z)/z at the actual
+third-smallest slot z; the quotient unit is absent since S<=d+3h<1.
+An ordinary competitor uses a whole-family cap nu<=Lambda with
+full/selected/W gates, L=nu-S, s=max(2,L/w)<=1249/417<3. The ratio
+condition follows from S>=4a>2Lambda-1; physical ceiling is w.
+Take ONE estimate or their minimum on a common positive partition;
+do not add both improvements. Tied bins retain the sorted target
+and its factorial normalization, not a fictitious symmetry of a
+chosen estimator. The last range stays full Y11 throughout.
+
+The L2 start change also changes its old defect term. If w_star=25/224,
+its complete c increment includes
+
+ [B(w)-B(w_star)+I(w)]/4
+ - integral_(w_star)^w 2 H248((1-t)/(2t))/(t(1-t)) dt,
+
+with the actual ordinary B defined in table-chain section 5. At w=h
+this removes the whole former H contribution. It is not I/4 alone
+and not an H184 removal against a new H248 baseline. L1 has no such
+subtraction. This cancellation is already in the selected old anchor.
+
+The 248-to312 and 312-to430 replacements affect only U3/U4. Each is
+the sum, over t in (a,1/3) and (a,d), of
+integral delta H(max(2,L(t)/a))/(t L(t)) dt.
+Factor four from the count cancels the coefficient -1/4. The s=2
+clamp has positive measure and uses the stored adjacent-cell minimum.
+The 430 gain is a difference from312, not again from248. Different
+occurrences may use different separately valid finite tables; no
+global choice forces every occurrence to be updated simultaneously.
+
+6. Five fixed K-cost feedback terms and the exact current ledger
+
+Let K_star=33809/5000 and let C_star, B_star be the raw coefficient
+and EACH already paid lower budget in the 312-table anchor
+table-k-feedback-transfer-assembly-20261009.json:
+
+ C_star=171922231055429732079198118276413681459/
+        87774480319316627353400907821383417856,
+ B_star=852410223552375578267184698653673/
+        64903710731685345356631204115251200000.
+
+This anchor includes the complete 248 functional, common ordinary
+start corrections, retained fourth/fifth coverage, fourth own-cube
+restoration, its slanted replacement, the earlier U7/8/9 K change,
+the 248-to312 U3/U4 change and the initial fixed-cell U10/U11 change.
+No old safe rounded c is used as if it were the exact raw coefficient.
+
+The fixed slope A has two mathematically different components.
+For i=7,8,9, U_i(K)=K J_i with J_i>=0. Saved lower endpoints u_i^- of
+the analytic COSTS at K0=67619/10000 give
+A789=(2u7^-+u8^-+u9^-)/(4K0). These are not lower bounds for prime
+counts. An old cost enclosure E_i can be reduced by the corresponding
+nonnegative slope without reevaluating the integral.
+
+For U10/U11 retain only 1,011,131 unrefined switched-method cells;
+exclude every one of the 40,000 subdivided parents and every
+ordinary-selected cell. Their proof gives 0<=K0*T_B<=A_B=K0*C*Z_B-g_B.
+The saved d_B is a downward rounded bound for
+[(K0-K_star)/K0*(K0*C*z_B-g_B)]_+, z_B<=Z_B.
+Thus s_B=d_B/(K0-K_star)<=A_B/K0, and for K<=K_star,
+
+ K*T_B <= A_B-(K0-K)*s_B
+        =(A_B-d_B)-(K_star-K)*s_B.
+
+This extends the current cell bound while retaining g_B correctly.
+It does not differentiate a minimum or add ordinary and switched
+alternatives. The five occurrences need not describe disjoint primes:
+they are five separate terms of the fixed pointwise weight. On each
+individual occurrence its alternatives are not added.
+Consequently the frozen conservative slope is
+
+ A=8598593512394265568060189496377494375/
+   21943620079829156838350226955345854464.
+
+It contains exactly U7,U8,U9 and these selected U10/U11 cells. It
+contains no W1/W2 recalibration, no U3/U4 table gain, and no ordinary
+start or restoration derivative. Its old proof's reference to H312
+is superseded only at the two explicitly updated U3/U4 occurrences.
+
+Let T430 be the saved 312-to430 two-cost lower increment:
+
+ T430=282218209595396890358020075/
+      1298074214633706907132624082305024.
+
+Independent pure rational arithmetic, without loading an author
+mathematical module, verifies the following EXACT identities against
+the selected current record:
+
+ C_now = C_star + A*(K_star-K) + T430
+       =53726377298088511307401925729910620021809/
+        27429525099786446047937783694182318080000,
+
+ B_now = B_star + [A*(K_star-K)+T430]/8
+       =71240992240788737277124132765154032017/
+        4388724015965831367670045391069170892800000.
+
+B_now is EACH cumulative lower budget. This collapse preserves all
+earlier budgets and counts every later lower contribution once. The
+many subsequent sixth/eighth upper integrals affect this lower chain
+only through the assumed new K and this fixed slope. They do not
+become new lower integrals. The sole additional table insertion is
+T430. In particular the last two mixed-moment gains are not added
+directly to c.
+
+Subtracting both budgets gives
+
+ C_now-2B_now
+ =4298038942854840115854876934260084447712703/
+  2194362007982915683835022695534585446400000,
+
+ C_now-2B_now-c
+ =6607869259319948112727013494699564611/
+  274295250997864460479377836941823180800000000 >0.
+
+The latter is about 2.4090352404e-8. The equality of these scalar
+records is not a new high-dimensional integral verification; NUM is
+the separately identified input. The inference from those numerical
+inequalities to a count uses sections 1--5 and the finite-error argument
+next, rather than their PASS labels.
+
+7. Joint choices, absence of a K/table cycle, and remaining obligations
+
+Fix the rational action bank, depth430 and its stored estimates first.
+Fix the ordinary ideal causal policy, restored components, selected
+minima and the numerical lower enclosures. Choose approximation error
+below the allocated lower density budget. Truncate ordinary tails at
+a positive cutoff, trim genuine boundary walls, and make one common
+finite refinement with actual ancestor caps and branch labels. The
+finite table recursion then has a fixed positive minimum exponent
+over all its used ordinary children and positive switched products.
+Fix their labels and finite maximum factor counts. This may be a very
+small exponent and a very large fixed count; neither depends on N.
+
+Now invoke Kpos for this finite union. Its proof may choose its own
+positive upper policy precision to fit its strict K endpoint slack.
+It uses no Chen lower table. Old table anchor bounds follow by the
+inequality K<=old_anchor. This gives the induction without assuming
+the lower count that it is meant to prove. Ordinary prime estimates
+are obtained directly from PP and the independent lower compiler.
+The fact that the upper and lower policies may share some arithmetic
+families does not make either proof use the other's conclusion.
+
+Choose PP's zeta below all fixed licence margins and the smallest
+positive outer cutoff; take sigma<=zeta/1000,
+kappa=sigma/200 and kappa0<sigma/(1000+sigma), as in its statement.
+Then choose beta/fine precisions, rough rank and source frequency
+parameters within the reserved margins, preserving every complete
+coefficient and chart-fixed projector. The complete-product tail is
+N^(1-kappa0+o(1)); all actual moduli are below N^(theta_star),
+theta_star<3/5. Choose arbitrary-log savings after the finite piece
+counts. PP errors O(N log^-A N), collisions, power tails and the
+finite squarefree exceptions are o(H_N). The upper proof's paid losses
+are inside Kpos, not charged again to c. Lower approximation and
+compiler losses fit the two B_now budgets. All parameters precede N.
+
+Only then let even N grow. Finite many thresholds may be maximized;
+fixed-policy estimates do not require uniformity as the mesh, table
+depth or factor count grow. The strict final rational slack makes
+the displayed lower count eventual. There is no effective threshold
+claim and no implicit policy Pi(N).
+
+The outstanding or inherited obligations are explicitly:
+
+ (i) Kpos at the current K for the required positive product class.
+     This is being audited separately; PP by itself does not prove it.
+ (ii) The classical/spectral premises of the new PP derivation, the
+      ordinary Rosser convergence/raw-density inputs just identified,
+      PNT/Mertens, Buchstab rough-number mass, and the sign-sensitive
+      finite beta compiler. This audit checks their insertion, not a
+      new proof of their external source theorems.
+ (iii) The recorded outward finite ordinary/action/functional
+       inequalities. Parameter and scalar checks here are fresh;
+       the millions of numerical integration cells are not replayed.
+ (iv) The unspecified Wu weight-domain correction remains unidentified. The
+      selected chain avoids the identified dependency candidates by
+      direct full-Y11 and W1/W2 occupancy proofs and its own finite
+      tables; it uses neither Li's 1.9728 nor Wu's imported shrinking
+      correction table. This is a statement about the formulas used,
+      not a claim to have repaired or classified that typo.
+
+Subject to (i)--(iii), the downstream c implication is closed; no
+additional distribution theorem for signed switches or for individual
+prefixes is silently required. No b transfer, upper-K proof, global
+status promotion, manuscript edit, formalization or publication is
+performed here.

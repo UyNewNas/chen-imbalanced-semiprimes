@@ -1,0 +1,112 @@
+% New proof fragment. No previously bound artifact or open manuscript is edited.
+\subsection{Inserting a stronger finite table in two fixed upper costs}
+\label{sec:table-k-feedback-two-cost-insertion-20261009}
+
+Let $H_0,h_0$ be the certified 248-generation table on the 200 closed
+cells $[1+i/50,1+(i+1)/50]$. Suppose $H_1,h_1$ is another certified
+finite table on exactly the same typed families, grid and physical
+comparison rules, with $H_1\ge H_0$ and $h_1\ge h_0$ cellwise.
+The new table may be obtained by lowering the positive-product
+coefficient in fixed W1/W2 actions and then performing a specified
+finite number of simultaneous rounds. Its validity, baseline
+recalibration and integer recurrence are separate proof obligations.
+In particular any already included positive kernel saving must be
+scaled consistently when its $K$ changes. A numerical improvement of
+an action is not an additional global Chen term.
+
+\paragraph{A local replacement of two occurrences.}
+Retain $a=417/5000$, $h=19/125$, $d=59/250$, $\mu=25/128$,
+$e=57/224$, and the same selected-level function $v$ as in the
+existing eleven-term insertion. In $U_3$ the $t$ domain is $(a,1/3)$;
+in $U_4$ it is $(a,d)$. Their residual levels are respectively
+\[
+ L_3(t)=\begin{cases}(1-t)/2,&a<t<\mu,\\
+                  57/64-5t/2,&\mu<t<e,\\
+                  1/2-t,&e<t<1/3,
+          \end{cases}
+ \qquad
+ L_4(t)=\begin{cases}(1-t)/2,&a<t<\mu,\\
+                  57/64-5t/2,&\mu<t<d.
+          \end{cases}
+\]
+The classical last branch is interpreted with its previously proved
+level limit below $1/2$. Both table arguments are
+$s_i(t)=\max(2,L_i(t)/a)$. Outside $[1,5]$ the table contribution is
+zero. At a common cell endpoint take the smaller adjacent value,
+as in the saved upper-cost certificate.
+
+The exact analytic upper-cost expression is
+\[
+ U_i(H)=4\int\frac{A(s_i(t))-H(s_i(t))}{tL_i(t)}\,dt.
+\]
+All full/selected support, stable ceilings and actual $\alpha\ge2$
+conditions are unchanged. Thus either separately certified table can
+be used at this occurrence. The final lower functional has coefficient
+$-1/4$ on each of $U_3,U_4$, so replacing only these two occurrences
+increases it by the exact positive expression
+\begin{equation}\label{eq:two-cost-table-gain}
+ \Delta_{34}=
+ \int_a^{1/3}\frac{H_1(s_3(t))-H_0(s_3(t))}{tL_3(t)}\,dt
+ +\int_a^d\frac{H_1(s_4(t))-H_0(s_4(t))}{tL_4(t)}\,dt.
+\end{equation}
+The factors four cancel; no further factor $1/4$ is applied.
+
+Every other occurrence can continue using its old valid table. The
+proved family bounds impose no requirement that all distinct
+occurrences select the newest available table. In particular the
+ordinary lower-start/restoration constructions, $L_5,L_6$, and both
+four-prefix minimum costs can remain unchanged. The final $L_2$ start
+is at $w=h$, where its one-prefix $H$ integral has disappeared; its
+previously paid subtraction uses the old $H_0$ and is retained. There
+is no new $L_2$ table gain and no second removal. This is a replacement
+inside the explicit full functional, not an addition to a black-box
+count unrelated to its terms.
+
+\paragraph{Exact one-dimensional evaluation without an ordinary table.}
+On any affine piece $L(t)=A-Bt$ with positive $A,B,L$, the table-cell
+preimages are rational intervals. For a cell $[s_j,s_{j+1}]$ above
+two, intersect the physical piece with
+\[
+ \frac{A-as_{j+1}}B<t<\frac{A-as_j}B.
+\]
+On a resulting interval $(l,r)$ its contribution is
+\[
+ \frac{H_{1,j}-H_{0,j}}A
+       \log\frac{r(A-Bl)}{l(A-Br)}.
+\]
+The logarithm's argument is greater than one because
+$t/(A-Bt)$ is increasing. All coefficients are nonnegative, so a
+positive-series lower logarithm bound gives a certified lower
+contribution with no cancellation. Disjoint cell preimages cover the
+whole nonclamped region except null endpoints. The zero contribution
+outside the table range does not require a new bound there.
+
+The clamp $s=2$ can have positive measure and must be retained. Use
+\[
+ \delta_2=\min(H_{1,49},H_{1,50})
+          -\min(H_{0,49},H_{0,50})\ge0
+\]
+on $t\ge(A-2a)/B$ within the physical piece, and apply the same
+primitive. It would be incorrect to use an arbitrary one-sided value
+at this structural equality, or to discard it as a null table boundary.
+
+The two identical pieces $(a,\mu)$ may be integrated once with
+multiplicity two. Each of the remaining three affine pieces has
+multiplicity one. The resulting finite list of rational intervals,
+cell indices, multiplicities, nonnegative table differences and
+logarithm bounds is a complete witness. No high-dimensional integral,
+ordinary delay table or new branch search is needed.
+
+\paragraph{Finite choices and scope.}
+The new table is established first by a finite induction using the
+already available product coefficient. That coefficient was proved
+without the new table, so there is no cycle. Preserve the earlier
+finite lower constructions and refine the two modified occurrences
+on a common marked partition, with their old gates and ceilings.
+The table has finitely many cells; inverse cell boundaries have zero
+mass except the explicitly treated clamp. All approximations can
+therefore be made smaller than any fixed positive allowance before
+$N\to\infty$. A global assembly must allot this new allowance, retain
+all old lower losses, and use a strict rounded $c$ below the resulting
+raw bound. This fragment does not select a new $c,b$ or assert any
+unproved finite-table input, formalization or effective threshold.

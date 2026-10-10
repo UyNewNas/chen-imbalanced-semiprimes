@@ -1,0 +1,181 @@
+Adversarial numerical-primitive audit: delayed linear-sieve table and tail
+9 October 2026. New files only; no original output or global constant changed.
+
+1. Object, prior coverage, and result
+
+The selected shared primitive is certify_extended_prefix.py:SieveTable,
+lines51--116: the fixed-point delayed table, interpolation and D(s) bounds.
+It is direction-critical in the original E0 certificate: every ordinary
+fbar query, correlated difference/derivative bound, and the entire omitted
+t3<1/100 tail uses it. The original two-million-step replay changed the heap
+driver but shared these routines. variable-prefix-numeric-audit.json and
+extended-prefix-numeric-audit.json contain mathematical/source review, not
+a different table implementation.
+
+The current lower sharp184/248 baseline directly instantiates this same
+class at mesh4096,maximum8. The lower baseline already has an independent
+8192-mesh reconstruction with exact low-delay pieces; its whole eleven-term
+integrals are NOT repeated here. Further ordinary-start callers use this
+class at other meshes/ranges, often with independent later replays. The new
+numerical test covers the exact E0 table and the exact sharp-baseline table,
+not every larger table ever constructed in the project.
+
+No failure was found. A genuinely different rational method below builds
+the full n=16384, maximum12 table at112 bits, then compares it with the
+frozen80-bit subject. Its intervals lie inside the subject at ALL360450
+L/H nodes on[1,12]. They also lie inside all57346 coarse nodes of the actual
+mesh4096,maximum8 sharp-baseline table. All10 saved integer D upper bounds
+and the stored complete small-t3 tail are independently covered. There are
+200 additional off-grid/breakpoint/large-argument f0 comparisons and the
+in-range convex-H numerator comparisons at the same arguments; these
+are implementation checks, while section4 proves the general query rules.
+
+The author module is loaded only AFTER construction of the independent
+table, to obtain the outputs being tested. It supplies no oracle value,
+arithmetic operation, logarithm, integration weight or error bound to the
+new table. Its constructor's own assertions do not contribute to our proof.
+No multidimensional integral, adaptive heap or original cell enclosure is
+executed. In particular this is not a new full primitive-independent replay
+of the entire E0 certificate.
+
+2. Mathematical functions and independently derived bounds
+
+Write f0=f/(2 exp(gamma)), F0=F/(2 exp(gamma)), L(s)=s f0(s), H(s)=s F0(s).
+The standard ordinary linear-sieve definition and its positivity/monotonicity
+are explicit mathematical inputs: f0=0 up to2, H=1 up to3, f0 increases,
+F0 decreases, F0>=f0>=0, and
+ L'(s)=F0(s-1) for s>2, H'(s)=f0(s-1) for s>3.
+In particular 0<=f0'(s)<=1/s and |F0'(s)|<=1/s in their nonconstant ranges,
+since F0<=1 on[1,infinity). The initial1/s pieces obey the same bounds.
+Consequently L is concave on[2,infinity), H is convex on[3,infinity), and
+ |L''(u)|<=1/(u-1), 0<=H''(u)<=1/(u-1)
+on those respective ranges. These first-derivative bounds, not the
+subject's trapezoid/F0'' bounds, drive the new calculation.
+
+All integer delays are grid endpoints. L has its initial derivative jump
+at2, but no cell straddles it; H is constant through3. Later integer breaks
+are also endpoints. Piecewise absolutely continuous derivatives and the
+one-sided endpoint values suffice for the integral chord inequalities.
+No assumption of a globally C4 solution or a Simpson remainder across
+delay breaks is made.
+
+3. Different integration method: numerator chord divided by u
+
+Let the delayed cell be[a,b]=[j/n,(j+1)/n], h=1/n. The target increment is
+an integral of H(u)/u or L(u)/u. If c_V is the endpoint chord of V then
+ integral_a^b c_V(u)/u du = w0 V(a)+w1 V(b),
+ w0=(j+1)log(1+1/j)-1, w1=1-j log(1+1/j).
+Both weights are positive. This is exact logarithmic integration of a
+linear numerator; it is NOT trapezoidal integration of V/u.
+
+With |V''|<=M, the chord error is at most
+ (M/2)(u-a)(b-u).
+Hence its weighted integral is at most M h^3/(12a). Taking
+M=1/(a-1) gives the rational error 1/[12 n j(j-n)]. Convex H lies below
+its chord, so this error is subtracted only from the lower L increment.
+Concave L lies above its chord, so it is added only to the upper H increment.
+For target s<=4, H(u)=1 exactly; the L increment is simply log(1+1/j).
+Known L monotonicity permits taking max(previous lower,new lower).
+
+The weights have independent alternating expansions
+ w0=sum_(k>=1)(-1)^(k+1)/(k(k+1)j^k),
+ w1=sum_(k>=1)(-1)^(k+1)/((k+1)j^k).
+Their positive term magnitudes decrease for j>=1. The fourth partial sum
+is a lower bound and the fifth an upper bound; the same rule applies to
+log(1+1/j). In common denominator60j^5 the fourth numerators are
+ 30j^4-10j^3+5j^2-3j,
+ 30j^4-20j^3+15j^2-12j,
+ 60j^4-30j^3+20j^2-15j,
+and the fifth numerators add2,10,12 respectively. The code computes these
+integers directly, avoiding cancellation of two nearly equal logarithms.
+
+Every lower weight is floored at2^-112; every upper weight and curvature
+error is rounded up. Numerator endpoint bounds are nonnegative, so positive
+weighted sums have the stated interval direction. Their products are then
+rounded outwards once more. Delayed indices j,j+1 are strictly earlier than
+the target index; induction therefore gives certified enclosures at every
+node. The proof covers every update, not only the tested sample points.
+
+4. Original interpolation, cutoffs, and integer tail bounds
+
+The subject's knots have now been covered by a separately certified
+method. On a noninteger mesh cell for L above2, its endpoint chord bounds
+L below, and chord+h^2/8 bounds it above because |L''|<=1. H above3 is
+convex with H''<=1, reversing the two sides. The subject's numerator()
+floors the lower interpolation and ceilings the upper, then applies the
+appropriate one-sided error. Division by a positive argument is outward.
+The exact-rational q,r=divmod(a*n,b) handles a grid node with r=0 directly;
+an argument at maximum has no attempted out-of-range next-node access.
+
+The rule point(s)=0 at s<=2 agrees with the defined lower function.
+At s>maximum, monotonicity and f0<=F0 give
+ f0(maximum)<=f0(s)<=F0(maximum),
+so the fallback interval is valid without extrapolating a numerical DDE.
+The scalar numerator(maximum)/maximum floors and ceilings have the right
+direction. Only the lower-function query has this fallback: no unsupported
+large-s assertion about H interpolation is inferred.
+
+For D=F0-f0, the exact delay relation for s>=3 is
+ (sD(s))'=-D(s-1).
+As D is nonnegative and decreasing,
+ D'(s)=-(D(s)+D(s-1))/s<=-2D(s)/s.
+It follows that D(s)<=D(k)(k/s)^2 for every3<=k<=s. Thus taking the
+minimum of all eligible upward-rounded integer-anchor bounds is valid;
+the floor(s) restriction in d_upper never selects a future anchor.
+The subject stores ceil((H_upper(k)-L_lower(k))/k), exactly an upper
+bound. We independently compare all ten saved anchors k=3,...,12.
+Also f0'(s)<=(F0(s-1)-f0(s-1))/s=D(s-1)/s, justifying the additional
+derivative bound where the caller checks s>=4. This statement does not
+independently recheck every caller's geometry.
+
+5. Entire noncompact tail, not a sampled small-s test
+
+For the actual ordered E0 domain, cap>=v(x) and y<=x. Below mu=25/128,
+v(x)-2x>=1/2-3mu/2=53/256>rho; above mu, v(x)-2x is minimized at
+rho=19/96, where57/64-7rho/2=rho. Also Theta>=153/256 and
+Theta-2rho>rho, so taking the minimum with Theta preserves the bound.
+Thus cap-x-y>=rho. Put z=t3, h=1/100, k=10. The condition
+h<=rho/(k+1) gives sold>=(rho-z)/z>=k. Since both f0 values are bounded
+by their common limit, their positive difference is at most D(sold).
+Use the preceding anchor bound, enlarge the domain by positivity, and
+integrate ordered x,y to get exactly
+ tail <= 2 D(k) k^2 h/(rho-h)^2
+          *[log(rho/h)^2+2log(rho/h)+2].
+The factor2 is the original4 times the ordered xy factor1/2. The z^-2
+density cancels the z^2 supplied by D(sold). No t3-tail is set to zero.
+
+The new checker evaluates this whole tail with its new integer D(10)
+upper bound and an independent160-term positive -log(1-w) series after
+power-of-two range reduction. The remainder is bounded by
+w^161/[161(1-w)]. The resulting upper value is about1.23137742775e-7,
+below the saved8.50964715672e-7. We retain the SAVED bound in every global
+ledger; the better auxiliary number is used only to cover that input.
+
+6. Direction-critical source audit and coverage limits
+
+The original table subtracts h^3/6 only on its L lower endpoint and adds
+h^3/12 only on its H upper endpoint. These directions follow from convex
+F0 and concave f0. The original comments' loose bounds F0''<=2 and
+|f0''|<=1 follow by differentiating the delay equations on each integer
+piece; their curvature jumps do not cross mesh cells. Interpolation is
+applied above the correct threshold. Integer ceildiv=-((-n)//d) works
+also for negative numerators with d>0; all divisions used here have positive
+denominators. The independent method verifies the resulting knot values,
+so a repeated source-level rounding mistake would have been detectable.
+
+This primitive itself makes no geometric pruning decision. Its point<=2
+zero branch, maximum fallback, integer-anchor min and exact-grid branch
+are all covered above. Original outside-cell rejection, affine envelope
+selection, ordered-square halving, correlated-argument geometry, Jensen
+mean calculation and adaptive heap accounting remain separate reviewed
+primitives. No new verdict about those parts follows from this test.
+
+The direct current consumers are the E0 ordinary/difference/tail backend
+and the ordinary part of the sharp184/248 baseline, retained in the current
+lower ledger. The latter previously had an independent full baseline
+replay; this report adds a different mathematical integration rule for the
+shared table rather than claiming that earlier check did not exist.
+Analytical rules extend to other mesh/max choices, but numerical all-node
+coverage is stated only for16384/12 and4096/8. No classic sieve definition,
+prime-distribution theorem, H/h recurrence or full current K/c assertion
+is newly proved by this numerical-primitive audit.

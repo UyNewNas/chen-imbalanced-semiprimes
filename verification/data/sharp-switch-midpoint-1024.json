@@ -1,0 +1,66 @@
+{
+  "status": "EXACT_SWITCH_COST_MIDPOINT_BOUNDS_PENDING_INDEPENDENT_REPLAY",
+  "cells": 1024,
+  "terms": {
+    "U7": {
+      "lower_numerator": "1672464594469204358647602",
+      "upper_numerator": "1672464594622060236183097",
+      "denominator": "1208925819614629174706176",
+      "lower_decimal": "1.3834302877262874825232484505856993",
+      "upper_decimal": "1.3834302878527269009353897869525229"
+    },
+    "U8": {
+      "lower_numerator": "4904703852370673799008787",
+      "upper_numerator": "4904703865205402441361491",
+      "denominator": "1208925819614629174706176",
+      "lower_decimal": "4.0570759369951685713258481099010540",
+      "upper_decimal": "4.0570759476118072716590470631616899"
+    },
+    "U9": {
+      "lower_numerator": "3937512077411197530868110",
+      "upper_numerator": "3937512077512215599969887",
+      "denominator": "1208925819614629174706176",
+      "lower_decimal": "3.2570336521279388981851768825204280",
+      "upper_decimal": "3.2570336522114990864637088595433071"
+    }
+  },
+  "U7_Fubini_correction": {
+    "lower_numerator": "2561589204375702592565",
+    "upper_numerator": "2561589205386819514096",
+    "denominator": "1208925819614629174706176",
+    "lower_decimal": "0.0021188969271847164701194998748675594",
+    "upper_decimal": "0.0021188969280210927846342440719769849"
+  },
+  "rows": [
+    {
+      "generations": 184,
+      "old_baseline": "sharp-184-four-min-32.json",
+      "coefficient_gain": "439443674156072510459/2417851639229258349412352",
+      "new_baseline_c_lower": "9370457672962409578440533/4835703278458516698824704",
+      "display_only": {
+        "gain": 0.00018174964378548657,
+        "baseline": 1.937765229455816
+      }
+    },
+    {
+      "generations": 248,
+      "old_baseline": "sharp-248-four-min-32.json",
+      "coefficient_gain": "439443674156072510459/2417851639229258349412352",
+      "new_baseline_c_lower": "9381104017625682562629125/4835703278458516698824704",
+      "display_only": {
+        "gain": 0.00018174964378548657,
+        "baseline": 1.9399668419308203
+      }
+    }
+  ],
+  "scope": "Replaces only U7/U8/U9 upper integrals in each complete baseline; no new policy, H table, lower-start or four-min gain is added.",
+  "bindings_sha256": {
+    "certify_sharp_switch_midpoint.py": "4b1830eb0168470f2007581777f6755a8a2dd14dfa67bd14b2f6fa0b6f103476",
+    "sharp-switch-midpoint-proof.tex": "3b89076e90113e4b8d0a85feb02196c19b7090e546911d0a1f874dffa0dacbaa",
+    "certify_conservative_chen.py": "67b9429667e18786058e0fe58676fbe09d556868468f1281166cac2b55f8604e",
+    "sharp-184-baseline-128.json": "126c31e4c69a69e5bcbef1330154565b139af66c10c5b2036045d281a9b6fe05",
+    "sharp-184-four-min-32.json": "deb802b0019adbdc09463a79e49f9387db4d67a7b4c339268dbe2f5c96ef2f58",
+    "sharp-248-baseline-128.json": "eb33c788676f1fef56c984006d5e130169be0ad67d6b0bd2f2dd1ea55740040c",
+    "sharp-248-four-min-32.json": "8b5154eef4b2d5cbcdd03ce44e30fc67999593ae41e5b0c5cf588ca0f23f2259"
+  }
+}
