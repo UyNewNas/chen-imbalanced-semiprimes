@@ -1,11 +1,13 @@
-# Imbalanced semiprime representations of even integers
+# Goldbach 1+1.75: imbalanced semiprime representations of even integers
 
 **A revised modular proof with paired sieve weights and finite certificates**  
 Slava Chan · 10 October 2026
 
-[Read the manuscript](paper/SlavaChan-imbalanced-semiprimes-20261010.pdf) · [One-page reading guide](paper/SlavaChan-reading-guide-20261010.pdf) · [Proof-source index](proof-library/INDEX.html) · [Verification instructions](verification/README.txt) · [Full numerical evidence](https://github.com/UyNewNas/chen-imbalanced-semiprimes/releases/tag/v2026.10.10)
+[Read the manuscript](paper/SlavaChan-imbalanced-semiprimes-20261010.pdf) · [One-page reading guide](paper/SlavaChan-reading-guide-20261010.pdf) · [Proof-source index](proof-library/INDEX.html) · [Verification instructions](verification/README.txt) · [Full numerical evidence](https://github.com/UyNewNas/chen-imbalanced-semiprimes/releases/tag/v2026.10.10) · [Lean 4 formalization (in progress)](https://github.com/UyNewNas/goldbach-formalization)
 
-This repository publishes the revised manuscript, its source and supporting records for open mathematical review. Corrections and reproducibility reports are welcome. Please identify the version and the exact page, equation or file involved.
+This repository presents a research manuscript on the **binary Goldbach conjecture** and a claimed refinement of **Chen's theorem** using **imbalanced semiprimes**. The project uses **Goldbach 1+1.75** as a rounded shorthand; a more precise rounded label is **1+1.74817**. In the notation $1+a$, the primary claim has $a=1+b=1.74816964$, where $b=0.74816964$ is the exponent in $r\le q^b$.
+
+The revised manuscript, its source and supporting records are published for open mathematical review. The linked **Lean 4 formalization** is work in progress; its current scope and development branches are described in the companion repository. Corrections and reproducibility reports are welcome. Please identify the version and the exact page, equation or file involved.
 
 ## Current statement
 
@@ -100,7 +102,7 @@ The final primary count has a strict rational surplus of more than $1.1497\times
 
 Public copies omit private correspondence and third-party paper files. Eleven source-library texts have minimal edits to remove private-communication attribution or local paths. A small set of files in the full numerical archive has documented nonmathematical normalizations, including local paths; its manifest lists the exact affected files. Original and public hashes are recorded; mathematical coefficients, formulas and certificate arrays are unchanged. The full replay accepts only the listed original-hash/public-hash substitutions and reports them separately. The unchanged historical runner is supplied as a reference and is not expected to accept the normalized files without the adapter.
 
-The repository is maintained as a single public snapshot commit under **Slava Chan**. The release tag and checksum manifests identify this edition.
+The 10 October 2026 manuscript and supporting evidence were published as a public snapshot under **Slava Chan**. The release tag and checksum manifests identify that edition. Subsequent README commits record editorial and navigation updates separately from the released manuscript and evidence.
 
 ## Rebuild the PDFs
 
@@ -126,7 +128,9 @@ An explicit license for redistribution and adaptation has not yet been selected.
 
 ## 中文说明
 
-本版正式采用 $b=0.74816964$，对应每个充分大偶数至少 $H_N/100000$ 个表示；另列 $b=0.74816865$、计数 $H_N/1000000$ 的次要推论。公开署名统一为 **Slava Chan**。
+本仓库公开一份关于**哥德巴赫猜想（哥猜）**和**陈氏定理**改进主张的手稿，研究不平衡半素数表示。项目使用 **Goldbach 1+1.75** 作为近似简称，更精细的近似称呼为 **1+1.74817**。在 $1+a$ 的记法中，$a=1+b$；本版正式采用 $b=0.74816964$，对应每个充分大偶数至少 $H_N/100000$ 个表示；另列 $b=0.74816865$、计数 $H_N/1000000$ 的次要推论。公开署名统一为 **Slava Chan**。
+
+[相关 Lean 4 形式化工程](https://github.com/UyNewNas/goldbach-formalization)正在推进，首页提供实际开发分支、定理对应表和验证记录的入口。
 
 新版包含 82 页英文手稿、1 页阅读指南、151 份证明文本、可直接运行的小验证包，以及 Release 中的完整数值证据包。旧版依赖外部 $1.9728$ 的分支不再作为当前结论。原始文本中的掩码数量笔误另列勘误。
 
