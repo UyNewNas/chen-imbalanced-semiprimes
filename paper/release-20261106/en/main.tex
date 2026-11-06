@@ -1,0 +1,68 @@
+\documentclass[11pt]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools,booktabs,array,longtable}
+\usepackage{mathrsfs}
+\usepackage[a4paper,margin=28mm]{geometry}
+\usepackage{xurl}
+% Keep file and JSON path breaks at separators rather than inside words.
+\newcommand{\filepath}[1]{\begingroup
+  \def\UrlBreaks{\do\/\do\_}\def\UrlBigBreaks{}\Urlmuskip=0mu
+  \path{#1}\endgroup}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\hypersetup{pdftitle={Theorem (1+1.75) on the Goldbach Conjecture},pdfauthor={Slava Chan}}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\li}{li}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\one}{\mathbf 1}
+\allowdisplaybreaks[1]
+\setlength{\emergencystretch}{3em}
+\title{Theorem (1+1.75) on the Goldbach Conjecture}
+\author{Slava Chan}
+\address{Independent researcher}
+\email{ch4nslava@gmail.com}
+\date{6 November 2026}
+\subjclass[2020]{11P32, 11N36, 11N13}
+\keywords{Chen's theorem, double sieve, semiprimes, primes in arithmetic progressions}
+\begin{document}
+\begin{abstract}
+For fixed $1\le a\le2$, let Proposition $(1+a)$ assert that every
+sufficiently large even integer $N$ can be written as
+\[
+ N=p+rq,\qquad r\le q^{a-1},
+\]
+where $p,q$ are primes and $r$ is either $1$ or a prime.
+At $a=1$, this is the binary Goldbach conjecture for sufficiently large
+even integers; at $a=2$, it is Chen's theorem. We prove unconditionally
+that every sufficiently large even integer admits such a representation
+with $a=1.75$, establishing Proposition $(1+1.75)$ and strengthening
+the earlier $(1+1.9)$ theorem of Li and Liu~\cite{LiLiu}.
+The proof subtracts a positive upper-sieve estimate for excluded
+semiprimes from a Chen-count lower bound obtained by restricting paired
+terms in an eleven-term Chen weight and applying the double sieve.
+The threshold for $N$ is ineffective: the proof does not provide an
+explicit computable threshold.
+\end{abstract}
+\maketitle
+\input{introduction}
+\input{argument}
+
+\appendix
+\input{analytic-appendix}
+\input{coefficient-appendix}
+\input{sieve-appendix}
+\input{numerical-appendix}
+\section*{Acknowledgment of AI assistance}
+OpenAI ChatGPT/Codex assisted with mathematical exploration, proof development
+and assessment, parameter searches, computational verification, and editorial
+preparation. The author is responsible for the mathematical content and final
+manuscript.
+
+\input{references}
+\end{document}

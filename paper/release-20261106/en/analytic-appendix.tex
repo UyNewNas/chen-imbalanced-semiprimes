@@ -1,0 +1,1067 @@
+\section{The restricted medium convolution estimate}
+\label{app:medium}
+
+We prove Proposition~\ref{prop:current-medium}. The convolution lengths
+are $U,V$, with $x=UV$, and $\mathfrak{a}$ denotes the nonzero residue.
+The even target is denoted by $N$ in the main text.
+Put $\vartheta=7/32$ and
+\[
+ z=x^{1/(\log\log x)^3},\qquad y=x^{1/\log\log x}.
+\]
+The coefficients $\alpha_n$ are fixed throughout the modulus sums and
+satisfy the auxiliary-coprimality Siegel--Walfisz condition
+\eqref{eq:current-aux-sw}.
+All constants in this condition are uniform over the coefficient family.
+We use $e(t)=\exp(2\pi it)$; an inverse in an exponential is always taken
+modulo its displayed denominator.
+
+\subsection{A smooth majorant and divisor estimates}
+
+\begin{lemma}\label{ana:majorant}
+There is a fixed function $\psi\in C_c^\infty((0,\infty))$ such that
+$0\le\psi\le1$, $\psi=1$ on $[1,2]$, $\supp\psi\subset[1/2,5/2]$, and
+\[
+ \|\psi^{(j)}\|_\infty\le C^j(j!)^2,
+ \qquad |\widehat\psi(t)|\ll \exp(-c\sqrt{|t|}).
+\]
+Consequently, for polynomially bounded positive $\ell,V$ and
+$H\ge C_1\ell(\log x)^5/V$,
+\begin{equation}
+ \frac V\ell\sum_{|h|>H}
+       \left|\widehat\psi\left(\frac{hV}{\ell}\right)\right|
+       \ll_D x^{-D}
+ \label{ana:poisson-tail}
+\end{equation}
+for every fixed $D>0$.
+\end{lemma}
+
+\begin{proof}
+Choose $\eta_j=c_0/j^2$ with $\sum \eta_j=1/2$, let $u_j$ be the uniform
+probability measure on $[-\eta_j/2,\eta_j/2]$, and put
+$\phi=u_1*u_2*\cdots$. Its support is $[-1/4,1/4]$. Differentiating
+the first $j$ factors as signed measures gives total variation at most
+$\prod_{i\le j}(2/\eta_i)=C^j(j!)^2$. The remaining convolution is a
+probability measure; retaining further undifferentiated factors also
+gives a continuous density at each fixed derivative order. The function
+$\psi=\one_{[3/4,9/4]}*\phi$ has the asserted support and derivative
+bounds. Integration by parts $j$ times, with $j$ a sufficiently small
+multiple of $\sqrt{|t|}$, gives the Fourier estimate. A decreasing-integral
+comparison bounds the tail in \eqref{ana:poisson-tail} by a polynomial
+factor times $\exp(-c_1(\log x)^{5/2})$. If $H<1$, every omitted integer
+already has $|h|V/\ell\gg(\log x)^5$, and the same argument applies.
+\end{proof}
+
+Write $n=\log_xU$, $q=\log_xQ_1$, $u=\log_xQ_2$ and $v=\log_xQ_3$.
+The hypotheses of Proposition~\ref{prop:current-medium} imply
+\begin{equation}
+ n>\sigma,\qquad n\le\frac12-4\sigma,\qquad
+ q+u+v<\frac7{10}-\frac{13\sigma}2.
+ \label{ana:lengths}
+\end{equation}
+In particular $Q_1Q_2Q_3\le x^{4/5}$ for large $x$.
+Split $q_2=u_0s$ and $q_3=v_0t$ into their $z$-rough and $z$-smooth
+parts. The terms $s>y$ or $t>y$ have arbitrarily large logarithmic
+saving. To see this, first collapse the modulus coefficient with its
+fixed divisor bound. The primitive progression bound for divisor-bounded
+functions~\cite{Shiu}, followed by Rankin's method with exponent $1/\log z$, gives
+\begin{equation}
+ \sum_{\substack{\ell\le x^{4/5}\\ \operatorname{sm}(\ell;z)\ge y}}
+       \frac{\tau(\ell)^C}{\ell}
+ \ll \exp\bigl(- (\log\log x)^2+O_C(\log\log x)\bigr).
+ \label{ana:smooth-tail}
+\end{equation}
+Here $\operatorname{sm}(\ell;z)$ is the largest divisor of $\ell$ all of
+whose prime factors are at most $z$. The bound is used with divisor
+means, rather than with a pointwise factor $x^\epsilon$.
+
+We also use the following translated progression estimate. For fixed
+$C,K,\delta>0$, an interval $I\subset[-x^K,x^K]$ of length at most $L$
+and $f\le Lx^{-\delta}$ satisfy
+\begin{equation}
+ \sum_{\substack{v\in I\\v\equiv r\pmod f\\v\ne0}}
+        \tau(|v|)^C
+       \ll \frac Lf\tau(f)^C(\log x)^{O(1)}.
+ \label{ana:shifted-divisor}
+\end{equation}
+Indeed, put $g=(r,f)$ and $v=gw$. The resulting progression modulo
+$f/g$ is primitive and its length-to-modulus ratio is $L/f\ge x^\delta$.
+The range $|w|\le(f/g)x^{\delta/2}$ is bounded by a fixed divisor
+estimate. Split the rest by sign and into dyadic intervals, subdividing
+them into lengths comparable to the smaller of their scale and $L/g$.
+The primitive divisor bound applies on each interval with fixed positive
+length and modulus margins; summation proves \eqref{ana:shifted-divisor}.
+Cauchy's inequality gives its mixed version for
+$\tau(v)^B\tau(|v-\mathfrak{a}|)^C$, with $v=\mathfrak{a}$ excluded.
+
+On a dyadic block put $d=st\asymp D$, $w=u_0v_0\asymp\mathcal R$ and
+define
+\begin{equation}
+ \Lambda_d(w)=\sum_{\substack{st=d\\u_0v_0=w}}
+       \gamma_2(u_0s)\gamma_3(v_0t)
+       \one_{\text{fixed individual intervals and supports}}.
+ \label{ana:Lambda}
+\end{equation}
+Thus $\Lambda_d$ is independent of $q_1$,
+$|\Lambda_d(w)|\le\tau(dw)$, $D\le y^2=x^{o(1)}$, and
+$D\mathcal R\asymp Q_2Q_3$. With $Q=Q_1$, $Y=QD$ and
+$\delta=\sigma/3$, \eqref{ana:lengths} implies
+\begin{equation}
+ U,V\ge x^\delta,\qquad Y\le Ux^{-\delta},\qquad
+ Y\mathcal R\le x^{1-\delta}.
+ \label{ana:dispersion-lengths}
+\end{equation}
+We write $\mathcal S$ for the original factorized discrepancy sum
+restricted to this block. All values of $d\asymp D$ remain in this
+single sum before Cauchy's inequality is applied.
+
+We reduce to one-bounded $\beta$ before applying dispersion. For
+divisor-bounded $\beta$, retain $\tau(m)\le(\log x)^C$ and normalize
+by $(\log x)^{BC}$. The discarded coefficient at $v=nm$ is at most
+$(\log x)^{-C}\tau(v)^{B+2}$. For $v\ne\mathfrak a$, summing the
+moduli costs at most $\tau(|v-\mathfrak a|)^3$; fixed shifted divisor
+moments therefore give $O(x(\log x)^{E-C})$, with $E$ independent
+of $C$. The exact product $v=\mathfrak a$ contributes separately at
+most $x^{4/5+o(1)}$. Ordinary divisor means and the reciprocal
+totient sum control the mean term. Choose $C$ first, then request
+sufficient logarithmic accuracy for the normalized estimate.
+
+\subsection{Dispersion and the principal variance}
+
+The dispersion step separates a common principal term from the
+nonzero frequencies. A remaining nonnegative principal variance is
+estimated by the auxiliary Siegel--Walfisz hypothesis before the
+exponential sums are treated.
+
+Set $\ell=qd$, $\eta_r=\Lambda_d(r)$ and $h_0=\int\psi$. For fixed
+$(q,d)$ define
+\begin{align*}
+ B_r&=\sum_{(n,\ell r)=1}\alpha_n,
+ &A_r(b)&=\sum_{\substack{n\equiv b\pmod\ell\\(n,r)=1}}\alpha_n,\\
+ C_r(m)&=\frac{\one_{(m,\ell r)=1}}{\varphi(\ell r)}B_r,
+ &X_r(m)&=\sum_{(n,\ell r)=1}\alpha_n
+       \bigl(\one_{mn\equiv \mathfrak{a}\pmod{\ell r}}-\one_{mn=\mathfrak{a}}\bigr).
+\end{align*}
+All $n$ sums retain the original interval. Remove $mn=\mathfrak{a}$ before applying
+Cauchy's inequality. The first-moment cost is
+$Y\mathcal R x^{o(1)}$, which is power-small by
+\eqref{ana:dispersion-lengths}. Nonnegative majorants for $q$ and $m$
+then give a Cauchy multiplier $VY(\log x)^C$ and the exact variance
+\begin{align}
+ \mathcal V'&=S_1-2\Re S_2'+S_3',\notag\\
+ S_1&=\sum_{q,d}\psi(q/Q)\sum_m\psi(m/V)
+                 \left|\sum_r\eta_rC_r(m)\right|^2,\notag\\
+ S_2'&=\sum_{q,d}\psi(q/Q)\sum_m\psi(m/V)
+       \left(\sum_r\eta_rX_r(m)\right)
+       \overline{\left(\sum_s\eta_sC_s(m)\right)},\notag\\
+ S_3'&=\sum_{q,d}\psi(q/Q)\sum_m\psi(m/V)
+                 \left|\sum_r\eta_rX_r(m)\right|^2.
+ \label{ana:variance}
+\end{align}
+
+The common principal term is governed by the kernel
+\[
+ c_\ell(r,s)=\frac{\varphi(\ell rs)}{
+       \ell rs\varphi(\ell r)\varphi(\ell s)}.
+\]
+If $L$ is any common multiple of $\ell$ and the finitely many supported
+$r$, then
+\begin{equation}
+ c_\ell(r,s)=\frac1L\sum_{v\bmod L}
+ \frac{\one_{(v,\ell r)=1}}{\varphi(\ell r)}
+ \frac{\one_{(v,\ell s)=1}}{\varphi(\ell s)}.
+ \label{ana:gram}
+\end{equation}
+This is a positive Gram kernel. The size of $L$ is irrelevant because it
+is used only in the finite identity. Smooth coprime counting yields
+\begin{equation}
+ S_1=\mathcal M+O\left(\frac{U^2(\log x)^C}{Y}\right),\qquad
+ \mathcal M=Vh_0\sum_{q,d}\psi(q/Q)
+        \sum_{r,s}\eta_r\overline{\eta_s}
+               c_\ell(r,s)B_r\overline{B_s}.
+ \label{ana:mean}
+\end{equation}
+
+For $S_2'$, remove $(m,s)>1$ while $mn\ne \mathfrak{a}$. A rough common factor
+$f>z$ gives factors $\mathcal R/f$ and $x/f$; applying
+\eqref{ana:shifted-divisor} and summing
+$\sum_{f>z}\tau(f)^C/f^2$ bounds this error by
+$VU^2(\log x)^C/(Yz)$. Only then restore $mn=\mathfrak{a}$ for Poisson summation;
+the cost is $\mathcal RUx^{o(1)}$. The zero frequency has coefficient
+$1/(\ell r\varphi(\ell s))$, whose ratio to $c_\ell(r,s)$ is
+$1+O((\log x)/z)$. Consequently
+\begin{equation}
+ S_2'=\mathcal M+VE_1+
+ O_A\left(\frac{VU^2}{Y(\log x)^A}+\mathcal RUx^{o(1)}\right),
+ \label{ana:cross}
+\end{equation}
+where, with the original coprimalities retained,
+\begin{align}
+ E_1={}&\sum_{q,d}\psi(q/Q)\sum_{r,s}
+     \frac{\eta_r\overline{\eta_s}}{\ell r\varphi(\ell s)}
+ \sum_{\substack{n_1,n_2\\(n_1,\ell r)=(n_2,\ell s)=1}}
+       \alpha_{n_1}\overline{\alpha_{n_2}}\notag\\
+ &\hspace{12mm}\times
+ \sum_{0<|h|\le H_1}\widehat\psi\left(\frac{hV}{\ell r}\right)
+               e\left(\frac{\mathfrak{a}h\overline{n_1}}{\ell r}\right),
+ \qquad H_1\asymp\frac{Y\mathcal R}{V}(\log x)^5.
+ \label{ana:E1-definition}
+\end{align}
+Lemma~\ref{ana:majorant} permits this Fourier truncation.
+
+For $S_3'$, retain both exact-product exclusions during all divisor
+cutoffs and common-factor removals. The clean set has
+\begin{equation}
+ \begin{gathered}
+ (r,s)=(s,\ell)=1,\quad (n_1,\ell r)=(n_2,\ell s)=1,
+ \quad(n_1,n_2)=1,\\
+ n_1\equiv n_2\pmod\ell,\qquad
+ |n_1-n_2|\ge U(\log x)^{-C_{\rm sep}}.
+ \end{gathered}
+ \label{ana:clean-set}
+\end{equation}
+The removed rough common factors cost
+$VU^2(\log x)^C/(Yz)+x(\log x)^C$; the close pairs cost
+$VU^2(\log x)^{C-C_{\rm sep}}/Y+x(\log x)^C$.
+These estimates follow respectively by counting two multiples or a
+multiple and a primitive progression; their additional unit terms are
+absorbed using $Y/U\le x^{-\delta}$. Choose the divisor truncation and
+then $C_{\rm sep}$ sufficiently large.
+
+Now $n_1\ne n_2$. Restoring one equality $mn_i=\mathfrak{a}$ costs only
+$\mathcal R(U+Y)x^{o(1)}=\mathcal RUx^{o(1)}$: fixing its
+factorization leaves $O(U/Y+1)$ choices for the other $n$, and the other
+rough modulus divides a nonzero shifted product. Both equalities cannot
+hold. Apply CRT and Poisson only after this restoration. On
+\eqref{ana:clean-set},
+\[
+ \varphi(\ell)c_\ell(r,s)=\frac1{\ell rs}.
+\]
+Put $d_r(b)=A_r(b)-B_r/\varphi(\ell)$. Since $\sum_b^*A_r(b)=B_r$,
+the zero frequency is $\mathcal M+\mathcal P$, where
+\begin{equation}
+ \mathcal P=Vh_0\sum_{q,d}\psi(q/Q)\varphi(\ell)
+   \sum_{r,s}\eta_r\overline{\eta_s}c_\ell(r,s)
+                     \sum_b^*d_r(b)\overline{d_s(b)}\ge0.
+ \label{ana:principal-variance}
+\end{equation}
+Positivity follows from \eqref{ana:gram}. In particular this principal
+variance must be bounded; it does not cancel identically.
+
+The auxiliary Siegel--Walfisz hypothesis and the primitive character
+large sieve give, for every fixed $A,w>0$,
+\begin{equation}
+ \sum_{\ell\le8Y}\tau(\ell)^w\sum_b^*|d_r(b)|^2
+       \ll_A\frac{\tau(r)^{2C_0}U^2}{(\log x)^A}.
+ \label{ana:filtered-BDH}
+\end{equation}
+For clarity, normalize $\alpha_n\one_{(n,r)=1}$ by $\tau(r)^{C_0}$.
+Its auxiliary Siegel--Walfisz constants remain uniform because
+$\tau(kr)\le\tau(k)\tau(r)$. Character orthogonality expresses the
+unweighted variance through nonprincipal characters. Write each modulus
+as $fk$, where $f>1$ is the primitive conductor, and keep $(n,k)=1$
+in the coefficient before applying the large sieve. On a dyadic
+conductor interval $f\asymp R_0$, its bound at fixed $k$ is
+$O(U(U/R_0+R_0)/\varphi(k))$. Summing conductors
+$f>(\log x)^b$ and inducing factors gives
+$O(U^2(\log x)^{2-b}+UY)$. Small conductors are bounded by the
+auxiliary Siegel--Walfisz condition with its $\tau(k)^{C_0}$ cost;
+their total is $O(U^2(\log x)^{3b+C_1-2B})$.
+Choose $b$, and then $B$, to obtain any prescribed logarithmic saving.
+The weight $\tau(\ell)^w$ follows by Cauchy's inequality, ordinary
+divisor means and the elementary bound for the variance
+$O(U^2/\ell)$.
+
+Using \eqref{ana:gram}, Cauchy over the $r$ variables and
+$\varphi(\ell r)^{-1}\ll(\log x)/(Y\mathcal R)$ gives, for a fixed
+divisor order $B_0$,
+\begin{align*}
+ \mathcal P\ll{}&\frac{V(\log x)^2}{Y\mathcal R}
+  \sum_{r\asymp\mathcal R}\tau(r)^{2B_0}
+  \sum_{\ell\le8Y}\tau(\ell)^{2B_0+1}\sum_b^*|d_r(b)|^2\\
+ \ll_A{}&\frac{VU^2}{Y(\log x)^A}.
+\end{align*}
+The factor $\tau(r)^{2C_0}$ in \eqref{ana:filtered-BDH} is summed by a
+divisor mean; it is not included in an unspecified uniform constant.
+Combining these estimates with \eqref{ana:variance} gives
+\begin{equation}
+ |\mathcal S|\ll_A\frac{x}{(\log x)^A}
+  +V\sqrt Y(\log x)^C\bigl(\sqrt{|E_1|}+\sqrt{|E_2|}\bigr),
+ \label{ana:dispersion-bound}
+\end{equation}
+where $E_2$ is the nonzero CRT frequency sum on
+\eqref{ana:clean-set}. The restored single-zero term contributes at
+most $\sqrt{xY\mathcal R}\,x^{o(1)}$, which is power-small.
+
+\subsection{The first exponential sum}
+
+For a fixed smooth $w$, Poisson summation and the complete Kloosterman
+Weil bound give, for every integer $A$,
+\begin{equation}
+ \left|\sum_{(n,\ell)=1}w(n/U)e(A\overline n/\ell)\right|
+ \ll_w \tau(\ell)^2\sqrt{\ell}+\frac U{\ell}(A,\ell).
+ \label{ana:inverse-completion}
+\end{equation}
+The zero Fourier frequency is a Ramanujan sum and gives the second
+term. For the other frequencies use
+\[
+ \sqrt{(k,A,\ell)}\le\sum_{\substack{d\mid(A,\ell)\\d\mid k}}\sqrt d,
+ \qquad
+ \sum_{\substack{k\ne0\\d\mid k}}(1+|k|/V)^{-2}\le\frac{2V}{d}.
+\]
+This proves \eqref{ana:inverse-completion} also when the frequency
+length is below one.
+
+Fix $d$ in \eqref{ana:E1-definition}, put $Q'=dQ$ and restrict $q'$
+to multiples of $d$. This restriction is permitted inside the bounded
+$q'$-dependent coefficient. The following calculation applies with
+$Q'$ denoted temporarily by $Q$ and $\mathcal R$ by $R$.
+Absorb the bounded smooth factor into the $r,h$ coefficient and apply
+Cauchy while retaining the original unrestricted $r,s$ support. Expansion
+of the square gives
+\begin{equation}
+ |E_1(d)|^2\ll x^\epsilon\frac{U^3}{Q^3R^2}\,T,
+ \label{ana:E1-cauchy}
+\end{equation}
+where
+\[
+ T=\sum_{\substack{q\asymp Q, r,r'\asymp R\\(\mathfrak{a},qrr')=1}}
+       \sum_{0<|h|,|h'|\le H_1}
+ \left|\sum_{(n,qrr')=1}w(n/U)
+ e\left(\frac{\mathfrak{a}(hr'-h'r)\overline n}{qrr'}\right)\right|.
+\]
+Put $j=hr'-h'r$. The $j=0$ tuples number $RH_1x^\epsilon$, since
+$hr'\ne0$ and $h'r=hr'$ is a divisor equation. Their contribution is
+$\ll x^\epsilon QRH_1U$. For $j\ne0$, the square-root term in
+\eqref{ana:inverse-completion} contributes
+$\ll x^\epsilon Q^{3/2}R^3H_1^2$.
+For its Ramanujan term write $r=gu$, $r'=gv$, $(u,v)=1$. Then
+\[
+ (j,rr')\le g^2(h,r)(h',r'),\qquad
+ \sum_{q\asymp Q}(j,q)\le3Q\tau(|j|),
+\]
+and
+\[
+ \sum_{0<|h|\le H_1}(h,r)\le2H_1\tau(r),\qquad
+ \sum_{r,r'\asymp R}(r,r')^2\ll R^3.
+\]
+Because $(\mathfrak{a},qrr')=1$, $\mathfrak{a}$ disappears from these gcds. The total
+Ramanujan contribution to $T$ is $\ll x^\epsilon UH_1^2R$.
+As $H_1\ll QRU(\log x)^5/x$, \eqref{ana:E1-cauchy} becomes
+\begin{equation}
+ |E_1(d)|^2\ll x^\epsilon\frac{U^4}{Q^2}
+  \left(\frac{UQ}{x}+\frac{UQ^{5/2}R^3}{x^2}
+                         +\frac{U^2QR}{x^2}\right).
+ \label{ana:E1-polynomial}
+\end{equation}
+
+Return to $Q=Q_1$ and the logarithmic variables in
+\eqref{ana:lengths}. The required gaps follow from
+\begin{align*}
+ n+q&<1-9\sigma,\\
+ 2n+q+u+v&<\frac{17}{10}-\frac{29\sigma}2,\\
+ n+\frac52q+3u+3v
+ &=\frac{35}{16}(q-n)+\frac{23}{16}(2n+u+2v)
+   +\frac5{16}(n+q+5u+2v)-\frac v2\\
+ &<\frac{1021}{512}-\frac{147\sigma}{8}+O(1/\log x).
+\end{align*}
+The last inequality uses $|\mathfrak{a}|\ge c_0x$ and $\vartheta=7/32$.
+The divisor bound for $\Lambda_d$ and $D=x^{o(1)}$ can now be paid
+inside a power saving. Sum $U^2/(dQ)$ over $d\asymp D$ using
+$\sum_{d\asymp D}1/d\ll1$. With room to absorb one further $D$,
+\begin{equation}
+ |E_1|\ll\frac{U^2}{DQ}x^{-\sigma/2}.
+ \label{ana:E1-final}
+\end{equation}
+
+\subsection{The second exponential sum and the reciprocity phase}
+
+Write $E_2=\sum_{d\asymp D}E_3(d)/d$. For fixed $d$, $E_3(d)$ is the
+sum over $q$, $w_1,w_2\asymp\mathcal R$, $n_1,n_2\asymp U$ and
+$0<|h|\le H$, where $H\asymp QD\mathcal R^2(\log x)^5/V$, of
+\begin{align}
+ &\frac{\Lambda_d(w_1)\overline{\Lambda_d(w_2)}
+               \alpha_{n_1}\overline{\alpha_{n_2}}}{qw_1w_2}
+ \psi(q/Q)\widehat\psi\left(\frac{hV}{qdw_1w_2}\right)\notag\\
+ &\hspace{8mm}\times
+ e\left(\frac{\mathfrak{a}h\overline{n_1w_2}}{qdw_1}
+          +\frac{\mathfrak{a}h\overline{n_2qdw_1}}{w_2}\right).
+ \label{ana:E3-definition}
+\end{align}
+The restrictions are
+\[
+ \begin{gathered}
+ (q,\mathfrak{a})=1,\quad(w_1,\mathfrak{a}w_2)=1,\quad(w_2,\mathfrak{a}qdw_1)=1,\\
+ n_1\equiv n_2\pmod{qd},\quad
+ (n_1,n_2qdw_1)=(n_2,n_1qdw_2)=1,\quad
+ |n_1-n_2|\ge U(\log x)^{-C_{\rm sep}}.
+ \end{gathered}
+\]
+There is no independent bounded $q$ coefficient after the outer Cauchy
+step. The denominator in \eqref{ana:E3-definition} is $qw_1w_2$;
+the factor $1/d$ occurs outside $E_3(d)$.
+
+Exact reciprocity gives
+\begin{align}
+ &e\left(\frac{\mathfrak{a}h\overline{n_1w_2}}{qdw_1}
+          +\frac{\mathfrak{a}h\overline{n_2qdw_1}}{w_2}\right)\notag\\
+ &\qquad=
+ e\left(\frac{\mathfrak{a}h(n_1-n_2)\overline{n_2qdw_1}}{n_1w_2}\right)
+ e\left(\frac{\mathfrak{a}h}{qdw_1w_2n_1}\right).
+ \label{eq:current-retained-phase}
+\end{align}
+All inverses are justified by the displayed coprimalities. Split $h$
+by sign and the $q$ support into a bounded number of intervals on scales
+$q_0\asymp Q$. Normalize the five variables
+$(q,w_1,w_2,n_1,h)$ by $(q_0,\mathcal R,\mathcal R,U,H)$.
+The last phase has amplitude
+\[
+ \frac{\mathfrak{a}}{x}\frac Q{q_0}\frac Dd(\log x)^5.
+\]
+Mixed differentiation at most once in each coordinate therefore bounds
+the total five-dimensional variation by
+\begin{equation}
+ \bigl(1+(\log x)^5+(|\mathfrak{a}|/x)(\log x)^5\bigr)^5
+       =x^{5\kappa+o(1)}.
+ \label{ana:phase-variation}
+\end{equation}
+Repeated partial summation leaves anchored rectangular sums. Their
+endpoints are fixed before estimation, and their $h$ coefficient is a
+single fixed signed-interval indicator $\omega_h$, $|\omega_h|\le1$.
+It has no dependence on any remaining arithmetic variable.
+
+Partition the rough coprime pairs $(n_1w_2,n_2)$ by the cross-coprime
+partition of \cite[Lemma 13.2]{MaynardI}; its number of parts is
+$\exp(O((\log\log x)^4))$. Expand the two copies of
+\eqref{ana:Lambda} independently, including both choices of the
+factorization $st=d$. Put $R\asymp v_0$, $S\asymp u_0$.
+A total-product interval is retained as
+\[
+ \one_{A_i<r_is_i\le B_i}
+       =\one_{r_is_i\le B_i}-\one_{r_is_i\le A_i}.
+\]
+Thus it becomes a difference of the permitted product upper cutoffs,
+without inserting a coupled condition into a one-variable coefficient.
+For a bilinear form, complex polarization replaces two different
+coefficient sequences by diagonal sequences with at most four times
+the diagonal bound. Apply this successively to the two $R$, two $S$
+and two $n$ sequences, at total constant cost at most $4^3$.
+
+We give the resulting unweighted sum explicitly. Fix $d$, a
+cross-coprime class $\mathcal C$, endpoints $q_0\le q_1\le2q_0$,
+two product upper cutoffs $B_1,B_2$, and one-bounded sequences
+$\gamma_r,\lambda_s,\alpha_n,\omega_h$. All these data are fixed
+before the remaining summations. Let $\mathscr C$ be the set of
+tuples $(q,r_1,r_2,s_1,s_2,n_1,n_2)$ satisfying
+\begin{equation}\label{ana:bare-domain}
+\begin{gathered}
+ q_0\le q\le q_1,\quad (q,\mathfrak{a})=1,\quad
+ r_i\asymp R,\quad s_i\asymp S,\quad n_i\asymp U,\\
+ (r_1s_1,\mathfrak{a}r_2s_2)=(r_2s_2,\mathfrak{a}qdr_1s_1)=1,\quad
+ r_1s_1\le B_1,\quad r_2s_2\le B_2,\\
+ n_1\equiv n_2\pmod{qd},\quad
+ (n_1,n_2qdr_1s_1)=(n_2,n_1qdr_2s_2)=1,\\
+ (n_1r_2s_2,n_2)\in\mathcal C,\qquad
+ |n_1-n_2|\ge U(\log x)^{-C_{\rm sep}}.
+\end{gathered}
+\end{equation}
+Define
+\begin{equation}\label{ana:bare-definition}
+\mathcal W_{\rm bare}=
+ \sum_{\mathscr C}
+ \frac{\gamma_{r_1}\lambda_{s_1}
+           \overline{\gamma_{r_2}\lambda_{s_2}}
+           \alpha_{n_1}\overline{\alpha_{n_2}}}
+      {q r_1r_2s_1s_2}
+ \sum_{0<|h|\le H}\omega_h
+ e\left(\frac{\mathfrak{a}h(n_1-n_2)\overline{n_2r_1s_1dq}}
+               {n_1r_2s_2}\right).
+\end{equation}
+There is no smooth reciprocity phase in this definition.
+The preceding endpoint separation and polarization give
+\begin{equation}\label{ana:E3-bare-reduction}
+ |E_3(d)|\ll x^{5\kappa+o(1)}
+       \sup|\mathcal W_{\rm bare}|,
+\end{equation}
+where the supremum is over the choices specified above. The
+$x^{o(1)}$ includes the cross-coprime classes and the two independent
+factorizations of $d$, but the five-variable phase loss occurs only
+once. It remains to bound \eqref{ana:bare-definition}.
+
+\paragraph{The first Cauchy inequality.}
+Put $f=(n_1-n_2)/(dq)$, which is a signed nonzero integer. The new
+variable satisfies $0<|f|\le2U/(dq_0)$, and
+\begin{equation}\label{ana:f-phase}
+ e\left(\frac{\mathfrak{a}h(n_1-n_2)\overline{n_2r_1s_1dq}}
+                    {n_1r_2s_2}\right)
+ =e\left(\frac{\mathfrak{a}hf\overline{n_2r_1s_1}}
+                    {n_1r_2s_2}\right).
+\end{equation}
+Keep $q_f=(n_1-n_2)/(df)$ integral and in $[q_0,q_1]$ at this stage.
+The product cutoff in $s_1$ has the exact finite Fourier expansion
+\[
+ \one_{r_1s_1\le B_1}=
+ \int_0^1D_{r_1}(\xi)e(s_1\xi)\,d\xi,
+ \qquad
+ D_{r_1}(\xi)=\sum_{1\le j\le B_1/r_1}e(-j\xi).
+\]
+There is a common nonnegative majorant
+$L(\xi)\ll\min(1+B_1/R,1+\|\xi\|^{-1})$ with
+$\int_0^1L(\xi)\,d\xi\ll\log x$ and
+$|D_{r_1}(\xi)|\le L(\xi)$; set
+$c_{r_1}(\xi)=D_{r_1}(\xi)/L(\xi)$.
+For fixed $\xi$ write
+$\lambda_s'=S\lambda_s e(s\xi)/s$.
+These coefficients are one-bounded on $s\asymp S$.
+If $\mathscr D$ denotes the conditions in \eqref{ana:bare-domain}
+which are independent of $s_1$, after putting $q=q_f$, the exact
+Fourier integrand is
+\begin{align}\label{ana:W2-definition}
+ \mathcal W_2(\xi)={}&\frac1S\sum_{\mathscr D}
+ \frac{\gamma_{r_1}c_{r_1}(\xi)
+              \overline{\gamma_{r_2}\lambda_{s_2}}
+              \alpha_{n_1}\overline{\alpha_{n_2}}}
+      {q_f r_1r_2s_2}\notag\\
+ &\quad\times
+ \sum_{\substack{s_1\asymp S\\(s_1,\mathfrak{a}n_1r_2s_2)=1}}
+ \lambda_{s_1}'\sum_{0<|h|\le H}\omega_h
+ e\left(\frac{\mathfrak{a}hf\overline{n_2r_1s_1}}{n_1r_2s_2}\right).
+\end{align}
+In particular
+$|\mathcal W_{\rm bare}|\ll(\log x)\sup_\xi|\mathcal W_2(\xi)|$.
+For each $f$ the number of pairs $n_1,n_2\asymp U$ with
+$n_1\equiv n_2\pmod{df}$ is
+$O(U^2/(d|f|)+U)$. Summing over $f$ and then $r_1,r_2,s_2$
+gives $O(U^2R^2S\log x)$ outer tuples. Since the outside
+coefficient in \eqref{ana:W2-definition} has absolute value at most
+$O(1/(q_0R^2S^2))$, Cauchy's inequality gives
+\begin{equation}\label{ana:first-Cauchy}
+ |\mathcal W_2(\xi)|^2
+ \ll\frac{U^2\log x}{q_0^2R^2S^3}\,\mathcal W_3,
+\end{equation}
+where the following nonnegative sum retains the congruence but
+discards other outer restrictions:
+\begin{align}\label{ana:W3-definition}
+ \mathcal W_3={}&
+ \sum_{0<|f|\le2U/(dq_0)}
+ \sum_{\substack{n_1,n_2\asymp U\\n_1\equiv n_2\pmod{df}}}
+ \sum_{r_1,r_2\asymp R}
+ \sum_{\substack{s_2\asymp S\\(n_2r_1,n_1r_2s_2)=1}}\notag\\
+ &\quad\times
+ \left|\sum_{\substack{s_1\asymp S\\(s_1,\mathfrak{a}n_1r_2s_2)=1}}
+ \lambda_{s_1}'\sum_{0<|h|\le H}\omega_h
+ e\left(\frac{\mathfrak{a}hf\overline{n_2r_1s_1}}{n_1r_2s_2}\right)
+ \right|^2.
+\end{align}
+Every discarded restriction is outside the squared inner sum. The
+cross-coprime property of $\mathcal C$ justifies the displayed
+coprimality before the original class restriction is removed.
+
+\paragraph{Completion of the positive square.}
+We may now remove the congruence in \eqref{ana:W3-definition}
+and enlarge $|f|\le2U/q_0$, because all its summands are nonnegative.
+Put $b=n_2r_1$ and $c=n_1r_2s_2$. Their multiplicities are at most
+$\tau(b)\tau_3(c)$ and can be bounded before summation.
+Split $b,c$ and $|f|$ into dyadic intervals. On each such block
+$B\ll UR$, $C\ll URS$, $F\ll U/q_0$, and a fixed smooth
+nonnegative majorant $g(b,c)=\psi(b/B)\psi(c/C)$ gives
+\begin{equation}\label{ana:second-Cauchy}
+ \mathcal W_3\ll x^\epsilon\sum_{B,C,F,\pm}\mathcal W_4,
+\end{equation}
+where the sign of $f$ is absorbed into $\mathfrak{a}$ and
+\begin{equation}\label{ana:W4-definition}
+ \mathcal W_4=
+ \sum_{\substack{b,c\\(b,c)=1}}g(b,c)
+ \sum_{f\asymp F}
+ \left|\sum_{\substack{s\asymp S\\(s,\mathfrak{a}c)=1}}
+ \lambda_s'\sum_{0<|h|\le H}\omega_h
+ e\left(\frac{\mathfrak{a}hf\overline{bs}}c\right)\right|^2.
+\end{equation}
+There are only logarithmically many dyadic blocks. Combining
+\eqref{ana:first-Cauchy} and \eqref{ana:second-Cauchy}, and using
+$q_0\asymp Q$, gives the outside factor in the form
+\begin{equation}\label{ana:bare-Cauchy-factor}
+ |\mathcal W_{\rm bare}|
+ \ll x^\epsilon\frac{U}{QRS^{3/2}}
+       \sup_{B,C,F}\mathcal W_4^{1/2}.
+\end{equation}
+
+Expanding \eqref{ana:W4-definition} and interchanging the two
+$s$ labels when necessary yields
+\begin{equation}\label{ana:W4-expansion}
+ \mathcal W_4=
+ \sum_{\substack{s_1,s_2\asymp S\\(s_1s_2,\mathfrak{a})=1}}
+ \sum_{0<|h_1|,|h_2|\le H}\lambda_{s_2}'\overline{\lambda_{s_1}'}
+       \omega_{h_1}\overline{\omega_{h_2}}
+ \sum_{f\asymp F}\sum_{\substack{b,c\\(c,bs_1s_2)=1}}
+ g(b,c)e\left(\frac{\mathfrak{a}f(h_1s_1-h_2s_2)\overline{bs_1s_2}}c\right).
+\end{equation}
+The terms with $h_1s_1=h_2s_2$ have total absolute value at most
+$x^\epsilon HSBFC$. For the others set
+$z=s_1s_2$, $y=f(h_1s_1-h_2s_2)\ne0$, and define the coefficient
+\begin{equation}\label{ana:beta-definition}
+ \beta(y,z)=
+ \sum_{\substack{s_1s_2=z,\ s_i\asymp S\\
+       f\asymp F,\ 0<|h_i|\le H\\
+       f(h_1s_1-h_2s_2)=y}}
+ \lambda_{s_2}'\overline{\lambda_{s_1}'}
+       \omega_{h_1}\overline{\omega_{h_2}}.
+\end{equation}
+We retain $(z,\mathfrak{a})=1$. The variables $b,c$ do not occur in
+\eqref{ana:beta-definition}; the restrictions involving them remain
+in the kernel. Consequently the nonzero contribution is exactly
+\begin{equation}\label{ana:off-diagonal-kernel}
+ \sum_{\substack{y\ne0,z\\(\mathfrak{a},z)=1}}\beta(y,z)
+ \sum_{\substack{b,c\\(c,bz)=1}}g(b,c)
+                         e(\mathfrak{a}y\overline{zb}/c).
+\end{equation}
+In particular $|\beta(y,z)|\le b(z,y)$ for the positive tuple count
+in the following lemma. This domination also holds after any dyadic
+restriction on $y,z$. It is independent of the future Poisson
+frequency, which has not yet been introduced.
+
+\begin{lemma}\label{ana:multiplicity}
+Let $b(z,y)$ count tuples
+$s_i\asymp S$, $f\asymp F$, $0<|h_i|\le H$ with
+$z=s_1s_2$ and $y=f(h_1s_1-h_2s_2)\ne0$. Then
+\begin{equation}
+ \sum_z\sum_{u\ne0}b(z,\nu u)^2
+ \ll x^\epsilon(1+H/S)\frac{(HS)^2F}{\nu}
+ \label{ana:multiplicity-bound}
+\end{equation}
+for every $\nu\ge1$ on polynomially bounded scales. The left side
+vanishes when $\nu\ge8FHS$.
+\end{lemma}
+
+\begin{proof}
+At fixed $(z,y)$ there are at most $\tau(z)\tau(|y|)$ decompositions
+$(s_1,s_2,f,k)$, with $k=h_1s_1-h_2s_2\ne0$.
+Cauchy therefore reduces the square to collisions of $h$ pairs with
+the same $(s_1,s_2,k)$, followed by a single $f$ count.
+Group according to $c\mid\nu$, $\nu/c\mid k$, with the count of $f$
+bounded by $2F/c$. Equal $h$ pairs contribute
+$\ll x^\epsilon(HS)^2F/\nu$.
+For unequal pairs put $g=(s_1,s_2)$, $s_1=gu$, $s_2=gv$, $(u,v)=1$.
+Their differences have the form $(h_1-h_1',h_2-h_2')=(jv,ju)$,
+with $0<|j|\le2Hg/S$. If $b=(g,\nu/c)$, the condition on
+$k/g$ is divisibility by $\nu/(cb)$. Counting nonzero multiples from
+zero, without an additional unit term, gives at most
+$O(HScb/(g\nu))$ such values. Factoring the remaining nonzero
+integer $h_2v$ costs only a divisor factor. The unequal contribution
+is consequently
+\[
+ \ll x^\epsilon\frac{H^3SF}{\nu}
+             \sum_{g\le2S}\frac{(g,\nu)}g
+ \ll x^{2\epsilon}\frac{H^3SF}{\nu}.
+\]
+The last estimate follows from
+$\sum_{g\le2S}(g,\nu)/g\le\tau(\nu)(1+\log(2S))$.
+Renaming $2\epsilon$ proves the result. The support bound follows from
+$0<|y|<8FHS$.
+\end{proof}
+
+In the present application
+$H/S\le x^{o(1)}(Q/U)D_0<1$, where
+$D_0=U^2R^2S/x$. Thus the factor $1+H/S$ is bounded.
+
+\subsection{The reciprocal kernel and the spectral estimate}
+
+We estimate the reciprocal kernel with the coefficient independent
+of the future Poisson frequency. This separation makes the same
+frequency interval available at every spectral level, as required
+by the level-average exceptional estimate.
+
+We use $Y$ for the coefficient length, $Z$ for the level length,
+and $P$ for the length of a nonzero Poisson-frequency block in this
+subsection. The original convolution lengths remain $U,V$.
+For $\beta(u,z)$ supported on $u\asymp Y$, $z\asymp Z$ and
+$(\mathfrak{a},z)=1$, put
+\begin{equation}
+ \mathcal K=\sum_{u,z}\beta(u,z)
+   \sum_{\substack{c,b\\(c,bz)=1}}
+   \psi(c/C)\psi(b/D)e(\mathfrak{a}u\overline{zb}/c).
+ \label{ana:kernel}
+\end{equation}
+Either sign of $u$ is treated separately. Define
+$B^2=\sum_{u,z}|\beta(u,z)|^2$ and
+$B_\nu^2=\sum_{u,z}|\beta(\nu u,z)|^2$; further coprimality
+indicators or unit phases do not increase these norms.
+
+Poisson summation in $b$ is the exact identity
+\[
+ \sum_{(b,c)=1}\psi(b/D)e(\mathfrak{a}u\overline z\,\overline b/c)
+ =\frac Dc\sum_{m\in\mathbb Z}\widehat\psi(mD/c)
+                   S(m\overline z,\mathfrak{a}u;c).
+\]
+The zero frequency contributes at most
+$x^\epsilon D\sqrt{YZ}\,B$, since
+$|S(0,\mathfrak{a}u;c)|\le(\mathfrak{a}u,c)$ and
+$\sum_{c\asymp C}(\mathfrak{a}u,c)\ll C\tau(|\mathfrak{a}u|)$.
+Its square is $x^\epsilon D^2YZB^2$.
+For nonzero $m$ truncate at the common value $(C/D)x^\epsilon$ and
+split into common signed dyadic intervals. Ordinary smooth Fourier
+decay, with a fixed sufficiently large derivative order, controls
+the discarded tail.
+
+On an actual interval $m\asymp P$, put
+\[
+ Y_0=\frac{4\pi\sqrt{|\mathfrak{a}|PY}}{C\sqrt Z},\quad
+ v=m/P,\quad w=u/Y,\quad \zeta=z/Z,\quad
+ t=\frac{4\pi\sqrt{|\mathfrak{a}|mu}}{c\sqrt z\,Y_0}.
+\]
+Then $c/C=\sqrt{vw/\zeta}/t$. This change of variables removes $\mathfrak{a}$
+from the normalized amplitude. Fourier expansion on a fixed compact
+box separates the amplitude into a Bessel test function, a common
+factor $\one_I(m)e(m\omega)$ and an arbitrary complex $u,z$
+coefficient. Choosing the Fourier decay order above the fixed Bessel
+derivative order makes the coefficient norm summable. Thus the
+$m$ interval $I$ and phase $\omega$ are common at every level $z$.
+
+The cusp conversion and packet operation are given precisely in
+Appendix~\ref{app:classical}. They transform the $u$ coefficient to
+\begin{equation}
+ \beta_\nu(n,z)=\one_{(n,\mathfrak{a})=1}\beta(\nu n,z)e(-n/z),
+ \qquad \nu\mid \mathfrak{a}^\infty,
+ \label{ana:packet-coefficient}
+\end{equation}
+at packet cost $(|\mathfrak{a}|\nu)^{\vartheta/2}$, while leaving the common
+$m$ functional unchanged. Let
+\[
+ P_0=\frac{PC^4Z}{|\mathfrak{a}|PY+C^2Z},\qquad T_0=\frac{|\mathfrak{a}|PY}{C^2}.
+\]
+The regular spectral contribution and the exceptional estimates yield
+\begin{align}
+ |\mathcal L_P|^2\ll x^\epsilon P_0\bigg\{
+ &\sum_{\nu\mid \mathfrak{a}^\infty}(|\mathfrak{a}|\nu)^\vartheta
+       (Y/\nu+Z+T_0)(P+Z+T_0)B_\nu^2\notag\\
+ &+(C^2Z)^\vartheta(Y+Z)^{1-\vartheta}
+                    (P+Z)^{1-2\vartheta}B^2\bigg\}.
+ \label{ana:spectral-polynomial}
+\end{align}
+Here $\mathcal L_P$ is the separated Kuznetsov sum, before restoring
+the Poisson factor $D/C$.
+
+We give the spectral summation leading to this polynomial. Throughout
+this step, a regular spectral norm is the positive direct-sum norm
+\eqref{ana:regular-norm}: its Maass atoms have weight
+$1/\cosh(\pi t_j)$, its holomorphic atoms weight $1/(2\pi)$ after
+the stated Fourier normalization, and its continuous part measure
+$dt/\pi$. Cauchy's inequality is applied within each component of this
+same measure, before the three components are added.
+At fixed $z,\nu$, write $A(t),B(t)$ for the $n$- and $m$-side
+coefficient arrays on $d\mu_z$, with entries
+$\sum_n\beta_\nu(n,z)R_{t,1}(n)$ and
+$\sum_{m\in I}e(m\omega)R_{t,\infty}(m)$, respectively.
+Here $t$ labels an entry of the regular direct sum, including its
+component and basis labels, and $R_{t,\mathfrak c}$ denotes the
+corresponding Fourier coefficient in~\eqref{ana:regular-norm}.
+Let $A_0,B_0\ge0$ denote the norm-bound amplitudes, and let
+$u_0,v_0\ge0$. If the
+two cumulative regular squared norms are bounded by
+$(T^2+u_0)A_0^2$ and $(T^2+v_0)B_0^2$, the Bessel bounds
+\[
+ |\mathcal H(t)|\ll\frac{1+|\log Y_0|}{1+Y_0},\qquad
+ |\mathcal H(t)|\ll |t|^{-5/2}+Y_0|t|^{-3}
+ \quad(|t|\ge\max(1,2Y_0))
+\]
+give
+\[
+ \int|\mathcal H(t)A(t)B(t)|\,d\mu_z(t)
+ \ll \frac{1+|\log Y_0|}{1+Y_0}
+ \sqrt{(1+Y_0^2+u_0)(1+Y_0^2+v_0)}A_0B_0.
+\]
+Indeed, above $\max(1,2Y_0)$ the cumulative norm product grows on
+the $j$th shell by at most $2^{2j}$, leaving the summable factors
+$2^{-j/2}+2^{-j}$. The level Cauchy factor is $\sqrt Z$.
+With $L=Y/\nu$, this gives the first term of
+\eqref{ana:spectral-polynomial}, including the packet cost.
+
+For exceptional forms put $\tau_j=2\sqrt{1/4-\lambda_j}\le\vartheta$,
+$X_0=1+Z/L$, and $X=1/Y_0$. Use
+\[
+ 1+X^{\tau_j}\le
+ 2(1+X/\sqrt{X_0})^{\tau_j}(1+X_0)^{\tau_j/2}.
+\]
+The fixed-level $n$ norm is
+$\ll x^\epsilon(1+L/Z)B_\nu^2$. The common-interval $m$ norm is
+\[
+ \ll x^\epsilon P(P+Z)
+ \left[1+\left\{
+  \frac{P(1+X/\sqrt{X_0})^2}{(P+Z)^2}\right\}^{\vartheta}\right].
+\]
+Multiplying these bounds and the squared packet cost gives a term
+absorbed in the regular expression and the second term of
+\eqref{ana:spectral-polynomial}. The factor $|\mathfrak{a}|\nu$ cancels only
+in this latter term after the two norms are multiplied.
+The same argument applies to the holomorphic component with height
+$k-1$ and to the continuous component with real height $t$ in
+\eqref{ana:regular-norm}. Their measures remain unchanged throughout
+the shell summation. On the exceptional spectrum,
+$1/\cosh(\pi t_j)=1/\cos(\pi|\operatorname{Im}t_j|)\asymp1$,
+since $|\operatorname{Im}t_j|\le7/64$; hence the unweighted
+exceptional estimates used above differ only by an absolute constant.
+
+Restoring $D/C$, the elementary inequality
+\[
+ \frac{Z(L+Z+T_0)(P+Z+T_0)}{Z+T_0}
+       \le(L+Z)(P+Z)+ZT_0
+\]
+and $P\le C/D$ give
+\[
+ |\mathcal K|^2\ll x^\epsilon\mathcal J^2,
+\]
+where the complete nonnegative polynomial is
+\begin{align}
+ \mathcal J^2={}&\sum_{\nu\mid \mathfrak{a}^\infty}(|\mathfrak{a}|\nu)^\vartheta
+ \bigl\{C(Y/\nu+Z)(C+DZ)+|\mathfrak{a}|YZ\bigr\}B_\nu^2
+ \notag\\
+ &+\bigl\{
+ C(CD\sqrt Z)^{2\vartheta}(Y+Z)^{1-\vartheta}
+                         (C+DZ)^{1-2\vartheta}+D^2YZ\bigr\}B^2.
+ \label{ana:returned-polynomial}
+\end{align}
+The actual cutoff $P\le x^\epsilon C/D$ is accommodated by reducing
+the initially chosen $\epsilon$. If $C/D<1/2$, estimates are applied
+only on nonempty actual intervals; the real comparison value $C/D$
+is not used as the length of a nonexistent integer interval.
+
+\paragraph{Return to the convolution scales.}
+Apply \eqref{ana:returned-polynomial} first at the actual dyadic
+lengths in \eqref{ana:off-diagonal-kernel}. All its coefficients are
+nonnegative and increasing in the four lengths, since
+$0\le\vartheta\le1/2$. We may then replace these lengths by
+\begin{equation}\label{ana:scale-substitution}
+ D=B_*=UR,\quad C=C_*=URS,\quad Z=S^2,\quad
+ Y=\frac{UR^2S^3}{V}.
+\end{equation}
+The accompanying counting parameters satisfy
+$F\le U/Q$ and $H\le x^\epsilon H_0$, where
+$H_0=QR^2S^2/V$. These selectable powers are included in the final
+$x^\epsilon$ after choosing the input exponents smaller. Put
+\[
+ D_0=\frac{U^2R^2S}{x}=\frac YZ<1.
+\]
+Then $B_*Z\ge C_*$, $B_*^2<x$, and $C_*B_*Z=xY$.
+Lemma~\ref{ana:multiplicity} and
+$H/S\le x^\epsilon(Q/U)D_0<1$ give
+\begin{equation}\label{ana:norm-insertion}
+ B_\nu^2\le x^\epsilon\frac{(HS)^2F}{\nu},\qquad
+ B^2\le x^\epsilon(HS)^2F.
+\end{equation}
+The auxiliary divisor sum satisfies
+\[
+ \sum_{\nu\mid\mathfrak a^\infty}\nu^{\vartheta-1}
+ =\prod_{p\mid\mathfrak a}(1-p^{-(1-\vartheta)})^{-1}
+ =x^{o(1)}.
+\]
+Its logarithm is $O((\log x)^\vartheta)$, by splitting the prime
+divisors at $\log x$; this is uniform for polynomially bounded
+$\mathfrak a$. Consequently \eqref{ana:returned-polynomial} gives
+\begin{equation}\label{ana:J-reduced}
+ \mathcal J^2\ll x^\epsilon(HS)^2F
+ \left\{
+ |\mathfrak a|^\vartheta(C_*B_*Z+|\mathfrak a|Y)Z
+ +C_*^{1+2\vartheta}B_*Z^{2-2\vartheta}
+ +B_*^2YZ\right\}.
+\end{equation}
+For clarity, the four monomials on the right yield the following
+ratios after multiplication by
+\[
+ \frac{(H_0S)^2(U/Q)}{U^4R^4S^6}
+                  =\frac{Q}{U^3V^2}:
+\]
+\begin{equation}\label{ana:ratio-table}
+\begin{array}{c|c}
+ \text{monomial}&\text{normalized contribution}\\ \hline
+ |\mathfrak a|^\vartheta C_*B_*Z^2
+     &D_1=|\mathfrak a|^\vartheta UQR^2S^5/x^2\\
+ |\mathfrak a|^{1+\vartheta}YZ
+     &(|\mathfrak a|/x)D_1\\
+ C_*^{1+2\vartheta}B_*Z^{2-2\vartheta}
+     &D_2=U^{1+2\vartheta}QR^{2+2\vartheta}S^{5-2\vartheta}/x^2\\
+ B_*^2YZ&QR^4S^5/V^3\le D_1.
+\end{array}
+\end{equation}
+The last comparison follows from $B_*^2<x$ and $|\mathfrak a|\ge1$.
+The zero-difference contribution in \eqref{ana:W4-expansion}
+satisfies
+\[
+ \left(\frac{U}{QRS^{3/2}}\right)^2H_0SB_*\frac UQ C_*
+       =\left(\frac{U^2}{Q}\right)^2D_0.
+\]
+For the nonzero part, \eqref{ana:off-diagonal-kernel} gives
+$|\mathcal W_{4,\ne0}|\ll x^\epsilon\mathcal J$.
+Combining this square root with that in
+\eqref{ana:bare-Cauchy-factor} gives explicitly
+\[
+ \left(\frac{U}{QRS^{3/2}}\right)^4
+ \frac{\mathcal J^2}{(U^2/Q)^4}
+ =\frac{\mathcal J^2}{U^4R^4S^6}
+ \ll x^\epsilon\bigl\{(1+|\mathfrak a|/x)D_1+D_2\bigr\}.
+\]
+The two contributions prove
+\begin{align}
+ |\mathcal W_{\rm bare}|&\ll\frac{U^2}{Q}x^\epsilon
+   \left\{D_0^{1/2}
+    +\bigl[(1+|\mathfrak{a}|/x)D_1+D_2\bigr]^{1/4}\right\},
+ \label{eq:current-bare-bound}\\
+ D_0&=\frac{U^2R^2S}{x},\qquad
+ D_1=\frac{|\mathfrak{a}|^\vartheta UQR^2S^5}{x^2},\qquad
+ D_2=\frac{U^{1+2\vartheta}QR^{2+2\vartheta}S^{5-2\vartheta}}{x^2}.
+ \notag
+\end{align}
+
+\subsection{Completion of the convolution estimate}
+
+The scale hypotheses give $D_0\ll x^{-8\sigma}$ and
+$D_1,D_2\ll x^{-15\sigma}$ on every small-factor block.
+Together with $|\mathfrak{a}|/x\le x^\kappa$ and the single variation cost
+\eqref{ana:phase-variation}, \eqref{eq:current-bare-bound} gives
+\[
+ |E_3(d)|\ll\frac{U^2}{Q}
+ \left(x^{-4\sigma+5\kappa+\epsilon}
+       +x^{-15\sigma/4+21\kappa/4+\epsilon}\right).
+\]
+All selectable epsilon losses, the vanishing subpowers from the
+partitions and one additional normalizing factor $D$ fit inside
+$x^{\sigma/10}$. Since $\kappa\le\sigma/100$, both remaining
+savings exceed $\sigma/2$. Harmonic summation in $d$ therefore gives
+\begin{equation}
+ |E_2|\ll\frac{U^2}{DQ}x^{-\sigma/2}.
+ \label{ana:E2-final}
+\end{equation}
+Insert \eqref{ana:E1-final} and \eqref{ana:E2-final} into
+\eqref{ana:dispersion-bound}. The exponential-sum contribution is
+$O(x^{1-\sigma/4}(\log x)^C)$. The earlier single-zero restoration
+is $O(x^{1-\sigma/6+o(1)})$, still power-small.
+Choose the auxiliary Siegel--Walfisz and logarithmic precisions to
+pay for the finitely many dyadic choices, the fixed logarithmic number
+of blocks and the normalization of $\beta$. Equation
+\eqref{ana:smooth-tail} deals with the omitted smooth parts.
+This proves \eqref{eq:current-medium-conclusion}.
+
+\section{Normalization of the spectral inputs}
+\label{app:classical}
+
+We record the normalizations to identify the positive measures used
+in the spectral Cauchy inequalities. The regular spectrum and the
+exceptional spectrum are treated in their respective ranges.
+
+These inputs are used in \eqref{ana:spectral-polynomial}; the packet coefficient and the common frequency interval are specified in \eqref{ana:packet-coefficient} and the discussion preceding that estimate.
+
+We specify the classical statements used in the preceding proof.
+They are applied at trivial character, level $z$, cusps $\infty$ and
+$1$, with $(\mathfrak{a},z)=1$. Write
+$R(n)=\sqrt{|n|}\rho(n)$ for the Deshouillers--Iwaniec normalization
+of the Fourier coefficients. The cusp scaling matrices are
+\[
+ \sigma_\infty=I,\qquad
+ \sigma_1=\begin{pmatrix}\sqrt z&0\\\sqrt z&1/\sqrt z\end{pmatrix}.
+\]
+The cusp conversion in \cite[Lemma 4.3]{Drappeau} introduces
+$e(\mathfrak{a}y/z)$; hence the ordinary Kloosterman coefficient carries
+$e(-\mathfrak{a}y/z)$.
+
+For $y=\nu n$, $\nu\mid \mathfrak{a}^\infty$, $(n,\mathfrak{a})=1$, the coprime packet
+identities in \cite[Lemmas 3.1 and 3.2]{ABL} give, on every normalized
+oldform dilation,
+\[
+ R_v(\mathfrak{a}\nu n)=\lambda_v(\mathfrak{a}\nu)
+                   e\bigl(n(\mathfrak{a}\nu-1)/z\bigr)R_v(n).
+\]
+Multiplication by $e(-\mathfrak{a}\nu n/z)$ leaves exactly $e(-n/z)$.
+The packet coefficients in \cite[(3.3)]{ABL} have Frobenius norm
+$z^\epsilon$ after divisor losses. Cauchy's inequality in that packet
+and the Kim--Sarnak exponent bound~\cite{KimSarnak} therefore cost
+$(|\mathfrak{a}|\nu)^{7/64+\epsilon}$ and give the common coefficient
+\eqref{ana:packet-coefficient}. No eigenvalue is assumed common to
+all dilations. The holomorphic and continuous quadratic forms in
+\cite[Lemma 3.2]{ABL} use the corresponding identities with
+$\vartheta=0$. The continuous term is integrated with the formal
+Plancherel measure, rather than treated as the norm of an individual
+square-integrable Eisenstein series; see also
+\cite[Proposition 8.2]{Young}.
+
+For completeness we specify the positive norm used for every regular
+spectral Cauchy inequality. Let $\mathfrak c$ be either cusp. In the
+notation of \cite[Proposition E]{Pascadi}, write
+\begin{align*}
+ R^M_{j,\mathfrak c}(n)&=
+       \rho^{\rm DI}_{j,\mathfrak c}(n)
+       =\sqrt{|n|}\rho^{\rm ABL}_{j,\mathfrak c}(n),\\
+ R^H_{jk,\mathfrak c}(n)&=
+       \left(\frac{(k-1)!}{(4\pi)^{k-1}}\right)^{1/2}
+       n^{-(k-1)/2}\psi_{jk,\mathfrak c}(n),\\
+ R^E_{\mathfrak d,\mathfrak c}(n,t)&=
+       n^{it}\varphi_{\mathfrak d\mathfrak c}
+                       (n;\tfrac12+it).
+\end{align*}
+The symbol $R_j$ in the packet formulas denotes $R_j^M$.
+For $T\ge1$ and $b$ supported on $n\asymp L$, $L\ge1/2$, define
+\begin{align}\label{ana:regular-norm}
+ \mathfrak Q_{z,\mathfrak c}(T;b)
+ ={}&\sum_{\substack{t_j\in\mathbb R\\|t_j|\le T}}
+ \frac1{\cosh(\pi t_j)}
+ \left|\sum_{n\asymp L}b_nR^M_{j,\mathfrak c}(n)\right|^2\notag\\
+ &+\frac1{2\pi}\sum_{\substack{k\in2\mathbb Z_{>0}\\k-1\le T}}
+      \sum_j\left|\sum_{n\asymp L}b_nR^H_{jk,\mathfrak c}(n)\right|^2
+       \notag\\
+ &+\frac1\pi\sum_{\mathfrak d}\int_{-T}^T
+      \left|\sum_{n\asymp L}b_n
+                 R^E_{\mathfrak d,\mathfrak c}(n,t)\right|^2dt.
+\end{align}
+This is the direct-sum measure $d\mu_z$ used above. The constants
+$1/(2\pi)$ and $1/\pi$ are the constants in the Kuznetsov formula;
+the factor $1/\cosh(\pi t_j)$ is part of the Maass measure and is
+not absorbed by the change from $\rho^{\rm ABL}$ to $R^M$.
+By \cite[Proposition 4.7]{Drappeau} and
+\cite[Lemma H]{Pascadi},
+\begin{equation}\label{ana:regular-large-sieve}
+ \mathfrak Q_{z,\mathfrak c}(T;b)
+ \ll (zLT)^\epsilon\left(T^2+\frac Lz\right)\sum_n|b_n|^2.
+\end{equation}
+The harmless change from $k\le T$ to $k-1\le T$ costs only a fixed
+factor. The continuous term in this convention has measure $dt/\pi$,
+as in \cite[(3.27)]{Pascadi}; it has no additional hyperbolic factor.
+The test-function bounds used with this norm are
+\cite[Lemma D]{Pascadi}. For opposite-sign Kuznetsov sums the
+holomorphic term is absent, and the same positive norm is still an
+upper bound.
+
+Put $\tau_j=2\sqrt{1/4-\lambda_j}\le7/32$ on the exceptional
+spectrum. The fixed-level estimate \cite[Theorem A]{Pascadi}, at
+cusp $1$, supplies
+\begin{equation}
+ \sum_{\rm exc}X^{\tau_j}
+       \left|\sum_{n\asymp L}b_nR_{j,1}(n)\right|^2
+ \ll(zL)^\epsilon(1+L/z)\sum_n|b_n|^2,
+ \qquad X\ll\max(1,z/L).
+ \label{ana:exceptional-fixed}
+\end{equation}
+The coefficients may depend on $z$ but are independent of spectral
+height. The level-average estimate \cite[Theorem J]{Pascadi} gives
+\begin{equation}
+ \sum_{z\asymp Z}\sum_{\rm exc}X^{\tau_j}
+       \left|\sum_{m\in I}e(m\omega)R_{j,\infty}(m)\right|^2
+ \ll(ZV)^\epsilon(Z+V)V,
+ \quad X\ll\max(V,Z^2/V),
+ \label{ana:exceptional-average}
+\end{equation}
+where $I\subset(V,2V]$ and $\omega$ are common to every level.
+For a partial interval $I$, choose an integer $P>4V$ and expand
+$\one_I(m)=\sum_{k=0}^{P-1}c_ke(km/P)$ on residues modulo $P$.
+The coefficient norm is $\sum|c_k|\ll\log(2+V)$.
+Minkowski in the Hilbert norm indexed by $(z,j)$ and
+Theorem J with phase $\omega+k/P$ prove
+\eqref{ana:exceptional-average}, with only a logarithmic squared
+loss absorbed in $(ZV)^\epsilon$. This argument requires the same
+interval at every level. For larger $X$, the bound
+$\tau_j\le\vartheta$ gives the continuation factor
+$1+(VX/(V+Z)^2)^\vartheta$.
+
+The transformed estimates apply on each nonempty interval of length
+at least $1/2$, including an endpoint interval containing $n=1$.
+The $m$ interval is common to all levels, and the $n$ coefficient
+is independent of spectral height. The condition
+$(\mathfrak a,z)=1$ is retained in every packet operation.
+These are precisely the interval and coefficient restrictions used
+in the preceding spectral estimate.

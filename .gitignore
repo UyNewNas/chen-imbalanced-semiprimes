@@ -8,3 +8,17 @@ paper/source/*.log
 paper/source/*.out
 paper/source/*.toc
 paper/source/*.pdf
+
+# Local-only preparation and credentials for the 20261106 release
+/paper/release-20261106/upload_zenodo.py
+/paper/release-20261106/author-checks/
+/paper/release-20261106/zenodo-upload-20261106/
+/paper/release-20261106/numerical-supplement/
+/paper/release-20261106/*.docx
+/paper/release-20261106/符号表.md
+/paper/release-20261106/引用表.md
+/paper/release-20261106/修订说明.txt
+/paper/release-20261106/*-STATUS.txt
+/paper/release-20261106/**/*.aux
+/paper/release-20261106/**/*.log
+/paper/release-20261106/**/*.out

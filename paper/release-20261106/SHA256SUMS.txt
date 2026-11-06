@@ -1,0 +1,5 @@
+f718cd38297d8501890e3233a395594af7ad9be3f4be855bdb65d4c759604bbb *README.txt
+b9ccaae22839d4e9c54e9741aae0a9fbf39b3323693ffdca097c53e25d4768b9 *Theorem (1+1.75) on the Goldbach Conjecture - Bilingual TeX - 20261106.zip
+97245804f229c28fe2a8afecade0bb62de2f0aeb343a5d53bbc2e5596c67a2e9 *Theorem (1+1.75) on the Goldbach Conjecture - EN - 20261106.pdf
+dcdd96cddfc28400995275385f75692d6ccfe594fc5b601e6df46e7f30fc5f5b *Theorem (1+1.75) on the Goldbach Conjecture - Numerical Supplement - 20261106.zip
+20b1137914887c70225fcc1ab12931451d562c2c7c311954c5638d5b7183dc94 *Theorem (1+1.75) on the Goldbach Conjecture - ZH - 20261106.pdf

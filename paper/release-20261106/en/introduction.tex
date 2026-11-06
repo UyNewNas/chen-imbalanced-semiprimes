@@ -1,0 +1,323 @@
+\section{Introduction}
+\label{sec:current-statement}
+
+For fixed $1\le a\le2$, we say that \emph{Proposition $(1+a)$} holds
+if every sufficiently large even integer $N$ has a representation
+\[
+ N=p+rq,\qquad r\le q^{a-1},\qquad
+ p,q\text{ prime},\qquad r=1\text{ or prime}.
+\]
+When $a=1$, the condition forces $r=1$, giving the binary Goldbach
+conjecture for sufficiently large even integers. When $a=2$, ordering
+the two factors gives Chen's theorem. The intermediate parameters ask
+how much smaller one prime factor of a composite remainder can be
+required to be.
+
+We prove the following theorem.
+
+\begin{theorem}
+\label{cor:headline}
+Proposition $(1+1.75)$ holds unconditionally. Thus every sufficiently
+large even integer can be written as $N=p+rq$, where $p,q$ are primes,
+$r$ is either $1$ or a prime, and $r\le q^{3/4}$.
+\end{theorem}
+
+The thresholds for $N$ in Theorems~\ref{cor:headline}--\ref{thm:current-main}
+and Corollaries~\ref{cor:three-quarters}--\ref{cor:current-explicit} are ineffective.
+
+The parameter $1.75$ can be reduced to $1.74816964$ and further to $1.74816865$,
+with different quantitative lower bounds for the number of
+representations; see Corollary~\ref{cor:current-explicit}.
+
+Li and Liu~\cite[Theorem~1.1]{LiLiu} prove Proposition $(1+1.9)$
+and remark that their parameter can be reduced to $1.894$.
+Theorem~\ref{cor:headline} strengthens this factor restriction.
+Both statements concern every sufficiently large even integer.
+
+For the quantitative argument put $b=a-1$ and count prime summands
+with $r\le q^b$. Prime remainders $r=1$ remain admissible, since
+$1\le q^b$. The next theorem gives a lower bound for every fixed
+$1/2<b<1$.
+
+Throughout the paper, $N>2$ tends to infinity through the even integers,
+unsubscripted logarithms are natural, $\log_N x=\log x/\log N$,
+and $\Omega(n)$ counts prime factors with multiplicity. Put
+\begin{equation}
+ C_2=\prod_{\substack{\ell>2\\\ell\text{ prime}}}
+ \left(1-\frac1{(\ell-1)^2}\right),\qquad
+ C_N=C_2\prod_{\substack{\ell\mid N,\ \ell>2\\\ell\text{ prime}}}
+ \frac{\ell-1}{\ell-2},\qquad
+ H_N=C_N\frac{N}{\log^2 N}.
+ \label{eq:current-normalization}
+\end{equation}
+For any positive even integer $M$, $C_M$ denotes the same product with $M$ in place of $N$.
+We count distinct prime summands by
+\begin{align}
+ D_{1,2}(N)&=\#\{p<N:p\text{ prime},\ N-p>1,
+                                      \ \Omega(N-p)\le2\},
+                                      \label{eq:current-d12}\\
+ D_b(N)&=\#\{p<N:p\text{ prime},\ N-p=rq,
+       \ q\text{ prime},\ r=1\text{ or prime},\ r\le q^b\},
+                                      \label{eq:current-db}\\
+ B_b(N)&=\#\{p<N:p\text{ prime},\ N-p=rq,
+                \ r,q\text{ prime},\ q^b<r\le q\}.
+                                      \label{eq:current-bb}
+\end{align}
+The ordered factorization $r\le q$ is unique. In particular, a composite
+remainder contributes once; a square contributes to $B_b$, whereas a prime
+remainder contributes to $D_b$.
+
+\begin{theorem}
+\label{thm:current-main}
+Let
+\begin{equation}
+ K=\frac{8452171}{1250000}=6.7617368,
+ \qquad c=\frac{49044063}{25000000}=1.96176252.
+ \label{eq:current-safe-constants}
+\end{equation}
+For each fixed $1/2<b<1$,
+\begin{equation}
+ \liminf_{\substack{N\to\infty\\2\mid N}}
+      \frac{D_b(N)}{H_N}\ge c-K\log(1/b).
+ \label{eq:current-general-theorem}
+\end{equation}
+\end{theorem}
+
+Within $1/2<b<1$, this lower bound is positive precisely when
+$b>\exp(-c/K)$; see Section~\ref{sec:current-transfer}.
+
+\begin{corollary}
+\label{cor:three-quarters}
+For every sufficiently large even integer $N$,
+\[
+                  D_{3/4}(N)\ge0.0165H_N.
+\]
+\end{corollary}
+
+\begin{corollary}
+\label{cor:current-explicit}
+Every sufficiently large even integer $N$ satisfies
+\begin{align}
+ D_{0.74816964}(N)&\ge10^{-5}H_N,
+                                  \label{eq:current-main-count}\\
+ D_{0.74816865}(N)&\ge10^{-6}H_N,
+                                  \label{eq:current-secondary-count}\\
+ D_{0.9}(N)&\ge1.24889H_N.
+                                  \label{eq:current-common-exponent}
+\end{align}
+\end{corollary}
+
+The first two inequalities establish Propositions $(1+1.74816964)$
+and $(1+1.74816865)$ with respective count coefficients $10^{-5}$ and
+$10^{-6}$ in the normalization~\eqref{eq:current-normalization}.
+The estimate at $b=0.9$ permits a comparison under the same factor
+restriction.
+
+\begin{proof}[Proof of Theorem~\ref{cor:headline}]
+Corollary~\ref{cor:three-quarters} gives $D_{3/4}(N)\ge0.0165H_N>0$
+for every sufficiently large even $N$. Thus Proposition $(1+1.75)$ holds.
+\end{proof}
+
+\subsection{Related work and the method}
+In the normalization~\eqref{eq:current-normalization}, the result of
+Li and Liu~\cite[Theorem~1.1]{LiLiu} has coefficient $0.0004$ at
+$b=0.9$; their stated refinement corresponds to $b=0.894$.
+At $b=0.9$, our $D_b(N)$ coincides with Li--Liu's $D_{1,1.9}(N)$:
+both include the prime-remainder case $r=1$, count each admissible
+prime summand once, and use the same singular-series normalization.
+Thus the coefficients refer to the same counting function.
+Our coefficient follows from the combination $c-K\log(1/b)$: $c$ is
+supplied by the lower Chen-count construction, and $K$ by the positive
+upper majorant.
+The smaller exponents in Corollary~\ref{cor:current-explicit} retain
+an explicit positive count. Their discussion of lower and marked sieve
+terms~\cite[Sections~3 and 8.2]{LiLiu} also identifies a constraint
+that matters here: an improved upper-sieve distribution level must be
+matched to the coefficient class of each term where it is used.
+
+The double sieve transfers information between upper and lower sieve
+remainders. We use Wu's formulation~\cite{Wu}, with finite positive
+transitions for the two remainder functions.
+Li~\cite[Theorem~1.1]{RunboLi} gives coefficient $1.9728$ for the total
+Chen count in the same normalization. The coefficient $c=1.96176252$
+used here is proved within the moving-residue coefficient class and
+positive marked families of the factor-restricted argument. Each lower
+transition retains its actual residual level and all prefix conditions.
+
+The distribution estimate must be uniform as the residue varies with
+$N$. Maynard's triply well-factorable estimate~\cite[Definition~2 and
+Theorem~1.1]{MaynardII} has a constant depending on a fixed residue.
+Lichtman's large-residue statement~\cite[Theorem~1.7]{Lichtman} has
+level $(5-\vartheta)/8-\epsilon=153/256-\epsilon$ at
+$\vartheta=7/32$. Here the residue is comparable with the complete
+local product. The reciprocal phase
+in~\eqref{eq:current-retained-phase} is retained, since replacing it
+by $1$ in this range need not give a vanishing error.
+Appendices~\ref{app:medium} and~\ref{app:classical}, together with the
+factorization in Appendix~\ref{app:coefficients}, establish the
+restricted distribution input at support exponent $0.599$ for the
+finite upper and lower coefficient families used in this paper.
+At each application we retain the selected factorization, full and
+complementary square conditions, and positivity of the marked family.
+
+The proof subtracts the excluded semiprimes from the full Chen count.
+For the upper estimate we construct a nonnegative divisor majorant,
+compute its density, and prove its distribution estimate for the same
+coefficient. For the lower estimate we restrict the two-prime and
+four-prime terms of an eleven-term Chen weight in pairs. An injection
+preserves the pointwise weight inequality, while a lower bound for
+Buchstab's function on the restricted fibres improves the coefficient.
+
+The nonnegative upper majorant and its coefficient realization are
+constructed here. For the lower bound, we use Wu's double-sieve framework
+with the paired deletion and coefficient realizations established here.
+Together with the finite transitions and directed enclosures, these
+constructions determine the constants $K,c$. Their mathematical
+definitions and certificate correspondence are given in
+Appendix~\ref{app:numeric}.
+
+\section{Reduction and outline of the proof}
+\label{sec:outline}
+
+\paragraph{Proof outline and verification.}
+On a first reading, Lemma~\ref{lem:numerical-endpoints} may be taken as
+the finite numerical input: follow the upper construction, the eleven-term
+lower construction and paired deletion, and then the final subtraction in
+Section~\ref{sec:current-transfer}. For a complete verification, return to
+the appendices for the distribution estimates, coefficient realizations,
+finite transitions and directed enclosures, and check their correspondence
+with the Numerical Supplement described in Appendix~\ref{app:numeric}.
+
+Unique factorization gives the exact identity
+\begin{equation}
+                 D_b(N)=D_{1,2}(N)-B_b(N).
+                 \label{eq:reduction}
+\end{equation}
+Thus it suffices to prove
+\begin{equation}
+ \liminf_{\substack{N\to\infty\\2\mid N}}
+       \frac{D_{1,2}(N)}{H_N}\ge c,
+ \qquad
+ \limsup_{\substack{N\to\infty\\2\mid N}}
+       \frac{B_b(N)}{H_N}\le K\log(1/b).
+ \label{eq:two-estimates}
+\end{equation}
+The factor $\log(1/b)$ comes from the excluded factor region. For
+$\beta=b/(1+b)$, the limiting logarithmic region of the ordered bad
+semiprimes is $\beta<t\le1/2$, and
+\[
+ \int_\beta^{1/2}\frac{dt}{t(1-t)}=\log(1/b).
+\]
+To turn this mass into a count with a prime complement, we apply a
+positive upper sieve whose distribution and density have both been
+established for its actual coefficients.
+
+Section~\ref{sec:current-distribution}
+establishes the distribution estimate for the actual upper and lower
+coefficients. Section~\ref{sec:current-upper} constructs the positive
+upper sieve and obtains $K$. Sections~\ref{sec:current-chen-weight}
+and~\ref{sec:current-lower} give the lower construction; its switched
+costs use the upper bound already proved. Section~\ref{sec:current-numeric}
+states the finite numerical inequalities and their error allowances.
+Finally Section~\ref{sec:current-transfer} proves the second estimate
+in~\eqref{eq:two-estimates} and completes the theorem. In particular,
+the construction of $K$ uses neither the lower double-sieve tables nor
+the Chen count obtained from them.
+
+\paragraph{Choice of parameters.}
+At each fixed accuracy, the finite collection of policies and marked queries,
+the number of generations, cutoffs defining fixed compact parameter domains,
+approximation tolerances and
+support reserves are chosen before $N$ tends to infinity. Prime intervals,
+weights and arithmetic coefficients may still depend on $N$ through these
+fixed rules. The common choices and error propagation are specified in
+Section~\ref{sec:lower-limits} and \eqref{coef:parameter-order}; the strict
+scalar surpluses in Section~\ref{sec:current-numeric} allow one fixed accuracy
+to be chosen for the final count.
+
+\paragraph{Notation index.}
+The following symbols keep the same meaning in the main text and appendices.
+\begin{center}
+\small
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{.23\textwidth}>{\raggedright\arraybackslash}p{.49\textwidth}>{\raggedright\arraybackslash}p{.22\textwidth}@{}}
+\toprule Symbol & Meaning & Location\\
+\midrule
+$E_{\rm up}$; $R_{\rm low}$ & Upper and lower scalar endpoints & \eqref{eq:current-E}; \eqref{eq:current-R}\\[2pt]
+$\mathscr E_0,\mathscr E_1,\mathscr E$ & Paired rectangle families and their union & Section~\ref{sec:current-chen-weight}\\[2pt]
+$a_{\rm s},h_{\rm s},d_{\rm s}$ & Fixed sieve cutoffs & Section~\ref{sec:current-chen-weight}\\[2pt]
+$H(s),h(s)$; $H_m,h_m$ & Upper and lower defects; generation-$m$ envelopes & Section~\ref{sec:current-lower}\\[2pt]
+$B$; $\mathscr B$ & Arithmetic prime prefix; geometric rectangle or box & Sections~\ref{sec:current-distribution}, \ref{sec:current-lower}\\[2pt]
+$H_N$; $B_{\rm low}$ & Count normalization; each lower error allowance & \eqref{eq:current-normalization}; \eqref{eq:current-B}\\[2pt]
+$A_+,A_-$ & Normalized linear-sieve numerators $sF/(2e^\gamma),sf/(2e^\gamma)$ & Section~\ref{sec:current-lower}\\[2pt]
+$\Omega$; $\omega_{\rm env}$ & Prime-factor count with multiplicity; Buchstab upper envelope & Section~\ref{sec:current-statement}; \eqref{sv:omega-envelope}\\[2pt]
+$\rho_N^{\rm up},\rho_N^{\rm low}$ & Actual upper and lower divisor coefficients; $\rho_N$ denotes a generic admitted coefficient & Sections~\ref{sec:current-upper}, \ref{sec:current-lower}\\[2pt]
+\bottomrule
+\end{tabular}
+\end{center}
+
+We use the standard linear sieve functions $F,f$, normalized by
+\[
+ sF(s)=2e^\gamma\quad(1\le s\le3),\qquad
+ sf(s)=0\quad(1\le s\le2),
+\]
+and subsequently by
+$(sF(s))'=f(s-1)$ and $(sf(s))'=F(s-1)$ on their respective
+ranges. Buchstab's function satisfies
+\[
+ \omega(s)=1/s\quad(1\le s\le2),\qquad
+ (s\omega(s))'=\omega(s-1)\quad(s>2).
+\]
+Here $P^-(n)$ is the least prime factor for $n\ge2$, and $P^-(1)=+\infty$. The finite interval data used for these
+functions are discussed in Appendix~\ref{app:numeric}.
+
+\subsection{A positive sieve coefficient}
+The upper estimate uses the following single coefficient theorem.
+Its three conclusions concern the same divisor coefficient.
+Here ``positive'' means that the resulting divisor sum $R_N(n)$ is
+a nonnegative majorant. The individual coefficients $\rho_N^{\rm up}(q)$
+may have either sign.
+
+\begin{theorem}
+\label{thm:positive-coefficient}
+Fix $a_*>0$, a bound on the number of labelled prime factors, and a
+finite collection of smooth weights $W_N(p_1,\ldots,p_k)$ supported on
+\[
+ p_i\ge c_*N^{a_*},\qquad p_1\cdots p_k\le C_*N,
+\]
+with fixed constants $c_*,C_*>0$, uniformly bounded size, and fixed
+polylogarithmic bounds for their mixed Euler derivatives. Apart from
+these smooth geometric conditions, impose no additional arithmetic
+filter. Put $\rho_0=19/96$, $\theta_*=599/1000$, and
+\[
+ P_N(y)=\prod_{\substack{p<y\\p\nmid N}}p,\qquad
+ X_W^{(q)}=\sum_{(p_1\cdots p_k,q)=1}W_N(p_1,\ldots,p_k).
+\]
+There are real coefficients $\rho_N^{\rm up}(q)$ and a constant $M$, independent
+of $N$, with squarefree support $q\le N^{\theta_*}$, $(q,N)=1$,
+and $|\rho_N^{\rm up}(q)|\le M$, such that
+\begin{equation}
+ R_N(n):=\sum_{q\mid n}\rho_N^{\rm up}(q)
+   \ge\one_{(n,P_N(N^{\rho_0}))=1}\ge0
+                           \qquad(n\in\mathbb Z),\label{eq:core-positivity}
+\end{equation}
+\begin{equation}
+ \sum_q\frac{\rho_N^{\rm up}(q)}{\varphi(q)}
+   \le(K+o(1))\frac{C_N}{\log N},\label{eq:core-density}
+\end{equation}
+\begin{multline}
+ \sum_q\rho_N^{\rm up}(q)\left\{
+ \sum_{p_1\cdots p_k\equiv N\ (q)}W_N(p_1,\ldots,p_k)
+       -\frac{X_W^{(q)}}{\varphi(q)}\right\}\\
+   =O_{A,W}(N(\log N)^{-A})\qquad(A>0).
+                           \label{eq:core-distribution}
+\end{multline}
+The finite sum defines $R_N(0)$. The finite policy, approximation
+parameters and support margins are fixed before $N$ tends to infinity
+through all even integers. The constants may depend on this fixed
+collection and its derivative bounds, but are uniform in $N$.
+\end{theorem}
+
+The coefficient is constructed in Section~\ref{sec:current-upper}.
+The distribution statement is proved first in
+Section~\ref{sec:current-distribution} for the precise coefficient
+representations needed by that construction.

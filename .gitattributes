@@ -5,3 +5,6 @@
 verification/** -text
 proof-library/** -text
 paper/source/modules/** -text
+
+# Preserve the frozen release file bytes.
+paper/release-20261106/** -text

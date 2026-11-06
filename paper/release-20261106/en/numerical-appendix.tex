@@ -1,0 +1,930 @@
+\section{Finite numerical estimates}\label{app:numeric}
+
+We specify the finite quantities that determine the two constants
+in Lemma~\ref{lem:numerical-endpoints}. The construction separates
+integral enclosures, the finite defect recurrence, and the final
+rational subtraction, so that each contribution has an explicit
+mathematical definition and direction.
+
+\subsection{Supplementary data}
+The finite data are supplied in \emph{Theorem (1+1.75) on the Goldbach
+Conjecture --- Numerical Supplement}, version 20261106~\cite{ChanSupplement}.
+They comprise $106$ affine transitions, $200$-cell defect arrays at
+depths $248$, $312$, and $430$, and $17572$ paired rectangles.
+Rational quantities in \filepath{finite-construction-data.json} are
+represented as quotients of integers. The fields
+\texttt{upper\_saving\_bounds}, \texttt{lower\_root\_bounds}, and
+\texttt{lower\_integral\_bounds} give directed rational endpoints.
+The map \filepath{certificate-map.json} identifies their source
+certificates and the corresponding domains, subdivisions, and interval
+witnesses. Table~\ref{num:certificate-table} gives the correspondence
+between the mathematical estimates and their certificate fields.
+
+\hypertarget{num:verification-scope}{}
+\paragraph{Verification commands and inputs.}
+Run the commands below from the supplement root with Python 3.11 or later,
+with assertions enabled. The sixth-rank computations also use NumPy.
+The rows distinguish reconstruction from saved certificates, exact checks of
+the finite construction, and recalculation of specified witness bounds.
+All output files requested with \texttt{-{}-output} or \texttt{-{}-output-dir}
+are written outside the supplement.
+
+\begingroup
+\renewcommand{\LTcaptype}{}
+\stepcounter{LT@tables}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{.40\textwidth}>{\raggedright\arraybackslash}p{.29\textwidth}>{\raggedright\arraybackslash}p{.25\textwidth}@{}}
+\toprule Entry point & Quantities checked or recomputed & Numerical inputs retained \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\filepath{verify-package.py} & File set, sizes and recorded SHA-256 identities. & The versioned \filepath{MANIFEST.json}.\\[3pt]
+\filepath{finite-data/reproduce-data.py} \texttt{-{}-check} & Exact extraction of finite data and field correspondence from source certificates. & The supplied source-certificate values.\\[3pt]
+\filepath{finite-data/verify-finite-data.py} & Finite defect recurrence; paired-cell geometry, masses and loss proxy; $\Gamma_5$ decompositions; density sums and strict scalar margins. & Action coefficients and integral endpoints identified by \filepath{certificate-map.json}.\\[3pt]
+\filepath{replay-records.py} & Ordered-cover keys, stored integer-floor sums and the cost identity. & Stored floors in the ordered witness.\\[3pt]
+\filepath{replay-ordered-cover.py} & The selected-method floor on every row of the grid-48 base cover; use \texttt{-{}-grid 32} for its predecessor. & The recorded method choices and generation-248 defect table.\\[3pt]
+\filepath{verify-sixth-domains.py} & Affine sieve-argument ranges on the saved polyhedral cells. & Recorded vertices, coordinate maps and caps.\\[3pt]
+\filepath{replay-sixth-rank.py} & Grid-400 sixth-rank cube contributions and their sum, together with the preceding polyhedral range checks. & The supplied cube witness and polyhedral records.\\
+\end{longtable}
+\endgroup
+
+The recurrence and paired-cell checks use the action and integral inputs
+listed in Table~\ref{num:certificate-table}. Their primitive enclosure
+obligations remain those of the corresponding integrals and policies in
+this appendix and Appendices~\ref{app:upper}--\ref{app:lower}.
+The \texttt{enclosure\_obligations} entries of \filepath{certificate-map.json}
+list the active assertions, complete records and supplied algorithm sources
+for each primitive family. Witness generation is described in the package
+README; in particular \filepath{witnesses/generator-0041.py} generates the ordered
+base cover and \filepath{witnesses/generator-0045.py} the sixth-rank cube witness.
+The generation-248 profile and other numerical inputs retained by a replay
+are checked through their own entries, so that each verification has an
+explicit set of inputs. The package README gives the command options; the
+fixed-point arithmetic for the finite data is specified below.
+
+\subsection{Exact scalar endpoints}
+The exact values used in the upper density estimate are
+\begin{align}
+ E_{\rm up}&=\frac{9979702576710911234850619807816847864907359959}
+ {1475913550962201227946780619099353215139840000},
+ \label{eq:current-E}\\
+ u&=\frac{145007961227048312210593427530128000784681}
+ {11807308407697609823574244952794825721118720000}.
+ \label{eq:current-u}
+\end{align}
+For the lower construction, before the paired-fibre increment, put
+\begin{align}
+ R_{\rm base}&=
+ \frac{1345575129530003739571681432301188857312754737}
+ {685738127494661151198444592354557952000000000},
+ \label{eq:base-R}\\
+ B_{\rm base}&=
+ \frac{2504748318091942808229694219379799307550987}
+ {5485905019957289209587556738836463616000000000}.
+ \label{eq:base-B}
+\end{align}
+The two copies of $u$ and of $B_{\rm base}$ pay for distinct finite
+approximation and coefficient-realization errors. Quadrature errors
+are already contained in the oriented integral endpoints. The ancillary
+fields \texttt{scalar\_bounds} contain the resulting exact sums and
+strict surpluses.
+
+\subsection{Directed arithmetic}
+All rounding used to prove an upper bound is outward, and all rounding
+used to prove a lower bound is inward.  More explicitly, at denominator
+$\mathsf Q=2^{b_{\rm fp}}$ a rational interval $[x,y]$ is represented by
+$[\lfloor \mathsf Q x\rfloor,\lceil \mathsf Q y\rceil]$.  Addition and subtraction
+are exact at the integer level.  For multiplication the four endpoint
+products are enclosed by their minimum and maximum and rounded in the
+indicated directions after division by $\mathsf Q$.  Division is performed
+only after verifying that the denominator interval is positive.
+
+For logarithms put $z=(x-1)/(x+1)$.  If $1\le x\le2$, then
+\begin{equation}
+ 2\sum_{j=0}^{n-1}\frac{z^{2j+1}}{2j+1}
+ \le\log x\le
+ 2\sum_{j=0}^{n-1}\frac{z^{2j+1}}{2j+1}
+ +\frac{2z^{2n+1}}{(2n+1)(1-z^2)}.
+ \label{num:log-enclosure}
+\end{equation}
+This follows by summing the positive power series for
+$2\operatorname{arctanh}z$ and bounding the remaining denominators
+below by $2n+1$.  For $n=96$ the remainder is at most
+$9/(4\cdot193\cdot3^{193})$.  Range reduction and a separate
+enclosure of $\log2$ extend the formula to every positive rational
+argument used here.  The paired-cell calculation uses denominator
+$2^{224}$ for the series and denominator $2^{160}$ for its returned
+intervals.  Thus no floating-point evaluation of a logarithm determines
+the direction of an inequality.
+
+\subsection{Enclosing delayed functions and integrals}
+It is convenient to propagate the numerators
+\[
+ A_+(s)=\frac{sF(s)}{2e^\gamma},\qquad
+ A_-(s)=\frac{sf(s)}{2e^\gamma}.
+\]
+Their initial branches are $A_+(s)=1$ for $1\le s\le3$ and
+$A_-(s)=0$ for $s\le2$, and subsequent branches satisfy
+\[
+ A_+'(s)=\frac{A_-(s-1)}{s-1},\qquad
+ A_-'(s)=\frac{A_+(s-1)}{s-1}.
+\]
+The equation for a branch involves only the preceding unit interval.
+One therefore obtains rational interval enclosures successively on a
+rational mesh, splitting at every integer breakpoint.  Lower and upper
+integral bounds follow from the corresponding interval bounds for the
+integrand.  Chord bounds and curvature bounds sharpen these enclosures
+without changing their direction.  An arbitrary query is enclosed on
+its entire support, including both adjoining cells when an endpoint
+is a mesh knot.  The analogous construction for $s\omega(s)$ uses
+$(s\omega(s))'=\omega(s-1)$ and its initial branch
+$\omega(s)=1/s$ on $[1,2]$.
+
+The chord integration can be implemented without numerical
+quadrature.  On $[j/n,(j+1)/n]$ the integral of the affine
+endpoint interpolant of a numerator $V$, divided by its argument,
+is
+\[
+ \bigl((j+1)\log(1+1/j)-1\bigr)V(j/n)
+ +\bigl(1-j\log(1+1/j)\bigr)V((j+1)/n).
+\]
+Both weights are positive because they are integrals of
+nonnegative affine basis functions against $du/u$.
+The monotonicities of $F$ and $f$ imply that $A_+$ is convex
+and $A_-$ is concave on their nonconstant branches.
+Their numerator curvature on a delayed cell is bounded
+in absolute value by $1/(j/n-1)$.  Thus the integrated
+chord error is at most
+\[
+ \frac{1}{12nj(j-n)}\qquad(j>n).
+\]
+This quantity is subtracted from a chord lower estimate
+or added to a chord upper estimate as appropriate.
+The weights themselves have alternating rational series
+\[
+ (j+1)\log(1+1/j)-1
+  =\sum_{k\ge1}\frac{(-1)^{k+1}}{k(k+1)j^k},\qquad
+ 1-j\log(1+1/j)
+  =\sum_{k\ge1}\frac{(-1)^{k+1}}{(k+1)j^k}.
+\]
+Their fourth and fifth partial sums enclose the exact
+weights.  This supplies rational enclosures even where
+direct subtraction of nearly equal logarithms would be
+numerically inconvenient.
+
+The finite integrations use rational boxes or rational polytopes.
+For a polytope given by affine inequalities, every possible active
+basis is solved exactly, and each resulting vertex is tested against
+every original inequality.  Boundedness and the face incidences are
+verified before a pulling triangulation is formed.  Polynomial
+moments are then exact: on a $d$-simplex $T$ with barycentric
+coordinates $\lambda_0,\ldots,\lambda_d$,
+\begin{equation}
+ \int_T\prod_{j=0}^d\lambda_j^{\alpha_j}\,dx
+ =d!\operatorname{vol}(T)
+   \frac{\prod_{j=0}^d\alpha_j!}{(d+\sum_j\alpha_j)!}.
+ \label{num:simplex-moment}
+\end{equation}
+Rational lower or upper bounds for the remaining kernel factors,
+together with these moments and \eqref{num:log-enclosure}, give the
+required integral enclosure.  A boundary box in a negative-cost upper
+integral is retained with an upper bound for its whole contribution.
+In a positive saving, a box may instead be omitted after establishing
+that its omitted contribution is nonnegative.  These two rules have
+different signs and are used separately.
+
+\subsection{The upper density}
+Write
+\[
+ U_0=\frac4\Theta+I_1+I_{3,c}+I_{3,t},\qquad
+ E_{\rm up}=U_0-\sum_{j=1}^{22}G_j.
+\]
+Here $I_{3,c}$ is the integral over the region with last coordinate
+at least $1/100$, and $I_{3,t}$ bounds its entire complementary
+tail.  Put $D=(F-f)/(2e^\gamma)$.  Its delay equation gives
+\[
+ D'(s)=-\frac{D(s)+D(s-1)}s\le-\frac{2D(s)}s
+ \quad(s\ge3),
+\]
+using positivity and monotonicity of $D$.  Therefore
+$D(s)\le D(10)(10/s)^2$ for $s\ge10$.  If
+$\delta=1/100$ and $\rho_0=19/96$, the upper-tree cap
+inequalities give a residual exponent at least $\rho_0$.
+For $0<z<\delta$ its delayed argument is at least
+$(\rho_0-z)/z\ge10$.  Enlarging the two remaining ordered
+coordinates to $z\le y\le x\le\rho_0$ yields the complete
+tail bound
+\begin{equation}
+ I_{3,t}\le
+ \frac{200D(10)\delta}{(\rho_0-\delta)^2}
+ \left\{\log^2\frac{\rho_0}{\delta}
+        +2\log\frac{\rho_0}{\delta}+2\right\}.
+ \label{num:complete-tail}
+\end{equation}
+Here the ordered $x,y$ integral is
+$\tfrac12\log^2(\rho_0/z)$, and the remaining integral
+over $0<z<\delta$ is elementary.  In particular the
+logarithmic singularity at $z=0$ is integrated rather
+than discarded.  The first integral is
+enclosed by a positive series with its geometric remainder.
+The compact third integral is covered by a disjoint partition,
+including conservative bounds on its boundary boxes.
+
+Table~\ref{num:upper-table} gives readable lower bounds for the
+nonnegative savings $G_j$: its integer entries satisfy
+$G_j\ge m_j10^{-14}$. The full rational bounds are in the
+supplementary data. Successive changes on one region are measured
+from their respective parents. In particular, the last two rows
+give only the curvature and mixed increments over the preceding
+bound for that integral.
+
+\begin{longtable}{@{}r p{.62\textwidth} r@{}}
+\caption{Rational lower bounds $10^{-14}m_j$ for the upper-density savings.}
+\label{num:upper-table}\\
+\toprule
+$j$ & Saving & $m_j$\\
+\midrule
+\endfirsthead
+\toprule $j$ & Saving & $m_j$\\\midrule
+\endhead
+1 & Fourth-rank cap replacement & 3507783546602\\
+2 & Fifth-rank parent subdivision & 1005163763573\\
+3 & Disjoint fifth-rank region & 136378695993\\
+4 & Sixth-rank cap replacement & 96281257455\\
+5 & Second-rank fallback above $\mu_0$ & 4209783419\\
+6 & Third-rank fallback above $\mu_0$ & 3908979560\\
+7 & Sixth-rank logarithmic moments & 1525398138\\
+8 & Sixth-rank descending region & 187855687\\
+9 & Sixth-rank ascending cap difference & 387157212\\
+10 & Sixth-rank descending cap difference & 236377744\\
+11 & Sixth-rank clipped lower window & 846201484\\
+12 & Sixth-rank descending lower window & 500857555\\
+13 & Sixth-rank local cap corrections & 50721206\\
+14 & Sixth-rank nonsingleton regions & 11743733\\
+15 & Eighth-rank radial bound & 94105689\\
+16 & Eighth-rank ascending regions & 1543640141\\
+17 & Eighth-rank descending regions & 590010094\\
+18 & Eighth-rank unequal-parent moments & 1304343681\\
+19 & Eighth-rank third-coordinate moments & 357686854\\
+20 & Eighth-rank prefix-dependent moments & 37235787\\
+21 & Eighth-rank curvature increment & 97705\\
+22 & Eighth-rank mixed increment & 607514\\
+\bottomrule
+\end{longtable}
+
+The upper enclosures use $3699127$ fourth-rank boxes,
+$292633$ fifth-rank parents subdivided into $18728512$ children,
+$1763420$ boxes in the disjoint fifth-rank region, and $632104$
+sixth-rank cubes. The eighth-rank regions have disjoint families
+of sizes $30$, $15$, $13$, and $29$. Across ranks the cap
+differences telescope. On a parent region take the maximum of its
+valid saving bounds, comparing its own bound with the complete
+child sum.
+
+An upper bound for the four base terms, in the same denominator
+$10^{14}$, is respectively
+\[
+ 668896321070235,\quad76020940667,\quad
+ 11960259849166,\quad12313775.
+\]
+Let $E_{\rm up,14}$ be their sum minus the sum of Table~\ref{num:upper-table},
+divided by $10^{14}$.  Exact integer arithmetic gives
+\[
+ E_{\rm up}\le E_{\rm up,14},\qquad E_{\rm up,14}+2u<K,
+\]
+where $u$ is given in \eqref{eq:current-u}; indeed the last difference
+is greater than $9.65\cdot10^{-8}$.  The unrounded rational sum
+gives \eqref{eq:current-E}.  The two copies of $u$ pay separately
+for finite approximation and coefficient realization.  Quadrature errors are included in the one-sided integral endpoints.
+
+\subsection{The finite defect recurrence}
+Put $\mathsf Q=2^{80}$ and
+\[
+ C_i=[1+i/50,1+(i+1)/50],\qquad 0\le i<200.
+\]
+All table entries in this subsection are integer numerators at
+denominator $\mathsf Q$.  A four-step seed is obtained by starting at
+$J_0=1/50$ and using
+\[
+ J_{n+1}=\frac{20249}{10^6}+\frac{13}{100}J_n.
+\]
+The initial defect and the implication represented by this recurrence
+are supplied by Lemma~\ref{sv:finite-seed}, with its marked-state and
+physical-cutoff conditions. The ancillary \texttt{seed\_certificate}
+contains the separate ordinary and feedback lower endpoints used
+there. Thus the arithmetic starts from an analytic saving valid on
+the required family. Then $J_4=0.023273777353>2327/100000$. Initialize
+\begin{equation}
+ H_i^{(0)}=
+ \begin{cases}
+ \lfloor \mathsf Q\,2327/100000\rfloor,&1+(i+1)/50\le11/5,\\
+ 0,&\text{otherwise},
+ \end{cases}
+ \qquad h_i^{(0)}=0.
+ \label{num:table-seed}
+\end{equation}
+
+For completeness the exact integer transition is specified here.
+An action $\alpha$ consists of an integer $b_\alpha$, a divisor
+$d_\alpha\in\{1,5\}$, point pairs $(j,m)$, nonnegative integer
+weights $w_{\alpha j},v_{\alpha j}$, and a target set $T_\alpha$.
+Its candidate value is
+\begin{equation}
+ b_\alpha+\left\lfloor\frac1{d_\alpha}
+ \left\{\sum_{(j,m)}mH_j+
+ \sum_j\left\lfloor\frac{w_{\alpha j}h_j}{\mathsf Q}\right\rfloor+
+ \sum_j\left\lfloor\frac{v_{\alpha j}H_j}{\mathsf Q}\right\rfloor
+ \right\}\right\rfloor.
+ \label{num:action-map}
+\end{equation}
+The $70$ one-step actions have $d_\alpha=1$ and the $36$ two-step
+actions have $d_\alpha=5$.  They are evaluated at the upper
+constant $K_*=6.761767>K$.  The action parameters, weights,
+constants and target sets are given individually in the
+\texttt{actions} array.  The target condition for action parameter
+$s_\alpha$ is $1+(i+1)/50\le s_\alpha$.
+
+Let $\ell_j$ be the integer lower bound for
+$\mathsf Q\log((1+(j+1)/50)/(1+j/50))$ in the data, and set
+\[
+ S_H(j)=\sum_{k=j}^{199}\left\lfloor\frac{H_k\ell_k}{\mathsf Q}\right\rfloor,
+ \qquad
+ S_h(j)=\sum_{k=j}^{199}\left\lfloor\frac{h_k\ell_k}{\mathsf Q}\right\rfloor.
+\]
+For $50\le i<200$ the Buchstab candidates are
+$S_h(\max(50,i-49))$ for $H_i$ and $S_H(i-49)$ for $h_i$.
+Each new entry is the maximum of its preceding value and all
+applicable candidates.  Every right-hand side is evaluated using
+only the preceding arrays.  This is a simultaneous finite
+recurrence, with no assumption of convergence to a fixed point.
+
+The analytic action inequalities and their closure under descendants
+imply by induction that the rational arrays are lower bounds for
+the defect functions on the whole closed cells.  Floors in
+\eqref{num:action-map} preserve this direction because the
+feedback weights are nonnegative.  Applying the map $430$ times
+to \eqref{num:table-seed} gives the $400$ entries in
+\texttt{defect\_tables.430}.  The arrays at depth $248$ are
+bounded below by the corresponding finite iteration.  The
+depth-$430$ arrays are used only in the two occurrences
+$U_3,U_4$; the other designated occurrences use the depth-$248$
+arrays.  Thus a change of table is charged only at its actual
+occurrence in the lower functional.
+
+\subsection{The integrals attached to the eleven counts}
+\label{num:eleven-integrals}
+The correspondence with the arithmetic terms $Y_j$ is fixed as follows.
+Write $A_+(s)=sF(s)/(2e^\gamma)$,
+$A_-(s)=sf(s)/(2e^\gamma)$, and put
+$\nu=249/448$, $w_*=25/224$. The reference one-prefix terms are
+\begin{align*}
+ L_1&=\frac4{a_{\rm s}}\overline f(\nu/{a_{\rm s}}),\\
+ L_2&=4\left\{(1/{h_{\rm s}}+1)\overline f\left(\frac{1+{h_{\rm s}}}{2{h_{\rm s}}}\right)
+                 -\overline f(249/50)\right\}+H_{\rm rem},
+\end{align*}
+where $H_{\rm rem}$ is defined in~\eqref{num:removed-defect}.
+No defect table is inserted at the unmarked root of $L_1$:
+its ratio $1/\nu$ is less than $2$.
+
+For the two-prefix lower terms put
+\[
+ \mathcal P_5=\{{a_{\rm s}}<u<t<{h_{\rm s}}\},\qquad
+ \mathcal P_6=\{{a_{\rm s}}<u<{h_{\rm s}}<t<{d_{\rm s}}\}.
+\]
+On the enhanced part $t<\mu_0$, let
+$V(t,u)$ be the maximum of the admitted candidates
+$v(t),v(t+u),\Lambda_{\rm cap}-3{a_{\rm s}}/8$; on $t>\mu_0$ take $V=v(t)$.
+Here admission retains the full and selected squares, the selected
+largest slots and the physical prime ceiling, as in
+Appendix~\ref{app:coefficients}. Set $L=V-t-u$. The lower integrals are
+\begin{equation}
+ L_j=4\iint_{\mathcal P_j}
+        \frac{A_-(L/{a_{\rm s}})+h_{248,\rm adm}(t,u)}{tuL}\,du\,dt,
+ \qquad j=5,6.
+ \label{num:pair-lower-integrals}
+\end{equation}
+The defect term equals $h_{248}(L/{a_{\rm s}})$ only on a fully admitted state
+with $2\le L/{a_{\rm s}}\le5$, and is zero otherwise. The ordinary lower term
+is also zero when $L/{a_{\rm s}}<2$. Thus an uncertain defect lookup can be
+discarded without changing an ordinary lower estimate.
+
+For $m=248,312,430$, the one-prefix upper integrals are
+\begin{equation}
+ U_j^{(m)}=4\int_{I_j}
+       \frac{A_+(s_j(t))-H_m(s_j(t))}{tL_j(t)}\,dt,
+ \quad I_3=({a_{\rm s}},1/3),\quad I_4=({a_{\rm s}},{d_{\rm s}}),
+ \label{num:one-prefix-upper-integrals}
+\end{equation}
+with $L_j,s_j$ given in~\eqref{num:table-change-integral} below.
+The reference values in the eleven-term sum use $m=248$.
+The two subsequent table improvements are inserted only through
+\eqref{num:successive-table-gains}.
+
+The last two costs use decreasing coordinates $x>y>z>w$ on
+\[
+ \mathcal D_{10}=\{{a_{\rm s}}<w<z<y<x<{h_{\rm s}}\},\qquad
+ \mathcal D_{11}=\{{a_{\rm s}}<w<z<y<{h_{\rm s}}<x<{d_{\rm s}}\}.
+\]
+The integration measure is
+\[
+ {d_{\rm s}}\sigma_4=\frac{dx\,dy\,dz\,dw}{xyzw}.
+\]
+Put $S=x+y+z+w$. The switched option has kernel
+$K_0\omega((1-S)/z)/z$. Each admitted ordinary branch with residual
+exponent $L=\lambda-S$ supplies the kernel
+$4\{1-H_{248}(\max(2,L/w))\}/L$; all its full and selected support conditions
+must hold on the whole cell. The chosen cell majorant bounds the
+minimum of these options from above. Its integral defines the upper
+enclosure for $U_{10}+U_{11}$. The cell choices, residual intervals,
+closed-cell defect minima and complete ordered cover are the data
+of the four-prefix certificate. The switched option remains available
+when an ordinary branch fails its support conditions. Since ${d_{\rm s}}+3{h_{\rm s}}<1$, these two
+domains have no unit-quotient contribution.
+The remaining switched costs $U_7,U_8,U_9$ are defined in
+Section~\ref{num:cost-slope}.
+
+\subsection{Definitions of the lower correction terms}
+\label{num:lower-definitions}
+We specify the correction terms before giving their numerical
+combination. Put $\nu=249/448$, $w_*=25/224$ and write
+$\overline F=F/(2e^\gamma)$, $\overline f=f/(2e^\gamma)$.
+The difference between the ordinary start at ${h_{\rm s}}$ and the ordinary
+part of the least-prime decomposition is
+\begin{equation}
+ B_{\rm ord}=\frac4{h_{\rm s}}\overline f(\nu/{h_{\rm s}})
+ -4\left\{(1/{h_{\rm s}}+1)\overline f\left(\frac{1+{h_{\rm s}}}{2{h_{\rm s}}}\right)
+                   -\overline f(249/50)\right\}.
+ \label{num:ordinary-start-difference}
+\end{equation}
+The defect part removed from that decomposition is the whole integral
+\begin{equation}
+ H_{\rm rem}=4\int_{w_*}^{{h_{\rm s}}}
+   \frac{H_{248}((1-t)/(2t))}{t(1-t)/2}\,dt.
+ \label{num:removed-defect}
+\end{equation}
+The finite ordinary estimate at ${h_{\rm s}}$ is inserted only after this
+entire defect term has been removed. On a defect cell $[s_l,s_r]$,
+the contributing interval in~\eqref{num:removed-defect} is
+$(w_*,{h_{\rm s}})\cap[1/(2s_r+1),1/(2s_l+1)]$; its primitive is
+$2\log(t/(1-t))$, before multiplication by the factor $4$.
+
+For $w={a_{\rm s}},{h_{\rm s}}$, let $C_3,C_4,C_5$ be the successive caps of the same
+lower policy in Appendix~\ref{app:lower}. A cap is inherited or
+selected from the finitely specified subproduct branches subject to
+all full and selected-complement support conditions. In particular
+$\nu\le C_3\le C_4\le C_5\le\Lambda_{\rm cap}$. For decreasing
+$t_1,\ldots,t_r$, write $S_r=\sum_{j\le r}t_j$ and
+\[
+ {d_{\rm s}}\mu_r=\frac{dt_1\cdots dt_r}{t_1\cdots t_{r-1}t_r^2}.
+\]
+The three retained domains are
+\begin{align*}
+ \mathcal E_3(w)&=\{0<t_3<t_2<t_1<w:t_1+3t_2<\nu\},\\
+ \mathcal E_4(w)&=\{(t_1,\ldots,t_4):(t_1,t_2,t_3)\in\mathcal E_3(w),
+          \ 0<t_4<t_3,\ S_3+3t_4<C_3\},\\
+ \mathcal E_5(w)&=\{(t_1,\ldots,t_5):(t_1,\ldots,t_4)\in\mathcal E_4(w),
+                                      \ 0<t_5<t_4\}.
+\end{align*}
+Thus the three nonnegative density gains are
+\begin{align}
+ I_3(w)&=4\int_{\mathcal E_3(w)}
+  \left\{\overline F\left(\frac{\nu-S_3}{t_3}\right)
+        -\overline F\left(\frac{C_3-S_3}{t_3}\right)\right\}\,{d_{\rm s}}\mu_3,
+                                      \label{num:third-lower-gain}\\
+ I_4(w)&=4\int_{\mathcal E_4(w)}
+  \left\{\overline f\left(\frac{C_4-S_4}{t_4}\right)
+        -\overline f\left(\frac{C_3-S_4}{t_4}\right)\right\}\,{d_{\rm s}}\mu_4,
+                                      \label{num:fourth-lower-gain}\\
+ I_5(w)&=4\int_{\mathcal E_5(w)}
+  \left\{\overline F\left(\frac{C_4-S_5}{t_5}\right)
+        -\overline F\left(\frac{C_5-S_5}{t_5}\right)\right\}\,{d_{\rm s}}\mu_5.
+                                      \label{num:fifth-lower-gain}
+\end{align}
+The fifth square follows from
+$S_4+2t_5<S_3+3t_4<C_3\le C_4$.
+The cap choices, branch labels and parent cubes are fixed jointly;
+an integral evaluated with a different fourth cap cannot be appended
+to~\eqref{num:fifth-lower-gain}. The rational certificates may integrate
+only a subset of these nonnegative gains, so their endpoints are
+lower bounds, rather than assertions that the selected boxes exhaust
+the ideal domains.
+
+For the fourth-node restoration, let $\mathcal R_{h_{\rm s}}$ be the disjoint
+union of the rational slanted slabs specified by
+\eqref{sv:restore-gates}. On each slab a cap $\lambda_4$ is chosen
+before the fourth cube, and
+$C_3\le S_3+3t_4<\lambda_4$, with the full and selected support
+conditions retained. Its additional gain is
+\begin{equation}
+ T_{h_{\rm s}}=4\int_{\mathcal R_{h_{\rm s}}}
+       \overline f\left(\frac{\lambda_4-S_4}{t_4}\right)\,{d_{\rm s}}\mu_4.
+ \label{num:restoration-integral}
+\end{equation}
+The exact slab volume is~\eqref{sv:slab-volume}. This term enters the
+Chen functional with coefficient $1/4$, and its domain is disjoint
+from the other gains already counted.
+
+\subsection{The fixed upper-cost slope and table changes}
+\label{num:cost-slope}
+The coefficient $A_{\rm cost}$ used below is a safe slope of a specified affine
+upper enclosure of five costs. It need not be the derivative of a
+minimum of kernels. To state its components, put $K_0=6.7619$ and
+$A_+(s)=s\overline F(s)$. The three one-dimensional switched
+costs are
+\begin{align*}
+ \frac{U_7}{K_0}&=\int_{d_{\rm s}}^{1/3}
+  \frac{\log((1-2t)/t)+A_+(1/t-1)-1}{t(1-t)}\,dt,\\
+ \frac{U_8}{K_0}&=\int_{a_{\rm s}}^{1/3}\frac{\log(2-3t)}{t(1-t)}\,dt,\\
+ \frac{U_9}{K_0}&=\int_{h_{\rm s}}^{d_{\rm s}}\frac{\log((1-t-{d_{\rm s}})/{d_{\rm s}})}{t(1-t)}\,dt.
+\end{align*}
+The extra ordinary-function contribution in the first integral can
+be evaluated without interpolation:
+\[
+ \int_{d_{\rm s}}^{1/4}\frac{A_+(1/t-1)-1}{t(1-t)}\,dt
+ =\int_2^{1/{d_{\rm s}}-2}\frac{\log(u-1)}u
+                  \log\frac{1-{d_{\rm s}}}{{d_{\rm s}}(u+1)}\,du.
+\]
+Let $\underline U_j$ denote the rational lower endpoints for these
+$K_0$-linear costs from the fourth-derivative Simpson enclosures
+specified in \texttt{five\_cost\_slope\_certificate}. The root cost
+upper endpoints may use the separate midpoint enclosures; an upper
+endpoint and a lower endpoint have different roles here.
+Their contribution to a safe slope is
+$A_{{\rm cost},789}=(2\underline U_7+\underline U_8+\underline U_9)/(4K_0)$.
+For a retained four-prefix cell $\mathscr B$ outside the $40000$ priority
+parents, write $A_{\mathscr B}$ for its assigned upper mass at $K_0$ and $s_{\mathscr B}$
+for the supplied nonnegative affine slope. The required cellwise
+conditions are
+\begin{equation}
+ 0\le s_{\mathscr B}\le A_{\mathscr B}/K_0,\qquad A_{\mathscr B}\ge K_0\mathcal T_{\mathscr B},
+ \label{num:affine-majorant-slope}
+\end{equation}
+where $\mathcal T_{\mathscr B}$ is the exact nonnegative switched mass. They give
+\[
+ A_{\mathscr B}-(K_0-K)s_{\mathscr B}\ge(K/K_0)A_{\mathscr B}\ge K\mathcal T_{\mathscr B}.
+\]
+No inequality $s_{\mathscr B}\le\mathcal T_{\mathscr B}$ is required.
+At denominator $\mathsf Q=2^{80}$ the retained row slopes are
+$s_{\mathscr B}=10000d_{\mathscr B}/\mathsf Q$. Their sums for $U_{10},U_{11}$ are
+$1277985388931956822$ and $7976183963523684871$, respectively.
+Consequently
+\begin{equation}
+ A_{\rm cost}=A_{{\rm cost},789}+
+ \frac{10000(1277985388931956822+7976183963523684871)}{4\mathsf Q}.
+ \label{num:five-cost-slope}
+\end{equation}
+The complete retained-cell inequalities are indexed by the
+\texttt{feedback\_original\_slope} entry of the certificate map.
+
+For two valid defect envelopes $H_m\le H_n$, define
+\begin{equation}
+ \mathcal T(H_m,H_n)=
+ \int_{a_{\rm s}}^{1/3}\frac{(H_n-H_m)(s_3(t))}{tL_3(t)}\,dt
+ +\int_{a_{\rm s}}^{d_{\rm s}}\frac{(H_n-H_m)(s_4(t))}{tL_4(t)}\,dt,
+ \label{num:table-change-integral}
+\end{equation}
+where $s_j(t)=\max(2,L_j(t)/{a_{\rm s}})$, with zero contribution outside
+$[1,5]$, and, for $e=57/224$,
+\[
+ L_3(t)=\begin{cases}
+ (1-t)/2,&{a_{\rm s}}<t<\mu_0,\\
+ 57/64-5t/2,&\mu_0<t<e,\\
+ 1/2-t,&e<t<1/3.
+ \end{cases}
+\]
+The function $L_4$ uses the first two branches restricted to $({a_{\rm s}},{d_{\rm s}})$.
+The factors $4$ in the two upper counts cancel the single Chen
+factor $1/4$. Thus
+\begin{equation}
+ T_{312}=\mathcal T(H_{248},H_{312}),\qquad
+ T_{430}=\mathcal T(H_{312},H_{430}).
+ \label{num:successive-table-gains}
+\end{equation}
+At a knot the lookup uses the smaller adjacent value; on the
+positive-measure branch $s_j=2$ this means the minimum of cells $49$
+and $50$. On an affine piece $L=A_0-B_0t$ the exact inverse-cell
+primitive is
+\[
+ \int_l^r\frac{dt}{t(A_0-B_0t)}
+ =\frac1{A_0}\log\frac{r(A_0-B_0l)}{l(A_0-B_0r)}.
+\]
+This determines each table-change interval and its rational logarithm
+enclosure without numerical interpolation across a knot.
+
+\subsection{Mathematical objects and certificate fields}
+\label{num:certificate-chain}
+Table~\ref{num:certificate-table} links the count estimates, their
+integral bounds and the ancillary certificates. Paths in the last
+column are targets in \filepath{certificate-map.json}; each target has
+the source filename, exact JSON pointer, direction and any rational
+extraction formula. The map also includes
+the enclosure and coverage assertions for each primitive family and
+the corresponding full-witness filenames.
+The map's \texttt{domain\_constructions} entries identify the actual
+$C_3,C_4,C_5$ region generators and their selected records, including
+the two third-rank starts, the fourth-rank chord and oblique regions,
+the fifth-rank child increments, and the slanted restoration.
+For $U_{10},U_{11}$ they identify the generator
+\filepath{witnesses/generator-0041.py} and the complete ordered witness
+\filepath{witnesses/record-0638.json}.
+The witness records specify the parent policy, method choices,
+generation-$248$ profile, and full facet descriptions of these domains.
+
+\begingroup
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{.15\textwidth}>{\raggedright\arraybackslash}p{.43\textwidth}>{\raggedright\arraybackslash}p{.35\textwidth}@{}}
+\caption{Definitions, directions and certificate targets.}
+\label{num:certificate-table}\\
+\toprule Object & Mathematical estimate & Certificate target\\
+\midrule
+\endfirsthead
+\toprule Object & Mathematical estimate & Certificate target\\
+\midrule
+\endhead
+$G_j$, $1\le j\le22$ &
+The specified child--parent density differences in the upper tree;
+nonnegative savings may use a subdomain. &
+\filepath{/upper_saving_bounds/}\,$(j-1)$; lower endpoint.\\[3pt]
+Finite actions &
+\eqref{sv:one-step-operator}, \eqref{sv:two-step-base},
+\eqref{sv:two-step-feedback}; complete $\Gamma_5$ with separate payment
+on $D_5^-$. &
+\filepath{/actions/}\,$k$; lower base and feedback weights;
+\filepath{/gamma5_cost_decompositions}.\\[3pt]
+Seed and tables &
+Lemma~\ref{sv:finite-seed} and the simultaneous map
+\eqref{num:action-map}; closed-cell estimates. &
+\filepath{/seed_certificate}, \filepath{/defect_tables/}\,$m$;
+lower endpoints, $m=248,312,430$.\\[3pt]
+$L_i,U_i$ &
+The integrals in Section~\ref{num:eleven-integrals}; complete retained
+domain for each negative cost, lower estimate for each positive term. &
+\filepath{/lower_root_bounds}; lower for $L_i$, upper for $U_i$.\\[3pt]
+$B_{\rm ord},H_{\rm rem}$ &
+\eqref{num:ordinary-start-difference}, \eqref{num:removed-defect};
+remove the entire generation-$248$ defect. &
+\filepath{/lower_auxiliary_bounds}; lower for $B_{\rm ord}$, upper for
+$H_{\rm rem}$.\\[3pt]
+$I_r(w),T_{h_{\rm s}}$ &
+\eqref{num:third-lower-gain}--\eqref{num:restoration-integral}; one
+common lower policy and disjoint restoration slabs. &
+\filepath{/lower_integral_bounds} and
+\filepath{/lower_auxiliary_bounds/restoration_L2_lower}; lower.\\[3pt]
+$A_{\rm cost}$, $T_{312},T_{430}$ &
+\eqref{num:affine-majorant-slope}--\eqref{num:successive-table-gains};
+upper-cost slope and successive table changes. &
+\filepath{/five_cost_slope_certificate},
+\filepath{/lower_auxiliary_bounds}; safe lower coefficients.\\[3pt]
+Paired deletion &
+Assigned positive majorant and discarded lower estimator on
+$\mathscr E_0\cup \mathscr E_1$; \eqref{num:paired-extra}, \eqref{num:saved-loss}. &
+\filepath{/paired_rectangles}; exact geometry, mass intervals and lower
+estimator integers.\\[3pt]
+$E_{\rm up},R_{\rm low}$ and reserves &
+The unique combinations in~\eqref{num:lower-sum} and the upper
+density expression. &
+\filepath{/scalar_bounds}; exact sums and strict surpluses.\\
+\bottomrule
+\end{longtable}
+\endgroup
+
+For each negative cost, the mapped witnesses specify a complete
+cover of its retained domain. For a positive saving, they specify
+the selected nonnegative subfamily on which its lower bound is
+evaluated.
+
+\subsection{The lower functional}
+For the signed eleven-term expression, use a lower endpoint for
+each positive term and an upper endpoint for each negative term.
+The following integers, divided by $10^{14}$, give such endpoints:
+\begin{center}
+\begin{tabular}{@{}l r r@{}}
+\toprule Term & Coefficient before division by $4$ & Endpoint numerator\\
+\midrule
+$L_1$ & $3$ & $1346406373358053$\\
+$L_2$ & $1$ & $710262601191162$\\
+$L_5$ & $1$ & $237450056438739$\\
+$L_6$ & $1$ & $301984961684469$\\
+$U_3$ & $-1$ & $2031242249325404$\\
+$U_4$ & $-1$ & $1405868301028074$\\
+$U_7$ & $-2$ & $138343028785273$\\
+$U_8$ & $-1$ & $405707594761181$\\
+$U_9$ & $-1$ & $325703365221150$\\
+$U_{10}+U_{11}$ & $-1$ & $67568703438104$\\
+\bottomrule
+\end{tabular}
+\end{center}
+The exact rational endpoints, rather than these shortened ones,
+define $C_{11}$.  The four-prefix minimum covers all
+\[
+ \binom{51}{4}+48\binom{50}{3}=1190700
+\]
+ordered rows, including the tied-coordinate simplices.
+The priority subdivision replaces $40000$ parents by maxima
+with their complete sums of $516779$ children.  Its extra
+coefficient saving is
+\[
+ P=\frac{106520738437439293219}{604462909807314587353088}.
+\]
+
+The terms $B_{\rm ord},H_{\rm rem}$, $I_r(a_{\rm s}),I_r(h_{\rm s})$, $T_{h_{\rm s}}$ are
+defined in~\eqref{num:ordinary-start-difference}--\eqref{num:restoration-integral}.
+Their exact bounds are
+specified by \texttt{lower\_auxiliary\_bounds} and
+\texttt{lower\_integral\_bounds}.  At $K_0=6.7619$ put
+\[
+ C_{K_0}=C_{11}+P+\frac14\left(
+ B_{\rm ord}-H_{\rm rem}
+ +\sum_{r=3}^5\{3I_r({a_{\rm s}})+I_r({h_{\rm s}})\}+T_{h_{\rm s}}\right).
+\]
+The third-rank integrals cover both cutoff regions.  The
+fourth-rank integrals retain all specified masks and the
+disjoint additional bands.  The fifth-rank integration uses
+$158251$ floors and $23662$ additional slab or tied cells on
+the ${h_{\rm s}}$ side and $679$ integrals on the ${a_{\rm s}}$ side.  The slanted
+restoration uses $98668$ boxes and $789344$ layers.  Only
+nonnegative gains may omit boundary strips.  An asymmetric
+kernel is bounded on its ordered simplex; no factorial
+symmetry is assumed for such a kernel.
+
+With $A_{\rm cost}$ as in~\eqref{num:five-cost-slope} and
+$T_{312},T_{430}$ as in~\eqref{num:successive-table-gains}, the
+initial lower endpoint is bounded below by
+\begin{equation}
+ C_{K_0}+A_{\rm cost}(K_0-K)+T_{312}+T_{430}
+ +0.002095161+0.003799514-0.002372094.
+ \label{num:lower-sum}
+\end{equation}
+Direct rational substitution is at least $R_{\rm base}$ in
+\eqref{eq:base-R}.  The paired-cell refinement below adds
+exactly $\Delta$ from \eqref{eq:current-refinement-delta}.
+After allocating the two reserves in \eqref{eq:current-B},
+the resulting lower endpoint exceeds $c$ by
+\[
+ \frac{13457260926863633771775678584711245753}
+ {2742952509978644604793778369418231808000000000}>0.
+\]
+Together with the upper calculation, this proves the scalar
+inequalities in Lemma~\ref{lem:numerical-endpoints} from the
+stated finite enclosures.
+
+\section{A paired-cell refinement}\label{app:refinement}
+
+The paired rectangles are specified without a geometric
+rounding convention as follows.  Put
+\[
+ t_i=\mu_0+i\frac{{d_{\rm s}}-\mu_0}{512},\qquad
+ u_j={a_{\rm s}}+j\frac{{h_{\rm s}}-{a_{\rm s}}}{512}\qquad(0\le i,j\le512).
+\]
+Each row of \texttt{paired\_rectangles} specifies a family
+$\mathscr E_0$ or $\mathscr E_1$ and the rectangle
+$[t_i,t_{i+1}]\times[u_j,u_{j+1}]$.  The families have
+$6091$ and $11481$ cells, respectively, with no common
+cell.  Their boundaries have zero integration measure.
+For a rectangle $\mathscr B=[t_l,t_r]\times[u_l,u_r]$, define
+\[
+ Z_{\mathscr B}=\min\left(u_l,\frac{3(1-t_r-u_r)}{13}\right).
+\]
+The rational data satisfy $Z_{\mathscr B}>{a_{\rm s}}$ and
+$1-t_r-u_r-2Z_{\mathscr B}\ge(7/3)Z_{\mathscr B}$ in every row.  Hence
+\[
+ \frac{1-t-u-z-w}{z}\ge\frac73
+ \qquad({a_{\rm s}}<w<z<Z_{\mathscr B},\ (t,u)\in \mathscr B).
+\]
+
+On each rectangle, Lemma~\ref{lem:current-omega-refinement} gives
+$\omega\ge1/2$ throughout the fibre and $\omega\ge11/20$
+on its specified inner part. The second estimate improves a
+subset of the first contribution and is used as an increment.
+
+The positive parent majorant can therefore be bounded below
+by the contribution from $1/2$ on its whole fibre plus
+$1/20$ on this inner fibre.  These are simultaneous
+nonnegative contributions.  After integration and the
+single Chen factor $1/4$, the additional contribution is
+\begin{equation}
+ G_{\mathscr B}=\frac K{80}\log\frac{t_r}{t_l}\log\frac{u_r}{u_l}
+ \left\{\frac1{a_{\rm s}}-\frac{1+\log(Z_{\mathscr B}/{a_{\rm s}})}{Z_{\mathscr B}}\right\}.
+ \label{num:paired-extra}
+\end{equation}
+Indeed the $w$ integral is $\log(z/{a_{\rm s}})$ and
+\[
+ \int_{a_{\rm s}}^{Z_{\mathscr B}}\frac{\log(z/{a_{\rm s}})}{z^2}\,dz
+ =\frac1{a_{\rm s}}-\frac{1+\log(Z_{\mathscr B}/{a_{\rm s}})}{Z_{\mathscr B}}.
+\]
+The normalization agrees with~\eqref{eq:current-extra-fibre}.
+
+Every row of the data contains rational lower and upper
+endpoints for \eqref{num:paired-extra}, represented by
+integer numerators at denominator $2^{160}$.  Applying
+\eqref{num:log-enclosure} to its three logarithms and
+summing the lower endpoints gives
+\begin{equation}
+ \sum_{\mathscr B\in \mathscr E_0\cup \mathscr E_1}G_{\mathscr B}>\frac{558583}{10^9}.
+ \label{num:gross-bound}
+\end{equation}
+The sums on the two families are approximately
+$1.9318091250\cdot10^{-4}$ and
+$3.6540308174\cdot10^{-4}$, respectively. Only the rational
+lower bound \eqref{num:gross-bound} is used.
+
+\section{Discarded lower estimators and the final reserves}
+\label{app:refinement-review}
+
+The paired deletion removes a positive term together with its
+assigned lower estimator. To bound the resulting loss, we give
+both the exact finite sum of that estimator and a direct rational
+upper enclosure.
+
+On a cell write
+\[
+ R(t,u)=\frac{57}{64}-\frac52t-u,\qquad
+ r=R(t_r,u_r),\quad R_0=R(t_l,u_l),\quad
+ M=\log(t_r/t_l)\log(u_r/u_l).
+\]
+Cells of $\mathscr E_0$ have $R_0/{a_{\rm s}}\le2$ and zero assigned lower estimator.
+There are $227$ cells of $\mathscr E_1$ with $r/{a_{\rm s}}<2$; their
+assigned lower estimator is also zero.  On the remaining $11254$ cells,
+$2\le r/{a_{\rm s}}\le R_0/{a_{\rm s}}\le9/4$.  Put
+\[
+ f_l=\frac{\log(r/{a_{\rm s}}-1)}{r/{a_{\rm s}}},\qquad
+ f_h=\frac{\log(R_0/{a_{\rm s}}-1)}{R_0/{a_{\rm s}}},
+\]
+and
+\[
+ M_R=\frac{57}{64}M
+ -\frac52(t_r-t_l)\log(u_r/u_l)
+ -(u_r-u_l)\log(t_r/t_l).
+\]
+Since $r\le R(t,u)\le R_0$, the two assigned ordinary
+estimators, in Chen-quarter units, are bounded above by
+\begin{equation}
+ \frac{f_lM}{{a_{\rm s}}},\qquad
+ \frac{f_l(R_0M-M_R)+f_h(M_R-rM)}{a_{\rm s}(R_0-r)}.
+ \label{num:ordinary-proxy}
+\end{equation}
+The coefficients of $f_l,f_h$ are nonnegative.
+Replacing lower endpoints for these functions by their
+exact values therefore increases the estimator.  The
+maximum of the two expressions in
+\eqref{num:ordinary-proxy} remains an upper bound for
+the maximum of the two assigned alternatives.
+
+Let $h_{\mathscr B}^{\min}$ be the minimum of the depth-$248$ lower table
+entries over all closed cells meeting $[r/{a_{\rm s}},R_0/{a_{\rm s}}]$.
+Both adjoining cells are included at a knot.  The exact
+support is contained in the outward-rounded lookup
+support of the assigned estimator, so $h_{\mathscr B}^{\min}$ is at least
+the minimum used there.  Thus the additional term
+$h_{\mathscr B}^{\min}M/R_0$ bounds its assigned defect estimator from above.
+This comparison uses minima of finite lower estimators,
+not an upper estimate for the mathematical function $h$.
+Adding it to the maximum in
+\eqref{num:ordinary-proxy} gives the required cell proxy.
+
+The data record the assigned lower estimator on every cell as
+an integer at denominator $\mathsf Q=2^{80}$.  Their sum is
+$11290806845175652020270$.  After division by $4\mathsf Q$,
+\begin{equation}
+ L_{\mathscr E}
+ =\frac{5645403422587826010135}
+ {2417851639229258349412352}
+ <\lambda_{\rm loss}:=\frac{466977}{200000000}.
+ \label{num:saved-loss}
+\end{equation}
+An outward evaluation of the proxies above gives an
+upper endpoint below the same $\lambda_{\rm loss}$.  For this
+evaluation one may reduce logarithm arguments to
+$[1,3/2]$, use the $320$-term alternating series for
+$\log(1+x)$ and bound its remainder by the next term.
+All its divisors have positive interval lower endpoints.
+The resulting proxy sum is enclosed near
+$0.0023348841363598131014744273487904$.
+
+The retained whole $L_6$ endpoint before the deletion is
+$3650774173156900914101685/\mathsf Q$.  Its nonenhanced half
+has the cell decomposition just used.  Consequently
+subtracting $4\lambda_{\rm loss}$ from that endpoint bounds the
+retained $L_6$ from below; the enhanced half is unaffected.
+The decrease of the paid loss relative to the value
+in \eqref{num:lower-sum} is exactly
+\[
+ 0.002372094-\lambda_{\rm loss}=\frac{37209}{10^9}.
+\]
+Combining this with \eqref{num:gross-bound} gives the
+raw increment
+\[
+ \Delta=\frac{558583+37209}{10^9}
+       =\frac{37237}{62500000}.
+\]
+Allocate $\Delta/8$ to each of the finite-approximation
+and coefficient-realization reserves.  The net retained
+increment is therefore $3\Delta/4=0.000446844$.
+All estimates refer to this same fixed set of rectangles,
+and each density contribution appears once.  They give
+$R_{\rm low}=R_{\rm base}+\Delta$ and
+$B_{\rm low}=B_{\rm base}+\Delta/8$, as in
+\eqref{eq:current-R} and \eqref{eq:current-B}.

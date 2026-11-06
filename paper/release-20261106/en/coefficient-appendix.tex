@@ -1,0 +1,847 @@
+\section{Factorization of the finite sieve coefficients}
+\label{app:coefficients}
+
+We prove that the actual upper and lower sieve coefficients have
+the factorization required by the distribution estimate. Throughout
+this appendix $N$ is the even target. Finite partitions, levels,
+and approximation tolerances are chosen before $N$ tends to
+infinity; the arithmetic coefficients themselves may depend on $N$.
+We write $\omega_{\mathrm{pf}}(n)$ for the number of distinct prime
+factors of $n$.
+
+\subsection{Finite policies and residual square conditions}
+
+Write
+\[
+ \rho_0=\frac{19}{96},\qquad \mu_0=\frac{25}{128},\qquad
+ \Lambda_{\rm cap}=\frac{153}{256},\qquad \Theta=\frac{299}{500}.
+\]
+The number $\Theta$ bounds the complete carrier; $\Lambda_{\rm cap}$ bounds the
+high-rank levels.  A finite policy specifies a level $N^\lambda$ at each
+of finitely many prime prefixes.  An ancestor decision is fixed before
+the children are subdivided.  For decreasing exponents $t_1,\ldots,t_j$,
+put $S_j=t_1+\cdots+t_j$.  The full square conditions at an auxiliary
+level $N^\ell$ are
+\begin{equation}
+ S_{j-1}+2t_j\le\ell.
+ \label{coef:full-squares}
+\end{equation}
+If $I$ is a selected subset of the marked slots, put
+$b_I=\sum_{i\in I}t_i$.  In addition to \eqref{coef:full-squares}, retain
+all the conditions
+\begin{equation}
+ b_I+\sum_{\substack{i<j\\i\notin I}}t_i+2t_j\le\ell
+ \qquad(j\notin I).
+ \label{coef:selected-squares}
+\end{equation}
+For $j$ after the last selected index, the left side of
+\eqref{coef:selected-squares} is exactly $S_{j-1}+2t_j$.
+Thus adjoining smaller primes preserves the selected conditions whenever
+the full conditions are preserved.  An admitted cube also implies the
+next square, since
+\[
+ S_j+2t_{j+1}\le S_{j-1}+3t_j.
+\]
+This observation applies to both parities of the ordinary sieve tree:
+upper first exits have odd rank, and lower first exits have even rank.
+
+The physical level $\lambda$ and the auxiliary covering level $\ell$
+have different uses.  The coefficient and its density use $\lambda$;
+factorization may use a slightly larger $\ell$.  No change in $\lambda$
+is made in obtaining this cover.  Here is the needed choice at the
+three-slot alternative.  Put
+\[
+ A(t)=\frac{1+t}{2},\qquad W(z)=\Lambda_{\rm cap}-\frac38z.
+\]
+On a coarse box let $\Gamma=\inf\max(A,W)$ and
+$\lambda=\Gamma-2e$, where the variation allowance satisfies
+$\chi<e/10$.  If $\inf A\ge\lambda+e/2$, choose
+$\ell=\lambda+e/4$.  Otherwise $\sup A<\lambda+11e/20$,
+so $W\ge\Gamma$ throughout the box; choose $\ell=\lambda+e$.
+This leaves a reserve of at least $9e/20$ above the lower bound and $e$
+below the upper bound.  The remaining initialization reserves include
+\[
+ 1-\Lambda_{\rm cap}-2\mu_0=\frac3{256},\qquad
+ \frac{525}{8704}+\frac{49z}{272}>0.
+\]
+The higher-rank changes are restricted to compact pieces on which their
+support conditions have positive reserve.  Fine endpoint enlargement is then taken
+smaller than this reserve.
+
+At an ordinary lower start $t_1\le {h_{\rm s}}=19/125<\mu_0$, the endpoint
+admissibility condition satisfies
+\[
+ \max\left(\frac{1+t_1}{2},\Lambda_{\rm cap}-\frac38t_1\right)
+ \ge\frac{249}{448}.
+\]
+A level with a fixed buffer below $249/448$ therefore has a strict
+covering interval.  A restored fourth exit is admitted only after its
+own cube and all the full and selected squares have been checked.
+For upper prefixes above $\mu_0$, the function
+\[
+ v(x)=\min\left(\frac{1+x}{2},\frac{57}{64}-\frac32x\right)
+\]
+satisfies $v(x)>3x$ for $x<\rho_0$.  Selecting $y<x$ gives
+$2x+y<3x$; selecting $y+z<x$ gives $2x+y+z<3x$.
+These are the initial square bounds for the two additional alternatives.
+
+In a marked state write $S=\log_N B$, $L=\lambda-S$ and
+$\alpha=(1-S)/L\ge2$.  A singleton of exponent $Lu$ changes the
+residual length to $L(1-u)$ and a pair of exponents $Lu,Lv$ changes it
+to $L(1-u-v)$.  In both cases $\alpha$ increases.  The conditions
+$2u<1$, or $2v<1$ and $v+2u<1$, are precisely the new full square
+conditions.  The selected conditions then follow from
+\eqref{coef:selected-squares}; the parent prime ceiling is retained.
+The finite construction has at most $440$ elementary transitions.
+Its residual exponents are at least $L_{\min}=\ell_0 101^{-440}$
+for some $\ell_0>0$, and its appended prime exponents are at least
+$L_{\min}/6$.  In particular all switched leaves have a common positive
+prime cutoff.
+
+\subsection{Finite approximation and strict margins}
+
+The finite partition is chosen jointly for all the marked queries.
+At the third upper exit, the omitted last-prime tail is
+\[
+ O\!\left(\eta\left(1+\log^2\frac{\rho_0}{\eta}\right)\right),
+ \qquad\eta\downarrow0.
+\]
+At lower exits of rank $r=3,4,5$, the corresponding bound is
+$O(\eta(1+\log^{r-1}({h_{\rm s}}/\eta)))$.  The higher changes have positive
+last-prime cutoffs; in particular the eighth-rank domains have
+$t_8>53/13824$.  On the compact remainder, proper affine walls can be
+trimmed with arbitrarily small mass.  A region on which the chosen
+label is identically inherited is retained rather than treated as a
+wall.  Freezing the coarse decision before refining the children gives
+one common finite policy for the count and the density.
+
+For the third envelope, the coarse parameters $e,\chi$ give
+$0\le L_{\mathrm{end}}-\lambda\le4e+6\chi$.
+Fix the finite policy and its positive reserves. The admissibility
+functions are continuous on finitely many compact boxes, so their
+strict reserves have a positive minimum. Hence some $\kappa_*>0$
+preserves all the inequalities when
+$\log_xN\in[1,1+\kappa_*]$ and the endpoint enlargement is
+sufficiently small. The margin is obtained on these fixed compact
+pieces, after the limiting boundary regions have been removed.
+
+\subsection{Three-factor representations}
+
+We describe the endpoint construction, since the factorization must hold
+for the coefficient as a whole.  Let $x$ be the complete local scale,
+$q_0=\log_x N$, $\vartheta=7/32$, and $\alpha_0\ge q_0$ the residue
+parameter in the local admissibility condition.  For a small fixed $\zeta>0$ put
+\[
+ \theta_{\rm cov}=q_0\ell+2\zeta,\qquad D=x^{\theta_{\rm cov}-2\zeta},
+ \qquad A=Ux^{-\zeta},
+\]
+where $U$ is the chosen medium length.  Define
+\begin{align*}
+ v_0&=2\theta_{\rm cov}-1,\\
+ u_0&=\min\left\{
+ \frac{2-(2+2\vartheta)\theta_{\rm cov}}{3-4\vartheta},
+ \frac{2-2\theta_{\rm cov}-\alpha_0\vartheta}{3}\right\}.
+\end{align*}
+In this subsection the slot exponents and $b_I$ are measured to base
+$x$: they are $q_0$ times their preceding base-$N$ values.  The covering
+exponent in the full and selected square conditions is therefore
+$q_0\ell$.
+The selected subset admissibility condition is $v_0\le b_I\le u_0$,
+with \eqref{coef:full-squares}--\eqref{coef:selected-squares} imposed
+on ordered upper endpoints.  All lines of this admissibility condition are retained
+after rescaling, including a line that is dominated when $\alpha_0=1$.
+
+Suppose first that $C=D/(Ax^{b_I})\ge1$.  Put the selected slots in
+group two and insert the remaining slots greedily into capacities $A,C$.
+At every insertion the selected square bounds the square of the new
+slot by the product of the remaining capacities, so at least one accepts
+it.  The resulting group endpoints satisfy
+\[
+ B_1\le A,\qquad B_2=x^{b_I},\qquad B_3\le C
+\]
+and
+\begin{align}
+ A^2B_2B_3^2&\le x^{1-4\zeta},\notag\\
+ N^\vartheta AB_1B_2^5B_3^2&\le x^{2-4\zeta},
+ \label{coef:three-monomials}\\
+ A^{1+2\vartheta}B_1B_2^{5-2\vartheta}B_3^{2+2\vartheta}
+ &\le x^{2-(4+4\vartheta)\zeta}.\notag
+\end{align}
+If $C<1$, insert all slots into $A,D/A$ using the full squares.
+Here $1<D/A<x^{b_I}$.  Set $B_3=1$ and replace $x^{b_I}$ by $D/A$
+in the last two bounds.  The first bound follows from
+$A^2B_2\le AD\le x^{23/24-5\zeta/2}$.  Thus no factor with an
+endpoint below one is introduced.
+
+For the three-slot $W$ alternative initialize capacities
+$A,x^{v_0},D/(Ax^{v_0})$ with the first two slots.  One fits $x^{v_0}$;
+the square of the other is at most the product
+$x^{1-\theta_{\rm cov}-2\zeta}$ of the two remaining capacities.  Continue
+inserting whole slots.  If a first slot fits none of the capacities,
+adjoin it to group two.  Its new product $B$ lies in
+$(x^{v_0},x^{u_0}]$, since that slot is at most the third slot and
+$p_3\le x^{u_0-v_0}$.  Failure of the first capacity together with the
+full square gives $ABc<D$, so the two residual capacities are legal.
+The full-square greedy argument finishes the partition.  If no failure
+occurs, the capacity product gives \eqref{coef:three-monomials} directly.
+These algorithms use only endpoint data of a whole atom and its medium
+length.  They never use the individual arithmetic tuple or the sign of
+a progression discrepancy.
+
+\subsection{The coefficient identity and squarefree restriction}
+
+Refine the interval labels to a common disjoint half-open alphabet.
+If $m_I$ slots have label $I$, set $M=\prod_I m_I!$.
+The unrestricted prime convolution $N_J$ of the slot list has value
+$M/\prod_p\nu_p(n)!$ on its support.  Its sorted squarefree coefficient
+is therefore $\one_{\mathrm{sf}}N_J/M$.  For a fixed three-group
+partition put $M_j=\prod_I m_{I,j}!$ and let $\gamma_j$ be the group
+convolution divided by $M_j$.  Then $0\le\gamma_j\le1$ on every integer
+and the exact identity is
+\begin{equation}
+ \frac{N_J}{M}
+ =\frac{M_1M_2M_3}{M}\,
+       (\gamma_1*\gamma_2*\gamma_3).
+ \label{coef:tensor-identity}
+\end{equation}
+An empty group is the unit mass at one.  A marked convolution already
+contains its marked multiplicities.  Only its ordered residual slots
+are divided by their factorials: regrouping a signed atom
+$\epsilon\one_{\mathrm{sf}}N_{\mathrm{all}}/M_{\mathrm{res}}$
+gives the external scalar $\epsilon M_1M_2M_3/M_{\mathrm{res}}$.
+This scalar is fixed, although it need not be bounded by one.
+
+Choose $w=N^{\eta_0}$ below every marked prime exponent.  For $p<w$,
+$p\mid BN$ if and only if $p\mid N$. Hence one pair of small-prime
+beta weights, with support below the smallest residual reserve, serves
+every state in the finite marked family.  The sign of the atom determines
+which member is attached.  The small and rough prime universes are
+disjoint, so decomposition into these two parts is unique.  Attaching
+the small-prime beta weight to one of the groups in
+\eqref{coef:tensor-identity} preserves one-boundedness.
+
+Global squarefreeness remains in the physical coefficient and its density.
+It is removed only in the analytic tensor expansion.  If the support is
+$D_*\le N^{\theta_*}$ with $\theta_*<1$, the change in the discrepancy
+is at most a fixed divisor factor times
+\begin{align}
+ &\sum_{\substack{q\le D_*\\p^2\mid q\text{ for some }p\ge N^{\eta_0}}}
+ \left(\frac{N}{q}+1+\frac{N}{\varphi(q)}\right)
+ \ll (N+D_*)N^{-\eta_0+o(1)}.
+ \label{coef:collision}
+\end{align}
+The term $1$ includes an exact complete product equal to $N$.
+No divisor function is evaluated at zero.
+
+\subsection{Parameter order and the medium estimate}
+
+Before small-prime attachment, endpoint enlargement and local rescaling,
+the complete supports at rough rank at most two have exponents
+\[
+ \frac{19}{48},\qquad \frac{38}{125},\qquad
+ \frac{1527}{3584}
+\]
+for the upper, ordinary lower and marked families, respectively.
+Their gaps below $1/2$ are $5/48$, $49/250$ and $265/3584$.
+For the last bound use $x<57/224$, $x+2y\le\Lambda_{\rm cap}$, and hence
+$x+y\le(\Lambda_{\rm cap}+57/224)/2=1527/3584$.
+The fixed coefficient norm permits the below-half-level
+Bombieri--Vinogradov estimate for these pieces.  A high-rank coefficient
+requires the factorization above.
+
+First fix the finite collection of estimates and their dependencies, coarse policy, factorization conditions and
+positive reserves.  Choose $\zeta$ below these reserves and the prime
+cutoffs, and set $\sigma=\zeta/2000$.  Next choose a common beta support
+small enough for the density and support tolerances.  If the rough-rank
+bound is $J$, take the endpoint mesh $\tau$ so that $(J+2)\tau$ is below
+every remaining reserve.  Only after the fixed divisor and moment orders
+are known choose
+\begin{equation}
+ 0<\kappa\le\min\left\{\kappa_*,\frac{\sigma}{200},
+                         \frac1{2K_{\mathrm{mom}}}\right\},
+ \qquad
+ 0<\kappa_0<\frac{\kappa}{4(1+\kappa)}.
+ \label{coef:parameter-order}
+\end{equation}
+Here $K_{\mathrm{mom}}$ bounds the fixed moment orders in the Fourier
+tail and complementary-coefficient truncation.  Make $\kappa_0$ smaller
+if necessary so that the total carrier, safely bounded by
+$\theta_*=599/1000$, satisfies $\theta_* /(1-\kappa_0)<3/5$ and all
+three low-rank supports remain below one half.
+
+Replacing $A$ by $U$ in \eqref{coef:three-monomials} leaves savings
+$\zeta,2\zeta,9\zeta/16$.  After two reserves of $\zeta/16$, the
+smallest saving is $7\zeta/16>15\sigma$.  Small-prime attachment enlarges
+only group three; its costs $2\ell_\beta,2\ell_\beta,
+(2+2\vartheta)\ell_\beta$ are included in the reserves.  Dyadic subdivision
+therefore produces $Q_1,Q_2,Q_3$ satisfying all four size conditions of
+Proposition~\ref{prop:current-medium}.  The strict margins absorb fixed
+endpoint constants.  There are finitely many atoms, with fixed total
+absolute scalar norm, before $N$ grows.  This establishes a uniform
+three-factor representation for the actual finite coefficient families.
+
+\hypertarget{coef:medium-checks}{}
+\paragraph{Checks for the medium branch.}
+The following checks connect Proposition~\ref{prop:current-medium} with
+its application in Proposition~\ref{coef:prime-product-insertion}. They are
+made after fixing the common finite policy and its strict support reserves.
+\begingroup
+\renewcommand{\LTcaptype}{}
+\stepcounter{LT@tables}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{.21\textwidth}>{\raggedright\arraybackslash}p{.45\textwidth}>{\raggedright\arraybackslash}p{.28\textwidth}@{}}
+\toprule
+ Condition or input & Realization in the application & Verification \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+Complete scale and residue & $x=UV$ is the scale of the complete product and $\mathfrak a=N$. The trim and local rescaling give $c_0x\le N\le x^{1+\kappa}$. & \eqref{coef:complete-scales}, \eqref{coef:parameter-order}\\[3pt]
+Rough medium sequence & An individual interval carries the rough $1$ or M\"obius sequence, its bounded weight and permitted Mellin twist; the auxiliary-coprimality estimate is retained. & \eqref{coef:rough-SW} and its proof\\[3pt]
+Complementary sequence & Unique factorization gives a fixed divisor bound. Any logarithmic truncation is charged by the mixed moment estimate before applying the local bound. & Lemma~\ref{coef:mixed-moment}; proof of Proposition~\ref{coef:prime-product-insertion}\\[3pt]
+Three modulus factors & The normalized group convolutions are separate and one-bounded, with the residue-coprimality support retained. Marked multiplicities remain external scalars. & \eqref{coef:tensor-identity}; full and selected squares \eqref{coef:full-squares}--\eqref{coef:selected-squares}\\[3pt]
+Four strict size tests & The three monomial bounds, the medium capacity, small-prime attachment and local rescaling yield all the tests in \eqref{eq:current-medium-ranges}. & \eqref{coef:three-monomials}; the reserves following \eqref{coef:parameter-order}\\[3pt]
+Moving-residue phase and spectral input & The exact reciprocal phase is retained. Its variation and the packet and spectral norms use the stated local margins. & \eqref{eq:current-retained-phase}, \eqref{ana:phase-variation}; Appendix~\ref{app:classical}\\[3pt]
+Uniform summation errors & Fixed atom scalars, Fourier norms and logarithmically many charts are covered by stronger local logarithmic accuracy. Prime powers, squarefree collisions and exact products equal to $N$ are counted separately. & \eqref{coef:collision}; proof of Proposition~\ref{coef:prime-product-insertion}\\[3pt]
+\end{longtable}
+\endgroup
+
+For the four size tests, deducting the stated support reserves from the
+savings $\zeta,2\zeta,9\zeta/16$ leaves strict margins that absorb fixed
+dyadic endpoint multiples. This check concerns the medium branch; the
+below-half estimate and Appendix~\ref{app:brun} cover the other branches of
+Proposition~\ref{coef:prime-product-insertion}. Upper coefficients, lower
+coefficients and ordinary marked descendants enter through that proposition
+with their actual signed coefficient $\rho_N$.
+
+\section{Distribution of the smooth prime products}
+\label{app:prime-products}
+
+This appendix proves \eqref{eq:current-PP} for the finite coefficient families of Appendix~\ref{app:coefficients}. The medium branches use Proposition~\ref{prop:current-medium}; the remaining branches use the below-half estimate or Appendix~\ref{app:brun}.
+
+For a smooth weight $W_N$ on at most $k_*$ labelled prime slots, with
+$p_i\ge cN^{a_*}$ and product $O(N)$, define
+\[
+ E_q(N;W)=\sum_{p_1,\ldots,p_k}W_N(p_1,\ldots,p_k)
+ \left(\one_{p_1\cdots p_k\equiv N\ (q)}
+       -\frac{\one_{(p_1\cdots p_k,q)=1}}{\varphi(q)}\right).
+\]
+The geometric weights have fixed polylogarithmic mixed Euler derivative
+bounds.  They carry no additional arithmetic filters.
+
+\subsection{Two auxiliary mean estimates}
+
+Let $d_j$ denote the $j$-fold divisor function.
+We record the elementary moment estimate with its dependence on the
+moving shift, since logarithmic truncations require a fixed moment order.
+
+\begin{lemma}\label{coef:mixed-moment}
+Fix nonnegative integers $R,S$ and a constant $C\ge1$.  Put
+$K_{\rm mom}=2^{2\max(R,S,1)}$ and $0\le\kappa\le1/(2K_{\rm mom})$.
+Uniformly for $|a|\le Cx^{1+\kappa}$ and an interval
+$J\subseteq[1,Cx]$,
+\[
+ \sum_{\substack{b\in J\\b\ne a}}
+       \tau(b)^R\tau(|b-a|)^S
+ \ll_{C,R,S} x(1+\log x)^{K_{\rm mom}-1}.
+\]
+\end{lemma}
+
+\begin{proof}
+If an interval $I\subseteq[1,Z]$ has length $Y$, choosing a largest
+coordinate of an ordered $j$-tuple whose product belongs to $I$ gives
+\begin{align*}
+ \sum_{n\in I}d_j(n)
+ &\le j\sum_{d\le Z^{1-1/j}}d_{j-1}(d)(Y/d+1)\\
+ &\le j\{Y(1+\log Z)^{j-1}
+              +Z^{1-1/j}(1+\log Z)^{j-2}\}.
+\end{align*}
+Indeed the product of the other $j-1$ coordinates is at most
+$Z^{1-1/j}$; dropping the largest-coordinate restriction only increases
+the sum.  The two final bounds follow by expanding the divisor function
+as an ordered product and summing the last factor.
+For every integer $e\ge0$,
+$\tau(n)^e\le d_{2^e}(n)$.  On a prime power this follows by mapping
+an $e$-tuple in $\{0,\ldots,v\}^e$ to the histogram of the subsets
+of coordinates reaching each of the positions $1,\ldots,v$; the
+histogram is a weak composition of $v$ into $2^e$ parts and determines
+the tuple.
+
+The nonzero values $|b-a|$ lie, with multiplicity at most two, in at most
+two intervals of length $O_C(x)$ and upper endpoint $O_C(x^{1+\kappa})$.
+Apply the preceding interval bound to $d_{K_{\rm mom}}$ to obtain
+\[
+ \sum_{\substack{b\in J\\b\ne a}}\tau(|b-a|)^{2S}
+ \ll x(1+\log x)^{K_{\rm mom}-1}
+       +x^{(1+\kappa)(1-1/K_{\rm mom})}(1+\log x)^{K_{\rm mom}-2}.
+\]
+The second exponent is at most $1-1/(2K_{\rm mom})-1/(2K_{\rm mom}^2)<1$.
+The unshifted $2R$ moment has the same bound.
+Cauchy--Schwarz proves the assertion.  The term $b=a$ is removed
+before applying the divisor function.
+\end{proof}
+
+\begin{lemma}[A convolution estimate below one half]
+\label{coef:low-rank-BV}
+Fix $\eta>0$ and $c\ge1$. Let $x=UV$,
+$x^\eta\le U,V\le x^{1-\eta}$, and let $\alpha,\beta$ be supported
+on $[U,cU]$ and $[V,cV]$ with
+\[
+ \sum_m|\alpha(m)|^2\ll U(\log x)^C,\qquad
+ \sum_n|\beta(n)|^2\ll V(\log x)^C.
+\]
+They are independent of the summation modulus.  Suppose that for every
+fixed $A_1,B>0$, every $k\ge1$, $r\le(\log x)^B$ and $(b,r)=1$,
+\begin{equation}
+ \left|\sum_{\substack{m\equiv b\ (r)\\(m,k)=1}}\alpha(m)
+ -\frac1{\varphi(r)}\sum_{(m,rk)=1}\alpha(m)\right|
+ \ll_{A_1,B}\tau(k)^{C_0}U(\log x)^{-A_1},
+ \label{coef:small-aux-SW}
+\end{equation}
+with one fixed exponent $C_0$.  For every $A>0$ there is a $D>0$ such
+that $Q\le\sqrt x(\log x)^{-D}$ implies
+\[
+ \sum_{q\le Q}\max_{(a,q)=1}
+ \left|\sum_{mn\equiv a\ (q)}\alpha(m)\beta(n)
+ -\frac1{\varphi(q)}\sum_{(mn,q)=1}\alpha(m)\beta(n)\right|
+ \ll_A x(\log x)^{-A}.
+\]
+\end{lemma}
+
+\begin{proof}
+Put $L=\log x$.  The primitive multiplicative large sieve
+\cite[Theorem~18.2]{Kedlaya} is
+\begin{equation}
+ \sum_{r\le R}\frac r{\varphi(r)}\sum_{\chi\ (r)}^{*}
+ \left|\sum_nz(n)\chi(n)\right|^2
+ \le(H-1+R^2)\sum_n|z(n)|^2,
+ \label{coef:multiplicative-LS}
+\end{equation}
+when $z$ is supported on an interval of at most $H$ consecutive integers.
+Character orthogonality removes the principal character exactly.
+A character modulo $q=rk$ induced by a primitive character $\chi^*$
+satisfies $\chi(m)=\chi^*(m)\one_{(m,k)=1}$, including when $(r,k)>1$.
+Put $\alpha_k=\alpha\one_{(m,k)=1}$ and
+$\beta_k=\beta\one_{(n,k)=1}$ and write $A_k(\chi),B_k(\chi)$ for
+their character sums.  Since $\varphi(rk)\ge\varphi(r)\varphi(k)$,
+the required sum is bounded by
+\begin{equation}
+ \sum_{k\le Q}\frac1{\varphi(k)}
+ \sum_{1<r\le Q/k}\frac1{\varphi(r)}
+              \sum_{\chi\ (r)}^{*}|A_k(\chi)B_k(\chi)|.
+ \label{coef:induced-characters}
+\end{equation}
+Both coprimality restrictions are essential.  The restrictions do not
+increase the $L^2$ norms and, for fixed $k$, do not depend on $r$.
+
+Let $R_0=L^{B_0}$.  For $R<r\le2R$, $R\ge R_0$, Cauchy--Schwarz
+and \eqref{coef:multiplicative-LS} bound the inner sum by
+\[
+ \ll L^{C'}\left\{\frac xR+
+ \sqrt x(\sqrt U+\sqrt V)+R\sqrt x\right\}.
+\]
+Summing dyadically, then over $k$ in
+\eqref{coef:induced-characters}, gives
+\begin{equation}
+ \ll L^{C'}\left\{\frac{xL}{R_0}
+       +L^2\sqrt x(\sqrt U+\sqrt V)+Q\sqrt x\right\}.
+ \label{coef:large-conductors}
+\end{equation}
+Here $\sum_{k\le Y}1/\varphi(k)\ll1+\log Y$ and
+$\sum_{k\ge1}1/(k\varphi(k))<\infty$; the latter sum occurs in
+the last term.  Both follow from
+$n/\varphi(n)=\sum_{d\mid n}\mu(d)^2/\varphi(d)$ and
+$1/(d\varphi(d))\le\tau(d)/d^2$.
+The middle term in \eqref{coef:large-conductors} has a fixed power
+saving because $\sqrt x(\sqrt U+\sqrt V)\le2x^{1-\eta/2}$.
+Taking $B_0,D$ sufficiently large controls the other two terms.
+
+For $r\le R_0$, sum \eqref{coef:small-aux-SW} against the primitive
+nonprincipal character.  Its mean vanishes, yielding
+$|A_k(\chi)|\ll\varphi(r)\tau(k)^{C_0}UL^{-A_1}$.
+The $L^1$ bound for $\beta_k$ is $O(VL^{C/2})$, so the small-conductor
+part of \eqref{coef:induced-characters} is at most
+\[
+ \ll xL^{C/2-A_1}
+       \left(\sum_{r\le R_0}\varphi(r)\right)
+       \left(\sum_{k\le Q}\frac{\tau(k)^{C_0}}{\varphi(k)}\right).
+\]
+Choose an integer $J\ge C_0+1$.  Since
+$n/\varphi(n)\le\tau(n)$ and $\tau(n)^J\le d_{2^J}(n)$,
+the last sum is at most $(1+\log Q)^{2^J}$.
+After $B_0$ is fixed, taking $A_1$ sufficiently large finishes the proof.
+All divisor orders are fixed before the requested logarithmic accuracy.
+\end{proof}
+
+For an original prime slot, the classical prime Siegel--Walfisz theorem
+\cite[Exercise~64]{TaoSW}, followed by partial summation, gives
+\eqref{coef:small-aux-SW} at $k=1$ with any prescribed saving.
+For arbitrary $k$ the change deletes only primes dividing $k$ and is at
+most $2\|\alpha\|_\infty\omega_{\mathrm{pf}}(k)$; its fixed logarithmic norm is
+absorbed by the positive-power scale $U$.  Thus $C_0=1$ works for all
+the required exponents.  Fixed smooth profiles, interval endpoints and
+Mellin twists with fixed polylogarithmic variation preserve the estimate.
+For several original primes, put one such slot in $\alpha$ and the
+remaining factors in $\beta$.  Unique factorization supplies a fixed
+divisor bound and hence the required $L^2$ norm for $\beta$.
+
+\subsection{Proof of the prime-product estimate}
+
+\begin{proposition}\label{coef:prime-product-insertion}
+For the finite upper, lower and marked coefficients constructed in
+Appendix~\ref{app:coefficients}, the restricted medium estimate of
+Proposition~\ref{prop:current-medium} and the below-half-level
+Bombieri--Vinogradov estimates imply
+\[
+ \sum_q\rho_N(q)E_q(N;W)=O_{A,W}\bigl(N(\log N)^{-A}\bigr)
+ \qquad(A>0).
+\]
+The coefficient in the count and exact coprime mean is the same.
+The estimate is uniform for the fixed finite family and all sufficiently
+large even $N$.
+\end{proposition}
+
+\begin{proof}
+Choose a smooth $\eta$ equal to zero on $[0,1]$ and one on $[2,\infty)$,
+and multiply $W_N$ by $\eta(p_1\cdots p_k/N^{1-\kappa_0})$.
+The discarded products have size less than $2N^{1-\kappa_0}$, and are
+strictly below $N$ for large $N$.  Their complete modulus-divisor sum
+and exact mean have error $O(N^{1-\kappa_0+o(1)})$.
+All Euler derivatives of this trim are bounded.
+
+Insert a smooth nonnegative dyadic partition in each original prime.
+On an original chart put $R_i=2^{j_i}$, $X=\prod_iR_i$ and $X^+=2^kX$.
+With $f(v)=v^{1/(\log\log v)^3}$ fix the common roughness threshold
+\[
+ z=f(2^{6k_*+2}X^+)
+\]
+before applying a convolution identity.  Every original prime exceeds
+$z$ eventually.  Replacing its prime indicator by $\Lambda(n)/\log n$
+and deleting proper prime powers costs a fixed power saving: their
+reciprocal mass above $cN^{a_*}$ is $N^{-a_*/2+o(1)}$.
+Nonzero complete differences have divisor cost $N^{o(1)}$, and an exact
+product $N$ contributes at most $N^{\theta_*+o(1)}$ separately.
+
+For a group at scale $R$ let $Z=(2R)^{1/3}$ and
+$\mu_Z=\mu\one_{[1,Z]}$.  If $\delta$ denotes the convolution identity,
+$\delta-1*\mu_Z$ is supported above $Z$; consequently
+$\Lambda*(\delta-1*\mu_Z)^{*3}=0$ below $2R$.  Expanding gives
+\begin{equation}
+ \Lambda=\sum_{j=1}^3(-1)^{j-1}\binom3j
+             \mu_Z^{*j}*1^{*(j-1)}*\log.
+ \label{coef:HB}
+\end{equation}
+The original smooth chart is retained.  The roughness projector factors
+over all the variables in \eqref{coef:HB}; use $P^-(1)=\infty$.
+There is no additional sharp coupled group boundary.
+
+Each original group has at most six variables.  Individual rectangles
+meeting its smooth support give complete local scales satisfying
+\begin{equation}
+ 2^{-7k-1}X\le x\le2^{6k-1}X^+,
+ \qquad f(x)\le z\le x^{2/(\log\log x)^3}.
+ \label{coef:complete-scales}
+\end{equation}
+Thus $cN^{1-\kappa_0}\le x\le CN$ and
+$c_0x\le N\le x^{1+\kappa}$ by \eqref{coef:parameter-order}.
+The scale $x$ is always that of the complete product.
+
+To separate the geometric profile, use coordinates
+$u_j=\log(n_j/U_j)$ and a smooth compact extension $w$ of the profile.
+Writing
+$D_w=\sum_{S\subseteq\{1,\ldots,m\}}\|\partial_{2S}w\|_1$,
+integration by parts gives
+\[
+ |\widehat w(\xi)|\le D_w\prod_j(1+\xi_j^2)^{-1},
+ \quad \frac1{(2\pi)^m}\int|\widehat w(\xi)|\,d\xi
+ \le\frac{D_w}{2^m}.
+\]
+The tail outside $|\xi|_\infty\le H$ is $O(mD_w/H)$.
+Here $D_w$ is a fixed logarithmic power.  The arithmetic sums can be
+interchanged with the absolutely integrable Fourier representation.
+After the complete modulus sum, the tail at a nonzero difference
+$b-N$ is bounded by fixed mixed divisor moments
+\[
+ \sum_{b\asymp x}\tau(b)^R\tau(|b-N|)^S
+ \ll x(\log x)^C.
+\]
+Apply Lemma~\ref{coef:mixed-moment}; its fixed order is included in
+$K_{\mathrm{mom}}$.  The exact
+difference zero is estimated separately by $N^{\theta_*+o(1)}$.
+Choose a sufficiently large logarithmic $H$.  For the retained modes
+one pays the Fourier integral norm, rather than the number of modes.
+
+Choose an individual medium slot, if present, in
+$X^{3\zeta}\le U\le X^{1/3+\zeta/4}$.
+Its local length lies in
+$x^{2\zeta}\le U\le x^{1/3+\zeta/2}$ by
+\eqref{coef:complete-scales}.  Its sequence has the form
+\[
+ \alpha_n=e_n\one_I(n)\one_{P^-(n)>z}h(n)n^{it},
+ \qquad e_n=1\text{ or }\mu(n),\quad |h|\le1,
+\]
+with fixed polylogarithmic variation and frequency.  The auxiliary
+Siegel--Walfisz property required in the medium estimate is
+\begin{equation}
+ \left|\sum_{\substack{n\equiv b\ (q)\\(n,k)=1}}\alpha_n
+ -\frac1{\varphi(q)}\sum_{(n,kq)=1}\alpha_n\right|
+ \ll_A U\tau(k)(\log x)^{-A}.
+ \label{coef:rough-SW}
+\end{equation}
+For completeness, roughness can be inserted at even Brun order
+$h=2\lfloor(\log\log x)^2\rfloor$.  Its next divisor support is
+$z^{h+1}<U^{1/4}$ and its gap density has arbitrary logarithmic decay.
+For squarefree $\ell$,
+$\mu(\ell v)=\mu(\ell)\mu(v)\one_{(v,\ell)=1}$.
+Put $V_\ell=U/\ell$ for the quotient scale. The identity
+\[
+ \mu(v)\one_{(v,\ell)=1}
+ =\sum_{\substack{w\mid v\\p\mid w\Rightarrow p\mid\ell}}\mu(v/w)
+\]
+reduces the small-modulus calculation to the unrough
+Siegel--Walfisz estimate for $\mu$.  Truncation at $w\le V_\ell^{1/4}$
+leaves $O(V_\ell^{7/8}\tau(\ell)^2)$; the smallest inner scale is $U^{9/16}$.
+After summing $\ell\le U^{1/4}$ this is
+$O(U^{29/32}\log^4U)$.  Large moduli are bounded by the one-bounded
+interval estimate.  Inserting $(n,k)=1$ deletes only primes $p\mid k$
+above $z$ and costs at most
+$2(U/z+1)\omega_{\mathrm{pf}}(k)$.  Partial summation absorbs the allowed variation
+and twists by choosing a stronger initial logarithmic accuracy.  This proves \eqref{coef:rough-SW} for the actual slots.
+
+The complementary convolution is bounded by a fixed divisor power.
+If necessary, truncate only this complementary coefficient at a fixed
+logarithmic threshold, using the same mixed divisor moment bound for
+nonzero differences and $N^{\theta_*+o(1)}$ at zero.  The threshold is
+chosen after the fixed orders, and the stronger local logarithmic
+estimate restores its normalization.  The medium slot is not truncated.
+Now apply Proposition~\ref{prop:current-medium} to the exact tensor
+representation \eqref{coef:tensor-identity}.
+
+If no medium slot occurs, every original group contains a long
+slot: since $\zeta<a_*/100$, six slots below $X^{3\zeta}$ cannot
+have product comparable to $R_i$. There are at most two long slots,
+because three would exceed the complete scale. A truncated M\"obius
+slot is $O(X^{1/3})$ and cannot be long. Thus one or two long
+unweighted integer variables remain, with their logarithms, smooth
+twists, individual intervals, and common roughness projector.
+Their complementary short products are bounded by $x^{20\zeta}$
+and $x^{40\zeta}$, respectively. Appendix~\ref{app:brun} estimates
+both cases with the exact coprime mean.
+
+Finally, the low-rank coefficient pieces have complete support with a
+fixed gap below $x^{1/2}$.  For one original prime use maximal prime
+Bombieri--Vinogradov.  For two or more original primes, apply
+Lemma~\ref{coef:low-rank-BV} using one original prime slot as explained
+above.  The bounded total coefficient norm permits its absolute
+form.  All fixed atom scalars, logarithmically many charts and the
+Fourier integral norm are paid by requesting stronger local logarithmic
+accuracy.  The removed prime powers, collisions and trim have fixed
+power savings.  The finite family therefore has one eventual threshold
+for the asserted estimate.
+\end{proof}
+
+\section{One and two long rough variables}
+\label{app:brun}
+
+The estimates here supply the branches without a medium slot in the proof of Proposition~\ref{coef:prime-product-insertion}.
+
+For the one- and two-long-variable cases we use direct progression
+estimates and the classical complete Kloosterman bound.
+The argument keeps the exact coprime mean and is uniform in the
+size of the primitive residue.
+
+\subsection{Brun polynomials with a uniform density gap}
+
+Let $L=\log\log x$, $h=2\lfloor L^2\rfloor$, $r=h+1$ and
+$\log z\le2\log x/L^3$.  Put $P(z)=\prod_{p\le z}p$ and
+$y=z^r=x^{o(1)}$.  Define
+\[
+ \lambda^+(d)=\mu(d)\one_{d\mid P(z),\,\omega_{\mathrm{pf}}(d)\le h},
+ \qquad
+ \lambda^-(d)=\mu(d)\one_{d\mid P(z),\,\omega_{\mathrm{pf}}(d)\le h+1},
+\]
+and
+\[
+ U_z(n)=\sum_{d\mid n}\lambda^+(d),\quad
+ L_z(n)=\sum_{d\mid n}\lambda^-(d),\quad
+ G_z=U_z-L_z,\quad r_z(n)=\one_{(n,P(z))=1}.
+\]
+Both divisor sums have coefficients of absolute value at most one and
+support below $y$.  The alternating binomial identity gives
+\begin{equation}
+ L_z\le r_z\le U_z,\qquad U_z\ge0,\qquad
+ G_z(n)=\binom{\omega_{\mathrm{pf}}((n,P(z)))}{r}\ge0.
+ \label{coef:Brun-order}
+\end{equation}
+This also covers $(n,P(z))=1$, when both polynomials are one.
+The lower polynomial need not be nonnegative.
+
+For every $q$ set
+\[
+ A_q=\sum_{(d,q)=1}\frac{\lambda^+(d)}d,\quad
+ g_q=\sum_{(d,q)=1}\frac{\lambda^+(d)-\lambda^-(d)}d,\quad
+ V_q=\prod_{\substack{p\le z\\p\nmid q}}\left(1-\frac1p\right).
+\]
+Finite inclusion-exclusion, applied to independent Bernoulli variables
+of means $1/p$, gives
+\begin{equation}
+ 0\le A_q-V_q\le g_q
+ \le\frac{(\sum_{p\le z}1/p)^r}{r!}=:\epsilon_x.
+ \label{coef:Brun-gap}
+\end{equation}
+The bound is uniform in the set of primes dividing $q$.  The elementary
+prime harmonic bound $\sum_{p\le z}1/p\ll L$ and $r!\ge(r/e)^r$ yield
+$\epsilon_x\le\exp(-cL^2\log L)$ eventually.  Thus $\epsilon_x$
+is smaller than every fixed negative power of $\log x$, whereas
+$y=x^{o(1)}$ will occur only beside a fixed power saving.
+
+\subsection{Smooth progression cores}
+
+For a compactly supported smooth profile define
+$N_1(f)=\|f\|_1+\|f'\|_1$ and
+$N_2(f)=\|f\|_1+\|f''\|_1$.
+Progression summation and M\"obius inversion give
+\begin{align}
+ \sum_{n\equiv b\ (q)}f(n/U)&=\frac Uq\int f+O(N_1(f)),\notag\\
+ \sum_{(n,q)=1}f(n/U)&=U\frac{\varphi(q)}q\int f
+                        +O(\tau(q)N_1(f)).
+ \label{coef:one-core}
+\end{align}
+These estimates are uniform in $U>0$ and in the primitive class $b$.
+For a fixed $m$ coprime to $q$, the discrepancy of $mn\equiv a\pmod q$
+from its exact coprime mean is therefore
+$O((1+\tau(q)/\varphi(q))N_1(f))$.  If $(m,q)>1$ and $(a,q)=1$,
+both terms vanish.
+
+For two variables, use $e(t)=e^{2\pi it}$ and
+$\widehat f(t)=\int f(s)e(-ts)\,ds$.
+Let $c_q$ be the Ramanujan sum and
+$S(j,k;q)=\sum_{u\bmod q}^{*}e((ju+k\bar u)/q)$.
+For $b=a\bar m\pmod q$, double periodization gives the exact
+discrepancy
+\begin{equation}
+ \frac{UV}{q^2}\sum_{j,k\in\mathbb Z}
+ \widehat f(jU/q)\widehat g(kV/q)
+ \left(S(bj,k;q)-\frac{c_q(j)c_q(k)}{\varphi(q)}\right).
+ \label{coef:two-Poisson}
+\end{equation}
+Both axes vanish identically, because
+$S(0,k;q)=c_q(k)$, $S(bj,0;q)=c_q(j)$ and $c_q(0)=\varphi(q)$.
+For $jk\ne0$, use
+\[
+ |S(bj,k;q)|\le\tau(q)\sqrt q\,(j,k,q)^{1/2},\qquad
+ |\widehat f(t)|\ll N_2(f)(1+|t|)^{-2}.
+\]
+For every $H>0$ and $d\ge1$,
+$\sum_{j\ne0,\,d\mid j}(1+|j|/H)^{-2}\le2H/d$.
+Expanding common divisors and using
+$\sum_{d\mid q}d^{-3/2}\le\zeta(3/2)$ therefore bounds
+\eqref{coef:two-Poisson} by
+\begin{equation}
+ N_2(f)N_2(g)
+ \left(\sqrt q\,\tau(q)+\frac{\tau(q)^2}{\varphi(q)}\right).
+ \label{coef:two-core-bound}
+\end{equation}
+For the Ramanujan term one uses
+$|c_q(j)|\le(j,q)$ and
+$\sum_{d\mid q}\varphi(d)/d\le\tau(q)$.
+When $q=1$ the discrepancy is zero.
+
+Let a short coefficient $\alpha_m$ have
+$\sum|\alpha_m|\ll M\log^C x$, with $x\asymp MU$ or $MUV$.
+If $q\le D$ and $|\rho(q)|\le\tau(q)^J\log^B x$ with fixed $J,B$,
+the sums of the one- and two-variable core errors are
+\begin{equation}
+ O(MD\log^{C'}x),\qquad O(MD^{3/2}\log^{C'}x),
+ \label{coef:core-summed}
+\end{equation}
+respectively.  On inserting Brun divisors $d_1,d_2\le y$, the profiles
+are at scales $U/d_1,V/d_2$ and their norms in
+\eqref{coef:two-core-bound} are unchanged.  Replace $m$ by $md_1d_2$
+only in the primitive residue.  The fixed-product bound is uniform in
+that residue, so summing the divisor pairs costs at most $y^2$.
+
+\subsection{Restoring roughness with the exact mean}
+
+For a nonnegative smooth $F$, expansion of the divisor coefficients in
+\eqref{coef:one-core} gives
+\begin{align}
+ \sum_{(n,q)=1}F(n/U)U_z(n)
+ &=U\frac{\varphi(q)}q A_q\int F+O(y\tau(q)N_1(F)),\notag\\
+ \sum_{(n,q)=1}F(n/U)G_z(n)
+ &=U\frac{\varphi(q)}q g_q\int F+O(y\tau(q)N_1(F)).
+ \label{coef:exact-Brun-means}
+\end{align}
+Both left sides are nonnegative.  They are exact coprime sums;
+the factor $\varphi(q)/q$ is retained throughout.
+
+For two variables write $U_i=U_z(n_i)$, $r_i=r_z(n_i)$ and
+$G_i=G_z(n_i)$.  The valid product comparison is
+\begin{equation}
+ 0\le U_1U_2-r_1r_2\le G_1U_2+U_1G_2.
+ \label{coef:rough-product-gap}
+\end{equation}
+Indeed $U_1U_2-r_1r_2=(U_1-r_1)U_2+r_1(U_2-r_2)$.
+This argument does not multiply two possibly negative lower polynomials.
+For complex profiles choose nonnegative smooth majorants $F\ge|f|$,
+$G\ge|g|$ and use $|\alpha|$ only in estimating the absolute gap.
+If $C_q$ denotes the congruence count and $M_q$ its exact coprime mean,
+and $B=G_1U_2+U_1G_2$, then
+\begin{align*}
+ |(C_q-M_q)(\alpha fg(r_1r_2-U_1U_2))|
+ &\le C_q(|\alpha|FGB)+M_q(|\alpha|FGB)\\
+ &\le |(C_q-M_q)(|\alpha|FGB)|+2M_q(|\alpha|FGB).
+\end{align*}
+The first term is covered by expanding the Brun divisors and
+\eqref{coef:core-summed}; the second is estimated by
+\eqref{coef:exact-Brun-means}.  Fixed divisor/totient mean bounds give
+the total two-variable error
+\begin{equation}
+ \ll\log^{C'}x\left\{
+ MUV\epsilon_x+M(U+V)y+My^2+My^2D^{3/2}\right\}.
+ \label{coef:two-rough-error}
+\end{equation}
+The one-variable version is
+\begin{equation}
+ \ll\log^{C'}x\{MU\epsilon_x+My+MyD\}.
+ \label{coef:one-rough-error}
+\end{equation}
+Only fixed logarithmic factors multiply $\epsilon_x$.
+For the long alternatives, $M\le x^{20\zeta}$ or $x^{40\zeta}$,
+$D\le x^{\Theta_{\mathrm{loc}}}$ with $\Theta_{\mathrm{loc}}<3/5$,
+and $\min(U,V)\ge x^\nu$ for a fixed $\nu>0$.
+Choose $\zeta$ so that
+\[
+ 20\zeta+\Theta_{\mathrm{loc}}<1,\qquad
+ 40\zeta+\frac32\Theta_{\mathrm{loc}}<1.
+\]
+Every remaining term in \eqref{coef:two-rough-error} and
+\eqref{coef:one-rough-error} then has a fixed power saving.
+The errors are consequently $O_A(x\log^{-A}x)$ for every fixed $A$.
+
+\subsection{Individual sharp intervals}
+
+Let $\delta=(\log x)^{-B}$.  An interval in a fixed positive scale has
+a smooth approximation whose error is bounded by nonnegative smooth
+strips of normalized width $O(\delta)$ at its endpoints.  If the interval
+is shorter than $\delta$, a single strip covers it.  Their integrals
+are $O(\delta)$, their first-derivative norms are $O(1)$, and their
+second-derivative norms are bounded by a fixed power of $\delta^{-1}$.
+Multiply by the fixed envelopes for the other profiles.
+
+Apply the proved rough smooth estimates to these positive strips.
+Their exact means are bounded by
+\[
+ \ll\log^{C'}x\{x\delta+M(U+V)y+My^2\}
+\]
+in the two-variable case, and by
+$\log^{C'}x\{x\delta+My\}$ in the one-variable case.
+The exponent in the first term uses the strip integral, not its
+derivatives, and is independent of $B$.  The $B$-dependent derivative
+losses affect only the fixed-power errors.  Choose $B$ after the desired
+logarithmic accuracy.  This controls both the count and the exact mean,
+uniformly in every primitive residue, including a residue equal to an
+intermediate complete product.  It proves the required extension to
+sharp individual intervals.  No assertion about arbitrary sharp coupled
+domains is used.

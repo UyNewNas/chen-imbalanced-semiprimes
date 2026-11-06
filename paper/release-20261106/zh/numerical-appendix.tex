@@ -1,0 +1,578 @@
+\section{有限数值估计}\label{app:numeric}
+
+本附录说明决定引理~\ref{lem:numerical-endpoints} 中两个常数的有限量。构造分别处理积分包围、有限改进量递推及最终有理相减，使每项贡献都有明确的数学定义和估计方向。
+
+\subsection{补充数据}
+有限数据收录于 \emph{Theorem (1+1.75) on the Goldbach Conjecture --- Numerical Supplement}，版本 20261106~\cite{ChanSupplement}，包括 $106$ 个仿射转移、深度 $248$、$312$、$430$ 的 $200$ 单元改进量数组，以及 $17572$ 个配对矩形。\filepath{finite-construction-data.json} 中的有理量表示为整数之商。字段 \texttt{upper\_saving\_bounds}、\texttt{lower\_root\_bounds}、\filepath{lower_integral_bounds} 给出定向有理端点。\filepath{certificate-map.json} 标识其来源证书及相应的区域、细分和区间记录。数学估计与证书字段的对应关系见表~\ref{num:certificate-table}。
+
+\hypertarget{num:verification-scope}{}
+\paragraph{核验命令与输入。}
+下列命令从数值包根目录运行，使用 Python 3.11 或更高版本，并保留断言检查。六阶计算还使用 NumPy。表中区分从已有证书重建数据、对有限构造作精确核验，以及重算指定记录的数值界。通过 \texttt{-{}-output} 或 \texttt{-{}-output-dir} 指定的输出文件均写到数值包之外。
+
+\begingroup
+\renewcommand{\LTcaptype}{}
+\stepcounter{LT@tables}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{.40\textwidth}>{\raggedright\arraybackslash}p{.29\textwidth}>{\raggedright\arraybackslash}p{.25\textwidth}@{}}
+\toprule 入口 & 核验或重算的量 & 保留的数值输入 \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\filepath{verify-package.py} & 文件集合、大小和已记录的 SHA-256 标识。 & 版本对应的 \filepath{MANIFEST.json}。\\[3pt]
+\filepath{finite-data/reproduce-data.py} \texttt{-{}-check} & 从源证书精确提取有限数据及字段对应。 & 已提供的源证书值。\\[3pt]
+\filepath{finite-data/verify-finite-data.py} & 有限改进量递推；配对单元的几何、质量与损失控制式；$\Gamma_5$ 分解；密度和与严格标量余量。 & \filepath{certificate-map.json} 标明的动作系数及积分端点。\\[3pt]
+\filepath{replay-records.py} & 有序覆盖的索引、已存整数下界之和及代价恒等式。 & 有序记录中已存的整数下界。\\[3pt]
+\filepath{replay-ordered-cover.py} & 网格 48 基础覆盖每行选定方法的下界；加 \texttt{-{}-grid 32} 时处理其前一覆盖。 & 已记录的方法选择及第 248 代改进量表。\\[3pt]
+\filepath{verify-sixth-domains.py} & 已存多面体单元上的仿射筛函数自变量范围。 & 已记录的顶点、坐标映射及上限。\\[3pt]
+\filepath{replay-sixth-rank.py} & 网格 400 六阶立方体的贡献及其和，以及上一项的多面体范围检验。 & 已提供的立方体记录和多面体记录。\\
+\end{longtable}
+\endgroup
+
+递推与配对单元核验使用表~\ref{num:certificate-table} 所列动作及积分输入。其原始包围要求仍由本附录及附录~\ref{app:upper}--\ref{app:lower} 中对应的积分和规则规定。\filepath{certificate-map.json} 的 \texttt{enclosure\_obligations} 条目逐族列出当前断言、完整记录和已提供的算法源文件。数值包 README 说明记录的生成方法；其中 \filepath{witnesses/generator-0041.py} 生成有序基础覆盖，\filepath{witnesses/generator-0045.py} 生成六阶立方体记录。重算时保留的第 248 代数组及其它数值输入通过各自条目核验，使每项核验均具有明确的输入集合。命令选项见数值包 README，有限数据的定点精度在下文规定。
+
+\subsection{精确标量端点}
+上界密度估计使用的精确值为
+\begin{align}
+ E_{\rm up}&=\frac{9979702576710911234850619807816847864907359959}
+ {1475913550962201227946780619099353215139840000},
+ \label{eq:current-E}\\
+ u&=\frac{145007961227048312210593427530128000784681}
+ {11807308407697609823574244952794825721118720000}.
+ \label{eq:current-u}
+\end{align}
+对下界构造，在计入配对纤维增量之前，令
+\begin{align}
+ R_{\rm base}&=
+ \frac{1345575129530003739571681432301188857312754737}
+ {685738127494661151198444592354557952000000000},
+ \label{eq:base-R}\\
+ B_{\rm base}&=
+ \frac{2504748318091942808229694219379799307550987}
+ {5485905019957289209587556738836463616000000000}.
+ \label{eq:base-B}
+\end{align}
+$u$ 和 $B_{\rm base}$ 各出现两次，分别支付有限逼近和系数实现的不同误差。求积误差已经包含在定向积分端点中。附属字段 \texttt{scalar\_bounds} 记录最终精确和及严格剩余量。
+
+\subsection{定向算术}
+证明上界时采用向外包围，证明下界时采用向内估计。更具体地，在分母 $\mathsf Q=2^{b_{\rm fp}}$ 下，有理区间 $[x,y]$ 表示为 $[\lfloor \mathsf Q x\rfloor,\lceil \mathsf Q y\rceil]$。加减在整数层面精确进行。乘法先取四个端点乘积的最小值和最大值，再除以 $\mathsf Q$，按规定方向取整。除法只在验证分母区间为正后进行。
+
+对数计算中，令 $z=(x-1)/(x+1)$。若 $1\le x\le2$，则
+\begin{equation}
+ 2\sum_{j=0}^{n-1}\frac{z^{2j+1}}{2j+1}
+ \le\log x\le
+ 2\sum_{j=0}^{n-1}\frac{z^{2j+1}}{2j+1}
+ +\frac{2z^{2n+1}}{(2n+1)(1-z^2)}.
+ \label{num:log-enclosure}
+\end{equation}
+这由 $2\operatorname{arctanh}z$ 的正项幂级数求和，并将其余分母从下方以 $2n+1$ 控制得到。对 $n=96$，余项至多为 $9/(4\cdot193\cdot3^{193})$。范围缩减配合 $\log2$ 的单独包围，将公式推广至这里用到的每个正有理自变量。配对单元计算的级数分母为 $2^{224}$，返回区间的分母为 $2^{160}$。因此，不等式方向不由任何浮点对数值决定。
+
+\subsection{延迟函数与积分的包围}
+递推分子较为方便，记
+\[
+ A_+(s)=\frac{sF(s)}{2e^\gamma},\qquad
+ A_-(s)=\frac{sf(s)}{2e^\gamma}.
+\]
+初始分支分别为 $1\le s\le3$ 时的 $A_+(s)=1$、$s\le2$ 时的 $A_-(s)=0$，后续分支满足
+\[
+ A_+'(s)=\frac{A_-(s-1)}{s-1},\qquad
+ A_-'(s)=\frac{A_+(s-1)}{s-1}.
+\]
+每个分支的方程只涉及前一个单位区间。因此，可在有理网格上依次生成有理区间包围，并在每个整数分点处分开。对被积函数使用相应区间界，即得积分上下界。弦线界和曲率界可以在不改变方向的前提下收紧包围。任意查询都覆盖其完整支撑；端点恰为网格节点时，包括相邻两单元。$s\omega(s)$ 的类似构造使用 $(s\omega(s))'=\omega(s-1)$，其在 $[1,2]$ 上的初始分支为 $\omega(s)=1/s$。
+
+弦线积分可以不借助数值求积实现。在 $[j/n,(j+1)/n]$ 上，分子 $V$ 的仿射端点插值除以自变量后的积分为
+\[
+ \bigl((j+1)\log(1+1/j)-1\bigr)V(j/n)
+ +\bigl(1-j\log(1+1/j)\bigr)V((j+1)/n).
+\]
+两个权都是非负仿射基函数相对于 $du/u$ 的积分，因此为正。$F$、$f$ 的单调性说明，$A_+$ 在非恒定分支上为凸，$A_-$ 为凹。在一个延迟单元上，其分子曲率的绝对值至多为 $1/(j/n-1)$，故积分后的弦线误差至多为
+\[
+ \frac{1}{12nj(j-n)}\qquad(j>n).
+\]
+对弦线下界减去这一量，对弦线上界加上这一量。权本身具有交错有理级数
+\[
+ (j+1)\log(1+1/j)-1
+  =\sum_{k\ge1}\frac{(-1)^{k+1}}{k(k+1)j^k},\qquad
+ 1-j\log(1+1/j)
+  =\sum_{k\ge1}\frac{(-1)^{k+1}}{(k+1)j^k}.
+\]
+第四和第五部分和包围精确权。因此，即使直接相减两个几乎相等的对数在数值上不便，也仍有有理包围。
+
+有限积分采用有理盒或有理多面体。对仿射不等式定义的多面体，精确求解每个可能的活动基，并对所得顶点检验每条原始不等式。先验证有界性及面之间的关联，再构造拉取三角剖分。随后多项式矩可以精确计算：在重心坐标为 $\lambda_0,\ldots,\lambda_d$ 的 $d$ 维单形 $T$ 上，
+\begin{equation}
+ \int_T\prod_{j=0}^d\lambda_j^{\alpha_j}\,dx
+ =d!\operatorname{vol}(T)
+   \frac{\prod_{j=0}^d\alpha_j!}{(d+\sum_j\alpha_j)!}.
+ \label{num:simplex-moment}
+\end{equation}
+其余核因子的有理上下界，结合这些矩及 \eqref{num:log-enclosure}，给出所需积分包围。对负项代价的上界积分，边界盒必须保留并估计其全部贡献。对非负节省量，证明略去贡献非负后，可以省去该盒。两条规则的符号不同，须分别使用。
+
+\subsection{上界密度}
+写作
+\[
+ U_0=\frac4\Theta+I_1+I_{3,c}+I_{3,t},\qquad
+ E_{\rm up}=U_0-\sum_{j=1}^{22}G_j.
+\]
+其中 $I_{3,c}$ 是末坐标至少为 $1/100$ 的区域积分，$I_{3,t}$ 控制完整补尾。令 $D=(F-f)/(2e^\gamma)$，由其延迟方程，利用 $D$ 的非负性和单调性，得
+\[
+ D'(s)=-\frac{D(s)+D(s-1)}s\le-\frac{2D(s)}s
+ \quad(s\ge3),
+\]
+故 $s\ge10$ 时有 $D(s)\le D(10)(10/s)^2$。若 $\delta=1/100$、$\rho_0=19/96$，上界树的上限条件保证剩余指数至少为 $\rho_0$。当 $0<z<\delta$ 时，其延迟自变量至少为 $(\rho_0-z)/z\ge10$。将其余两个有序坐标扩大到 $z\le y\le x\le\rho_0$，得到完整尾界
+\begin{equation}
+ I_{3,t}\le
+ \frac{200D(10)\delta}{(\rho_0-\delta)^2}
+ \left\{\log^2\frac{\rho_0}{\delta}
+        +2\log\frac{\rho_0}{\delta}+2\right\}.
+ \label{num:complete-tail}
+\end{equation}
+这里有序 $x,y$ 积分为 $\tfrac12\log^2(\rho_0/z)$，余下关于 $0<z<\delta$ 的积分是初等积分。特别地，$z=0$ 处的对数奇性被完整积分，而非略去。第一个积分用正项级数及其几何余项包围。紧的第三积分采用不交分割覆盖，并对边界盒保留保守界。
+
+表~\ref{num:upper-table} 给出非负节省量 $G_j$ 的便于阅读的下界，其整数条目满足 $G_j\ge m_j10^{-14}$，完整有理界见补充数据。同一区域上的连续变更均相对于各自父项计算。特别地，最后两行只给出相对于该积分前一估计的曲率及混合增量。
+
+\begin{longtable}{@{}r p{.62\textwidth} r@{}}
+\caption{上界密度节省量的有理下界 $10^{-14}m_j$。}
+\label{num:upper-table}\\
+\toprule
+$j$ & 节省量 & $m_j$\\
+\midrule
+\endfirsthead
+\toprule $j$ & 节省量 & $m_j$\\\midrule
+\endhead
+1 & 四阶上限替换 & 3507783546602\\
+2 & 五阶父单元细分 & 1005163763573\\
+3 & 不交五阶区域 & 136378695993\\
+4 & 六阶上限替换 & 96281257455\\
+5 & $\mu_0$ 以上的二阶备选 & 4209783419\\
+6 & $\mu_0$ 以上的三阶备选 & 3908979560\\
+7 & 六阶对数矩 & 1525398138\\
+8 & 六阶递减区域 & 187855687\\
+9 & 六阶递增上限差 & 387157212\\
+10 & 六阶递减上限差 & 236377744\\
+11 & 六阶裁剪下窗口 & 846201484\\
+12 & 六阶递减下窗口 & 500857555\\
+13 & 六阶局部上限修正 & 50721206\\
+14 & 六阶非单点区域 & 11743733\\
+15 & 八阶径向界 & 94105689\\
+16 & 八阶递增区域 & 1543640141\\
+17 & 八阶递减区域 & 590010094\\
+18 & 八阶不等父上限矩 & 1304343681\\
+19 & 八阶第三坐标矩 & 357686854\\
+20 & 八阶前缀受限矩 & 37235787\\
+21 & 八阶曲率增量 & 97705\\
+22 & 八阶混合增量 & 607514\\
+\bottomrule
+\end{longtable}
+
+上界包围使用 $3699127$ 个四阶盒、细分为 $18728512$ 个子盒的 $292633$ 个五阶父盒、独立五阶区域中的 $1763420$ 个盒，以及 $632104$ 个六阶立方体。八阶区域分为大小为 $30$、$15$、$13$、$29$ 的互不相交族。不同阶之间的筛级差作望远镜求和。在每个父区域上，将其本身的界与完整子项和比较，取有效节省下界的最大值。
+
+在同一分母 $10^{14}$ 下，四个基础项的上界分子分别为
+\[
+ 668896321070235,\quad76020940667,\quad
+ 11960259849166,\quad12313775.
+\]
+令 $E_{\rm up,14}$ 为其和减去表~\ref{num:upper-table} 之和，再除以 $10^{14}$。精确整数运算给出
+\[
+ E_{\rm up}\le E_{\rm up,14},\qquad E_{\rm up,14}+2u<K,
+\]
+其中 $u$ 见 \eqref{eq:current-u}；最后一个差事实上大于 $9.65\cdot10^{-8}$。未舍入的有理和给出 \eqref{eq:current-E}。两项 $u$ 分别支付有限逼近和系数实现，求积误差已包含在单侧积分端点内。
+
+\subsection{有限改进量递推}
+令 $\mathsf Q=2^{80}$，并记
+\[
+ C_i=[1+i/50,1+(i+1)/50],\qquad 0\le i<200.
+\]
+本小节全部表值都是分母 $\mathsf Q$ 下的整数分子。四步初值从 $J_0=1/50$ 开始，使用
+\[
+ J_{n+1}=\frac{20249}{10^6}+\frac{13}{100}J_n.
+\]
+初始改进量及该递推表示的蕴含由引理~\ref{sv:finite-seed} 给出，并保留其带标记状态及实际截点条件。附属 \texttt{seed\_certificate} 含有其中使用的独立普通项及反馈下端点。因此，算术起点来自对所需族已证明的解析节省量。随后 $J_4=0.023273777353>2327/100000$。初始化
+\begin{equation}
+ H_i^{(0)}=
+ \begin{cases}
+ \lfloor \mathsf Q\,2327/100000\rfloor,&1+(i+1)/50\le11/5,\\
+ 0,&\text{其余情形},
+ \end{cases}
+ \qquad h_i^{(0)}=0.
+ \label{num:table-seed}
+\end{equation}
+
+为完整起见，下面指定精确整数转移。一个作用 $\alpha$ 由整数 $b_\alpha$、除数 $d_\alpha\in\{1,5\}$、点对 $(j,m)$、非负整数权 $w_{\alpha j},v_{\alpha j}$ 及目标集合 $T_\alpha$ 构成，其候选值为
+\begin{equation}
+ b_\alpha+\left\lfloor\frac1{d_\alpha}
+ \left\{\sum_{(j,m)}mH_j+
+ \sum_j\left\lfloor\frac{w_{\alpha j}h_j}{\mathsf Q}\right\rfloor+
+ \sum_j\left\lfloor\frac{v_{\alpha j}H_j}{\mathsf Q}\right\rfloor
+ \right\}\right\rfloor.
+ \label{num:action-map}
+\end{equation}
+$70$ 个单步作用满足 $d_\alpha=1$，$36$ 个双步作用满足 $d_\alpha=5$，均在上界常数 $K_*=6.761767>K$ 处计算。各作用的参数、权、常数及目标集合逐一列于 \texttt{actions} 数组。作用参数 $s_\alpha$ 的目标条件为 $1+(i+1)/50\le s_\alpha$。
+
+设 $\ell_j$ 为数据中 $\mathsf Q\log((1+(j+1)/50)/(1+j/50))$ 的整数下界，并令
+\[
+ S_H(j)=\sum_{k=j}^{199}\left\lfloor\frac{H_k\ell_k}{\mathsf Q}\right\rfloor,
+ \qquad
+ S_h(j)=\sum_{k=j}^{199}\left\lfloor\frac{h_k\ell_k}{\mathsf Q}\right\rfloor.
+\]
+对 $50\le i<200$，Buchstab 候选在 $H_i$ 时为 $S_h(\max(50,i-49))$，在 $h_i$ 时为 $S_H(i-49)$。每个新表值取其前值及所有适用候选的最大值。每个右端只使用前一数组。因此这是同时进行的有限递推，不假设收敛到不动点。
+
+解析作用不等式及其后继封闭性通过归纳说明，有理数组在整个闭单元上给出改进量函数的下界。由于反馈权非负，\eqref{num:action-map} 中向下取整保留该方向。对 \eqref{num:table-seed} 施加映射 $430$ 次，即得 \texttt{defect\_tables.430} 中的 $400$ 个值。深度 $248$ 的数组由对应有限迭代从下方控制。深度 $430$ 的数组只用于 $U_3,U_4$ 两处，其余指定位置使用深度 $248$ 的数组。因此，表的变更只在下界泛函实际使用它的位置计入。
+
+\subsection{十一项计数对应的积分}
+\label{num:eleven-integrals}
+算术项 $Y_j$ 的对应关系固定如下。记 $A_+(s)=sF(s)/(2e^\gamma)$、$A_-(s)=sf(s)/(2e^\gamma)$，并令 $\nu=249/448$、$w_*=25/224$。参考的单前缀项为
+\begin{align*}
+ L_1&=\frac4{a_{\rm s}}\overline f(\nu/{a_{\rm s}}),\\
+ L_2&=4\left\{(1/{h_{\rm s}}+1)\overline f\left(\frac{1+{h_{\rm s}}}{2{h_{\rm s}}}\right)
+                 -\overline f(249/50)\right\}+H_{\rm rem},
+\end{align*}
+其中 $H_{\rm rem}$ 见 \eqref{num:removed-defect}。$L_1$ 的未带标记根节点不代入改进量表，因为其比值 $1/\nu$ 小于 $2$。
+
+对双前缀下界项，令
+\[
+ \mathcal P_5=\{{a_{\rm s}}<u<t<{h_{\rm s}}\},\qquad
+ \mathcal P_6=\{{a_{\rm s}}<u<{h_{\rm s}}<t<{d_{\rm s}}\}.
+\]
+在增强部分 $t<\mu_0$，令 $V(t,u)$ 为可用候选 $v(t),v(t+u),\Lambda_{\rm cap}-3{a_{\rm s}}/8$ 的最大值；在 $t>\mu_0$ 上取 $V=v(t)$。这里的可用性按附录~\ref{app:coefficients} 保留完整及选定平方条件、选定最大位置及实际素数上限。令 $L=V-t-u$，下界积分为
+\begin{equation}
+ L_j=4\iint_{\mathcal P_j}
+        \frac{A_-(L/{a_{\rm s}})+h_{248,\rm adm}(t,u)}{tuL}\,du\,dt,
+ \qquad j=5,6.
+ \label{num:pair-lower-integrals}
+\end{equation}
+仅对满足 $2\le L/{a_{\rm s}}\le5$ 的完全可用状态，改进量项才等于 $h_{248}(L/{a_{\rm s}})$；其余为零。当 $L/{a_{\rm s}}<2$ 时，普通下界项也为零。因此，无法确定的改进量查询可以放弃，不会改变普通下界估计。
+
+对 $m=248,312,430$，单前缀上界积分为
+\begin{equation}
+ U_j^{(m)}=4\int_{I_j}
+       \frac{A_+(s_j(t))-H_m(s_j(t))}{tL_j(t)}\,dt,
+ \quad I_3=({a_{\rm s}},1/3),\quad I_4=({a_{\rm s}},{d_{\rm s}}),
+ \label{num:one-prefix-upper-integrals}
+\end{equation}
+其中 $L_j,s_j$ 由下文 \eqref{num:table-change-integral} 给出。十一项和的参考值使用 $m=248$，后续两个表改进仅通过 \eqref{num:successive-table-gains} 插入。
+
+最后两个代价在区域
+\[
+ \mathcal D_{10}=\{{a_{\rm s}}<w<z<y<x<{h_{\rm s}}\},\qquad
+ \mathcal D_{11}=\{{a_{\rm s}}<w<z<y<{h_{\rm s}}<x<{d_{\rm s}}\}.
+\]
+上采用递减坐标 $x>y>z>w$，积分测度为
+\[
+ {d_{\rm s}}\sigma_4=\frac{dx\,dy\,dz\,dw}{xyzw}.
+\]
+令 $S=x+y+z+w$。换位备选的核为 $K_0\omega((1-S)/z)/z$；剩余指数为 $L=\lambda-S$ 的每个可用普通分支提供核 $4\{1-H_{248}(\max(2,L/w))\}/L$，其全部完整和选定条件必须在整个单元上成立。所选单元控制函数从上方控制这些备选的最小值，其积分定义 $U_{10}+U_{11}$ 的上包围。四前缀证书记录单元选择、剩余区间、闭单元改进量最小值以及完整有序覆盖。若普通分支未通过条件，仍可采用换位备选。由于 ${d_{\rm s}}+3{h_{\rm s}}<1$，这两个区域没有单位商贡献。其余换位代价 $U_7,U_8,U_9$ 定义于第~\ref{num:cost-slope} 节。
+
+\subsection{下界修正项的定义}
+\label{num:lower-definitions}
+先指定修正项，再给出其数值组合。令 $\nu=249/448$、$w_*=25/224$，记 $\overline F=F/(2e^\gamma)$、$\overline f=f/(2e^\gamma)$。${h_{\rm s}}$ 处的普通起点与最小素因子分解中普通部分的差为
+\begin{equation}
+ B_{\rm ord}=\frac4{h_{\rm s}}\overline f(\nu/{h_{\rm s}})
+ -4\left\{(1/{h_{\rm s}}+1)\overline f\left(\frac{1+{h_{\rm s}}}{2{h_{\rm s}}}\right)
+                   -\overline f(249/50)\right\}.
+ \label{num:ordinary-start-difference}
+\end{equation}
+从该分解中移去的改进量部分是完整积分
+\begin{equation}
+ H_{\rm rem}=4\int_{w_*}^{{h_{\rm s}}}
+   \frac{H_{248}((1-t)/(2t))}{t(1-t)/2}\,dt.
+ \label{num:removed-defect}
+\end{equation}
+只有去掉这一整个改进量项之后，才代入 ${h_{\rm s}}$ 处的有限普通估计。在改进量单元 $[s_l,s_r]$ 上，\eqref{num:removed-defect} 的贡献区间为 $(w_*,{h_{\rm s}})\cap[1/(2s_r+1),1/(2s_l+1)]$；在乘以因子 $4$ 之前，其原函数为 $2\log(t/(1-t))$。
+
+对 $w={a_{\rm s}},{h_{\rm s}}$，设 $C_3,C_4,C_5$ 为附录~\ref{app:lower} 中同一下界规则的连续上限。上限或者继承，或者从有限指定的子乘积分支中选取，并满足全部完整及选定补集条件。特别地，$\nu\le C_3\le C_4\le C_5\le\Lambda_{\rm cap}$。对递减的 $t_1,\ldots,t_r$，记 $S_r=\sum_{j\le r}t_j$，并令
+\[
+ {d_{\rm s}}\mu_r=\frac{dt_1\cdots dt_r}{t_1\cdots t_{r-1}t_r^2}.
+\]
+三个保留区域为
+\begin{align*}
+ \mathcal E_3(w)&=\{0<t_3<t_2<t_1<w:t_1+3t_2<\nu\},\\
+ \mathcal E_4(w)&=\{(t_1,\ldots,t_4):(t_1,t_2,t_3)\in\mathcal E_3(w),
+          \ 0<t_4<t_3,\ S_3+3t_4<C_3\},\\
+ \mathcal E_5(w)&=\{(t_1,\ldots,t_5):(t_1,\ldots,t_4)\in\mathcal E_4(w),
+                                      \ 0<t_5<t_4\}.
+\end{align*}
+因此，三个非负密度增量为
+\begin{align}
+ I_3(w)&=4\int_{\mathcal E_3(w)}
+  \left\{\overline F\left(\frac{\nu-S_3}{t_3}\right)
+        -\overline F\left(\frac{C_3-S_3}{t_3}\right)\right\}\,{d_{\rm s}}\mu_3,
+                                      \label{num:third-lower-gain}\\
+ I_4(w)&=4\int_{\mathcal E_4(w)}
+  \left\{\overline f\left(\frac{C_4-S_4}{t_4}\right)
+        -\overline f\left(\frac{C_3-S_4}{t_4}\right)\right\}\,{d_{\rm s}}\mu_4,
+                                      \label{num:fourth-lower-gain}\\
+ I_5(w)&=4\int_{\mathcal E_5(w)}
+  \left\{\overline F\left(\frac{C_4-S_5}{t_5}\right)
+        -\overline F\left(\frac{C_5-S_5}{t_5}\right)\right\}\,{d_{\rm s}}\mu_5.
+                                      \label{num:fifth-lower-gain}
+\end{align}
+第五平方条件由 $S_4+2t_5<S_3+3t_4<C_3\le C_4$ 推出。上限选择、分支标签及父立方条件共同固定；采用另一第四上限计算的积分不能追加到 \eqref{num:fifth-lower-gain}。有理证书可以只积分这些非负增量的子集，因此其端点是下界，并不声称选定盒穷尽了理想区域。
+
+对第四节点恢复，设 $\mathcal R_{h_{\rm s}}$ 为 \eqref{sv:restore-gates} 指定的有理斜薄层的不交并。每层上在第四立方检验之前选择上限 $\lambda_4$，满足 $C_3\le S_3+3t_4<\lambda_4$，并保留完整及选定支撑条件。额外增量为
+\begin{equation}
+ T_{h_{\rm s}}=4\int_{\mathcal R_{h_{\rm s}}}
+       \overline f\left(\frac{\lambda_4-S_4}{t_4}\right)\,{d_{\rm s}}\mu_4.
+ \label{num:restoration-integral}
+\end{equation}
+精确薄层体积为 \eqref{sv:slab-volume}。该项以系数 $1/4$ 进入陈氏泛函，且其区域与已经计入的其余增量互不相交。
+
+\subsection{固定上界代价斜率与表的变更}
+\label{num:cost-slope}
+下文的系数 $A_{\rm cost}$ 是五项代价的一个指定仿射上包围的安全斜率，不必是核最小值的导数。为列出其组成，令 $K_0=6.7619$、$A_+(s)=s\overline F(s)$。三个一维换位代价为
+\begin{align*}
+ \frac{U_7}{K_0}&=\int_{d_{\rm s}}^{1/3}
+  \frac{\log((1-2t)/t)+A_+(1/t-1)-1}{t(1-t)}\,dt,\\
+ \frac{U_8}{K_0}&=\int_{a_{\rm s}}^{1/3}\frac{\log(2-3t)}{t(1-t)}\,dt,\\
+ \frac{U_9}{K_0}&=\int_{h_{\rm s}}^{d_{\rm s}}\frac{\log((1-t-{d_{\rm s}})/{d_{\rm s}})}{t(1-t)}\,dt.
+\end{align*}
+首个积分中额外的普通函数贡献无需插值即可计算：
+\[
+ \int_{d_{\rm s}}^{1/4}\frac{A_+(1/t-1)-1}{t(1-t)}\,dt
+ =\int_2^{1/{d_{\rm s}}-2}\frac{\log(u-1)}u
+                  \log\frac{1-{d_{\rm s}}}{{d_{\rm s}}(u+1)}\,du.
+\]
+用 $\underline U_j$ 表示这些关于 $K_0$ 线性代价的有理下端点，它们来自 \texttt{five\_cost\_slope\_certificate} 指定的四阶导数 Simpson 包围。根部代价上端点可采用独立的中点包围；这里上下端点承担不同作用。它们对安全斜率的贡献为 $A_{{\rm cost},789}=(2\underline U_7+\underline U_8+\underline U_9)/(4K_0)$。对 $40000$ 优先父单元之外的保留四前缀单元 $\mathscr B$，用 $A_{\mathscr B}$ 表示在 $K_0$ 处分配的上界质量，用 $s_{\mathscr B}$ 表示所附非负仿射斜率。所需逐单元条件为
+\begin{equation}
+ 0\le s_{\mathscr B}\le A_{\mathscr B}/K_0,\qquad A_{\mathscr B}\ge K_0\mathcal T_{\mathscr B},
+ \label{num:affine-majorant-slope}
+\end{equation}
+其中 $\mathcal T_{\mathscr B}$ 是精确的非负换位质量。由此得到
+\[
+ A_{\mathscr B}-(K_0-K)s_{\mathscr B}\ge(K/K_0)A_{\mathscr B}\ge K\mathcal T_{\mathscr B}.
+\]
+这里不需要不等式 $s_{\mathscr B}\le\mathcal T_{\mathscr B}$。在分母 $\mathsf Q=2^{80}$ 下，保留行的斜率为 $s_{\mathscr B}=10000d_{\mathscr B}/\mathsf Q$；对 $U_{10},U_{11}$，其和分别为 $1277985388931956822$、$7976183963523684871$。因此
+\begin{equation}
+ A_{\rm cost}=A_{{\rm cost},789}+
+ \frac{10000(1277985388931956822+7976183963523684871)}{4\mathsf Q}.
+ \label{num:five-cost-slope}
+\end{equation}
+完整保留单元不等式由证书对应表中的 \texttt{feedback\_original\_slope} 条目索引。
+
+对两个有效改进量包络 $H_m\le H_n$，定义
+\begin{equation}
+ \mathcal T(H_m,H_n)=
+ \int_{a_{\rm s}}^{1/3}\frac{(H_n-H_m)(s_3(t))}{tL_3(t)}\,dt
+ +\int_{a_{\rm s}}^{d_{\rm s}}\frac{(H_n-H_m)(s_4(t))}{tL_4(t)}\,dt,
+ \label{num:table-change-integral}
+\end{equation}
+其中 $s_j(t)=\max(2,L_j(t)/{a_{\rm s}})$，在 $[1,5]$ 外贡献为零；对 $e=57/224$，定义
+\[
+ L_3(t)=\begin{cases}
+ (1-t)/2,&{a_{\rm s}}<t<\mu_0,\\
+ 57/64-5t/2,&\mu_0<t<e,\\
+ 1/2-t,&e<t<1/3.
+ \end{cases}
+\]
+函数 $L_4$ 使用限制在 $({a_{\rm s}},{d_{\rm s}})$ 的前两个分支。两个上界计数中的因子 $4$ 抵消单个陈氏因子 $1/4$，故
+\begin{equation}
+ T_{312}=\mathcal T(H_{248},H_{312}),\qquad
+ T_{430}=\mathcal T(H_{312},H_{430}).
+ \label{num:successive-table-gains}
+\end{equation}
+节点处查询取相邻较小值；对正测度分支 $s_j=2$，这意味着取单元 $49$、$50$ 的最小值。在仿射段 $L=A_0-B_0t$ 上，精确的逆单元原函数为
+\[
+ \int_l^r\frac{dt}{t(A_0-B_0t)}
+ =\frac1{A_0}\log\frac{r(A_0-B_0l)}{l(A_0-B_0r)}.
+\]
+由此确定每个表变更区间及其有理对数包围，无需跨节点作数值插值。
+
+\subsection{数学对象与证书字段}
+\label{num:certificate-chain}
+表~\ref{num:certificate-table} 关联计数估计、积分界及附属证书。最后一列的路径为 \filepath{certificate-map.json} 中的目标；每个目标包含来源文件名、精确 JSON 指针、方向以及所需有理提取公式。对应表还包含每类原始对象的包围与覆盖断言，以及完整见证文件名。\texttt{domain\_constructions} 条目标识实际的 $C_3,C_4,C_5$ 区域生成器及其选定记录，包括两个三阶起点、四阶弦线及斜向区域、五阶子单元增量和斜层恢复。对 $U_{10},U_{11}$，它们标识生成器 \filepath{witnesses/generator-0041.py} 及完整有序见证 \filepath{witnesses/record-0638.json}。见证记录指定这些区域的父规则、方法选择、第 $248$ 代轮廓及完整面描述。
+
+\begingroup
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{.15\textwidth}>{\raggedright\arraybackslash}p{.43\textwidth}>{\raggedright\arraybackslash}p{.35\textwidth}@{}}
+\caption{定义、方向与证书目标。}
+\label{num:certificate-table}\\
+\toprule 对象 & 数学估计 & 证书目标\\
+\midrule
+\endfirsthead
+\toprule 对象 & 数学估计 & 证书目标\\
+\midrule
+\endhead
+$G_j$, $1\le j\le22$ &
+上界树中指定的子节点与父节点密度差；非负节省量可只采用子区域。 &
+\filepath{/upper_saving_bounds/}\,$(j-1)$；下端点。\\[3pt]
+有限作用 &
+\eqref{sv:one-step-operator}, \eqref{sv:two-step-base},
+\eqref{sv:two-step-feedback}；完整 $\Gamma_5$，并对 $D_5^-$ 单独支付代价。 &
+\filepath{/actions/}\,$k$；基础项下界与反馈权；
+\filepath{/gamma5_cost_decompositions}.\\[3pt]
+初值与表 &
+引理~\ref{sv:finite-seed} 及同时映射
+\eqref{num:action-map}；闭单元估计。 &
+\filepath{/seed_certificate}, \filepath{/defect_tables/}\,$m$;
+下端点，$m=248,312,430$。\\[3pt]
+$L_i,U_i$ &
+第~\ref{num:eleven-integrals} 节的积分；每个负项代价覆盖完整保留区域，每个正项采用下界。 &
+\filepath{/lower_root_bounds}；$L_i$ 取下界，$U_i$ 取上界。\\[3pt]
+$B_{\rm ord},H_{\rm rem}$ &
+\eqref{num:ordinary-start-difference}, \eqref{num:removed-defect};
+去掉完整的第 $248$ 代改进量项。 &
+\filepath{/lower_auxiliary_bounds}；$B_{\rm ord}$ 取下界，$H_{\rm rem}$ 取上界。\\[3pt]
+$I_r(w),T_{h_{\rm s}}$ &
+\eqref{num:third-lower-gain}--\eqref{num:restoration-integral}；共同的下界规则及不交恢复薄层。 &
+\filepath{/lower_integral_bounds} 及
+\filepath{/lower_auxiliary_bounds/restoration_L2_lower}；下界。\\[3pt]
+$A_{\rm cost}$, $T_{312},T_{430}$ &
+\eqref{num:affine-majorant-slope}--\eqref{num:successive-table-gains};
+上界代价斜率及连续表变更。 &
+\filepath{/five_cost_slope_certificate},
+\filepath{/lower_auxiliary_bounds}；安全的下界系数。\\[3pt]
+配对删除 &
+$\mathscr E_0\cup \mathscr E_1$ 上分配的非负上界及被删下界估计量；\eqref{num:paired-extra}、\eqref{num:saved-loss}。 &
+\filepath{/paired_rectangles}；精确几何、质量区间及下界估计量整数。\\[3pt]
+$E_{\rm up},R_{\rm low}$ 及预留量 &
+\eqref{num:lower-sum} 及上界密度表达式中的唯一组合。 &
+\filepath{/scalar_bounds}；精确和与严格剩余量。\\
+\bottomrule
+\end{longtable}
+\endgroup
+
+对每个负代价，映射中的记录指定其保留区域的完整覆盖；对正节省量，则指定计算其下界所用的非负子族。
+
+\subsection{下界泛函}
+对带符号十一项表达式，每个正项使用下端点，每个负项使用上端点。下列整数除以 $10^{14}$ 后给出这样的端点：
+\begin{center}
+\begin{tabular}{@{}l r r@{}}
+\toprule 项 & 除以 $4$ 前的系数 & 端点分子\\
+\midrule
+$L_1$ & $3$ & $1346406373358053$\\
+$L_2$ & $1$ & $710262601191162$\\
+$L_5$ & $1$ & $237450056438739$\\
+$L_6$ & $1$ & $301984961684469$\\
+$U_3$ & $-1$ & $2031242249325404$\\
+$U_4$ & $-1$ & $1405868301028074$\\
+$U_7$ & $-2$ & $138343028785273$\\
+$U_8$ & $-1$ & $405707594761181$\\
+$U_9$ & $-1$ & $325703365221150$\\
+$U_{10}+U_{11}$ & $-1$ & $67568703438104$\\
+\bottomrule
+\end{tabular}
+\end{center}
+定义 $C_{11}$ 时采用精确有理端点，而非这些缩短值。四前缀最小值覆盖全部
+\[
+ \binom{51}{4}+48\binom{50}{3}=1190700
+\]
+有序行，包括坐标相等的单形。优先细分以其完整 $516779$ 个子单元之和与原父估计的最大值，替换 $40000$ 个父单元。额外系数节省量为
+\[
+ P=\frac{106520738437439293219}{604462909807314587353088}.
+\]
+
+项 $B_{\rm ord},H_{\rm rem}$, $I_r(a_{\rm s}),I_r(h_{\rm s})$, $T_{h_{\rm s}}$ 定义于 \eqref{num:ordinary-start-difference}--\eqref{num:restoration-integral}。其精确界由 \filepath{lower_auxiliary_bounds} 与 \filepath{lower_integral_bounds} 指定。在 $K_0=6.7619$ 处，令
+\[
+ C_{K_0}=C_{11}+P+\frac14\left(
+ B_{\rm ord}-H_{\rm rem}
+ +\sum_{r=3}^5\{3I_r({a_{\rm s}})+I_r({h_{\rm s}})\}+T_{h_{\rm s}}\right).
+\]
+三阶积分覆盖两个截点区域；四阶积分保留全部指定掩膜及不交附加区带；五阶积分在 ${h_{\rm s}}$ 一侧使用 $158251$ 个下界估计量和 $23662$ 个附加薄层或相等坐标单元，在 ${a_{\rm s}}$ 一侧使用 $679$ 个积分。斜层恢复使用 $98668$ 个盒和 $789344$ 层。只有非负增量可以略去边界条带。非对称核在其有序单形上估计，不对它假设阶乘对称性。
+
+取 \eqref{num:five-cost-slope} 中的 $A_{\rm cost}$ 及 \eqref{num:successive-table-gains} 中的 $T_{312},T_{430}$，初始下界端点至少为
+\begin{equation}
+ C_{K_0}+A_{\rm cost}(K_0-K)+T_{312}+T_{430}
+ +0.002095161+0.003799514-0.002372094.
+ \label{num:lower-sum}
+\end{equation}
+直接有理代入所得值不小于 \eqref{eq:base-R} 中的 $R_{\rm base}$。下文配对单元细化恰增加 \eqref{eq:current-refinement-delta} 中的 $\Delta$。扣除 \eqref{eq:current-B} 的两项预留量后，所得下界端点超过 $c$ 的量为
+\[
+ \frac{13457260926863633771775678584711245753}
+ {2742952509978644604793778369418231808000000000}>0.
+\]
+结合上界计算，这就从所述有限包围证明了引理~\ref{lem:numerical-endpoints} 的标量不等式。
+
+\section{配对单元的细化}\label{app:refinement}
+
+配对矩形按以下方式精确指定，无需几何舍入约定。令
+\[
+ t_i=\mu_0+i\frac{{d_{\rm s}}-\mu_0}{512},\qquad
+ u_j={a_{\rm s}}+j\frac{{h_{\rm s}}-{a_{\rm s}}}{512}\qquad(0\le i,j\le512).
+\]
+\texttt{paired\_rectangles} 的每行指定族 $\mathscr E_0$ 或 $\mathscr E_1$，以及矩形 $[t_i,t_{i+1}]\times[u_j,u_{j+1}]$。两族分别有 $6091$、$11481$ 个单元，没有公共单元，边界积分测度为零。对矩形 $\mathscr B=[t_l,t_r]\times[u_l,u_r]$，定义
+\[
+ Z_{\mathscr B}=\min\left(u_l,\frac{3(1-t_r-u_r)}{13}\right).
+\]
+每行有理数据均满足 $Z_{\mathscr B}>{a_{\rm s}}$、$1-t_r-u_r-2Z_{\mathscr B}\ge(7/3)Z_{\mathscr B}$，故
+\[
+ \frac{1-t-u-z-w}{z}\ge\frac73
+ \qquad({a_{\rm s}}<w<z<Z_{\mathscr B},\ (t,u)\in \mathscr B).
+\]
+
+在每个矩形上，引理~\ref{lem:current-omega-refinement} 给出整个纤维上的 $\omega\ge1/2$，以及指定内区域上的 $\omega\ge11/20$。第二个估计改善第一个贡献的一部分，并以增量计入。
+
+因此，非负父上界至少包含整条纤维上的 $1/2$ 贡献，以及内纤维上的 $1/20$ 贡献。这是同时成立的两个非负贡献。积分并计入单个陈氏因子 $1/4$ 后，额外贡献为
+\begin{equation}
+ G_{\mathscr B}=\frac K{80}\log\frac{t_r}{t_l}\log\frac{u_r}{u_l}
+ \left\{\frac1{a_{\rm s}}-\frac{1+\log(Z_{\mathscr B}/{a_{\rm s}})}{Z_{\mathscr B}}\right\}.
+ \label{num:paired-extra}
+\end{equation}
+事实上，$w$ 积分为 $\log(z/{a_{\rm s}})$，且
+\[
+ \int_{a_{\rm s}}^{Z_{\mathscr B}}\frac{\log(z/{a_{\rm s}})}{z^2}\,dz
+ =\frac1{a_{\rm s}}-\frac{1+\log(Z_{\mathscr B}/{a_{\rm s}})}{Z_{\mathscr B}}.
+\]
+此处的归一化与~\eqref{eq:current-extra-fibre} 一致。
+
+数据每行都包含 \eqref{num:paired-extra} 的有理上下端点，以分母 $2^{160}$ 下的整数分子表示。对其中三个对数应用 \eqref{num:log-enclosure}，再将下端点相加，得
+\begin{equation}
+ \sum_{\mathscr B\in \mathscr E_0\cup \mathscr E_1}G_{\mathscr B}>\frac{558583}{10^9}.
+ \label{num:gross-bound}
+\end{equation}
+两族之和分别约为 $1.9318091250\cdot10^{-4}$、$3.6540308174\cdot10^{-4}$；实际只使用有理下界 \eqref{num:gross-bound}。
+
+\section{被删除的下界估计量与最终预留量}
+\label{app:refinement-review}
+
+配对删除在移去正项的同时移去其已分配的下界估计量。为控制由此产生的损失，下面同时给出该估计量的精确有限和及直接有理上包围。
+
+在一个单元上，记
+\[
+ R(t,u)=\frac{57}{64}-\frac52t-u,\qquad
+ r=R(t_r,u_r),\quad R_0=R(t_l,u_l),\quad
+ M=\log(t_r/t_l)\log(u_r/u_l).
+\]
+$\mathscr E_0$ 的单元满足 $R_0/{a_{\rm s}}\le2$，已分配下界估计量为零。$\mathscr E_1$ 中有 $227$ 个单元满足 $r/{a_{\rm s}}<2$，其估计量也为零。其余 $11254$ 个单元满足 $2\le r/{a_{\rm s}}\le R_0/{a_{\rm s}}\le9/4$。令
+\[
+ f_l=\frac{\log(r/{a_{\rm s}}-1)}{r/{a_{\rm s}}},\qquad
+ f_h=\frac{\log(R_0/{a_{\rm s}}-1)}{R_0/{a_{\rm s}}},
+\]
+及
+\[
+ M_R=\frac{57}{64}M
+ -\frac52(t_r-t_l)\log(u_r/u_l)
+ -(u_r-u_l)\log(t_r/t_l).
+\]
+由于 $r\le R(t,u)\le R_0$，按陈氏权四分之一归一化，两个已分配普通估计量至多为
+\begin{equation}
+ \frac{f_lM}{{a_{\rm s}}},\qquad
+ \frac{f_l(R_0M-M_R)+f_h(M_R-rM)}{a_{\rm s}(R_0-r)}.
+ \label{num:ordinary-proxy}
+\end{equation}
+$f_l,f_h$ 的系数均非负，因此将这些函数的下端点替换为精确值只会增大估计量。\eqref{num:ordinary-proxy} 中两个表达式的最大值，仍控制两个已分配备选的最大值。
+
+设 $h_{\mathscr B}^{\min}$ 为与 $[r/{a_{\rm s}},R_0/{a_{\rm s}}]$ 相交的全部闭单元上第 $248$ 代下界表值的最小值，节点处包括两侧单元。精确支撑包含于已分配估计量向外取整的查询支撑中，所以 $h_{\mathscr B}^{\min}$ 不小于后者采用的最小值。因此，附加项 $h_{\mathscr B}^{\min}M/R_0$ 从上方控制已分配改进量下界。该比较涉及有限下界估计量的最小值，不是对数学函数 $h$ 给上界。将它加到 \eqref{num:ordinary-proxy} 的最大值上，即得所需逐单元控制量。
+
+数据以分母 $\mathsf Q=2^{80}$ 下的整数记录各单元的下界估计量。
+
+这些整数之和为 $11290806845175652020270$。除以 $4\mathsf Q$ 后，
+\begin{equation}
+ L_{\mathscr E}
+ =\frac{5645403422587826010135}
+ {2417851639229258349412352}
+ <\lambda_{\rm loss}:=\frac{466977}{200000000}.
+ \label{num:saved-loss}
+\end{equation}
+对上述控制量作向外计算，也得到低于同一 $\lambda_{\rm loss}$ 的上端点。计算时可将对数自变量缩减到 $[1,3/2]$，采用 $\log(1+x)$ 的 $320$ 项交错级数，并以下一项控制余项。全部除式的分母区间下端点均为正。所得控制量总和被包围在 $0.0023348841363598131014744273487904$ 附近。
+
+删除之前，完整 $L_6$ 的保留下端点为 $3650774173156900914101685/\mathsf Q$；其非增强部分采用刚才的单元分解。因此，从该端点减去 $4\lambda_{\rm loss}$ 即可从下方控制保留的 $L_6$，增强部分不受影响。相对于 \eqref{num:lower-sum}，支付代价的减少恰为
+\[
+ 0.002372094-\lambda_{\rm loss}=\frac{37209}{10^9}.
+\]
+结合 \eqref{num:gross-bound}，得到原始增量
+\[
+ \Delta=\frac{558583+37209}{10^9}
+       =\frac{37237}{62500000}.
+\]
+给有限逼近和系数实现各预留 $\Delta/8$，则保留的净增量为 $3\Delta/4=0.000446844$。全部估计均针对同一组固定矩形，每个密度贡献只出现一次。它们给出 $R_{\rm low}=R_{\rm base}+\Delta$、$B_{\rm low}=B_{\rm base}+\Delta/8$，与 \eqref{eq:current-R}、\eqref{eq:current-B} 一致。
