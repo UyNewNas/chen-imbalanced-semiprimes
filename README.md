@@ -47,7 +47,7 @@ These finite checks have the scope stated in Appendix I. A completed formal proo
 
 ## AI contribution
 
-The author directed GPT-6 Astra Ultra to investigate prime-related techniques in a collection of approximately 700 proofs and adapt promising routes to improve the earlier $(1+1.9)$ factor restriction. The contribution is declared **ai-discovered**: the model contributed new constructions and improved bounds under the author's research direction. ChatGPT/Codex assisted with further development, computational verification and editorial preparation. The author is responsible for the mathematical content and final manuscript.
+The author directed GPT-6 Astra Ultra to investigate prime-related techniques in a collection of approximately 700 proofs and adapt promising routes to improve the earlier $(1+1.9)$ factor restriction. The contribution is declared **ai-discovered**: GPT-6 Astra Ultra carried out the mathematical discovery and substantive proof under the author's research direction. Models used subsequently assisted with manuscript polishing, editing, organization and cross-validation. The author is responsible for the mathematical content and final manuscript.
 
 ## Earlier material and review
 
