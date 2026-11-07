@@ -1,0 +1,710 @@
+\section{受限中等长度卷积估计}
+\label{app:medium}
+
+本附录证明命题~\ref{prop:current-medium}。卷积长度为 $U,V$，记 $x=UV$，非零剩余类记作 $\mathfrak{a}$；正文中的目标偶数记作 $N$。令 $\vartheta=7/32$，并记
+\[
+ z=x^{1/(\log\log x)^3},\qquad y=x^{1/\log\log x}.
+\]
+系数 $\alpha_n$ 在全部模数求和过程中固定，并满足辅助互素 Siegel--Walfisz 条件 \eqref{eq:current-aux-sw}。该条件中的常数对系数族一致。采用记号 $e(t)=\exp(2\pi it)$；指数函数中的逆元始终按所显示的分母取模。
+
+\subsection{光滑控制函数与除数估计}
+
+\begin{lemma}\label{ana:majorant}
+存在固定函数 $\psi\in C_c^\infty((0,\infty))$，使 $0\le\psi\le1$，在 $[1,2]$ 上有 $\psi=1$，并满足 $\supp\psi\subset[1/2,5/2]$ 及
+\[
+ \|\psi^{(j)}\|_\infty\le C^j(j!)^2,
+ \qquad |\widehat\psi(t)|\ll \exp(-c\sqrt{|t|}).
+\]
+因此，对具有多项式上界的正数 $\ell,V$ 和 $H\ge C_1\ell(\log x)^5/V$，有
+\begin{equation}
+ \frac V\ell\sum_{|h|>H}
+       \left|\widehat\psi\left(\frac{hV}{\ell}\right)\right|
+       \ll_D x^{-D}
+ \label{ana:poisson-tail}
+\end{equation}
+其中 $D>0$ 为任意固定值。
+\end{lemma}
+
+\begin{proof}
+选择满足 $\sum \eta_j=1/2$ 的 $\eta_j=c_0/j^2$，令 $u_j$ 为 $[-\eta_j/2,\eta_j/2]$ 上的均匀概率测度，并取 $\phi=u_1*u_2*\cdots$，其支撑为 $[-1/4,1/4]$。将前 $j$ 个因子作为带符号测度求导，总变差至多为 $\prod_{i\le j}(2/\eta_i)=C^j(j!)^2$。其余卷积为概率测度；再保留足够多未求导因子，即可在每个固定导数阶数上得到连续密度。函数 $\psi=\one_{[3/4,9/4]}*\phi$ 满足所述支撑与导数界。分部积分 $j$ 次，其中 $j$ 为 $\sqrt{|t|}$ 的充分小倍数，即得 Fourier 估计。用递减函数积分比较，将 \eqref{ana:poisson-tail} 中的尾部控制为一个多项式因子乘以 $\exp(-c_1(\log x)^{5/2})$。若 $H<1$，每个被略去的整数本就满足 $|h|V/\ell\gg(\log x)^5$，同一论证仍然适用。
+\end{proof}
+
+记 $n=\log_xU$、$q=\log_xQ_1$、$u=\log_xQ_2$ 和 $v=\log_xQ_3$。命题~\ref{prop:current-medium} 的假设推出
+\begin{equation}
+ n>\sigma,\qquad n\le\frac12-4\sigma,\qquad
+ q+u+v<\frac7{10}-\frac{13\sigma}2.
+ \label{ana:lengths}
+\end{equation}
+特别地，当 $x$ 充分大时有 $Q_1Q_2Q_3\le x^{4/5}$。将 $q_2=u_0s$、$q_3=v_0t$ 分成 $z$-粗糙部分和 $z$-光滑部分。满足 $s>y$ 或 $t>y$ 的项有任意大的对数节省。事实上，先利用固定的除数界合并模数系数，再应用除数有界函数在本原等差数列中的估计~\cite{Shiu}，随后以指数 $1/\log z$ 使用 Rankin 方法，得到
+\begin{equation}
+ \sum_{\substack{\ell\le x^{4/5}\\ \operatorname{sm}(\ell;z)\ge y}}
+       \frac{\tau(\ell)^C}{\ell}
+ \ll \exp\bigl(- (\log\log x)^2+O_C(\log\log x)\bigr).
+ \label{ana:smooth-tail}
+\end{equation}
+这里 $\operatorname{sm}(\ell;z)$ 是 $\ell$ 中所有素因子均不超过 $z$ 的最大除数。使用该界时配合除数均值，不引入逐点因子 $x^\epsilon$。
+
+我们还使用以下平移后的等差数列估计。固定 $C,K,\delta>0$，设区间 $I\subset[-x^K,x^K]$ 的长度至多为 $L$，且 $f\le Lx^{-\delta}$，则
+\begin{equation}
+ \sum_{\substack{v\in I\\v\equiv r\pmod f\\v\ne0}}
+        \tau(|v|)^C
+       \ll \frac Lf\tau(f)^C(\log x)^{O(1)}.
+ \label{ana:shifted-divisor}
+\end{equation}
+事实上，令 $g=(r,f)$、$v=gw$，所得模 $f/g$ 的等差数列为本原数列，其长度与模数之比为 $L/f\ge x^\delta$。范围 $|w|\le(f/g)x^{\delta/2}$ 用一个固定的除数估计控制。其余部分先按正负分开，再分成二进区间，并细分为长度与其尺度及 $L/g$ 两者中较小者同阶的区间。在每个区间上，长度和模数都留有固定的正余量，可使用本原除数估计；求和即得 \eqref{ana:shifted-divisor}。Cauchy 不等式还给出关于 $\tau(v)^B\tau(|v-\mathfrak{a}|)^C$ 的混合版本，其中排除 $v=\mathfrak{a}$。
+
+在一个二进块上，令 $d=st\asymp D$、$w=u_0v_0\asymp\mathcal R$，并定义
+\begin{equation}
+ \Lambda_d(w)=\sum_{\substack{st=d\\u_0v_0=w}}
+       \gamma_2(u_0s)\gamma_3(v_0t)
+       \one_{\text{固定的各变量区间及支撑}}.
+ \label{ana:Lambda}
+\end{equation}
+于是 $\Lambda_d$ 不依赖于 $q_1$，并满足 $|\Lambda_d(w)|\le\tau(dw)$、$D\le y^2=x^{o(1)}$、$D\mathcal R\asymp Q_2Q_3$。由 $Q=Q_1$、$Y=QD$、$\delta=\sigma/3$，假设 \eqref{ana:lengths} 推出
+\begin{equation}
+ U,V\ge x^\delta,\qquad Y\le Ux^{-\delta},\qquad
+ Y\mathcal R\le x^{1-\delta}.
+ \label{ana:dispersion-lengths}
+\end{equation}
+用 $\mathcal S$ 表示限制在该块上的原始分解系数偏差和。施加 Cauchy 不等式之前，$d\asymp D$ 的所有值均保留在同一个求和中。
+
+在应用离散法之前，先归约到模不超过 $1$ 的 $\beta$。对于除数有界的 $\beta$，保留 $\tau(m)\le(\log x)^C$ 的部分，并以 $(\log x)^{BC}$ 归一化。在 $v=nm$ 处被舍弃的系数至多为 $(\log x)^{-C}\tau(v)^{B+2}$。当 $v\ne\mathfrak a$ 时，对模数求和的代价至多为 $\tau(|v-\mathfrak a|)^3$，因此固定阶的平移除数矩给出 $O(x(\log x)^{E-C})$，其中 $E$ 与 $C$ 无关。精确乘积 $v=\mathfrak a$ 的贡献另以 $x^{4/5+o(1)}$ 控制。普通除数均值与倒数 Euler 函数和控制均值项。先选择 $C$，再为归一化估计要求足够的对数精度。
+
+\subsection{离散法与主方差}
+
+离散步骤将共同主项与非零频率分离。剩余的非负主方差先用辅助 Siegel--Walfisz 假设估计，再处理指数和。
+
+令 $\ell=qd$、$\eta_r=\Lambda_d(r)$、$h_0=\int\psi$。对固定 $(q,d)$，定义
+\begin{align*}
+ B_r&=\sum_{(n,\ell r)=1}\alpha_n,
+ &A_r(b)&=\sum_{\substack{n\equiv b\pmod\ell\\(n,r)=1}}\alpha_n,\\
+ C_r(m)&=\frac{\one_{(m,\ell r)=1}}{\varphi(\ell r)}B_r,
+ &X_r(m)&=\sum_{(n,\ell r)=1}\alpha_n
+       \bigl(\one_{mn\equiv \mathfrak{a}\pmod{\ell r}}-\one_{mn=\mathfrak{a}}\bigr).
+\end{align*}
+所有 $n$ 求和均保留原区间。先去掉 $mn=\mathfrak{a}$，再应用 Cauchy 不等式。一阶矩代价为 $Y\mathcal R x^{o(1)}$，由 \eqref{ana:dispersion-lengths} 可知它具有幂次节省。用 $q$、$m$ 的非负控制函数，得到 Cauchy 乘子 $VY(\log x)^C$ 以及精确方差
+\begin{align}
+ \mathcal V'&=S_1-2\Re S_2'+S_3',\notag\\
+ S_1&=\sum_{q,d}\psi(q/Q)\sum_m\psi(m/V)
+                 \left|\sum_r\eta_rC_r(m)\right|^2,\notag\\
+ S_2'&=\sum_{q,d}\psi(q/Q)\sum_m\psi(m/V)
+       \left(\sum_r\eta_rX_r(m)\right)
+       \overline{\left(\sum_s\eta_sC_s(m)\right)},\notag\\
+ S_3'&=\sum_{q,d}\psi(q/Q)\sum_m\psi(m/V)
+                 \left|\sum_r\eta_rX_r(m)\right|^2.
+ \label{ana:variance}
+\end{align}
+
+共同主项由核
+\[
+ c_\ell(r,s)=\frac{\varphi(\ell rs)}{
+       \ell rs\varphi(\ell r)\varphi(\ell s)}.
+\]
+控制。若 $L$ 是 $\ell$ 与有限个支撑内 $r$ 的任意公倍数，则
+\begin{equation}
+ c_\ell(r,s)=\frac1L\sum_{v\bmod L}
+ \frac{\one_{(v,\ell r)=1}}{\varphi(\ell r)}
+ \frac{\one_{(v,\ell s)=1}}{\varphi(\ell s)}.
+ \label{ana:gram}
+\end{equation}
+这是一个非负 Gram 核。$L$ 的大小无关紧要，因为它仅用于有限恒等式。光滑互素计数给出
+\begin{equation}
+ S_1=\mathcal M+O\left(\frac{U^2(\log x)^C}{Y}\right),\qquad
+ \mathcal M=Vh_0\sum_{q,d}\psi(q/Q)
+        \sum_{r,s}\eta_r\overline{\eta_s}
+               c_\ell(r,s)B_r\overline{B_s}.
+ \label{ana:mean}
+\end{equation}
+
+对 $S_2'$，在 $mn\ne \mathfrak{a}$ 时先去掉 $(m,s)>1$。粗糙公因子 $f>z$ 带来因子 $\mathcal R/f$ 和 $x/f$；应用 \eqref{ana:shifted-divisor} 并对 $\sum_{f>z}\tau(f)^C/f^2$ 求和，误差至多为 $VU^2(\log x)^C/(Yz)$。随后才为 Poisson 求和恢复 $mn=\mathfrak{a}$，代价为 $\mathcal RUx^{o(1)}$。零频系数为 $1/(\ell r\varphi(\ell s))$，其与 $c_\ell(r,s)$ 之比为 $1+O((\log x)/z)$。所以
+\begin{equation}
+ S_2'=\mathcal M+VE_1+
+ O_A\left(\frac{VU^2}{Y(\log x)^A}+\mathcal RUx^{o(1)}\right),
+ \label{ana:cross}
+\end{equation}
+其中保留原有互素条件，有
+\begin{align}
+ E_1={}&\sum_{q,d}\psi(q/Q)\sum_{r,s}
+     \frac{\eta_r\overline{\eta_s}}{\ell r\varphi(\ell s)}
+ \sum_{\substack{n_1,n_2\\(n_1,\ell r)=(n_2,\ell s)=1}}
+       \alpha_{n_1}\overline{\alpha_{n_2}}\notag\\
+ &\hspace{12mm}\times
+ \sum_{0<|h|\le H_1}\widehat\psi\left(\frac{hV}{\ell r}\right)
+               e\left(\frac{\mathfrak{a}h\overline{n_1}}{\ell r}\right),
+ \qquad H_1\asymp\frac{Y\mathcal R}{V}(\log x)^5.
+ \label{ana:E1-definition}
+\end{align}
+引理~\ref{ana:majorant} 保证可以作这一 Fourier 截断。
+
+对 $S_3'$，在所有除数截断及公因子消去过程中都保留两项精确乘积排除条件。整理后的集合满足
+\begin{equation}
+ \begin{gathered}
+ (r,s)=(s,\ell)=1,\quad (n_1,\ell r)=(n_2,\ell s)=1,
+ \quad(n_1,n_2)=1,\\
+ n_1\equiv n_2\pmod\ell,\qquad
+ |n_1-n_2|\ge U(\log x)^{-C_{\rm sep}}.
+ \end{gathered}
+ \label{ana:clean-set}
+\end{equation}
+移去粗糙公因子的代价为
+\[
+VU^2(\log x)^C/(Yz)+x(\log x)^C,
+\]
+邻近数对的代价为
+\[
+VU^2(\log x)^{C-C_{\rm sep}}/Y+x(\log x)^C.
+\]
+这两项分别通过计数两个倍数，或一个倍数与一个本原等差数列得到；附带的单位项用 $Y/U\le x^{-\delta}$ 吸收。先选择除数截断，再令 $C_{\rm sep}$ 充分大。
+
+此时 $n_1\ne n_2$。恢复一个等式 $mn_i=\mathfrak{a}$ 的代价仅为 $\mathcal R(U+Y)x^{o(1)}=\mathcal RUx^{o(1)}$：固定其分解后，另一个 $n$ 只有 $O(U/Y+1)$ 种选择，另一个粗糙模数则整除一个非零的平移乘积。两个等式不能同时成立。仅在恢复之后才使用中国剩余定理与 Poisson 求和。在 \eqref{ana:clean-set} 上有
+\[
+ \varphi(\ell)c_\ell(r,s)=\frac1{\ell rs}.
+\]
+令 $d_r(b)=A_r(b)-B_r/\varphi(\ell)$。由于 $\sum_b^*A_r(b)=B_r$，零频为 $\mathcal M+\mathcal P$，其中
+\begin{equation}
+ \mathcal P=Vh_0\sum_{q,d}\psi(q/Q)\varphi(\ell)
+   \sum_{r,s}\eta_r\overline{\eta_s}c_\ell(r,s)
+                     \sum_b^*d_r(b)\overline{d_s(b)}\ge0.
+ \label{ana:principal-variance}
+\end{equation}
+非负性由 \eqref{ana:gram} 得到。特别地，这个主方差必须估计，不能声称其恒等抵消。
+
+辅助 Siegel--Walfisz 假设和本原特征大筛给出：对每个固定 $A,w>0$，有
+\begin{equation}
+ \sum_{\ell\le8Y}\tau(\ell)^w\sum_b^*|d_r(b)|^2
+       \ll_A\frac{\tau(r)^{2C_0}U^2}{(\log x)^A}.
+ \label{ana:filtered-BDH}
+\end{equation}
+为明确起见，将 $\alpha_n\one_{(n,r)=1}$ 除以 $\tau(r)^{C_0}$ 归一化。因 $\tau(kr)\le\tau(k)\tau(r)$，其辅助 Siegel--Walfisz 常数仍一致。利用特征正交性，把未加权方差表示为非主特征的和。写每个模数为 $fk$，其中 $f>1$ 为本原导子，并在应用大筛之前把 $(n,k)=1$ 保留在系数内。在导子二进区间 $f\asymp R_0$ 上，固定 $k$ 时的界为 $O(U(U/R_0+R_0)/\varphi(k))$。对 $f>(\log x)^b$ 的导子及诱导因子求和，得 $O(U^2(\log x)^{2-b}+UY)$。小导子由辅助 Siegel--Walfisz 条件控制，带上代价 $\tau(k)^{C_0}$，总量为 $O(U^2(\log x)^{3b+C_1-2B})$。先选 $b$，再选 $B$，即可得到任意指定的对数节省。带权 $\tau(\ell)^w$ 的结论由 Cauchy 不等式、普通除数均值及方差的初等界 $O(U^2/\ell)$ 推出。
+
+利用 \eqref{ana:gram}，对 $r$ 变量使用 Cauchy 不等式，并应用 $\varphi(\ell r)^{-1}\ll(\log x)/(Y\mathcal R)$，对固定除数阶数 $B_0$ 得到
+\begin{align*}
+ \mathcal P\ll{}&\frac{V(\log x)^2}{Y\mathcal R}
+  \sum_{r\asymp\mathcal R}\tau(r)^{2B_0}
+  \sum_{\ell\le8Y}\tau(\ell)^{2B_0+1}\sum_b^*|d_r(b)|^2\\
+ \ll_A{}&\frac{VU^2}{Y(\log x)^A}.
+\end{align*}
+\eqref{ana:filtered-BDH} 中的因子 $\tau(r)^{2C_0}$ 用除数均值求和，不放入未说明的一致常数。结合 \eqref{ana:variance}，得
+\begin{equation}
+ |\mathcal S|\ll_A\frac{x}{(\log x)^A}
+  +V\sqrt Y(\log x)^C\bigl(\sqrt{|E_1|}+\sqrt{|E_2|}\bigr),
+ \label{ana:dispersion-bound}
+\end{equation}
+其中 $E_2$ 是 \eqref{ana:clean-set} 上由中国剩余定理产生的非零频率和。恢复的单零项贡献至多为 $\sqrt{xY\mathcal R}\,x^{o(1)}$，具有幂次节省。
+
+\subsection{第一个指数和}
+
+对固定光滑函数 $w$，由 Poisson 求和及完整 Kloosterman 和的 Weil 界，对每个整数 $A$ 有
+\begin{equation}
+ \left|\sum_{(n,\ell)=1}w(n/U)e(A\overline n/\ell)\right|
+ \ll_w \tau(\ell)^2\sqrt{\ell}+\frac U{\ell}(A,\ell).
+ \label{ana:inverse-completion}
+\end{equation}
+零 Fourier 频率为 Ramanujan 和，给出第二项；其余频率使用
+\[
+ \sqrt{(k,A,\ell)}\le\sum_{\substack{d\mid(A,\ell)\\d\mid k}}\sqrt d,
+ \qquad
+ \sum_{\substack{k\ne0\\d\mid k}}(1+|k|/V)^{-2}\le\frac{2V}{d}.
+\]
+因此，即使频率长度小于一，\eqref{ana:inverse-completion} 仍然成立。
+
+固定 \eqref{ana:E1-definition} 中的 $d$，令 $Q'=dQ$，并将 $q'$ 限制为 $d$ 的倍数。该限制可放入依赖于 $q'$ 的有界系数。以下计算暂将 $Q'$ 记为 $Q$，将 $\mathcal R$ 记为 $R$。把有界光滑因子吸收到 $r,h$ 系数，应用 Cauchy 不等式，同时保留 $r,s$ 原有的未加限制支撑。展开平方得到
+\begin{equation}
+ |E_1(d)|^2\ll x^\epsilon\frac{U^3}{Q^3R^2}\,T,
+ \label{ana:E1-cauchy}
+\end{equation}
+其中
+\[
+ T=\sum_{\substack{q\asymp Q, r,r'\asymp R\\(\mathfrak{a},qrr')=1}}
+       \sum_{0<|h|,|h'|\le H_1}
+ \left|\sum_{(n,qrr')=1}w(n/U)
+ e\left(\frac{\mathfrak{a}(hr'-h'r)\overline n}{qrr'}\right)\right|.
+\]
+令 $j=hr'-h'r$。因 $hr'\ne0$，且 $h'r=hr'$ 是一个除数方程，$j=0$ 元组共有 $RH_1x^\epsilon$ 个，贡献为 $\ll x^\epsilon QRH_1U$。对 $j\ne0$，\eqref{ana:inverse-completion} 的平方根项贡献为 $\ll x^\epsilon Q^{3/2}R^3H_1^2$。对 Ramanujan 项，记 $r=gu$、$r'=gv$、$(u,v)=1$，则
+\[
+ (j,rr')\le g^2(h,r)(h',r'),\qquad
+ \sum_{q\asymp Q}(j,q)\le3Q\tau(|j|),
+\]
+以及
+\[
+ \sum_{0<|h|\le H_1}(h,r)\le2H_1\tau(r),\qquad
+ \sum_{r,r'\asymp R}(r,r')^2\ll R^3.
+\]
+由于 $(\mathfrak{a},qrr')=1$，$\mathfrak{a}$ 从这些最大公因数中消去。Ramanujan 项对 $T$ 的总贡献为 $\ll x^\epsilon UH_1^2R$。由 $H_1\ll QRU(\log x)^5/x$，\eqref{ana:E1-cauchy} 化为
+\begin{equation}
+ |E_1(d)|^2\ll x^\epsilon\frac{U^4}{Q^2}
+  \left(\frac{UQ}{x}+\frac{UQ^{5/2}R^3}{x^2}
+                         +\frac{U^2QR}{x^2}\right).
+ \label{ana:E1-polynomial}
+\end{equation}
+
+回到 $Q=Q_1$ 和 \eqref{ana:lengths} 中的对数变量。所需余量来自
+\begin{align*}
+ n+q&<1-9\sigma,\\
+ 2n+q+u+v&<\frac{17}{10}-\frac{29\sigma}2,\\
+ n+\frac52q+3u+3v
+ &=\frac{35}{16}(q-n)+\frac{23}{16}(2n+u+2v)
+   +\frac5{16}(n+q+5u+2v)-\frac v2\\
+ &<\frac{1021}{512}-\frac{147\sigma}{8}+O(1/\log x).
+\end{align*}
+最后一个不等式使用 $|\mathfrak{a}|\ge c_0x$、$\vartheta=7/32$。此时 $\Lambda_d$、$D=x^{o(1)}$ 的除数界均可由幂次节省吸收。利用 $\sum_{d\asymp D}1/d\ll1$ 对 $d\asymp D$ 中的 $U^2/(dQ)$ 求和，再留出吸收一个额外 $D$ 的余地，得到
+\begin{equation}
+ |E_1|\ll\frac{U^2}{DQ}x^{-\sigma/2}.
+ \label{ana:E1-final}
+\end{equation}
+
+\subsection{第二个指数和与互反相位}
+
+记 $E_2=\sum_{d\asymp D}E_3(d)/d$。固定 $d$，则 $E_3(d)$ 为对 $q$、$w_1,w_2\asymp\mathcal R$、$n_1,n_2\asymp U$ 以及满足 $H\asymp QD\mathcal R^2(\log x)^5/V$ 的 $0<|h|\le H$ 求和，其被加项为
+\begin{align}
+ &\frac{\Lambda_d(w_1)\overline{\Lambda_d(w_2)}
+               \alpha_{n_1}\overline{\alpha_{n_2}}}{qw_1w_2}
+ \psi(q/Q)\widehat\psi\left(\frac{hV}{qdw_1w_2}\right)\notag\\
+ &\hspace{8mm}\times
+ e\left(\frac{\mathfrak{a}h\overline{n_1w_2}}{qdw_1}
+          +\frac{\mathfrak{a}h\overline{n_2qdw_1}}{w_2}\right).
+ \label{ana:E3-definition}
+\end{align}
+限制条件为
+\[
+ \begin{gathered}
+ (q,\mathfrak{a})=1,\quad(w_1,\mathfrak{a}w_2)=1,\quad(w_2,\mathfrak{a}qdw_1)=1,\\
+ n_1\equiv n_2\pmod{qd},\quad
+ (n_1,n_2qdw_1)=(n_2,n_1qdw_2)=1,\quad
+ |n_1-n_2|\ge U(\log x)^{-C_{\rm sep}}.
+ \end{gathered}
+\]
+外层 Cauchy 步骤后，不再有独立的有界 $q$ 系数。\eqref{ana:E3-definition} 的分母为 $qw_1w_2$，而因子 $1/d$ 位于 $E_3(d)$ 外部。
+
+精确互反公式给出
+\begin{align}
+ &e\left(\frac{\mathfrak{a}h\overline{n_1w_2}}{qdw_1}
+          +\frac{\mathfrak{a}h\overline{n_2qdw_1}}{w_2}\right)\notag\\
+ &\qquad=
+ e\left(\frac{\mathfrak{a}h(n_1-n_2)\overline{n_2qdw_1}}{n_1w_2}\right)
+ e\left(\frac{\mathfrak{a}h}{qdw_1w_2n_1}\right).
+ \label{eq:current-retained-phase}
+\end{align}
+式中的互素条件保证全部逆元存在。将 $h$ 按正负分开，并把 $q$ 的支撑分成有界个尺度为 $q_0\asymp Q$ 的区间。用 $(q_0,\mathcal R,\mathcal R,U,H)$ 归一化五个变量 $(q,w_1,w_2,n_1,h)$，则最后一个相位的振幅为
+\[
+ \frac{\mathfrak{a}}{x}\frac Q{q_0}\frac Dd(\log x)^5.
+\]
+在每个坐标上至多求导一次，即将五维总变差控制为
+\begin{equation}
+ \bigl(1+(\log x)^5+(|\mathfrak{a}|/x)(\log x)^5\bigr)^5
+       =x^{5\kappa+o(1)}.
+ \label{ana:phase-variation}
+\end{equation}
+反复分部求和后只留下锚定矩形和。其端点在估计之前固定，$h$ 系数为单个固定的带符号区间示性函数 $\omega_h$，满足 $|\omega_h|\le1$，不依赖其余任何算术变量。
+
+按 \cite[Lemma 13.2]{MaynardI} 的交叉互素分割划分粗糙互素数对 $(n_1w_2,n_2)$，部分数为 $\exp(O((\log\log x)^4))$。独立展开两份 \eqref{ana:Lambda}，包括分解 $st=d$ 的两种选择。令 $R\asymp v_0$、$S\asymp u_0$，总乘积区间保留为
+\[
+ \one_{A_i<r_is_i\le B_i}
+       =\one_{r_is_i\le B_i}-\one_{r_is_i\le A_i}.
+\]
+于是它成为两个允许的乘积上截点之差，无需在单变量系数中引入耦合条件。对双线性型，复极化可将两组不同系数化为对角系数，代价至多为对角界的四倍。依次对两组 $R$、两组 $S$ 及两组 $n$ 使用该方法，总常数代价至多为 $4^3$。
+
+下面明确写出所得未加权和。固定 $d$、交叉互素类 $\mathcal C$、端点 $q_0\le q_1\le2q_0$、两个乘积上截点 $B_1,B_2$，以及绝对值不超过一的序列 $\gamma_r,\lambda_s,\alpha_n,\omega_h$。所有这些数据均在其余求和之前固定。设 $\mathscr C$ 为满足
+\begin{equation}\label{ana:bare-domain}
+\begin{gathered}
+ q_0\le q\le q_1,\quad (q,\mathfrak{a})=1,\quad
+ r_i\asymp R,\quad s_i\asymp S,\quad n_i\asymp U,\\
+ (r_1s_1,\mathfrak{a}r_2s_2)=(r_2s_2,\mathfrak{a}qdr_1s_1)=1,\quad
+ r_1s_1\le B_1,\quad r_2s_2\le B_2,\\
+ n_1\equiv n_2\pmod{qd},\quad
+ (n_1,n_2qdr_1s_1)=(n_2,n_1qdr_2s_2)=1,\\
+ (n_1r_2s_2,n_2)\in\mathcal C,\qquad
+ |n_1-n_2|\ge U(\log x)^{-C_{\rm sep}}.
+\end{gathered}
+\end{equation}
+的元组 $(q,r_1,r_2,s_1,s_2,n_1,n_2)$ 的集合。定义
+\begin{equation}\label{ana:bare-definition}
+\mathcal W_{\rm bare}=
+ \sum_{\mathscr C}
+ \frac{\gamma_{r_1}\lambda_{s_1}
+           \overline{\gamma_{r_2}\lambda_{s_2}}
+           \alpha_{n_1}\overline{\alpha_{n_2}}}
+      {q r_1r_2s_1s_2}
+ \sum_{0<|h|\le H}\omega_h
+ e\left(\frac{\mathfrak{a}h(n_1-n_2)\overline{n_2r_1s_1dq}}
+               {n_1r_2s_2}\right).
+\end{equation}
+此定义不含光滑互反相位。上述端点分离和极化给出
+\begin{equation}\label{ana:E3-bare-reduction}
+ |E_3(d)|\ll x^{5\kappa+o(1)}
+       \sup|\mathcal W_{\rm bare}|,
+\end{equation}
+上确界取遍刚才固定的数据。$x^{o(1)}$ 包括交叉互素类及 $d$ 的两次独立分解，但五变量相位损失只出现一次。剩下只需估计 \eqref{ana:bare-definition}。
+
+\paragraph{第一次 Cauchy 不等式。}
+令 $f=(n_1-n_2)/(dq)$，它是带符号的非零整数。新变量满足 $0<|f|\le2U/(dq_0)$，且
+\begin{equation}\label{ana:f-phase}
+ e\left(\frac{\mathfrak{a}h(n_1-n_2)\overline{n_2r_1s_1dq}}
+                    {n_1r_2s_2}\right)
+ =e\left(\frac{\mathfrak{a}hf\overline{n_2r_1s_1}}
+                    {n_1r_2s_2}\right).
+\end{equation}
+此时仍保留 $q_f=(n_1-n_2)/(df)$ 的整数性以及 $[q_0,q_1]$。$s_1$ 中的乘积截点具有精确有限 Fourier 展开
+\[
+ \one_{r_1s_1\le B_1}=
+ \int_0^1D_{r_1}(\xi)e(s_1\xi)\,d\xi,
+ \qquad
+ D_{r_1}(\xi)=\sum_{1\le j\le B_1/r_1}e(-j\xi).
+\]
+存在共同的非负控制函数 $L(\xi)\ll\min(1+B_1/R,1+\|\xi\|^{-1})$，满足 $\int_0^1L(\xi)\,d\xi\ll\log x$ 和 $|D_{r_1}(\xi)|\le L(\xi)$；令 $c_{r_1}(\xi)=D_{r_1}(\xi)/L(\xi)$。固定 $\xi$，记 $\lambda_s'=S\lambda_s e(s\xi)/s$，这些系数在 $s\asymp S$ 上绝对值不超过一。代入 $q=q_f$ 后，用 $\mathscr D$ 表示 \eqref{ana:bare-domain} 中不依赖于 $s_1$ 的条件，则精确 Fourier 被积项为
+\begin{align}\label{ana:W2-definition}
+ \mathcal W_2(\xi)={}&\frac1S\sum_{\mathscr D}
+ \frac{\gamma_{r_1}c_{r_1}(\xi)
+              \overline{\gamma_{r_2}\lambda_{s_2}}
+              \alpha_{n_1}\overline{\alpha_{n_2}}}
+      {q_f r_1r_2s_2}\notag\\
+ &\quad\times
+ \sum_{\substack{s_1\asymp S\\(s_1,\mathfrak{a}n_1r_2s_2)=1}}
+ \lambda_{s_1}'\sum_{0<|h|\le H}\omega_h
+ e\left(\frac{\mathfrak{a}hf\overline{n_2r_1s_1}}{n_1r_2s_2}\right).
+\end{align}
+特别地，$|\mathcal W_{\rm bare}|\ll(\log x)\sup_\xi|\mathcal W_2(\xi)|$。对每个 $f$，满足 $n_1\equiv n_2\pmod{df}$ 的数对 $n_1,n_2\asymp U$ 有 $O(U^2/(d|f|)+U)$ 个。先对 $f$ 再对 $r_1,r_2,s_2$ 求和，外层元组共有 $O(U^2R^2S\log x)$ 个。由于 \eqref{ana:W2-definition} 中的外部系数绝对值至多为 $O(1/(q_0R^2S^2))$，Cauchy 不等式给出
+\begin{equation}\label{ana:first-Cauchy}
+ |\mathcal W_2(\xi)|^2
+ \ll\frac{U^2\log x}{q_0^2R^2S^3}\,\mathcal W_3,
+\end{equation}
+其中以下非负和保留同余条件，去掉其他外层限制：
+\begin{align}\label{ana:W3-definition}
+ \mathcal W_3={}&
+ \sum_{0<|f|\le2U/(dq_0)}
+ \sum_{\substack{n_1,n_2\asymp U\\n_1\equiv n_2\pmod{df}}}
+ \sum_{r_1,r_2\asymp R}
+ \sum_{\substack{s_2\asymp S\\(n_2r_1,n_1r_2s_2)=1}}\notag\\
+ &\quad\times
+ \left|\sum_{\substack{s_1\asymp S\\(s_1,\mathfrak{a}n_1r_2s_2)=1}}
+ \lambda_{s_1}'\sum_{0<|h|\le H}\omega_h
+ e\left(\frac{\mathfrak{a}hf\overline{n_2r_1s_1}}{n_1r_2s_2}\right)
+ \right|^2.
+\end{align}
+所去掉的每个限制都位于内层平方和之外。$\mathcal C$ 的交叉互素性质，保证在移去原有类别限制之前，式中互素条件已成立。
+
+\paragraph{补全非负平方。}
+现在可去掉 \eqref{ana:W3-definition} 中的同余条件并扩大 $|f|\le2U/q_0$，因为所有被加项均非负。令 $b=n_2r_1$、$c=n_1r_2s_2$，其重数至多为 $\tau(b)\tau_3(c)$，可在求和前控制。将 $b,c$、$|f|$ 分入二进区间。每个块上有 $B\ll UR$、$C\ll URS$、$F\ll U/q_0$，取固定光滑非负控制函数 $g(b,c)=\psi(b/B)\psi(c/C)$，得
+\begin{equation}\label{ana:second-Cauchy}
+ \mathcal W_3\ll x^\epsilon\sum_{B,C,F,\pm}\mathcal W_4,
+\end{equation}
+其中 $f$ 的符号吸收到 $\mathfrak{a}$ 中，且
+\begin{equation}\label{ana:W4-definition}
+ \mathcal W_4=
+ \sum_{\substack{b,c\\(b,c)=1}}g(b,c)
+ \sum_{f\asymp F}
+ \left|\sum_{\substack{s\asymp S\\(s,\mathfrak{a}c)=1}}
+ \lambda_s'\sum_{0<|h|\le H}\omega_h
+ e\left(\frac{\mathfrak{a}hf\overline{bs}}c\right)\right|^2.
+\end{equation}
+二进块数只有对数量级。结合 \eqref{ana:first-Cauchy}、\eqref{ana:second-Cauchy} 并使用 $q_0\asymp Q$，外部因子可写为
+\begin{equation}\label{ana:bare-Cauchy-factor}
+ |\mathcal W_{\rm bare}|
+ \ll x^\epsilon\frac{U}{QRS^{3/2}}
+       \sup_{B,C,F}\mathcal W_4^{1/2}.
+\end{equation}
+
+展开 \eqref{ana:W4-definition}，必要时交换两个 $s$ 标签，得到
+\begin{equation}\label{ana:W4-expansion}
+ \mathcal W_4=
+ \sum_{\substack{s_1,s_2\asymp S\\(s_1s_2,\mathfrak{a})=1}}
+ \sum_{0<|h_1|,|h_2|\le H}\lambda_{s_2}'\overline{\lambda_{s_1}'}
+       \omega_{h_1}\overline{\omega_{h_2}}
+ \sum_{f\asymp F}\sum_{\substack{b,c\\(c,bs_1s_2)=1}}
+ g(b,c)e\left(\frac{\mathfrak{a}f(h_1s_1-h_2s_2)\overline{bs_1s_2}}c\right).
+\end{equation}
+满足 $h_1s_1=h_2s_2$ 的项总绝对值至多为 $x^\epsilon HSBFC$。对其余项，令 $z=s_1s_2$、$y=f(h_1s_1-h_2s_2)\ne0$，并定义系数
+\begin{equation}\label{ana:beta-definition}
+ \beta(y,z)=
+ \sum_{\substack{s_1s_2=z,\ s_i\asymp S\\
+       f\asymp F,\ 0<|h_i|\le H\\
+       f(h_1s_1-h_2s_2)=y}}
+ \lambda_{s_2}'\overline{\lambda_{s_1}'}
+       \omega_{h_1}\overline{\omega_{h_2}}.
+\end{equation}
+保留 $(z,\mathfrak{a})=1$。变量 $b,c$ 不出现在 \eqref{ana:beta-definition} 中；涉及它们的限制仍在核内。因此非零部分恰为
+\begin{equation}\label{ana:off-diagonal-kernel}
+ \sum_{\substack{y\ne0,z\\(\mathfrak{a},z)=1}}\beta(y,z)
+ \sum_{\substack{b,c\\(c,bz)=1}}g(b,c)
+                         e(\mathfrak{a}y\overline{zb}/c).
+\end{equation}
+特别地，对下一引理中的非负元组计数有 $|\beta(y,z)|\le b(z,y)$。在 $y,z$ 上再作任意二进限制后，此控制仍成立，且不依赖于尚未引入的 Poisson 频率。
+
+\begin{lemma}\label{ana:multiplicity}
+令 $b(z,y)$ 计数满足 $z=s_1s_2$、$y=f(h_1s_1-h_2s_2)\ne0$ 的元组 $s_i\asymp S$、$f\asymp F$、$0<|h_i|\le H$。则在具有多项式上界的尺度上，对每个 $\nu\ge1$ 有
+\begin{equation}
+ \sum_z\sum_{u\ne0}b(z,\nu u)^2
+ \ll x^\epsilon(1+H/S)\frac{(HS)^2F}{\nu}
+ \label{ana:multiplicity-bound}
+\end{equation}
+当 $\nu\ge8FHS$ 时左端为零。
+\end{lemma}
+
+\begin{proof}
+固定 $(z,y)$ 时，分解 $(s_1,s_2,f,k)$ 至多有 $\tau(z)\tau(|y|)$ 个，且 $k=h_1s_1-h_2s_2\ne0$。因此，由 Cauchy 不等式，只需对具有相同 $(s_1,s_2,k)$ 的 $h$ 数对碰撞计数，再作一次 $f$ 计数。按 $c\mid\nu$、$\nu/c\mid k$ 分组，$f$ 的个数至多为 $2F/c$。相同 $h$ 的数对贡献为 $\ll x^\epsilon(HS)^2F/\nu$。对不同数对，令 $g=(s_1,s_2)$、$s_1=gu$、$s_2=gv$、$(u,v)=1$，其差为 $(h_1-h_1',h_2-h_2')=(jv,ju)$，且 $0<|j|\le2Hg/S$。若 $b=(g,\nu/c)$，则 $k/g$ 的条件为被 $\nu/(cb)$ 整除。从零起计数非零倍数而不增加单位项，至多得到 $O(HScb/(g\nu))$ 个值。分解其余非零整数 $h_2v$ 只损失除数因子，因此不同数对的贡献为
+\[
+ \ll x^\epsilon\frac{H^3SF}{\nu}
+             \sum_{g\le2S}\frac{(g,\nu)}g
+ \ll x^{2\epsilon}\frac{H^3SF}{\nu}.
+\]
+最后一个估计来自 $\sum_{g\le2S}(g,\nu)/g\le\tau(\nu)(1+\log(2S))$。重新命名 $2\epsilon$ 即得结论。支撑界由 $0<|y|<8FHS$ 得到。
+\end{proof}
+
+在当前应用中，$H/S\le x^{o(1)}(Q/U)D_0<1$，其中 $D_0=U^2R^2S/x$，所以因子 $1+H/S$ 有界。
+
+\subsection{互反核与谱估计}
+
+我们估计互反核时，令系数独立于之后的 Poisson 频率。由此可在每个谱层级使用同一频率区间，满足异常谱层级平均估计的要求。
+
+本小节用 $Y$ 表示系数长度，$Z$ 表示筛级长度，$P$ 表示非零 Poisson 频率块的长度。原卷积长度仍为 $U,V$。设 $\beta(u,z)$ 的支撑满足 $u\asymp Y$、$z\asymp Z$、$(\mathfrak{a},z)=1$，令
+\begin{equation}
+ \mathcal K=\sum_{u,z}\beta(u,z)
+   \sum_{\substack{c,b\\(c,bz)=1}}
+   \psi(c/C)\psi(b/D)e(\mathfrak{a}u\overline{zb}/c).
+ \label{ana:kernel}
+\end{equation}
+$u$ 的正负分别处理。定义 $B^2=\sum_{u,z}|\beta(u,z)|^2$ 和 $B_\nu^2=\sum_{u,z}|\beta(\nu u,z)|^2$；再加入互素示性函数或模为一的相位，不会增大这些范数。
+
+对 $b$ 作 Poisson 求和，得到精确恒等式
+\[
+ \sum_{(b,c)=1}\psi(b/D)e(\mathfrak{a}u\overline z\,\overline b/c)
+ =\frac Dc\sum_{m\in\mathbb Z}\widehat\psi(mD/c)
+                   S(m\overline z,\mathfrak{a}u;c).
+\]
+因 $|S(0,\mathfrak{a}u;c)|\le(\mathfrak{a}u,c)$、$\sum_{c\asymp C}(\mathfrak{a}u,c)\ll C\tau(|\mathfrak{a}u|)$，零频贡献至多为 $x^\epsilon D\sqrt{YZ}\,B$，其平方为 $x^\epsilon D^2YZB^2$。对非零 $m$，在共同截点 $(C/D)x^\epsilon$ 处截断，再划分为共同的带符号二进区间。取固定且充分高的导数阶数，普通光滑 Fourier 衰减即可控制被删除的尾部。
+
+在实际区间 $m\asymp P$ 上，令
+\[
+ Y_0=\frac{4\pi\sqrt{|\mathfrak{a}|PY}}{C\sqrt Z},\quad
+ v=m/P,\quad w=u/Y,\quad \zeta=z/Z,\quad
+ t=\frac{4\pi\sqrt{|\mathfrak{a}|mu}}{c\sqrt z\,Y_0}.
+\]
+则 $c/C=\sqrt{vw/\zeta}/t$。此变量替换从归一化振幅中移去 $\mathfrak{a}$。在固定紧盒上作 Fourier 展开，将振幅分离为一个 Bessel 测试函数、共同因子 $\one_I(m)e(m\omega)$ 以及任意复 $u,z$ 系数。取 Fourier 衰减阶数高于固定的 Bessel 导数阶数，即可使系数范数可求和。因此 $m$ 区间 $I$ 及相位 $\omega$ 在每个筛级 $z$ 上均相同。
+
+尖点转换与旧形式族操作的精确定义见附录~\ref{app:classical}。它们把 $u$ 系数变为
+\begin{equation}
+ \beta_\nu(n,z)=\one_{(n,\mathfrak{a})=1}\beta(\nu n,z)e(-n/z),
+ \qquad \nu\mid \mathfrak{a}^\infty,
+ \label{ana:packet-coefficient}
+\end{equation}
+代价为 $(|\mathfrak{a}|\nu)^{\vartheta/2}$，并保留共同的 $m$ 泛函。令
+\[
+ P_0=\frac{PC^4Z}{|\mathfrak{a}|PY+C^2Z},\qquad T_0=\frac{|\mathfrak{a}|PY}{C^2}.
+\]
+正规谱贡献与异常谱估计给出
+\begin{align}
+ |\mathcal L_P|^2\ll x^\epsilon P_0\bigg\{
+ &\sum_{\nu\mid \mathfrak{a}^\infty}(|\mathfrak{a}|\nu)^\vartheta
+       (Y/\nu+Z+T_0)(P+Z+T_0)B_\nu^2\notag\\
+ &+(C^2Z)^\vartheta(Y+Z)^{1-\vartheta}
+                    (P+Z)^{1-2\vartheta}B^2\bigg\}.
+ \label{ana:spectral-polynomial}
+\end{align}
+其中 $\mathcal L_P$ 为分离后的 Kuznetsov 和，此时尚未恢复 Poisson 因子 $D/C$。
+
+下面说明得到这一多项式的谱求和。此步骤中，正规谱范数始终为非负直和范数 \eqref{ana:regular-norm}：Maass 原子的权为 $1/\cosh(\pi t_j)$；按指定 Fourier 归一化后，全纯原子的权为 $1/(2\pi)$；连续部分的测度为 $dt/\pi$。先在同一测度的各个分量内部施加 Cauchy 不等式，再将三个分量相加。固定 $z,\nu$，以 $A(t),B(t)$ 分别表示 $d\mu_z$ 上的 $n$ 端和 $m$ 端谱系数数组，其条目分别为 $\sum_n\beta_\nu(n,z)R_{t,1}(n)$ 与 $\sum_{m\in I}e(m\omega)R_{t,\infty}(m)$。此处 $t$ 是正规谱直和中的条目指标，包含分量和基向量标签；$R_{t,\mathfrak c}$ 表示 \eqref{ana:regular-norm} 中相应的 Fourier 系数。令 $A_0,B_0\ge0$ 为范数界的幅度常数，并取 $u_0,v_0\ge0$。若两个累计正规谱平方范数分别不超过 $(T^2+u_0)A_0^2$ 和 $(T^2+v_0)B_0^2$，则 Bessel 界
+\[
+ |\mathcal H(t)|\ll\frac{1+|\log Y_0|}{1+Y_0},\qquad
+ |\mathcal H(t)|\ll |t|^{-5/2}+Y_0|t|^{-3}
+ \quad(|t|\ge\max(1,2Y_0))
+\]
+给出
+\[
+ \int|\mathcal H(t)A(t)B(t)|\,d\mu_z(t)
+ \ll \frac{1+|\log Y_0|}{1+Y_0}
+ \sqrt{(1+Y_0^2+u_0)(1+Y_0^2+v_0)}A_0B_0.
+\]
+事实上，在 $\max(1,2Y_0)$ 以上，累计范数之积在第 $j$ 个壳层至多增长 $2^{2j}$，留下可求和因子 $2^{-j/2}+2^{-j}$。筛级上的 Cauchy 因子为 $\sqrt Z$。取 $L=Y/\nu$ 即得 \eqref{ana:spectral-polynomial} 的第一项，其中包括旧形式族代价。
+
+对异常形式，令 $\tau_j=2\sqrt{1/4-\lambda_j}\le\vartheta$、$X_0=1+Z/L$、$X=1/Y_0$，使用
+\[
+ 1+X^{\tau_j}\le
+ 2(1+X/\sqrt{X_0})^{\tau_j}(1+X_0)^{\tau_j/2}.
+\]
+固定筛级的 $n$ 范数为 $\ll x^\epsilon(1+L/Z)B_\nu^2$，共同区间的 $m$ 范数为
+\[
+ \ll x^\epsilon P(P+Z)
+ \left[1+\left\{
+  \frac{P(1+X/\sqrt{X_0})^2}{(P+Z)^2}\right\}^{\vartheta}\right].
+\]
+将这些界与旧形式族代价的平方相乘，得到可吸收入正规谱表达式的项以及 \eqref{ana:spectral-polynomial} 的第二项。仅在后一项中，两个范数相乘后因子 $|\mathfrak{a}|\nu$ 才被消去。同一论证也适用于高度为 $k-1$ 的全纯部分，以及 \eqref{ana:regular-norm} 中实高度为 $t$ 的连续部分；整个壳层求和过程中，其测度均不变。在异常谱上，因 $|\operatorname{Im}t_j|\le7/64$，有 $1/\cosh(\pi t_j)=1/\cos(\pi|\operatorname{Im}t_j|)\asymp1$，故以上所用未加权异常谱估计只相差一个绝对常数。
+
+恢复 $D/C$ 后，由初等不等式
+\[
+ \frac{Z(L+Z+T_0)(P+Z+T_0)}{Z+T_0}
+       \le(L+Z)(P+Z)+ZT_0
+\]
+及 $P\le C/D$，得到
+\[
+ |\mathcal K|^2\ll x^\epsilon\mathcal J^2,
+\]
+其中完整的非负多项式为
+\begin{align}
+ \mathcal J^2={}&\sum_{\nu\mid \mathfrak{a}^\infty}(|\mathfrak{a}|\nu)^\vartheta
+ \bigl\{C(Y/\nu+Z)(C+DZ)+|\mathfrak{a}|YZ\bigr\}B_\nu^2
+ \notag\\
+ &+\bigl\{
+ C(CD\sqrt Z)^{2\vartheta}(Y+Z)^{1-\vartheta}
+                         (C+DZ)^{1-2\vartheta}+D^2YZ\bigr\}B^2.
+ \label{ana:returned-polynomial}
+\end{align}
+通过缩小最初选择的 $\epsilon$，即可兼容实际截点 $P\le x^\epsilon C/D$。若 $C/D<1/2$，只对实际非空区间应用估计；实数比较值 $C/D$ 不被用作并不存在的整数区间的长度。
+
+\paragraph{回到卷积尺度。}
+先在 \eqref{ana:off-diagonal-kernel} 的实际二进长度上应用 \eqref{ana:returned-polynomial}。因 $0\le\vartheta\le1/2$，其系数均非负，且对四个长度单调递增，故随后可将这些长度替换为
+\begin{equation}\label{ana:scale-substitution}
+ D=B_*=UR,\quad C=C_*=URS,\quad Z=S^2,\quad
+ Y=\frac{UR^2S^3}{V}.
+\end{equation}
+相应计数参数满足 $F\le U/Q$、$H\le x^\epsilon H_0$，其中 $H_0=QR^2S^2/V$。先将输入指数选得更小，这些可调幂次损失即可纳入最终的 $x^\epsilon$。令
+\[
+ D_0=\frac{U^2R^2S}{x}=\frac YZ<1.
+\]
+则 $B_*Z\ge C_*$、$B_*^2<x$、$C_*B_*Z=xY$。由引理~\ref{ana:multiplicity} 及 $H/S\le x^\epsilon(Q/U)D_0<1$，有
+\begin{equation}\label{ana:norm-insertion}
+ B_\nu^2\le x^\epsilon\frac{(HS)^2F}{\nu},\qquad
+ B^2\le x^\epsilon(HS)^2F.
+\end{equation}
+辅助除数和满足
+\[
+ \sum_{\nu\mid\mathfrak a^\infty}\nu^{\vartheta-1}
+ =\prod_{p\mid\mathfrak a}(1-p^{-(1-\vartheta)})^{-1}
+ =x^{o(1)}.
+\]
+把素因子在 $\log x$ 处分开，可知其对数为 $O((\log x)^\vartheta)$，并对具有多项式上界的 $\mathfrak a$ 一致。因此 \eqref{ana:returned-polynomial} 给出
+\begin{equation}\label{ana:J-reduced}
+ \mathcal J^2\ll x^\epsilon(HS)^2F
+ \left\{
+ |\mathfrak a|^\vartheta(C_*B_*Z+|\mathfrak a|Y)Z
+ +C_*^{1+2\vartheta}B_*Z^{2-2\vartheta}
+ +B_*^2YZ\right\}.
+\end{equation}
+为明确起见，右端四个单项式乘以
+\[
+ \frac{(H_0S)^2(U/Q)}{U^4R^4S^6}
+                  =\frac{Q}{U^3V^2}:
+\]
+后所得比值如下：
+\begin{equation}\label{ana:ratio-table}
+\begin{array}{c|c}
+ \text{单项式}&\text{归一化贡献}\\ \hline
+ |\mathfrak a|^\vartheta C_*B_*Z^2
+     &D_1=|\mathfrak a|^\vartheta UQR^2S^5/x^2\\
+ |\mathfrak a|^{1+\vartheta}YZ
+     &(|\mathfrak a|/x)D_1\\
+ C_*^{1+2\vartheta}B_*Z^{2-2\vartheta}
+     &D_2=U^{1+2\vartheta}QR^{2+2\vartheta}S^{5-2\vartheta}/x^2\\
+ B_*^2YZ&QR^4S^5/V^3\le D_1.
+\end{array}
+\end{equation}
+最后一项比较来自 $B_*^2<x$、$|\mathfrak a|\ge1$。\eqref{ana:W4-expansion} 中的零差贡献满足
+\[
+ \left(\frac{U}{QRS^{3/2}}\right)^2H_0SB_*\frac UQ C_*
+       =\left(\frac{U^2}{Q}\right)^2D_0.
+\]
+对非零部分，\eqref{ana:off-diagonal-kernel} 给出 $|\mathcal W_{4,\ne0}|\ll x^\epsilon\mathcal J$。将此平方根与 \eqref{ana:bare-Cauchy-factor} 中的平方根结合，明确得到
+\[
+ \left(\frac{U}{QRS^{3/2}}\right)^4
+ \frac{\mathcal J^2}{(U^2/Q)^4}
+ =\frac{\mathcal J^2}{U^4R^4S^6}
+ \ll x^\epsilon\bigl\{(1+|\mathfrak a|/x)D_1+D_2\bigr\}.
+\]
+两部分共同证明
+\begin{align}
+ |\mathcal W_{\rm bare}|&\ll\frac{U^2}{Q}x^\epsilon
+   \left\{D_0^{1/2}
+    +\bigl[(1+|\mathfrak{a}|/x)D_1+D_2\bigr]^{1/4}\right\},
+ \label{eq:current-bare-bound}\\
+ D_0&=\frac{U^2R^2S}{x},\qquad
+ D_1=\frac{|\mathfrak{a}|^\vartheta UQR^2S^5}{x^2},\qquad
+ D_2=\frac{U^{1+2\vartheta}QR^{2+2\vartheta}S^{5-2\vartheta}}{x^2}.
+ \notag
+\end{align}
+
+\subsection{卷积估计的完成}
+
+尺度假设在每个小因子块上给出 $D_0\ll x^{-8\sigma}$、$D_1,D_2\ll x^{-15\sigma}$。结合 $|\mathfrak{a}|/x\le x^\kappa$ 以及只出现一次的变差代价 \eqref{ana:phase-variation}，\eqref{eq:current-bare-bound} 给出
+\[
+ |E_3(d)|\ll\frac{U^2}{Q}
+ \left(x^{-4\sigma+5\kappa+\epsilon}
+       +x^{-15\sigma/4+21\kappa/4+\epsilon}\right).
+\]
+全部可选的 epsilon 损失、分割产生的趋零次幂，以及一个额外归一化因子 $D$，均可纳入 $x^{\sigma/10}$。由于 $\kappa\le\sigma/100$，剩余两个节省量都超过 $\sigma/2$。故对 $d$ 作调和求和，得到
+\begin{equation}
+ |E_2|\ll\frac{U^2}{DQ}x^{-\sigma/2}.
+ \label{ana:E2-final}
+\end{equation}
+将 \eqref{ana:E1-final}、\eqref{ana:E2-final} 代入 \eqref{ana:dispersion-bound}，指数和贡献为 $O(x^{1-\sigma/4}(\log x)^C)$。先前恢复单零项的代价为 $O(x^{1-\sigma/6+o(1)})$，仍有幂次节省。选择辅助 Siegel--Walfisz 精度和对数精度，以吸收有限的二进选择、固定对数数量的块，以及 $\beta$ 的归一化。被略去的光滑部分由 \eqref{ana:smooth-tail} 处理。这就证明了 \eqref{eq:current-medium-conclusion}。
+
+\section{谱输入的归一化}
+\label{app:classical}
+
+这些输入用于 \eqref{ana:spectral-polynomial}；packet 系数与共同频率区间见 \eqref{ana:packet-coefficient} 及该估计之前的讨论。
+
+下面明确归一化，以确定谱 Cauchy 不等式中使用的正测度。常规谱与异常谱分别在各自范围内处理。
+
+下面明确列出前面证明使用的经典结论。其特征为平凡特征，筛级为 $z$，尖点为 $\infty$、$1$，且 $(\mathfrak{a},z)=1$。用 $R(n)=\sqrt{|n|}\rho(n)$ 表示 Deshouillers--Iwaniec 归一化的 Fourier 系数。尖点伸缩矩阵为
+\[
+ \sigma_\infty=I,\qquad
+ \sigma_1=\begin{pmatrix}\sqrt z&0\\\sqrt z&1/\sqrt z\end{pmatrix}.
+\]
+\cite[Lemma 4.3]{Drappeau} 中的尖点转换引入 $e(\mathfrak{a}y/z)$，因此普通 Kloosterman 系数带有 $e(-\mathfrak{a}y/z)$。
+
+对 $y=\nu n$、$\nu\mid \mathfrak{a}^\infty$、$(n,\mathfrak{a})=1$，\cite[Lemmas 3.1 及 3.2]{ABL} 中互素旧形式族的恒等式在每个归一化的旧形式伸缩上给出
+\[
+ R_v(\mathfrak{a}\nu n)=\lambda_v(\mathfrak{a}\nu)
+                   e\bigl(n(\mathfrak{a}\nu-1)/z\bigr)R_v(n).
+\]
+乘以 $e(-\mathfrak{a}\nu n/z)$ 后恰好留下 $e(-n/z)$。计入除数损失后，\cite[(3.3)]{ABL} 中族系数的 Frobenius 范数为 $z^\epsilon$。因此，族内的 Cauchy 不等式以及 Kim--Sarnak 指数界~\cite{KimSarnak} 带来代价 $(|\mathfrak{a}|\nu)^{7/64+\epsilon}$，并给出共同系数 \eqref{ana:packet-coefficient}。不假设所有伸缩具有同一特征值。\cite[Lemma 3.2]{ABL} 中的全纯及连续二次型使用相应恒等式，取 $\vartheta=0$。连续项按形式 Plancherel 测度积分，不把单个 Eisenstein 级数当作平方可积函数取范数；另见 \cite[Proposition 8.2]{Young}。
+
+为完整起见，下面明确给出每次正规谱 Cauchy 不等式所用的非负范数。设 $\mathfrak c$ 为任一尖点，采用 \cite[Proposition E]{Pascadi} 的记号，写作
+\begin{align*}
+ R^M_{j,\mathfrak c}(n)&=
+       \rho^{\rm DI}_{j,\mathfrak c}(n)
+       =\sqrt{|n|}\rho^{\rm ABL}_{j,\mathfrak c}(n),\\
+ R^H_{jk,\mathfrak c}(n)&=
+       \left(\frac{(k-1)!}{(4\pi)^{k-1}}\right)^{1/2}
+       n^{-(k-1)/2}\psi_{jk,\mathfrak c}(n),\\
+ R^E_{\mathfrak d,\mathfrak c}(n,t)&=
+       n^{it}\varphi_{\mathfrak d\mathfrak c}
+                       (n;\tfrac12+it).
+\end{align*}
+旧形式族公式中的符号 $R_j$ 表示 $R_j^M$。对支撑在 $n\asymp L$、$L\ge1/2$ 上的 $T\ge1$、$b$，定义
+\begin{align}\label{ana:regular-norm}
+ \mathfrak Q_{z,\mathfrak c}(T;b)
+ ={}&\sum_{\substack{t_j\in\mathbb R\\|t_j|\le T}}
+ \frac1{\cosh(\pi t_j)}
+ \left|\sum_{n\asymp L}b_nR^M_{j,\mathfrak c}(n)\right|^2\notag\\
+ &+\frac1{2\pi}\sum_{\substack{k\in2\mathbb Z_{>0}\\k-1\le T}}
+      \sum_j\left|\sum_{n\asymp L}b_nR^H_{jk,\mathfrak c}(n)\right|^2
+       \notag\\
+ &+\frac1\pi\sum_{\mathfrak d}\int_{-T}^T
+      \left|\sum_{n\asymp L}b_n
+                 R^E_{\mathfrak d,\mathfrak c}(n,t)\right|^2dt.
+\end{align}
+这就是前文使用的直和测度 $d\mu_z$。常数 $1/(2\pi)$、$1/\pi$ 来自 Kuznetsov 公式；因子 $1/\cosh(\pi t_j)$ 属于 Maass 测度，不会因从 $\rho^{\rm ABL}$ 改为 $R^M$ 而消失。由 \cite[Proposition 4.7]{Drappeau}、\cite[Lemma H]{Pascadi}，有
+\begin{equation}\label{ana:regular-large-sieve}
+ \mathfrak Q_{z,\mathfrak c}(T;b)
+ \ll (zLT)^\epsilon\left(T^2+\frac Lz\right)\sum_n|b_n|^2.
+\end{equation}
+从 $k\le T$ 改为 $k-1\le T$ 只损失固定因子。此约定中的连续项测度为 $dt/\pi$，与 \cite[(3.27)]{Pascadi} 相同，不再附加双曲因子。配合该范数的测试函数界为 \cite[Lemma D]{Pascadi}。对异号 Kuznetsov 和，全纯项不存在，同一非负范数仍给出上界。
+
+在异常谱上令 $\tau_j=2\sqrt{1/4-\lambda_j}\le7/32$。尖点 $1$ 处的固定筛级估计 \cite[Theorem A]{Pascadi} 给出
+\begin{equation}
+ \sum_{\rm exc}X^{\tau_j}
+       \left|\sum_{n\asymp L}b_nR_{j,1}(n)\right|^2
+ \ll(zL)^\epsilon(1+L/z)\sum_n|b_n|^2,
+ \qquad X\ll\max(1,z/L).
+ \label{ana:exceptional-fixed}
+\end{equation}
+系数可依赖 $z$，但不依赖谱高度。筛级平均估计 \cite[Theorem J]{Pascadi} 给出
+\begin{equation}
+ \sum_{z\asymp Z}\sum_{\rm exc}X^{\tau_j}
+       \left|\sum_{m\in I}e(m\omega)R_{j,\infty}(m)\right|^2
+ \ll(ZV)^\epsilon(Z+V)V,
+ \quad X\ll\max(V,Z^2/V),
+ \label{ana:exceptional-average}
+\end{equation}
+其中 $I\subset(V,2V]$、$\omega$ 在每个筛级均相同。对部分区间 $I$，选择整数 $P>4V$，将 $\one_I(m)=\sum_{k=0}^{P-1}c_ke(km/P)$ 按模 $P$ 的剩余类展开，其系数范数为 $\sum|c_k|\ll\log(2+V)$。在以 $(z,j)$ 为指标的 Hilbert 范数中使用 Minkowski 不等式，再以相位 $\omega+k/P$ 应用定理 J，即得 \eqref{ana:exceptional-average}；仅有一个对数平方损失，可吸收入 $(ZV)^\epsilon$。这一论证要求每个筛级使用相同区间。对更大的 $X$，由界 $\tau_j\le\vartheta$ 得到延拓因子 $1+(VX/(V+Z)^2)^\vartheta$。
+
+变换后的估计适用于每个长度至少为 $1/2$ 的非空区间，包括含有 $n=1$ 的端点区间。$m$ 的区间对所有层级共同，$n$ 的系数不依赖谱高度。每次谱包操作均保留 $(\mathfrak a,z)=1$。这正是前述谱估计所使用的区间与系数限制。

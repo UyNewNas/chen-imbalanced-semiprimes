@@ -1,0 +1,1145 @@
+\section{Causal upper sieve policies}\label{app:upper}
+
+This appendix gives the upper-policy density and coefficient realization used in Section~\ref{sec:current-upper}; its finite savings are evaluated in Appendix~\ref{app:numeric}.
+
+We construct the divisor coefficients from finitely many decisions
+on prime prefixes. Prefixes are ordered by decreasing primes:
+if $p_i=N^{t_i}$, then $t_1>\cdots>t_r>0$.
+Write $S_j=t_1+\cdots+t_j$ and $S_0=0$.
+A parent is obtained by deleting the last prime of a prefix.
+Every decision at that parent is retained when smaller primes
+are appended.
+
+\subsection{Admissible caps and the parity of first exits}
+
+For a nonempty subset $I\subseteq\{1,\ldots,r\}$ write
+\begin{equation}\label{sv:selected-gate}
+ b_I=\sum_{i\in I}t_i,\qquad
+ G_I(t)=\max_{\substack{j\le r\\j\notin I}}
+ \left(b_I+\sum_{\substack{i<j\\i\notin I}}t_i+2t_j\right),
+ \qquad \max\varnothing=0.
+\end{equation}
+The full-square support condition is
+\begin{equation}\label{sv:full-gate}
+ G_{\mathrm{full}}(t)=\max_{1\le j\le r}(S_{j-1}+2t_j).
+\end{equation}
+The candidate selected-product endpoint is
+\begin{equation}\label{sv:tent}
+ v(b)=\min\left\{\frac{1+b}{2},\frac{57}{64}-\frac{3b}{2}\right\}.
+\end{equation}
+A selected branch on a compact prefix region is admitted only when
+its constant cap $\lambda$ satisfies, with a fixed positive margin,
+\begin{equation}\label{sv:branch-licence}
+ \max\{1/2,G_{\mathrm{full}}(t),G_I(t)\}
+       <\lambda<v(b_I)
+\end{equation}
+throughout that region.  The separate three-slot branch with endpoint
+$\Lambda_{\rm cap}-3t_3/8$ is subject to the whole-box factorization conditions
+of Appendix~\ref{app:coefficients}.  A maximum of candidate endpoints
+is always taken over branches satisfying their support conditions.
+
+An ordinary upper residual tree at total exponent $\lambda$, after
+a prefix of rank $r$, applies the cube tests
+\begin{equation}\label{sv:upper-cubes}
+ S_{j-1}+3t_j<\lambda\qquad(j>r,\ j\text{ odd}).
+\end{equation}
+If $r$ is even, these are the ordinary upper residual tests.  If $r$
+is odd, they are the ordinary lower residual tests.  The earlier
+membership decisions are retained.  At an even prefix a change of cap
+is made after admitting the prefix; it introduces no exclusion at that
+rank.  At an odd prefix a cap may be chosen before its own odd test,
+provided that the decision depends only on that prefix and the
+previously fixed policy.  Either operation leaves every first
+exclusion at odd full rank.
+
+\begin{lemma}[First-exit identity]\label{sv:first-exit}
+Let $\mathcal T$ be a prefix-closed collection of squarefree products
+from a finite prime set $\mathcal P$, containing the empty product.
+Suppose that all first excluded prefixes have odd rank.  For every
+multiplicative $\xi$ with $0\le \xi(p)\le1$,
+\begin{equation}\label{sv:upper-exit}
+ \sum_{d\in\mathcal T}\mu(d)\xi(d)
+ =\prod_{p\in\mathcal P}(1-\xi(p))
+ +\sum_{e\text{ first exit}}\xi(e)
+           \prod_{\substack{p\in\mathcal P\\p<p_{\mathrm{last}}(e)}}
+                            (1-\xi(p)).
+\end{equation}
+In particular $\sum_{d\mid n,\ d\in\mathcal T}\mu(d)$ majorizes
+$\one_{(n,\prod_{p\in\mathcal P}p)=1}$ for every integer $n$.
+\end{lemma}
+
+\begin{proof}
+Each excluded divisor has a unique first excluded prefix $e$; its
+remaining prime factors are smaller than $p_{\mathrm{last}}(e)$.
+Summing the complete continuation gives
+$\mu(e)\xi(e)\prod_{p<p_{\mathrm{last}}(e)}(1-\xi(p))$.
+Subtract these disjoint continuations from the complete Euler product.
+Since $\mu(e)=-1$, the sign in \eqref{sv:upper-exit} is positive.
+Take $\xi(p)=\one_{p\mid n}$ for the last assertion.  The same
+finite identity applies at $n=0$ and at negative integers.
+\end{proof}
+
+The square tests persist through descendants.  A retained odd cube
+implies its own square.  The following even square follows from
+ordering:
+\begin{equation}\label{sv:descendant-square}
+ S_{j-1}+2t_j\le S_{j-2}+3t_{j-1}<\lambda.
+\end{equation}
+After all selected slots have appeared, the expression in
+\eqref{sv:selected-gate} for any appended slot equals its full square.
+Consequently \eqref{sv:branch-licence}, checked at the selected prefix,
+continues to control the complete descendant vector.
+
+\subsection{The cap changes and their density differences}
+
+Set
+\[
+ \rho_0=\frac{19}{96},\qquad \mu_0=\frac{25}{128},\qquad
+ \Theta=\frac{299}{500},\qquad \Lambda_{\rm cap}=\frac{153}{256}.
+\]
+The first prime is less than $N^{\rho_0}$.  The three-slot endpoint
+below $t_1=\mu_0$ is the envelope of admissible branches of
+\begin{equation}\label{sv:third-envelope}
+ v(t_1),\ v(t_1+t_2),\ v(t_1+t_3),\ v(t_2+t_3),\ v(S_3),\
+                         \Lambda_{\rm cap}-\frac{3t_3}{8};
+\end{equation}
+above $\mu_0$ the initial three-slot endpoint is $v(t_1)$.
+Every branch in \eqref{sv:third-envelope} retains its individual
+factorization conditions.  In particular the displayed list is not
+an unconditional permission to select any nonleading pair.
+
+At rank four the selected candidates are $M=v(b_I)$ with
+$4\in I$, satisfying \eqref{sv:branch-licence} and exceeding the
+inherited third cap.  Such a change is made only on prefixes that
+already pass the third cube.  Membership through rank four is
+unchanged and subsequent odd cubes use the new cap.
+The limiting density difference on a region $\mathcal C$ is
+\begin{equation}\label{sv:even-gain}
+ 4\int_{\mathcal C}
+ \frac{\overline F((L-S_r)/t_r)
+                   -\overline F((M-S_r)/t_r)}
+      {t_1\cdots t_{r-1}t_r^2}\,dt_1\cdots dt_r,
+ \qquad \overline F=\frac{F}{2e^\gamma},
+\end{equation}
+where $r=4$, $L$ is the inherited cap and $M$ the selected endpoint.
+Indeed an even prefix $P_r$ contributes
+$g_N(P_r)V_N^+(N^\lambda/P_r,p_r)$ to its complete subtree.
+Subtracting the two subtrees gives \eqref{sv:even-gain}; it is an
+identity of raw densities before taking an asymptotic limit.
+
+At rank five a candidate $v(b_I)$, $5\in I$, is compared with the
+inherited cap and the fifth cube $S_4+3t_5$.  Its cap is fixed before
+that cube.  Thus a fifth prefix rejected at the smaller cap may be
+retained at the larger one; all earlier decisions remain fixed.
+The negative fifth subtree has the ordinary lower residual, and its
+saving is
+\begin{equation}\label{sv:odd-gain}
+ 4\int_{\mathcal C}
+ \frac{\overline f((M-S_5)/t_5)
+                   -\overline f((L-S_5)/t_5)}
+      {t_1t_2t_3t_4t_5^2}\,dt_1\cdots dt_5,
+ \qquad \overline f=\frac{f}{2e^\gamma},
+\end{equation}
+with the zero extension of $\overline f$ below $2$.
+The inherited first-five cap is bounded above by
+\begin{equation}\label{sv:fifth-envelope}
+ R_5(t)=\max\left\{\Lambda_{\rm cap}-\frac{3t_3}{8},\
+         v(b_I):\varnothing\ne I\subseteq\{1,\ldots,5\}\right\}.
+\end{equation}
+Using an upper bound for the inherited cap in a positive saving is
+conservative.  It does not change the physical cap or its density.
+
+The rank-six changes are even-prefix changes of the form
+\eqref{sv:even-gain}.  They are applied after preserving the third
+and fifth admission tests.  In particular
+$L_3-S_6>2t_5-t_6>t_6$ on a region whose fifth cube is controlled by
+$L_3$.  A convex piecewise-affine majorant $U_5\ge R_5$ can be obtained by
+choosing one defining affine upper plane for each tent in
+\eqref{sv:fifth-envelope}.  For a new concave endpoint $M$, put
+$d=M-U_5$ and restrict the region to $M-S_6\le3t_6$.
+Write $L$ for the inherited cap.  Where $d>0$, the retained fifth
+cube gives
+\[
+ 1<\frac{L-S_6}{t_6}\le\frac{U_5-S_6}{t_6}
+       <\frac{M-S_6}{t_6}\le3.
+\]
+Thus $\overline F(s)=1/s$ throughout the interval of comparison, and
+\[
+ \overline F((L-S_6)/t_6)-\overline F((M-S_6)/t_6)
+ \ge \frac{t_6(M-U_5)}{(U_5-S_6)(M-S_6)}.
+\]
+The cap is changed only where $d>0$, giving the saving lower bound
+\begin{equation}\label{sv:sixth-lower}
+ \frac{4d_+}{R_oR_n\prod_{i=1}^6t_i},
+\end{equation}
+where $R_n\ge M-S_6$ and
+$R_o\ge\min\{U_5-S_6,M-S_6\}>0$ are whole-region upper bounds.
+The positive part is taken before a lower bound for the positive
+prime-density measure is extracted.  For a rectangular region,
+concavity gives
+$\int d_+/\operatorname{Vol}(\mathcal C)
+\ge 2^{-6}\sum_{v\text{ vertex}}d(v)$.
+
+Two additional changes occupy disjoint parts of $\mu_0<x<\rho_0$.
+For the rank-two change, put $a(x)=2v(x)-1=25/32-3x$ and use
+\[
+ a(x)<y<x,\qquad L=v(x),\quad M=v(y).
+\]
+The support conditions follow from
+$2x,x+2y,2x+y< v(x)<v(y)$; the selected slot is $2$.
+The saving is the $r=2$ instance of \eqref{sv:even-gain}.
+For the rank-three change, put $t=y+z$ and impose
+\[
+ a(x)<t<x,\quad z=tw/2,\quad 5/9\le w<1,
+ \qquad L=v(x),\quad M=v(t).
+\]
+Here $y<3/16$, whereas the rank-two change has $y\ge3/16$.
+Selecting slots $\{2,3\}$ gives the extra support condition $2x+t<M$.
+The third node is retained and its lower residual is changed, giving
+the $r=3$ analogue of \eqref{sv:odd-gain}.  Its arguments lie in
+$[2,4]$, where $\overline f(s)=\log(s-1)/s$.
+
+At rank eight a selected endpoint $M$ is compared with a valid
+upper bound $R_6$ for the inherited sixth cap.  The retained seventh
+cube and the additional condition $M-S_8<3t_8$ give
+\begin{equation}\label{sv:eighth-range}
+ 1<\frac{\lambda_6-S_8}{t_8}
+ \le\frac{R_6-S_8}{t_8}<\frac{M-S_8}{t_8}<3.
+\end{equation}
+Consequently \eqref{sv:even-gain} is bounded below by the integral of
+\begin{equation}\label{sv:eighth-density}
+ \frac{4(M-R_6)}{(R_6-S_8)(M-S_8)\prod_{i=1}^8t_i}.
+\end{equation}
+Each chosen region must retain every full and selected-complement
+square, as well as all ancestor tests.  Regions acted upon at one
+stage have disjoint interiors.  Changes at different stages are
+combined by the exact telescope
+$V_3-V_6=(V_3-V_4)+(V_4-V_5)+(V_5-V_6)$.
+For each density difference we use one lower enclosure.
+
+\subsection{Literal ordinary densities and finite realization}
+
+Let $g_N(p)=\one_{p>2,\ p\nmid N}/(p-1)$ and
+$V_N(y)=\prod_{p<y}(1-g_N(p))$.  The ordinary cubic Rosser
+coefficients satisfy, uniformly on compact subsets of the stated
+ranges,
+\begin{equation}\label{sv:literal-density}
+ \frac{V_N^+(N^\beta,N^t)}{V_N(N^t)}=F(\beta/t)+o(1)
+       \quad(\beta/t>1),\qquad
+ \frac{V_N^-(N^\beta,N^t)}{V_N(N^t)}=f(\beta/t)+o(1)
+       \quad(\beta/t\ge2).
+\end{equation}
+Here the densities are those of the literal coefficients, not merely
+upper and lower bounds for an arbitrary sifted sequence.
+
+To see the uniformity in $N$, compare a normalized fixed-rank exit
+with the corresponding exit for $g_0(p)=\one_{p>2}/(p-1)$.
+A surviving prefix gains the multiplier
+\[
+ \prod_{\substack{p_{\rm last}\le p<y\\p\mid N}}(1-g_0(p))\le1;
+\]
+other prefixes disappear.  A rank-$j$ exit has last prime at least
+$N^{\beta_{\min}/(3\cdot2^{j-1})}$ on a positive compact parameter
+range.  Deleting prime divisors of $N$ therefore changes any
+fixed-rank integral by $o(1)$ uniformly.  The positive Rosser exit
+series converges uniformly on compact parameter ranges, and the
+raw one-sided bounds give the opposite side of a finite-rank
+sandwich; see \cite[Proposition~11.8 and Lemma~14.7]{Suzuki}.
+First choose the rank and then let $N$ increase.  This proves
+\eqref{sv:literal-density}.  For $1<s\le3$ the identity at the first
+cube reduces the upper calculation to cutoff $N^{\beta/3}$, giving
+$F(s)=2e^\gamma/s$.
+
+The normalization follows from Mertens' formula.  In particular the
+exact ratio to $2C_N\prod_{p<z}(1-1/p)$ is
+\begin{equation}\label{sv:euler-ratio}
+ \frac{V_N(z)}{2C_N\prod_{p<z}(1-1/p)}
+ =\prod_{p\ge z}\left(1-\frac1{(p-1)^2}\right)^{-1}
+  \prod_{\substack{p\mid N\\p\ge z}}\left(1-\frac1{p-1}\right).
+\end{equation}
+Its logarithm is $O((1+\log N/\log z)/(z-2))$.
+Thus $V_N(N^t)\sim2e^{-\gamma}C_N/(t\log N)$ uniformly in $N$.
+The factor $4$ in \eqref{sv:even-gain} and \eqref{sv:odd-gain}
+is exactly $2e^{-\gamma}\cdot2e^\gamma$.
+
+The finite cell data consist of rational regions, their ranks,
+selected subsets, endpoints, and parent labels. Every active region
+has positive margins in its admission and support inequalities;
+an inherited region keeps its parent's decision. The density is
+the sum of the exact subtree differences. For a positive saving,
+any selected subfamily gives a lower bound. For a negative cost,
+the upper bound must include the whole retained domain.
+
+\begin{proposition}[Finite-policy realization]\label{sv:finite-realization}
+Fix such a finite admissible policy and a positive error $\epsilon$.
+Assume the coefficient factorization conditions of
+Appendix~\ref{app:coefficients} on its selected branches.
+There is a fixed finite refinement and a bounded squarefree
+coefficient $\rho_N^{\rm up}$, supported on $(q,N)=1$, with the following
+properties.  Its divisor sum is a nonnegative rough-indicator
+majorant.  The signed distribution estimate \eqref{eq:current-PP}
+applies to that same coefficient.  Its density differs, in the
+required upper direction, from the ideal policy density by at most
+$\epsilon C_N/\log N+o(C_N/\log N)$.
+\end{proposition}
+
+\begin{proof}
+First truncate any small-last-prime tail.  At the third activation
+one may use, with $u=\rho_0/2$ and $0<h<u$,
+\begin{equation}\label{sv:activation-tail}
+ T_3(h)\le\frac{18h}{(u-h)^2}
+   \left(\log^2\frac{\rho_0}{h}
+                   +2\log\frac{\rho_0}{h}+2\right)=o(1).
+\end{equation}
+This follows from $\overline F(s)-\overline f(s)\le9/s^2$
+for $s\ge3$, the residual lower bound $\lambda-t_1-t_2\ge u$,
+and the ordered reciprocal-prime triangle of mass
+$\tfrac12\log^2(\rho_0/t_3)$.  Higher selected changes have
+positive last-prime cutoffs.  Proper affine walls have arbitrarily
+small strip volume.  Identities and open inherit regions are
+retained.  On the remaining compact pieces choose coarse caps with
+strict margins and refine them in increasing prefix order.  No
+ancestor decision may depend on an appended prime.
+
+The third endpoint is piecewise affine and Lipschitz.  For boxes
+of width $\chi<e/10$, caps of the form
+$\lambda_{\mathscr B}=\Gamma_{\mathscr B}-2e$ approximate it with error at most
+$4e+6\chi$.  Near a three-slot branch with endpoint
+$W=\Lambda_{\rm cap}-3t_3/8$, an auxiliary factorization cover may exceed
+the physical cap.  If $\inf_{\mathscr B} A\ge\lambda_{\mathscr B}+e/2$, where
+$A=(1+t_1)/2$, take $\ell_{\rm aux}=\lambda_{\mathscr B}+e/4$.
+Otherwise $\sup_{\mathscr B} A<\lambda_{\mathscr B}+11e/20$, and
+$\ell_{\rm aux}=\lambda_{\mathscr B}+e$ lies at least $9e/20$ above the
+necessary support condition and $e$ below $W$.  The other initialization square
+has margin $3/256$.  The auxiliary cover gives a factorization for the coefficient;
+it never replaces the physical cap in a density or residual level.
+
+Choose a presieve $z_0=N^{\eta_0}$.  At even rough rank use outer
+endpoint tests and at odd rough rank use inner tests, retaining all
+ancestor labels.  This gives $a_N(d)\ge\lambda_N(d)$ for the
+raw upper coefficients.  If $B^-\le I_0\le B^+$ are the
+dimension-one small-prime beta polynomials, attach $B^+$ to
+positive $a_N(d)$ and $B^-$ to negative $a_N(d)$.  Term by term,
+$a_N(d)B_{\rm sign}\ge a_N(d)I_0$.  Unique small/rough
+factorization defines the resulting $\rho_N^{\rm up}$ and preserves
+squarefreeness and boundedness.
+
+The density direction needs an additional identity.  Projecting
+\eqref{sv:upper-exit} to primes at least $z_0$ gives
+\begin{equation}\label{sv:upper-projection}
+ V_N(z_0)\sum_{d\text{ rough}}\lambda_N(d)g_N(d)
+       \le\sum_{d\text{ full}}\lambda_N(d)g_N(d).
+\end{equation}
+Only positive exits with last prime at least $z_0$ survive on the
+left.  For a fixed coarse policy the absolute beta and fine-box
+errors are
+$O(e^{-c/\eta}\eta_0^{-2}+C_{\rm policy}\tau\eta_0^{-5})$
+relative to the root Euler product.  Choose $\eta,\eta_0$ and
+then $\tau$ so that these errors and the truncated pieces fit
+within $\epsilon$.
+
+All these choices precede $N$.  The fine rank is bounded by
+$J_0>\theta_*/\eta_0+2$; support inflation can be kept below
+$1/1000$, giving $\theta_*=599/1000$.
+Finally choose the fixed moment order and complete-scale trim so
+that $\theta_*/(1-\kappa_0)<3/5$ and all local inequalities have
+strict margins.  Appendix~\ref{app:coefficients} then gives
+\eqref{eq:current-PP} for this very coefficient.  The pointwise
+bound follows from Lemma~\ref{sv:first-exit}; the density bound
+follows from \eqref{sv:upper-projection} and the absolute errors.
+\end{proof}
+
+\section{Lower policies and finite feedback}\label{app:lower}
+
+This appendix supplies the lower-policy realizations and positive marked transition inequalities used in Section~\ref{sec:current-lower}. Appendix~\ref{app:numeric} evaluates the corresponding finite maps and integrals.
+
+\subsection{The ordinary lower tree and fourth-prefix restoration}
+
+Put ${a_{\rm s}}=417/5000$, ${h_{\rm s}}=19/125$ and $\nu=249/448$.
+For either $w={a_{\rm s}}$ or $w={h_{\rm s}}$, begin with the ordinary lower support
+at total exponent $\nu_\delta=\nu-\delta$, where
+$0<\delta$ is fixed and $2{h_{\rm s}}<\nu_\delta$.
+Its first square $2t_1<\nu_\delta$ is automatic below $w$;
+its subsequent tests are
+\begin{equation}\label{sv:lower-cubes}
+ S_{j-1}+3t_j<\nu_\delta\qquad(j\text{ even}).
+\end{equation}
+At an admitted third prefix, freeze $\lambda_3\ge\nu_\delta$
+for future even cubes.  An ordinary fourth change is permitted only
+after $S_3+3t_4<\lambda_3$; it freezes
+$\lambda_4\ge\lambda_3$.  The fifth prefix is then admitted, and
+may freeze $\lambda_5\ge\lambda_4$ for future even tests.
+Every active selected cap is below its admissible endpoint and above
+its parent and all support conditions \eqref{sv:selected-gate}--\eqref{sv:full-gate}.
+For the lower starting families the selected endpoint is
+\begin{equation}\label{sv:lower-endpoint}
+ v_-(b)=\min\left\{\frac{1+b}{2},
+ \frac{32-34b}{39},\frac{57}{64}-\frac{3b}{2}\right\}.
+\end{equation}
+The selected branch is kept through descendants; the residual size
+ratio of a marked state, introduced below, is separate from the
+local residue exponent in the distribution estimate.
+
+There is also a fourth-prefix restoration.  On an otherwise first
+excluded fourth prefix choose $\lambda_4$ before its own cube,
+subject to
+\begin{equation}\label{sv:restore-gates}
+ \lambda_3\le S_3+3t_4<\lambda_4,
+ \qquad \max\{G_{\rm full},G_I\}<\lambda_4<v_-(b_I).
+\end{equation}
+Attach the ordinary lower residual below $p_4$ at level
+$N^{\lambda_4}/P_4$.  Since
+$\lambda_4-S_4>2t_4$, its first square cannot fail.
+Its later first exits have even residual rank, hence even full
+rank.  The restored tree remains a lower tree.  Its density gain is
+exactly
+\begin{equation}\label{sv:restoration-density}
+ 4\int_{\mathcal B}
+ \frac{\overline f((\lambda_4-S_4)/t_4)}
+      {t_1t_2t_3t_4^2}\,dt_1dt_2dt_3dt_4.
+\end{equation}
+There was no retained residual at such a first exit, so no parent
+residual term is subtracted in \eqref{sv:restoration-density}.
+
+Define a finite rational family of restoration regions as follows. Let
+$r_0=(\nu-{h_{\rm s}})/9$, $n\in\{400,800\}$, and
+$\mathscr B=\prod_{i=1}^4[\ell_i,\ell_i+1/n]$ with
+$r_0\le\ell_4<\ell_3<\ell_2<\ell_1<{h_{\rm s}}$ and
+$u_1+3u_2<\nu$, where $u_i=\ell_i+1/n$.
+Let $U_3$ be the maximum of $\nu$, the upper bounds of all
+three-slot selected endpoints, and $\Lambda_{\rm cap}-3\ell_3/8$.
+It bounds the inherited third cap from above.
+With $D=\operatorname{lcm}(448,256,78n,64n,8n)$, retain a mask
+$I$ containing $4$ only if
+\[
+ c_I=\inf_{\mathscr B} v_-(b_I)-D^{-1}
+       >\max\{U_3,\sup_{\mathscr B} G_{\rm full},\sup_{\mathscr B} G_I\}.
+\]
+Choose the largest retained $c_I$; write it as $c$.
+For $A=t_1+t_2+t_3+3t_4$, clip the box to
+\[
+ \max(A_-,U_3+D^{-1})<A<\min(A_+,c-D^{-1}),
+\]
+and split this interval into finitely many equal rational layers.
+Every layer satisfies \eqref{sv:restore-gates} with positive
+margins and lies outside previously retained fourth prefixes.
+On the clipped region,
+\[
+ 2<\frac{c-S_4}{t_4}
+       <2+\frac{9(\Lambda_{\rm cap}-\nu)}{\nu-{h_{\rm s}}}
+       =2+\frac{84375}{90452}<3.
+\]
+Thus $\overline f(s)=\log(s-1)/s$ is increasing throughout.
+If $A<a_j$ on a layer and $u_4$ is the fourth upper endpoint, use
+$s_j=2+(c-a_j)/u_4$ in the lower bound
+$4\overline f(s_j)\operatorname{Vol}(E_j)/(u_1u_2u_3u_4^2)$.
+The exact volume of $\mathscr B\cap\{A<t\}$ is
+\begin{equation}\label{sv:slab-volume}
+ \frac1{72}\sum_{e\in\{0,1\}^4}(-1)^{|e|}
+ \left(t-A_--\frac{e_1+e_2+e_3+3e_4}{n}\right)_+^4.
+\end{equation}
+This is the inclusion--exclusion formula for weighted box widths
+$(1,1,1,3)/n$.  Differences of \eqref{sv:slab-volume} give
+the layer volumes exactly.
+
+\subsection{The lower coefficient and its original prime sequence}
+
+For a prefix-closed tree with even first exits the counterpart of
+\eqref{sv:upper-exit} is
+\begin{equation}\label{sv:lower-exit}
+ \sum_{d\in\mathcal T}\mu(d)\xi(d)
+ =\prod_p(1-\xi(p))
+ -\sum_{e\text{ first exit}}\xi(e)
+               \prod_{p<p_{\rm last}(e)}(1-\xi(p)).
+\end{equation}
+Its proof is identical, using $\mu(e)=1$.
+Taking $\xi(p)=\one_{p\mid n}$ gives a rough-indicator
+minorant.  With $\xi=g_N$ and presieve $z_0$ it gives
+\begin{equation}\label{sv:lower-projection}
+ V_N(z_0)R_{\rm rough}-V_{\rm full}
+ =\sum_{\substack{e\text{ full even exit}\\p_{\rm last}(e)<z_0}}
+                      g_N(e)V_N(p_{\rm last}(e))\ge0.
+\end{equation}
+This is the density direction required for lower coefficient realization.
+
+Round positive even coefficients inward and negative odd coefficients
+outward, preserving the prefix decisions.  Attach beta-minus to a positive
+rounded coefficient and beta-plus to a negative one.  Term by term
+$a_{\rm rnd}(d)B_{\rm sign}\le a_{\rm rnd}(d)I_0$.
+Consequently the physical coefficient satisfies
+\begin{equation}\label{sv:physical-lower}
+ \sum_{q\mid n}\rho_N^{\rm low}(q)\le
+       \one_{(n,P_N(N^w))=1},\qquad
+ \sum_q\frac{\rho_N^{\rm low}(q)}{\varphi(q)}
+       \ge V_{\rm full}-\text{absolute density error}.
+\end{equation}
+The second inequality uses \eqref{sv:lower-projection} and the
+absolute beta and box estimates.  It does not follow merely from
+coefficientwise order, and beta-minus need not be nonnegative.
+The sharp-prime consequence in Appendix~\ref{app:cross-review}, applied
+to this same $\rho_N^{\rm low}$, turns \eqref{sv:physical-lower} into the
+ordinary lower estimate for $\{N-p:p<N,\ p\text{ prime}\}$.
+
+For an admissible lower prefix, the third-, fourth-, and fifth-stage
+density changes are, respectively, upper parent minus upper child,
+lower child minus lower parent, and upper parent minus upper child.
+Evaluate each by~\eqref{sv:literal-density}.
+At ranks $r=3,4,5$, the difference of the ordinary upper and lower
+densities cancels the apparent inverse-square singularity in the last
+coordinate, leaving a tail
+$O(\epsilon(1+\log^{r-1}({h_{\rm s}}/\epsilon)))$.
+The remaining compact regions admit one common finite refinement
+that preserves every inherited decision.
+
+\subsection{Finite feedback on positive marked families}\label{sv:finite-feedback}
+
+The normalized states are estimates averaged over a nonnegative finite
+marked family $\sigma(B)$ with a common total level $Q=N^\lambda$.
+Put
+\[
+ L=\lambda-\log_NB>0,\qquad
+ \Theta_Q=4\li(N)\sum_B
+       \frac{\sigma(B)C_{BN}}{\varphi(B)\log(Q/B)},\qquad
+ \alpha=\frac{1-\log_NB}{L}\ge2.
+\]
+For a singleton child of exponent $Lu$, or a pair of exponents $Lu,Lv$,
+the residual level and parameter are, respectively,
+\begin{equation}\label{sv:child-state}
+ L'=L(1-u),\quad
+ \alpha'=1+\frac{\alpha-1}{1-u};\qquad
+ L'=L(1-u-v),\quad
+ \alpha'=1+\frac{\alpha-1}{1-u-v}.
+\end{equation}
+The total $Q$, selected slots and prime ceiling are retained.
+In particular $\alpha$ increases; the child is not reset to $\alpha=2$.
+
+An admitted marked family here means a finite nonnegative combination
+of labelled prime-box indicators, with fixed positive lower bounds on
+all marked prime exponents and on $L$. In the classical case its
+complete modulus level is below $N^{1/2}$ by a fixed power. In the
+enhanced case $1/2<\lambda<153/256$ with fixed margins; it retains all full and selected-complement square
+conditions and one factorization branch from
+Appendix~\ref{app:coefficients}. It also retains a number $\chi>0$
+such that adjoining primes of exponent below $\chi$ preserves that
+branch and its support conditions. The number $\chi$ is no larger than the least
+specified exponent. If a branch uses a bound $c$ for a third slot
+not yet specified, it also satisfies $\chi\le c$.
+Every enhanced ordinary node at argument $s$ has physical cutoff
+$N^{L/s}$ below $N^\chi$. All these restrictions are imposed with
+fixed margins on each box before endpoint limits are taken. The
+estimates concern the marked average, rather than an individual fixed
+prime prefix.
+
+The child-to-parent measures are
+$du/[u(1-u)]$ and $du\,dv/[uv(1-u-v)]$.
+They are positive.  To specify the one-step switched cost, define
+\begin{equation}\label{sv:one-step-mass}
+ I(s,s_0,\alpha)=
+ \int_{1/s_0<u_1<u_2<u_3<1/s}
+ \omega\!\left(\frac{\alpha-u_1-u_2-u_3}{u_2}\right)
+                    \frac{du_1\,du_2\,du_3}{u_1u_2^2u_3}.
+\end{equation}
+The one-step inequality gives the candidate
+\begin{align}\label{sv:one-step-operator}
+ \mathcal W_1[H,h](s;s_0,\alpha)
+ ={}&A_+(s)-A_+(s_0)+H(s_0)-\frac K8 I(s,s_0,\alpha)\notag\\
+ &+\frac12\int_{1/s_0}^{1/s}
+ \frac{A_-(s_0(1-u))+h(s_0(1-u))}{u(1-u)}\,du,
+ \qquad 2\le s<s_0\le5.
+\end{align}
+Here $A_+(s)=sF(s)/(2e^\gamma)$ and
+$A_-(s)=sf(s)/(2e^\gamma)$, with the zero extension below
+$2$.  The physical singleton child cutoff is $N^{L/s_0}$ and its
+argument is $s_0(1-u)$, not the argument at a different total level.
+The positive switched family is
+$Bq_1q_2q_3n\le N$ with
+$N^{L/s_0}\le q_1<q_2<q_3<N^{L/s}$ and $P^-(n)\ge q_2$.
+Its unsifted mass, in the parent normalization, is $I/4$; the
+factor $1/2$ in the pointwise weighted inequality gives the cost
+$KI/8$ in \eqref{sv:one-step-operator}.  All its prime factors
+have fixed positive exponents.  Its unit quotient has a fixed power
+saving because $\alpha-3/s\ge1/2$.
+
+A uniform bound usable in \eqref{sv:one-step-mass} is obtained by
+putting $c_\omega=70893/125000$ and
+\begin{equation}\label{sv:omega-envelope}
+ \omega_{\rm env}(u)=
+ \begin{cases}
+ 1,&u<1,\\
+ \max\{1/u,c_\omega\},&u\ge1.
+ \end{cases}
+\end{equation}
+For $v\ge u\ge1$ one has $\omega(v)\le\omega_{\rm env}(u)$.
+On $[1,2]$ this follows from $\omega(v)=1/v$; on $[2,3]$
+maximize $1+\log(v-1)-c_\omega v$.  The maximum is
+$-\log c_\omega-c_\omega<0$, since the exact rational inequality
+$c_\omega\sum_{j=0}^8c_\omega^j/j!>1$ implies
+$c_\omega e^{c_\omega}>1$.  The delay equation propagates the
+bound for $v\ge3$.  Thus replacing the integrand by
+$\omega_{\rm env}((2-u_1-u_2-u_3)/u_2)$ bounds the cost for every
+$\alpha\ge2$.  The branch below $1$ is a conservative bound for
+the switched estimates that use it; unit quotient terms are counted
+separately when their domains have nonnegligible mass.
+
+For a two-step action write $a_0=1/s_0$, $a_i=1/\phi_i$ and $b=1/s$.
+The parameter conditions are
+\begin{gather}\label{sv:two-step-gates}
+ 2<s<\phi_3<\phi_2<\phi_1<s_0\le5,\qquad
+ a_3+2a_1<1,\quad3a_1<1,\quad a_2+2a_1<1,\notag\\
+ a_0<(1-a_2)/2<1/3<a_2<1/2,\qquad
+ s_0(1-b)>2,\quad s_0-1\le4,\quad s_0(2-2a_2)>2.
+\end{gather}
+Its three singleton regions are
+\begin{equation}\label{sv:singleton-domains}
+ (a_0,b),\qquad(a_0,a_2),\qquad(a_0,a_3),
+ \quad \rho(u)=s_0(1-u),
+ \quad\text{physical cutoff }N^{La_0}.
+\end{equation}
+The regions on which the ordinary pair estimate and its feedback are used are
+\[
+\begin{array}{c|c|c}
+ &\text{region}&\text{child argument}\\ \hline
+ D_5^+&a_0<u<v<a_2,\ v+2u<1&s_0(1-u-v)\\
+ D_6&(a_0,a_1)\times(a_2,a_3)&s_0(1-u-v)\\
+ D_7&a_0<u<v<a_1&(1-u-v)/u\\
+ D_8&(a_0,a_1)\times(a_1,a_2)&(1-u-v)/u,
+\end{array}
+\]
+For the pointwise weighted inequality the fifth term has the complete
+mother region
+\begin{equation}\label{sv:complete-fifth-region}
+ D_5=\{a_0<u<v<a_2\}
+     =D_5^+\sqcup D_5^-,\qquad
+ D_5^-=D_5\cap\{v+2u\ge1\}.
+\end{equation}
+Thus $\Gamma_5=\Gamma_5^++\Gamma_5^-$; it is not restricted to
+$D_5^+$ in the combinatorial inequality. The ordinary estimate and
+child defect are used only on $D_5^+$. On $D_5^-$ the complete count
+is retained and bounded by the positive product estimate.
+The test $2v<1$ holds throughout $D_5$, and the other three pair
+regions satisfy both $2v<1$ and $v+2u<1$ by
+\eqref{sv:two-step-gates}.
+If $J_2^0$ denotes the ordinary and positive switched base for the
+chosen admissible parameter tuple, the feedback added to that base is
+\begin{equation}\label{sv:two-step-feedback}
+ \frac15\left\{4H(s_0)+H(\phi_1)
+ +\sum_{c\in\{b,a_2,a_3\}}\int_{a_0}^{c}
+       \frac{h(s_0(1-u))}{u(1-u)}\,du
+ +\sum_{i=5^+,6,7,8}\iint_{D_i}
+       \frac{H(\rho_i(u,v))}{uv(1-u-v)}\,du\,dv\right\}.
+\end{equation}
+We now define this base and prove the sign of every contribution.
+
+\paragraph{The twenty-one-term inequality.}
+For a marked state let $R=Q/B$ and, in this paragraph, put
+$\mathcal A_{N,B}=\{(N-p)/B:p<N,\ p\text{ prime},\ B\mid N-p\}$.
+Let $\Phi_s$ be its positively marked average sifted at $R^{1/s}$.
+Write $[l,r]^k_\uparrow$ for $k$ increasingly ordered exponents in
+$[l,r]$.  For a positive integer $n$, let
+\[
+ Q_d(y;n)=\one_{d\mid n}\,
+                  \one_{P^-(n/d)\ge y}.
+\]
+All additional primes in the following expressions are distinct;
+collisions with the marked prefix, and square factors, are removed
+with their fixed power-saving errors.  Every expression is then
+averaged with the same nonnegative marked weights.
+The first four terms are
+\[
+ \Gamma_1=4\Phi_{s_0}+\Phi_{\phi_1},\qquad
+ \Gamma_2,\Gamma_3,\Gamma_4
+   =\sum_{R^{a_0}\le q<R^c}Q_q(R^{a_0};n),
+ \quad c=b,a_2,a_3,
+\]
+where the last expressions include the average over $n\in\mathcal A_{N,B}$.
+For $\Gamma_5$ use the full region $D_5$ in
+\eqref{sv:complete-fifth-region}; for $\Gamma_6,\Gamma_7,\Gamma_8$
+use the other three pair regions above. The summand is
+$Q_{q_1q_2}(R^{a_0};n)$ for $i=5,6$, and
+$Q_{q_1q_2}(q_1;n)$ for $i=7,8$, with
+$q_1=R^u<q_2=R^v$.
+For $9\le i\le21$ the ordered exponent domains are
+\begin{equation}\label{sv:switch-domains}
+\begin{array}{c|l@{\qquad}c|l}
+9 &[a_1,a_3]^3_\uparrow
+ &10 &[a_1,a_2]^2_\uparrow[a_2,b]\\
+11 &[a_1,a_2][a_2,a_3]^2_\uparrow
+ &12 &[a_0,a_1]^2_\uparrow[a_3,b]\\
+13 &[a_0,a_1][a_1,a_2][a_2,b]
+ &14 &[a_0,a_1][a_2,b]^2_\uparrow\\
+15 &[a_1,a_2][a_2,a_3][a_3,b]
+ &16 &[a_2,a_3]^4_\uparrow\\
+17 &[a_2,a_3]^3_\uparrow[a_3,b]
+ &18 &[a_2,a_3]^2_\uparrow[a_3,b]^2_\uparrow\\
+19 &[a_1,a_2][a_3,b]^3_\uparrow
+ &20 &[a_2,a_3][a_3,b]^4_\uparrow\\
+21 &[a_3,b]^6_\uparrow.&&
+\end{array}
+\end{equation}
+For a domain with $r$ primes, the summand is
+$Q_{q_1\cdots q_r}(q_{r-1};n)$.  Juxtaposition in
+\eqref{sv:switch-domains} denotes independent successive bands,
+with ordering only within each indicated ordered block.
+The inequality to be used is
+\begin{equation}\label{sv:twenty-one-weight}
+ 5\Phi_s\le\Gamma_1-\Gamma_2-\Gamma_3-\Gamma_4
+                       +\sum_{i=5}^{21}\Gamma_i+o(\Theta_Q).
+\end{equation}
+It is the second weighted inequality of \cite[Lemma~4.2]{Wu2004};
+the following verification fixes its complete ranges and multiplicities.
+
+For a squarefree $R^{a_0}$-rough quotient let $A,B',C,D$ count
+its prime factors in the four bands
+$[a_0,a_1),[a_1,a_2),[a_2,a_3),[a_3,b)$, respectively.
+(The symbol $B'$ in this verification is a band count, not the
+marked prefix $B$.)  Pointwise the first four terms are
+\[
+ \Gamma_1=4+\one_{A=0},\qquad
+ (\Gamma_2,\Gamma_3,\Gamma_4)
+       =(A+B'+C+D,A+B',A+B'+C).
+\]
+The remaining terms have the following values, where
+$x_+=\max(x,0)$:
+\begin{equation}\label{sv:band-counts}
+\begin{array}{c|l@{\quad}c|l}
+5&\binom{A+B'}2&6&AC\\
+7&(A-1)_+&8&\one_{A\ge1}B'\\
+9&\one_{A=0}(B'+C-2)_+
+ &10&\one_{A=0,B'\ge2}(C+D)\\
+11&\one_{A=0,B'=1}(C-1)_+
+ &12&\one_{A\ge2}D\\
+13&\one_{A=1,B'\ge1}(C+D)
+ &14&\one_{A=1,B'=0}(C+D-1)_+\\
+15&\one_{A=0,B'=1,C\ge1}D
+ &16&\one_{A=B'=0}(C-3)_+\\
+17&\one_{A=B'=0,C\ge3}D
+ &18&\one_{A=B'=0,C=2}(D-1)_+\\
+19&\one_{A=0,B'=1,C=0}(D-2)_+
+ &20&\one_{A=B'=0,C=1}(D-3)_+\\
+21&\one_{A=B'=C=0}(D-5)_+.&&
+\end{array}
+\end{equation}
+Indeed a quotient cutoff at the next-to-last chosen prime forces
+all preceding chosen primes to be the smallest factors of $n$.
+This gives each entry of \eqref{sv:band-counts}.  The signed
+right-hand side in \eqref{sv:twenty-one-weight} is, respectively,
+\[
+\begin{array}{c|l}
+A\ge2&(A+B'-2)(A+B'-3)/2+(A-2)C\\
+A=1,\ B'\ge1&(B'-1)(B'-2)/2\\
+A=1,\ B'=0&(1-C-D)_+\\
+A=0,\ B'\ge2&(B'-2)(B'-3)/2\\
+A=0,\ B'=1,\ C\ge1&0\\
+A=0,\ B'=1,\ C=0&(2-D)_+\\
+A=B'=0,\ C\ge3&0\\
+A=B'=0,\ C=2,1,0&(1-D)_+,\ (3-D)_+,\ (5-D)_+.
+\end{array}
+\]
+All are nonnegative, and at $A=B'=C=D=0$ the value is five.
+The left side is five times the indicator of that last case.
+Outside the $R^{a_0}$-rough support every summand vanishes.
+This proves the pointwise inequality.  On a fixed positive exponent
+box the omitted square and prefix-intersection terms have
+$N^{1-\epsilon+o(1)}$ total mass for some fixed $\epsilon>0$,
+which gives the stated error after the finite marked averaging.
+
+\paragraph{Termwise estimates and the ordinary base.}
+The two components of $\Gamma_1$ have upper multipliers
+$4A_+(s_0)+A_+(\phi_1)$.  The three negative terms have lower
+multipliers
+\begin{equation}\label{sv:negative-singleton-base}
+ \mathcal B(c)=\int_{a_0}^{c}
+   \frac{A_-(s_0(1-u))}{u(1-u)}\,du,
+ \qquad c=b,a_2,a_3.
+\end{equation}
+The support conditions put $s_0(1-u)$ in $(2,4]$ on these intervals,
+so $A_-(s_0(1-u))=\log(s_0(1-u)-1)$.
+The merged singleton and pair coefficients satisfy the complete
+square and selected-complement tests of the parent state.  In
+particular $D_5^+$, $D_6$, $D_7$, $D_8$ have the ordinary upper
+kernel $(1-u-v)^{-1}$ against $du\,dv/(uv)$.
+For a child argument below $2$, comparison with a smaller sifting
+cutoff gives this same kernel, since $A_+=1$ up to $3$.
+On
+$D_5^-=\{a_0<u<v<a_2:v+2u\ge1\}$ the ordinary pair is not used.
+The positive product estimate gives the valid kernel
+$Kc_\omega s_0/4$, because its rough argument is at least
+$s_0(2-2a_2)>2$.  Define
+\begin{align}\label{sv:pair-base}
+ \mathcal U_5&=
+  \iint_{D_5^+}\frac{du\,dv}{uv(1-u-v)}
+   +\frac{Kc_\omega s_0}{4}\iint_{D_5^-}\frac{du\,dv}{uv},\notag\\
+ \mathcal U_i&=\iint_{D_i}\frac{du\,dv}{uv(1-u-v)}
+                  \qquad(i=6,7,8).
+\end{align}
+Thus the unsupported corner is replaced by a positive upper
+estimate; its ordinary mass or feedback is not retained as well.
+
+For a switched domain $\mathcal D_i$ with $r$ primes, let
+$w=u_{r-1}$ and $U=u_1+\cdots+u_r$.  Its normalized unsifted
+mass at the actual parent ratio $\alpha$ is
+\begin{equation}\label{sv:full-switched-mass}
+ \mathcal M_i(\alpha)=
+ \int_{\substack{\boldsymbol u\in\mathcal D_i\\U\le\alpha-w}}
+ \frac{\omega((\alpha-U)/w)}{w\prod_j u_j}\,d\boldsymbol u
+ +\int_{\substack{\boldsymbol u\in\mathcal D_i\\U=\alpha}}
+                     \frac{du_1\cdots du_{r-1}}{\prod_j u_j}.
+\end{equation}
+In the surface integral one coordinate is eliminated with derivative
+one.  The surface counts quotient $1$; it is separate from the
+ordinary Buchstab term.  Prime summation and the rough-number
+formula on fixed positive boxes give \eqref{sv:full-switched-mass}.
+The upper count in parent units is $K\mathcal M_i(\alpha)/4$.
+
+The following explicit bounds are uniform in $\alpha\ge2$.
+Put $\ell_{ij}=\log(\phi_i/\phi_j)$,
+$\ell_{01}=\log(s_0/\phi_1)$ and $\ell_{3b}=\log(\phi_3/s)$.
+For $i=9,\ldots,15$ take $C_i=\max\{c_\omega,1/\max(1,m_i)\}$,
+where
+\[
+\begin{array}{c|l@{\quad}c|l}
+i&m_i&i&m_i\\ \hline
+9&2\phi_3-3&10&2\phi_2-2-\phi_2/s\\
+11&2\phi_3-\phi_3/\phi_2-2
+ &12&2\phi_1-2-\phi_1/s\\
+13&2\phi_2-\phi_2/\phi_1-1-\phi_2/s
+ &14&2s-s/\phi_1-2\\
+15&2\phi_3-\phi_3/\phi_2-1-\phi_3/s.&&
+\end{array}
+\]
+These are lower bounds for the rough arguments on the respective
+domains.  Equation~\eqref{sv:omega-envelope} gives
+\begin{align}\label{sv:switch-mass-bounds}
+ \widehat M_9&=C_9\{(\phi_1+\phi_3)\ell_{13}-2(\phi_1-\phi_3)\},\notag\\
+ \widehat M_{10}&=C_{10}\{\phi_1-\phi_2(1+\ell_{12})\}
+                                          \log(\phi_2/s),\notag\\
+ \widehat M_{11}&=C_{11}\ell_{12}\{\phi_2(\ell_{23}-1)+\phi_3\},\notag\\
+ \widehat M_{12}&=C_{12}\{s_0-\phi_1(1+\ell_{01})\}\ell_{3b},\notag\\
+ \widehat M_{13}&=C_{13}\ell_{01}(\phi_1-\phi_2)\log(\phi_2/s),\notag\\
+ \widehat M_{14}&=C_{14}\ell_{01}
+                       \{\phi_2(\log(\phi_2/s)-1)+s\},\notag\\
+ \widehat M_{15}&=C_{15}\ell_{12}(\phi_2-\phi_3)\ell_{3b},\notag\\
+ \widehat M_{16}&=\phi_2\ell_{23}^4/24,
+ &\widehat M_{17}&=\phi_2\ell_{23}^3\ell_{3b}/6,\notag\\
+ \widehat M_{18}&=\phi_3\ell_{23}^2\ell_{3b}^2/4,
+ &\widehat M_{19}&=\phi_3\ell_{12}\ell_{3b}^3/6,\notag\\
+ \widehat M_{20}&=\phi_3\ell_{23}\ell_{3b}^4/24
+                         +\phi_2\ell_{3b}^4/24,\notag\\
+ \widehat M_{21}&=\phi_3\ell_{3b}^6/720+\phi_3\ell_{3b}^5/120.
+ \end{align}
+For $i\le19$ there is no unit surface because the sum of specified
+exponents is at most $4/s<2\le\alpha$.
+For $i=20$, eliminate the first variable on the surface and use
+$1/u_1\le\phi_2$; the other four variables are ordered in
+$[a_3,b]$.  This gives the second summand of $\widehat M_{20}$.
+For $i=21$, eliminate the last variable, use $1/u_6\le\phi_3$,
+and integrate the other five ordered variables.  The other
+summands in \eqref{sv:switch-mass-bounds} are obtained by
+integrating $1/(w\prod u_j)$ over their displayed bands, with
+$\omega\le C_i$ for $9\le i\le15$ and $\omega\le1$
+otherwise.  Hence $\mathcal M_i(\alpha)\le\widehat M_i$.
+
+The ordinary base is now the explicit functional
+\begin{equation}\label{sv:two-step-base}
+ J_2^0=\frac15\left\{
+ 5A_+(s)-4A_+(s_0)-A_+(\phi_1)
+ +\mathcal B(b)+\mathcal B(a_2)+\mathcal B(a_3)
+ -\sum_{i=5}^8\mathcal U_i
+ -\frac K4\sum_{i=9}^{21}\widehat M_i\right\}.
+\end{equation}
+Insert the upper estimates for positive terms and lower estimates
+for negative terms in \eqref{sv:twenty-one-weight}.
+The defects in the two components of $\Gamma_1$ subtract
+$4H(s_0)+H(\phi_1)$ from its upper estimate.  The three singleton
+lower defects subtract their integrals from the negative terms.
+The four good-pair upper defects subtract the pair integrals from
+their positive upper estimates.  After division by $5$ these are
+exactly \eqref{sv:two-step-feedback}.  Therefore
+\begin{equation}\label{sv:two-step-admissibility}
+ \Phi_s\le\{A_+(s)-J_2^0-\mathcal P_2[H,h]+o(1)\}\Theta_Q,
+\end{equation}
+where $\mathcal P_2[H,h]$ is the expression in
+\eqref{sv:two-step-feedback}.  This proves admissibility of a
+finite two-step action from its mathematical base and positively
+weighted preceding-generation defects.
+
+Sharper upper bounds may replace the positive costs
+in~\eqref{sv:pair-base} and~\eqref{sv:full-switched-mass}.
+Such a bound must cover the same labelled family for every admissible
+$\alpha\ge2$, including its unit surfaces. Replace that cost once
+in~\eqref{sv:two-step-base}, and bound the resulting explicit
+functional in the required direction to obtain the corresponding transition
+constant. This preserves the sign argument for the two-step
+inequality.
+
+\subsection{A finite seed on the admitted marked families}
+
+Put
+\begin{equation}\label{sv:seed-parameters}
+ S=\frac{11}{5},\qquad s_0=\frac{227}{50},\qquad
+ (\phi_1,\phi_2,\phi_3)
+ =\left(\frac{353}{100},\frac{29}{10},\frac{61}{25}\right),
+ \qquad K_{\rm seed}=\frac{681}{100}.
+\end{equation}
+Here $K<K_{\rm seed}$, so Proposition~\ref{prop:current-positive-product}
+also supplies the positive upper estimate with $K_{\rm seed}$.
+Let $\mathcal J_{\rm seed}$ be the right-hand side of
+\eqref{sv:two-step-base} at the parameters
+\eqref{sv:seed-parameters}, with $s=S$ and $K$ replaced by
+$K_{\rm seed}$. In particular its fifth cost is the full split cost
+\eqref{sv:pair-base}, and the two unit-surface terms in
+\eqref{sv:switch-mass-bounds} are included.
+
+\begin{lemma}[Finite seed]\label{sv:finite-seed}
+On an admitted marked family with $\alpha\ge2$, assume additionally
+$L/S<\chi$ in the enhanced case. Then
+\[
+ \Phi_S\le\left(1-\frac{2327}{100000}+o(1)\right)\Theta_Q.
+\]
+The same upper defect is available at every $1\le w\le S$ whenever
+the state admits the comparison cutoff $N^{L/S}$. The conclusion is
+uniform over each fixed finite collection of such families, and follows
+from four weighted steps after an initial seed of $1/50$.
+\end{lemma}
+
+\begin{proof}
+All primes appended in the twenty-one-term inequality have exponent
+at most $L/S$. They therefore lie below the retained ceiling, so the
+largest specified slots, selected subsets and any third-slot bound
+remain valid. The singleton residual square is $2u<1$. The pair squares
+are $2v<1$ and $v+2u<1$; they hold on $D_5^+,D_6,D_7,D_8$.
+Every new complete square is obtained by multiplying the corresponding
+residual square by $B$. Once the selected old slots have occurred,
+the new selected-complement square is the same full square. The
+ordinary residual atoms are evaluated at their actual level
+$Q/(Bq)$ or $Q/(Bq_1q_2)$. The remaining part $D_5^-$ is retained
+with its positive cost, using no signed distribution claim there.
+In the classical case the complete ordinary modulus is below $Q$,
+and the absolute below-half remainder gives the same conservative
+functional. The switched terms require only $\alpha\ge2$ and fixed
+positive prime cutoffs.
+
+The directed enclosure of the explicit functional is
+\begin{equation}\label{sv:seed-base-certificate}
+ \mathcal J_{\rm seed}\ge
+ \frac{11672890052052913}{576460752303423488}
+ >\frac{20249}{10^6}>\frac1{50}.
+\end{equation}
+The finite certificate for this inequality is specified in the
+ancillary data under \texttt{seed\_certificate}. Its ordinary
+integrals are those in \eqref{sv:negative-singleton-base} and
+\eqref{sv:pair-base}; its switched masses are the explicit upper
+bounds in \eqref{sv:switch-mass-bounds}. The ordinary double integral
+is first integrated in one coordinate. The resulting one-dimensional
+logarithmic integrals are enclosed by rational Darboux intervals and
+the logarithm remainder of \eqref{num:log-enclosure}. Upper endpoints
+are used for positive costs and lower endpoints for negative costs in
+the definition of $\mathcal J_{\rm seed}$. Thus
+\eqref{sv:seed-base-certificate} proves the initial defect $J_0=1/50$
+before any later array recurrence is used.
+
+Suppose an upper defect $J>0$ on $[1,S]$ has already been proved on
+these admitted families. Positivity and cutoff comparison give
+\[
+ H_J(w)=J\one_{[1,S]}(w).
+\]
+The lower Buchstab identity at the same total level gives the
+previously proved option
+\begin{equation}\label{sv:seed-lower-child}
+ h_J(w)=J\log\frac{S}{w-1}\,
+                    \one_{[2,1+S]}(w).
+\end{equation}
+The normalization is independent of $w$, and $A_+(w)=1$ for
+$1\le w\le S$. To check the comparison inside
+\eqref{sv:seed-lower-child}, a Buchstab child indexed by
+$v\in[w-1,S]$ has appended exponent $L/(v+1)$ and residual
+exponent $Lv/(v+1)$. Its seed comparison exponent satisfies
+\[
+ \frac{Lv}{S(v+1)}\le\frac{L}{v+1}.
+\]
+It is therefore below that appended prime and the preceding stable
+ceiling. Its new square holds because $v\ge1$. The lower child
+need not itself admit argument $S$; the seed is applied to its
+upper Buchstab children.
+
+Insert $H_J,h_J$ into \eqref{sv:two-step-feedback}. Since
+$s_0,\phi_1>S$, the unchanged-prefix defects vanish. Write
+$u_*=67/227$, $b=1/S$, and set
+\[
+ E_i=\begin{cases}
+ D_i\cap\{u+v\ge117/227\},&i=5^+,6,\\
+ D_i\cap\{v\ge1-16u/5\},&i=7,8.
+ \end{cases}
+\]
+The feedback is exactly $\lambda_{\rm seed} J$, where
+\begin{align}\label{sv:seed-feedback-integral}
+ \lambda_{\rm seed}=\frac15\bigg\{&
+ \sum_{c\in\{b,a_2,a_3\}}
+ \int_{u_*}^{c}
+ \frac{\log\{S/[s_0(1-u)-1]\}}{u(1-u)}\,du\notag\\
+ &+\sum_{i=5^+,6,7,8}\iint_{E_i}
+                     \frac{du\,dv}{uv(1-u-v)}\bigg\}.
+\end{align}
+For $i=5^+,6$ the support condition is
+$s_0(1-u-v)\le S$; for $i=7,8$ it is
+$(1-u-v)/u\le S$. All retained pair-child arguments exceed $1$,
+and the singleton lower arguments exceed $2$. There is no
+feedback from $D_5^-$.
+
+Every boundary in \eqref{sv:seed-feedback-integral} is rational
+and affine. For a vertical slice $l(u)<v<r(u)$ the exact pair
+integral is
+\[
+ \frac1{u(1-u)}
+ \log\frac{r(u)(1-u-l(u))}{l(u)(1-u-r(u))}.
+\]
+For $E_{5^+}$ the successive $u$ intervals have endpoints
+$50/227,117/454,19/58,1/3$. The domain $E_6$ is its entire
+rectangle. The nonempty support in $E_7$ starts at $1265/5648$
+and changes its lower boundary at $5/21$; the lower boundary of
+$E_8$ changes at $1265/5648$. Rational Darboux enclosures of
+these pieces give
+\begin{equation}\label{sv:seed-feedback-certificate}
+ \lambda_{\rm seed}\ge
+ \frac{75057365825327405}{576460752303423488}
+ >\frac{13}{100}.
+\end{equation}
+The exact endpoints, subdivisions and source correspondence are
+specified by the same \texttt{seed\_certificate} data as
+\eqref{sv:seed-base-certificate}.
+
+Equations \eqref{sv:two-step-admissibility},
+\eqref{sv:seed-base-certificate} and
+\eqref{sv:seed-feedback-certificate} prove
+\[
+ J_{n+1}=\frac{20249}{10^6}+\frac{13}{100}J_n.
+\]
+At each step \eqref{sv:seed-lower-child} is derived from $J_n$
+before the weighted inequality is applied. Starting at $J_0=1/50$
+the four exact values are
+\[
+ \frac{22849}{10^6},\quad
+ \frac{2321937}{10^8},\quad
+ \frac{232675181}{10^{10}},\quad
+ \frac{23273777353}{10^{12}}>\frac{2327}{100000}.
+\]
+There are finitely many appended-prime operations. Their exponents
+remain positive after all compact choices have been fixed, so the
+positive-product estimate and the distribution remainders apply at
+each of them. The finitely many errors are $o(\Theta_Q)$; the strict
+final surplus absorbs them in the stated order of limits.
+\end{proof}
+
+\paragraph{Use at the roots and descendants.}
+For $U_3,U_4$, the specified prime has exponent $t>{a_{\rm s}}$, the residual
+exponent is $L=v(t)-t$, and the upper argument is
+$\max(2,L/{a_{\rm s}})$. On the enhanced range $t<57/224$, the largest-prime branch has
+$2t<v(t)\le(1+t)/2$, so its stable ceiling can be taken below $t$
+and arbitrarily close to it. Its physical cutoff exponent
+$\min({a_{\rm s}},L/2)\le {a_{\rm s}}<t$ lies below that ceiling. Whenever the seed is used, its comparison exponent
+$L/S$ is no larger than this physical cutoff. The classical tail
+uses the below-half interface. For $U_{10},U_{11}$ the same argument
+uses the least specified exponent $w$ and physical cutoff
+$\min(w,L/2)$; the original selected subsets and first three slots
+are already fixed. For the lower pair terms $L_5,L_6$, the seed
+occurs only inside \eqref{sv:seed-lower-child}. The first appended
+prime is at most $N^{a_{\rm s}}$, and every seed comparison prime is below
+it by the preceding displayed inequality. These comparisons also
+preserve a third-slot bound equal to ${a_{\rm s}}$.
+
+More generally, every finite action in
+\eqref{sv:one-step-operator} or \eqref{sv:two-step-feedback} retains
+the total $Q$, every old square and the stable ceiling. New
+singletons have $2u<1$; new pairs in the ordinary part have
+$2v<1$ and $v+2u<1$. Their physical cutoffs are no larger than
+the least newly appended prime. Equation~\eqref{sv:child-state}
+shows that their ratios remain at least $2$. Induction therefore
+keeps the seed and its Buchstab consequences within the admitted
+families. No seed defect is inserted directly into an empty-prefix
+lower start.
+
+The finite induction uses the preceding generation on every
+right-hand side. At each state take the maximum of alternative
+estimates; when a child argument crosses a knot, use the minimum
+over all adjoining closed cells. Each step therefore gives a bound
+for the same positive marked counts. Only finitely many steps
+are used.
+
+Here is an explicit common approximation bound.  The positive operator
+masses satisfy
+\begin{align*}
+ \|\mathcal B\|&\le\log5<2,\\
+ \|\mathcal W_1\|&\le1+\tfrac12\log4<2,\\
+ \|\mathcal W_2\|&\le1+\tfrac35\log4
+                 +\tfrac45\,125(3/10)^2<12.
+\end{align*}
+For the last estimate $1/5\le u,v\le1/2$ and
+$1-u-v\ge u\ge1/5$, so the pair kernel is at most $125$ on
+each of four regions.  The unchanged-prefix coefficients sum to one.
+The switched positive costs belong to the base of the action and
+are not additional feedback edges.
+If each local oriented approximation error is at most $\delta$,
+then
+\begin{equation}\label{sv:feedback-error}
+ e_{j+1}\le\delta+12e_j,\qquad
+ e_j\le\delta\frac{12^{j+1}-1}{11}.
+\end{equation}
+The absolute coefficients of the eleven-term functional sum to $14$
+before its factor $1/4$, giving root norm $7/2$.
+
+At depth at most $440$, every residual level is at least
+$\lambda_*101^{-440}>0$, and an appended prime exponent is at
+least this number divided by $6$.  Recursively refine appended
+exponents on each fixed positive parent, using an error within
+$\delta$ times its normalized mass.  Proper cap and knot walls are
+null; structural clamps and inherit identities are retained.
+The denominators are bounded away from zero.  Equation
+\eqref{sv:feedback-error} then gives one finite set of queries with
+arbitrarily small total error.  Only after fixing that set does $N$
+increase.  A positive-mass vertex has a positive limiting
+$\Theta_Q/H_N$, so the absolute distribution errors become
+$o(\Theta_Q)$; zero-mass pieces are handled by absolute errors.
+
+\section{Endpoint estimates and the order of limits}\label{app:cross-review}
+
+The sharp-prime lemma (Lemma~\ref{lem:current-sharp-prime}) applies to
+the same coefficient constructed above.  We record the absolute bounds
+that allow it to be used for signed lower weights.  If
+$|\rho_N^{\rm low}(q)|\le C$, its squarefree support is $q\le N^\theta$,
+$\theta<1$, and $\delta=(\log N)^{-B}$, then the endpoint contribution
+is bounded by
+\begin{equation}\label{sv:sharp-boundary}
+ \sum_{\substack{p\text{ prime}\\0<|p-N|\le\delta N}}
+          \sum_{q\mid N-p}|\rho_N^{\rm low}(q)|
+ \le2C\sum_{1\le n\le\lceil\delta N\rceil}\tau(n)
+ \ll\delta N\log N+\log N.
+\end{equation}
+The difference $p-N=0$ is impossible for even $N>2$.
+The exact-coprime mean boundary has the same bound because
+$\sum_{q\le N^\theta}1/\varphi(q)\ll\log N$.
+The smooth lower trim below $2N^{1-\kappa_0}$ costs
+$N^{1-\kappa_0+o(1)}$ in the progression sum and
+$O(N^{1-\kappa_0}\log N)$ in the mean.  These have fixed power
+savings.  Choosing $B>A+3$ makes all boundary terms smaller than the
+prescribed logarithmic error.
+
+For the exact-coprime prime mean, let $\omega_{\mathrm{pf}}(q)$ be
+the number of distinct prime divisors of $q$.  Every such divisor is
+below $N$, and squarefreeness gives
+\begin{equation}\label{sv:coprime-prime-error}
+ \sum_q\frac{|\rho_N^{\rm low}(q)|\omega_{\mathrm{pf}}(q)}{\varphi(q)}
+ \ll\sum_{\ell\le N^\theta}\frac1{\ell-1}
+                  \sum_{e\le N^\theta/\ell}\frac1{\varphi(e)}
+ \ll\log^2N.
+\end{equation}
+The sum over $\ell$ is over primes; summing over all integers already
+gives the stated crude bound.  Removing the $O(\log N)$ prime divisors
+of $N$ from the original sequence contributes $N^{o(1)}$ by the
+divisor bound.  These estimates justify using the sharp original
+prime count in \eqref{sv:physical-lower}, without obtaining a prime
+lower bound from the positive-product upper constant $K$.
+
+The upper and lower count estimates follow the parameter order in
+Section~\ref{sec:lower-limits}. The fixed moment orders precede the
+choice of $\kappa$ in~\eqref{coef:parameter-order}, and the boundary
+exponent satisfies $B>A+3$, as above.

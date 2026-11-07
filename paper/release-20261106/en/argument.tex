@@ -1,0 +1,1222 @@
+\section{Distribution estimates for the sieve coefficients}
+\label{sec:current-distribution}
+
+\begin{definition}
+A finite prefix policy specifies finitely many regions in the
+coordinates $t_i=\log_Np_i$ of ordered prime prefixes and a sieve level
+on each region. The decision at a prefix is fixed before its children
+are refined. A selected branch is admissible when its full-square and
+selected-complement conditions in
+\eqref{coef:full-squares}--\eqref{coef:selected-squares} have the required
+strict margins; an inherited branch keeps its parent decision.
+A marked family is a nonnegative finite weighted family of prefixes
+$B$ at a common total level $Q$, with residual level $Q/B$ and the
+original prime ceiling retained. A marked query is a sifted count for
+one such family. References below to an admitted coefficient mean a
+coefficient obtained from these policies and finite marked transitions,
+with the three-factor representations of
+Appendix~\ref{app:coefficients}.
+\end{definition}
+
+\subsection{A local estimate with a moving residue}
+
+The distribution problem is local in the complete product. We denote
+the convolution lengths by $U,V$, write $x=UV$, and use $\mathfrak a$
+for the residue; $N$ remains the global even target.
+The estimate proved in Appendix~\ref{app:medium} is the following.
+
+\begin{proposition}[Restricted medium convolution]
+\label{prop:current-medium}
+Fix $\vartheta=7/32$, $0<\sigma<1/100$, $c_0>0$, a divisor order
+$B$, and $0\le\kappa\le\sigma/100$. Let $U,V,Q_1,Q_2,Q_3\ge1$. Suppose
+\begin{align}
+ c_0x&\le |\mathfrak a|\le x^{1+\kappa},&
+ Q_1&<Ux^{-\sigma}, \notag\\
+ U^2Q_2Q_3^2&<x^{1-8\sigma},&
+ |\mathfrak a|^{\vartheta}UQ_1Q_2^5Q_3^2&<x^{2-15\sigma},
+       \label{eq:current-medium-ranges}\\
+ U^{1+2\vartheta}Q_1Q_2^{5-2\vartheta}Q_3^{2+2\vartheta}
+      &<x^{2-15\sigma}.&&\notag
+\end{align}
+Let $\alpha$ be one-bounded, supported on an individual interval in
+$[U,2U]$ and on
+$P^-(n)>x^{1/(\log\log x)^3}$.  Assume its auxiliary-coprimality
+Siegel--Walfisz estimate: for every $A>0$, every $k,q\ge1$ and
+$(b_0,q)=1$,
+\begin{equation}
+ \left|\sum_{\substack{n\equiv b_0\pmod q\\(n,k)=1}}\alpha_n
+ -\frac1{\varphi(q)}\sum_{(n,kq)=1}\alpha_n\right|
+ \le C_AU\tau(k)^{C_0}(\log x)^{-A},
+ \label{eq:current-aux-sw}
+\end{equation}
+with fixed $C_0$ and uniform family constants.  Let
+$|\beta_m|\le\tau(m)^B$, $m\in[V,2V]$, and let each $\gamma_i$ be a
+separate one-bounded sequence on $q_i\asymp Q_i$, supported on
+$(q_i,\mathfrak a)=1$.  For
+\[
+ \Delta_{\ell}=\sum_{n,m}\alpha_n\beta_m
+ \left({\one}_{nm\equiv\mathfrak a\pmod \ell}
+       -\frac{{\one}_{(nm,\ell)=1}}{\varphi(\ell)}\right),
+\]
+the stated classical inputs of Appendix~\ref{app:classical} give
+\begin{equation}
+ \sum_{q_1,q_2,q_3}\gamma_1(q_1)\gamma_2(q_2)\gamma_3(q_3)
+                    \Delta_{q_1q_2q_3}
+       =O_A\bigl(x(\log x)^{-A}\bigr).
+ \label{eq:current-medium-conclusion}
+\end{equation}
+The constant is uniform in the residue and families satisfying these
+conditions.  Fixed endpoint multiples are absorbed by the strict
+power margins.
+\end{proposition}
+
+\paragraph{Application of the local estimate.}
+Fix one finite admitted coefficient family. Appendix~\ref{app:coefficients}
+uses its full and selected-complement square conditions to construct three
+separate modulus factors on whole atom boxes. Appendix~\ref{app:prime-products}
+verifies the remaining hypotheses of Proposition~\ref{prop:current-medium}
+and applies it to the finite prime-product families. The
+\hyperlink{coef:medium-checks}{hypothesis checks in Appendix~\ref{app:coefficients}}
+identify these steps. Low-rank pieces and the branches without a medium slot
+have their separate estimates. The resulting common input for the sieve
+constructions is the prime-product distribution estimate in the next subsection.
+
+The three modulus coefficients in
+Proposition~\ref{prop:current-medium} remain separate, and the estimate
+allows their signs. In the application the medium slot is a rough
+$1$ or M\"obius sequence on an individual chart, with a permitted
+Mellin twist. Appendix~\ref{app:prime-products} proves the auxiliary
+Siegel--Walfisz condition~\eqref{eq:current-aux-sw} for these sequences.
+
+When the residue has size comparable to $x$, reciprocity leaves an
+oscillatory phase. Appendix~\ref{app:medium} keeps this phase and bounds
+its variation within the strict power margins
+of~\eqref{eq:current-medium-ranges}. The spectral estimates, including
+their Fourier normalizations, are stated in
+Appendix~\ref{app:classical}.
+
+\subsection{From the local estimate to prime products}
+
+For a fixed finite smooth weight $W_N$ on $k$ labelled original primes,
+all at least $cN^{a_*}$ for fixed $a_*>0$, put
+\[
+ X_W^{(q)}=\sum_{(p_1\cdots p_k,q)=1}W_N(p_1,\ldots,p_k),
+ \qquad X_W=\sum W_N(p_1,\ldots,p_k).
+\]
+The product is $O(N)$.  The allowed geometric families have fixed
+polylogarithmic mixed Euler-derivative bounds and no additional
+arithmetic filter.  The conclusion used throughout the paper is
+\begin{equation}
+ \sum_q\rho_N(q)
+ \left\{\sum_{p_1\cdots p_k\equiv N\pmod q}W_N(p_1,\ldots,p_k)
+            -\frac{X_W^{(q)}}{\varphi(q)}\right\}
+       =O_{A,W}\bigl(N(\log N)^{-A}\bigr).
+ \label{eq:current-PP}
+\end{equation}
+The same signed coefficient $\rho_N$ occurs in both terms.  Its
+admitted classes are the actual upper tree, the actual lower trees,
+the marked queries and ordinary descendants of the finite $H/h$
+construction, and the positive switched families on which the upper
+coefficient is used.
+
+The coefficient proof in Appendix~\ref{app:coefficients} first freezes
+one finite causal policy.  The physical level $N^\lambda$ determines
+its density and its residual $Q/B$.  A slightly larger auxiliary
+support cover $N^{\ell_{\rm aux}}$ may be used to prove its
+factorization; it does not change $\lambda$ or the integer coefficient.
+For an ordered prime prefix write $t_i=\log_Np_i$ and
+$S_j=\sum_{i=1}^jt_i$, and let $I$ be the subset of slots selected
+for one factor of the modulus. The full-square conditions
+\[
+ S_{j-1}+2t_j\le\ell_{\rm aux}
+\]
+and every selected-complement square
+\[
+ \sum_{i\in I}t_i+
+       \sum_{\substack{i<j\\i\notin I}}t_i+2t_j
+       \le\ell_{\rm aux}\quad(j\notin I)
+\]
+are retained. After all selected slots have appeared, the second test
+becomes the full-square test.  Descendant closure and the physical
+prime ceiling therefore persist through the finite ordinary queries.
+
+There is an exact tensor identity before estimating discrepancies.
+For a common prime-label alphabet with multiplicities $m_I$, split
+the slots into three groups and divide each group convolution by
+$M_j=\prod_I m_{I,j}!$.  The resulting $\gamma_j$ is one-bounded.
+With $M_{\rm all}=\prod_I m_I!$, the full normalized convolution is
+\[
+ \frac{M_1M_2M_3}{M_{\rm all}}
+                       (\gamma_1*\gamma_2*\gamma_3).
+\]
+Marked multiplicities remain in the external scalar.  The small-prime
+beta factor attaches by the unique small/rough factorization.  The
+partition is fixed on a whole atom box before any arithmetic
+discrepancy is inspected.  Global squarefreeness remains in the
+physical coefficient; its removal only for analytic comparison has
+the fixed-power error
+$O((N+N^{\theta_*})N^{-\eta_0+o(1)})$, where $N^{\eta_0}$ is
+the small-prime presieve cutoff and $\theta_*<3/5$ is the support
+exponent of the finite coefficient construction.
+
+Appendix~\ref{app:prime-products} makes a smooth complete-product trim
+below $2N^{1-\kappa_0}$ and then an exact smooth dyadic partition.
+The local scale is the complete product, with
+\[
+ cN^{1-\kappa_0}\le x\le CN,\qquad
+ c_0x\le N\le x^{1+\kappa}.
+\]
+It is never a residual quotient.  On an original group at scale $R$,
+the exact order-three Heath--Brown identity is obtained from
+$\Lambda*(\delta-1*\mu_Z)^{*3}=0$ below $2R$, with
+$Z=(2R)^{1/3}$:
+\begin{equation}
+ \Lambda=\sum_{j=1}^3(-1)^{j-1}\binom3j
+                 \mu_Z^{*j}*1^{*(j-1)}*\log.
+ \label{eq:current-HB}
+\end{equation}
+The smooth original chart is retained; no sharp coupled group boundary
+is inserted.  The Fourier separation of the geometric profile is
+charged by its integrable Fourier norm.  The actual rough slots have
+the auxiliary SW estimate.  Medium branches use
+Proposition~\ref{prop:current-medium}; low ranks use below-half
+Bombieri--Vinogradov.  The one-long and two-long alternatives are the
+direct Brun arguments of Appendix~\ref{app:brun}, keeping the exact
+coprime mean and both Poisson zero-axis cancellations.  In particular,
+negative lower Brun polynomials are not multiplied as though they
+were positive.
+
+Choose the fixed moment order $K_{\rm mom}$ before narrowing
+\[
+ 0<\kappa\le\min\left(\kappa_*,\frac{\sigma}{200},
+                           \frac1{2K_{\rm mom}}\right),\qquad
+ 0<\kappa_0<\frac{\kappa}{4(1+\kappa)}.
+\]
+Here $\kappa_*>0$ is fixed by the strict support margins in
+Appendix~\ref{app:coefficients}. The complete local support has exponent $\Theta_{\rm loc}<3/5$;
+the long-branch parameter $\zeta$ is selected with
+$20\zeta+\Theta_{\rm loc}<1$ and
+$40\zeta+3\Theta_{\rm loc}/2<1$.  All finite atom scalar masses and
+the fixed logarithmic number of charts are paid by stronger local
+logarithmic accuracy.  This proves \eqref{eq:current-PP} for the
+admissible families and all sufficiently large even targets.  
+
+\section{A positive upper sieve with its own density}
+\label{sec:current-upper}
+
+The upper construction uses
+\[
+ \rho_0=\frac{19}{96},\quad \mu_0=\frac{25}{128},\quad
+ \Theta=\frac{299}{500},\quad \Lambda_{\rm cap}=\frac{153}{256},\quad
+ v(t)=\min\left(\frac{1+t}{2},\frac{57}{64}-\frac{3t}{2}\right).
+\]
+Its causal cap changes are made on the actual prefix; every retained
+ancestor decision is preserved.  Fourth, fifth and sixth changes are
+successive replacements, whose raw density differences telescope.
+Later eighth-rank changes occupy $30+15+13+29=87$ specified domains.
+Same-stage domains have disjoint interiors; successive stages use
+differences from their respective parent caps.  
+Appendix~\ref{app:upper} supplies the cap formulas and separation proofs.
+
+\subsection{Exit identity and literal residual densities}
+
+For a finite allowed prime universe, let $\xi$ be multiplicative with
+$\xi(1)=1$ and $0\le \xi(p)\le1$. The upper
+tree, whose first exits have odd rank, satisfies the exact identity
+\begin{equation}
+ \sum_d\mu(d){\one}_{d\ {\rm retained}}\xi(d)
+ =\prod_p(1-\xi(p))
+   +\sum_{e\ {\rm odd\ first\ exit}}\xi(e)
+                      \prod_{p<p_{\rm last}(e)}(1-\xi(p)).
+ \label{eq:current-upper-exit}
+\end{equation}
+Partition the excluded divisors by their first excluded prefix; the
+remaining smaller-prime subsets give the displayed Euler product.
+Taking $\xi(p)={\one}_{p\mid n}$ proves a rough-indicator majorant for
+every integer $n$, including zero and negative integers.
+
+For the raw density, take
+$g_N(p)={\one}_{p>2,\,p\nmid N}/(p-1)$ and
+$V_N(y)=\prod_{2<p<y,\,p\nmid N}(1-1/(p-1))$.
+At a fixed rank the normalized exit for $g_N$ lies between zero and
+the corresponding exit for $g_0(p)={\one}_{p>2}/(p-1)$: a surviving
+prefix acquires the multiplier
+\[
+ \prod_{\substack{p_{\rm last}\le p<y\\p\mid N}}(1-g_0(p))\le1.
+\]
+The preceding square tests bound the last prime of a rank-$j$ exit
+below by $N^{\beta_{\min}/(3\cdot2^{j-1})}$ on positive compact
+parameter sets.  Deleting target primes thus changes each fixed-rank
+integral by $o(1)$ uniformly in $N$.  Positive exit-series convergence,
+the one-sided bounds for the same raw Rosser weights, and then a
+finite-rank sandwich yield
+\begin{equation}
+ \frac{V_N^+(R,y)}{V_N(y)}=F(s)+o(1)\quad(s>1),\qquad
+ \frac{V_N^-(R,y)}{V_N(y)}=f(s)+o(1)\quad(s\ge2),
+ \quad s=\frac{\log R}{\log y}.
+ \label{eq:current-raw-density}
+\end{equation}
+The upper identity for $1<s\le3$ also follows directly by moving its
+first cube to $R^{1/3}$.  This computes the density of the divisor coefficient itself.  The ordinary exit-series inputs and their normalization are
+specified in Appendix~\ref{app:upper}.
+
+Mertens gives, uniformly in the target,
+\begin{equation}
+ V_N(N^u)=\frac{2e^{-\gamma}C_N}{u\log N}(1+o(1)).
+ \label{eq:current-mertens}
+\end{equation}
+For example the exact ratio to $2C_N\prod_{p<z}(1-1/p)$ is
+\[
+ \prod_{p\ge z}\left(1-\frac1{(p-1)^2}\right)^{-1}
+ \prod_{\substack{p\mid N\\p\ge z}}\left(1-\frac1{p-1}\right),
+\]
+whose logarithm tends uniformly to zero at $z=N^u$, $u>0$ fixed.
+With $\overline F=F/(2e^\gamma)$ and
+$\overline f=f/(2e^\gamma)$, this is the normalization producing
+$4\overline F(s)/u$ and $4\overline f(s)/u$ in the density functionals.
+
+For a selected eighth cell, if $S_8=t_1+\cdots+t_8$ and the parent is bounded above by $R_6$, its cap $M$ satisfies
+\[
+ 1<\frac{\lambda_{6,\rm parent}-S_8}{t_8}
+  \le\frac{R_6-S_8}{t_8}<\frac{M-S_8}{t_8}<3.
+\]
+The same residual identity therefore gives the lower saving
+\begin{equation}
+ \frac{4(M-R_6)}{(R_6-S_8)(M-S_8)\prod_{i=1}^8t_i}.
+ \label{eq:current-eighth-saving}
+\end{equation}
+Using the larger parent $R_6$ is conservative.  This density has no
+Chen quarter or ordering factorial.  The selected domains have
+$t_8>53/13824$, and all full and selected-complement squares remain
+in force.
+
+\subsection{Finite realization and density errors}
+
+The ideal policy is approximated on a finite causal partition before
+$N$ grows.  Small-last-prime tails tend to zero; proper affine walls
+have vanishing mass, whereas open inherit/equality regions are
+retained.  At even rough rank take outer endpoint tests and at odd
+rank inner tests, preserving ancestry.  This produces a coefficient
+$a_N(d)$ above the raw upper coefficient.  Attach the small-prime
+beta upper polynomial to positive $a_N(d)$ and the beta lower
+polynomial to negative $a_N(d)$.  If $B^-\le I_w\le B^+$, then
+$a_N(d)B_{\rm sign}(n)\ge a_N(d)I_w(n)$ term by term.
+The resulting physical $\rho_N^{\rm up}$ has unique small/rough decomposition,
+squarefree support $q\le N^{\theta_*}$, a uniform bound
+$|\rho_N^{\rm up}(q)|\le M$ for fixed $M$, $(q,N)=1$, and
+\begin{equation}
+ R_N(n):=\sum_{q\mid n}\rho_N^{\rm up}(q)
+   \ge {\one}_{(n,P_N(N^{\rho_0}))=1}\ge0,
+ \qquad P_N(y)=\prod_{\substack{p<y\\p\nmid N}}p.
+ \label{eq:current-physical-upper}
+\end{equation}
+The finite sum also defines $R_N(0)$.
+
+Restricting \eqref{eq:current-upper-exit} to primes above the presieve
+gives the upper projection inequality
+\[
+ V_N(w)\sum_{d\ {\rm rough}}\lambda_N(d)g_N(d)
+       \le\sum_{d\ {\rm full}}\lambda_N(d)g_N(d).
+\]
+Together with the absolute beta and box-error estimates this controls
+the density of the same $\rho_N^{\rm up}$ from above.  Support inflation can
+be kept below $1/1000$, giving $\theta_*=599/1000$ before the small
+complete-scale adjustment.  The auxiliary support cover used in
+Section~\ref{sec:current-distribution} does not change this density.
+
+Let $E_{\rm up}$ be the raw upper-density endpoint and let $u$ be each of the
+two allowances for finite approximation and coefficient realization.
+Their exact rational values are given in
+\eqref{eq:current-E}--\eqref{eq:current-u}. The directed estimates in
+Appendix~\ref{app:numeric} give
+\begin{equation}
+                     K-E_{\rm up}-2u>9.6522\cdot10^{-8}>0.
+                     \label{eq:current-upper-slack}
+\end{equation}
+Thus the physical coefficient in \eqref{eq:current-physical-upper} satisfies
+\begin{equation}
+ S_N:=\sum_q\frac{\rho_N^{\rm up}(q)}{\varphi(q)}
+       \le(K+o(1))\frac{C_N}{\log N},
+ \label{eq:current-upper-density}
+\end{equation}
+and it is precisely the coefficient to which
+\eqref{eq:current-PP} applies.
+
+\begin{proof}[Proof of Theorem~\ref{thm:positive-coefficient}]
+Use the finite coefficient constructed above.
+Equation~\eqref{eq:current-physical-upper} gives its bounded squarefree
+support and~\eqref{eq:core-positivity}, and
+\eqref{eq:current-upper-density} gives its density bound.
+The factorization and parameter choices in
+Appendix~\ref{app:coefficients}, followed by the prime-product estimate
+in Appendix~\ref{app:prime-products}, establish
+\eqref{eq:current-PP} for this coefficient and each weight in the
+fixed finite collection. Choose their common refinement before taking
+$N$ to infinity. Taking maxima of the finitely many constants and
+thresholds gives the asserted uniformity.
+\end{proof}
+
+\begin{proposition}[Positive product consequence]
+\label{prop:current-positive-product}
+Fix a finite nonnegative labelled prime-product family of bounded
+rank and uniformly bounded weights, with every original prime at least $N^{a_*}$ for some fixed
+$a_*>0$, product $O(N)$, and only the admitted fixed geometric
+restrictions.  Suppose its unsifted weighted mass $X_W$ satisfies
+\[
+ \limsup_{\substack{N\to\infty\\2\mid N}}
+             \frac{\log N}{N}X_W\le J<\infty.
+\]
+Let $W_N(m)$ denote the induced weight on the product $m$. Then
+\[
+ \limsup_{\substack{N\to\infty\\2\mid N}}\frac1{H_N}
+       \sum_{\substack{m<N\\N-m\text{ prime}}}W_N(m)\le KJ.
+\]
+The error estimate is absolute also when $J=0$.
+\end{proposition}
+
+\begin{proof}
+For a prime $\ell$, squarefree support and boundedness give
+\[
+ \sum_{q:\ell\mid q}\frac{|\rho_N^{\rm up}(q)|}{\varphi(q)}
+       \ll\frac{\log N}{\ell-1}.
+\]
+Hence, by a union bound over the fixed number of original prime slots,
+\begin{equation}
+ \left|\sum_q\frac{\rho_N^{\rm up}(q)}{\varphi(q)}
+                         (X_W^{(q)}-X_W)\right|
+       \ll X_WN^{-a_*}\log N=o(H_N).
+ \label{eq:current-coprime-correction}
+\end{equation}
+No factor $N^{\theta_*}$ is introduced.  Small prime remainders cost
+$N^{\rho_0+o(1)}$.  The smooth complete-product trim costs
+$N^{1-\kappa_0+o(1)}$ after the full modulus sum; its product is
+strictly below $N$, so no $\tau(0)$ occurs.  Positive majorization
+before distribution gives
+\[
+ \sum_{m<N,\,N-m\ {\rm prime}}W_N(m)
+ \le\sum_m W_N(m)R_N(N-m)+o(H_N)
+ \le X_WS_N+o(H_N).
+\]
+Outer approximations with $m\ge N$ are harmless because
+$R_N(n)\ge0$ for every integer.  Now apply
+\eqref{eq:current-upper-density}.  Fixed geometric boundaries are
+handled by positive smooth outer approximation, with $N$ tending to
+infinity before the approximation error tends to zero.  At each
+precision the same $\rho_N^{\rm up}$ is used in the pointwise inequality,
+density and distribution formula.  It need not be the same
+coefficient at different precisions.
+\end{proof}
+
+\section{The full Chen weight and paired deletion}
+\label{sec:current-chen-weight}
+
+We use $a_{\rm s},h_{\rm s},d_{\rm s}$ for the fixed sieve cutoffs;
+the parameter $a$ in Proposition $(1+a)$ retains its introductory meaning. Put
+\[
+ {a_{\rm s}}=\frac{417}{5000},\qquad {h_{\rm s}}=\frac{19}{125},\qquad
+ {d_{\rm s}}=\frac{59}{250},\qquad \mu_0=\frac{25}{128}.
+\]
+For $n\le N$ define
+$Q_d(y;n)=\one_{d\mid n}\one_{P^-(n/d)\ge y}$.
+All prime prefixes below have distinct entries.  Suppressing the
+argument $n$, the eleven terms are
+\begingroup\allowdisplaybreaks[4]
+\begin{align*}
+ Y_1&=Q_1(N^{a_{\rm s}}),\\
+ Y_2&=Q_1(N^{h_{\rm s}}),\\
+ Y_3&=\sum_{N^{a_{\rm s}}\le p<N^{1/3}}Q_p(N^{a_{\rm s}}),\\
+ Y_4&=\sum_{N^{a_{\rm s}}\le p<N^{d_{\rm s}}}Q_p(N^{a_{\rm s}}),\\
+ Y_5&=\sum_{N^{a_{\rm s}}\le p_1<p_2<N^{h_{\rm s}}}Q_{p_1p_2}(N^{a_{\rm s}}),\\
+ Y_6&=\sum_{N^{a_{\rm s}}\le p_1<N^{h_{\rm s}}\le p_2<N^{d_{\rm s}}}Q_{p_1p_2}(N^{a_{\rm s}}),\\
+ Y_7&=\sum_{N^{d_{\rm s}}\le p_1<p_2<(N/p_1)^{1/2}}Q_{p_1p_2}(p_2),\\
+ Y_8&=\sum_{N^{a_{\rm s}}\le p_1<N^{1/3}\le p_2<(N/p_1)^{1/2}}
+                                          Q_{p_1p_2}(p_2),\\
+ Y_9&=\sum_{N^{h_{\rm s}}\le p_1<N^{d_{\rm s}}\le p_2<(N/p_1)^{1/2}}
+                   Q_{p_1p_2}\bigl((N/(p_1p_2))^{1/2}\bigr),\\
+ Y_{10}&=\sum_{N^{a_{\rm s}}\le p_1<p_2<p_3<p_4<N^{h_{\rm s}}}Q_{p_1p_2p_3p_4}(p_2),\\
+ Y_{11}&=\sum_{N^{a_{\rm s}}\le p_1<p_2<p_3<N^{h_{\rm s}}\le p_4<N^{d_{\rm s}}}
+                                          Q_{p_1p_2p_3p_4}(p_2).
+\end{align*}
+\endgroup
+In particular $Y_{11}$ has its full last range.  Set
+\begin{equation}
+ W=3Y_1+Y_2-Y_3-Y_4+Y_5+Y_6-2Y_7-Y_8-Y_9-Y_{10}-Y_{11}.
+ \label{eq:current-full-weight}
+\end{equation}
+
+The terms $3Y_1+Y_2$ supply the rough-count baseline at the two
+cutoffs. The one-prefix subtractions $Y_3,Y_4$ remove overcounting,
+while $Y_5,Y_6$ restore the selected two-prefix contributions.
+The terms $2Y_7,Y_8,Y_9$ subtract the remaining three-or-more-factor
+patterns, and the four-prefix terms $Y_{10},Y_{11}$ compensate the
+growth of the positive pair counts when several small factors occur.
+Their combination gives the pointwise inequality below. The later
+paired deletion links $Y_6$ and $Y_{11}$ by an injection, so that the
+change preserves that inequality.
+
+\begin{lemma}[Pointwise full-weight inequality]
+\label{lem:current-full-weight}
+For squarefree $n\le N$,
+\[
+                  W(n)\le4{\one}_{\Omega(n)\le2}.
+\]
+\end{lemma}
+
+\begin{proof}
+If $n$ is not $N^{a_{\rm s}}$-rough, all eleven terms vanish.  For $Y_9$, the
+only less immediate case, its quotient cutoff exceeds
+$N^{(1-{d_{\rm s}})/4}>N^{a_{\rm s}}$.  Suppose therefore that $n$ is squarefree and
+$N^{a_{\rm s}}$-rough.  Let $r,s,t$ count its prime factors below $N^{h_{\rm s}},N^{d_{\rm s}},N^{1/3}$,
+respectively.  Its first six counts are
+\[
+ (Y_1,Y_2,Y_3,Y_4,Y_5,Y_6)
+      =\left(1,{\one}_{r=0},t,s,\binom r2,r(s-r)\right).
+\]
+If $r\ge2$, the quotient sifted at the second selected prime forces
+the first two primes in $Y_{10}$ and $Y_{11}$ to be the two least
+prime factors of $n$.  Thus
+\[
+ Y_{10}=\binom{r-2}{2},\qquad Y_{11}=(r-2)(s-r),
+\]
+with the binomial zero at $r=2,3$.  Substitution in the first six
+weighted terms minus $Y_{10}+Y_{11}$ gives $s-t\le0$; the other
+subtractions help.
+
+For $k=\Omega(n)\ge3$, let $q_1<q_2<\cdots$ be the factors of $n$.
+Then $q_1q_2^2<n\le N$, so $t\ge1$,
+$Y_7={\one}_{s=0}$ and $Y_8={\one}_{t=1}$.
+When $r\le1$, the remaining upper bounds for $W$ are
+\[
+\begin{array}{c|c}
+ \text{case}&\text{upper bound}\\ \hline
+ r=1&2-t-{\one}_{t=1}\\
+ r=0,\ s\ge2&4-s-t\\
+ r=s=0&2-t-{\one}_{t=1}\\
+ r=0,\ s=1,\ t\ge3&3-t\\
+ r=0,\ s=1,\ t\le2&3-t-1-{\one}_{t=1}.
+\end{array}
+\]
+In the last case, $k\ge4$ would imply
+$n\ge N^{{h_{\rm s}}+{d_{\rm s}}+2/3}>N$, so $k=3$; moreover
+$q_1q_2q_3^2\ge N^{{h_{\rm s}}+{d_{\rm s}}+2/3}>N$.  The pair $(q_1,q_2)$ therefore
+contributes to $Y_9$, giving the extra subtraction displayed there.
+All the bounds are nonpositive.  For $k\le2$ direct substitution
+gives $W\le4$; the unit has $W(1)=4$.
+\end{proof}
+
+Let $\mathscr E=\mathscr E_0\cup \mathscr E_1$ be the disjoint union of the rational rectangles
+specified in Appendix~\ref{app:numeric}. The two families have $6091$ and
+$11481$ members, respectively, in the coordinates
+\[
+ (t,u)=(\log_Np_2,\log_Np_1),\qquad {a_{\rm s}}\le u<{h_{\rm s}}\le t<{d_{\rm s}}.
+\]
+The rectangles have disjoint interiors; shared edges have zero limiting
+mass and are assigned once in the finite partition.
+Write $Y_6(\mathscr E)$
+for its pair terms and $Y_{11}(\mathscr E)$ for the four-prefix terms whose
+last two selected primes $(p_3,p_4)$ have
+$(\log_Np_4,\log_Np_3)\in \mathscr E$.  The weight is
+\begin{equation}
+                         W_{\mathscr E}=W-Y_6(\mathscr E)+Y_{11}(\mathscr E).
+ \label{eq:current-paired-weight}
+\end{equation}
+
+\begin{lemma}[Paired injection]
+\label{lem:current-paired-injection}
+For squarefree $n\le N$, $Y_{11}(\mathscr E)\le Y_6(\mathscr E)$, and hence
+$W_{\mathscr E}(n)\le4{\one}_{\Omega(n)\le2}$.
+\end{lemma}
+
+\begin{proof}
+Map a contributing four-prefix tuple to its last pair $(p_3,p_4)$.
+The quotient roughness forces its first two selected primes to be
+the two least factors of $n$. The image lies in the prescribed
+rectangle, and removing $p_3p_4$ leaves an $N^{a_{\rm s}}$-rough residual,
+so this pair contributes to $Y_6(\mathscr E)$. Since the first two factors
+are determined by $n$, two tuples with the same last pair coincide.
+The map is therefore injective.
+\end{proof}
+
+The fixed prime-factor bound $\lfloor1/{a_{\rm s}}\rfloor=11$ bounds
+$|W_{\mathscr E}|$ by $1016$ on rough $n$.  The number of $n\le N$ with a
+repeated prime at least $N^{a_{\rm s}}$ is at most $2N^{1-{a_{\rm s}}}$ for large $N$.
+After restricting to primes $p<N$ with $(p,N)=1$ and removing the
+unit, the squareful and unit costs are at most
+$2032N^{1-{a_{\rm s}}}+4=o(H_N)$.  It follows that
+\begin{equation}
+ 4D_{1,2}(N)\ge
+       \sum_{\substack{p<N\\p\ {\rm prime}\\(p,N)=1}}W_{\mathscr E}(N-p)
+        -o(H_N).
+ \label{eq:current-weight-to-count}
+\end{equation}
+
+\section{The lower sieve and finite double-sieve transitions}
+\label{sec:current-lower}
+
+\subsection{A lower estimate for the original prime sequence}
+
+The ordinary lower trees start at $w={a_{\rm s}}$ and $w={h_{\rm s}}$, with cap
+$\nu=249/448$ and fixed small buffers.  Their first exits have even
+rank.  The analogue of \eqref{eq:current-upper-exit} is
+\begin{equation}
+ \sum_d\mu(d){\one}_{d\ {\rm retained}}\xi(d)
+ =\prod_p(1-\xi(p))
+  -\sum_{e\ {\rm even\ first\ exit}}\xi(e)
+                       \prod_{p<p_{\rm last}(e)}(1-\xi(p)).
+ \label{eq:current-lower-exit}
+\end{equation}
+This identity proves both the pointwise lower inequality and the
+literal raw-density formula. The selected fourth-rank restorations
+preserve even first exits: each cap is chosen before the fourth cube
+test $S_3+3t_4<\lambda_4$, and the ordinary residual level exceeds
+$p_4^2$. A restored slab and a fifth-rank saving are
+assigned disjoint regions in the lower functional.
+
+For a presieve $z_0=N^{\eta_0}$, even exits give the exact projection
+direction
+\begin{equation}
+ V_N(z_0)R_{\rm rough}-V_{\rm full}
+  =\sum_{\substack{e\ {\rm full\ even\ exit}\\p_{\rm last}(e)<z_0}}
+                              g_N(e)V_N(p_{\rm last}(e))\ge0.
+ \label{eq:current-lower-projection}
+\end{equation}
+Round positive even coefficients inward and negative odd coefficients
+outward, retaining the prefix decisions.  Attach beta-minus to positive
+coefficients and beta-plus to negative coefficients.  If the rounded
+coefficient is $a_{\rm rnd}(d)$, then
+$a_{\rm rnd}(d)B_{\rm sign}(n)\le a_{\rm rnd}(d)I_0(n)$ term by term.  Therefore the
+physical lower coefficient satisfies
+\[
+ \sum_{q\mid n}\rho_N^{\rm low}(q)\le
+           {\one}_{(n,P_N(N^w))=1},\qquad
+ \sum_q\frac{\rho_N^{\rm low}(q)}{\varphi(q)}
+              \ge V_{\rm full}-\text{coefficient-realization error}.
+\]
+Beta-minus need not be nonnegative.  The second inequality uses
+\eqref{eq:current-lower-projection} and absolute error control, not
+coefficient order alone.  The coefficient theorem supplies
+\eqref{eq:current-PP} for this very lower coefficient.
+
+The original prime sequence has a sharp endpoint at $N$. To use the
+smooth distribution estimate for a signed lower coefficient, we first
+control the endpoint error in absolute value.
+
+\begin{lemma}[Sharp original-prime endpoint]
+\label{lem:current-sharp-prime}
+Suppose the actual coefficient satisfies $|\rho_N^{\rm low}(q)|\le M$ with
+fixed $M$, is supported on squarefree $q\le N^\theta$ with
+$\theta<1$ and $(q,N)=1$, and satisfies the permitted
+smooth-singleton instance of \eqref{eq:current-PP}.  Then
+\begin{equation}
+ \sum_q\rho_N^{\rm low}(q)
+    \left(\pi(N;q,N)-\frac{\pi(N)}{\varphi(q)}\right)
+      =O_A\bigl(N(\log N)^{-A}\bigr).
+ \label{eq:current-sharp-pi}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Smooth the endpoint over $[N-\delta N,N+\delta N]$, with
+$\delta=(\log N)^{-B}$ and $B>A+3$, and apply the smooth singleton
+estimate. The absolute boundary and exact-coprime mean estimates in
+Appendix~\ref{app:cross-review} bound the difference by
+$O(\delta N\log N+\log^2N)$, together with the fixed-power complete
+product trim. The equality $p=N$ is impossible for even $N>2$.
+These errors are absorbed by the chosen logarithmic accuracy.
+\end{proof}
+
+Apply the pointwise lower coefficient to the original prime sequence.
+Lemma~\ref{lem:current-sharp-prime} bounds its remainder, while
+\eqref{eq:current-raw-density} and the prime number theorem evaluate
+its main term. This gives the ordinary lower prime counts used below.
+
+\subsection{Finite defects and actual descendants}
+
+Put
+$A_+(s)=sF(s)/(2e^\gamma)$ and
+$A_-(s)=sf(s)/(2e^\gamma)$.
+For a nonnegative finite marked family $\sigma(B)$ and one common
+$Q=N^\lambda$, normalize by
+\[
+ \Theta_Q=4\operatorname{li}(N)
+       \sum_B\frac{\sigma(B)C_{BN}}{\varphi(B)\log(Q/B)}.
+\]
+Here $C_{BN}$ is the same singular-factor function as in
+\eqref{eq:current-normalization}.  A defect $H(s)$ means an upper
+bound $(A_+(s)-H(s)+o(1))\Theta_Q$; a defect $h(s)$ means a lower
+bound $(A_-(s)+h(s)+o(1))\Theta_Q$.  These are estimates
+averaged over the positive marked family, not pointwise in $B$ and
+not assertions for a signed outer measure.
+
+For residual exponent $L=\lambda-\log_NB$, write
+$\alpha=(1-\log_NB)/L\ge2$.  A singleton child with exponent $Lu$
+has
+\[
+ L'=L(1-u),\qquad \alpha'=1+\frac{\alpha-1}{1-u};
+\]
+a two-prime child replaces $u$ by $u+v$.  All children retain the
+same total $Q$, every full and selected square, and their physical
+prime ceiling.  The parameter $\alpha$ increases and is never
+reset to $2$ in a switched mass.
+
+Lemma~\ref{sv:finite-seed} proves the initial defect $J_0=1/50$
+and the positive transition
+$J\mapsto0.020249+0.13J$ on the permitted marked states with
+$1\le s\le11/5$. Its hypotheses retain the residual level, the
+prefix square conditions and a common comparison cutoff. Four
+applications give $J_4=0.023273777353>2327/100000$; this is the seed
+for the finite recurrence below.
+The finite collection consists of $70$ one-step and $36$ two-step
+inequalities, together with the positive Buchstab transitions
+\[
+ H_{\rm new}(s)=\int_{\max(2,s-1)}^5\frac{h(w)}w\,dw,
+ \qquad
+ h_{\rm new}(s)=\int_{s-1}^5\frac{H(w)}w\,dw\quad(s\ge2).
+\]
+The one-step switched cost is $KI/8$, where $I$ is the
+nonnegative switched mass of the action specified in
+Appendix~\ref{app:lower}.  A two-step action has the
+positive defect contribution
+\begin{equation}
+ \frac15\left[4H(s_0)+H(\phi_1)
+  +\sum_{\mathcal D_1}\int\frac{h(\rho)}{u(1-u)}\,du
+  +\sum_{\mathcal D_2}\iint\frac{H(\rho)}{uv(1-u-v)}\,du\,dv\right]
+ \label{eq:current-w2-feedback}
+\end{equation}
+in addition to its proved ordinary and positive-switching base.
+There are three singleton and four good pair domains.  With
+$a_i=1/\phi_i$ and $a_0=1/s_0$, the pair domains are
+\[
+ \begin{array}{c|c|c}
+ &\text{domain}&\rho_i(u,v)\\ \hline
+ D_5^+&a_0<u<v<a_2,\ v+2u<1&s_0(1-u-v)\\
+ D_6&(a_0,a_1)\mathbin{\times}(a_2,a_3)&s_0(1-u-v)\\
+ D_7&a_0<u<v<a_1&(1-u-v)/u\\
+ D_8&(a_0,a_1)\mathbin{\times}(a_1,a_2)&(1-u-v)/u.
+ \end{array}
+\]
+The admissibility conditions include $2v<1$ and $v+2u<1$.
+The excluded portion of $D_5$ receives only a positive product cost,
+not ordinary feedback.  Unit surfaces in the switching terms stay
+in their masses.  The envelope used for every actual $\alpha\ge2$ is
+$\omega(s)\le\max(1/s,70893/125000)$ for $s\ge1$, with the
+conservative extension below $1$ specified in Appendix~\ref{app:lower}.
+
+\paragraph{Two levels of iteration.}
+The four scalar steps produce the certified constant used to initialize
+the arrays; they precede generation zero of the array recurrence.
+The indices in $H_m,h_m$, including $m=248$ and $430$, count only
+simultaneous updates of the two cell arrays from that initialization.
+Thus the scalar seed iteration and the envelope generations have
+different state spaces and iteration counts.
+
+We define the envelopes by simultaneous finite induction. Each
+right-hand side uses the preceding generation, takes the maximum of
+alternative estimates, and uses a minimum over the full closed support
+when an argument crosses a cell boundary. The $200$ closed cells have
+endpoints $1+i/50$, $0\le i\le200$. Let $H_m,h_m$ be the step-function
+lower envelopes after $m$ generations; at a shared endpoint take the
+smaller of the adjacent values. Starting directly from the seed,
+$430$ rounds determine all $400$ final entries. These
+generation-$430$ arrays are used only in $U_3,U_4$; the remaining
+occurrences use generation $248$.
+
+The finite induction also needs a common approximation, not just
+finite depth.  Positive transition mass is at most $12$ and the
+root coefficient norm at most $7/2$.  A local oriented error
+$\delta$ propagates by at most
+$\delta(12^{441}-1)/11$ before normalization.  Choose
+$\delta$ inside the prescribed final reserve and use one nested
+finite refinement for all queries.  Residual exponents after the
+finite transitions remain above a fixed positive multiple of
+$101^{-440}$, so every positive leaf satisfies the fixed-cutoff
+hypothesis of Proposition~\ref{prop:current-positive-product}.
+Zero-mass cells are controlled by absolute errors.
+
+\subsection{Evaluation of the eleven-term weight}
+
+The lower functional is
+\begin{equation}
+ \mathcal C=\frac14
+   (3L_1+L_2+L_5+L_6-U_3-U_4-2U_7-U_8-U_9-U_{10}-U_{11}).
+ \label{eq:current-root-functional}
+\end{equation}
+The lower starts are the causal starts at ${a_{\rm s}},{h_{\rm s}}$. The ordinary estimate
+at ${h_{\rm s}}$ is inserted after its full least-prime correction is removed
+from the reference expression. In $U_3,U_4$ the
+$H_{430}$ argument is $\max(2,L/{a_{\rm s}})$ with $L=v(t)-t$ in the enhanced
+range. The region $L/{a_{\rm s}}\le2$ has positive measure and uses the value
+of the lower envelope at $2$.
+The pair lower terms use $h_{248}$ where $L/{a_{\rm s}}\ge2$ and zero below
+$2$.  The positive costs $U_7,U_8,U_9$ retain their labelled
+multiplicities and are estimated by
+Proposition~\ref{prop:current-positive-product}.
+
+For $U_{10},U_{11}$, work on one common positive partition of the
+four-prefix domain, with decreasing coordinates $x>y>z>w$.
+At each cell use the minimum of the switched kernel
+$K\omega((1-S_4)/z)/z$ and the admissible ordinary kernels
+$4(1-H_{248}(\max(2,L/w)))/L$. Each ordinary alternative retains
+all full and selected square conditions. A refined estimate replaces
+its parent estimate, and overlapping alternatives are compared rather
+than added. Appendix~\ref{app:lower} gives the states and their common
+prefix-preserving approximation.
+
+The restriction in~\eqref{eq:current-paired-weight} requires an estimate
+of the lower functional as well as the pointwise injection. On a pair
+rectangle $\mathscr B=[t_l,t_r]\times[u_l,u_r]$, put
+\[
+ R(t,u)=\frac{57}{64}-\frac52t-u,\qquad
+ R_{\max}=R(t_l,u_l),\quad s_{\max}=R_{\max}/{a_{\rm s}},\quad
+ M_{\mathscr B}=\log(t_r/t_l)\log(u_r/u_l).
+\]
+Write $\mathcal L_{\mathscr B}$ for the cellwise lower estimator assigned to a
+rectangle $\mathscr B$. It vanishes on $\mathscr E_0$. In $\mathscr E_1$ there are
+$227$ crossing cells on which it vanishes and $11254$
+positive cells with $2\le s_{\min}\le s_{\max}\le9/4$.
+Since $\log(s-1)/s$ is increasing there, and $h_{\mathscr B}^{\min}$ denotes the
+cellwise $h_{248}$ minimum over the full closed argument support,
+the discarded lower estimator, in Chen-quarter units, is
+bounded above by
+\begin{equation}
+ \sum_{\mathscr B\in \mathscr E_1\ {\rm positive}}
+       \frac{M_{\mathscr B}}{R_{\max}}\bigl(\log(s_{\max}-1)+h_{\mathscr B}^{\min}\bigr)
+       \le 0.002372094.
+ \label{eq:current-crop-loss}
+\end{equation}
+
+For the negative term, the same selected parents are switched in
+the $48$-division four-prefix cover and avoid the refinement on
+$40000$ parent cells.
+If $A_{\mathscr B}$ is the reference density mass and $s_{\mathscr B}$ its fixed $K$
+feedback slope, the cellwise bounds in Appendix~\ref{app:numeric} give
+$0\le s_{\mathscr B}\le A_{\mathscr B}/K_0$, $K_0=6.7619$.  Therefore
+\[
+ A'_{\mathscr B}=A_{\mathscr B}-(K_0-K)s_{\mathscr B}\ge(K/K_0)A_{\mathscr B}.
+\]
+Dividing by its positive reference mass gives an explicit
+pointwise density majorant of the switched kernel.
+Restricting this majorant to the complementary positive family
+removes at least $KI_{\mathscr E}/8$ in Chen units, where
+\begin{equation}
+ I_{\mathscr E}=\int_{(t,u)\in \mathscr E}\int_{{a_{\rm s}}<w<z<u}
+                      \frac{dt\,du\,dz\,dw}{tu z^2w}.
+ \label{eq:current-crop-integral}
+\end{equation}
+The use of $\omega\ge1/2$ is valid since
+$(1-S_4)/z\ge77/38>2$ throughout this family.  For one rectangle
+the integral is exactly
+\[
+ \log(t_r/t_l)\left[
+ \frac{\log(u_r/u_l)}{a_{\rm s}}+\frac{\log(u_r/{a_{\rm s}})+2}{u_r}
+                         -\frac{\log(u_l/{a_{\rm s}})+2}{u_l}\right].
+\]
+The finite lower bounds for the gross improvements are
+$0.002095161$ on $\mathscr E_0$ and $0.003799514$ on $\mathscr E_1$.
+Subtracting \eqref{eq:current-crop-loss}, the additional raw
+improvement from $\mathscr E_1$ is
+\begin{equation}
+          0.003799514-0.002372094
+             =0.001427420=\frac{71371}{50000000}.
+ \label{eq:current-new-crop-gain}
+\end{equation}
+The paired restriction removes mass from the positive majorant and
+pays for the assigned lower estimators on the same deleted region.
+The masks $\mathscr E_0,\mathscr E_1$ are disjoint.
+
+\subsection{A preliminary lower functional}
+
+Denote the current lower endpoint by $R_{\rm base}$ and the bound
+for each finite-density and coefficient-realization error by
+$B_{\rm base}$; see~\eqref{eq:base-R}--\eqref{eq:base-B}.
+There are two further improvements on $\mathscr E$: a larger lower bound
+for $\omega$ on an inner fibre, and a smaller payment for the
+discarded lower estimator. We treat them separately before combining
+their contributions.
+
+\subsection{The paired-domain improvement}
+\label{sec:current-refinement}
+
+\begin{lemma}[A global Buchstab lower bound]
+\label{lem:current-omega-refinement}
+For $s\ge1$ one has $\omega(s)\ge1/2$, and for $s\ge7/3$ one has
+$\omega(s)\ge11/20$.
+\end{lemma}
+
+\begin{proof}
+The bound $1/2$ holds on $[1,2]$ and propagates by
+$(s(\omega(s)-1/2))'=\omega(s-1)-1/2$.
+For $7/3\le s\le3$, use $\log x\ge2(x-1)/(x+1)$ for $x\ge1$ to get
+\[
+ \omega(s)=\frac{1+\log(s-1)}s\ge\frac{3s-4}{s^2}\ge\frac{11}{20}.
+\]
+The last inequality follows because the concave polynomial
+$60s-80-11s^2$ is positive at both endpoints.
+For $3\le s\le10/3$, the first bound and $\log2\ge2/3$ give
+\[
+ s\omega(s)\ge1+\log2+(s-3)/2\ge s/2+1/6\ge11s/20.
+\]
+This establishes the stronger bound on the unit interval
+$[7/3,10/3]$. The identity
+$(s(\omega(s)-11/20))'=\omega(s-1)-11/20$ then propagates it to
+successive unit intervals.
+\end{proof}
+
+\paragraph{The extra positive fibre.}
+The already selected parent majorant dominates
+$K\omega((1-t-u-z-w)/z)/z$ on ${a_{\rm s}}<w<z<u<{h_{\rm s}}<t<{d_{\rm s}}$.
+For each rectangle $\mathscr B=[t_l,t_r]\times[u_l,u_r]$ of the same mask,
+put
+\begin{equation}
+ Z_{\mathscr B}=\min\left(u_l,\frac{3(1-t_r-u_r)}{13}\right).
+ \label{eq:current-Z}
+\end{equation}
+The finite exact geometry check gives $Z_{\mathscr B}>{a_{\rm s}}$ for every cell.
+Moreover the definition gives
+$1-t_r-u_r-2Z_{\mathscr B}\ge(7/3)Z_{\mathscr B}$.  Hence on the inner fibre
+${a_{\rm s}}<w<z<Z_{\mathscr B}$ one has $z<u$ and
+\[
+ 1-t-u-z-w\ge1-t_r-u_r-2z\ge\frac73z.
+\]
+Lemma~\ref{lem:current-omega-refinement} supplies an additional
+$1/20$ in $\omega$, beyond the $1/2$ already paid in
+\eqref{eq:current-crop-integral}.  The remainder of every fibre
+keeps its original bound.  The two nonnegative contributions hold simultaneously.
+
+Integrating the added $1/20$ and including the Chen factor $1/4$
+gives at least the following additional coefficient from $\mathscr B$:
+\begin{align}
+ G_{\mathscr B}
+ &=\frac{K}{80}
+   \log\frac{t_r}{t_l}\log\frac{u_r}{u_l}
+      \int_{a_{\rm s}}^{Z_{\mathscr B}}\frac{\log(z/{a_{\rm s}})}{z^2}\,dz \notag\\
+ &=\frac{K}{80}
+   \log\frac{t_r}{t_l}\log\frac{u_r}{u_l}
+   \left[\frac1{a_{\rm s}}-\frac{1+\log(Z_{\mathscr B}/{a_{\rm s}})}{Z_{\mathscr B}}\right].
+ \label{eq:current-extra-fibre}
+\end{align}
+The inner $w$ integral is $\log(z/{a_{\rm s}})$, and the remaining primitive
+is $-(1+\log(z/{a_{\rm s}}))/z$.  Thus there is no permutation factor and
+no extra factor $2$.  The fixed rational walls in
+\eqref{eq:current-Z} remain within the same admissible finite
+positive family.  Restriction uses the positive parent majorant and its assigned cell decomposition.
+
+The directed interval estimate of Appendix~\ref{app:refinement} gives
+\begin{equation}
+ \sum_{\mathscr B\in \mathscr E_0\cup \mathscr E_1}G_{\mathscr B}>
+ \frac{558583}{10^9}=0.000558583=:g.
+ \label{eq:current-extra-gross}
+\end{equation}
+Only this rational lower endpoint is used below.
+
+\paragraph{The discarded positive lower estimator.}
+The lower estimator assigned to a rectangle $\mathscr B$ is the maximum of its
+constant and chord estimates for the ordinary term, plus its nonnegative
+double-sieve defect. The complete sum on $\mathscr E$, including the Chen factor
+$1/4$, is denoted by $L_{\mathscr E}$. Its rational fixed-point evaluation gives
+\begin{equation}
+ L_{\mathscr E}=\frac{5645403422587826010135}{2417851639229258349412352}
+ <\frac{466977}{200000000}=0.002334885=:\lambda_{\rm loss}.
+ \label{eq:current-literal-loss}
+\end{equation}
+We next bound this discarded lower functional directly by rational intervals.
+
+To specify the enclosure, on a positive cell use the residual
+function $R(t,u)=57/64-(5/2)t-u$ used in the preliminary functional,
+and put
+\begin{align*}
+ r_{\mathscr B}&=R(t_r,u_r),\quad R_{\mathscr B}=R(t_l,u_l),\quad
+ s_l=r_{\mathscr B}/{a_{\rm s}},\quad s_h=R_{\mathscr B}/{a_{\rm s}},\\
+ f_l&=\frac{\log(s_l-1)}{s_l},\qquad
+ f_h=\frac{\log(s_h-1)}{s_h}.
+\end{align*}
+Here $2\le s_l\le s_h\le9/4$.  Define
+\begin{align*}
+ M_{\mathscr B}&=\log(t_r/t_l)\log(u_r/u_l),\\
+ M_{R,\mathscr B}
+ &=\int_{\mathscr B} R(t,u)\frac{dt\,du}{tu}\\
+ &=\frac{57}{64}M_{\mathscr B}
+   -\frac52(t_r-t_l)\log(u_r/u_l)
+   -(u_r-u_l)\log(t_r/t_l).
+\end{align*}
+The two ordinary alternatives, after division by the Chen
+factor $4$, are bounded above by
+\begin{equation}
+ \frac{f_lM_{\mathscr B}}{{a_{\rm s}}},
+ \qquad
+ \frac{f_l(R_{\mathscr B}M_{\mathscr B}-M_{R,\mathscr B})+
+       f_h(M_{R,\mathscr B}-r_{\mathscr B}M_{\mathscr B})}{a_{\rm s}(R_{\mathscr B}-r_{\mathscr B})}.
+ \label{eq:current-floor-proxy}
+\end{equation}
+Indeed the exact endpoint values $f_l,f_h$ dominate the
+lower endpoints used in the functional.  Both coefficient integrals are
+nonnegative because $r_{\mathscr B}\le R(t,u)\le R_{\mathscr B}$, and the fixed-point lower roundings can only decrease the estimator value.
+The cellwise estimator takes a maximum of its constant and
+chord alternatives; taking the maximum of the two upper bounds
+in \eqref{eq:current-floor-proxy} preserves the direction.
+
+For the separate defect term, take $h_{\mathscr B}^{\min}$ to be the minimum of
+the $h_{248}$ closed-cell values meeting the exact interval
+$[s_l,s_h]$, including both adjoining cells at a knot.  This
+minimum is at least the one over the outward-rounded lookup
+interval.  Therefore $h_{\mathscr B}^{\min}M_{\mathscr B}/R_{\mathscr B}$ is an upper bound for the
+cellwise defect estimator, and can be added to the preceding maximum.
+All relevant $h_{248}$ entries are nonnegative.  If the outward lookup crosses below $2$ and returns zero, the same
+upper bound remains valid.  On the $227$ crossing cells the
+constant, eligible chord alternatives and lookup all give zero.
+Every $\mathscr E_0$ cell has $s_h\le2$ and likewise has zero cellwise lower estimator.
+
+The proxy sum has a rational upper enclosure strictly below
+$\lambda_{\rm loss}$. Appendix~\ref{app:refinement-review} obtains it by range
+reduction and alternating logarithm series with explicit remainders.
+Thus $\lambda_{\rm loss}$ can replace the payment
+in~\eqref{eq:current-crop-loss} without weakening the lower inequality.
+
+The recovered payment is exactly
+\begin{equation}
+ 0.002372094-\lambda_{\rm loss}=\frac{37209}{10^9}=0.000037209.
+ \label{eq:current-recovered-loss}
+\end{equation}
+The retained $L_6$ lower endpoint is the whole $L_6$ lower
+endpoint minus $4\lambda_{\rm loss}$, namely
+\[
+ \frac{1421673188323272382945058469141}
+      {472236648286964521369600000000}.
+\]
+The total removed negative gross in Chen units is now the safe
+value $0.002095161+0.003799514+g=0.006453258$.
+Combining~\eqref{eq:current-extra-gross} and
+\eqref{eq:current-recovered-loss} gives the additional lower coefficient
+\begin{equation}
+ \Delta=g+(0.002372094-\lambda_{\rm loss})
+ =\frac{37237}{62500000}=0.000595792.
+ \label{eq:current-refinement-delta}
+\end{equation}
+
+We add $\Delta/8=37237/500000000=0.000074474$
+to each of the two error allowances.  The two enlarged allowances cover finite density approximation and
+coefficient realization, respectively.
+The net increment after both extra reserves is
+\begin{equation}
+ \Delta-2(\Delta/8)=\frac{3\Delta}{4}
+                  =\frac{111711}{250000000}=0.000446844.
+ \label{eq:current-refinement-net}
+\end{equation}
+The walls and queries are finite, so their local accuracy
+can be chosen inside these positive additional allowances by
+the same common approximation and coefficient realization argument used
+for the preliminary lower functional.
+
+\subsection{The lower endpoint and the order of limits}
+\label{sec:lower-limits}
+
+With the paired-domain improvement, the raw endpoint and each
+realization allowance are
+\begin{align}
+ R_{\rm low}&=R_{\rm base}+\Delta,\label{eq:current-R}\\
+ B_{\rm low}&=B_{\rm base}+\Delta/8.\label{eq:current-B}
+\end{align}
+Their exact values are specified in Appendix~\ref{app:numeric}.
+From \eqref{eq:current-weight-to-count}, the actual lower coefficient realization,
+finite induction, and evaluation of the paired lower functional,
+\begin{equation}
+ \liminf_{\substack{N\to\infty\\2\mid N}}
+         \frac{D_{1,2}(N)}{H_N}\ge R_{\rm low}-2B_{\rm low}.
+ \label{eq:current-lower-derived}
+\end{equation}
+The two allowances leave
+\begin{equation}
+                  R_{\rm low}-2B_{\rm low}>c+4.9061\cdot10^{-9},
+                  \label{eq:current-after-budgets}
+\end{equation}
+so in particular
+\begin{equation}
+                  R_{\rm low}-2B_{\rm low}-c>4.9061\cdot10^{-9}>0.
+                  \label{eq:current-lower-slack}
+\end{equation}
+In particular $D_{1,2}(N)\ge cH_N$ eventually, with $c$ as in~\eqref{eq:current-safe-constants}.
+
+Fix the finite set of estimates and their dependencies, the tail
+and compact approximation tolerances, the cutoffs defining fixed compact
+parameter domains, the prefix caps, and the support reserves. Next choose the common beta and rough
+parameters, fine labels, fixed divisor and moment orders, admissible
+$\kappa$, and local logarithmic accuracy. Only then let $N$ tend to
+infinity through the even integers. Taking the maximum of the finitely
+many thresholds makes all estimates simultaneous. Since $C_N\ge C_2>0$,
+fixed power savings and $O_A(N/\log^AN)$ with $A>2$ are uniformly
+$o(H_N)$. The finite induction therefore gives the conclusion for every
+sufficiently large even target.
+
+\section{Finite numerical estimates}
+\label{sec:current-numeric}
+
+The preceding upper and lower constructions reduce the numerical
+part of the proof to the following finite inequalities.
+Table~\ref{num:certificate-table} gives the correspondence between
+these quantities and the certificate fields used to verify them.
+Appendix~\ref{app:numeric} defines their integrals, partitions,
+directed enclosures, and error allowances.
+
+\begin{lemma}
+\label{lem:numerical-endpoints}
+The upper density functional has an upper endpoint $E_{\rm up}$ as
+in~\eqref{eq:current-E}. It admits finite density and coefficient
+realizations with errors at most $u$ each, where $u$ is
+as in~\eqref{eq:current-u}, and $E_{\rm up}+2u<K$.
+The eleven-term lower functional with paired deletion has a lower
+endpoint $R_{\rm low}=R_{\rm base}+\Delta$ as in~\eqref{eq:current-R}.
+The corresponding two errors are at most $B_{\rm low}$ each, where $B_{\rm low}$ is
+as in~\eqref{eq:current-B}, and $R_{\rm low}-2B_{\rm low}>c$.
+The generation-$430$ envelopes used in $U_3,U_4$ are generated by
+$430$ simultaneous applications of the positive finite action map
+to the stated seed. The generation-$248$ envelopes used in the other
+specified terms have the separate enclosures described in
+Appendix~\ref{app:numeric}.
+\end{lemma}
+
+\begin{proof}
+For the upper estimate, evaluate the four terms
+\[
+ E_{\rm up}=\frac4\Theta+I_1+I_{3,\mathrm{compact}}+I_{3,\mathrm{tail}}
+       -\sum_{j=1}^{22}G_j,
+\]
+using upper endpoints for the four costs and lower endpoints for the
+nonnegative savings $G_j$. Each successive change is measured from its
+parent; overlapping alternatives are maximized before integration.
+The noncompact tail is bounded over its entire range.
+
+For the lower estimate, apply lower endpoints to $L_1,L_2,L_5,L_6$
+and upper endpoints to $U_3,U_4,U_7,\ldots,U_{11}$
+in~\eqref{eq:current-root-functional}. The changes of lower starts,
+restored exit regions, and finite-table corrections are inserted on
+their prescribed disjoint regions or as complete parent replacements.
+The paired-domain terms are then evaluated by
+\eqref{eq:current-crop-integral}, \eqref{eq:current-crop-loss},
+\eqref{eq:current-extra-gross}, and~\eqref{eq:current-refinement-delta}.
+This gives the rational endpoint $R_{\rm low}$.
+
+All scalar operations are rational. Logarithms are enclosed by series
+with explicit remainders; the sieve functions are enclosed by
+oriented interpolation estimates. Affine cells are triangulated using
+exact vertices and exact polynomial moments. Positive savings may be
+bounded on a subset, with the remaining saving discarded; an upper
+bound for a negative cost covers the full retained region. The finite
+recurrence reads only the preceding generation and rounds every
+nonnegative contribution downwards. The detailed enclosure and coverage
+statements are given in Appendix~\ref{app:numeric}. Rational subtraction
+gives~\eqref{eq:current-upper-slack} and~\eqref{eq:current-lower-slack}.
+\end{proof}
+
+\paragraph{Numerical data.}
+The finite partitions, recurrence, and directed integral bounds of
+Appendix~\ref{app:numeric} are supplied in
+\emph{Theorem (1+1.75) on the Goldbach Conjecture --- Numerical
+Supplement}, version 20261106~\cite{ChanSupplement}. The appendix describes the data and their certificate
+correspondence with Lemma~\ref{lem:numerical-endpoints}.
+
+\section{Ordered bad semiprimes and the final subtraction}
+\label{sec:current-transfer}
+
+We now estimate $B_b(N)$. Its dependence on $b$ is contained in
+the unsifted mass of the ordered semiprimes; the positive product
+estimate then imposes the prime complement.
+
+Fix $1/2<b<1$ and set $\beta=b/(1+b)$.  Products below
+$2N^{1-\kappa_0}$ have a negligible count.  For a remaining bad
+product $m=rq$, the inequality $r>q^b$ implies $r>m^\beta$;
+both primes therefore have a fixed positive exponent.  Use the
+coordinates
+\[
+                       t=\frac{\log r}{\log N},\qquad y=\frac{rq}{N}.
+\]
+On a fixed radial strip $\eta\le y\le C$, PNT in $q=Ny/r$
+followed by reciprocal-prime partial summation in $r$ gives the
+unsifted mass element
+\begin{equation}
+                         \frac{N}{\log N}\,
+                              \frac{dt\,dy}{t(1-t)}.
+ \label{eq:current-pair-measure}
+\end{equation}
+The PNT errors are uniform on positive exponent compacta.  A prime
+upper bound controls $y<\eta$ by $O_b(\eta N/\log N)$; $N$ tends
+to infinity first, then $\eta$ tends to zero.
+
+The exact ordered bad inequalities are
+\[
+ 0<y<1,\qquad
+ t\le\frac12+\frac{\log y}{2\log N},\qquad
+ t>\beta+\frac{b\log y}{(1+b)\log N}.
+\]
+Their limiting unsifted mass is
+\begin{equation}
+ J_b=\int_0^1dy\int_\beta^{1/2}\frac{dt}{t(1-t)}
+     =\left[\log\frac{t}{1-t}\right]_\beta^{1/2}
+     =\log(1/b).
+ \label{eq:current-bad-mass}
+\end{equation}
+The ordering $r\le q$ counts each composite once.  There is no
+factor $2$ and no further singular factor in $J_b$.  The
+equal-prime diagonal has size $O(\sqrt N)$ and can be retained or
+restored after a squarefree argument.
+
+Smooth the complete-product wall in $y$ and the remaining walls
+in $t$.  For any fixed $\epsilon>0$ a positive outer approximation
+has limiting mass at most $J_b+\epsilon$ and stays in the admissible
+finite family.  A partition of unity repeats no mass.
+Proposition~\ref{prop:current-positive-product}, followed by
+$N\to\infty$ and then $\epsilon\downarrow0$, gives
+\begin{equation}
+ \limsup_{\substack{N\to\infty\\2\mid N}}
+             \frac{B_b(N)}{H_N}\le K\log(1/b).
+ \label{eq:current-bad-bound}
+\end{equation}
+
+Unique factorization gives the exact identity
+\begin{equation}
+                         D_b(N)=D_{1,2}(N)-B_b(N).
+ \label{eq:current-exact-subtraction}
+\end{equation}
+The unit was excluded in \eqref{eq:current-d12}; a convention
+including it would change the count by at most one.  Zero is
+excluded by $p<N$.  A square is a bad remainder when $b<1$, and
+a prime remainder is a good one.  Combining
+\eqref{eq:current-lower-derived}, \eqref{eq:current-lower-slack}
+and \eqref{eq:current-bad-bound} proves
+Theorem~\ref{thm:current-main}.
+
+It remains to verify the strict scalar inequalities in
+Corollaries~\ref{cor:three-quarters} and~\ref{cor:current-explicit}. For rational $b$ put $z=(1-b)/(1+b)$.
+The positive atanh series and its geometric tail give
+\begin{equation}
+ 2\sum_{j=0}^{95}\frac{z^{2j+1}}{2j+1}
+ <\log(1/b)
+ <L_{96}(b):=
+ 2\sum_{j=0}^{95}\frac{z^{2j+1}}{2j+1}
+       +\frac{2z^{193}}{193(1-z^2)}.
+ \label{eq:current-log-certificate}
+\end{equation}
+Every endpoint is rational.  Substituting
+\eqref{eq:current-safe-constants} gives
+\begin{align}
+ c-KL_{96}(3/4)&>\frac{16532064}{10^9}>0.0165,\notag\\
+ c-KL_{96}(74816964/10^8)
+     &>\frac{1001149712517311}{10^{20}}>10^{-5},\notag\\
+ c-KL_{96}(74816865/10^8)
+     &>\frac{106416285358807}{10^{20}}>10^{-6},
+                 \label{eq:current-rational-margins}\\
+ c-KL_{96}(9/10)
+     &>\frac{124934244400949969098}{10^{20}}>1.24889.\notag
+\end{align}
+The respective surpluses exceed $3.2064\cdot10^{-5}$,
+$1.1497\cdot10^{-8}$, $6.4162\cdot10^{-8}$ and
+$4.5244\cdot10^{-4}$.  First choose the fixed realization and
+positive-smoothing errors inside these strict margins; then let
+the remaining uniform asymptotic errors tend to zero.  Taking the
+maximum of the four resulting thresholds proves both corollaries.
+
+\paragraph{Range supplied by the fixed constants.}
+For $1/2<b<1$, the right-hand side of \eqref{eq:current-general-theorem}
+is positive precisely when $b>\exp(-c/K)$. This value describes the range
+supplied by the present pair of coefficient bounds. Extending that range
+requires stronger applicable lower or upper estimates, with the
+moving-residue and coefficient-class conditions preserved.

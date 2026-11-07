@@ -1,0 +1,482 @@
+\section{有限筛系数的分解}
+\label{app:coefficients}
+
+本附录证明，实际的上、下界筛系数具有分布估计所需的分解。全文以 $N$ 表示目标偶数。有限分割、筛级和逼近精度均在 $N$ 趋于无穷之前选择，算术系数本身则可以依赖 $N$。记 $\omega_{\mathrm{pf}}(n)$ 为 $n$ 的不同素因子个数。
+
+\subsection{有限决策规则与剩余平方条件}
+
+记
+\[
+ \rho_0=\frac{19}{96},\qquad \mu_0=\frac{25}{128},\qquad
+ \Lambda_{\rm cap}=\frac{153}{256},\qquad \Theta=\frac{299}{500}.
+\]
+$\Theta$ 控制完整支撑，$\Lambda_{\rm cap}$ 控制高阶筛级。有限决策规则在有限多个素数前缀上分别指定筛级 $N^\lambda$；祖先决策在子节点细分之前固定。对递减指数 $t_1,\ldots,t_j$，令 $S_j=t_1+\cdots+t_j$。辅助筛级 $N^\ell$ 上的完整平方条件为
+\begin{equation}
+ S_{j-1}+2t_j\le\ell.
+ \label{coef:full-squares}
+\end{equation}
+若 $I$ 是带标记位置的选定子集，令 $b_I=\sum_{i\in I}t_i$。除 \eqref{coef:full-squares} 外，还保留所有条件
+\begin{equation}
+ b_I+\sum_{\substack{i<j\\i\notin I}}t_i+2t_j\le\ell
+ \qquad(j\notin I).
+ \label{coef:selected-squares}
+\end{equation}
+在最后一个选定指标之后，对 $j$，\eqref{coef:selected-squares} 的左端恰为 $S_{j-1}+2t_j$。因此，只要完整条件保留，接入更小素数就会保留选定条件。一个可用的立方条件还蕴含下一个平方条件，因为
+\[
+ S_j+2t_{j+1}\le S_{j-1}+3t_j.
+\]
+这一观察对普通筛树的两种奇偶性都适用：上界首次退出为奇数阶，下界首次退出为偶数阶。
+
+实际筛级 $\lambda$ 和辅助覆盖筛级 $\ell$ 的用途不同。系数及其密度使用 $\lambda$，而分解可以采用略大的 $\ell$；获得该覆盖时不改变 $\lambda$。以下给出三因子备选所需的选择。令
+\[
+ A(t)=\frac{1+t}{2},\qquad W(z)=\Lambda_{\rm cap}-\frac38z.
+\]
+在粗盒上，设 $\Gamma=\inf\max(A,W)$、$\lambda=\Gamma-2e$，其中变动预留量满足 $\chi<e/10$。若 $\inf A\ge\lambda+e/2$，取 $\ell=\lambda+e/4$；否则有 $\sup A<\lambda+11e/20$，故整个盒上都有 $W\ge\Gamma$，此时取 $\ell=\lambda+e$。这样在下边界以上至少留有 $9e/20$，在上边界以下至少留有 $e$。其余初始化预留量包括
+\[
+ 1-\Lambda_{\rm cap}-2\mu_0=\frac3{256},\qquad
+ \frac{525}{8704}+\frac{49z}{272}>0.
+\]
+高阶变更限制在各条件均有正余量的紧区域内，再令精细端点扩张小于该余量。
+
+在普通下界起点 $t_1\le {h_{\rm s}}=19/125<\mu_0$，端点可用条件满足
+\[
+ \max\left(\frac{1+t_1}{2},\Lambda_{\rm cap}-\frac38t_1\right)
+ \ge\frac{249}{448}.
+\]
+因此，比 $249/448$ 低一个固定余量的筛级具有严格的覆盖区间。第四阶退出的恢复，必须先通过其自身立方条件及全部完整和选定平方条件。对 $\mu_0$ 以上的上界前缀，函数
+\[
+ v(x)=\min\left(\frac{1+x}{2},\frac{57}{64}-\frac32x\right)
+\]
+在 $x<\rho_0$ 时满足 $v(x)>3x$。选取 $y<x$ 给出 $2x+y<3x$；选取 $y+z<x$ 给出 $2x+y+z<3x$。这就是两个附加备选的初始平方界。
+
+在带标记状态中，记 $S=\log_N B$、$L=\lambda-S$、$\alpha=(1-S)/L\ge2$。指数为 $Lu$ 的单素数将剩余长度变为 $L(1-u)$；指数为 $Lu,Lv$ 的素数对将其变为 $L(1-u-v)$。两种情形下 $\alpha$ 都增大。条件 $2u<1$，或 $2v<1$ 与 $v+2u<1$，恰好是新增的完整平方条件。选定条件随后由 \eqref{coef:selected-squares} 推出，父节点的素数上限也保留。有限构造至多含 $440$ 次基本转移。对某个 $\ell_0>0$，其剩余指数至少为 $L_{\min}=\ell_0 101^{-440}$，接入素数的指数至少为 $L_{\min}/6$。特别地，全部换位叶节点具有共同的正素数截点。
+
+\subsection{有限逼近与严格余量}
+
+对全部带标记查询共同选择有限分割。在第三个上界退出处，被略去的末素数尾部为
+\[
+ O\!\left(\eta\left(1+\log^2\frac{\rho_0}{\eta}\right)\right),
+ \qquad\eta\downarrow0.
+\]
+在 $r=3,4,5$ 阶下界退出处，相应界为 $O(\eta(1+\log^{r-1}({h_{\rm s}}/\eta)))$。更高阶变更具有正的末素数截点；特别地，八阶区域满足 $t_8>53/13824$。在其余紧区域上，可用任意小质量裁去真正的仿射边界。若某区域上的标签恒为继承，则保留该区域，不把它当作边界。先固定粗层决策，再细分子节点，使计数和密度使用同一有限规则。
+
+对于第三阶包络，粗参数 $e,\chi$ 给出 $0\le L_{\mathrm{end}}-\lambda\le4e+6\chi$。固定有限前缀规则及其正余量后，可用性函数在有限多个紧盒上连续，故其严格余量具有正的最小值。因此，存在 $\kappa_*>0$，使得当 $\log_xN\in[1,1+\kappa_*]$ 且端点扩张充分小时，全部不等式仍成立。这里的余量是在除去极限边界区域之后，针对固定紧区域取得的。
+
+\subsection{三因子表示}
+
+由于分解必须对完整系数成立，下面说明端点构造。设 $x$ 为完整局部尺度，$q_0=\log_x N$、$\vartheta=7/32$，$\alpha_0\ge q_0$ 为局部可用条件中的剩余类参数。对固定的小 $\zeta>0$，令
+\[
+ \theta_{\rm cov}=q_0\ell+2\zeta,\qquad D=x^{\theta_{\rm cov}-2\zeta},
+ \qquad A=Ux^{-\zeta},
+\]
+其中 $U$ 是选定的中等长度。定义
+\begin{align*}
+ v_0&=2\theta_{\rm cov}-1,\\
+ u_0&=\min\left\{
+ \frac{2-(2+2\vartheta)\theta_{\rm cov}}{3-4\vartheta},
+ \frac{2-2\theta_{\rm cov}-\alpha_0\vartheta}{3}\right\}.
+\end{align*}
+本小节各位置的指数以及 $b_I$ 都以 $x$ 为底，即为先前以 $N$ 为底的值乘以 $q_0$。因此，完整与选定平方条件中的覆盖指数为 $q_0\ell$。选定子集的可用条件为 $v_0\le b_I\le u_0$，并对有序上端点施加 \eqref{coef:full-squares}--\eqref{coef:selected-squares}。重标度后保留该条件的全部各行，包括在 $\alpha_0=1$ 时被其他行支配的一行。
+
+先设 $C=D/(Ax^{b_I})\ge1$。将选定位置放入第二组，再把其余位置以贪心方式放入容量 $A,C$。每次放入时，选定平方条件使新位置的平方不超过剩余容量的乘积，因此至少一个容量可以容纳它。所得分组端点满足
+\[
+ B_1\le A,\qquad B_2=x^{b_I},\qquad B_3\le C
+\]
+以及
+\begin{align}
+ A^2B_2B_3^2&\le x^{1-4\zeta},\notag\\
+ N^\vartheta AB_1B_2^5B_3^2&\le x^{2-4\zeta},
+ \label{coef:three-monomials}\\
+ A^{1+2\vartheta}B_1B_2^{5-2\vartheta}B_3^{2+2\vartheta}
+ &\le x^{2-(4+4\vartheta)\zeta}.\notag
+\end{align}
+若 $C<1$，则利用完整平方条件将所有位置放入 $A,D/A$。此时 $1<D/A<x^{b_I}$。令 $B_3=1$，并在最后两个界中将 $x^{b_I}$ 换为 $D/A$。第一个界来自 $A^2B_2\le AD\le x^{23/24-5\zeta/2}$。所以不会引入端点低于一的因子。
+
+对三位置 $W$ 备选，用前两个位置初始化容量 $A,x^{v_0},D/(Ax^{v_0})$。其中一个可放入 $x^{v_0}$，另一个的平方不超过其余两个容量的乘积 $x^{1-\theta_{\rm cov}-2\zeta}$。继续逐个放入完整位置。若首次出现一个位置不能放入任何容量，则将其并入第二组。新乘积 $B$ 位于 $(x^{v_0},x^{u_0}]$，因为该位置不超过第三个位置，且 $p_3\le x^{u_0-v_0}$。第一容量无法容纳它，加上完整平方条件，给出 $ABc<D$，故其余两个剩余容量可用。继续用完整平方贪心论证完成分组。若从未失败，则容量乘积直接给出 \eqref{coef:three-monomials}。这些算法只使用整个原子的端点数据及中等长度，绝不依赖具体算术元组或等差数列偏差的符号。
+
+\subsection{系数恒等式与无平方因子限制}
+
+将区间标签细化为共同的不交半开标签集。若 $m_I$ 个位置具有标签 $I$，令 $M=\prod_I m_I!$。位置列表的未加限制素数卷积 $N_J$ 在其支撑上取值 $M/\prod_p\nu_p(n)!$，故相应有序无平方因子系数为 $\one_{\mathrm{sf}}N_J/M$。对一个固定三分组，令 $M_j=\prod_I m_{I,j}!$，并设 $\gamma_j$ 为组卷积除以 $M_j$。则在每个整数上 $0\le\gamma_j\le1$，且有精确恒等式
+\begin{equation}
+ \frac{N_J}{M}
+ =\frac{M_1M_2M_3}{M}\,
+       (\gamma_1*\gamma_2*\gamma_3).
+ \label{coef:tensor-identity}
+\end{equation}
+空组是在一处的单位质量。带标记卷积已经包含其标记重数，只将有序剩余位置除以相应阶乘：对带符号原子
+$\epsilon\one_{\mathrm{sf}}N_{\mathrm{all}}/M_{\mathrm{res}}$
+重新分组后，外部标量为 $\epsilon M_1M_2M_3/M_{\mathrm{res}}$。这一标量固定，但不必小于或等于一。
+
+选择低于每个带标记素数指数的 $w=N^{\eta_0}$。对 $p<w$，$p\mid BN$ 当且仅当 $p\mid N$。因此，只需一对支撑低于最小剩余预留量的小素数 beta 权，即可适用于有限带标记族的全部状态。原子的符号决定接入其中哪一个。小素数集合和粗糙素数集合互不相交，分解唯一。将小素数 beta 权接入 \eqref{coef:tensor-identity} 的一个组，仍保持绝对值不超过一。
+
+全局无平方因子条件保留在实际系数及其密度中，仅在解析张量展开时去掉。若支撑为 $D_*\le N^{\theta_*}$ 且 $\theta_*<1$，偏差的变化至多为一个固定除数因子乘以
+\begin{align}
+ &\sum_{\substack{q\le D_*\\p^2\mid q\text{ 对某个 }p\ge N^{\eta_0}}}
+ \left(\frac{N}{q}+1+\frac{N}{\varphi(q)}\right)
+ \ll (N+D_*)N^{-\eta_0+o(1)}.
+ \label{coef:collision}
+\end{align}
+其中 $1$ 包括完整乘积恰为 $N$ 的情形。没有任何除数函数在零处取值。
+
+\subsection{参数次序与中等长度估计}
+
+接入小素数、扩张端点及作局部重标度之前，上界族、普通下界族和带标记族的粗糙阶数至多为二的完整支撑指数分别为
+\[
+ \frac{19}{48},\qquad \frac{38}{125},\qquad
+ \frac{1527}{3584}
+\]
+它们低于 $1/2$ 的余量分别是 $5/48$、$49/250$、$265/3584$。最后一项用到 $x<57/224$、$x+2y\le\Lambda_{\rm cap}$，从而有 $x+y\le(\Lambda_{\rm cap}+57/224)/2=1527/3584$。固定的系数范数允许对这些部分使用低于二分之一水平的 Bombieri--Vinogradov 估计。高阶系数则需要前述分解。
+
+先固定有限组估计及其依赖关系、粗层规则、分解条件及正预留量。选取低于这些预留量和素数截点的 $\zeta$，并令 $\sigma=\zeta/2000$。再选共同的 beta 支撑，使其对密度和支撑容差都足够小。若粗糙阶数界为 $J$，则选择端点网格 $\tau$，使 $(J+2)\tau$ 小于每一剩余预留量。仅在固定的除数阶数与矩阶数确定后，才选择
+\begin{equation}
+ 0<\kappa\le\min\left\{\kappa_*,\frac{\sigma}{200},
+                         \frac1{2K_{\mathrm{mom}}}\right\},
+ \qquad
+ 0<\kappa_0<\frac{\kappa}{4(1+\kappa)}.
+ \label{coef:parameter-order}
+\end{equation}
+其中 $K_{\mathrm{mom}}$ 控制 Fourier 尾部和互补系数截断中的固定矩阶数。必要时再缩小 $\kappa_0$，使由 $\theta_*=599/1000$ 安全控制的完整支撑满足 $\theta_* /(1-\kappa_0)<3/5$，并使三个低阶支撑都保持低于二分之一。
+
+在 \eqref{coef:three-monomials} 中将 $A$ 替换为 $U$ 后，仍有节省量 $\zeta,2\zeta,9\zeta/16$。扣除两项 $\zeta/16$ 的预留量后，最小节省量为 $7\zeta/16>15\sigma$。小素数只接入第三组，其代价 $2\ell_\beta,2\ell_\beta,
+(2+2\vartheta)\ell_\beta$ 已纳入预留量。因而二进细分产生满足命题~\ref{prop:current-medium} 全部四个大小条件的 $Q_1,Q_2,Q_3$。严格余量吸收固定端点常数。在 $N$ 增大之前，原子只有有限个，绝对标量总范数固定。由此建立了实际有限系数族的一致三因子表示。
+
+\hypertarget{coef:medium-checks}{}
+\paragraph{中等长度分支的条件核验。}
+下表将命题~\ref{prop:current-medium} 的条件与命题~\ref{coef:prime-product-insertion} 中的实际应用对应起来。核验在固定共同有限规则及其严格支撑预留量之后进行。
+\begingroup
+\renewcommand{\LTcaptype}{}
+\stepcounter{LT@tables}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{.21\textwidth}>{\raggedright\arraybackslash}p{.45\textwidth}>{\raggedright\arraybackslash}p{.28\textwidth}@{}}
+\toprule
+ 条件或输入 & 应用中的实现 & 核验位置 \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+完整尺度与剩余类 & $x=UV$ 是完整乘积的尺度，$\mathfrak a=N$。截断及局部重标度给出 $c_0x\le N\le x^{1+\kappa}$。 & \eqref{coef:complete-scales}、\eqref{coef:parameter-order}\\[3pt]
+粗糙中等长度序列 & 单独区间上的粗糙 $1$ 序列或 M\"obius 序列带有界权及允许的 Mellin 扭曲；保留辅助互素条件下的估计。 & \eqref{coef:rough-SW} 及其证明\\[3pt]
+互补序列 & 唯一分解给出固定除数界。应用局部估计前，任何对数截断的代价均由混合矩估计控制。 & 引理~\ref{coef:mixed-moment}；命题~\ref{coef:prime-product-insertion} 的证明\\[3pt]
+三个模数因子 & 归一化组卷积彼此分离、绝对值不超过一，并保留与剩余类互素的支撑。带标记重数留在外部标量中。 & \eqref{coef:tensor-identity}；完整与选定平方条件 \eqref{coef:full-squares}--\eqref{coef:selected-squares}\\[3pt]
+四项严格大小检验 & 三个单项式界、中等长度容量、小素数接入及局部重标度共同给出 \eqref{eq:current-medium-ranges} 的全部检验。 & \eqref{coef:three-monomials}；\eqref{coef:parameter-order} 后的预留量\\[3pt]
+变动剩余类相位与谱输入 & 保留精确互反相位。其变差以及 packet 与谱范数均使用指定的局部余量。 & \eqref{eq:current-retained-phase}、\eqref{ana:phase-variation}；附录~\ref{app:classical}\\[3pt]
+一致求和误差 & 固定原子标量、Fourier 范数及对数个坐标片由更强的局部对数精度覆盖。素数幂、平方因子碰撞及完整乘积恰为 $N$ 的情形分别计入。 & \eqref{coef:collision}；命题~\ref{coef:prime-product-insertion} 的证明\\[3pt]
+\end{longtable}
+\endgroup
+
+从节省量 $\zeta,2\zeta,9\zeta/16$ 中扣除已述支撑预留量后，四项大小检验仍留有严格余量，可吸收固定的二分端点倍数。此项核验针对中等长度分支；命题~\ref{coef:prime-product-insertion} 的其余分支由低于二分之一水平的估计及附录~\ref{app:brun} 覆盖。上界系数、下界系数和普通带标记后继均以其实际带符号系数 $\rho_N$ 通过该命题进入应用。
+
+\section{光滑素数乘积的分布}
+\label{app:prime-products}
+
+本附录为附录~\ref{app:coefficients} 的有限系数族证明 \eqref{eq:current-PP}。中等长度分支使用命题~\ref{prop:current-medium}；其余分支使用低于二分之一水平的估计或附录~\ref{app:brun}。
+
+设光滑权 $W_N$ 依赖至多 $k_*$ 个带标签素数位置，满足 $p_i\ge cN^{a_*}$，乘积为 $O(N)$。定义
+\[
+ E_q(N;W)=\sum_{p_1,\ldots,p_k}W_N(p_1,\ldots,p_k)
+ \left(\one_{p_1\cdots p_k\equiv N\ (q)}
+       -\frac{\one_{(p_1\cdots p_k,q)=1}}{\varphi(q)}\right).
+\]
+几何权的混合 Euler 导数满足固定多对数界，不带附加算术筛选条件。
+
+\subsection{两个辅助均值估计}
+
+用 $d_j$ 表示 $j$ 重除数函数。由于对数截断要求固定矩阶数，下面记录初等矩估计及其对变动平移量的依赖。
+
+\begin{lemma}\label{coef:mixed-moment}
+固定非负整数 $R,S$ 和常数 $C\ge1$。令 $K_{\rm mom}=2^{2\max(R,S,1)}$、$0\le\kappa\le1/(2K_{\rm mom})$。对 $|a|\le Cx^{1+\kappa}$ 及区间 $J\subseteq[1,Cx]$，一致有
+\[
+ \sum_{\substack{b\in J\\b\ne a}}
+       \tau(b)^R\tau(|b-a|)^S
+ \ll_{C,R,S} x(1+\log x)^{K_{\rm mom}-1}.
+\]
+\end{lemma}
+
+\begin{proof}
+设区间 $I\subseteq[1,Z]$ 的长度为 $Y$。对乘积落在 $I$ 中的有序 $j$ 元组，选取最大坐标，得到
+\begin{align*}
+ \sum_{n\in I}d_j(n)
+ &\le j\sum_{d\le Z^{1-1/j}}d_{j-1}(d)(Y/d+1)\\
+ &\le j\{Y(1+\log Z)^{j-1}
+              +Z^{1-1/j}(1+\log Z)^{j-2}\}.
+\end{align*}
+事实上，其余 $j-1$ 个坐标的乘积至多为 $Z^{1-1/j}$；去掉最大坐标限制只会增大和。最后两个界由把除数函数展开为有序乘积、再对末因子求和得到。对每个整数 $e\ge0$，有 $\tau(n)^e\le d_{2^e}(n)$。在素数幂上，可将 $\{0,\ldots,v\}^e$ 中的 $e$ 元组映到达到各个位置 $1,\ldots,v$ 的坐标子集的频数表；该表是把 $v$ 分为 $2^e$ 份的弱组合，并唯一决定原元组。
+
+非零值 $|b-a|$ 以至多二的重数落在至多两个区间内，每个区间长度为 $O_C(x)$，上端点为 $O_C(x^{1+\kappa})$。对 $d_{K_{\rm mom}}$ 应用前面的区间界，得
+\[
+ \sum_{\substack{b\in J\\b\ne a}}\tau(|b-a|)^{2S}
+ \ll x(1+\log x)^{K_{\rm mom}-1}
+       +x^{(1+\kappa)(1-1/K_{\rm mom})}(1+\log x)^{K_{\rm mom}-2}.
+\]
+第二个指数至多为 $1-1/(2K_{\rm mom})-1/(2K_{\rm mom}^2)<1$。未平移的 $2R$ 矩也满足同样的界。Cauchy--Schwarz 不等式即得结论。在应用除数函数之前，已去掉 $b=a$ 项。
+\end{proof}
+
+\begin{lemma}[低于二分之一水平的卷积估计]
+\label{coef:low-rank-BV}
+固定 $\eta>0$、$c\ge1$。设 $x=UV$、$x^\eta\le U,V\le x^{1-\eta}$，且 $\alpha,\beta$ 支撑在 $[U,cU]$、$[V,cV]$ 上，满足
+\[
+ \sum_m|\alpha(m)|^2\ll U(\log x)^C,\qquad
+ \sum_n|\beta(n)|^2\ll V(\log x)^C.
+\]
+它们不依赖于求和模数。假定对每个固定 $A_1,B>0$、每个 $k\ge1$、$r\le(\log x)^B$、$(b,r)=1$，都有
+\begin{equation}
+ \left|\sum_{\substack{m\equiv b\ (r)\\(m,k)=1}}\alpha(m)
+ -\frac1{\varphi(r)}\sum_{(m,rk)=1}\alpha(m)\right|
+ \ll_{A_1,B}\tau(k)^{C_0}U(\log x)^{-A_1},
+ \label{coef:small-aux-SW}
+\end{equation}
+其中指数 $C_0$ 固定。则对每个 $A>0$，存在 $D>0$，使 $Q\le\sqrt x(\log x)^{-D}$ 蕴含
+\[
+ \sum_{q\le Q}\max_{(a,q)=1}
+ \left|\sum_{mn\equiv a\ (q)}\alpha(m)\beta(n)
+ -\frac1{\varphi(q)}\sum_{(mn,q)=1}\alpha(m)\beta(n)\right|
+ \ll_A x(\log x)^{-A}.
+\]
+\end{lemma}
+
+\begin{proof}
+令 $L=\log x$。本原乘法大筛 \cite[定理~18.2]{Kedlaya} 为
+\begin{equation}
+ \sum_{r\le R}\frac r{\varphi(r)}\sum_{\chi\ (r)}^{*}
+ \left|\sum_nz(n)\chi(n)\right|^2
+ \le(H-1+R^2)\sum_n|z(n)|^2,
+ \label{coef:multiplicative-LS}
+\end{equation}
+这里 $z$ 支撑在至多含 $H$ 个连续整数的区间上。特征正交性精确消去主特征。由本原特征 $\chi^*$ 诱导的模 $q=rk$ 特征满足 $\chi(m)=\chi^*(m)\one_{(m,k)=1}$，包括 $(r,k)>1$ 的情形。令 $\alpha_k=\alpha\one_{(m,k)=1}$、$\beta_k=\beta\one_{(n,k)=1}$，用 $A_k(\chi),B_k(\chi)$ 表示其特征和。由于 $\varphi(rk)\ge\varphi(r)\varphi(k)$，所求和不超过
+\begin{equation}
+ \sum_{k\le Q}\frac1{\varphi(k)}
+ \sum_{1<r\le Q/k}\frac1{\varphi(r)}
+              \sum_{\chi\ (r)}^{*}|A_k(\chi)B_k(\chi)|.
+ \label{coef:induced-characters}
+\end{equation}
+两个互素限制都不可省略。它们不会增加 $L^2$ 范数，且固定 $k$ 时不依赖于 $r$。
+
+设 $R_0=L^{B_0}$。对 $R<r\le2R$、$R\ge R_0$，由 Cauchy--Schwarz 及 \eqref{coef:multiplicative-LS}，内和至多为
+\[
+ \ll L^{C'}\left\{\frac xR+
+ \sqrt x(\sqrt U+\sqrt V)+R\sqrt x\right\}.
+\]
+先作二进求和，再在 \eqref{coef:induced-characters} 中对 $k$ 求和，得到
+\begin{equation}
+ \ll L^{C'}\left\{\frac{xL}{R_0}
+       +L^2\sqrt x(\sqrt U+\sqrt V)+Q\sqrt x\right\}.
+ \label{coef:large-conductors}
+\end{equation}
+这里 $\sum_{k\le Y}1/\varphi(k)\ll1+\log Y$、$\sum_{k\ge1}1/(k\varphi(k))<\infty$，后一求和出现在最后一项中。两者均由 $n/\varphi(n)=\sum_{d\mid n}\mu(d)^2/\varphi(d)$、$1/(d\varphi(d))\le\tau(d)/d^2$ 得到。因 $\sqrt x(\sqrt U+\sqrt V)\le2x^{1-\eta/2}$，\eqref{coef:large-conductors} 的中间项有固定幂次节省。取 $B_0,D$ 充分大即可控制其余两项。
+
+对 $r\le R_0$，将 \eqref{coef:small-aux-SW} 与本原非主特征相乘求和，均值为零，得到 $|A_k(\chi)|\ll\varphi(r)\tau(k)^{C_0}UL^{-A_1}$。$\beta_k$ 的 $L^1$ 界为 $O(VL^{C/2})$，故 \eqref{coef:induced-characters} 的小导子部分至多为
+\[
+ \ll xL^{C/2-A_1}
+       \left(\sum_{r\le R_0}\varphi(r)\right)
+       \left(\sum_{k\le Q}\frac{\tau(k)^{C_0}}{\varphi(k)}\right).
+\]
+选择整数 $J\ge C_0+1$。由 $n/\varphi(n)\le\tau(n)$、$\tau(n)^J\le d_{2^J}(n)$，末和至多为 $(1+\log Q)^{2^J}$。固定 $B_0$ 后，取 $A_1$ 充分大即完成证明。所有除数阶数都在所要求的对数精度之前固定。
+\end{proof}
+
+对原始素数位置，经典素数 Siegel--Walfisz 定理 \cite[Exercise~64]{TaoSW} 配合分部求和，在 $k=1$ 时以任意指定节省给出 \eqref{coef:small-aux-SW}。对任意 $k$，改变互素条件仅删除整除 $k$ 的素数，代价至多为 $2\|\alpha\|_\infty\omega_{\mathrm{pf}}(k)$；其固定对数范数由正幂尺度 $U$ 吸收。因此 $C_0=1$ 适用于全部所需指数。固定光滑轮廓、区间端点及具有固定多对数变差的 Mellin 扭转都保留这一估计。对多个原始素数，将其中一个放入 $\alpha$，其余因子放入 $\beta$。唯一分解给出固定除数界，从而给出 $\beta$ 所需的 $L^2$ 范数。
+
+\subsection{素数乘积估计的证明}
+
+\begin{proposition}\label{coef:prime-product-insertion}
+对附录~\ref{app:coefficients} 构造的有限上界、下界及带标记系数，命题~\ref{prop:current-medium} 的受限中等长度估计与低于二分之一水平的 Bombieri--Vinogradov 估计推出
+\[
+ \sum_q\rho_N(q)E_q(N;W)=O_{A,W}\bigl(N(\log N)^{-A}\bigr)
+ \qquad(A>0).
+\]
+计数和精确互素均值使用同一系数。该估计对固定有限族及全部充分大的偶数 $N$ 一致。
+\end{proposition}
+
+\begin{proof}
+选取光滑 $\eta$，使其在 $[0,1]$ 上为零、在 $[2,\infty)$ 上为一，并将 $W_N$ 乘以 $\eta(p_1\cdots p_k/N^{1-\kappa_0})$。被删乘积小于 $2N^{1-\kappa_0}$，对充分大的 $N$ 严格低于 $N$。其完整模数除数和及精确均值的误差为 $O(N^{1-\kappa_0+o(1)})$。这一截尾的全部 Euler 导数均有界。
+
+对每个原始素数插入非负光滑二进单位分解。在一个原始坐标片上，令 $R_i=2^{j_i}$、$X=\prod_iR_i$、$X^+=2^kX$。取 $f(v)=v^{1/(\log\log v)^3}$，在应用卷积恒等式之前先固定共同粗糙截点
+\[
+ z=f(2^{6k_*+2}X^+)
+\]
+每个原始素数最终都大于 $z$。将其素数示性函数替换为 $\Lambda(n)/\log n$，并删除真素数幂，代价具有固定幂次节省：$cN^{a_*}$ 以上的相应倒数质量为 $N^{-a_*/2+o(1)}$。非零完整差值的除数代价为 $N^{o(1)}$；精确乘积 $N$ 单独贡献至多 $N^{\theta_*+o(1)}$。
+
+对尺度 $R$ 的分组，令 $Z=(2R)^{1/3}$、$\mu_Z=\mu\one_{[1,Z]}$。若 $\delta$ 表示卷积恒等元，则 $\delta-1*\mu_Z$ 支撑在 $Z$ 以上，故 $2R$ 以下有 $\Lambda*(\delta-1*\mu_Z)^{*3}=0$。展开得到
+\begin{equation}
+ \Lambda=\sum_{j=1}^3(-1)^{j-1}\binom3j
+             \mu_Z^{*j}*1^{*(j-1)}*\log.
+ \label{coef:HB}
+\end{equation}
+保留原始光滑坐标片。粗糙性投影可分解到 \eqref{coef:HB} 中的所有变量上；使用 $P^-(1)=\infty$。不增加尖锐的耦合分组边界。
+
+每个原始组至多有六个变量。与其光滑支撑相交的各个矩形，具有满足下式的完整局部尺度：
+\begin{equation}
+ 2^{-7k-1}X\le x\le2^{6k-1}X^+,
+ \qquad f(x)\le z\le x^{2/(\log\log x)^3}.
+ \label{coef:complete-scales}
+\end{equation}
+所以，由 \eqref{coef:parameter-order} 有 $cN^{1-\kappa_0}\le x\le CN$、$c_0x\le N\le x^{1+\kappa}$。尺度 $x$ 始终对应完整乘积。
+
+为分离几何轮廓，采用坐标 $u_j=\log(n_j/U_j)$，并取轮廓的光滑紧支撑延拓 $w$。写作 $D_w=\sum_{S\subseteq\{1,\ldots,m\}}\|\partial_{2S}w\|_1$，分部积分给出
+\[
+ |\widehat w(\xi)|\le D_w\prod_j(1+\xi_j^2)^{-1},
+ \quad \frac1{(2\pi)^m}\int|\widehat w(\xi)|\,d\xi
+ \le\frac{D_w}{2^m}.
+\]
+$|\xi|_\infty\le H$ 以外的尾部为 $O(mD_w/H)$，其中 $D_w$ 为固定对数幂。算术和可与绝对可积的 Fourier 表示交换。对完整模数求和后，非零差值 $b-N$ 处的尾部由固定混合除数矩控制为
+\[
+ \sum_{b\asymp x}\tau(b)^R\tau(|b-N|)^S
+ \ll x(\log x)^C.
+\]
+应用引理~\ref{coef:mixed-moment}，其固定阶数纳入 $K_{\mathrm{mom}}$。精确差值为零的情形单独用 $N^{\theta_*+o(1)}$ 估计。选取充分大的对数参数 $H$。对保留的频率，支付的是 Fourier 积分范数，而非频率个数。
+
+若存在中等长度位置，就在 $X^{3\zeta}\le U\le X^{1/3+\zeta/4}$ 中选取一个。由 \eqref{coef:complete-scales}，其局部长度处于 $x^{2\zeta}\le U\le x^{1/3+\zeta/2}$；其序列具有形式
+\[
+ \alpha_n=e_n\one_I(n)\one_{P^-(n)>z}h(n)n^{it},
+ \qquad e_n=1\text{ 或 }\mu(n),\quad |h|\le1,
+\]
+且变差与频率具有固定多对数界。中等长度估计所需的辅助 Siegel--Walfisz 性质为
+\begin{equation}
+ \left|\sum_{\substack{n\equiv b\ (q)\\(n,k)=1}}\alpha_n
+ -\frac1{\varphi(q)}\sum_{(n,kq)=1}\alpha_n\right|
+ \ll_A U\tau(k)(\log x)^{-A}.
+ \label{coef:rough-SW}
+\end{equation}
+为完整起见，可在偶数 Brun 阶数 $h=2\lfloor(\log\log x)^2\rfloor$ 插入粗糙性；下一层除数支撑为 $z^{h+1}<U^{1/4}$，而上下差的密度具有任意对数衰减。对无平方因子的 $\ell$，有 $\mu(\ell v)=\mu(\ell)\mu(v)\one_{(v,\ell)=1}$。商变量 $v$ 的尺度记为 $V_\ell=U/\ell$。恒等式 \[
+ \mu(v)\one_{(v,\ell)=1}
+ =\sum_{\substack{w\mid v\\p\mid w\Rightarrow p\mid\ell}}\mu(v/w)
+\] 将小模数计算化为 $\mu$ 的未加粗糙限制的 Siegel--Walfisz 估计。在 $w\le V_\ell^{1/4}$ 处截断后留下 $O(V_\ell^{7/8}\tau(\ell)^2)$，最小内层尺度为 $U^{9/16}$。对 $\ell\le U^{1/4}$ 求和后为 $O(U^{29/32}\log^4U)$。大模数由绝对值不超过一的区间估计控制。插入 $(n,k)=1$ 仅删除高于 $z$ 的素数 $p\mid k$，代价至多为 $2(U/z+1)\omega_{\mathrm{pf}}(k)$。先取更强的初始对数精度，分部求和即可吸收允许的变差与扭转。这就对实际因子证明了 \eqref{coef:rough-SW}。
+
+互补卷积由固定除数幂控制。必要时，仅将这一互补系数在固定对数阈值处截断：对非零差值使用同一混合除数矩界，在零处使用 $N^{\theta_*+o(1)}$。阈值在固定阶数确定后选择，再以更强局部对数估计恢复归一化。中等长度位置不作截断。现在对精确张量表示 \eqref{coef:tensor-identity} 应用命题~\ref{prop:current-medium}。
+
+若没有中等长度变量，则每个原始分组均含有长变量：由于 $\zeta<a_*/100$，六个小于 $X^{3\zeta}$ 的变量之积不可能与 $R_i$ 同阶。长变量至多有两个，否则三个长变量将超过完整尺度。截断 M\"obius 变量为 $O(X^{1/3})$，不能是长变量。因此，剩下一或两个无权的长整数变量，同时保留其对数、光滑扭曲、独立区间及共同粗糙性投影。两种情形的互补短乘积分别不超过 $x^{20\zeta}$ 和 $x^{40\zeta}$。附录~\ref{app:brun} 在保留精确互素均值的条件下估计这两种情形。
+
+最后，低阶系数部分的完整支撑与 $x^{1/2}$ 之间有固定余量。对一个原始素数，使用带最大值形式的素数 Bombieri--Vinogradov 估计；对两个或更多原始素数，按前述方法取一个原始素数位置，应用引理~\ref{coef:low-rank-BV}。有界的系数总范数允许使用其绝对值形式。全部固定原子标量、对数数量的坐标片及 Fourier 积分范数，均以更强的局部对数精度吸收。移去的素数幂、碰撞及截尾都具有固定幂次节省。因此，对这一有限族存在统一的最终阈值。
+\end{proof}
+
+\section{一个与两个长粗糙变量}
+\label{app:brun}
+
+本附录的估计处理命题~\ref{coef:prime-product-insertion} 证明中不含中等长度变量的分支。
+
+对于一或两个长变量的情形，我们使用直接的等差数列估计及经典的完全 Kloosterman 和界。论证保留精确互素均值，并对本原剩余类的大小一致。
+
+\subsection{具有一致密度差的 Brun 多项式}
+
+设 $L=\log\log x$、$h=2\lfloor L^2\rfloor$、$r=h+1$、$\log z\le2\log x/L^3$。令 $P(z)=\prod_{p\le z}p$、$y=z^r=x^{o(1)}$。定义
+\[
+ \lambda^+(d)=\mu(d)\one_{d\mid P(z),\,\omega_{\mathrm{pf}}(d)\le h},
+ \qquad
+ \lambda^-(d)=\mu(d)\one_{d\mid P(z),\,\omega_{\mathrm{pf}}(d)\le h+1},
+\]
+及
+\[
+ U_z(n)=\sum_{d\mid n}\lambda^+(d),\quad
+ L_z(n)=\sum_{d\mid n}\lambda^-(d),\quad
+ G_z=U_z-L_z,\quad r_z(n)=\one_{(n,P(z))=1}.
+\]
+两个除数和的系数绝对值均不超过一，支撑低于 $y$。交错二项式恒等式给出
+\begin{equation}
+ L_z\le r_z\le U_z,\qquad U_z\ge0,\qquad
+ G_z(n)=\binom{\omega_{\mathrm{pf}}((n,P(z)))}{r}\ge0.
+ \label{coef:Brun-order}
+\end{equation}
+这也包括 $(n,P(z))=1$ 的情形，此时两个多项式均为一。下界多项式不必非负。
+
+对每个 $q$，令
+\[
+ A_q=\sum_{(d,q)=1}\frac{\lambda^+(d)}d,\quad
+ g_q=\sum_{(d,q)=1}\frac{\lambda^+(d)-\lambda^-(d)}d,\quad
+ V_q=\prod_{\substack{p\le z\\p\nmid q}}\left(1-\frac1p\right).
+\]
+将有限容斥应用于均值为 $1/p$ 的独立 Bernoulli 变量，得到
+\begin{equation}
+ 0\le A_q-V_q\le g_q
+ \le\frac{(\sum_{p\le z}1/p)^r}{r!}=:\epsilon_x.
+ \label{coef:Brun-gap}
+\end{equation}
+该界对整除 $q$ 的素数集合一致。初等素数调和界 $\sum_{p\le z}1/p\ll L$ 与 $r!\ge(r/e)^r$ 最终给出 $\epsilon_x\le\exp(-cL^2\log L)$。因此 $\epsilon_x$ 小于 $\log x$ 的每个固定负幂，而 $y=x^{o(1)}$ 仅与固定幂次节省相乘出现。
+
+\subsection{光滑等差数列的核心估计}
+
+对光滑紧支撑轮廓，定义 $N_1(f)=\|f\|_1+\|f'\|_1$、$N_2(f)=\|f\|_1+\|f''\|_1$。等差数列求和及 M\"obius 反演给出
+\begin{align}
+ \sum_{n\equiv b\ (q)}f(n/U)&=\frac Uq\int f+O(N_1(f)),\notag\\
+ \sum_{(n,q)=1}f(n/U)&=U\frac{\varphi(q)}q\int f
+                        +O(\tau(q)N_1(f)).
+ \label{coef:one-core}
+\end{align}
+这些估计对 $U>0$ 及本原剩余类 $b$ 一致。因此，对固定且与 $q$ 互素的 $m$，$mn\equiv a\pmod q$ 相对于精确互素均值的偏差为 $O((1+\tau(q)/\varphi(q))N_1(f))$。若 $(m,q)>1$ 且 $(a,q)=1$，则两项均为零。
+
+对两个变量，使用 $e(t)=e^{2\pi it}$、$\widehat f(t)=\int f(s)e(-ts)\,ds$。设 $c_q$ 为 Ramanujan 和，$S(j,k;q)=\sum_{u\bmod q}^{*}e((ju+k\bar u)/q)$。当 $b=a\bar m\pmod q$ 时，双重周期化给出精确偏差
+\begin{equation}
+ \frac{UV}{q^2}\sum_{j,k\in\mathbb Z}
+ \widehat f(jU/q)\widehat g(kV/q)
+ \left(S(bj,k;q)-\frac{c_q(j)c_q(k)}{\varphi(q)}\right).
+ \label{coef:two-Poisson}
+\end{equation}
+两条坐标轴均恒等为零，因为 $S(0,k;q)=c_q(k)$、$S(bj,0;q)=c_q(j)$、$c_q(0)=\varphi(q)$。对 $jk\ne0$，使用
+\[
+ |S(bj,k;q)|\le\tau(q)\sqrt q\,(j,k,q)^{1/2},\qquad
+ |\widehat f(t)|\ll N_2(f)(1+|t|)^{-2}.
+\]
+对每个 $H>0$ 和 $d\ge1$，有 $\sum_{j\ne0,\,d\mid j}(1+|j|/H)^{-2}\le2H/d$。展开公因子并使用 $\sum_{d\mid q}d^{-3/2}\le\zeta(3/2)$，因此将 \eqref{coef:two-Poisson} 控制为
+\begin{equation}
+ N_2(f)N_2(g)
+ \left(\sqrt q\,\tau(q)+\frac{\tau(q)^2}{\varphi(q)}\right).
+ \label{coef:two-core-bound}
+\end{equation}
+Ramanujan 项使用 $|c_q(j)|\le(j,q)$、$\sum_{d\mid q}\varphi(d)/d\le\tau(q)$。当 $q=1$ 时偏差为零。
+
+设短系数 $\alpha_m$ 满足 $\sum|\alpha_m|\ll M\log^C x$，其中 $x\asymp MU$ 或 $MUV$。若 $q\le D$、$|\rho(q)|\le\tau(q)^J\log^B x$ 且 $J,B$ 固定，则单变量与双变量核心误差之和分别为
+\begin{equation}
+ O(MD\log^{C'}x),\qquad O(MD^{3/2}\log^{C'}x),
+ \label{coef:core-summed}
+\end{equation}
+插入 Brun 除数 $d_1,d_2\le y$ 后，轮廓尺度为 $U/d_1,V/d_2$，而其在 \eqref{coef:two-core-bound} 中的范数不变。仅在本原剩余类中将 $m$ 替换为 $md_1d_2$。固定乘积的界对该剩余类一致，故对除数对求和的代价至多为 $y^2$。
+
+\subsection{以精确均值恢复粗糙条件}
+
+对非负光滑 $F$，展开 \eqref{coef:one-core} 中的除数系数，得到
+\begin{align}
+ \sum_{(n,q)=1}F(n/U)U_z(n)
+ &=U\frac{\varphi(q)}q A_q\int F+O(y\tau(q)N_1(F)),\notag\\
+ \sum_{(n,q)=1}F(n/U)G_z(n)
+ &=U\frac{\varphi(q)}q g_q\int F+O(y\tau(q)N_1(F)).
+ \label{coef:exact-Brun-means}
+\end{align}
+两个左端均非负，且为精确互素和；因子 $\varphi(q)/q$ 始终保留。
+
+对两个变量，记 $U_i=U_z(n_i)$、$r_i=r_z(n_i)$、$G_i=G_z(n_i)$。有效的乘积比较为
+\begin{equation}
+ 0\le U_1U_2-r_1r_2\le G_1U_2+U_1G_2.
+ \label{coef:rough-product-gap}
+\end{equation}
+因为 $U_1U_2-r_1r_2=(U_1-r_1)U_2+r_1(U_2-r_2)$。这一论证不把两个可能为负的下界多项式相乘。对复轮廓，选择非负光滑控制函数 $F\ge|f|$、$G\ge|g|$，仅在估计差的绝对值时使用 $|\alpha|$。若 $C_q$ 表示同余计数，$M_q$ 表示其精确互素均值，且 $B=G_1U_2+U_1G_2$，则
+\begin{align*}
+ |(C_q-M_q)(\alpha fg(r_1r_2-U_1U_2))|
+ &\le C_q(|\alpha|FGB)+M_q(|\alpha|FGB)\\
+ &\le |(C_q-M_q)(|\alpha|FGB)|+2M_q(|\alpha|FGB).
+\end{align*}
+第一项通过展开 Brun 除数并使用 \eqref{coef:core-summed} 控制，第二项用 \eqref{coef:exact-Brun-means} 估计。固定的除数与 Euler 函数均值界给出双变量总误差
+\begin{equation}
+ \ll\log^{C'}x\left\{
+ MUV\epsilon_x+M(U+V)y+My^2+My^2D^{3/2}\right\}.
+ \label{coef:two-rough-error}
+\end{equation}
+单变量版本为
+\begin{equation}
+ \ll\log^{C'}x\{MU\epsilon_x+My+MyD\}.
+ \label{coef:one-rough-error}
+\end{equation}
+$\epsilon_x$ 只乘以固定对数因子。对长变量情形，$M\le x^{20\zeta}$ 或 $x^{40\zeta}$，且 $D\le x^{\Theta_{\mathrm{loc}}}$，其中 $\Theta_{\mathrm{loc}}<3/5$；另有 $\min(U,V)\ge x^\nu$，其中 $\nu>0$ 固定。选择 $\zeta$，使
+\[
+ 20\zeta+\Theta_{\mathrm{loc}}<1,\qquad
+ 40\zeta+\frac32\Theta_{\mathrm{loc}}<1.
+\]
+则 \eqref{coef:two-rough-error}、\eqref{coef:one-rough-error} 中每个其余项都有固定幂次节省。因此，对任意固定 $A$，误差均为 $O_A(x\log^{-A}x)$。
+
+\subsection{各变量的尖锐区间}
+
+设 $\delta=(\log x)^{-B}$。固定正尺度上的区间具有光滑逼近，其误差可用端点处归一化宽度为 $O(\delta)$ 的非负光滑条带控制。若区间短于 $\delta$，单个条带即可覆盖。条带积分为 $O(\delta)$，一阶导数范数为 $O(1)$，二阶导数范数由 $\delta^{-1}$ 的某个固定幂控制。再乘以其余轮廓的固定包络。
+
+对这些非负条带应用已证明的粗糙光滑估计。在双变量情形，其精确均值至多为
+\[
+ \ll\log^{C'}x\{x\delta+M(U+V)y+My^2\}
+\]
+单变量情形则至多为 $\log^{C'}x\{x\delta+My\}$。第一项的指数取决于条带积分而非导数，且不依赖 $B$。依赖 $B$ 的导数损失只影响固定幂次误差。在确定所需对数精度之后，再选择 $B$。由此同时控制计数及精确均值，并对每个本原剩余类一致，包括剩余类等于某个中间完整乘积的情形。这就证明了所需的各变量尖锐区间推广；没有使用关于任意尖锐耦合区域的结论。

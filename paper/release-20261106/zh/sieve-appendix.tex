@@ -1,0 +1,643 @@
+\section{依前缀确定的上界筛规则}\label{app:upper}
+
+本附录给出第~\ref{sec:current-upper} 节所用上界规则的密度和系数实现；相应有限节省量在附录~\ref{app:numeric} 中计算。
+
+我们通过对素数前缀作有限多个决定来构造除数系数。前缀按素数递减排列：若 $p_i=N^{t_i}$，则 $t_1>\cdots>t_r>0$。记 $S_j=t_1+\cdots+t_j$，$S_0=0$。删去前缀的最后一个素数即得其父前缀；添加更小素数时，保留该父前缀处已经作出的每个决定。
+
+\subsection{可用上限与首次退出的奇偶性}
+
+对非空子集 $I\subseteq\{1,\ldots,r\}$，记
+\begin{equation}\label{sv:selected-gate}
+ b_I=\sum_{i\in I}t_i,\qquad
+ G_I(t)=\max_{\substack{j\le r\\j\notin I}}
+ \left(b_I+\sum_{\substack{i<j\\i\notin I}}t_i+2t_j\right),
+ \qquad \max\varnothing=0.
+\end{equation}
+完整平方条件为
+\begin{equation}\label{sv:full-gate}
+ G_{\mathrm{full}}(t)=\max_{1\le j\le r}(S_{j-1}+2t_j).
+\end{equation}
+候选选定乘积端点为
+\begin{equation}\label{sv:tent}
+ v(b)=\min\left\{\frac{1+b}{2},\frac{57}{64}-\frac{3b}{2}\right\}.
+\end{equation}
+紧前缀区域上的一个选定分支仅在其常数上限 $\lambda$ 在整个区域上都以固定正余量满足下式时才可采用：
+\begin{equation}\label{sv:branch-licence}
+ \max\{1/2,G_{\mathrm{full}}(t),G_I(t)\}
+       <\lambda<v(b_I)
+\end{equation}
+端点为 $\Lambda_{\rm cap}-3t_3/8$ 的独立三位置分支，还须满足附录~\ref{app:coefficients} 的整盒分解条件。对候选端点取最大值时，始终只考虑通过相应条件的分支。
+
+总指数为 $\lambda$ 的普通上界剩余树，在 $r$ 阶前缀后施加立方检验
+\begin{equation}\label{sv:upper-cubes}
+ S_{j-1}+3t_j<\lambda\qquad(j>r,\ j\text{ 奇数阶}).
+\end{equation}
+若 $r$ 为偶数，这些是普通上界剩余检验；若 $r$ 为奇数，则是普通下界剩余检验。此前的成员资格决策保持不变。在偶数前缀处，上限变更发生在接纳该前缀之后，因而不会在该阶引入排除。在奇数前缀处，可在自身奇数阶检验之前选择上限，但决策只能依赖于该前缀和先前固定的规则。两种操作都使首次排除保持在完整奇数阶。
+
+\begin{lemma}[首次退出恒等式]\label{sv:first-exit}
+设 $\mathcal T$ 是由有限素数集合 $\mathcal P$ 生成、包含空乘积且对前缀封闭的无平方因子乘积集合。假定所有首次被排除的前缀均为奇数阶。对每个满足 $0\le \xi(p)\le1$ 的乘法函数 $\xi$，有
+\begin{equation}\label{sv:upper-exit}
+ \sum_{d\in\mathcal T}\mu(d)\xi(d)
+ =\prod_{p\in\mathcal P}(1-\xi(p))
+ +\sum_{e\text{ 首次退出}}\xi(e)
+           \prod_{\substack{p\in\mathcal P\\p<p_{\mathrm{last}}(e)}}
+                            (1-\xi(p)).
+\end{equation}
+特别地，对每个整数 $n$，$\sum_{d\mid n,\ d\in\mathcal T}\mu(d)$ 都控制 $\one_{(n,\prod_{p\in\mathcal P}p)=1}$。
+\end{lemma}
+
+\begin{proof}
+每个被排除的除数都有唯一的首次被排除前缀 $e$，其余素因子均小于 $p_{\mathrm{last}}(e)$。对完整的后续部分求和，得到 $\mu(e)\xi(e)\prod_{p<p_{\mathrm{last}}(e)}(1-\xi(p))$。从完整 Euler 乘积中减去这些互不相交的后续部分。由于 $\mu(e)=-1$，\eqref{sv:upper-exit} 中符号为正。最后一个结论取 $\xi(p)=\one_{p\mid n}$ 即得。同一有限恒等式也适用于 $n=0$ 和负整数。
+\end{proof}
+
+平方检验在后继中持续有效。保留的奇数阶立方条件蕴含其自身平方条件，随后的偶数阶平方条件由排序推出：
+\begin{equation}\label{sv:descendant-square}
+ S_{j-1}+2t_j\le S_{j-2}+3t_{j-1}<\lambda.
+\end{equation}
+全部选定位置出现后，对任意新接入位置，\eqref{sv:selected-gate} 中的表达式等于其完整平方。因此，在选定前缀处检验的 \eqref{sv:branch-licence} 会继续控制完整的后继向量。
+
+\subsection{上限变更及其密度差}
+
+令
+\[
+ \rho_0=\frac{19}{96},\qquad \mu_0=\frac{25}{128},\qquad
+ \Theta=\frac{299}{500},\qquad \Lambda_{\rm cap}=\frac{153}{256}.
+\]
+第一个素数小于 $N^{\rho_0}$。$t_1=\mu_0$ 以下的三位置端点是下列候选在满足各自条件时的包络：
+\begin{equation}\label{sv:third-envelope}
+ v(t_1),\ v(t_1+t_2),\ v(t_1+t_3),\ v(t_2+t_3),\ v(S_3),\
+                         \Lambda_{\rm cap}-\frac{3t_3}{8};
+\end{equation}
+$\mu_0$ 以上的初始三位置端点为 $v(t_1)$。\eqref{sv:third-envelope} 中每个分支保留独立的分解条件。特别地，所列候选并不意味着可以无条件选取任何非首部素数对。
+
+在四阶处，选定候选为满足 $4\in I$ 的 $M=v(b_I)$，还需满足 \eqref{sv:branch-licence} 且超过继承的三阶上限。仅对已经通过第三立方检验的前缀施加这种变更。直到四阶的成员资格不变，后续奇数阶立方检验采用新上限。在区域 $\mathcal C$ 上，极限密度差为
+\begin{equation}\label{sv:even-gain}
+ 4\int_{\mathcal C}
+ \frac{\overline F((L-S_r)/t_r)
+                   -\overline F((M-S_r)/t_r)}
+      {t_1\cdots t_{r-1}t_r^2}\,dt_1\cdots dt_r,
+ \qquad \overline F=\frac{F}{2e^\gamma},
+\end{equation}
+其中 $r=4$，$L$ 为继承上限，$M$ 为选定端点。事实上，偶数前缀 $P_r$ 对其完整子树的贡献为 $g_N(P_r)V_N^+(N^\lambda/P_r,p_r)$。将两棵子树相减即得 \eqref{sv:even-gain}；这是取渐近极限之前的原始密度恒等式。
+
+在五阶处，将候选 $v(b_I)$（$5\in I$）与继承上限及第五立方 $S_4+3t_5$ 比较。其上限在该立方检验之前固定。因此，在较小上限处被拒绝的五阶前缀可在较大上限处保留，而所有更早决策不变。负的五阶子树具有普通下界剩余项，其节省量为
+\begin{equation}\label{sv:odd-gain}
+ 4\int_{\mathcal C}
+ \frac{\overline f((M-S_5)/t_5)
+                   -\overline f((L-S_5)/t_5)}
+      {t_1t_2t_3t_4t_5^2}\,dt_1\cdots dt_5,
+ \qquad \overline f=\frac{f}{2e^\gamma},
+\end{equation}
+其中 $\overline f$ 在 $2$ 以下延拓为零。继承的前五阶上限不超过
+\begin{equation}\label{sv:fifth-envelope}
+ R_5(t)=\max\left\{\Lambda_{\rm cap}-\frac{3t_3}{8},\
+         v(b_I):\varnothing\ne I\subseteq\{1,\ldots,5\}\right\}.
+\end{equation}
+在非负节省量中用继承上限的上界，只会得到保守估计，不会改变实际上限及其密度。
+
+六阶变更是在偶数前缀处采用 \eqref{sv:even-gain} 的形式，并在保留第三及第五接纳检验后施加。特别地，在第五立方由 $L_3$ 控制的区域上，有 $L_3-S_6>2t_5-t_6>t_6$。在 \eqref{sv:fifth-envelope} 的每个帐篷函数中选择一张定义它的仿射上平面，即得凸的分段仿射控制函数 $U_5\ge R_5$。对新的凹端点 $M$，令 $d=M-U_5$，则在 $d>0$ 上，节省量至少为
+\begin{equation}\label{sv:sixth-lower}
+ \frac{4d_+}{R_oR_n\prod_{i=1}^6t_i},
+\end{equation}
+其中 $R_n\ge M-S_6$、$R_o\ge\min\{U_5-S_6,M-S_6\}>0$ 是整个区域上的上界。先取正部，再提取非负素数密度测度的下界。对矩形区域，由凹性有 $\int d_+/\operatorname{Vol}(\mathcal C)
+\ge 2^{-6}\sum_{v\text{ 顶点}}d(v)$。
+
+两个附加变更位于 $\mu_0<x<\rho_0$ 的不交部分。对二阶变更，令 $a(x)=2v(x)-1=25/32-3x$ 并使用
+\[
+ a(x)<y<x,\qquad L=v(x),\quad M=v(y).
+\]
+所需条件由 $2x,x+2y,2x+y< v(x)<v(y)$ 推出，选定位置为 $2$。节省量是 \eqref{sv:even-gain} 在 $r=2$ 时的情形。对三阶变更，令 $t=y+z$，并施加
+\[
+ a(x)<t<x,\quad z=tw/2,\quad 5/9\le w<1,
+ \qquad L=v(x),\quad M=v(t).
+\]
+这里 $y<3/16$，而二阶变更满足 $y\ge3/16$。选定位置 $\{2,3\}$ 给出附加条件 $2x+t<M$。保留第三节点并改变其下界剩余项，得到 \eqref{sv:odd-gain} 的 $r=3$ 类似式。其自变量位于 $[2,4]$，此处有 $\overline f(s)=\log(s-1)/s$。
+
+在八阶处，将选定端点 $M$ 与继承的六阶上限的有效上界 $R_6$ 比较。保留的第七立方条件以及附加条件 $M-S_8<3t_8$ 给出
+\begin{equation}\label{sv:eighth-range}
+ 1<\frac{\lambda_6-S_8}{t_8}
+ \le\frac{R_6-S_8}{t_8}<\frac{M-S_8}{t_8}<3.
+\end{equation}
+因此，\eqref{sv:even-gain} 至少为下列函数的积分：
+\begin{equation}\label{sv:eighth-density}
+ \frac{4(M-R_6)}{(R_6-S_8)(M-S_8)\prod_{i=1}^8t_i}.
+\end{equation}
+每个选定区域必须保留全部完整及选定补集平方条件，以及所有祖先检验。同一阶段作用的区域内部互不相交。不同阶段通过精确的望远镜恒等式 $V_3-V_6=(V_3-V_4)+(V_4-V_5)+(V_5-V_6)$ 合并。每个密度差采用一个下包围。
+
+\subsection{实际普通密度与有限实现}
+
+设 $g_N(p)=\one_{p>2,\ p\nmid N}/(p-1)$、$V_N(y)=\prod_{p<y}(1-g_N(p))$。普通立方 Rosser 系数在所述范围的紧子集上一致满足
+\begin{equation}\label{sv:literal-density}
+ \frac{V_N^+(N^\beta,N^t)}{V_N(N^t)}=F(\beta/t)+o(1)
+       \quad(\beta/t>1),\qquad
+ \frac{V_N^-(N^\beta,N^t)}{V_N(N^t)}=f(\beta/t)+o(1)
+       \quad(\beta/t\ge2).
+\end{equation}
+这里的密度是实际系数的密度，而不只是任意筛序列的上、下界。
+
+为说明对 $N$ 的一致性，将归一化的固定阶退出与 $g_0(p)=\one_{p>2}/(p-1)$ 的相应退出比较。保留的前缀获得乘子
+\[
+ \prod_{\substack{p_{\rm last}\le p<y\\p\mid N}}(1-g_0(p))\le1;
+\]
+其余前缀消失。在正参数紧范围上，$j$ 阶退出的末素数至少为 $N^{\beta_{\min}/(3\cdot2^{j-1})}$。因此，删除 $N$ 的素因子使每个固定阶积分一致改变 $o(1)$。非负 Rosser 退出级数在参数紧范围上一致收敛，而原始单侧界提供有限阶夹逼的另一侧，见 \cite[命题~11.8 及 引理~14.7]{Suzuki}。先选阶数，再令 $N$ 增大，即证明 \eqref{sv:literal-density}。当 $1<s\le3$ 时，首个立方处的恒等式将上界计算归约至截点 $N^{\beta/3}$，给出 $F(s)=2e^\gamma/s$。
+
+归一化来自 Mertens 公式。特别地，与 $2C_N\prod_{p<z}(1-1/p)$ 的精确比值是
+\begin{equation}\label{sv:euler-ratio}
+ \frac{V_N(z)}{2C_N\prod_{p<z}(1-1/p)}
+ =\prod_{p\ge z}\left(1-\frac1{(p-1)^2}\right)^{-1}
+  \prod_{\substack{p\mid N\\p\ge z}}\left(1-\frac1{p-1}\right).
+\end{equation}
+其对数为 $O((1+\log N/\log z)/(z-2))$，故 $V_N(N^t)\sim2e^{-\gamma}C_N/(t\log N)$ 对 $N$ 一致。\eqref{sv:even-gain} 和 \eqref{sv:odd-gain} 中的因子 $4$ 恰为 $2e^{-\gamma}\cdot2e^\gamma$。
+
+有限单元数据由有理区域、相应阶数、选定子集、端点及父标签组成。每个有效区域的准入与支撑不等式均具有正余量；继承区域保留父前缀的决定。密度是精确子树差之和。对于正的节省量，任取一个子族都给出下界；对于负的代价，上界必须覆盖完整的保留区域。
+
+\begin{proposition}[有限规则的实现]\label{sv:finite-realization}
+固定这样的一个有限可用规则及正误差 $\epsilon$，并假设其选定分支满足附录~\ref{app:coefficients} 的系数分解条件。则存在固定的有限细分及有界无平方因子系数 $\rho_N^{\rm up}$，支撑于 $(q,N)=1$，具有下列性质：其除数和为非负的粗糙性示性函数上界；带符号分布估计 \eqref{eq:current-PP} 适用于同一系数；其密度相对于理想规则密度，在所需上界方向上的差至多为 $\epsilon C_N/\log N+o(C_N/\log N)$。
+\end{proposition}
+
+\begin{proof}
+先截去所有末素数很小的尾部。在第三次激活处，可取 $u=\rho_0/2$、$0<h<u$ 并使用
+\begin{equation}\label{sv:activation-tail}
+ T_3(h)\le\frac{18h}{(u-h)^2}
+   \left(\log^2\frac{\rho_0}{h}
+                   +2\log\frac{\rho_0}{h}+2\right)=o(1).
+\end{equation}
+这由 $s\ge3$ 时的 $\overline F(s)-\overline f(s)\le9/s^2$、剩余量下界 $\lambda-t_1-t_2\ge u$，以及质量为 $\tfrac12\log^2(\rho_0/t_3)$ 的有序素数倒数三角形得到。更高阶选定变更有正的末素数截点。真正的仿射边界具有任意小的条带体积；恒等条件和开放继承区域则保留。在剩余紧区域上选择具有严格余量的粗层上限，再按前缀阶数递增地细化。任何祖先决策都不能依赖于后来接入的素数。
+
+第三端点是分段仿射 Lipschitz 函数。对宽度 $\chi<e/10$ 的盒，形如 $\lambda_{\mathscr B}=\Gamma_{\mathscr B}-2e$ 的上限以至多 $4e+6\chi$ 的误差逼近它。在端点为 $W=\Lambda_{\rm cap}-3t_3/8$ 的三位置分支附近，辅助分解覆盖可以超过实际上限。若 $\inf_{\mathscr B} A\ge\lambda_{\mathscr B}+e/2$，其中 $A=(1+t_1)/2$，取 $\ell_{\rm aux}=\lambda_{\mathscr B}+e/4$；否则 $\sup_{\mathscr B} A<\lambda_{\mathscr B}+11e/20$，而 $\ell_{\rm aux}=\lambda_{\mathscr B}+e$ 比必要边界至少高 $9e/20$，比 $W$ 至少低 $e$。另一个初始化平方条件具有余量 $3/256$。辅助覆盖用于证明系数可用，绝不在密度或剩余筛级中替代实际上限。
+
+选择预筛 $z_0=N^{\eta_0}$。偶数粗糙阶使用端点外检验，奇数粗糙阶使用内检验，保留所有祖先标签，得到原始上界系数的 $a_N(d)\ge\lambda_N(d)$。若 $B^-\le I_0\le B^+$ 为一维小素数 beta 多项式，则对正的 $a_N(d)$ 接入 $B^+$，对负的 $a_N(d)$ 接入 $B^-$，逐项有 $a_N(d)B_{\rm sign}\ge a_N(d)I_0$。唯一的小素数与粗糙部分分解定义所得 $\rho_N^{\rm up}$，并保持无平方因子性和有界性。
+
+密度方向还需一个恒等式。将 \eqref{sv:upper-exit} 投影到至少为 $z_0$ 的素数，得
+\begin{equation}\label{sv:upper-projection}
+ V_N(z_0)\sum_{d\text{ 粗糙}}\lambda_N(d)g_N(d)
+       \le\sum_{d\text{ 完整}}\lambda_N(d)g_N(d).
+\end{equation}
+左端只保留末素数至少为 $z_0$ 的非负退出。对固定粗层规则，beta 与精细盒的绝对误差相对于根部 Euler 乘积为
+$O(e^{-c/\eta}\eta_0^{-2}+C_{\rm policy}\tau\eta_0^{-5})$
+先选 $\eta,\eta_0$，再选 $\tau$，使这些误差及截去的部分落在 $\epsilon$ 内。
+
+以上选择均先于 $N$。精细阶数由 $J_0>\theta_*/\eta_0+2$ 控制；支撑膨胀可保持低于 $1/1000$，从而得到 $\theta_*=599/1000$。最后选择固定矩阶数及完整尺度截尾，使 $\theta_*/(1-\kappa_0)<3/5$ 和全部局部不等式具有严格余量。附录~\ref{app:coefficients} 随即对这一系数给出 \eqref{eq:current-PP}。逐点界来自引理~\ref{sv:first-exit}；密度界来自 \eqref{sv:upper-projection} 与绝对误差控制。
+\end{proof}
+
+\section{下界规则与有限反馈}\label{app:lower}
+
+本附录给出第~\ref{sec:current-lower} 节所用下界规则的实现及非负带标记转移不等式。对应有限映射和积分由附录~\ref{app:numeric} 计算。
+
+\subsection{普通下界树与四素数前缀恢复}
+
+令 ${a_{\rm s}}=417/5000$、${h_{\rm s}}=19/125$、$\nu=249/448$。对 $w={a_{\rm s}}$ 或 $w={h_{\rm s}}$，从总指数 $\nu_\delta=\nu-\delta$ 的普通下界支撑开始，其中 $0<\delta$ 固定且 $2{h_{\rm s}}<\nu_\delta$。在 $w$ 以下，首个平方条件 $2t_1<\nu_\delta$ 自动成立；后续检验为
+\begin{equation}\label{sv:lower-cubes}
+ S_{j-1}+3t_j<\nu_\delta\qquad(j\text{ 偶数阶}).
+\end{equation}
+在可接纳的三阶前缀处，固定 $\lambda_3\ge\nu_\delta$，供后续偶数阶立方检验使用。普通四阶变更只能在 $S_3+3t_4<\lambda_3$ 之后施加，并固定 $\lambda_4\ge\lambda_3$。随后接纳第五前缀，且可为后续偶数阶检验固定 $\lambda_5\ge\lambda_4$。每个活动选定上限均低于其可用端点，高于父上限，并满足全部条件 \eqref{sv:selected-gate}--\eqref{sv:full-gate}。对下界起始族，选定端点为
+\begin{equation}\label{sv:lower-endpoint}
+ v_-(b)=\min\left\{\frac{1+b}{2},
+ \frac{32-34b}{39},\frac{57}{64}-\frac{3b}{2}\right\}.
+\end{equation}
+后继保留选定分支。下文引入的带标记状态剩余大小比，与分布估计中的局部剩余类指数是不同参数。
+
+还可以恢复第四前缀。在原本会首次被排除的第四前缀上，在其自身立方检验之前选择 $\lambda_4$，满足
+\begin{equation}\label{sv:restore-gates}
+ \lambda_3\le S_3+3t_4<\lambda_4,
+ \qquad \max\{G_{\rm full},G_I\}<\lambda_4<v_-(b_I).
+\end{equation}
+在 $p_4$ 以下接入筛级为 $N^{\lambda_4}/P_4$ 的普通下界剩余树。由于 $\lambda_4-S_4>2t_4$，其首个平方检验不会失败。其后首次退出的剩余阶数为偶数，因而完整阶数也为偶数；恢复后的树仍为下界树。密度增量恰为
+\begin{equation}\label{sv:restoration-density}
+ 4\int_{\mathcal B}
+ \frac{\overline f((\lambda_4-S_4)/t_4)}
+      {t_1t_2t_3t_4^2}\,dt_1dt_2dt_3dt_4.
+\end{equation}
+该首次退出原先没有保留剩余树，因此 \eqref{sv:restoration-density} 不需要减去父剩余项。
+
+下面定义恢复区域的一个有限有理族。设 $r_0=(\nu-{h_{\rm s}})/9$、$n\in\{400,800\}$，以及满足 $r_0\le\ell_4<\ell_3<\ell_2<\ell_1<{h_{\rm s}}$、$u_1+3u_2<\nu$ 的 $\mathscr B=\prod_{i=1}^4[\ell_i,\ell_i+1/n]$，其中 $u_i=\ell_i+1/n$。设 $U_3$ 为 $\nu$、全部三位置选定端点上界以及 $\Lambda_{\rm cap}-3\ell_3/8$ 的最大值，它从上方控制继承的三阶上限。取 $D=\operatorname{lcm}(448,256,78n,64n,8n)$，仅当
+\[
+ c_I=\inf_{\mathscr B} v_-(b_I)-D^{-1}
+       >\max\{U_3,\sup_{\mathscr B} G_{\rm full},\sup_{\mathscr B} G_I\}.
+\]
+成立时，才保留含有 $4$ 的掩膜 $I$。选择最大的保留 $c_I$，记为 $c$。对 $A=t_1+t_2+t_3+3t_4$，将盒裁至
+\[
+ \max(A_-,U_3+D^{-1})<A<\min(A_+,c-D^{-1}),
+\]
+并将该区间等分为有限个有理层。每层都以正余量满足 \eqref{sv:restore-gates}，且位于先前保留的四阶前缀之外。在裁剪区域上，
+\[
+ 2<\frac{c-S_4}{t_4}
+       <2+\frac{9(\Lambda_{\rm cap}-\nu)}{\nu-{h_{\rm s}}}
+       =2+\frac{84375}{90452}<3.
+\]
+因此 $\overline f(s)=\log(s-1)/s$ 全程递增。若一层上有 $A<a_j$，且 $u_4$ 是第四个上端点，则在下界
+$4\overline f(s_j)\operatorname{Vol}(E_j)/(u_1u_2u_3u_4^2)$
+中使用 $s_j=2+(c-a_j)/u_4$。$\mathscr B\cap\{A<t\}$ 的精确体积为
+\begin{equation}\label{sv:slab-volume}
+ \frac1{72}\sum_{e\in\{0,1\}^4}(-1)^{|e|}
+ \left(t-A_--\frac{e_1+e_2+e_3+3e_4}{n}\right)_+^4.
+\end{equation}
+这就是加权盒宽 $(1,1,1,3)/n$ 的容斥公式。\eqref{sv:slab-volume} 之差精确给出各层体积。
+
+\subsection{下界系数及其原始素数序列}
+
+对首次退出为偶数阶的前缀封闭树，与 \eqref{sv:upper-exit} 对应的公式是
+\begin{equation}\label{sv:lower-exit}
+ \sum_{d\in\mathcal T}\mu(d)\xi(d)
+ =\prod_p(1-\xi(p))
+ -\sum_{e\text{ 首次退出}}\xi(e)
+               \prod_{p<p_{\rm last}(e)}(1-\xi(p)).
+\end{equation}
+证明相同，只需使用 $\mu(e)=1$。取 $\xi(p)=\one_{p\mid n}$ 即得粗糙性示性函数的下界。取 $\xi=g_N$ 及预筛 $z_0$，得
+\begin{equation}\label{sv:lower-projection}
+ V_N(z_0)R_{\rm rough}-V_{\rm full}
+ =\sum_{\substack{e\text{ 完整偶数阶退出}\\p_{\rm last}(e)<z_0}}
+                      g_N(e)V_N(p_{\rm last}(e))\ge0.
+\end{equation}
+这正是下界系数实现所需的密度方向。
+
+将正偶数阶系数向内取整，负奇数阶系数向外取整，保持前缀决策历史。对正的取整系数接入 beta 下界，对负的接入 beta 上界。逐项有 $a_{\rm rnd}(d)B_{\rm sign}\le a_{\rm rnd}(d)I_0$，因而实际系数满足
+\begin{equation}\label{sv:physical-lower}
+ \sum_{q\mid n}\rho_N^{\rm low}(q)\le
+       \one_{(n,P_N(N^w))=1},\qquad
+ \sum_q\frac{\rho_N^{\rm low}(q)}{\varphi(q)}
+       \ge V_{\rm full}-\text{密度绝对误差}.
+\end{equation}
+第二个不等式使用 \eqref{sv:lower-projection} 及 beta 与盒的绝对误差估计，不仅由系数逐项大小关系推出；beta 下界本身也不必非负。附录~\ref{app:cross-review} 中的尖锐素数结论适用于同一 $\rho_N^{\rm low}$，将 \eqref{sv:physical-lower} 化为 $\{N-p:p<N,\ p\text{ 为素数}\}$ 的普通下界估计。
+
+对于可用的下界前缀，第三、第四和第五阶段的密度变化依次是上界父项减上界子项、下界子项减下界父项、上界父项减上界子项。各项均由 \eqref{sv:literal-density} 计算。在 $r=3,4,5$ 阶，普通上、下界密度之差抵消最后坐标中表面的逆平方奇性，留下尾界 $O(\epsilon(1+\log^{r-1}({h_{\rm s}}/\epsilon)))$。余下紧区域可用一个共同的有限细分实现，并保留每个继承决定。
+
+\subsection{非负带标记族上的有限反馈}\label{sv:finite-feedback}
+
+归一化状态是对具有共同总筛级 $Q=N^\lambda$ 的非负有限带标记族 $\sigma(B)$ 作平均的估计。令
+\[
+ L=\lambda-\log_NB>0,\qquad
+ \Theta_Q=4\li(N)\sum_B
+       \frac{\sigma(B)C_{BN}}{\varphi(B)\log(Q/B)},\qquad
+ \alpha=\frac{1-\log_NB}{L}\ge2.
+\]
+指数为 $Lu$ 的单素数子节点，或指数为 $Lu,Lv$ 的素数对子节点，其剩余筛级和参数分别为
+\begin{equation}\label{sv:child-state}
+ L'=L(1-u),\quad
+ \alpha'=1+\frac{\alpha-1}{1-u};\qquad
+ L'=L(1-u-v),\quad
+ \alpha'=1+\frac{\alpha-1}{1-u-v}.
+\end{equation}
+总筛级 $Q$、选定位置及素数上限均保留。特别地，$\alpha$ 增大，子节点不会重新设为 $\alpha=2$。
+
+这里，可用带标记族指带标签素数盒示性函数的有限非负组合，全部带标记素数指数及 $L$ 都有固定正下界。在经典情形，完整模数筛级比 $N^{1/2}$ 低一个固定幂次；在增强情形，$1/2<\lambda<153/256$ 带固定余量，并保留全部完整及选定补集平方条件，以及附录~\ref{app:coefficients} 的一个分解分支。还保留一个 $\chi>0$，使接入指数低于 $\chi$ 的素数后，该分支及其条件不变。$\chi$ 不大于已指定的最小指数。若某分支使用尚未指定的第三位置界 $c$，还要求 $\chi\le c$。自变量为 $s$ 的每个增强普通节点，其实际截点 $N^{L/s}$ 都低于 $N^\chi$。这些限制都在取端点极限之前，以每个盒上的固定余量施加。估计针对带标记平均，而不是某个单独固定的素数前缀。
+
+子节点相对父节点的测度分别为 $du/[u(1-u)]$、$du\,dv/[uv(1-u-v)]$，均为非负。为指定单步换位代价，定义
+\begin{equation}\label{sv:one-step-mass}
+ I(s,s_0,\alpha)=
+ \int_{1/s_0<u_1<u_2<u_3<1/s}
+ \omega\!\left(\frac{\alpha-u_1-u_2-u_3}{u_2}\right)
+                    \frac{du_1\,du_2\,du_3}{u_1u_2^2u_3}.
+\end{equation}
+单步不等式给出候选
+\begin{align}\label{sv:one-step-operator}
+ \mathcal W_1[H,h](s;s_0,\alpha)
+ ={}&A_+(s)-A_+(s_0)+H(s_0)-\frac K8 I(s,s_0,\alpha)\notag\\
+ &+\frac12\int_{1/s_0}^{1/s}
+ \frac{A_-(s_0(1-u))+h(s_0(1-u))}{u(1-u)}\,du,
+ \qquad 2\le s<s_0\le5.
+\end{align}
+其中 $A_+(s)=sF(s)/(2e^\gamma)$、$A_-(s)=sf(s)/(2e^\gamma)$，并在 $2$ 以下延拓为零。实际单素数子节点的截点为 $N^{L/s_0}$，自变量为 $s_0(1-u)$，而不是另一个总筛级下的自变量。非负换位族为 $Bq_1q_2q_3n\le N$，其中 $N^{L/s_0}\le q_1<q_2<q_3<N^{L/s}$、$P^-(n)\ge q_2$。在父节点归一化下，其未筛质量为 $I/4$；逐点加权不等式中的因子 $1/2$ 给出 \eqref{sv:one-step-operator} 中的代价 $KI/8$。所有素因子都具有固定正指数。由于 $\alpha-3/s\ge1/2$，其单位商情形具有固定幂次节省。
+
+令 $c_\omega=70893/125000$，并取
+\begin{equation}\label{sv:omega-envelope}
+ \omega_{\rm env}(u)=
+ \begin{cases}
+ 1,&u<1,\\
+ \max\{1/u,c_\omega\},&u\ge1.
+ \end{cases}
+\end{equation}
+可得 \eqref{sv:one-step-mass} 中适用的一致界。对 $v\ge u\ge1$ 有 $\omega(v)\le\omega_{\rm env}(u)$。在 $[1,2]$ 上由 $\omega(v)=1/v$ 推出；在 $[2,3]$ 上对 $1+\log(v-1)-c_\omega v$ 求最大值。最大值为 $-\log c_\omega-c_\omega<0$，因为精确有理不等式 $c_\omega\sum_{j=0}^8c_\omega^j/j!>1$ 蕴含 $c_\omega e^{c_\omega}>1$。延迟方程将该界传播到 $v\ge3$。因此，把被积函数替换为 $\omega_{\rm env}((2-u_1-u_2-u_3)/u_2)$，即可对每个 $\alpha\ge2$ 控制代价。$1$ 以下的分支对使用它的换位估计给出保守界；若单位商所在区域质量不可忽略，则单独计入单位商项。
+
+对双步作用，记 $a_0=1/s_0$、$a_i=1/\phi_i$、$b=1/s$，参数条件为
+\begin{gather}\label{sv:two-step-gates}
+ 2<s<\phi_3<\phi_2<\phi_1<s_0\le5,\qquad
+ a_3+2a_1<1,\quad3a_1<1,\quad a_2+2a_1<1,\notag\\
+ a_0<(1-a_2)/2<1/3<a_2<1/2,\qquad
+ s_0(1-b)>2,\quad s_0-1\le4,\quad s_0(2-2a_2)>2.
+\end{gather}
+三个单素数区域为
+\begin{equation}\label{sv:singleton-domains}
+ (a_0,b),\qquad(a_0,a_2),\qquad(a_0,a_3),
+ \quad \rho(u)=s_0(1-u),
+ \quad\text{实际截点 }N^{La_0}.
+\end{equation}
+普通素数对估计及其反馈适用的区域为
+\[
+\begin{array}{c|c|c}
+ &\text{区域}&\text{子节点自变量}\\ \hline
+ D_5^+&a_0<u<v<a_2,\ v+2u<1&s_0(1-u-v)\\
+ D_6&(a_0,a_1)\times(a_2,a_3)&s_0(1-u-v)\\
+ D_7&a_0<u<v<a_1&(1-u-v)/u\\
+ D_8&(a_0,a_1)\times(a_1,a_2)&(1-u-v)/u,
+\end{array}
+\]
+在逐点加权不等式中，第五项具有完整母区域
+\begin{equation}\label{sv:complete-fifth-region}
+ D_5=\{a_0<u<v<a_2\}
+     =D_5^+\sqcup D_5^-,\qquad
+ D_5^-=D_5\cap\{v+2u\ge1\}.
+\end{equation}
+因此 $\Gamma_5=\Gamma_5^++\Gamma_5^-$；组合不等式中不能将其限制为 $D_5^+$。普通估计及子节点改进量仅在 $D_5^+$ 使用；在 $D_5^-$ 保留完整计数，并用非负乘积估计控制。$D_5$ 上处处满足检验 $2v<1$；由 \eqref{sv:two-step-gates}，其余三个素数对区域同时满足 $2v<1$、$v+2u<1$。若 $J_2^0$ 表示所选可用参数组的普通及非负换位基础项，则加入的反馈为
+\begin{equation}\label{sv:two-step-feedback}
+ \frac15\left\{4H(s_0)+H(\phi_1)
+ +\sum_{c\in\{b,a_2,a_3\}}\int_{a_0}^{c}
+       \frac{h(s_0(1-u))}{u(1-u)}\,du
+ +\sum_{i=5^+,6,7,8}\iint_{D_i}
+       \frac{H(\rho_i(u,v))}{uv(1-u-v)}\,du\,dv\right\}.
+\end{equation}
+下面定义这一基础项，并证明各贡献的符号。
+
+\paragraph{二十一项不等式。}
+对带标记状态，令 $R=Q/B$，本段另记 $\mathcal A_{N,B}=\{(N-p)/B:p<N,\ p\text{ 为素数},\ B\mid N-p\}$。用 $\Phi_s$ 表示在 $R^{1/s}$ 处作筛后的非负带标记平均。用 $[l,r]^k_\uparrow$ 表示 $[l,r]$ 中 $k$ 个递增排列的指数。对正整数 $n$，令
+\[
+ Q_d(y;n)=\one_{d\mid n}\,
+                  \one_{P^-(n/d)\ge y}.
+\]
+下式全部新增素数互不相同；与带标记前缀的碰撞及平方因子均以固定幂次节省误差去掉。随后对每个表达式都采用相同的非负带标记权作平均。前四项为
+\[
+ \Gamma_1=4\Phi_{s_0}+\Phi_{\phi_1},\qquad
+ \Gamma_2,\Gamma_3,\Gamma_4
+   =\sum_{R^{a_0}\le q<R^c}Q_q(R^{a_0};n),
+ \quad c=b,a_2,a_3,
+\]
+其中最后各式包含对 $n\in\mathcal A_{N,B}$ 的平均。在 \eqref{sv:complete-fifth-region} 中，对 $\Gamma_5$ 使用完整区域 $D_5$；对 $\Gamma_6,\Gamma_7,\Gamma_8$ 使用上述其余三个素数对区域。被加项在 $i=5,6$ 时为 $Q_{q_1q_2}(R^{a_0};n)$，在 $i=7,8$ 时为 $Q_{q_1q_2}(q_1;n)$，其中 $q_1=R^u<q_2=R^v$。对 $9\le i\le21$，有序指数区域为
+\begin{equation}\label{sv:switch-domains}
+\begin{array}{c|l@{\qquad}c|l}
+9 &[a_1,a_3]^3_\uparrow
+ &10 &[a_1,a_2]^2_\uparrow[a_2,b]\\
+11 &[a_1,a_2][a_2,a_3]^2_\uparrow
+ &12 &[a_0,a_1]^2_\uparrow[a_3,b]\\
+13 &[a_0,a_1][a_1,a_2][a_2,b]
+ &14 &[a_0,a_1][a_2,b]^2_\uparrow\\
+15 &[a_1,a_2][a_2,a_3][a_3,b]
+ &16 &[a_2,a_3]^4_\uparrow\\
+17 &[a_2,a_3]^3_\uparrow[a_3,b]
+ &18 &[a_2,a_3]^2_\uparrow[a_3,b]^2_\uparrow\\
+19 &[a_1,a_2][a_3,b]^3_\uparrow
+ &20 &[a_2,a_3][a_3,b]^4_\uparrow\\
+21 &[a_3,b]^6_\uparrow.&&
+\end{array}
+\end{equation}
+一个含 $r$ 个素数的区域，其被加项为 $Q_{q_1\cdots q_r}(q_{r-1};n)$。\eqref{sv:switch-domains} 中的并置表示相互独立的连续区带，仅在每个指定的有序块内部排序。所用不等式是
+\begin{equation}\label{sv:twenty-one-weight}
+ 5\Phi_s\le\Gamma_1-\Gamma_2-\Gamma_3-\Gamma_4
+                       +\sum_{i=5}^{21}\Gamma_i+o(\Theta_Q).
+\end{equation}
+这是 \cite[引理~4.2]{Wu2004} 的第二个加权不等式；以下验证明确其完整范围与重数。
+
+对无平方因子且 $R^{a_0}$-粗糙的商，用 $A,B',C,D$ 分别计数其在四个区带
+\[
+[a_0,a_1),[a_1,a_2),[a_2,a_3),[a_3,b)
+\]
+中的素因子。（本验证中的符号 $B'$ 是区带计数，不是带标记前缀 $B$。）逐点看，前四项为
+\[
+ \Gamma_1=4+\one_{A=0},\qquad
+ (\Gamma_2,\Gamma_3,\Gamma_4)
+       =(A+B'+C+D,A+B',A+B'+C).
+\]
+其余项的值如下，其中 $x_+=\max(x,0)$：
+\begin{equation}\label{sv:band-counts}
+\begin{array}{c|l@{\quad}c|l}
+5&\binom{A+B'}2&6&AC\\
+7&(A-1)_+&8&\one_{A\ge1}B'\\
+9&\one_{A=0}(B'+C-2)_+
+ &10&\one_{A=0,B'\ge2}(C+D)\\
+11&\one_{A=0,B'=1}(C-1)_+
+ &12&\one_{A\ge2}D\\
+13&\one_{A=1,B'\ge1}(C+D)
+ &14&\one_{A=1,B'=0}(C+D-1)_+\\
+15&\one_{A=0,B'=1,C\ge1}D
+ &16&\one_{A=B'=0}(C-3)_+\\
+17&\one_{A=B'=0,C\ge3}D
+ &18&\one_{A=B'=0,C=2}(D-1)_+\\
+19&\one_{A=0,B'=1,C=0}(D-2)_+
+ &20&\one_{A=B'=0,C=1}(D-3)_+\\
+21&\one_{A=B'=C=0}(D-5)_+.&&
+\end{array}
+\end{equation}
+事实上，在倒数第二个选定素数处对商作筛，迫使此前各选定素数为 $n$ 的最小素因子，由此得到 \eqref{sv:band-counts} 的每一项。\eqref{sv:twenty-one-weight} 的带符号右端分别为
+\[
+\begin{array}{c|l}
+A\ge2&(A+B'-2)(A+B'-3)/2+(A-2)C\\
+A=1,\ B'\ge1&(B'-1)(B'-2)/2\\
+A=1,\ B'=0&(1-C-D)_+\\
+A=0,\ B'\ge2&(B'-2)(B'-3)/2\\
+A=0,\ B'=1,\ C\ge1&0\\
+A=0,\ B'=1,\ C=0&(2-D)_+\\
+A=B'=0,\ C\ge3&0\\
+A=B'=0,\ C=2,1,0&(1-D)_+,\ (3-D)_+,\ (5-D)_+.
+\end{array}
+\]
+这些值均非负，且在 $A=B'=C=D=0$ 时为五；左端就是最后这一情形的示性函数乘以五。在 $R^{a_0}$-粗糙支撑之外，每一被加项均为零，故逐点不等式成立。在固定正指数盒上，被略去的平方和前缀交叉项总质量为 $N^{1-\epsilon+o(1)}$，其中 $\epsilon>0$ 固定；经过有限带标记平均，得到所述误差。
+
+\paragraph{逐项估计与普通基础项。}
+$\Gamma_1$ 的两个部分具有上界乘子 $4A_+(s_0)+A_+(\phi_1)$。三个负项具有下界乘子
+\begin{equation}\label{sv:negative-singleton-base}
+ \mathcal B(c)=\int_{a_0}^{c}
+   \frac{A_-(s_0(1-u))}{u(1-u)}\,du,
+ \qquad c=b,a_2,a_3.
+\end{equation}
+可用条件使这些区间上的 $s_0(1-u)$ 位于 $(2,4]$，故 $A_-(s_0(1-u))=\log(s_0(1-u)-1)$。合并的单素数与素数对系数满足父状态的完整平方及选定补集检验。特别地，$D_5^+$、$D_6$、$D_7$、$D_8$ 相对于 $du\,dv/(uv)$ 具有普通上界核 $(1-u-v)^{-1}$。子节点自变量低于 $2$ 时，与更小筛截点比较仍给出同一核，因为直到 $3$ 均有 $A_+=1$。在 $D_5^-=\{a_0<u<v<a_2:v+2u\ge1\}$ 上不使用普通素数对估计。非负乘积估计给出有效核 $Kc_\omega s_0/4$，因为其粗糙自变量至少为 $s_0(2-2a_2)>2$。定义
+\begin{align}\label{sv:pair-base}
+ \mathcal U_5&=
+  \iint_{D_5^+}\frac{du\,dv}{uv(1-u-v)}
+   +\frac{Kc_\omega s_0}{4}\iint_{D_5^-}\frac{du\,dv}{uv},\notag\\
+ \mathcal U_i&=\iint_{D_i}\frac{du\,dv}{uv(1-u-v)}
+                  \qquad(i=6,7,8).
+\end{align}
+这样，以非负上界估计替换不具普通估计支撑的角部，不再同时保留其普通质量或反馈。
+
+对具有 $r$ 个素数的换位区域 $\mathcal D_i$，令 $w=u_{r-1}$、$U=u_1+\cdots+u_r$。在实际父节点比值 $\alpha$ 处，其归一化未筛质量为
+\begin{equation}\label{sv:full-switched-mass}
+ \mathcal M_i(\alpha)=
+ \int_{\substack{\boldsymbol u\in\mathcal D_i\\U\le\alpha-w}}
+ \frac{\omega((\alpha-U)/w)}{w\prod_j u_j}\,d\boldsymbol u
+ +\int_{\substack{\boldsymbol u\in\mathcal D_i\\U=\alpha}}
+                     \frac{du_1\cdots du_{r-1}}{\prod_j u_j}.
+\end{equation}
+曲面积分中以导数一消去一个坐标。该曲面计数商为 $1$ 的情形，与普通 Buchstab 项分开。固定正盒上的素数求和及粗糙数公式给出 \eqref{sv:full-switched-mass}，按父节点单位归一化的上界计数为 $K\mathcal M_i(\alpha)/4$。
+
+以下显式界对 $\alpha\ge2$ 一致。令 $\ell_{ij}=\log(\phi_i/\phi_j)$、$\ell_{01}=\log(s_0/\phi_1)$、$\ell_{3b}=\log(\phi_3/s)$。对 $i=9,\ldots,15$，取 $C_i=\max\{c_\omega,1/\max(1,m_i)\}$，其中
+\[
+\begin{array}{c|l@{\quad}c|l}
+i&m_i&i&m_i\\ \hline
+9&2\phi_3-3&10&2\phi_2-2-\phi_2/s\\
+11&2\phi_3-\phi_3/\phi_2-2
+ &12&2\phi_1-2-\phi_1/s\\
+13&2\phi_2-\phi_2/\phi_1-1-\phi_2/s
+ &14&2s-s/\phi_1-2\\
+15&2\phi_3-\phi_3/\phi_2-1-\phi_3/s.&&
+\end{array}
+\]
+这些量分别是各区域粗糙自变量的下界。由 \eqref{sv:omega-envelope}，得
+\begin{align}\label{sv:switch-mass-bounds}
+ \widehat M_9&=C_9\{(\phi_1+\phi_3)\ell_{13}-2(\phi_1-\phi_3)\},\notag\\
+ \widehat M_{10}&=C_{10}\{\phi_1-\phi_2(1+\ell_{12})\}
+                                          \log(\phi_2/s),\notag\\
+ \widehat M_{11}&=C_{11}\ell_{12}\{\phi_2(\ell_{23}-1)+\phi_3\},\notag\\
+ \widehat M_{12}&=C_{12}\{s_0-\phi_1(1+\ell_{01})\}\ell_{3b},\notag\\
+ \widehat M_{13}&=C_{13}\ell_{01}(\phi_1-\phi_2)\log(\phi_2/s),\notag\\
+ \widehat M_{14}&=C_{14}\ell_{01}
+                       \{\phi_2(\log(\phi_2/s)-1)+s\},\notag\\
+ \widehat M_{15}&=C_{15}\ell_{12}(\phi_2-\phi_3)\ell_{3b},\notag\\
+ \widehat M_{16}&=\phi_2\ell_{23}^4/24,
+ &\widehat M_{17}&=\phi_2\ell_{23}^3\ell_{3b}/6,\notag\\
+ \widehat M_{18}&=\phi_3\ell_{23}^2\ell_{3b}^2/4,
+ &\widehat M_{19}&=\phi_3\ell_{12}\ell_{3b}^3/6,\notag\\
+ \widehat M_{20}&=\phi_3\ell_{23}\ell_{3b}^4/24
+                         +\phi_2\ell_{3b}^4/24,\notag\\
+ \widehat M_{21}&=\phi_3\ell_{3b}^6/720+\phi_3\ell_{3b}^5/120.
+ \end{align}
+对 $i\le19$，指定指数之和至多为 $4/s<2\le\alpha$，故没有单位商曲面。对 $i=20$，在曲面上消去第一个变量并使用 $1/u_1\le\phi_2$；其余四变量在 $[a_3,b]$ 中有序排列，得到 $\widehat M_{20}$ 的第二个被加项。对 $i=21$，消去末变量，使用 $1/u_6\le\phi_3$，并对其余五个有序变量积分。\eqref{sv:switch-mass-bounds} 的其余被加项由在所示区带上积分 $1/(w\prod u_j)$ 得到，其中 $9\le i\le15$ 时取 $\omega\le C_i$，其余情形取 $\omega\le1$。因此 $\mathcal M_i(\alpha)\le\widehat M_i$。
+
+普通基础项现在成为显式泛函
+\begin{equation}\label{sv:two-step-base}
+ J_2^0=\frac15\left\{
+ 5A_+(s)-4A_+(s_0)-A_+(\phi_1)
+ +\mathcal B(b)+\mathcal B(a_2)+\mathcal B(a_3)
+ -\sum_{i=5}^8\mathcal U_i
+ -\frac K4\sum_{i=9}^{21}\widehat M_i\right\}.
+\end{equation}
+在 \eqref{sv:twenty-one-weight} 中，对正项代入上界，对负项代入下界。$\Gamma_1$ 两个部分中的改进量，从其上界估计中减去 $4H(s_0)+H(\phi_1)$。三个单素数下界改进量，从各负项中减去相应积分；四个良好素数对的上界改进量，从各自非负上界估计中减去素数对积分。除以 $5$ 后，这些恰为 \eqref{sv:two-step-feedback}。所以
+\begin{equation}\label{sv:two-step-admissibility}
+ \Phi_s\le\{A_+(s)-J_2^0-\mathcal P_2[H,h]+o(1)\}\Theta_Q,
+\end{equation}
+其中 $\mathcal P_2[H,h]$ 为 \eqref{sv:two-step-feedback} 的表达式。由此，从数学上明确的基础项和非负加权的前一代改进量，证明一个有限双步作用的可用性。
+
+可以用更精确的上界替换 \eqref{sv:pair-base} 与 \eqref{sv:full-switched-mass} 中的正代价。该上界必须对每个允许的 $\alpha\ge2$ 覆盖同一带标签族，并包含商为 $1$ 的曲面。在 \eqref{sv:two-step-base} 中仅替换该代价一次，再按所需方向估计所得显式泛函，即得相应的转移常数。这样保留了两步不等式的符号论证。
+
+\subsection{可用带标记族上的有限初值}
+
+令
+\begin{equation}\label{sv:seed-parameters}
+ S=\frac{11}{5},\qquad s_0=\frac{227}{50},\qquad
+ (\phi_1,\phi_2,\phi_3)
+ =\left(\frac{353}{100},\frac{29}{10},\frac{61}{25}\right),
+ \qquad K_{\rm seed}=\frac{681}{100}.
+\end{equation}
+由于 $K<K_{\rm seed}$，命题~\ref{prop:current-positive-product} 也给出常数为 $K_{\rm seed}$ 的非负上界估计。令 $\mathcal J_{\rm seed}$ 为 \eqref{sv:two-step-base} 在参数 \eqref{sv:seed-parameters} 处的右端，并将 $s=S$、$K$ 替换为 $K_{\rm seed}$。特别地，其第五项代价采用完整的分拆代价 \eqref{sv:pair-base}，并计入 \eqref{sv:switch-mass-bounds} 的两个单位商曲面项。
+
+\begin{lemma}[有限初值]\label{sv:finite-seed}
+对满足 $\alpha\ge2$ 的可用带标记族，在增强情形另假定 $L/S<\chi$，则
+\[
+ \Phi_S\le\left(1-\frac{2327}{100000}+o(1)\right)\Theta_Q.
+\]
+只要状态允许比较截点 $N^{L/S}$，同一上界改进量在每个 $1\le w\le S$ 都可使用。结论对每个固定的此类有限族一致，并由初始改进量 $1/50$ 之后的四个加权步骤推出。
+\end{lemma}
+
+\begin{proof}
+二十一项不等式中所有新增素数的指数至多为 $L/S$，因而低于保留的上限，使最大的已指定位置、选定子集及任何第三位置界均仍有效。单素数剩余平方条件为 $2u<1$，素数对平方条件为 $2v<1$、$v+2u<1$，并在 $D_5^+,D_6,D_7,D_8$ 上成立。将相应剩余平方乘以 $B$，即得每个新增完整平方。原有选定位置出现后，新的选定补集平方等同于完整平方。普通剩余原子在其实际筛级 $Q/(Bq)$ 或 $Q/(Bq_1q_2)$ 上计算。其余部分 $D_5^-$ 保留并承担非负代价，不对该处使用带符号分布结论。经典情形下完整普通模数低于 $Q$，低于二分之一水平的绝对余项给出同一保守泛函。换位项只需要 $\alpha\ge2$ 及固定的正素数截点。
+
+显式泛函的定向包围为
+\begin{equation}\label{sv:seed-base-certificate}
+ \mathcal J_{\rm seed}\ge
+ \frac{11672890052052913}{576460752303423488}
+ >\frac{20249}{10^6}>\frac1{50}.
+\end{equation}
+该不等式的有限证书由附属数据中的 \texttt{seed\_certificate} 指定。其普通积分为 \eqref{sv:negative-singleton-base}、\eqref{sv:pair-base}，换位质量采用 \eqref{sv:switch-mass-bounds} 的显式上界。普通二重积分先对一个坐标积分，所得一维对数积分用有理 Darboux 区间及 \eqref{num:log-enclosure} 的对数余项包围。在 $\mathcal J_{\rm seed}$ 的定义中，正代价取上端点，负代价取下端点。因此，\eqref{sv:seed-base-certificate} 在使用后续数组递推之前即证明初始改进量 $J_0=1/50$。
+
+假设已在这些可用族上证明 $[1,S]$ 上的上界改进量 $J>0$。非负性和截点比较给出
+\[
+ H_J(w)=J\one_{[1,S]}(w).
+\]
+同一总筛级上的下界 Buchstab 恒等式给出先前已证明的备选
+\begin{equation}\label{sv:seed-lower-child}
+ h_J(w)=J\log\frac{S}{w-1}\,
+                    \one_{[2,1+S]}(w).
+\end{equation}
+归一化不依赖于 $w$，且 $1\le w\le S$ 时有 $A_+(w)=1$。为核验 \eqref{sv:seed-lower-child} 内的比较，由 $v\in[w-1,S]$ 标记的 Buchstab 子节点，其接入指数为 $L/(v+1)$，剩余指数为 $Lv/(v+1)$，初值比较指数满足
+\[
+ \frac{Lv}{S(v+1)}\le\frac{L}{v+1}.
+\]
+因此它低于新增素数及先前稳定上限。由于 $v\ge1$，新增平方条件成立。下界子节点自身无需允许自变量 $S$；初值实际应用于它的上界 Buchstab 子节点。
+
+将 $H_J,h_J$ 代入 \eqref{sv:two-step-feedback}。由于 $s_0,\phi_1>S$，未改变前缀的改进量为零。记 $u_*=67/227$、$b=1/S$，并令
+\[
+ E_i=\begin{cases}
+ D_i\cap\{u+v\ge117/227\},&i=5^+,6,\\
+ D_i\cap\{v\ge1-16u/5\},&i=7,8.
+ \end{cases}
+\]
+反馈恰为 $\lambda_{\rm seed} J$，其中
+\begin{align}\label{sv:seed-feedback-integral}
+ \lambda_{\rm seed}=\frac15\bigg\{&
+ \sum_{c\in\{b,a_2,a_3\}}
+ \int_{u_*}^{c}
+ \frac{\log\{S/[s_0(1-u)-1]\}}{u(1-u)}\,du\notag\\
+ &+\sum_{i=5^+,6,7,8}\iint_{E_i}
+                     \frac{du\,dv}{uv(1-u-v)}\bigg\}.
+\end{align}
+$i=5^+,6$ 的支撑条件为 $s_0(1-u-v)\le S$；$i=7,8$ 的支撑条件为 $(1-u-v)/u\le S$。全部保留的素数对子节点自变量都超过 $1$，单素数下界自变量都超过 $2$。$D_5^-$ 不提供反馈。
+
+\eqref{sv:seed-feedback-integral} 中全部边界均为有理仿射边界。对竖直切片 $l(u)<v<r(u)$，精确素数对积分为
+\[
+ \frac1{u(1-u)}
+ \log\frac{r(u)(1-u-l(u))}{l(u)(1-u-r(u))}.
+\]
+对 $E_{5^+}$，连续 $u$ 区间的端点为 $50/227,117/454,19/58,1/3$。区域 $E_6$ 是其完整矩形。$E_7$ 的非空支撑从 $1265/5648$ 开始，并在 $5/21$ 改变下边界；$E_8$ 的下边界在 $1265/5648$ 改变。对这些区域的有理 Darboux 包围给出
+\begin{equation}\label{sv:seed-feedback-certificate}
+ \lambda_{\rm seed}\ge
+ \frac{75057365825327405}{576460752303423488}
+ >\frac{13}{100}.
+\end{equation}
+精确端点、细分和来源对应，与 \eqref{sv:seed-base-certificate} 一同由 \texttt{seed\_certificate} 数据指定。
+
+由 \eqref{sv:two-step-admissibility}、\eqref{sv:seed-base-certificate}、\eqref{sv:seed-feedback-certificate} 得到
+\[
+ J_{n+1}=\frac{20249}{10^6}+\frac{13}{100}J_n.
+\]
+每一步均先由 $J_n$ 推出 \eqref{sv:seed-lower-child}，再应用加权不等式。从 $J_0=1/50$ 出发，四个精确值为
+\[
+ \frac{22849}{10^6},\quad
+ \frac{2321937}{10^8},\quad
+ \frac{232675181}{10^{10}},\quad
+ \frac{23273777353}{10^{12}}>\frac{2327}{100000}.
+\]
+接入素数的操作只有有限次。所有紧区域选择固定后，其指数始终为正，因此每一步都适用非负乘积估计及分布余项。有限多个误差为 $o(\Theta_Q)$，按所述极限次序可由最后的严格剩余量吸收。
+\end{proof}
+
+\paragraph{在根节点与后继中的应用。}
+对 $U_3,U_4$，已指定素数的指数为 $t>{a_{\rm s}}$，剩余指数为 $L=v(t)-t$，上界自变量为 $\max(2,L/{a_{\rm s}})$。在增强范围 $t<57/224$，最大素数分支满足 $2t<v(t)\le(1+t)/2$，故稳定上限可取在 $t$ 以下并任意接近它。实际截点指数 $\min({a_{\rm s}},L/2)\le {a_{\rm s}}<t$ 低于该上限。每次使用初值时，比较指数 $L/S$ 不大于实际截点。经典尾部采用低于二分之一水平的接口。对 $U_{10},U_{11}$，同一论证使用最小已指定指数 $w$ 和实际截点 $\min(w,L/2)$；原有选定子集及前三个位置已固定。对下界素数对项 $L_5,L_6$，初值只出现在 \eqref{sv:seed-lower-child} 内。首次接入素数至多为 $N^{a_{\rm s}}$，而由前一显示不等式，全部初值比较素数都低于它。这些比较也保留等于 ${a_{\rm s}}$ 的第三位置界。
+
+更一般地，\eqref{sv:one-step-operator} 或 \eqref{sv:two-step-feedback} 中每个有限作用都保留总筛级 $Q$、所有原有平方条件及稳定上限。新单素数满足 $2u<1$；普通部分的新素数对满足 $2v<1$、$v+2u<1$。其实际截点不大于最小新增素数。式 \eqref{sv:child-state} 表明其比值仍至少为 $2$。由归纳，初值及其 Buchstab 推论始终处于可用族内。没有把初值改进量直接代入空前缀下界起点。
+
+有限归纳的每个右端均使用前一代。在每个状态上取备选估计的最大值；当子自变量跨越节点时，在所有相邻闭单元上取最小值。因此，每一步都给出同一非负带标记计数的界，且只使用有限多步。
+
+下面给出显式的共同逼近界。非负算子质量满足
+\begin{align*}
+ \|\mathcal B\|&\le\log5<2,\\
+ \|\mathcal W_1\|&\le1+\tfrac12\log4<2,\\
+ \|\mathcal W_2\|&\le1+\tfrac35\log4
+                 +\tfrac45\,125(3/10)^2<12.
+\end{align*}
+最后一个估计用到 $1/5\le u,v\le1/2$、$1-u-v\ge u\ge1/5$，故四个区域上各自的素数对核至多为 $125$。未变前缀的系数和为一。换位非负代价属于作用的基础项，不是额外的反馈边。若每个局部定向逼近误差至多为 $\delta$，则
+\begin{equation}\label{sv:feedback-error}
+ e_{j+1}\le\delta+12e_j,\qquad
+ e_j\le\delta\frac{12^{j+1}-1}{11}.
+\end{equation}
+十一项泛函的系数绝对值在乘因子 $1/4$ 之前之和为 $14$，故根部范数为 $7/2$。
+
+在深度至多为 $440$ 时，每个剩余筛级至少为 $\lambda_*101^{-440}>0$，新增素数指数至少为此数除以 $6$。对每个固定非负父节点递归细分新增指数，使误差不超过其归一化质量乘以 $\delta$。真正的上限与节点边界为零测集；结构性截断及继承恒等区域保留。分母一致远离零。由 \eqref{sv:feedback-error} 可得一组有限查询，总误差任意小。仅在该组查询固定之后，才令 $N$ 增大。正质量顶点具有正的极限 $\Theta_Q/H_N$，故绝对分布误差化为 $o(\Theta_Q)$；零质量部分用绝对误差处理。
+
+\section{端点估计与极限次序}\label{app:cross-review}
+
+尖锐素数引理（引理~\ref{lem:current-sharp-prime}）适用于上面构造的同一系数。下面记录使其可用于带符号下界权的绝对界。若 $|\rho_N^{\rm low}(q)|\le C$，其无平方因子支撑为 $q\le N^\theta$，且 $\theta<1$、$\delta=(\log N)^{-B}$，则端点贡献至多为
+\begin{equation}\label{sv:sharp-boundary}
+ \sum_{\substack{p\text{ 为素数}\\0<|p-N|\le\delta N}}
+          \sum_{q\mid N-p}|\rho_N^{\rm low}(q)|
+ \le2C\sum_{1\le n\le\lceil\delta N\rceil}\tau(n)
+ \ll\delta N\log N+\log N.
+\end{equation}
+当 $N>2$ 为偶数时，差值 $p-N=0$ 不可能出现。因 $\sum_{q\le N^\theta}1/\varphi(q)\ll\log N$，精确互素均值的边界也有同一界。$2N^{1-\kappa_0}$ 以下的光滑下截尾，在等差数列和中的代价为 $N^{1-\kappa_0+o(1)}$，在均值中的代价为 $O(N^{1-\kappa_0}\log N)$，均具有固定幂次节省。选择 $B>A+3$，即可使全部边界项小于规定的对数误差。
+
+对精确互素素数均值，设 $\omega_{\mathrm{pf}}(q)$ 为 $q$ 的不同素因子个数。每个素因子低于 $N$，无平方因子性给出
+\begin{equation}\label{sv:coprime-prime-error}
+ \sum_q\frac{|\rho_N^{\rm low}(q)|\omega_{\mathrm{pf}}(q)}{\varphi(q)}
+ \ll\sum_{\ell\le N^\theta}\frac1{\ell-1}
+                  \sum_{e\le N^\theta/\ell}\frac1{\varphi(e)}
+ \ll\log^2N.
+\end{equation}
+$\ell$ 上的和只对素数求取；即使扩大到全部整数，也足以得到所述粗界。由除数界，从原始序列中移去 $N$ 的 $O(\log N)$ 个素因子的贡献为 $N^{o(1)}$。这些估计说明可以在 \eqref{sv:physical-lower} 中使用尖锐的原始素数计数，而无需从非负乘积上界常数 $K$ 推出素数下界。
+
+上、下界计数遵循第~\ref{sec:lower-limits} 节的参数次序。先固定矩阶数，再按~\eqref{coef:parameter-order} 选择 $\kappa$；边界指数仍满足上述 $B>A+3$。

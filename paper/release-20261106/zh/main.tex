@@ -1,0 +1,60 @@
+\documentclass[11pt]{amsart}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools,booktabs,array,longtable}
+\usepackage[UTF8,fontset=windows,scheme=plain]{ctex}
+\usepackage{mathrsfs}
+\usepackage{needspace}
+\usepackage[a4paper,margin=28mm]{geometry}
+\usepackage{xurl}
+% Keep file and JSON path breaks at separators rather than inside words.
+\newcommand{\filepath}[1]{\begingroup
+  \def\UrlBreaks{\do\/\do\_}\def\UrlBigBreaks{}\Urlmuskip=0mu
+  \path{#1}\endgroup}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\hypersetup{pdftitle={Theorem (1+1.75) on the Goldbach Conjecture},pdfauthor={Slava Chan}}
+\newtheorem{theorem}{定理}[section]
+\newtheorem{proposition}[theorem]{命题}
+\newtheorem{lemma}[theorem]{引理}
+\newtheorem{corollary}[theorem]{推论}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{定义}
+\newtheorem{remark}[theorem]{注}
+\renewcommand{\proofname}{证明}
+\renewcommand{\abstractname}{摘要}
+\renewcommand{\refname}{参考文献}
+\renewcommand{\tablename}{表}
+\renewcommand{\appendixname}{附录}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\li}{li}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\one}{\mathbf 1}
+\allowdisplaybreaks[1]
+\setlength{\emergencystretch}{3em}
+\title{哥德巴赫猜想的 $(1+1.75)$ 定理}
+\author{Slava Chan}
+\address{独立研究者}
+\email{ch4nslava@gmail.com}
+\date{2026年11月6日}
+\subjclass[2020]{11P32, 11N36, 11N13}
+\keywords{陈氏定理，双重筛，半素数，等差数列中的素数}
+\begin{document}
+\begin{abstract}
+对固定的 $1\le a\le2$，命题 $(1+a)$ 断言，每个充分大的偶数 $N$ 均可表示为
+\[
+ N=p+rq,\qquad r\le q^{a-1},
+\]
+其中 $p,q$ 为素数，$r$ 为 $1$ 或素数。当 $a=1$ 时，这就是针对充分大偶数的二元哥德巴赫猜想；当 $a=2$ 时，这就是陈氏定理。我们无条件地证明，每个充分大的偶数都具有 $a=1.75$ 时的上述表示，从而建立命题 $(1+1.75)$，加强了 Li 和 Liu 此前的 $(1+1.9)$ 定理~\cite{LiLiu}。证明从陈氏表示数的下界中减去被排除半素数的非负上界筛估计，而该下界通过对十一项陈氏权中的配对项作限制并应用双重筛得到。$N$ 的阈值是非有效的，即本证明不给出可计算的显式阈值。
+\end{abstract}
+\maketitle
+\input{introduction}
+\input{argument}
+\appendix
+\input{analytic-appendix}
+\input{coefficient-appendix}
+\input{sieve-appendix}
+\input{numerical-appendix}
+\section*{AI 辅助声明}
+OpenAI ChatGPT/Codex 协助了数学探索、证明发展与评估、参数搜索、计算核验及文稿编辑。
+作者对数学内容及最终稿件负责。
+
+\input{references}
+\end{document}

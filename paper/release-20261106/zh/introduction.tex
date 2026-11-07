@@ -1,0 +1,204 @@
+\section{引言}
+\label{sec:current-statement}
+
+对固定的 $1\le a\le2$，若每个充分大的偶数 $N$ 都有表示
+\[
+ N=p+rq,\qquad r\le q^{a-1},\qquad
+ p,q\text{ 为素数},\qquad r=1\text{ 或为素数},
+\]
+则称\emph{命题 $(1+a)$} 成立。当 $a=1$ 时，条件迫使 $r=1$，得到针对充分大偶数的二元哥德巴赫猜想；当 $a=2$ 时，将两个因子排序后便得到陈氏定理。中间的参数则要求合数余项的一个素因子比另一个小到何种程度。
+
+我们证明以下定理。
+
+\begin{theorem}
+\label{cor:headline}
+命题 $(1+1.75)$ 无条件成立。因此，每个充分大的偶数均可表示为 $N=p+rq$，其中 $p,q$ 为素数，$r$ 为 $1$ 或素数，且 $r\le q^{3/4}$。
+\end{theorem}
+
+定理~\ref{cor:headline}--\ref{thm:current-main} 及推论~\ref{cor:three-quarters}--\ref{cor:current-explicit} 中关于 $N$ 的阈值均为非有效的。
+
+参数 $1.75$ 可以减小为 $1.74816964$，并进一步减小为 $1.74816865$，两者对应不同的表示数下界，见推论~\ref{cor:current-explicit}。
+
+Li 和 Liu~\cite[定理~1.1]{LiLiu} 证明了命题 $(1+1.9)$，并指出其参数可降至 $1.894$。定理~\ref{cor:headline} 加强了这一素因子限制。两项结论均针对每个充分大的偶数。
+
+在定量论证中，令 $b=a-1$，在 $r\le q^b$ 的限制下计算素数加项。素数余项情形 $r=1$ 始终保留，因为 $1\le q^b$。下述定理对每个固定的 $1/2<b<1$ 给出下界。
+
+全文中，$N>2$ 沿偶数趋于无穷，无下标的对数均为自然对数，$\log_N x=\log x/\log N$，$\Omega(n)$ 表示按重数计算的素因子个数。令
+\begin{equation}
+ C_2=\prod_{\substack{\ell>2\\\ell\text{ 为素数}}}
+ \left(1-\frac1{(\ell-1)^2}\right),\qquad
+ C_N=C_2\prod_{\substack{\ell\mid N,\ \ell>2\\\ell\text{ 为素数}}}
+ \frac{\ell-1}{\ell-2},\qquad
+ H_N=C_N\frac{N}{\log^2 N}.
+ \label{eq:current-normalization}
+\end{equation}
+对任意正偶数 $M$，$C_M$ 表示将同一乘积中的 $N$ 换成 $M$ 所得的量。
+我们按不同的素数加项计数，定义
+\begin{align}
+ D_{1,2}(N)&=\#\{p<N:p\text{ 为素数},\ N-p>1,
+                                      \ \Omega(N-p)\le2\},
+                                      \label{eq:current-d12}\\
+ D_b(N)&=\#\{p<N:p\text{ 为素数},\ N-p=rq,
+       \ q\text{ 为素数},\ r=1\text{ 或为素数},\ r\le q^b\},
+                                      \label{eq:current-db}\\
+ B_b(N)&=\#\{p<N:p\text{ 为素数},\ N-p=rq,
+                \ r,q\text{ 为素数},\ q^b<r\le q\}.
+                                      \label{eq:current-bb}
+\end{align}
+有序分解 $r\le q$ 是唯一的。因此，每个合数余项只计一次；平方余项计入 $B_b$，素数余项则计入 $D_b$。
+
+\Needspace{10\baselineskip}
+\begin{theorem}
+\label{thm:current-main}
+令
+\begin{equation}
+ K=\frac{8452171}{1250000}=6.7617368,
+ \qquad c=\frac{49044063}{25000000}=1.96176252.
+ \label{eq:current-safe-constants}
+\end{equation}
+则对每个固定的 $1/2<b<1$，有
+\begin{equation}
+ \liminf_{\substack{N\to\infty\\2\mid N}}
+      \frac{D_b(N)}{H_N}\ge c-K\log(1/b).
+ \label{eq:current-general-theorem}
+\end{equation}
+\end{theorem}
+
+在 $1/2<b<1$ 内，该下界为正当且仅当 $b>\exp(-c/K)$；见第~\ref{sec:current-transfer} 节。
+
+\begin{corollary}
+\label{cor:three-quarters}
+对每个充分大的偶数 $N$，有
+\[
+                  D_{3/4}(N)\ge0.0165H_N.
+\]
+\end{corollary}
+
+\begin{corollary}
+\label{cor:current-explicit}
+每个充分大的偶数 $N$ 均满足
+\begin{align}
+ D_{0.74816964}(N)&\ge10^{-5}H_N,
+                                  \label{eq:current-main-count}\\
+ D_{0.74816865}(N)&\ge10^{-6}H_N,
+                                  \label{eq:current-secondary-count}\\
+ D_{0.9}(N)&\ge1.24889H_N.
+                                  \label{eq:current-common-exponent}
+\end{align}
+\end{corollary}
+
+前两个不等式分别建立命题 $(1+1.74816964)$ 与 $(1+1.74816865)$，在归一化~\eqref{eq:current-normalization} 下，对应的计数系数分别为 $10^{-5}$ 与 $10^{-6}$。$b=0.9$ 的估计便于在相同的素因子限制下比较。
+
+\begin{proof}[定理~\ref{cor:headline} 的证明]
+由推论~\ref{cor:three-quarters}，对每个充分大的偶数 $N$，均有 $D_{3/4}(N)\ge0.0165H_N>0$，故命题 $(1+1.75)$ 成立。
+\end{proof}
+
+\subsection{相关工作与方法}
+在归一化 \eqref{eq:current-normalization} 下，Li 和 Liu~\cite[定理~1.1]{LiLiu} 在 $b=0.9$ 时的计数系数为 $0.0004$，其所述改进对应 $b=0.894$。在 $b=0.9$ 时，本文的 $D_b(N)$ 与 Li 和 Liu 的 $D_{1,1.9}(N)$ 是同一个计数函数：两者都包含素数余项情形 $r=1$，对每个可容许的素数加项只计一次，并使用相同的奇异级数归一化。因此，这两个系数指同一计数函数。本文的系数由 $c-K\log(1/b)$ 给出，其中 $c$ 来自陈氏总计数的下界构造，$K$ 来自非负上界控制函数。推论~\ref{cor:current-explicit} 中较小的指数仍保留显式正计数。他们对下界项及带标记筛项的讨论~\cite[第~3 节及第~8.2 节]{LiLiu} 也指出了本文的一项关键限制：更高的上界筛分布水平必须与每个使用处的系数类别匹配。
+
+双重筛在上、下界筛余项之间传递信息。我们采用 Wu~\cite{Wu} 的表述，并对两个余项函数作有限次非负转移。Li~\cite[定理~1.1]{RunboLi} 在同一归一化下给出陈氏总计数的系数 $1.9728$。本文使用的系数 $c=1.96176252$，是在因子受限论证所需的变动剩余类系数类别和非负带标记族内证明的。每次下界转移均保留实际剩余筛级及全部前缀条件。
+
+分布估计必须对随 $N$ 变化的剩余类一致。Maynard 的三重良可分解估计~\cite[定义~2 及定理~1.1]{MaynardII} 中的常数依赖于固定剩余类。Lichtman 的大剩余类结论~\cite[定理~1.7]{Lichtman} 在 $\vartheta=7/32$ 时具有水平 $(5-\vartheta)/8-\epsilon=153/256-\epsilon$。这里的剩余类与完整局部乘积同阶，因此保留 \eqref{eq:current-retained-phase} 中的互反相位；在此范围内，以 $1$ 替换该相位所产生的误差未必趋于零。附录~\ref{app:medium}、\ref{app:classical} 结合附录~\ref{app:coefficients} 的分解，为本文所用的有限上、下界系数族在支撑指数 $0.599$ 处建立受限分布估计。每次应用均保留选定分解、完整与互补平方条件及带标记族的非负性。
+
+证明从全部陈氏表示数中减去被排除的半素数。上界部分构造非负除数控制函数，计算其密度，并针对同一系数证明分布估计。下界部分对十一项陈氏权的二素数项和四素数项作配对限制，以单射保留逐点权不等式，再利用受限纤维上 Buchstab 函数的下界改善系数。
+
+非负上界控制函数及其系数实现在本文中构造。下界部分采用 Wu 的双重筛框架，并加入本文建立的配对删除及系数实现。这些构造与有限转移、定向包围共同确定常数 $K,c$。这些量的数学定义及其证书对应见附录~\ref{app:numeric}。
+
+\section{归约与证明概要}
+\label{sec:outline}
+
+\paragraph{证明概要与核验。}
+首读时可暂以引理~\ref{lem:numerical-endpoints} 为有限数值输入，依次理解上界构造、十一项下界构造与配对删除，再读第~\ref{sec:current-transfer} 节的最终相减。完整核验则还需回到各附录，检查分布估计、系数实现、有限转移与定向包围，并与附录~\ref{app:numeric} 所述数值包逐项对应。
+
+由唯一分解，有精确恒等式
+\begin{equation}
+                 D_b(N)=D_{1,2}(N)-B_b(N).
+                 \label{eq:reduction}
+\end{equation}
+因此只需证明
+\begin{equation}
+ \liminf_{\substack{N\to\infty\\2\mid N}}
+       \frac{D_{1,2}(N)}{H_N}\ge c,
+ \qquad
+ \limsup_{\substack{N\to\infty\\2\mid N}}
+       \frac{B_b(N)}{H_N}\le K\log(1/b).
+ \label{eq:two-estimates}
+\end{equation}
+因子 $\log(1/b)$ 来自被排除因子的区域。令 $\beta=b/(1+b)$，不满足限制的有序半素数在对数坐标中的极限区域为 $\beta<t\le1/2$，且
+\[
+ \int_\beta^{1/2}\frac{dt}{t(1-t)}=\log(1/b).
+\]
+要将这一质量转化为补数为素数的计数，我们使用非负上界筛，其实际系数的分布估计及密度均已建立。
+
+第~\ref{sec:current-distribution} 节建立实际所用上、下界系数的分布估计；第~\ref{sec:current-upper} 节构造非负上界筛并得到 $K$；第~\ref{sec:current-chen-weight}、\ref{sec:current-lower} 节给出下界构造，其中换位后的代价使用前面已证明的上界；第~\ref{sec:current-numeric} 节列出有限数值不等式及误差预留量；最后，第~\ref{sec:current-transfer} 节证明 \eqref{eq:two-estimates} 的第二个估计并完成主定理。特别地，$K$ 的构造不依赖于下界双重筛表，也不依赖于由这些表得到的陈氏计数。
+
+\paragraph{参数选择。}
+在每个固定精度下，有限规则与带标记查询的集合、迭代次数、确定固定紧参数域的截断参数、逼近容差和支撑预留量都在 $N$ 趋于无穷之前选定。素数区间、权和算术系数仍可通过这些固定规则依赖于 $N$。共同选择与误差传播见第~\ref{sec:lower-limits} 节及 \eqref{coef:parameter-order}；第~\ref{sec:current-numeric} 节的严格标量余量允许为最终计数选定一个固定精度。
+
+\paragraph{简短符号索引。}
+以下符号在正文与附录中采用一致含义。
+\begin{center}
+\small
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{.23\textwidth}>{\raggedright\arraybackslash}p{.49\textwidth}>{\raggedright\arraybackslash}p{.22\textwidth}@{}}
+\toprule 符号 & 含义 & 位置\\
+\midrule
+$E_{\rm up}$；$R_{\rm low}$ & 上界与下界的标量端点 & \eqref{eq:current-E}；\eqref{eq:current-R}\\[2pt]
+$\mathscr E_0,\mathscr E_1,\mathscr E$ & 配对矩形族及其并 & 第~\ref{sec:current-chen-weight} 节\\[2pt]
+$a_{\rm s},h_{\rm s},d_{\rm s}$ & 固定筛截点 & 第~\ref{sec:current-chen-weight} 节\\[2pt]
+$H(s),h(s)$；$H_m,h_m$ & 上、下筛改进量；第 $m$ 代包络 & 第~\ref{sec:current-lower} 节\\[2pt]
+$B$；$\mathscr B$ & 算术素数前缀；几何矩形或盒 & 第~\ref{sec:current-distribution}、\ref{sec:current-lower} 节\\[2pt]
+$H_N$；$B_{\rm low}$ & 计数归一化；每项下界误差预留 & \eqref{eq:current-normalization}；\eqref{eq:current-B}\\[2pt]
+$A_+,A_-$ & 归一化线性筛分子 $sF/(2e^\gamma),sf/(2e^\gamma)$ & 第~\ref{sec:current-lower} 节\\[2pt]
+$\Omega$；$\omega_{\rm env}$ & 按重数计的素因子个数；Buchstab 上包络 & 第~\ref{sec:current-statement} 节；\eqref{sv:omega-envelope}\\[2pt]
+$\rho_N^{\rm up},\rho_N^{\rm low}$ & 实际上、下筛除数系数；$\rho_N$ 泛指任一可用系数 & 第~\ref{sec:current-upper}、\ref{sec:current-lower} 节\\[2pt]
+\bottomrule
+\end{tabular}
+\end{center}
+
+我们采用标准线性筛函数 $F,f$，其归一化为
+\[
+ sF(s)=2e^\gamma\quad(1\le s\le3),\qquad
+ sf(s)=0\quad(1\le s\le2),
+\]
+在后续各自适用的区间上，分别由 $(sF(s))'=f(s-1)$ 和 $(sf(s))'=F(s-1)$ 定义。Buchstab 函数满足
+\[
+ \omega(s)=1/s\quad(1\le s\le2),\qquad
+ (s\omega(s))'=\omega(s-1)\quad(s>2).
+\]
+以 $P^-(n)$ 表示 $n\ge2$ 的最小素因子，并约定 $P^-(1)=+\infty$。这些函数所用的有限区间数据见附录~\ref{app:numeric}。
+
+\subsection{一个非负筛系数定理}
+上界估计使用下面的单一系数定理，其中三个结论均针对同一组除数系数。这里的“非负”（positive）指所得除数和 $R_N(n)$ 是非负上界控制函数；各个除数系数 $\rho_N^{\rm up}(q)$ 可以带符号。
+
+\begin{theorem}
+\label{thm:positive-coefficient}
+固定 $a_*>0$、带标签素因子个数的一个上界，以及有限组光滑权 $W_N(p_1,\ldots,p_k)$。这些权的支撑满足
+\[
+ p_i\ge c_*N^{a_*},\qquad p_1\cdots p_k\le C_*N,
+\]
+其中 $c_*,C_*>0$ 为固定常数；权的大小一致有界，其混合 Euler 导数满足固定的多对数界。除这些光滑几何条件外，不再附加其他算术筛选条件。令 $\rho_0=19/96$、$\theta_*=599/1000$，并记
+\[
+ P_N(y)=\prod_{\substack{p<y\\p\nmid N}}p,\qquad
+ X_W^{(q)}=\sum_{(p_1\cdots p_k,q)=1}W_N(p_1,\ldots,p_k).
+\]
+则存在实系数 $\rho_N^{\rm up}(q)$ 以及不依赖于 $N$ 的常数 $M$，其支撑为满足 $q\le N^{\theta_*}$、$(q,N)=1$ 的无平方因子整数，且 $|\rho_N^{\rm up}(q)|\le M$，使得
+\begin{equation}
+ R_N(n):=\sum_{q\mid n}\rho_N^{\rm up}(q)
+   \ge\one_{(n,P_N(N^{\rho_0}))=1}\ge0
+                           \qquad(n\in\mathbb Z),\label{eq:core-positivity}
+\end{equation}
+\begin{equation}
+ \sum_q\frac{\rho_N^{\rm up}(q)}{\varphi(q)}
+   \le(K+o(1))\frac{C_N}{\log N},\label{eq:core-density}
+\end{equation}
+\begin{multline}
+ \sum_q\rho_N^{\rm up}(q)\left\{
+ \sum_{p_1\cdots p_k\equiv N\ (q)}W_N(p_1,\ldots,p_k)
+       -\frac{X_W^{(q)}}{\varphi(q)}\right\}\\
+   =O_{A,W}(N(\log N)^{-A})\qquad(A>0).
+                           \label{eq:core-distribution}
+\end{multline}
+该有限和也定义了 $R_N(0)$。有限前缀决策规则、逼近参数和支撑余量均在 $N$ 沿所有偶数趋于无穷之前固定。常数可以依赖于上述固定的有限组权及其导数界，但对 $N$ 一致。
+\end{theorem}
+
+这组系数在第~\ref{sec:current-upper} 节构造。我们先在第~\ref{sec:current-distribution} 节针对该构造所需的精确系数表示证明分布结论。
